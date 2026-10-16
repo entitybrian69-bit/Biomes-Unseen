@@ -8,16 +8,16 @@ neoforge_version=20.5.0-beta
 === STACKTRACE ===
 === WHAT WENT WRONG ===
 === LAST 40 ===
-[18:03:28] [main/INFO]: Transformer file /tmp/at-conf16006973803364897034.cfg
-[18:03:28] [main/WARN]: Found existing output jar /home/runner/.gradle/caches/fabric-loom/1.20.5/neoforge/20.5.0-beta/minecraft-merged-mojang-at-patched.jar, overwriting
-[18:03:30] [main/INFO]: JAR transformation complete /home/runner/.gradle/caches/fabric-loom/1.20.5/neoforge/20.5.0-beta/minecraft-merged-mojang-at-patched.jar
-:access transformed minecraft in 6s
+[18:34:35] [main/INFO]: Transformer file /tmp/at-conf11723551993473083481.cfg
+[18:34:35] [main/WARN]: Found existing output jar /home/runner/.gradle/caches/fabric-loom/1.20.5/neoforge/20.5.0-beta/minecraft-merged-mojang-at-patched.jar, overwriting
+[18:34:39] [main/INFO]: JAR transformation complete /home/runner/.gradle/caches/fabric-loom/1.20.5/neoforge/20.5.0-beta/minecraft-merged-mojang-at-patched.jar
+:access transformed minecraft in 5s
 :remapping minecraft (TinyRemapper, mojang -> official)
 
 {1}(Ljava/lang/String;)V is not fully qualified.
 
 > Configure project :neoforge-1.20.5
-:remapped 1 mods (mojang -> named) in 624ms
+:remapped 1 mods (mojang -> named) in 787ms
 
 > Task :neoforge-1.20.5:compileJava
 Note: /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.20.5/java/com/biomesunseen/registry/ModItems.java uses or overrides a deprecated API.
@@ -36,7 +36,7 @@ Note: Recompile with -Xlint:unchecked for details.
 > Task :neoforge-1.20.5:remapSourcesJar
 > Task :neoforge-1.20.5:assemble
 > Task :neoforge-1.20.5:build
-gradle/actions: Writing build results to /home/runner/work/_temp/.gradle-actions/build-results/__run-1792173734669.json
+gradle/actions: Writing build results to /home/runner/work/_temp/.gradle-actions/build-results/__run-1792175606064.json
 
 [Incubating] Problems report is available at: file:///home/runner/work/Biomes-Unseen/Biomes-Unseen/build/reports/problems/problems-report.html
 
@@ -46,5 +46,5 @@ You can use '--warning-mode all' to show the individual deprecation warnings and
 
 For more on this, please refer to https://docs.gradle.org/9.8.1/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
 
-BUILD SUCCESSFUL in 1m 58s
+BUILD SUCCESSFUL in 2m 14s
 7 actionable tasks: 7 executed

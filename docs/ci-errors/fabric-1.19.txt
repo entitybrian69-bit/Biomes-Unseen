@@ -3,358 +3,47 @@ not a neoforge module, nothing to pin
 === MODULE PROPERTIES ===
 minecraft_version=1.19
 architectury_version=4.5.76
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/item/LoreBookItem.java:36: error: cannot find symbol
-        player.sendSystemMessage(new net.minecraft.network.chat.TranslatableComponent(
-                                                               ^
-  symbol:   class TranslatableComponent
-  location: package net.minecraft.network.chat
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/config/ClothConfigScreen.java:46: error: cannot find symbol
-            call(builder, "setTitle", new net.minecraft.network.chat.TextComponent(title));
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/config/ClothConfigScreen.java:46: error: cannot find symbol
-            call(builder, "setTitle", new net.minecraft.network.chat.TextComponent(title));
-                                                                    ^
-  symbol:   class TextComponent
-  location: package net.minecraft.network.chat
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/config/ClothConfigScreen.java:55: error: cannot find symbol
-            Object general = call(builder, "getOrCreateCategory", new net.minecraft.network.chat.TextComponent("General"));
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/config/ClothConfigScreen.java:55: error: cannot find symbol
-            Object general = call(builder, "getOrCreateCategory", new net.minecraft.network.chat.TextComponent("General"));
-                                                                                                ^
-  symbol:   class TextComponent
-  location: package net.minecraft.network.chat
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/config/ClothConfigScreen.java:64: error: cannot find symbol
-            Object world = call(builder, "getOrCreateCategory", new net.minecraft.network.chat.TextComponent("Level"));
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/config/ClothConfigScreen.java:64: error: cannot find symbol
-            Object world = call(builder, "getOrCreateCategory", new net.minecraft.network.chat.TextComponent("Level"));
-                                                                                              ^
-  symbol:   class TextComponent
-  location: package net.minecraft.network.chat
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/config/ClothConfigScreen.java:72: error: cannot find symbol
-            Object mobs = call(builder, "getOrCreateCategory", new net.minecraft.network.chat.TextComponent("Mobs & Performance"));
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/config/ClothConfigScreen.java:72: error: cannot find symbol
-            Object mobs = call(builder, "getOrCreateCategory", new net.minecraft.network.chat.TextComponent("Mobs & Performance"));
-                                                                                             ^
-  symbol:   class TextComponent
-  location: package net.minecraft.network.chat
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/config/ClothConfigScreen.java:91: error: cannot find symbol
-        Object entry = call(entryBuilder, "startBooleanField", new net.minecraft.network.chat.TextComponent(label), Boolean.valueOf(value));
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/config/ClothConfigScreen.java:91: error: cannot find symbol
-        Object entry = call(entryBuilder, "startBooleanField", new net.minecraft.network.chat.TextComponent(label), Boolean.valueOf(value));
-                                                                                             ^
-  symbol:   class TextComponent
-  location: package net.minecraft.network.chat
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/config/ClothConfigScreen.java:102: error: cannot find symbol
-        Object entry = call(entryBuilder, "startDoubleField", new net.minecraft.network.chat.TextComponent(label), Double.valueOf(value));
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/config/ClothConfigScreen.java:102: error: cannot find symbol
-        Object entry = call(entryBuilder, "startDoubleField", new net.minecraft.network.chat.TextComponent(label), Double.valueOf(value));
-                                                                                            ^
-  symbol:   class TextComponent
-  location: package net.minecraft.network.chat
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/config/ClothConfigScreen.java:115: error: cannot find symbol
-        Object entry = call(entryBuilder, "startIntField", new net.minecraft.network.chat.TextComponent(label), Integer.valueOf(value));
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/config/ClothConfigScreen.java:115: error: cannot find symbol
-        Object entry = call(entryBuilder, "startIntField", new net.minecraft.network.chat.TextComponent(label), Integer.valueOf(value));
-                                                                                         ^
-  symbol:   class TextComponent
-  location: package net.minecraft.network.chat
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/client/ClientSetup.java:83: error: cannot find symbol
-        ParticleProviderRegistry.register(ModParticles.BY_ID.get("crystal_spark").get().get(),
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/client/ClientSetup.java:83: error: cannot find symbol
-        ParticleProviderRegistry.register(ModParticles.BY_ID.get("crystal_spark").get().get(),
-                                                                                       ^
-  symbol:   method get()
-  location: class ParticleType<SimpleParticleType>
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/client/ClientSetup.java:85: error: cannot find symbol
-        ParticleProviderRegistry.register(ModParticles.BY_ID.get("ember_flake").get().get(),
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/client/ClientSetup.java:85: error: cannot find symbol
-        ParticleProviderRegistry.register(ModParticles.BY_ID.get("ember_flake").get().get(),
-                                                                                     ^
-  symbol:   method get()
-  location: class ParticleType<SimpleParticleType>
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/client/ClientSetup.java:87: error: cannot find symbol
-        ParticleProviderRegistry.register(ModParticles.BY_ID.get("void_mote").get().get(),
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/client/ClientSetup.java:87: error: cannot find symbol
-        ParticleProviderRegistry.register(ModParticles.BY_ID.get("void_mote").get().get(),
-                                                                                   ^
-  symbol:   method get()
-  location: class ParticleType<SimpleParticleType>
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/client/ClientSetup.java:89: error: cannot find symbol
-        ParticleProviderRegistry.register(ModParticles.BY_ID.get("spore_drift").get().get(),
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/client/ClientSetup.java:89: error: cannot find symbol
-        ParticleProviderRegistry.register(ModParticles.BY_ID.get("spore_drift").get().get(),
-                                                                                     ^
-  symbol:   method get()
-  location: class ParticleType<SimpleParticleType>
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/client/ClientSetup.java:91: error: cannot find symbol
-        ParticleProviderRegistry.register(ModParticles.BY_ID.get("frost_mote").get().get(),
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/client/ClientSetup.java:91: error: cannot find symbol
-        ParticleProviderRegistry.register(ModParticles.BY_ID.get("frost_mote").get().get(),
-                                                                                    ^
-  symbol:   method get()
-  location: class ParticleType<SimpleParticleType>
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/client/ClientSetup.java:93: error: cannot find symbol
-        ParticleProviderRegistry.register(ModParticles.BY_ID.get("storm_arc").get().get(),
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/client/ClientSetup.java:93: error: cannot find symbol
-        ParticleProviderRegistry.register(ModParticles.BY_ID.get("storm_arc").get().get(),
-                                                                                   ^
-  symbol:   method get()
-  location: class ParticleType<SimpleParticleType>
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/client/ClientSetup.java:95: error: cannot find symbol
-        ParticleProviderRegistry.register(ModParticles.BY_ID.get("petal_burst").get().get(),
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/client/ClientSetup.java:95: error: cannot find symbol
-        ParticleProviderRegistry.register(ModParticles.BY_ID.get("petal_burst").get().get(),
-                                                                                     ^
-  symbol:   method get()
-  location: class ParticleType<SimpleParticleType>
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/client/ClientSetup.java:97: error: cannot find symbol
-        ParticleProviderRegistry.register(ModParticles.BY_ID.get("heal_glow").get().get(),
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/client/ClientSetup.java:97: error: cannot find symbol
-        ParticleProviderRegistry.register(ModParticles.BY_ID.get("heal_glow").get().get(),
-                                                                                   ^
-  symbol:   method get()
-  location: class ParticleType<SimpleParticleType>
+=== CONFIG DIAGNOSTICS ===
+=== STACKTRACE ===
+=== WHAT WENT WRONG ===
+=== LAST 40 ===
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/9.8.1/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build 
+
+> Configure project :fabric-1.19
+Architectury Loom: 1.17.493
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Using of the official minecraft mappings is at your own risk!
+Please make sure to read and understand the following license:
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# (c) 2020 Microsoft Corporation. These mappings are provided "as-is" and you bear the risk of using them. You may copy and use the mappings for development purposes, but you may not redistribute the mappings complete and unmodified. Microsoft makes no warranties, express or implied, with respect to the mappings provided here.  Use and modification of this document or the source code (in any form) of Minecraft: Java Edition is governed by the Minecraft End User License Agreement available at https://account.mojang.com/documents/minecraft_eula.
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+:remapped 1 mods (intermediary -> named) in 1s
+
+> Task :fabric-1.19:compileJava
 Note: Some input files use unchecked or unsafe operations.
 Note: Recompile with -Xlint:unchecked for details.
----
-> Task :fabric-1.19:compileJava FAILED
-gradle/actions: Writing build results to /home/runner/work/_temp/.gradle-actions/build-results/__run-1792173519226.json
+
+> Task :fabric-1.19:processResources
+> Task :fabric-1.19:classes
+> Task :fabric-1.19:jar
+> Task :fabric-1.19:processIncludeJars
+> Task :fabric-1.19:sourcesJar
+> Task :fabric-1.19:validateAccessWidener NO-SOURCE
+> Task :fabric-1.19:check
+> Task :fabric-1.19:remapJar
+> Task :fabric-1.19:remapSourcesJar
+> Task :fabric-1.19:assemble
+> Task :fabric-1.19:build
+gradle/actions: Writing build results to /home/runner/work/_temp/.gradle-actions/build-results/__run-1792175369074.json
 
 [Incubating] Problems report is available at: file:///home/runner/work/Biomes-Unseen/Biomes-Unseen/build/reports/problems/problems-report.html
 
-FAILURE: Build failed with an exception.
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 10.
 
----
-* What went wrong:
-Execution failed for task ':fabric-1.19:compileJava' (registered by plugin class 'org.gradle.api.plugins.JavaBasePlugin').
-> Compilation failed; see the compiler output below.
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/item/LoreBookItem.java:36: error: cannot find symbol
-          player.sendSystemMessage(new net.minecraft.network.chat.TranslatableComponent(
-                                                                 ^
-    symbol:   class TranslatableComponent
----
-Execution failed for task ':fabric-1.19:compileJava' (registered by plugin class 'org.gradle.api.plugins.JavaBasePlugin').
-> Compilation failed; see the compiler output below.
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/item/LoreBookItem.java:36: error: cannot find symbol
-          player.sendSystemMessage(new net.minecraft.network.chat.TranslatableComponent(
-                                                                 ^
-    symbol:   class TranslatableComponent
-    location: package net.minecraft.network.chat
----
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/item/LoreBookItem.java:36: error: cannot find symbol
-          player.sendSystemMessage(new net.minecraft.network.chat.TranslatableComponent(
-                                                                 ^
-    symbol:   class TranslatableComponent
-    location: package net.minecraft.network.chat
-  16 errors
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
 
----
-org.gradle.api.tasks.TaskExecutionException: Execution failed for task ':fabric-1.19:compileJava' (registered by plugin class 'org.gradle.api.plugins.JavaBasePlugin').
-	at org.gradle.api.internal.tasks.execution.DefaultTaskNodeExecutor.lambda$doExecute$1(DefaultTaskNodeExecutor.java:367)
-	at org.gradle.internal.Try$Failure.ifSuccessfulOrElse(Try.java:288)
-	at org.gradle.api.internal.tasks.execution.DefaultTaskNodeExecutor.doExecute(DefaultTaskNodeExecutor.java:365)
-	at org.gradle.api.internal.tasks.execution.DefaultTaskNodeExecutor.executeTrackingTaskIdentity(DefaultTaskNodeExecutor.java:332)
-	at org.gradle.api.internal.tasks.execution.DefaultTaskNodeExecutor.executeFinalizingProperties(DefaultTaskNodeExecutor.java:318)
-	at org.gradle.api.internal.tasks.execution.DefaultTaskNodeExecutor.executeSkippingWithNoActions(DefaultTaskNodeExecutor.java:289)
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/item/LoreBookItem.java:36: error: cannot find symbol
-        player.sendSystemMessage(new net.minecraft.network.chat.TranslatableComponent(
-                                                               ^
-  symbol:   class TranslatableComponent
-  location: package net.minecraft.network.chat
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/config/ClothConfigScreen.java:46: error: cannot find symbol
-            call(builder, "setTitle", new net.minecraft.network.chat.TextComponent(title));
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/config/ClothConfigScreen.java:46: error: cannot find symbol
-            call(builder, "setTitle", new net.minecraft.network.chat.TextComponent(title));
-                                                                    ^
-  symbol:   class TextComponent
-  location: package net.minecraft.network.chat
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/config/ClothConfigScreen.java:55: error: cannot find symbol
-            Object general = call(builder, "getOrCreateCategory", new net.minecraft.network.chat.TextComponent("General"));
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/config/ClothConfigScreen.java:55: error: cannot find symbol
-            Object general = call(builder, "getOrCreateCategory", new net.minecraft.network.chat.TextComponent("General"));
-                                                                                                ^
-  symbol:   class TextComponent
-  location: package net.minecraft.network.chat
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/config/ClothConfigScreen.java:64: error: cannot find symbol
-            Object world = call(builder, "getOrCreateCategory", new net.minecraft.network.chat.TextComponent("Level"));
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/config/ClothConfigScreen.java:64: error: cannot find symbol
-            Object world = call(builder, "getOrCreateCategory", new net.minecraft.network.chat.TextComponent("Level"));
-                                                                                              ^
-  symbol:   class TextComponent
-  location: package net.minecraft.network.chat
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/config/ClothConfigScreen.java:72: error: cannot find symbol
-            Object mobs = call(builder, "getOrCreateCategory", new net.minecraft.network.chat.TextComponent("Mobs & Performance"));
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/config/ClothConfigScreen.java:72: error: cannot find symbol
-            Object mobs = call(builder, "getOrCreateCategory", new net.minecraft.network.chat.TextComponent("Mobs & Performance"));
-                                                                                             ^
-  symbol:   class TextComponent
-  location: package net.minecraft.network.chat
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/config/ClothConfigScreen.java:91: error: cannot find symbol
-        Object entry = call(entryBuilder, "startBooleanField", new net.minecraft.network.chat.TextComponent(label), Boolean.valueOf(value));
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/config/ClothConfigScreen.java:91: error: cannot find symbol
-        Object entry = call(entryBuilder, "startBooleanField", new net.minecraft.network.chat.TextComponent(label), Boolean.valueOf(value));
-                                                                                             ^
-  symbol:   class TextComponent
-  location: package net.minecraft.network.chat
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/config/ClothConfigScreen.java:102: error: cannot find symbol
-        Object entry = call(entryBuilder, "startDoubleField", new net.minecraft.network.chat.TextComponent(label), Double.valueOf(value));
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/config/ClothConfigScreen.java:102: error: cannot find symbol
-        Object entry = call(entryBuilder, "startDoubleField", new net.minecraft.network.chat.TextComponent(label), Double.valueOf(value));
-                                                                                            ^
-  symbol:   class TextComponent
-  location: package net.minecraft.network.chat
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/config/ClothConfigScreen.java:115: error: cannot find symbol
-        Object entry = call(entryBuilder, "startIntField", new net.minecraft.network.chat.TextComponent(label), Integer.valueOf(value));
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/config/ClothConfigScreen.java:115: error: cannot find symbol
-        Object entry = call(entryBuilder, "startIntField", new net.minecraft.network.chat.TextComponent(label), Integer.valueOf(value));
-                                                                                         ^
-  symbol:   class TextComponent
-  location: package net.minecraft.network.chat
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/client/ClientSetup.java:83: error: cannot find symbol
-        ParticleProviderRegistry.register(ModParticles.BY_ID.get("crystal_spark").get().get(),
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/client/ClientSetup.java:83: error: cannot find symbol
-        ParticleProviderRegistry.register(ModParticles.BY_ID.get("crystal_spark").get().get(),
-                                                                                       ^
-  symbol:   method get()
-  location: class ParticleType<SimpleParticleType>
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/client/ClientSetup.java:85: error: cannot find symbol
-        ParticleProviderRegistry.register(ModParticles.BY_ID.get("ember_flake").get().get(),
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/client/ClientSetup.java:85: error: cannot find symbol
-        ParticleProviderRegistry.register(ModParticles.BY_ID.get("ember_flake").get().get(),
-                                                                                     ^
-  symbol:   method get()
-  location: class ParticleType<SimpleParticleType>
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/client/ClientSetup.java:87: error: cannot find symbol
-        ParticleProviderRegistry.register(ModParticles.BY_ID.get("void_mote").get().get(),
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/client/ClientSetup.java:87: error: cannot find symbol
-        ParticleProviderRegistry.register(ModParticles.BY_ID.get("void_mote").get().get(),
-                                                                                   ^
-  symbol:   method get()
-  location: class ParticleType<SimpleParticleType>
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/client/ClientSetup.java:89: error: cannot find symbol
-        ParticleProviderRegistry.register(ModParticles.BY_ID.get("spore_drift").get().get(),
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/client/ClientSetup.java:89: error: cannot find symbol
-        ParticleProviderRegistry.register(ModParticles.BY_ID.get("spore_drift").get().get(),
-                                                                                     ^
-  symbol:   method get()
-  location: class ParticleType<SimpleParticleType>
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/client/ClientSetup.java:91: error: cannot find symbol
-        ParticleProviderRegistry.register(ModParticles.BY_ID.get("frost_mote").get().get(),
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/client/ClientSetup.java:91: error: cannot find symbol
-        ParticleProviderRegistry.register(ModParticles.BY_ID.get("frost_mote").get().get(),
-                                                                                    ^
-  symbol:   method get()
-  location: class ParticleType<SimpleParticleType>
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/client/ClientSetup.java:93: error: cannot find symbol
-        ParticleProviderRegistry.register(ModParticles.BY_ID.get("storm_arc").get().get(),
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/client/ClientSetup.java:93: error: cannot find symbol
-        ParticleProviderRegistry.register(ModParticles.BY_ID.get("storm_arc").get().get(),
-                                                                                   ^
-  symbol:   method get()
-  location: class ParticleType<SimpleParticleType>
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/client/ClientSetup.java:95: error: cannot find symbol
-        ParticleProviderRegistry.register(ModParticles.BY_ID.get("petal_burst").get().get(),
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/client/ClientSetup.java:95: error: cannot find symbol
-        ParticleProviderRegistry.register(ModParticles.BY_ID.get("petal_burst").get().get(),
-                                                                                     ^
-  symbol:   method get()
-  location: class ParticleType<SimpleParticleType>
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/client/ClientSetup.java:97: error: cannot find symbol
-        ParticleProviderRegistry.register(ModParticles.BY_ID.get("heal_glow").get().get(),
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/client/ClientSetup.java:97: error: cannot find symbol
-        ParticleProviderRegistry.register(ModParticles.BY_ID.get("heal_glow").get().get(),
-                                                                                   ^
-  symbol:   method get()
-  location: class ParticleType<SimpleParticleType>
-Note: Some input files use unchecked or unsafe operations.
-Note: Recompile with -Xlint:unchecked for details.
----
-BUILD FAILED in 1m 31s
-1 actionable task: 1 executed
----
-=== CONFIG DIAGNOSTICS ===
-=== STACKTRACE ===
-Caused by: org.gradle.api.internal.tasks.compile.CompilationFailedException: Compilation failed; see the compiler output below.
-=== WHAT WENT WRONG ===
-* What went wrong:
-Execution failed for task ':fabric-1.19:compileJava' (registered by plugin class 'org.gradle.api.plugins.JavaBasePlugin').
-> Compilation failed; see the compiler output below.
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/item/LoreBookItem.java:36: error: cannot find symbol
-          player.sendSystemMessage(new net.minecraft.network.chat.TranslatableComponent(
-                                                                 ^
-    symbol:   class TranslatableComponent
-    location: package net.minecraft.network.chat
-  16 errors
+For more on this, please refer to https://docs.gradle.org/9.8.1/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
 
-* Try:
-=== LAST 40 ===
-                                                                                     ^
-  symbol:   method get()
-  location: class ParticleType<SimpleParticleType>
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/client/ClientSetup.java:97: error: cannot find symbol
-        ParticleProviderRegistry.register(ModParticles.BY_ID.get("heal_glow").get().get(),
-                                                                                   ^
-  symbol:   method get()
-  location: class ParticleType<SimpleParticleType>
-Note: Some input files use unchecked or unsafe operations.
-Note: Recompile with -Xlint:unchecked for details.
-16 errors
-	at org.gradle.api.internal.tasks.compile.JdkJavaCompiler.execute(JdkJavaCompiler.java:88)
-	at org.gradle.api.internal.tasks.compile.JdkJavaCompiler.execute(JdkJavaCompiler.java:49)
-	at org.gradle.api.internal.tasks.compile.daemon.CompilerWorkAction.execute(CompilerWorkAction.java:52)
-	at org.gradle.workers.internal.DefaultWorkerServer.execute(DefaultWorkerServer.java:68)
-	at org.gradle.workers.internal.AbstractClassLoaderWorker$1.create(AbstractClassLoaderWorker.java:54)
-	at org.gradle.workers.internal.AbstractClassLoaderWorker$1.create(AbstractClassLoaderWorker.java:48)
-	at org.gradle.internal.classloader.ClassLoaderUtils.executeInClassloader(ClassLoaderUtils.java:103)
-	at org.gradle.workers.internal.AbstractClassLoaderWorker.executeInClassLoader(AbstractClassLoaderWorker.java:48)
-	at org.gradle.workers.internal.FlatClassLoaderWorker.run(FlatClassLoaderWorker.java:32)
-	at org.gradle.workers.internal.FlatClassLoaderWorker.run(FlatClassLoaderWorker.java:22)
-	at org.gradle.workers.internal.WorkerDaemonServer.run(WorkerDaemonServer.java:109)
-	at org.gradle.workers.internal.WorkerDaemonServer.run(WorkerDaemonServer.java:78)
-	at org.gradle.process.internal.worker.request.WorkerAction.lambda$run$1(WorkerAction.java:150)
-	at org.gradle.process.internal.worker.child.WorkerLogEventListener.withWorkerLoggingProtocol(WorkerLogEventListener.java:41)
-	at org.gradle.process.internal.worker.request.WorkerAction.lambda$run$0(WorkerAction.java:150)
-	at org.gradle.internal.operations.CurrentBuildOperationRef.with(CurrentBuildOperationRef.java:85)
-	at org.gradle.process.internal.worker.request.WorkerAction.run(WorkerAction.java:142)
-	at org.gradle.internal.dispatch.MethodInvocation.invokeOn(MethodInvocation.java:77)
-	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:28)
-	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:19)
-	at org.gradle.internal.remote.internal.hub.MessageHubBackedObjectConnection$DispatchWrapper.dispatch(MessageHubBackedObjectConnection.java:183)
-	at org.gradle.internal.remote.internal.hub.MessageHubBackedObjectConnection$DispatchWrapper.dispatch(MessageHubBackedObjectConnection.java:165)
-	at org.gradle.internal.remote.internal.hub.MessageHub$Handler.run(MessageHub.java:414)
-	at org.gradle.internal.concurrent.ExecutorPolicy$CatchAndRecordFailures.onExecute(ExecutorPolicy.java:65)
-	at org.gradle.internal.concurrent.AbstractManagedExecutor$1.run(AbstractManagedExecutor.java:47)
-
-
-BUILD FAILED in 1m 31s
-1 actionable task: 1 executed
+BUILD SUCCESSFUL in 1m 19s
+7 actionable tasks: 7 executed
