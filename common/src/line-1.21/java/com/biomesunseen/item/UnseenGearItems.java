@@ -47,7 +47,7 @@ public final class UnseenGearItems {
         private final OreDef ore;
 
         UnseenPickaxeItem(OreDef ore, UnseenToolTier tier, Item.Properties properties) {
-            super(tier, (int) ore.toolAttackDamage - 1, (float) (ore.toolSpeed / 2.5) - 2.4F, properties);
+            super(tier, properties);
             this.ore = ore;
         }
 
@@ -61,7 +61,7 @@ public final class UnseenGearItems {
         private final OreDef ore;
 
         UnseenSwordItem(OreDef ore, UnseenToolTier tier, Item.Properties properties) {
-            super(tier, (int) ore.toolAttackDamage, (float) (ore.toolSpeed / 2.5), properties);
+            super(tier, properties);
             this.ore = ore;
         }
 

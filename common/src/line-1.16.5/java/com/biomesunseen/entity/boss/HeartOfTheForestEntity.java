@@ -122,7 +122,8 @@ public class HeartOfTheForestEntity extends BiomesUnseenMob {
         } else {
             // quake_stomp
             triggerAnim("slam");
-            for (Player player : unseenLevel().getNearestPlayers(this, 10.0D, 10.0D)) {
+            for (Player player : unseenLevel().getEntitiesOfClass(Player.class,
+                    getBoundingBox().inflate(10.0D))) {
                 player.hurt(DamageSource.causeMobDamage(this), 5.0F + phase * 2.0F);
                 player.setDeltaMovement(player.getDeltaMovement().add(0.0D, 0.8D, 0.0D));
             }

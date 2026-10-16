@@ -37,8 +37,21 @@ public class UnseenToolTier implements Tier {
     }
 
     @Override
-    public int getLevel() {
-        return ore.toolMiningLevel;
+    public net.minecraft.tags.TagKey<net.minecraft.world.level.block.Block> getIncorrectBlocksForDrops() {
+        int level = ore.toolMiningLevel;
+        if (level >= 4) {
+            return net.minecraft.tags.BlockTags.INCORRECT_FOR_NETHERITE_TOOL;
+        }
+        if (level == 3) {
+            return net.minecraft.tags.BlockTags.INCORRECT_FOR_DIAMOND_TOOL;
+        }
+        if (level == 2) {
+            return net.minecraft.tags.BlockTags.INCORRECT_FOR_IRON_TOOL;
+        }
+        if (level == 1) {
+            return net.minecraft.tags.BlockTags.INCORRECT_FOR_STONE_TOOL;
+        }
+        return net.minecraft.tags.BlockTags.INCORRECT_FOR_WOODEN_TOOL;
     }
 
     @Override

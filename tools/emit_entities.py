@@ -996,7 +996,7 @@ public class GrazeGoal extends ThrottledGoal {
                 }
                 stack.shrink(1);
             }
-            return net.minecraft.world.InteractionResult.sidedSuccess(unseenLevel().isClientSide);
+            return net.minecraft.world.InteractionResult.SUCCESS;
         }
         return super.mobInteract(player, hand);
     }
@@ -1463,7 +1463,8 @@ public class HeartOfTheForestEntity extends BiomesUnseenMob {
         } else {
             // quake_stomp
             triggerAnim("slam");
-            for (%(player_t)s player : unseenLevel().getNearestPlayers(this, 10.0D, 10.0D)) {
+            for (%(player_t)s player : unseenLevel().getEntitiesOfClass(%(player_t)s.class,
+                    getBoundingBox().inflate(10.0D))) {
                 player.hurt(damageSources().mobAttack(this), 5.0F + phase * 2.0F);
                 player.setDeltaMovement(player.getDeltaMovement().add(0.0D, 0.8D, 0.0D));
             }
@@ -1588,7 +1589,7 @@ public class HeartOfTheForestEntity extends BiomesUnseenMob {
         if legacy:
             heart = heart.replace("DamageSource.mobAttack(this)", "DamageSource.causeMobDamage(this)")
     else:
-        heart = heart.replace("damageSources().mobAttack(this)", "level().damageSources().mobAttack(this)")
+        heart = heart.replace("damageSources().mobAttack(this)", "unseenLevel().damageSources().mobAttack(this)")
     heart = heart.replace("super(type, level, Content.mob(\"brambleback\"));",
                           "super(type, level, bossMobDef(DEF));")
     _w(root, base + "/entity/boss/HeartOfTheForestEntity.java", heart)
@@ -1745,7 +1746,6 @@ public class VoidSerpentEntity extends BiomesUnseenMob {
                 double sx = getX() + getRandom().nextGaussian() * 4.0D;
                 double sy = getY() + getRandom().nextGaussian() * 2.0D;
                 double sz = getZ() + getRandom().nextGaussian() * 4.0D;
-                unseenLevel().broadcastDamageEvent(target, damageSources().mobAttack(this));
                 target.hurt(damageSources().mobAttack(this), 2.0F + phase);
             }
         } else {
@@ -1871,6 +1871,7 @@ public class VoidSerpentEntity extends BiomesUnseenMob {
         "living_t": living_t,
         "gecko_methods_serpent": gecko_methods_serpent,
     }
+    serpent = serpent.replace("AABB box", "net.minecraft.world.phys.AABB box")
     if F["damage"] == "old":
         serpent = serpent.replace("damageSources().mobAttack(this)", "DamageSource.mobAttack(this)")
         if legacy:
@@ -1878,8 +1879,8 @@ public class VoidSerpentEntity extends BiomesUnseenMob {
         serpent = serpent.replace("level().broadcastDamageEvent(target, damageSources().mobAttack(this));",
                                   "")
     else:
-        serpent = serpent.replace("damageSources().mobAttack(this)", "level().damageSources().mobAttack(this)")
-        serpent = serpent.replace("AABB box", "net.minecraft.world.phys.AABB box")
+        serpent = serpent.replace("damageSources().mobAttack(this)", "unseenLevel().damageSources().mobAttack(this)")
+    serpent = serpent.replace("AABB box", "net.minecraft.world.phys.AABB box")
     serpent = serpent.replace("super(type, level, Content.mob(\"star_whale\"));",
                               "super(type, level, bossMobDef(DEF));")
     if legacy:

@@ -68,6 +68,6 @@ public final class PlatformExpectImpl {
     }
 
     public static boolean isModLoaded(String modId) {
-        return net.neoforged.neoforgespi.language.ModList.get().isLoaded(modId);
+        return net.neoforged.fml.ModList.get().isLoaded(modId);
     }
 }

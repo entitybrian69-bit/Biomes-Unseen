@@ -17,15 +17,15 @@ public final class ModRegistries {
     public static final String MOD_ID = ModConstants.MOD_ID;
 
     public static final DeferredRegister<net.minecraft.world.level.block.Block> BLOCKS =
-            DeferredRegister.create(MOD_ID, Registry.BLOCK);
+            DeferredRegister.create(MOD_ID, net.minecraft.resources.ResourceKey.createRegistryKey(new net.minecraft.resources.ResourceLocation("minecraft", "block")));
     public static final DeferredRegister<net.minecraft.world.item.Item> ITEMS =
-            DeferredRegister.create(MOD_ID, Registry.ITEM);
+            DeferredRegister.create(MOD_ID, net.minecraft.resources.ResourceKey.createRegistryKey(new net.minecraft.resources.ResourceLocation("minecraft", "item")));
     public static final DeferredRegister<net.minecraft.world.entity.EntityType<?>> ENTITIES =
-            DeferredRegister.create(MOD_ID, Registry.ENTITY_TYPE);
+            DeferredRegister.create(MOD_ID, net.minecraft.resources.ResourceKey.createRegistryKey(new net.minecraft.resources.ResourceLocation("minecraft", "entity_type")));
     public static final DeferredRegister<net.minecraft.sounds.SoundEvent> SOUNDS =
-            DeferredRegister.create(MOD_ID, Registry.SOUND_EVENT);
+            DeferredRegister.create(MOD_ID, net.minecraft.resources.ResourceKey.createRegistryKey(new net.minecraft.resources.ResourceLocation("minecraft", "sound_event")));
     public static final DeferredRegister<net.minecraft.core.particles.ParticleType<?>> PARTICLES =
-            DeferredRegister.create(MOD_ID, Registry.PARTICLE_TYPE);
+            DeferredRegister.create(MOD_ID, net.minecraft.resources.ResourceKey.createRegistryKey(new net.minecraft.resources.ResourceLocation("minecraft", "particle_type")));
 
     private ModRegistries() {
     }

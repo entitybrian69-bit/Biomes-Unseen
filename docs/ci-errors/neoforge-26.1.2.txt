@@ -1,68 +1,324 @@
-* What went wrong:
-A problem occurred configuring project ':neoforge-26.1.2'.
-> Failed to notify project evaluation listener.
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/registry/ModTags.java:4: error: cannot find symbol
+import net.minecraft.resources.ResourceLocation;
+                              ^
 ---
-BUILD FAILED in 41s
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/registry/ModSounds.java:4: error: cannot find symbol
+import net.minecraft.resources.ResourceLocation;
+                              ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/item/UnseenToolTier.java:4: error: cannot find symbol
+import net.minecraft.resources.ResourceLocation;
+                              ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/item/UnseenArmorMaterial.java:5: error: cannot find symbol
+import net.minecraft.resources.ResourceLocation;
+                              ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/item/LoreBookItem.java:30: error: cannot find symbol
+    public InteractionResult use(Level level, Player player, InteractionHand hand) {
+           ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/item/UnseenTonicItem.java:32: error: cannot find symbol
+    public InteractionResult use(Level level, Player player, InteractionHand hand) {
+           ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/item/UnseenGearItems.java:5: error: cannot find symbol
+import net.minecraft.world.item.ArmorMaterial;
+                               ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/client/legacy/UnseenLegacyModel.java:13: error: cannot find symbol
+import net.minecraft.resources.ResourceLocation;
+                              ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/client/legacy/UnseenLegacyRenderer.java:5: error: cannot find symbol
+import net.minecraft.resources.ResourceLocation;
+                              ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/client/legacy/UnseenLegacyRenderer.java:13: error: wrong number of type arguments; required 3
+        extends MobRenderer<T, UnseenLegacyModel<T>> {
+                           ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/client/legacy/UnseenLegacyRenderer.java:23: error: cannot find symbol
+    public ResourceLocation getTextureLocation(T entity) {
+           ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/client/particle/UnseenParticle.java:6: error: cannot find symbol
+import net.minecraft.client.particle.TextureSheetParticle;
+                                    ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/client/particle/UnseenParticle.java:16: error: cannot find symbol
+public class UnseenParticle extends TextureSheetParticle {
+                                    ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/worldgen/ModWorldGen.java:11: error: cannot find symbol
+import net.minecraft.resources.ResourceLocation;
+                              ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/neoforge-26.1.2/src/main/java/com/biomesunseen/neoforge/BiomesUnseenNeoForge.java:21: error: cannot find symbol
+        if (FMLEnvironment.dist == Dist.CLIENT) {
+                          ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/neoforge-26.1.2/src/main/java/com/biomesunseen/platform/PlatformExpectImpl.java:38: error: cannot find symbol
+                .getOptional(net.minecraft.resources.ResourceLocation.fromNamespaceAndPath("biomesunseen", mobId))
+                                                    ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/neoforge-26.1.2/src/main/java/com/biomesunseen/platform/PlatformExpectImpl.java:42: error: cannot find symbol
+                        net.minecraft.world.entity.SpawnPlacements.Type.ON_GROUND,
+                                                                  ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/neoforge-26.1.2/src/main/java/com/biomesunseen/platform/PlatformExpectImpl.java:66: error: cannot find symbol
+            player.playNotifySound(sound, net.minecraft.sounds.SoundSource.MUSIC, 1.0F, 1.0F);
+                  ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/neoforge-26.1.2/src/main/java/com/biomesunseen/platform/PlatformExpectImpl.java:71: error: cannot find symbol
+        return net.neoforged.neoforgespi.language.ModList.get().isLoaded(modId);
+                                                 ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/BiomesUnseenMob.java:175: error: cannot find symbol
+            SpawnCaps.onRemoved(unseenLevel().dimension().location().toString());
+                                                         ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/BiomesUnseenMob.java:180: error: hurt(DamageSource,float) in BiomesUnseenMob cannot override hurt(DamageSource,float) in Entity
+    public void hurt(DamageSource source, float amount) {
+                ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/mobs/CinderPupEntity.java:68: error: cannot find symbol
+            return net.minecraft.world.InteractionResult.sidedSuccess(unseenLevel().isClientSide());
+                                                        ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/mobs/LanternFoxEntity.java:64: error: cannot find symbol
+            return net.minecraft.world.InteractionResult.sidedSuccess(unseenLevel().isClientSide());
+                                                        ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/mobs/FrostFawnEntity.java:66: error: cannot find symbol
+            return net.minecraft.world.InteractionResult.sidedSuccess(unseenLevel().isClientSide());
+                                                        ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/mobs/LumoxEntity.java:66: error: cannot find symbol
+            return net.minecraft.world.InteractionResult.sidedSuccess(unseenLevel().isClientSide());
+                                                        ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/mobs/EmberCalfEntity.java:65: error: cannot find symbol
+            return net.minecraft.world.InteractionResult.sidedSuccess(unseenLevel().isClientSide());
+                                                        ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/mobs/SporeSproutEntity.java:64: error: cannot find symbol
+            return net.minecraft.world.InteractionResult.sidedSuccess(unseenLevel().isClientSide());
+                                                        ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/VoidSerpentEntity.java:138: error: cannot find symbol
+            moveTo(target.getX() + getRandom().nextInt(7) - 3, target.getY() + 2.0D,
+            ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/HeartOfTheForestEntity.java:125: error: cannot find symbol
+            for (Player player : unseenLevel().getNearestPlayers(this, 10.0D, 10.0D)) {
+                                              ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/HeartOfTheForestEntity.java:137: error: cannot find symbol
+            minion.moveTo(blockPosition().getX() + getRandom().nextInt(7) - 3, getY(),
+                  ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/registry/ModEntities.java:67: error: cannot find symbol
+                .build(net.minecraft.resources.ResourceKey.create(net.minecraft.core.registries.Registries.ENTITY_TYPE, net.minecraft.resources.ResourceLocation.fromNamespaceAndPath(com.biomesunseen.core.ModConstants.MOD_ID, "lumox"))));
+                                                                                                                                               ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/registry/ModEntities.java:70: error: cannot find symbol
+                .build(net.minecraft.resources.ResourceKey.create(net.minecraft.core.registries.Registries.ENTITY_TYPE, net.minecraft.resources.ResourceLocation.fromNamespaceAndPath(com.biomesunseen.core.ModConstants.MOD_ID, "brambleback"))));
+                                                                                                                                               ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/registry/ModEntities.java:73: error: cannot find symbol
+                .build(net.minecraft.resources.ResourceKey.create(net.minecraft.core.registries.Registries.ENTITY_TYPE, net.minecraft.resources.ResourceLocation.fromNamespaceAndPath(com.biomesunseen.core.ModConstants.MOD_ID, "siltstrider"))));
+                                                                                                                                               ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/registry/ModEntities.java:76: error: cannot find symbol
+                .build(net.minecraft.resources.ResourceKey.create(net.minecraft.core.registries.Registries.ENTITY_TYPE, net.minecraft.resources.ResourceLocation.fromNamespaceAndPath(com.biomesunseen.core.ModConstants.MOD_ID, "glimmermoth"))));
+                                                                                                                                               ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/registry/ModEntities.java:79: error: cannot find symbol
+                .build(net.minecraft.resources.ResourceKey.create(net.minecraft.core.registries.Registries.ENTITY_TYPE, net.minecraft.resources.ResourceLocation.fromNamespaceAndPath(com.biomesunseen.core.ModConstants.MOD_ID, "peat_hopper"))));
+                                                                                                                                               ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/registry/ModEntities.java:82: error: cannot find symbol
+                .build(net.minecraft.resources.ResourceKey.create(net.minecraft.core.registries.Registries.ENTITY_TYPE, net.minecraft.resources.ResourceLocation.fromNamespaceAndPath(com.biomesunseen.core.ModConstants.MOD_ID, "ember_calf"))));
+                                                                                                                                               ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/registry/ModEntities.java:85: error: cannot find symbol
+                .build(net.minecraft.resources.ResourceKey.create(net.minecraft.core.registries.Registries.ENTITY_TYPE, net.minecraft.resources.ResourceLocation.fromNamespaceAndPath(com.biomesunseen.core.ModConstants.MOD_ID, "frost_fawn"))));
+                                                                                                                                               ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/registry/ModEntities.java:88: error: cannot find symbol
+                .build(net.minecraft.resources.ResourceKey.create(net.minecraft.core.registries.Registries.ENTITY_TYPE, net.minecraft.resources.ResourceLocation.fromNamespaceAndPath(com.biomesunseen.core.ModConstants.MOD_ID, "murkling"))));
+                                                                                                                                               ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/registry/ModEntities.java:91: error: cannot find symbol
+                .build(net.minecraft.resources.ResourceKey.create(net.minecraft.core.registries.Registries.ENTITY_TYPE, net.minecraft.resources.ResourceLocation.fromNamespaceAndPath(com.biomesunseen.core.ModConstants.MOD_ID, "spore_sprout"))));
+                                                                                                                                               ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/registry/ModEntities.java:94: error: cannot find symbol
+                .build(net.minecraft.resources.ResourceKey.create(net.minecraft.core.registries.Registries.ENTITY_TYPE, net.minecraft.resources.ResourceLocation.fromNamespaceAndPath(com.biomesunseen.core.ModConstants.MOD_ID, "skywisp"))));
+                                                                                                                                               ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/registry/ModEntities.java:97: error: cannot find symbol
+                .build(net.minecraft.resources.ResourceKey.create(net.minecraft.core.registries.Registries.ENTITY_TYPE, net.minecraft.resources.ResourceLocation.fromNamespaceAndPath(com.biomesunseen.core.ModConstants.MOD_ID, "thunder_ram"))));
+                                                                                                                                               ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/registry/ModEntities.java:100: error: cannot find symbol
+                .build(net.minecraft.resources.ResourceKey.create(net.minecraft.core.registries.Registries.ENTITY_TYPE, net.minecraft.resources.ResourceLocation.fromNamespaceAndPath(com.biomesunseen.core.ModConstants.MOD_ID, "mosshorn"))));
+                                                                                                                                               ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/registry/ModEntities.java:103: error: cannot find symbol
+                .build(net.minecraft.resources.ResourceKey.create(net.minecraft.core.registries.Registries.ENTITY_TYPE, net.minecraft.resources.ResourceLocation.fromNamespaceAndPath(com.biomesunseen.core.ModConstants.MOD_ID, "cinder_pup"))));
+                                                                                                                                               ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/registry/ModEntities.java:106: error: cannot find symbol
+                .build(net.minecraft.resources.ResourceKey.create(net.minecraft.core.registries.Registries.ENTITY_TYPE, net.minecraft.resources.ResourceLocation.fromNamespaceAndPath(com.biomesunseen.core.ModConstants.MOD_ID, "echo_howler"))));
+                                                                                                                                               ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/registry/ModEntities.java:109: error: cannot find symbol
+                .build(net.minecraft.resources.ResourceKey.create(net.minecraft.core.registries.Registries.ENTITY_TYPE, net.minecraft.resources.ResourceLocation.fromNamespaceAndPath(com.biomesunseen.core.ModConstants.MOD_ID, "dune_skimmer"))));
+                                                                                                                                               ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/registry/ModEntities.java:112: error: cannot find symbol
+                .build(net.minecraft.resources.ResourceKey.create(net.minecraft.core.registries.Registries.ENTITY_TYPE, net.minecraft.resources.ResourceLocation.fromNamespaceAndPath(com.biomesunseen.core.ModConstants.MOD_ID, "tide_caller"))));
+                                                                                                                                               ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/registry/ModEntities.java:115: error: cannot find symbol
+                .build(net.minecraft.resources.ResourceKey.create(net.minecraft.core.registries.Registries.ENTITY_TYPE, net.minecraft.resources.ResourceLocation.fromNamespaceAndPath(com.biomesunseen.core.ModConstants.MOD_ID, "gloom_stalker"))));
+                                                                                                                                               ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/registry/ModEntities.java:118: error: cannot find symbol
+                .build(net.minecraft.resources.ResourceKey.create(net.minecraft.core.registries.Registries.ENTITY_TYPE, net.minecraft.resources.ResourceLocation.fromNamespaceAndPath(com.biomesunseen.core.ModConstants.MOD_ID, "crystal_hermit"))));
+                                                                                                                                               ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/registry/ModEntities.java:121: error: cannot find symbol
+                .build(net.minecraft.resources.ResourceKey.create(net.minecraft.core.registries.Registries.ENTITY_TYPE, net.minecraft.resources.ResourceLocation.fromNamespaceAndPath(com.biomesunseen.core.ModConstants.MOD_ID, "wind_dancer"))));
+                                                                                                                                               ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/registry/ModEntities.java:124: error: cannot find symbol
+                .build(net.minecraft.resources.ResourceKey.create(net.minecraft.core.registries.Registries.ENTITY_TYPE, net.minecraft.resources.ResourceLocation.fromNamespaceAndPath(com.biomesunseen.core.ModConstants.MOD_ID, "mire_golem"))));
+                                                                                                                                               ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/registry/ModEntities.java:127: error: cannot find symbol
+                .build(net.minecraft.resources.ResourceKey.create(net.minecraft.core.registries.Registries.ENTITY_TYPE, net.minecraft.resources.ResourceLocation.fromNamespaceAndPath(com.biomesunseen.core.ModConstants.MOD_ID, "lantern_fox"))));
+                                                                                                                                               ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/registry/ModEntities.java:130: error: cannot find symbol
+                .build(net.minecraft.resources.ResourceKey.create(net.minecraft.core.registries.Registries.ENTITY_TYPE, net.minecraft.resources.ResourceLocation.fromNamespaceAndPath(com.biomesunseen.core.ModConstants.MOD_ID, "reef_grazer"))));
+                                                                                                                                               ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/registry/ModEntities.java:133: error: cannot find symbol
+                .build(net.minecraft.resources.ResourceKey.create(net.minecraft.core.registries.Registries.ENTITY_TYPE, net.minecraft.resources.ResourceLocation.fromNamespaceAndPath(com.biomesunseen.core.ModConstants.MOD_ID, "ash_crawler"))));
+                                                                                                                                               ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/registry/ModEntities.java:136: error: cannot find symbol
+                .build(net.minecraft.resources.ResourceKey.create(net.minecraft.core.registries.Registries.ENTITY_TYPE, net.minecraft.resources.ResourceLocation.fromNamespaceAndPath(com.biomesunseen.core.ModConstants.MOD_ID, "star_whale"))));
+                                                                                                                                               ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/registry/ModEntities.java:139: error: cannot find symbol
+                .build(net.minecraft.resources.ResourceKey.create(net.minecraft.core.registries.Registries.ENTITY_TYPE, net.minecraft.resources.ResourceLocation.fromNamespaceAndPath(com.biomesunseen.core.ModConstants.MOD_ID, "petal_wing"))));
+                                                                                                                                               ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/registry/ModEntities.java:142: error: cannot find symbol
+                .fireImmune().build(net.minecraft.resources.ResourceKey.create(net.minecraft.core.registries.Registries.ENTITY_TYPE, net.minecraft.resources.ResourceLocation.fromNamespaceAndPath(com.biomesunseen.core.ModConstants.MOD_ID, "heart_of_the_forest"))));
+                                                                                                                                                            ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/registry/ModEntities.java:145: error: cannot find symbol
+                .fireImmune().build(net.minecraft.resources.ResourceKey.create(net.minecraft.core.registries.Registries.ENTITY_TYPE, net.minecraft.resources.ResourceLocation.fromNamespaceAndPath(com.biomesunseen.core.ModConstants.MOD_ID, "void_serpent"))));
+                                                                                                                                                            ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/registry/ModTags.java:16: error: cannot find symbol
+    public static final TagKey<Block> ORES = TagKey.create(Registries.BLOCK, net.minecraft.resources.ResourceLocation.fromNamespaceAndPath("c", "ores"));
+                                                                                                    ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/registry/ModTags.java:17: error: cannot find symbol
+    public static final TagKey<Block> ORES_IN_GROUND_STONE = TagKey.create(Registries.BLOCK, net.minecraft.resources.ResourceLocation.fromNamespaceAndPath("c", "ores_in_ground/stone"));
+                                                                                                                    ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/registry/ModTags.java:18: error: cannot find symbol
+    public static final TagKey<Block> ORES_IN_GROUND_DEEPSLATE = TagKey.create(Registries.BLOCK, net.minecraft.resources.ResourceLocation.fromNamespaceAndPath("c", "ores_in_ground/deepslate"));
+                                                                                                                        ^
 ---
 === STACKTRACE ===
-Caused by: org.gradle.internal.event.ListenerNotificationException: Failed to notify project evaluation listener.
-	at net.fabricmc.loom.util.ExceptionUtil.createDescriptiveWrapper(ExceptionUtil.java:59)
-	at net.fabricmc.loom.configuration.CompileConfiguration.lambda$run$1(CompileConfiguration.java:152)
-	at net.fabricmc.loom.configuration.CompileConfiguration.lambda$afterEvaluationWithService$0(CompileConfiguration.java:617)
-	at net.fabricmc.loom.util.gradle.GradleUtils.lambda$afterSuccessfulEvaluation$0(GradleUtils.java:51)
-Caused by: java.lang.UnsupportedOperationException: Architectury Loom: The Minecraft version '26.1.2' is unobfuscated (no mappings). Forge / NeoForge support for unobfuscated Minecraft is through the dev.architectury.loom-no-remap plugin instead.
-	at net.fabricmc.loom.configuration.CompileConfiguration.setupMinecraft(CompileConfiguration.java:238)
-	at net.fabricmc.loom.configuration.CompileConfiguration.lambda$run$1(CompileConfiguration.java:144)
-	at net.fabricmc.loom.extension.LoomGradleExtensionImpl.getMinecraftProvider(LoomGradleExtensionImpl.java:184)
-	at net.fabricmc.loom.extension.LoomGradleExtensionImpl_Decorated.getMinecraftProvider(Unknown Source)
-	at net.fabricmc.loom.task.LoomTasks.lambda$run$6(LoomTasks.java:128)
-	at net.fabricmc.loom.util.gradle.GradleUtils.lambda$afterSuccessfulEvaluation$0(GradleUtils.java:51)
+Caused by: org.gradle.api.internal.tasks.compile.CompilationFailedException: Compilation failed; see the compiler output below.
 === WHAT WENT WRONG ===
 * What went wrong:
-A problem occurred configuring project ':neoforge-26.1.2'.
-> Failed to notify project evaluation listener.
-   > Failed to setup Minecraft, java.lang.UnsupportedOperationException: Architectury Loom: The Minecraft version '26.1.2' is unobfuscated (no mappings). Forge / NeoForge support for unobfuscated Minecraft is through the dev.architectury.loom-no-remap plugin instead.
-   > Cannot get MinecraftProvider before it has been setup
-
-* Try:
+Execution failed for task ':neoforge-26.1.2:compileJava' (registered by plugin class 'org.gradle.api.plugins.JavaBasePlugin').
+> Compilation failed; see the compiler output below.
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/registry/ModTags.java:4: error: cannot find symbol
+  import net.minecraft.resources.ResourceLocation;
+                                ^
+    symbol:   class ResourceLocation
+    location: package net.minecraft.resources
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/registry/ModSounds.java:4: error: cannot find symbol
+  import net.minecraft.resources.ResourceLocation;
+                                ^
+    symbol:   class ResourceLocation
+    location: package net.minecraft.resources
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/item/UnseenToolTier.java:4: error: cannot find symbol
+  import net.minecraft.resources.ResourceLocation;
+                                ^
+    symbol:   class ResourceLocation
+    location: package net.minecraft.resources
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/item/UnseenArmorMaterial.java:5: error: cannot find symbol
+  import net.minecraft.resources.ResourceLocation;
+                                ^
+    symbol:   class ResourceLocation
+    location: package net.minecraft.resources
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/item/LoreBookItem.java:30: error: cannot find symbol
+      public InteractionResult use(Level level, Player player, InteractionHand hand) {
+             ^
+    symbol:   class InteractionResult
+    location: class LoreBookItem
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/item/UnseenTonicItem.java:32: error: cannot find symbol
+      public InteractionResult use(Level level, Player player, InteractionHand hand) {
+             ^
+    symbol:   class InteractionResult
+    location: class UnseenTonicItem
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/item/UnseenGearItems.java:5: error: cannot find symbol
+  import net.minecraft.world.item.ArmorMaterial;
+                                 ^
+    symbol:   class ArmorMaterial
+    location: package net.minecraft.world.item
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/client/legacy/UnseenLegacyModel.java:13: error: cannot find symbol
+  import net.minecraft.resources.ResourceLocation;
 === LAST 40 ===
-	at org.gradle.internal.buildprocess.execution.StartParamsValidatingActionExecutor.execute(StartParamsValidatingActionExecutor.java:57)
-	at org.gradle.internal.buildprocess.execution.StartParamsValidatingActionExecutor.execute(StartParamsValidatingActionExecutor.java:32)
-	at org.gradle.internal.buildprocess.execution.SessionFailureReportingActionExecutor.execute(SessionFailureReportingActionExecutor.java:51)
-	at org.gradle.internal.buildprocess.execution.SessionFailureReportingActionExecutor.execute(SessionFailureReportingActionExecutor.java:39)
-	at org.gradle.internal.buildprocess.execution.SetupLoggingActionExecutor.execute(SetupLoggingActionExecutor.java:47)
-	at org.gradle.internal.buildprocess.execution.SetupLoggingActionExecutor.execute(SetupLoggingActionExecutor.java:31)
-	at org.gradle.launcher.daemon.server.exec.ExecuteBuild.doBuild(ExecuteBuild.java:70)
-	at org.gradle.launcher.daemon.server.exec.BuildCommandOnly.execute(BuildCommandOnly.java:37)
-	at org.gradle.launcher.daemon.server.api.DaemonCommandExecution.proceed(DaemonCommandExecution.java:104)
-	at org.gradle.launcher.daemon.server.exec.WatchForDisconnection.execute(WatchForDisconnection.java:39)
-	at org.gradle.launcher.daemon.server.api.DaemonCommandExecution.proceed(DaemonCommandExecution.java:104)
-	at org.gradle.launcher.daemon.server.exec.ResetDeprecationLogger.execute(ResetDeprecationLogger.java:29)
-	at org.gradle.launcher.daemon.server.api.DaemonCommandExecution.proceed(DaemonCommandExecution.java:104)
-	at org.gradle.launcher.daemon.server.exec.RequestStopIfSingleUsedDaemon.execute(RequestStopIfSingleUsedDaemon.java:35)
-	at org.gradle.launcher.daemon.server.api.DaemonCommandExecution.proceed(DaemonCommandExecution.java:104)
-	at org.gradle.launcher.daemon.server.exec.ForwardClientInput.lambda$execute$0(ForwardClientInput.java:40)
-	at org.gradle.internal.daemon.clientinput.ClientInputForwarder.forwardInput(ClientInputForwarder.java:80)
-	at org.gradle.launcher.daemon.server.exec.ForwardClientInput.execute(ForwardClientInput.java:37)
-	at org.gradle.launcher.daemon.server.api.DaemonCommandExecution.proceed(DaemonCommandExecution.java:104)
-	at org.gradle.launcher.daemon.server.exec.LogAndCheckHealth.execute(LogAndCheckHealth.java:53)
-	at org.gradle.launcher.daemon.server.api.DaemonCommandExecution.proceed(DaemonCommandExecution.java:104)
-	at org.gradle.launcher.daemon.server.exec.ApplyClientEnvironmentVariables.doBuild(ApplyClientEnvironmentVariables.java:82)
-	at org.gradle.launcher.daemon.server.exec.BuildCommandOnly.execute(BuildCommandOnly.java:37)
-	at org.gradle.launcher.daemon.server.api.DaemonCommandExecution.proceed(DaemonCommandExecution.java:104)
-	at org.gradle.launcher.daemon.server.exec.LogToClient.doBuild(LogToClient.java:63)
-	at org.gradle.launcher.daemon.server.exec.BuildCommandOnly.execute(BuildCommandOnly.java:37)
-	at org.gradle.launcher.daemon.server.api.DaemonCommandExecution.proceed(DaemonCommandExecution.java:104)
-	at org.gradle.launcher.daemon.server.exec.EstablishBuildEnvironment.doBuild(EstablishBuildEnvironment.java:74)
-	at org.gradle.launcher.daemon.server.exec.BuildCommandOnly.execute(BuildCommandOnly.java:37)
-	at org.gradle.launcher.daemon.server.api.DaemonCommandExecution.proceed(DaemonCommandExecution.java:104)
-	at org.gradle.launcher.daemon.server.exec.StartBuildOrRespondWithBusy$1.run(StartBuildOrRespondWithBusy.java:52)
-	at org.gradle.launcher.daemon.server.DaemonStateCoordinator.lambda$runCommand$0(DaemonStateCoordinator.java:321)
-	at org.gradle.internal.concurrent.ExecutorPolicy$CatchAndRecordFailures.onExecute(ExecutorPolicy.java:65)
-	at org.gradle.internal.concurrent.AbstractManagedExecutor$1.run(AbstractManagedExecutor.java:47)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1090)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614)
-	at java.base/java.lang.Thread.run(Thread.java:1474)
+	at org.gradle.internal.execution.steps.MutableStep.execute(MutableStep.java:26)
+	at org.gradle.internal.execution.steps.ValidateStep$Mutable.executeDelegate(ValidateStep.java:79)
+	at org.gradle.internal.execution.steps.ValidateStep$Mutable.executeDelegate(ValidateStep.java:65)
+	at org.gradle.internal.execution.steps.ValidateStep.execute(ValidateStep.java:105)
+	at org.gradle.internal.execution.steps.ValidateStep$Mutable.execute(ValidateStep.java:65)
+	at org.gradle.internal.execution.steps.CaptureMutableStateBeforeExecutionStep.executeMutable(CaptureMutableStateBeforeExecutionStep.java:86)
+	at org.gradle.internal.execution.steps.CaptureMutableStateBeforeExecutionStep.execute(CaptureMutableStateBeforeExecutionStep.java:65)
+	at org.gradle.internal.execution.steps.CaptureMutableStateBeforeExecutionStep.execute(CaptureMutableStateBeforeExecutionStep.java:45)
+	at org.gradle.internal.execution.steps.SkipEmptyMutableWorkStep.executeWithNonEmptySources(SkipEmptyMutableWorkStep.java:210)
+	at org.gradle.internal.execution.steps.SkipEmptyMutableWorkStep.executeMutable(SkipEmptyMutableWorkStep.java:90)
+	at org.gradle.internal.execution.steps.SkipEmptyMutableWorkStep.executeMutable(SkipEmptyMutableWorkStep.java:53)
+	at org.gradle.internal.execution.steps.MutableStep.execute(MutableStep.java:26)
+	at org.gradle.internal.execution.steps.legacy.MarkSnapshottingInputsStartedStep.execute(MarkSnapshottingInputsStartedStep.java:38)
+	at org.gradle.internal.execution.steps.LoadPreviousExecutionStateStep.executeMutable(LoadPreviousExecutionStateStep.java:36)
+	at org.gradle.internal.execution.steps.LoadPreviousExecutionStateStep.executeMutable(LoadPreviousExecutionStateStep.java:23)
+	at org.gradle.internal.execution.steps.MutableStep.execute(MutableStep.java:26)
+	at org.gradle.internal.execution.steps.HandleStaleOutputsStep.executeMutable(HandleStaleOutputsStep.java:77)
+	at org.gradle.internal.execution.steps.HandleStaleOutputsStep.executeMutable(HandleStaleOutputsStep.java:43)
+	at org.gradle.internal.execution.steps.MutableStep.execute(MutableStep.java:26)
+	at org.gradle.internal.execution.steps.AssignMutableWorkspaceStep.lambda$executeMutable$0(AssignMutableWorkspaceStep.java:34)
+	at org.gradle.api.internal.tasks.execution.TaskExecution$4.withWorkspace(TaskExecution.java:314)
+	at org.gradle.internal.execution.steps.AssignMutableWorkspaceStep.executeMutable(AssignMutableWorkspaceStep.java:30)
+	at org.gradle.internal.execution.steps.AssignMutableWorkspaceStep.executeMutable(AssignMutableWorkspaceStep.java:21)
+	at org.gradle.internal.execution.steps.MutableStep.execute(MutableStep.java:26)
+	at org.gradle.internal.execution.steps.ChoosePipelineStep.execute(ChoosePipelineStep.java:40)
+	at org.gradle.internal.execution.steps.ChoosePipelineStep.execute(ChoosePipelineStep.java:23)
+	at org.gradle.internal.execution.steps.ExecuteWorkBuildOperationFiringStep.lambda$execute$2(ExecuteWorkBuildOperationFiringStep.java:67)
+	at org.gradle.internal.execution.steps.ExecuteWorkBuildOperationFiringStep.execute(ExecuteWorkBuildOperationFiringStep.java:67)
+	at org.gradle.internal.execution.steps.ExecuteWorkBuildOperationFiringStep.execute(ExecuteWorkBuildOperationFiringStep.java:39)
+	at org.gradle.internal.execution.steps.IdentityCacheStep.execute(IdentityCacheStep.java:46)
+	at org.gradle.internal.execution.steps.IdentityCacheStep.execute(IdentityCacheStep.java:34)
+	at org.gradle.internal.execution.steps.IdentifyStep.execute(IdentifyStep.java:56)
+	at org.gradle.internal.execution.steps.IdentifyStep.execute(IdentifyStep.java:38)
+	at org.gradle.internal.execution.impl.DefaultExecutionEngine$1.execute(DefaultExecutionEngine.java:68)
+	at org.gradle.api.internal.tasks.execution.DefaultTaskNodeExecutor.doExecute(DefaultTaskNodeExecutor.java:364)
+	... 55 more
 
 
-BUILD FAILED in 41s
+BUILD FAILED in 1m 42s
+1 actionable task: 1 executed

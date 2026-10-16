@@ -14,4 +14,4 @@ A problem occurred configuring project ':neoforge-1.21.1'.
 > Run with --scan to get full insights from a Build Scan (powered by Develocity).
 > Get more help at https://help.gradle.org.
 
-BUILD FAILED in 45s
+BUILD FAILED in 48s

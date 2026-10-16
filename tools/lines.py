@@ -56,6 +56,14 @@ LINES = {
         item_def="model_only", expect="dev", entity_base="modern",
         tagkey=True, features="placed", structures="sets",
     ),
+    "1.20": dict(
+        line="1.20", mc="1.20.1", java=17, pkgs="modern", reg="registries",
+        geckolib="none", tab="new", damage="new", synched="old",
+        text="component", material=False, sound_ctor="factory",
+        data_dirs="plural", biome_json="new", worldgen="modern",
+        biome_add="noise_list", item_def="model_only", expect="dev",
+        entity_base="modern", tagkey=True, features="placed", structures="sets",
+    ),
     "1.19.3": dict(
         line="1.19.3", mc="1.19.3", java=17, pkgs="modern", reg="registries",
         geckolib="none", tab="new", damage="old", synched="old",
@@ -146,7 +154,7 @@ MC_TO_LINE = {
     "1.18.2": "1.18",
     "1.19": "1.18", "1.19.1": "1.18", "1.19.2": "1.18",
     "1.19.3": "1.19.3",
-    "1.19.4": "1.19.4", "1.20": "1.19.4", "1.20.1": "1.19.4",
+    "1.19.4": "1.19.4", "1.20": "1.20", "1.20.1": "1.20",
     "1.20.2": "1.20.2", "1.20.3": "1.20.2", "1.20.4": "1.20.2",
     "1.20.5": "1.20.5", "1.20.6": "1.20.5",
     "1.21": "1.21", "1.21.1": "1.21",
@@ -368,7 +376,9 @@ def registry_constant(flags, kind):
     if flags["reg"] == "util_registry":
         return "Registry." + (old or new)
     if flags["reg"] == "core_registry":
-        return "Registry." + (old or new)
+        return ("net.minecraft.resources.ResourceKey.createRegistryKey("
+                "new net.minecraft.resources.ResourceLocation(\"minecraft\", \"%s\"))"
+                % (old or new).lower())
     return "Registries." + new
 
 

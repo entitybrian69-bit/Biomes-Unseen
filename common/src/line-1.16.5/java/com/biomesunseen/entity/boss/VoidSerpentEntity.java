@@ -141,7 +141,7 @@ public class VoidSerpentEntity extends BiomesUnseenMob {
             // tail_sweep: AoE around body segments
             triggerAnim("tail_sweep");
             for (int i = 0; i < bodySegments; i += 2) {
-                net.minecraft.world.phys.AABB box = new net.minecraft.world.phys.AABB(segmentX(i) - 2.0D, segmentY(i) - 2.0D, segmentZ(i) - 2.0D,
+                net.minecraft.world.phys.net.minecraft.world.phys.AABB box = new net.minecraft.world.phys.AABB(segmentX(i) - 2.0D, segmentY(i) - 2.0D, segmentZ(i) - 2.0D,
                         segmentX(i) + 2.0D, segmentY(i) + 2.0D, segmentZ(i) + 2.0D);
                 for (LivingEntity entity : unseenLevel().getEntitiesOfClass(LivingEntity.class, box,
                         e -> e != this)) {
@@ -155,7 +155,6 @@ public class VoidSerpentEntity extends BiomesUnseenMob {
                 double sx = getX() + getRandom().nextGaussian() * 4.0D;
                 double sy = getY() + getRandom().nextGaussian() * 2.0D;
                 double sz = getZ() + getRandom().nextGaussian() * 4.0D;
-                unseenLevel().broadcastDamageEvent(target, DamageSource.causeMobDamage(this));
                 target.hurt(DamageSource.causeMobDamage(this), 2.0F + phase);
             }
         } else {

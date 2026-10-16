@@ -150,15 +150,15 @@ import net.minecraft.client.renderer.entity.EntityRendererProvider;
     public UnseenLegacyRenderer(EntityRendererProvider.Context context, String id) {
                                                       ^
 ---
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.16.5/java/com/biomesunseen/client/particle/UnseenParticle.java:7: error: package net.minecraft.client.world does not exist
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.16.5/java/com/biomesunseen/client/particle/UnseenParticle.java:8: error: package net.minecraft.client.world does not exist
 import net.minecraft.client.world.ClientWorld;
                                  ^
 ---
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.16.5/java/com/biomesunseen/client/particle/UnseenParticle.java:19: error: cannot find symbol
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.16.5/java/com/biomesunseen/client/particle/UnseenParticle.java:20: error: cannot find symbol
     protected UnseenParticle(ClientWorld level, double x, double y, double z,
                              ^
 ---
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.16.5/java/com/biomesunseen/client/particle/UnseenParticle.java:52: error: cannot find symbol
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.16.5/java/com/biomesunseen/client/particle/UnseenParticle.java:53: error: cannot find symbol
         public Particle createParticle(SimpleParticleType type, ClientWorld level,
                                                                 ^
 ---
@@ -291,5 +291,5 @@ Note: Some messages have been simplified; recompile with -Xdiags:verbose to get 
 	... 2 more
 
 
-BUILD FAILED in 1m 15s
+BUILD FAILED in 1m 1s
 1 actionable task: 1 executed

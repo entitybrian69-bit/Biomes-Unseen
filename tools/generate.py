@@ -174,7 +174,7 @@ TEXT_REWRITES = [
 
 # Oldest -> newest, so "rank >= X" means "this API change has happened".
 _LINE_ORDER = ["1.16.5", "1.17.1", "1.18.1", "1.18", "1.19.3", "1.19.4",
-               "1.20.2", "1.20.5", "1.21", "1.21.2", "1.21.4", "1.21.5",
+               "1.20", "1.20.2", "1.20.5", "1.21", "1.21.2", "1.21.4", "1.21.5",
                "1.21.9", "26"]
 LINE_RANK = {k: i for i, k in enumerate(_LINE_ORDER)}
 
@@ -243,12 +243,13 @@ _HURT_BOOLEAN_IMPL = """    @Override
     }"""
 
 _HURT_VOID_IMPL = """    @Override
-    public void hurt(DamageSource source, float amount) {
-        float healthBefore = getHealth();
-        super.hurt(source, amount);
-        if (getHealth() < healthBefore) {
+    public boolean hurtServer(net.minecraft.server.level.ServerLevel level,
+            DamageSource source, float amount) {
+        boolean hurt = super.hurtServer(level, source, amount);
+        if (hurt) {
             triggerAnim(\"hurt\");
         }
+        return hurt;
     }"""
 
 _INVULN_ONE_ARG = """    public boolean isInvulnerableTo(DamageSource source) {
@@ -256,6 +257,38 @@ _INVULN_ONE_ARG = """    public boolean isInvulnerableTo(DamageSource source) {
 _INVULN_TWO_ARG = """    public boolean isInvulnerableTo(net.minecraft.server.level.ServerLevel level,
             DamageSource source) {
         return phaseShiftTicks > 0 || super.isInvulnerableTo(level, source);"""
+
+# 1.20.5+: Tier#getLevel() was replaced by getIncorrectBlocksForDrops() and
+# PickaxeItem/SwordItem lost their attack-damage/attack-speed arguments.
+TIER_INCORRECT_FROM = "1.20.5"
+
+_TIER_LEVEL_IMPL = """    @Override
+    public int getLevel() {
+        return ore.toolMiningLevel;
+    }"""
+
+_TIER_INCORRECT_IMPL = """    @Override
+    public net.minecraft.tags.TagKey<net.minecraft.world.level.block.Block> getIncorrectBlocksForDrops() {
+        int level = ore.toolMiningLevel;
+        if (level >= 4) {
+            return net.minecraft.tags.BlockTags.INCORRECT_FOR_NETHERITE_TOOL;
+        }
+        if (level == 3) {
+            return net.minecraft.tags.BlockTags.INCORRECT_FOR_DIAMOND_TOOL;
+        }
+        if (level == 2) {
+            return net.minecraft.tags.BlockTags.INCORRECT_FOR_IRON_TOOL;
+        }
+        if (level == 1) {
+            return net.minecraft.tags.BlockTags.INCORRECT_FOR_STONE_TOOL;
+        }
+        return net.minecraft.tags.BlockTags.INCORRECT_FOR_WOODEN_TOOL;
+    }"""
+
+_RE_PICKAXE_CTOR = re.compile(
+    r'super\(tier, \(int\) ore\.toolAttackDamage - 1, \(float\) \(ore\.toolSpeed / 2\.5\) - 2\.4F, properties\)')
+_RE_SWORD_CTOR = re.compile(
+    r'super\(tier, \(int\) ore\.toolAttackDamage, \(float\) \(ore\.toolSpeed / 2\.5\), properties\)')
 
 # Inventory.items went private; isEmpty() is public on every version and means
 # exactly "no non-empty stack", which is what the trade goal was testing.
@@ -379,6 +412,13 @@ def apply_api_drift(text, line_key):
         # Item.use returns InteractionResult; InteractionResultHolder is gone.
         text = text.replace("import net.minecraft.world.InteractionResultHolder;\n", "")
         text = _RE_IRH_TYPE.sub('InteractionResult', text)
+        if "InteractionResult" in text \
+                and "import net.minecraft.world.InteractionResult;" not in text \
+                and "\nimport net.minecraft.world.InteractionHand;" in text:
+            text = text.replace(
+                "import net.minecraft.world.InteractionHand;",
+                "import net.minecraft.world.InteractionResult;\n"
+                "import net.minecraft.world.InteractionHand;", 1)
         text = _RE_IRH_FACTORY.sub(
             lambda m: "InteractionResult." + m.group(1).upper(), text)
 
@@ -409,6 +449,13 @@ def apply_api_drift(text, line_key):
     if rank >= LINE_RANK[HURT_VOID_FROM]:
         text = text.replace(_HURT_BOOLEAN_IMPL, _HURT_VOID_IMPL)
         text = text.replace(_INVULN_ONE_ARG, _INVULN_TWO_ARG)
+
+    # -- 1.20.5+: Tier#getLevel() -> getIncorrectBlocksForDrops(), and the
+    #    PickaxeItem/SwordItem constructors dropped their stat arguments.
+    if rank >= LINE_RANK[TIER_INCORRECT_FROM]:
+        text = text.replace(_TIER_LEVEL_IMPL, _TIER_INCORRECT_IMPL)
+        text = _RE_PICKAXE_CTOR.sub('super(tier, properties)', text)
+        text = _RE_SWORD_CTOR.sub('super(tier, properties)', text)
 
     # -- Inventory.items is private; isEmpty() says the same thing publicly.
     text = text.replace(_INVENTORY_ITEMS[0], _INVENTORY_ITEMS[1])

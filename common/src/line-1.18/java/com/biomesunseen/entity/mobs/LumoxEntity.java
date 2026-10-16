@@ -63,7 +63,7 @@ public class LumoxEntity extends BiomesUnseenMob {
                 }
                 stack.shrink(1);
             }
-            return net.minecraft.world.InteractionResult.sidedSuccess(unseenLevel().isClientSide());
+            return net.minecraft.world.InteractionResult.SUCCESS;
         }
         return super.mobInteract(player, hand);
     }

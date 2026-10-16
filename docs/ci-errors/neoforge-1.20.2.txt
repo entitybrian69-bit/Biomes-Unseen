@@ -1,46 +1,35 @@
 * What went wrong:
 A problem occurred configuring project ':neoforge-1.20.2'.
-> Failed to setup Minecraft, java.lang.RuntimeException: Failed to provide net.neoforged:neoforge:20.2.+ : java.lang.RuntimeException: Could not resolve Forge userdev
+> Failed to setup Minecraft, org.gradle.process.ProcessExecutionException: Process 'command '/usr/lib/jvm/temurin-17-jdk-amd64/bin/java'' finished with non-zero exit value 1
 ---
-BUILD FAILED in 45s
+BUILD FAILED in 1m 40s
 ---
 === STACKTRACE ===
-Caused by: java.lang.RuntimeException: Failed to setup Minecraft, java.lang.RuntimeException: Failed to provide net.neoforged:neoforge:20.2.+ : java.lang.RuntimeException: Could not resolve Forge userdev
+	at net.minecraftforge.binarypatcher.Patcher.patch(Patcher.java:197)
+	at net.minecraftforge.binarypatcher.Patcher.process(Patcher.java:149)
+	at net.minecraftforge.binarypatcher.ConsoleTool.main(ConsoleTool.java:161)
+Caused by: java.lang.RuntimeException: Failed to setup Minecraft, org.gradle.process.ProcessExecutionException: Process 'command '/usr/lib/jvm/temurin-17-jdk-amd64/bin/java'' finished with non-zero exit value 1
 	at net.fabricmc.loom.util.ExceptionUtil.createDescriptiveWrapper(ExceptionUtil.java:59)
 	at net.fabricmc.loom.configuration.CompileConfiguration.lambda$run$1(CompileConfiguration.java:152)
 	at net.fabricmc.loom.configuration.CompileConfiguration.lambda$afterEvaluationWithService$0(CompileConfiguration.java:617)
 	at net.fabricmc.loom.util.gradle.GradleUtils.lambda$afterSuccessfulEvaluation$0(GradleUtils.java:51)
-Caused by: java.lang.RuntimeException: Failed to provide net.neoforged:neoforge:20.2.+ : java.lang.RuntimeException: Could not resolve Forge userdev
-	at dev.architectury.loom.forge.dependency.DependencyProviders.handleDependencies(DependencyProviders.java:111)
-	at net.fabricmc.loom.configuration.CompileConfiguration.setupDependencyProviders(CompileConfiguration.java:611)
-	at net.fabricmc.loom.configuration.CompileConfiguration.setupMinecraft(CompileConfiguration.java:253)
+Caused by: org.gradle.process.ProcessExecutionException: Process 'command '/usr/lib/jvm/temurin-17-jdk-amd64/bin/java'' finished with non-zero exit value 1
+	at dev.architectury.loom.forge.tool.ForgeToolExecutor.exec(ForgeToolExecutor.java:59)
+	at dev.architectury.loom.forge.tool.ForgeToolValueSource.obtain(ForgeToolValueSource.java:39)
+	at dev.architectury.loom.forge.tool.ForgeToolValueSource.obtain(ForgeToolValueSource.java:15)
+	at dev.architectury.loom.forge.tool.ForgeToolValueSource.exec(ForgeToolValueSource.java:34)
+	at dev.architectury.loom.forge.minecraft.MinecraftPatchedProvider.patchJars(MinecraftPatchedProvider.java:596)
+	at dev.architectury.loom.forge.minecraft.MinecraftPatchedProvider.patchJars(MinecraftPatchedProvider.java:583)
+	at dev.architectury.loom.forge.minecraft.MinecraftPatchedProvider.provide(MinecraftPatchedProvider.java:225)
+	at net.fabricmc.loom.configuration.CompileConfiguration.setupMinecraft(CompileConfiguration.java:262)
 	at net.fabricmc.loom.configuration.CompileConfiguration.lambda$run$1(CompileConfiguration.java:144)
-Caused by: java.lang.RuntimeException: Could not resolve Forge userdev
-	at dev.architectury.loom.forge.dependency.ForgeUserdevProvider.lambda$provide$0(ForgeUserdevProvider.java:60)
-	at dev.architectury.loom.forge.dependency.ForgeUserdevProvider.provide(ForgeUserdevProvider.java:60)
-	at dev.architectury.loom.forge.dependency.DependencyProviders.handleDependencies(DependencyProviders.java:109)
 === WHAT WENT WRONG ===
 * What went wrong:
 A problem occurred configuring project ':neoforge-1.20.2'.
-> Failed to setup Minecraft, java.lang.RuntimeException: Failed to provide net.neoforged:neoforge:20.2.+ : java.lang.RuntimeException: Could not resolve Forge userdev
+> Failed to setup Minecraft, org.gradle.process.ProcessExecutionException: Process 'command '/usr/lib/jvm/temurin-17-jdk-amd64/bin/java'' finished with non-zero exit value 1
 
 * Try:
 === LAST 40 ===
-	at org.gradle.internal.operations.DefaultBuildOperationRunner$1.execute(DefaultBuildOperationRunner.java:30)
-	at org.gradle.internal.operations.DefaultBuildOperationRunner$1.execute(DefaultBuildOperationRunner.java:27)
-	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:67)
-	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:60)
-	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:167)
-	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:60)
-	at org.gradle.internal.operations.DefaultBuildOperationRunner.run(DefaultBuildOperationRunner.java:48)
-	at org.gradle.configuration.internal.DefaultListenerBuildOperationDecorator$BuildOperationEmittingAction.execute(DefaultListenerBuildOperationDecorator.java:170)
-	at org.gradle.internal.event.BroadcastDispatch$ActionInvocationHandler.dispatch(BroadcastDispatch.java:101)
-	at org.gradle.internal.event.BroadcastDispatch$ActionInvocationHandler.dispatch(BroadcastDispatch.java:89)
-	at org.gradle.internal.event.AbstractBroadcastDispatch.dispatch(AbstractBroadcastDispatch.java:44)
-	at org.gradle.internal.event.BroadcastDispatch$SingletonDispatch.dispatch(BroadcastDispatch.java:270)
-	at org.gradle.internal.event.BroadcastDispatch$SingletonDispatch.dispatch(BroadcastDispatch.java:172)
-	at org.gradle.internal.event.AbstractBroadcastDispatch.dispatch(AbstractBroadcastDispatch.java:84)
-	at org.gradle.internal.event.AbstractBroadcastDispatch.dispatch(AbstractBroadcastDispatch.java:70)
 	at org.gradle.internal.event.BroadcastDispatch$CompositeDispatch.dispatch(BroadcastDispatch.java:382)
 	at org.gradle.internal.event.BroadcastDispatch$CompositeDispatch.dispatch(BroadcastDispatch.java:274)
 	at org.gradle.internal.event.ListenerBroadcast.dispatch(ListenerBroadcast.java:160)
@@ -52,17 +41,32 @@ A problem occurred configuring project ':neoforge-1.20.2'.
 	at org.gradle.api.internal.project.DefaultProject.stepEvaluationListener(DefaultProject.java:1525)
 	at org.gradle.configuration.project.LifecycleProjectEvaluator$NotifyAfterEvaluate.run(LifecycleProjectEvaluator.java:253)
 	... 164 more
-Caused by: java.lang.RuntimeException: Failed to provide net.neoforged:neoforge:20.2.+ : java.lang.RuntimeException: Could not resolve Forge userdev
-	at dev.architectury.loom.forge.dependency.DependencyProviders.handleDependencies(DependencyProviders.java:111)
-	at net.fabricmc.loom.configuration.CompileConfiguration.setupDependencyProviders(CompileConfiguration.java:611)
-	at net.fabricmc.loom.configuration.CompileConfiguration.setupMinecraft(CompileConfiguration.java:253)
+Caused by: org.gradle.process.ProcessExecutionException: Process 'command '/usr/lib/jvm/temurin-17-jdk-amd64/bin/java'' finished with non-zero exit value 1
+	at org.gradle.process.internal.DefaultExecHandle$ExecResultImpl.assertNormalExitValue(DefaultExecHandle.java:461)
+	at org.gradle.process.internal.DefaultJavaExecAction.execute(DefaultJavaExecAction.java:59)
+	at org.gradle.process.internal.DefaultExecActionFactory.javaexec(DefaultExecActionFactory.java:221)
+	at org.gradle.process.internal.DefaultExecOperations.javaexec(DefaultExecOperations.java:42)
+	at dev.architectury.loom.forge.tool.ForgeToolExecutor.exec(ForgeToolExecutor.java:59)
+	at dev.architectury.loom.forge.tool.ForgeToolValueSource.obtain(ForgeToolValueSource.java:39)
+	at dev.architectury.loom.forge.tool.ForgeToolValueSource.obtain(ForgeToolValueSource.java:15)
+	at org.gradle.api.internal.provider.DefaultValueSourceProviderFactory$LazilyObtainedValue.lambda$new$0(DefaultValueSourceProviderFactory.java:290)
+	at org.gradle.internal.model.CalculatedValueContainerFactory$SupplierBackedCalculator.calculateValue(CalculatedValueContainerFactory.java:71)
+	at org.gradle.internal.model.CalculatedValueContainer$CalculationState.lambda$attachValue$0(CalculatedValueContainer.java:226)
+	at org.gradle.internal.Try.ofFailable(Try.java:46)
+	at org.gradle.internal.model.CalculatedValueContainer$CalculationState.attachValue(CalculatedValueContainer.java:221)
+	at org.gradle.internal.model.CalculatedValueContainer.finalizeIfNotAlready(CalculatedValueContainer.java:194)
+	at org.gradle.internal.model.CalculatedValueContainer.finalizeIfNotAlready(CalculatedValueContainer.java:185)
+	at org.gradle.api.internal.provider.DefaultValueSourceProviderFactory$LazilyObtainedValue.obtain(DefaultValueSourceProviderFactory.java:305)
+	at org.gradle.api.internal.provider.DefaultValueSourceProviderFactory$ValueSourceProvider.calculateOwnValue(DefaultValueSourceProviderFactory.java:258)
+	at org.gradle.api.internal.provider.AbstractMinimalProvider.calculateOwnPresentValue(AbstractMinimalProvider.java:80)
+	at org.gradle.api.internal.provider.AbstractMinimalProvider.get(AbstractMinimalProvider.java:100)
+	at dev.architectury.loom.forge.tool.ForgeToolValueSource.exec(ForgeToolValueSource.java:34)
+	at dev.architectury.loom.forge.minecraft.MinecraftPatchedProvider.patchJars(MinecraftPatchedProvider.java:596)
+	at dev.architectury.loom.forge.minecraft.MinecraftPatchedProvider.patchJars(MinecraftPatchedProvider.java:583)
+	at dev.architectury.loom.forge.minecraft.MinecraftPatchedProvider.provide(MinecraftPatchedProvider.java:225)
+	at net.fabricmc.loom.configuration.CompileConfiguration.setupMinecraft(CompileConfiguration.java:262)
 	at net.fabricmc.loom.configuration.CompileConfiguration.lambda$run$1(CompileConfiguration.java:144)
 	... 193 more
-Caused by: java.lang.RuntimeException: Could not resolve Forge userdev
-	at dev.architectury.loom.forge.dependency.ForgeUserdevProvider.lambda$provide$0(ForgeUserdevProvider.java:60)
-	at dev.architectury.loom.forge.dependency.ForgeUserdevProvider.provide(ForgeUserdevProvider.java:60)
-	at dev.architectury.loom.forge.dependency.DependencyProviders.handleDependencies(DependencyProviders.java:109)
-	... 196 more
 
 
-BUILD FAILED in 45s
+BUILD FAILED in 1m 40s

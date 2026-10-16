@@ -584,7 +584,7 @@ public final class PlatformExpectImpl {
                 level.getPlayers(p -> p.distanceToSqr(center.getX(), center.getY(), center.getZ()) < radius * radius)) {
             player.playNotifySound(sound, net.minecraft.sounds.SoundSource.MUSIC, 1.0F, 1.0F);
         }'''
-        mod_loaded = '        return net.neoforged.neoforgespi.language.ModList.get().isLoaded(modId);'
+        mod_loaded = '        return net.neoforged.fml.ModList.get().isLoaded(modId);'
 
     body = head % {
         "loader": loader, "mc": mc,

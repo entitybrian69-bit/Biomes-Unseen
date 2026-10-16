@@ -1,68 +1,324 @@
-* What went wrong:
-A problem occurred configuring project ':neoforge-1.21.10'.
-> Failed to setup Minecraft, java.lang.RuntimeException: Failed to provide net.neoforged:neoforge:21.10.+ : java.lang.RuntimeException: Could not resolve Forge userdev
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/item/LoreBookItem.java:30: error: cannot find symbol
+    public InteractionResult use(Level level, Player player, InteractionHand hand) {
+           ^
 ---
-BUILD FAILED in 54s
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/item/UnseenTonicItem.java:32: error: cannot find symbol
+    public InteractionResult use(Level level, Player player, InteractionHand hand) {
+           ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/item/UnseenGearItems.java:5: error: cannot find symbol
+import net.minecraft.world.item.ArmorMaterial;
+                               ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/client/legacy/UnseenLegacyRenderer.java:13: error: wrong number of type arguments; required 3
+        extends MobRenderer<T, UnseenLegacyModel<T>> {
+                           ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/client/particle/UnseenParticle.java:6: error: cannot find symbol
+import net.minecraft.client.particle.TextureSheetParticle;
+                                    ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/client/particle/UnseenParticle.java:16: error: cannot find symbol
+public class UnseenParticle extends TextureSheetParticle {
+                                    ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/neoforge-1.21.10/src/main/java/com/biomesunseen/neoforge/BiomesUnseenNeoForge.java:21: error: cannot find symbol
+        if (FMLEnvironment.dist == Dist.CLIENT) {
+                          ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/neoforge-1.21.10/src/main/java/com/biomesunseen/platform/PlatformExpectImpl.java:42: error: cannot find symbol
+                        net.minecraft.world.entity.SpawnPlacements.Type.ON_GROUND,
+                                                                  ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/neoforge-1.21.10/src/main/java/com/biomesunseen/platform/PlatformExpectImpl.java:71: error: cannot find symbol
+        return net.neoforged.neoforgespi.language.ModList.get().isLoaded(modId);
+                                                 ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/entity/BiomesUnseenMob.java:180: error: hurt(DamageSource,float) in BiomesUnseenMob cannot override hurt(DamageSource,float) in Entity
+    public void hurt(DamageSource source, float amount) {
+                ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/entity/mobs/CinderPupEntity.java:68: error: cannot find symbol
+            return net.minecraft.world.InteractionResult.sidedSuccess(unseenLevel().isClientSide());
+                                                        ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/entity/mobs/LanternFoxEntity.java:64: error: cannot find symbol
+            return net.minecraft.world.InteractionResult.sidedSuccess(unseenLevel().isClientSide());
+                                                        ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/entity/mobs/FrostFawnEntity.java:66: error: cannot find symbol
+            return net.minecraft.world.InteractionResult.sidedSuccess(unseenLevel().isClientSide());
+                                                        ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/entity/mobs/LumoxEntity.java:66: error: cannot find symbol
+            return net.minecraft.world.InteractionResult.sidedSuccess(unseenLevel().isClientSide());
+                                                        ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/entity/mobs/EmberCalfEntity.java:65: error: cannot find symbol
+            return net.minecraft.world.InteractionResult.sidedSuccess(unseenLevel().isClientSide());
+                                                        ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/entity/mobs/SporeSproutEntity.java:64: error: cannot find symbol
+            return net.minecraft.world.InteractionResult.sidedSuccess(unseenLevel().isClientSide());
+                                                        ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/entity/boss/VoidSerpentEntity.java:138: error: cannot find symbol
+            moveTo(target.getX() + getRandom().nextInt(7) - 3, target.getY() + 2.0D,
+            ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/entity/boss/HeartOfTheForestEntity.java:125: error: cannot find symbol
+            for (Player player : unseenLevel().getNearestPlayers(this, 10.0D, 10.0D)) {
+                                              ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/entity/boss/HeartOfTheForestEntity.java:137: error: cannot find symbol
+            minion.moveTo(blockPosition().getX() + getRandom().nextInt(7) - 3, getY(),
+                  ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/registry/ModItems.java:158: error: constructor SpawnEggItem in class SpawnEggItem cannot be applied to given types;
+                    () -> new SpawnEggItem((EntityType<? extends Mob>) (EntityType<?>) ModEntities.MOB_TYPES.get(mobId).get(),
+                          ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/registry/ModItems.java:167: error: constructor SpawnEggItem in class SpawnEggItem cannot be applied to given types;
+                    () -> new SpawnEggItem((EntityType<? extends Mob>) (EntityType<?>) ModEntities.BOSS_TYPES.get(bossId).get(),
+                          ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/item/UnseenArmorMaterial.java:43: error: cannot find symbol
+                List.of(new ArmorMaterial.Layer(ResourceLocation.fromNamespaceAndPath("biomesunseen", ore.id))),
+                                         ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/item/UnseenArmorMaterial.java:63: error: cannot find symbol
+        return material.getDefense(type);
+                       ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/item/LoreBookItem.java:33: error: cannot find symbol
+            return InteractionResult.SUCCESS;
+                   ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/item/LoreBookItem.java:35: error: cannot find symbol
+        player.sendSystemMessage(net.minecraft.network.chat.Component.translatable(
+              ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/item/LoreBookItem.java:37: error: cannot find symbol
+        return InteractionResult.SUCCESS;
+               ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/item/UnseenTonicItem.java:38: error: cannot find symbol
+        return InteractionResult.SUCCESS;
+               ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/item/UnseenTonicItem.java:46: error: cannot find symbol
+            return MobEffects.MOVEMENT_SPEED;
+                             ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/item/UnseenTonicItem.java:49: error: cannot find symbol
+            return MobEffects.DAMAGE_BOOST;
+                             ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/item/UnseenTonicItem.java:67: error: cannot find symbol
+            return MobEffects.MOVEMENT_SLOWDOWN;
+                             ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/item/UnseenTonicItem.java:70: error: cannot find symbol
+            return MobEffects.DIG_SPEED;
+                             ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/item/UnseenTonicItem.java:78: error: cannot find symbol
+        return MobEffects.DAMAGE_RESISTANCE;
+                         ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/client/ClientSetup.java:25: error: incompatible types: cannot infer type-variable(s) T#1
+        EntityRendererRegistry.register(ModEntities.Lumox, context -> new UnseenLegacyRenderer<>(context, "lumox"));
+                                       ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/client/ClientSetup.java:26: error: incompatible types: cannot infer type-variable(s) T#1
+        EntityRendererRegistry.register(ModEntities.Brambleback, context -> new UnseenLegacyRenderer<>(context, "brambleback"));
+                                       ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/client/ClientSetup.java:27: error: incompatible types: cannot infer type-variable(s) T#1
+        EntityRendererRegistry.register(ModEntities.Siltstrider, context -> new UnseenLegacyRenderer<>(context, "siltstrider"));
+                                       ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/client/ClientSetup.java:28: error: incompatible types: cannot infer type-variable(s) T#1
+        EntityRendererRegistry.register(ModEntities.Glimmermoth, context -> new UnseenLegacyRenderer<>(context, "glimmermoth"));
+                                       ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/client/ClientSetup.java:29: error: incompatible types: cannot infer type-variable(s) T#1
+        EntityRendererRegistry.register(ModEntities.PeatHopper, context -> new UnseenLegacyRenderer<>(context, "peat_hopper"));
+                                       ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/client/ClientSetup.java:30: error: incompatible types: cannot infer type-variable(s) T#1
+        EntityRendererRegistry.register(ModEntities.EmberCalf, context -> new UnseenLegacyRenderer<>(context, "ember_calf"));
+                                       ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/client/ClientSetup.java:31: error: incompatible types: cannot infer type-variable(s) T#1
+        EntityRendererRegistry.register(ModEntities.FrostFawn, context -> new UnseenLegacyRenderer<>(context, "frost_fawn"));
+                                       ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/client/ClientSetup.java:32: error: incompatible types: cannot infer type-variable(s) T#1
+        EntityRendererRegistry.register(ModEntities.Murkling, context -> new UnseenLegacyRenderer<>(context, "murkling"));
+                                       ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/client/ClientSetup.java:33: error: incompatible types: cannot infer type-variable(s) T#1
+        EntityRendererRegistry.register(ModEntities.SporeSprout, context -> new UnseenLegacyRenderer<>(context, "spore_sprout"));
+                                       ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/client/ClientSetup.java:34: error: incompatible types: cannot infer type-variable(s) T#1
+        EntityRendererRegistry.register(ModEntities.Skywisp, context -> new UnseenLegacyRenderer<>(context, "skywisp"));
+                                       ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/client/ClientSetup.java:35: error: incompatible types: cannot infer type-variable(s) T#1
+        EntityRendererRegistry.register(ModEntities.ThunderRam, context -> new UnseenLegacyRenderer<>(context, "thunder_ram"));
+                                       ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/client/ClientSetup.java:36: error: incompatible types: cannot infer type-variable(s) T#1
+        EntityRendererRegistry.register(ModEntities.Mosshorn, context -> new UnseenLegacyRenderer<>(context, "mosshorn"));
+                                       ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/client/ClientSetup.java:37: error: incompatible types: cannot infer type-variable(s) T#1
+        EntityRendererRegistry.register(ModEntities.CinderPup, context -> new UnseenLegacyRenderer<>(context, "cinder_pup"));
+                                       ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/client/ClientSetup.java:38: error: incompatible types: cannot infer type-variable(s) T#1
+        EntityRendererRegistry.register(ModEntities.EchoHowler, context -> new UnseenLegacyRenderer<>(context, "echo_howler"));
+                                       ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/client/ClientSetup.java:39: error: incompatible types: cannot infer type-variable(s) T#1
+        EntityRendererRegistry.register(ModEntities.DuneSkimmer, context -> new UnseenLegacyRenderer<>(context, "dune_skimmer"));
+                                       ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/client/ClientSetup.java:40: error: incompatible types: cannot infer type-variable(s) T#1
+        EntityRendererRegistry.register(ModEntities.TideCaller, context -> new UnseenLegacyRenderer<>(context, "tide_caller"));
+                                       ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/client/ClientSetup.java:41: error: incompatible types: cannot infer type-variable(s) T#1
+        EntityRendererRegistry.register(ModEntities.GloomStalker, context -> new UnseenLegacyRenderer<>(context, "gloom_stalker"));
+                                       ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/client/ClientSetup.java:42: error: incompatible types: cannot infer type-variable(s) T#1
+        EntityRendererRegistry.register(ModEntities.CrystalHermit, context -> new UnseenLegacyRenderer<>(context, "crystal_hermit"));
+                                       ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/client/ClientSetup.java:43: error: incompatible types: cannot infer type-variable(s) T#1
+        EntityRendererRegistry.register(ModEntities.WindDancer, context -> new UnseenLegacyRenderer<>(context, "wind_dancer"));
+                                       ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/client/ClientSetup.java:44: error: incompatible types: cannot infer type-variable(s) T#1
+        EntityRendererRegistry.register(ModEntities.MireGolem, context -> new UnseenLegacyRenderer<>(context, "mire_golem"));
+                                       ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/client/ClientSetup.java:45: error: incompatible types: cannot infer type-variable(s) T#1
+        EntityRendererRegistry.register(ModEntities.LanternFox, context -> new UnseenLegacyRenderer<>(context, "lantern_fox"));
+                                       ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/client/ClientSetup.java:46: error: incompatible types: cannot infer type-variable(s) T#1
+        EntityRendererRegistry.register(ModEntities.ReefGrazer, context -> new UnseenLegacyRenderer<>(context, "reef_grazer"));
+                                       ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/client/ClientSetup.java:47: error: incompatible types: cannot infer type-variable(s) T#1
+        EntityRendererRegistry.register(ModEntities.AshCrawler, context -> new UnseenLegacyRenderer<>(context, "ash_crawler"));
+                                       ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/client/ClientSetup.java:48: error: incompatible types: cannot infer type-variable(s) T#1
+        EntityRendererRegistry.register(ModEntities.StarWhale, context -> new UnseenLegacyRenderer<>(context, "star_whale"));
+                                       ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/client/ClientSetup.java:49: error: incompatible types: cannot infer type-variable(s) T#1
+        EntityRendererRegistry.register(ModEntities.PetalWing, context -> new UnseenLegacyRenderer<>(context, "petal_wing"));
+                                       ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/client/ClientSetup.java:50: error: incompatible types: cannot infer type-variable(s) T#1
+        EntityRendererRegistry.register(ModEntities.HeartOfTheForest, context -> new UnseenLegacyRenderer<>(context, "heart_of_the_forest"));
+                                       ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/client/ClientSetup.java:51: error: incompatible types: cannot infer type-variable(s) T#1
+        EntityRendererRegistry.register(ModEntities.VoidSerpent, context -> new UnseenLegacyRenderer<>(context, "void_serpent"));
+                                       ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/client/legacy/UnseenLegacyModel.java:21: error: type argument T#1 is not within bounds of type-variable T#2
+public class UnseenLegacyModel<T extends BiomesUnseenMob> extends EntityModel<T> {
+                                                                              ^
 ---
 === STACKTRACE ===
-Caused by: java.lang.RuntimeException: Failed to setup Minecraft, java.lang.RuntimeException: Failed to provide net.neoforged:neoforge:21.10.+ : java.lang.RuntimeException: Could not resolve Forge userdev
-	at net.fabricmc.loom.util.ExceptionUtil.createDescriptiveWrapper(ExceptionUtil.java:59)
-	at net.fabricmc.loom.configuration.CompileConfiguration.lambda$run$1(CompileConfiguration.java:152)
-	at net.fabricmc.loom.configuration.CompileConfiguration.lambda$afterEvaluationWithService$0(CompileConfiguration.java:617)
-	at net.fabricmc.loom.util.gradle.GradleUtils.lambda$afterSuccessfulEvaluation$0(GradleUtils.java:51)
-Caused by: java.lang.RuntimeException: Failed to provide net.neoforged:neoforge:21.10.+ : java.lang.RuntimeException: Could not resolve Forge userdev
-	at dev.architectury.loom.forge.dependency.DependencyProviders.handleDependencies(DependencyProviders.java:111)
-	at net.fabricmc.loom.configuration.CompileConfiguration.setupDependencyProviders(CompileConfiguration.java:611)
-	at net.fabricmc.loom.configuration.CompileConfiguration.setupMinecraft(CompileConfiguration.java:253)
-	at net.fabricmc.loom.configuration.CompileConfiguration.lambda$run$1(CompileConfiguration.java:144)
-Caused by: java.lang.RuntimeException: Could not resolve Forge userdev
-	at dev.architectury.loom.forge.dependency.ForgeUserdevProvider.lambda$provide$0(ForgeUserdevProvider.java:60)
-	at dev.architectury.loom.forge.dependency.ForgeUserdevProvider.provide(ForgeUserdevProvider.java:60)
-	at dev.architectury.loom.forge.dependency.DependencyProviders.handleDependencies(DependencyProviders.java:109)
+Caused by: org.gradle.api.internal.tasks.compile.CompilationFailedException: Compilation failed; see the compiler output below.
 === WHAT WENT WRONG ===
 * What went wrong:
-A problem occurred configuring project ':neoforge-1.21.10'.
-> Failed to setup Minecraft, java.lang.RuntimeException: Failed to provide net.neoforged:neoforge:21.10.+ : java.lang.RuntimeException: Could not resolve Forge userdev
-
-* Try:
+Execution failed for task ':neoforge-1.21.10:compileJava' (registered by plugin class 'org.gradle.api.plugins.JavaBasePlugin').
+> Compilation failed; see the compiler output below.
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/item/LoreBookItem.java:30: error: cannot find symbol
+      public InteractionResult use(Level level, Player player, InteractionHand hand) {
+             ^
+    symbol:   class InteractionResult
+    location: class LoreBookItem
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/item/UnseenTonicItem.java:32: error: cannot find symbol
+      public InteractionResult use(Level level, Player player, InteractionHand hand) {
+             ^
+    symbol:   class InteractionResult
+    location: class UnseenTonicItem
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/item/UnseenGearItems.java:5: error: cannot find symbol
+  import net.minecraft.world.item.ArmorMaterial;
+                                 ^
+    symbol:   class ArmorMaterial
+    location: package net.minecraft.world.item
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/client/particle/UnseenParticle.java:6: error: cannot find symbol
+  import net.minecraft.client.particle.TextureSheetParticle;
+                                      ^
+    symbol:   class TextureSheetParticle
+    location: package net.minecraft.client.particle
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/neoforge-1.21.10/src/main/java/com/biomesunseen/neoforge/BiomesUnseenNeoForge.java:21: error: cannot find symbol
+          if (FMLEnvironment.dist == Dist.CLIENT) {
+                            ^
+    symbol:   variable dist
+    location: class FMLEnvironment
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/neoforge-1.21.10/src/main/java/com/biomesunseen/platform/PlatformExpectImpl.java:42: error: cannot find symbol
+                          net.minecraft.world.entity.SpawnPlacements.Type.ON_GROUND,
+                                                                    ^
+    symbol:   variable Type
+    location: class SpawnPlacements
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/neoforge-1.21.10/src/main/java/com/biomesunseen/platform/PlatformExpectImpl.java:71: error: cannot find symbol
+          return net.neoforged.neoforgespi.language.ModList.get().isLoaded(modId);
+                                                   ^
+    symbol:   class ModList
+    location: package net.neoforged.neoforgespi.language
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/item/UnseenArmorMaterial.java:43: error: cannot find symbol
+                  List.of(new ArmorMaterial.Layer(ResourceLocation.fromNamespaceAndPath("biomesunseen", ore.id))),
 === LAST 40 ===
-	at org.gradle.internal.operations.DefaultBuildOperationRunner$1.execute(DefaultBuildOperationRunner.java:30)
-	at org.gradle.internal.operations.DefaultBuildOperationRunner$1.execute(DefaultBuildOperationRunner.java:27)
-	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:67)
-	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:60)
-	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:167)
-	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:60)
-	at org.gradle.internal.operations.DefaultBuildOperationRunner.run(DefaultBuildOperationRunner.java:48)
-	at org.gradle.configuration.internal.DefaultListenerBuildOperationDecorator$BuildOperationEmittingAction.execute(DefaultListenerBuildOperationDecorator.java:170)
-	at org.gradle.internal.event.BroadcastDispatch$ActionInvocationHandler.dispatch(BroadcastDispatch.java:101)
-	at org.gradle.internal.event.BroadcastDispatch$ActionInvocationHandler.dispatch(BroadcastDispatch.java:89)
-	at org.gradle.internal.event.AbstractBroadcastDispatch.dispatch(AbstractBroadcastDispatch.java:44)
-	at org.gradle.internal.event.BroadcastDispatch$SingletonDispatch.dispatch(BroadcastDispatch.java:270)
-	at org.gradle.internal.event.BroadcastDispatch$SingletonDispatch.dispatch(BroadcastDispatch.java:172)
-	at org.gradle.internal.event.AbstractBroadcastDispatch.dispatch(AbstractBroadcastDispatch.java:84)
-	at org.gradle.internal.event.AbstractBroadcastDispatch.dispatch(AbstractBroadcastDispatch.java:70)
-	at org.gradle.internal.event.BroadcastDispatch$CompositeDispatch.dispatch(BroadcastDispatch.java:382)
-	at org.gradle.internal.event.BroadcastDispatch$CompositeDispatch.dispatch(BroadcastDispatch.java:274)
-	at org.gradle.internal.event.ListenerBroadcast.dispatch(ListenerBroadcast.java:160)
-	at org.gradle.internal.event.ListenerBroadcast.dispatch(ListenerBroadcast.java:37)
-	at org.gradle.internal.dispatch.ProxyDispatchAdapter$DispatchingInvocationHandler.invoke(ProxyDispatchAdapter.java:88)
-	at jdk.proxy1/jdk.proxy1.$Proxy73.afterEvaluate(Unknown Source)
-	at org.gradle.configuration.project.LifecycleProjectEvaluator$NotifyAfterEvaluate$1.execute(LifecycleProjectEvaluator.java:247)
-	at org.gradle.configuration.project.LifecycleProjectEvaluator$NotifyAfterEvaluate$1.execute(LifecycleProjectEvaluator.java:244)
-	at org.gradle.api.internal.project.DefaultProject.stepEvaluationListener(DefaultProject.java:1525)
-	at org.gradle.configuration.project.LifecycleProjectEvaluator$NotifyAfterEvaluate.run(LifecycleProjectEvaluator.java:253)
-	... 164 more
-Caused by: java.lang.RuntimeException: Failed to provide net.neoforged:neoforge:21.10.+ : java.lang.RuntimeException: Could not resolve Forge userdev
-	at dev.architectury.loom.forge.dependency.DependencyProviders.handleDependencies(DependencyProviders.java:111)
-	at net.fabricmc.loom.configuration.CompileConfiguration.setupDependencyProviders(CompileConfiguration.java:611)
-	at net.fabricmc.loom.configuration.CompileConfiguration.setupMinecraft(CompileConfiguration.java:253)
-	at net.fabricmc.loom.configuration.CompileConfiguration.lambda$run$1(CompileConfiguration.java:144)
-	... 193 more
-Caused by: java.lang.RuntimeException: Could not resolve Forge userdev
-	at dev.architectury.loom.forge.dependency.ForgeUserdevProvider.lambda$provide$0(ForgeUserdevProvider.java:60)
-	at dev.architectury.loom.forge.dependency.ForgeUserdevProvider.provide(ForgeUserdevProvider.java:60)
-	at dev.architectury.loom.forge.dependency.DependencyProviders.handleDependencies(DependencyProviders.java:109)
-	... 196 more
+	at org.gradle.internal.execution.steps.MutableStep.execute(MutableStep.java:26)
+	at org.gradle.internal.execution.steps.ValidateStep$Mutable.executeDelegate(ValidateStep.java:79)
+	at org.gradle.internal.execution.steps.ValidateStep$Mutable.executeDelegate(ValidateStep.java:65)
+	at org.gradle.internal.execution.steps.ValidateStep.execute(ValidateStep.java:105)
+	at org.gradle.internal.execution.steps.ValidateStep$Mutable.execute(ValidateStep.java:65)
+	at org.gradle.internal.execution.steps.CaptureMutableStateBeforeExecutionStep.executeMutable(CaptureMutableStateBeforeExecutionStep.java:86)
+	at org.gradle.internal.execution.steps.CaptureMutableStateBeforeExecutionStep.execute(CaptureMutableStateBeforeExecutionStep.java:65)
+	at org.gradle.internal.execution.steps.CaptureMutableStateBeforeExecutionStep.execute(CaptureMutableStateBeforeExecutionStep.java:45)
+	at org.gradle.internal.execution.steps.SkipEmptyMutableWorkStep.executeWithNonEmptySources(SkipEmptyMutableWorkStep.java:210)
+	at org.gradle.internal.execution.steps.SkipEmptyMutableWorkStep.executeMutable(SkipEmptyMutableWorkStep.java:90)
+	at org.gradle.internal.execution.steps.SkipEmptyMutableWorkStep.executeMutable(SkipEmptyMutableWorkStep.java:53)
+	at org.gradle.internal.execution.steps.MutableStep.execute(MutableStep.java:26)
+	at org.gradle.internal.execution.steps.legacy.MarkSnapshottingInputsStartedStep.execute(MarkSnapshottingInputsStartedStep.java:38)
+	at org.gradle.internal.execution.steps.LoadPreviousExecutionStateStep.executeMutable(LoadPreviousExecutionStateStep.java:36)
+	at org.gradle.internal.execution.steps.LoadPreviousExecutionStateStep.executeMutable(LoadPreviousExecutionStateStep.java:23)
+	at org.gradle.internal.execution.steps.MutableStep.execute(MutableStep.java:26)
+	at org.gradle.internal.execution.steps.HandleStaleOutputsStep.executeMutable(HandleStaleOutputsStep.java:77)
+	at org.gradle.internal.execution.steps.HandleStaleOutputsStep.executeMutable(HandleStaleOutputsStep.java:43)
+	at org.gradle.internal.execution.steps.MutableStep.execute(MutableStep.java:26)
+	at org.gradle.internal.execution.steps.AssignMutableWorkspaceStep.lambda$executeMutable$0(AssignMutableWorkspaceStep.java:34)
+	at org.gradle.api.internal.tasks.execution.TaskExecution$4.withWorkspace(TaskExecution.java:314)
+	at org.gradle.internal.execution.steps.AssignMutableWorkspaceStep.executeMutable(AssignMutableWorkspaceStep.java:30)
+	at org.gradle.internal.execution.steps.AssignMutableWorkspaceStep.executeMutable(AssignMutableWorkspaceStep.java:21)
+	at org.gradle.internal.execution.steps.MutableStep.execute(MutableStep.java:26)
+	at org.gradle.internal.execution.steps.ChoosePipelineStep.execute(ChoosePipelineStep.java:40)
+	at org.gradle.internal.execution.steps.ChoosePipelineStep.execute(ChoosePipelineStep.java:23)
+	at org.gradle.internal.execution.steps.ExecuteWorkBuildOperationFiringStep.lambda$execute$2(ExecuteWorkBuildOperationFiringStep.java:67)
+	at org.gradle.internal.execution.steps.ExecuteWorkBuildOperationFiringStep.execute(ExecuteWorkBuildOperationFiringStep.java:67)
+	at org.gradle.internal.execution.steps.ExecuteWorkBuildOperationFiringStep.execute(ExecuteWorkBuildOperationFiringStep.java:39)
+	at org.gradle.internal.execution.steps.IdentityCacheStep.execute(IdentityCacheStep.java:46)
+	at org.gradle.internal.execution.steps.IdentityCacheStep.execute(IdentityCacheStep.java:34)
+	at org.gradle.internal.execution.steps.IdentifyStep.execute(IdentifyStep.java:56)
+	at org.gradle.internal.execution.steps.IdentifyStep.execute(IdentifyStep.java:38)
+	at org.gradle.internal.execution.impl.DefaultExecutionEngine$1.execute(DefaultExecutionEngine.java:68)
+	at org.gradle.api.internal.tasks.execution.DefaultTaskNodeExecutor.doExecute(DefaultTaskNodeExecutor.java:364)
+	... 25 more
 
 
-BUILD FAILED in 54s
+BUILD FAILED in 1m 58s
+1 actionable task: 1 executed
