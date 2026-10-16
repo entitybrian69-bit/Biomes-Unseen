@@ -1,0 +1,203 @@
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/item/UnseenArmorMaterial.java:18: error: interface expected here
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/entity/mobs/SiltstriderEntity.java:22: error: method does not override or implement a method from a supertype
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/entity/mobs/SiltstriderEntity.java:24: error: method defineSynchedData in class Mob cannot be applied to given types;
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/entity/legacy/LegacyAnimDriver.java:33: error: cannot find symbol
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/entity/mobs/CinderPupEntity.java:24: error: method does not override or implement a method from a supertype
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/entity/mobs/CinderPupEntity.java:26: error: method defineSynchedData in class Mob cannot be applied to given types;
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/entity/mobs/CinderPupEntity.java:27: error: cannot find symbol
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/entity/mobs/DuneSkimmerEntity.java:22: error: method does not override or implement a method from a supertype
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/entity/mobs/DuneSkimmerEntity.java:24: error: method defineSynchedData in class Mob cannot be applied to given types;
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/entity/mobs/WindDancerEntity.java:22: error: method does not override or implement a method from a supertype
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/entity/mobs/WindDancerEntity.java:24: error: method defineSynchedData in class Mob cannot be applied to given types;
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/entity/mobs/LanternFoxEntity.java:24: error: method does not override or implement a method from a supertype
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/entity/mobs/LanternFoxEntity.java:26: error: method defineSynchedData in class Mob cannot be applied to given types;
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/entity/mobs/LanternFoxEntity.java:27: error: cannot find symbol
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/entity/mobs/FrostFawnEntity.java:24: error: method does not override or implement a method from a supertype
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/entity/mobs/FrostFawnEntity.java:26: error: method defineSynchedData in class Mob cannot be applied to given types;
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/entity/mobs/FrostFawnEntity.java:27: error: cannot find symbol
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/entity/mobs/StarWhaleEntity.java:22: error: method does not override or implement a method from a supertype
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/entity/mobs/StarWhaleEntity.java:24: error: method defineSynchedData in class Mob cannot be applied to given types;
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/entity/mobs/PetalWingEntity.java:22: error: method does not override or implement a method from a supertype
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/entity/mobs/PetalWingEntity.java:24: error: method defineSynchedData in class Mob cannot be applied to given types;
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/entity/mobs/MireGolemEntity.java:22: error: method does not override or implement a method from a supertype
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/entity/mobs/MireGolemEntity.java:24: error: method defineSynchedData in class Mob cannot be applied to given types;
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/entity/mobs/LumoxEntity.java:24: error: method does not override or implement a method from a supertype
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/entity/mobs/LumoxEntity.java:26: error: method defineSynchedData in class Mob cannot be applied to given types;
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/entity/mobs/LumoxEntity.java:27: error: cannot find symbol
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/entity/mobs/EmberCalfEntity.java:24: error: method does not override or implement a method from a supertype
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/entity/mobs/EmberCalfEntity.java:26: error: method defineSynchedData in class Mob cannot be applied to given types;
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/entity/mobs/EmberCalfEntity.java:27: error: cannot find symbol
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/entity/mobs/PeatHopperEntity.java:22: error: method does not override or implement a method from a supertype
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/entity/mobs/PeatHopperEntity.java:24: error: method defineSynchedData in class Mob cannot be applied to given types;
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/entity/mobs/SkywispEntity.java:22: error: method does not override or implement a method from a supertype
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/entity/mobs/SkywispEntity.java:24: error: method defineSynchedData in class Mob cannot be applied to given types;
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/entity/mobs/CrystalHermitEntity.java:22: error: method does not override or implement a method from a supertype
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/entity/mobs/CrystalHermitEntity.java:24: error: method defineSynchedData in class Mob cannot be applied to given types;
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/entity/mobs/ReefGrazerEntity.java:22: error: method does not override or implement a method from a supertype
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/entity/mobs/ReefGrazerEntity.java:24: error: method defineSynchedData in class Mob cannot be applied to given types;
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/entity/mobs/AshCrawlerEntity.java:22: error: method does not override or implement a method from a supertype
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/entity/mobs/AshCrawlerEntity.java:24: error: method defineSynchedData in class Mob cannot be applied to given types;
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/entity/mobs/MosshornEntity.java:22: error: method does not override or implement a method from a supertype
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/entity/mobs/MosshornEntity.java:24: error: method defineSynchedData in class Mob cannot be applied to given types;
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/entity/mobs/GloomStalkerEntity.java:22: error: method does not override or implement a method from a supertype
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/entity/mobs/GloomStalkerEntity.java:24: error: method defineSynchedData in class Mob cannot be applied to given types;
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/entity/mobs/BramblebackEntity.java:22: error: method does not override or implement a method from a supertype
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/entity/mobs/BramblebackEntity.java:24: error: method defineSynchedData in class Mob cannot be applied to given types;
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/entity/mobs/TideCallerEntity.java:22: error: method does not override or implement a method from a supertype
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/entity/mobs/TideCallerEntity.java:24: error: method defineSynchedData in class Mob cannot be applied to given types;
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/entity/mobs/EchoHowlerEntity.java:22: error: method does not override or implement a method from a supertype
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/entity/mobs/EchoHowlerEntity.java:24: error: method defineSynchedData in class Mob cannot be applied to given types;
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/entity/mobs/MurklingEntity.java:22: error: method does not override or implement a method from a supertype
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/entity/mobs/MurklingEntity.java:24: error: method defineSynchedData in class Mob cannot be applied to given types;
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/entity/mobs/GlimmermothEntity.java:22: error: method does not override or implement a method from a supertype
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/entity/mobs/GlimmermothEntity.java:24: error: method defineSynchedData in class Mob cannot be applied to given types;
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/entity/mobs/ThunderRamEntity.java:22: error: method does not override or implement a method from a supertype
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/entity/mobs/ThunderRamEntity.java:24: error: method defineSynchedData in class Mob cannot be applied to given types;
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/entity/mobs/SporeSproutEntity.java:24: error: method does not override or implement a method from a supertype
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/entity/mobs/SporeSproutEntity.java:26: error: method defineSynchedData in class Mob cannot be applied to given types;
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/entity/mobs/SporeSproutEntity.java:27: error: cannot find symbol
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/entity/ai/FleeDangerGoal.java:31: error: incompatible types: Player cannot be converted to PathfinderMob
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/entity/boss/VoidSerpentEntity.java:144: error: cannot find symbol
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/entity/boss/HeartOfTheForestEntity.java:94: error: incompatible types: Reference<SoundEvent> cannot be converted to SoundEvent
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/entity/boss/HeartOfTheForestEntity.java:125: error: cannot find symbol
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/registry/ModEntities.java:65: error: cannot find symbol
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/registry/ModEntities.java:68: error: cannot find symbol
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/registry/ModEntities.java:71: error: cannot find symbol
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/registry/ModEntities.java:74: error: cannot find symbol
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/registry/ModEntities.java:77: error: cannot find symbol
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/registry/ModEntities.java:80: error: cannot find symbol
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/registry/ModEntities.java:83: error: cannot find symbol
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/registry/ModEntities.java:86: error: cannot find symbol
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/registry/ModEntities.java:89: error: cannot find symbol
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/registry/ModEntities.java:92: error: cannot find symbol
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/registry/ModEntities.java:95: error: cannot find symbol
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/registry/ModEntities.java:98: error: cannot find symbol
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/registry/ModEntities.java:101: error: cannot find symbol
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/registry/ModEntities.java:104: error: cannot find symbol
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/registry/ModEntities.java:107: error: cannot find symbol
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/registry/ModEntities.java:110: error: cannot find symbol
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/registry/ModEntities.java:113: error: cannot find symbol
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/registry/ModEntities.java:116: error: cannot find symbol
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/registry/ModEntities.java:119: error: cannot find symbol
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/registry/ModEntities.java:122: error: cannot find symbol
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/registry/ModEntities.java:125: error: cannot find symbol
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/registry/ModEntities.java:128: error: cannot find symbol
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/registry/ModEntities.java:131: error: cannot find symbol
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/registry/ModEntities.java:134: error: cannot find symbol
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/registry/ModEntities.java:137: error: cannot find symbol
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/registry/ModEntities.java:140: error: cannot find symbol
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/registry/ModEntities.java:143: error: cannot find symbol
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/registry/ModTags.java:16: error: ResourceLocation(String,String) has private access in ResourceLocation
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/registry/ModTags.java:17: error: ResourceLocation(String,String) has private access in ResourceLocation
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/registry/ModTags.java:18: error: ResourceLocation(String,String) has private access in ResourceLocation
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/registry/ModTags.java:19: error: ResourceLocation(String,String) has private access in ResourceLocation
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/registry/ModTags.java:20: error: ResourceLocation(String,String) has private access in ResourceLocation
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/registry/ModTags.java:21: error: ResourceLocation(String,String) has private access in ResourceLocation
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/registry/ModTags.java:22: error: ResourceLocation(String,String) has private access in ResourceLocation
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/registry/ModTags.java:23: error: ResourceLocation(String,String) has private access in ResourceLocation
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/registry/ModTags.java:24: error: ResourceLocation(String,String) has private access in ResourceLocation
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/registry/ModTags.java:26: error: ResourceLocation(String,String) has private access in ResourceLocation
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/registry/ModTags.java:27: error: ResourceLocation(String,String) has private access in ResourceLocation
+> Task :fabric-1.21.1:compileJava FAILED
+* What went wrong:
+Execution failed for task ':fabric-1.21.1:compileJava' (registered by plugin class 'org.gradle.api.plugins.JavaBasePlugin').
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/item/UnseenArmorMaterial.java:18: error: interface expected here
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/entity/mobs/SiltstriderEntity.java:22: error: method does not override or implement a method from a supertype
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/entity/mobs/CinderPupEntity.java:24: error: method does not override or implement a method from a supertype
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/entity/mobs/DuneSkimmerEntity.java:22: error: method does not override or implement a method from a supertype
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/entity/mobs/WindDancerEntity.java:22: error: method does not override or implement a method from a supertype
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/entity/mobs/LanternFoxEntity.java:24: error: method does not override or implement a method from a supertype
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/entity/mobs/FrostFawnEntity.java:24: error: method does not override or implement a method from a supertype
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/entity/mobs/StarWhaleEntity.java:22: error: method does not override or implement a method from a supertype
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/entity/mobs/PetalWingEntity.java:22: error: method does not override or implement a method from a supertype
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/entity/mobs/MireGolemEntity.java:22: error: method does not override or implement a method from a supertype
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/entity/mobs/LumoxEntity.java:24: error: method does not override or implement a method from a supertype
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/entity/mobs/EmberCalfEntity.java:24: error: method does not override or implement a method from a supertype
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/entity/mobs/PeatHopperEntity.java:22: error: method does not override or implement a method from a supertype
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/entity/mobs/SkywispEntity.java:22: error: method does not override or implement a method from a supertype
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/entity/mobs/CrystalHermitEntity.java:22: error: method does not override or implement a method from a supertype
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/entity/mobs/ReefGrazerEntity.java:22: error: method does not override or implement a method from a supertype
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/entity/mobs/AshCrawlerEntity.java:22: error: method does not override or implement a method from a supertype
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/entity/mobs/MosshornEntity.java:22: error: method does not override or implement a method from a supertype
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/entity/mobs/GloomStalkerEntity.java:22: error: method does not override or implement a method from a supertype
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/entity/mobs/BramblebackEntity.java:22: error: method does not override or implement a method from a supertype
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/entity/mobs/TideCallerEntity.java:22: error: method does not override or implement a method from a supertype
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/entity/mobs/EchoHowlerEntity.java:22: error: method does not override or implement a method from a supertype
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/entity/mobs/MurklingEntity.java:22: error: method does not override or implement a method from a supertype
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/entity/mobs/GlimmermothEntity.java:22: error: method does not override or implement a method from a supertype
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/entity/mobs/ThunderRamEntity.java:22: error: method does not override or implement a method from a supertype
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/entity/mobs/SporeSproutEntity.java:24: error: method does not override or implement a method from a supertype
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/entity/mobs/SiltstriderEntity.java:24: error: method defineSynchedData in class Mob cannot be applied to given types;
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/entity/mobs/CinderPupEntity.java:26: error: method defineSynchedData in class Mob cannot be applied to given types;
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/entity/mobs/DuneSkimmerEntity.java:24: error: method defineSynchedData in class Mob cannot be applied to given types;
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/entity/mobs/WindDancerEntity.java:24: error: method defineSynchedData in class Mob cannot be applied to given types;
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/entity/mobs/LanternFoxEntity.java:26: error: method defineSynchedData in class Mob cannot be applied to given types;
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/entity/mobs/FrostFawnEntity.java:26: error: method defineSynchedData in class Mob cannot be applied to given types;
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/entity/mobs/StarWhaleEntity.java:24: error: method defineSynchedData in class Mob cannot be applied to given types;
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/entity/mobs/PetalWingEntity.java:24: error: method defineSynchedData in class Mob cannot be applied to given types;
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/entity/mobs/MireGolemEntity.java:24: error: method defineSynchedData in class Mob cannot be applied to given types;
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/entity/mobs/LumoxEntity.java:26: error: method defineSynchedData in class Mob cannot be applied to given types;
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/entity/mobs/EmberCalfEntity.java:26: error: method defineSynchedData in class Mob cannot be applied to given types;
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/entity/mobs/PeatHopperEntity.java:24: error: method defineSynchedData in class Mob cannot be applied to given types;
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/entity/mobs/SkywispEntity.java:24: error: method defineSynchedData in class Mob cannot be applied to given types;
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/entity/mobs/CrystalHermitEntity.java:24: error: method defineSynchedData in class Mob cannot be applied to given types;
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/entity/mobs/ReefGrazerEntity.java:24: error: method defineSynchedData in class Mob cannot be applied to given types;
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/entity/mobs/AshCrawlerEntity.java:24: error: method defineSynchedData in class Mob cannot be applied to given types;
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/entity/mobs/MosshornEntity.java:24: error: method defineSynchedData in class Mob cannot be applied to given types;
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/entity/mobs/GloomStalkerEntity.java:24: error: method defineSynchedData in class Mob cannot be applied to given types;
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/entity/mobs/BramblebackEntity.java:24: error: method defineSynchedData in class Mob cannot be applied to given types;
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/entity/mobs/TideCallerEntity.java:24: error: method defineSynchedData in class Mob cannot be applied to given types;
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/entity/mobs/EchoHowlerEntity.java:24: error: method defineSynchedData in class Mob cannot be applied to given types;
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/entity/mobs/MurklingEntity.java:24: error: method defineSynchedData in class Mob cannot be applied to given types;
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/entity/mobs/GlimmermothEntity.java:24: error: method defineSynchedData in class Mob cannot be applied to given types;
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/entity/mobs/ThunderRamEntity.java:24: error: method defineSynchedData in class Mob cannot be applied to given types;
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/entity/mobs/SporeSproutEntity.java:26: error: method defineSynchedData in class Mob cannot be applied to given types;
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/entity/legacy/LegacyAnimDriver.java:33: error: cannot find symbol
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/entity/mobs/CinderPupEntity.java:27: error: cannot find symbol
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/entity/mobs/LanternFoxEntity.java:27: error: cannot find symbol
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/entity/mobs/FrostFawnEntity.java:27: error: cannot find symbol
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/entity/mobs/LumoxEntity.java:27: error: cannot find symbol
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/entity/mobs/EmberCalfEntity.java:27: error: cannot find symbol
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/entity/mobs/SporeSproutEntity.java:27: error: cannot find symbol
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/entity/boss/HeartOfTheForestEntity.java:125: error: cannot find symbol
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/entity/ai/FleeDangerGoal.java:31: error: incompatible types: Player cannot be converted to PathfinderMob
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/entity/boss/HeartOfTheForestEntity.java:94: error: incompatible types: Reference<SoundEvent> cannot be converted to SoundEvent
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/entity/boss/VoidSerpentEntity.java:144: error: cannot find symbol
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/registry/ModEntities.java:65: error: cannot find symbol
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/registry/ModEntities.java:68: error: cannot find symbol
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/registry/ModEntities.java:71: error: cannot find symbol
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/registry/ModEntities.java:74: error: cannot find symbol
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/registry/ModEntities.java:77: error: cannot find symbol
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/registry/ModEntities.java:80: error: cannot find symbol
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/registry/ModEntities.java:83: error: cannot find symbol
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/registry/ModEntities.java:86: error: cannot find symbol
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/registry/ModEntities.java:89: error: cannot find symbol
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/registry/ModEntities.java:92: error: cannot find symbol
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/registry/ModEntities.java:95: error: cannot find symbol
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/registry/ModEntities.java:98: error: cannot find symbol
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/registry/ModEntities.java:101: error: cannot find symbol
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/registry/ModEntities.java:104: error: cannot find symbol
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/registry/ModEntities.java:107: error: cannot find symbol
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/registry/ModEntities.java:110: error: cannot find symbol
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/registry/ModEntities.java:113: error: cannot find symbol
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/registry/ModEntities.java:116: error: cannot find symbol
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/registry/ModEntities.java:119: error: cannot find symbol
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/registry/ModEntities.java:122: error: cannot find symbol
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/registry/ModEntities.java:125: error: cannot find symbol
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/registry/ModEntities.java:128: error: cannot find symbol
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/registry/ModEntities.java:131: error: cannot find symbol
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/registry/ModEntities.java:134: error: cannot find symbol
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/registry/ModEntities.java:137: error: cannot find symbol
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/registry/ModEntities.java:140: error: cannot find symbol
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/registry/ModEntities.java:143: error: cannot find symbol
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/registry/ModTags.java:16: error: ResourceLocation(String,String) has private access in ResourceLocation
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/registry/ModTags.java:17: error: ResourceLocation(String,String) has private access in ResourceLocation
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/registry/ModTags.java:18: error: ResourceLocation(String,String) has private access in ResourceLocation
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/registry/ModTags.java:19: error: ResourceLocation(String,String) has private access in ResourceLocation
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/registry/ModTags.java:20: error: ResourceLocation(String,String) has private access in ResourceLocation
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/registry/ModTags.java:21: error: ResourceLocation(String,String) has private access in ResourceLocation
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/registry/ModTags.java:22: error: ResourceLocation(String,String) has private access in ResourceLocation
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/registry/ModTags.java:23: error: ResourceLocation(String,String) has private access in ResourceLocation
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/registry/ModTags.java:24: error: ResourceLocation(String,String) has private access in ResourceLocation
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/registry/ModTags.java:26: error: ResourceLocation(String,String) has private access in ResourceLocation
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/registry/ModTags.java:27: error: ResourceLocation(String,String) has private access in ResourceLocation

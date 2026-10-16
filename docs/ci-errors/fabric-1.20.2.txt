@@ -1,0 +1,39 @@
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.20.2/java/com/biomesunseen/entity/legacy/LegacyAnimDriver.java:33: error: cannot find symbol
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.20.2/java/com/biomesunseen/entity/ai/FleeDangerGoal.java:31: error: incompatible types: Player cannot be converted to PathfinderMob
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.20.2/java/com/biomesunseen/entity/boss/VoidSerpentEntity.java:144: error: cannot find symbol
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.20.2/java/com/biomesunseen/entity/boss/HeartOfTheForestEntity.java:94: error: incompatible types: Reference<SoundEvent> cannot be converted to SoundEvent
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.20.2/java/com/biomesunseen/entity/boss/HeartOfTheForestEntity.java:125: error: cannot find symbol
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.20.2/java/com/biomesunseen/registry/ModEntities.java:65: error: cannot find symbol
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.20.2/java/com/biomesunseen/registry/ModEntities.java:68: error: cannot find symbol
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.20.2/java/com/biomesunseen/registry/ModEntities.java:71: error: cannot find symbol
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.20.2/java/com/biomesunseen/registry/ModEntities.java:74: error: cannot find symbol
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.20.2/java/com/biomesunseen/registry/ModEntities.java:77: error: cannot find symbol
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.20.2/java/com/biomesunseen/registry/ModEntities.java:80: error: cannot find symbol
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.20.2/java/com/biomesunseen/registry/ModEntities.java:83: error: cannot find symbol
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.20.2/java/com/biomesunseen/registry/ModEntities.java:86: error: cannot find symbol
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.20.2/java/com/biomesunseen/registry/ModEntities.java:89: error: cannot find symbol
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.20.2/java/com/biomesunseen/registry/ModEntities.java:92: error: cannot find symbol
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.20.2/java/com/biomesunseen/registry/ModEntities.java:95: error: cannot find symbol
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.20.2/java/com/biomesunseen/registry/ModEntities.java:98: error: cannot find symbol
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.20.2/java/com/biomesunseen/registry/ModEntities.java:101: error: cannot find symbol
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.20.2/java/com/biomesunseen/registry/ModEntities.java:104: error: cannot find symbol
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.20.2/java/com/biomesunseen/registry/ModEntities.java:107: error: cannot find symbol
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.20.2/java/com/biomesunseen/registry/ModEntities.java:110: error: cannot find symbol
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.20.2/java/com/biomesunseen/registry/ModEntities.java:113: error: cannot find symbol
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.20.2/java/com/biomesunseen/registry/ModEntities.java:116: error: cannot find symbol
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.20.2/java/com/biomesunseen/registry/ModEntities.java:119: error: cannot find symbol
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.20.2/java/com/biomesunseen/registry/ModEntities.java:122: error: cannot find symbol
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.20.2/java/com/biomesunseen/registry/ModEntities.java:125: error: cannot find symbol
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.20.2/java/com/biomesunseen/registry/ModEntities.java:128: error: cannot find symbol
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.20.2/java/com/biomesunseen/registry/ModEntities.java:131: error: cannot find symbol
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.20.2/java/com/biomesunseen/registry/ModEntities.java:134: error: cannot find symbol
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.20.2/java/com/biomesunseen/registry/ModEntities.java:137: error: cannot find symbol
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.20.2/java/com/biomesunseen/registry/ModEntities.java:140: error: cannot find symbol
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.20.2/java/com/biomesunseen/registry/ModEntities.java:143: error: cannot find symbol
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.20.2/java/com/biomesunseen/client/particle/UnseenParticle.java:15: error: UnseenParticle is not abstract and does not override abstract method render(VertexConsumer,Camera,float) in Particle
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.20.2/java/com/biomesunseen/client/particle/UnseenParticle.java:28: error: cannot find symbol
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.20.2/java/com/biomesunseen/client/particle/UnseenParticle.java:34: error: cannot find symbol
+> Task :fabric-1.20.2:compileJava FAILED
+* What went wrong:
+Execution failed for task ':fabric-1.20.2:compileJava' (registered by plugin class 'org.gradle.api.plugins.JavaBasePlugin').
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.20.2/java/com/biomesunseen/entity/legacy/LegacyAnimDriver.java:33: error: cannot find symbol

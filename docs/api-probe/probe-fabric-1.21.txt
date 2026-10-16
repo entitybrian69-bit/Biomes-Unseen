@@ -1,0 +1,36 @@
+MODULE=fabric-1.21
+MCJAR=
+NO MINECRAFT JAR RESOLVED
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+A problem occurred configuring project ':fabric-1.21'.
+> Could not resolve all files for configuration ':fabric-1.21:modImplementation'.
+   > Could not find net.fabricmc.fabric-api:fabric-api:0.102.1+1.21.
+     Searched in the following locations:
+       - https://libraries.minecraft.net/net/fabricmc/fabric-api/fabric-api/0.102.1+1.21/fabric-api-0.102.1+1.21.pom
+       - https://libraries.minecraft.net/net/fabricmc/fabric-api/fabric-api/0.102.1+1.21/fabric-api-0.102.1+1.21.jar
+       - https://repo.maven.apache.org/maven2/net/fabricmc/fabric-api/fabric-api/0.102.1+1.21/fabric-api-0.102.1+1.21.pom
+       - https://maven.fabricmc.net/net/fabricmc/fabric-api/fabric-api/0.102.1+1.21/fabric-api-0.102.1+1.21.pom
+       - https://maven.architectury.dev/net/fabricmc/fabric-api/fabric-api/0.102.1+1.21/fabric-api-0.102.1+1.21.pom
+       - https://maven.minecraftforge.net/net/fabricmc/fabric-api/fabric-api/0.102.1+1.21/fabric-api-0.102.1+1.21.pom
+       - https://maven.neoforged.net/releases/net/fabricmc/fabric-api/fabric-api/0.102.1+1.21/fabric-api-0.102.1+1.21.pom
+       - https://dl.cloudsmith.io/public/geckolib3/geckolib/maven/net/fabricmc/fabric-api/fabric-api/0.102.1+1.21/fabric-api-0.102.1+1.21.pom
+       - https://maven.shedaniel.me/net/fabricmc/fabric-api/fabric-api/0.102.1+1.21/fabric-api-0.102.1+1.21.pom
+       - https://maven.terraformersmc.com/releases/net/fabricmc/fabric-api/fabric-api/0.102.1+1.21/fabric-api-0.102.1+1.21.pom
+       - https://oss.sonatype.org/content/repositories/snapshots/net/fabricmc/fabric-api/fabric-api/0.102.1+1.21/fabric-api-0.102.1+1.21.pom
+       - file:/home/runner/work/Biomes-Unseen/Biomes-Unseen/.gradle/loom-cache/remapped_mods/net/fabricmc/fabric-api/fabric-api/0.102.1+1.21/fabric-api-0.102.1+1.21.pom
+       - file:/home/runner/.gradle/caches/fabric-loom/minecraftMaven/net/fabricmc/fabric-api/fabric-api/0.102.1+1.21/fabric-api-0.102.1+1.21.pom
+       - file:/home/runner/work/Biomes-Unseen/Biomes-Unseen/.gradle/loom-cache/minecraftMaven/net/fabricmc/fabric-api/fabric-api/0.102.1+1.21/fabric-api-0.102.1+1.21.pom
+       - file:/home/runner/.gradle/caches/fabric-loom/forge/transformed-dependencies-v1/net/fabricmc/fabric-api/fabric-api/0.102.1+1.21/fabric-api-0.102.1+1.21.pom
+     Required by:
+         project ':fabric-1.21'
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights from a Build Scan (powered by Develocity).
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 47s

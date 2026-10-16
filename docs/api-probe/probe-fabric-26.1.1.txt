@@ -1,0 +1,17 @@
+MODULE=fabric-26.1.1
+MCJAR=
+NO MINECRAFT JAR RESOLVED
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+A problem occurred configuring project ':fabric-26.1.1'.
+> Failed to setup Minecraft, java.lang.IllegalStateException: Minecraft 26.1.1 requires Java 25 but Gradle is using 21
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights from a Build Scan (powered by Develocity).
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 40s
