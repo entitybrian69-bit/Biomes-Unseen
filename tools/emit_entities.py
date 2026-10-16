@@ -1871,7 +1871,6 @@ public class VoidSerpentEntity extends BiomesUnseenMob {
         "living_t": living_t,
         "gecko_methods_serpent": gecko_methods_serpent,
     }
-    serpent = serpent.replace("AABB box", "net.minecraft.world.phys.AABB box")
     if F["damage"] == "old":
         serpent = serpent.replace("damageSources().mobAttack(this)", "DamageSource.mobAttack(this)")
         if legacy:

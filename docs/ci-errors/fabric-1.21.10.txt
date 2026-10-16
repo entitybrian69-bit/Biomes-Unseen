@@ -1,11 +1,3 @@
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/item/LoreBookItem.java:30: error: cannot find symbol
-    public InteractionResult use(Level level, Player player, InteractionHand hand) {
-           ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/item/UnseenTonicItem.java:32: error: cannot find symbol
-    public InteractionResult use(Level level, Player player, InteractionHand hand) {
-           ^
----
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/item/UnseenGearItems.java:5: error: cannot find symbol
 import net.minecraft.world.item.ArmorMaterial;
                                ^
@@ -22,43 +14,15 @@ import net.minecraft.client.particle.TextureSheetParticle;
 public class UnseenParticle extends TextureSheetParticle {
                                     ^
 ---
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/entity/BiomesUnseenMob.java:180: error: hurt(DamageSource,float) in BiomesUnseenMob cannot override hurt(DamageSource,float) in Entity
-    public void hurt(DamageSource source, float amount) {
-                ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/entity/mobs/CinderPupEntity.java:68: error: cannot find symbol
-            return net.minecraft.world.InteractionResult.sidedSuccess(unseenLevel().isClientSide());
-                                                        ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/entity/mobs/LanternFoxEntity.java:64: error: cannot find symbol
-            return net.minecraft.world.InteractionResult.sidedSuccess(unseenLevel().isClientSide());
-                                                        ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/entity/mobs/FrostFawnEntity.java:66: error: cannot find symbol
-            return net.minecraft.world.InteractionResult.sidedSuccess(unseenLevel().isClientSide());
-                                                        ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/entity/mobs/LumoxEntity.java:66: error: cannot find symbol
-            return net.minecraft.world.InteractionResult.sidedSuccess(unseenLevel().isClientSide());
-                                                        ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/entity/mobs/EmberCalfEntity.java:65: error: cannot find symbol
-            return net.minecraft.world.InteractionResult.sidedSuccess(unseenLevel().isClientSide());
-                                                        ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/entity/mobs/SporeSproutEntity.java:64: error: cannot find symbol
-            return net.minecraft.world.InteractionResult.sidedSuccess(unseenLevel().isClientSide());
-                                                        ^
----
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/entity/boss/VoidSerpentEntity.java:138: error: cannot find symbol
             moveTo(target.getX() + getRandom().nextInt(7) - 3, target.getY() + 2.0D,
             ^
 ---
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/entity/boss/HeartOfTheForestEntity.java:125: error: cannot find symbol
-            for (Player player : unseenLevel().getNearestPlayers(this, 10.0D, 10.0D)) {
-                                              ^
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/entity/boss/VoidSerpentEntity.java:144: error: package net.minecraft.world.phys.net.minecraft.world.phys does not exist
+                net.minecraft.world.phys.net.minecraft.world.phys.AABB box = new net.minecraft.world.phys.AABB(segmentX(i) - 2.0D, segmentY(i) - 2.0D, segmentZ(i) - 2.0D,
+                                                                 ^
 ---
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/entity/boss/HeartOfTheForestEntity.java:137: error: cannot find symbol
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/entity/boss/HeartOfTheForestEntity.java:138: error: cannot find symbol
             minion.moveTo(blockPosition().getX() + getRandom().nextInt(7) - 3, getY(),
                   ^
 ---
@@ -78,39 +42,27 @@ public class UnseenParticle extends TextureSheetParticle {
         return material.getDefense(type);
                        ^
 ---
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/item/LoreBookItem.java:33: error: cannot find symbol
-            return InteractionResult.SUCCESS;
-                   ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/item/LoreBookItem.java:35: error: cannot find symbol
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/item/LoreBookItem.java:36: error: cannot find symbol
         player.sendSystemMessage(net.minecraft.network.chat.Component.translatable(
               ^
 ---
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/item/LoreBookItem.java:37: error: cannot find symbol
-        return InteractionResult.SUCCESS;
-               ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/item/UnseenTonicItem.java:38: error: cannot find symbol
-        return InteractionResult.SUCCESS;
-               ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/item/UnseenTonicItem.java:46: error: cannot find symbol
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/item/UnseenTonicItem.java:47: error: cannot find symbol
             return MobEffects.MOVEMENT_SPEED;
                              ^
 ---
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/item/UnseenTonicItem.java:49: error: cannot find symbol
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/item/UnseenTonicItem.java:50: error: cannot find symbol
             return MobEffects.DAMAGE_BOOST;
                              ^
 ---
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/item/UnseenTonicItem.java:67: error: cannot find symbol
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/item/UnseenTonicItem.java:68: error: cannot find symbol
             return MobEffects.MOVEMENT_SLOWDOWN;
                              ^
 ---
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/item/UnseenTonicItem.java:70: error: cannot find symbol
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/item/UnseenTonicItem.java:71: error: cannot find symbol
             return MobEffects.DIG_SPEED;
                              ^
 ---
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/item/UnseenTonicItem.java:78: error: cannot find symbol
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/item/UnseenTonicItem.java:79: error: cannot find symbol
         return MobEffects.DAMAGE_RESISTANCE;
                          ^
 ---
@@ -238,22 +190,60 @@ public class UnseenLegacyModel<T extends BiomesUnseenMob> extends EntityModel<T>
     public void renderToBuffer(com.mojang.blaze3d.vertex.PoseStack matrixStack,
                 ^
 ---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/client/legacy/UnseenLegacyRenderer.java:22: error: method does not override or implement a method from a supertype
+    @Override
+    ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/client/particle/UnseenParticle.java:24: error: cannot find symbol
+        this.xd = xSpeed * 0.2D;
+            ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/client/particle/UnseenParticle.java:25: error: cannot find symbol
+        this.yd = ySpeed * 0.1D + 0.02D;
+            ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/client/particle/UnseenParticle.java:26: error: cannot find symbol
+        this.zd = zSpeed * 0.2D;
+            ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/client/particle/UnseenParticle.java:27: error: cannot find symbol
+        this.lifetime = 30 + this.random.nextInt(20);
+            ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/client/particle/UnseenParticle.java:27: error: cannot find symbol
+        this.lifetime = 30 + this.random.nextInt(20);
+                                 ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/client/particle/UnseenParticle.java:28: error: cannot find symbol
+        this.gravity = 0.0F;
+            ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/client/particle/UnseenParticle.java:29: error: cannot find symbol
+        this.setSpriteFromAge(sprites);
+            ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/client/particle/UnseenParticle.java:32: error: method does not override or implement a method from a supertype
+    @Override
+    ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/client/particle/UnseenParticle.java:34: error: cannot find symbol
+        super.tick();
+        ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/client/particle/UnseenParticle.java:35: error: cannot find symbol
+        this.setSpriteFromAge(this.sprites);
+            ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/client/particle/UnseenParticle.java:36: error: cannot find symbol
+        this.alpha = 1.0F - (float) this.age / (float) this.lifetime;
+            ^
+---
 === STACKTRACE ===
 Caused by: org.gradle.api.internal.tasks.compile.CompilationFailedException: Compilation failed; see the compiler output below.
 === WHAT WENT WRONG ===
 * What went wrong:
 Execution failed for task ':fabric-1.21.10:compileJava' (registered by plugin class 'org.gradle.api.plugins.JavaBasePlugin').
 > Compilation failed; see the compiler output below.
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/item/LoreBookItem.java:30: error: cannot find symbol
-      public InteractionResult use(Level level, Player player, InteractionHand hand) {
-             ^
-    symbol:   class InteractionResult
-    location: class LoreBookItem
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/item/UnseenTonicItem.java:32: error: cannot find symbol
-      public InteractionResult use(Level level, Player player, InteractionHand hand) {
-             ^
-    symbol:   class InteractionResult
-    location: class UnseenTonicItem
   /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/item/UnseenGearItems.java:5: error: cannot find symbol
   import net.minecraft.world.item.ArmorMaterial;
                                  ^
@@ -269,18 +259,28 @@ Execution failed for task ':fabric-1.21.10:compileJava' (registered by plugin cl
                                            ^
     symbol:   class Layer
     location: class ArmorMaterial
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/item/LoreBookItem.java:33: error: cannot find symbol
-              return InteractionResult.SUCCESS;
-                     ^
-    symbol:   variable InteractionResult
-    location: class LoreBookItem
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/item/LoreBookItem.java:37: error: cannot find symbol
-          return InteractionResult.SUCCESS;
-                 ^
-    symbol:   variable InteractionResult
-    location: class LoreBookItem
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/item/UnseenTonicItem.java:38: error: cannot find symbol
-          return InteractionResult.SUCCESS;
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/item/UnseenTonicItem.java:47: error: cannot find symbol
+              return MobEffects.MOVEMENT_SPEED;
+                               ^
+    symbol:   variable MOVEMENT_SPEED
+    location: class MobEffects
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/item/UnseenTonicItem.java:50: error: cannot find symbol
+              return MobEffects.DAMAGE_BOOST;
+                               ^
+    symbol:   variable DAMAGE_BOOST
+    location: class MobEffects
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/item/UnseenTonicItem.java:68: error: cannot find symbol
+              return MobEffects.MOVEMENT_SLOWDOWN;
+                               ^
+    symbol:   variable MOVEMENT_SLOWDOWN
+    location: class MobEffects
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/item/UnseenTonicItem.java:71: error: cannot find symbol
+              return MobEffects.DIG_SPEED;
+                               ^
+    symbol:   variable DIG_SPEED
+    location: class MobEffects
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/item/UnseenTonicItem.java:79: error: cannot find symbol
+          return MobEffects.DAMAGE_RESISTANCE;
 === LAST 40 ===
 	at org.gradle.internal.execution.steps.MutableStep.execute(MutableStep.java:26)
 	at org.gradle.internal.execution.steps.ValidateStep$Mutable.executeDelegate(ValidateStep.java:79)

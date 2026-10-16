@@ -457,6 +457,15 @@ def apply_api_drift(text, line_key):
         text = _RE_PICKAXE_CTOR.sub('super(tier, properties)', text)
         text = _RE_SWORD_CTOR.sub('super(tier, properties)', text)
 
+    # -- 1.18/1.19/1.19.1/1.19.2 (Architectury 4.x/5.x):
+    #    ParticleProviderRegistry.register takes the resolved ParticleType, not
+    #    the RegistrySupplier the other Architectury generations accept.
+    if line_key == "1.18":
+        text = re.sub(
+            r'ParticleProviderRegistry\.register\(ModParticles\.BY_ID\.get\("([^"]+)"\)',
+            r'ParticleProviderRegistry.register(ModParticles.BY_ID.get("\1").get()',
+            text)
+
     # -- Inventory.items is private; isEmpty() says the same thing publicly.
     text = text.replace(_INVENTORY_ITEMS[0], _INVENTORY_ITEMS[1])
 

@@ -10,17 +10,9 @@
     public int getDefenseForType(ArmorItem.Type type) {
                                           ^
 ---
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.19.3/java/com/biomesunseen/entity/boss/VoidSerpentEntity.java:144: error: cannot find symbol
-                AABB box = new net.minecraft.world.phys.AABB(segmentX(i) - 2.0D, segmentY(i) - 2.0D, segmentZ(i) - 2.0D,
-                ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.19.3/java/com/biomesunseen/entity/boss/VoidSerpentEntity.java:158: error: cannot find symbol
-                unseenLevel().broadcastDamageEvent(target, DamageSource.mobAttack(this));
-                             ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.19.3/java/com/biomesunseen/entity/boss/HeartOfTheForestEntity.java:125: error: cannot find symbol
-            for (Player player : unseenLevel().getNearestPlayers(this, 10.0D, 10.0D)) {
-                                              ^
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.19.3/java/com/biomesunseen/entity/boss/VoidSerpentEntity.java:144: error: package net.minecraft.world.phys.net.minecraft.world.phys does not exist
+                net.minecraft.world.phys.net.minecraft.world.phys.AABB box = new net.minecraft.world.phys.AABB(segmentX(i) - 2.0D, segmentY(i) - 2.0D, segmentZ(i) - 2.0D,
+                                                                 ^
 ---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.19.3/java/com/biomesunseen/item/UnseenArmorMaterial.java:17: error: UnseenArmorMaterial is not abstract and does not override abstract method getDefenseForSlot(EquipmentSlot) in ArmorMaterial
 public class UnseenArmorMaterial implements ArmorMaterial {
@@ -47,7 +39,7 @@ public class UnseenArmorMaterial implements ArmorMaterial {
     ^
 ---
 > Task :fabric-1.19.3:compileJava FAILED
-gradle/actions: Writing build results to /home/runner/work/_temp/.gradle-actions/build-results/__run_2-1792159177498.json
+gradle/actions: Writing build results to /home/runner/work/_temp/.gradle-actions/build-results/__run_2-1792162614314.json
 
 ---
 * What went wrong:
@@ -78,17 +70,9 @@ org.gradle.api.tasks.TaskExecutionException: Execution failed for task ':fabric-
     public int getDefenseForType(ArmorItem.Type type) {
                                           ^
 ---
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.19.3/java/com/biomesunseen/entity/boss/VoidSerpentEntity.java:144: error: cannot find symbol
-                AABB box = new net.minecraft.world.phys.AABB(segmentX(i) - 2.0D, segmentY(i) - 2.0D, segmentZ(i) - 2.0D,
-                ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.19.3/java/com/biomesunseen/entity/boss/VoidSerpentEntity.java:158: error: cannot find symbol
-                unseenLevel().broadcastDamageEvent(target, DamageSource.mobAttack(this));
-                             ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.19.3/java/com/biomesunseen/entity/boss/HeartOfTheForestEntity.java:125: error: cannot find symbol
-            for (Player player : unseenLevel().getNearestPlayers(this, 10.0D, 10.0D)) {
-                                              ^
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.19.3/java/com/biomesunseen/entity/boss/VoidSerpentEntity.java:144: error: package net.minecraft.world.phys.net.minecraft.world.phys does not exist
+                net.minecraft.world.phys.net.minecraft.world.phys.AABB box = new net.minecraft.world.phys.AABB(segmentX(i) - 2.0D, segmentY(i) - 2.0D, segmentZ(i) - 2.0D,
+                                                                 ^
 ---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.19.3/java/com/biomesunseen/item/UnseenArmorMaterial.java:17: error: UnseenArmorMaterial is not abstract and does not override abstract method getDefenseForSlot(EquipmentSlot) in ArmorMaterial
 public class UnseenArmorMaterial implements ArmorMaterial {
@@ -114,7 +98,7 @@ public class UnseenArmorMaterial implements ArmorMaterial {
     @Override
     ^
 ---
-BUILD FAILED in 1m 13s
+BUILD FAILED in 1m 5s
 1 actionable task: 1 executed
 ---
 === STACKTRACE ===
@@ -128,7 +112,7 @@ Execution failed for task ':fabric-1.19.3:compileJava' (registered by plugin cla
                                           ^
     symbol:   class Type
     location: class ArmorItem
-  12 errors
+  10 errors
 
 * Try:
 === LAST 40 ===
@@ -142,7 +126,7 @@ Execution failed for task ':fabric-1.19.3:compileJava' (registered by plugin cla
     ^
 Note: Some input files use unchecked or unsafe operations.
 Note: Recompile with -Xlint:unchecked for details.
-12 errors
+10 errors
 	at org.gradle.api.internal.tasks.compile.JdkJavaCompiler.execute(JdkJavaCompiler.java:88)
 	at org.gradle.api.internal.tasks.compile.JdkJavaCompiler.execute(JdkJavaCompiler.java:49)
 	at org.gradle.api.internal.tasks.compile.daemon.CompilerWorkAction.execute(CompilerWorkAction.java:52)
@@ -170,5 +154,5 @@ Note: Recompile with -Xlint:unchecked for details.
 	at org.gradle.internal.concurrent.AbstractManagedExecutor$1.run(AbstractManagedExecutor.java:47)
 
 
-BUILD FAILED in 1m 13s
+BUILD FAILED in 1m 5s
 1 actionable task: 1 executed

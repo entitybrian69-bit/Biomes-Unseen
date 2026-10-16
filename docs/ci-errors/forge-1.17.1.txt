@@ -252,8 +252,8 @@ Execution failed for task ':forge-1.17.1:compileJava' (registered by plugin clas
 * Try:
 === LAST 40 ===
   location: class ModEntities
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModEntities.java:249: error: cannot find symbol
-        EntityAttributeRegistry.register(CrystalHermit, () -> Mob.createMobAttributes()
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModEntities.java:261: error: cannot find symbol
+        EntityAttributeRegistry.register(MireGolem, () -> Mob.createMobAttributes()
         ^
   symbol:   variable EntityAttributeRegistry
   location: class ModEntities
@@ -289,5 +289,5 @@ Note: Recompile with -Xlint:unchecked for details.
 	at org.gradle.internal.concurrent.AbstractManagedExecutor$1.run(AbstractManagedExecutor.java:47)
 
 
-BUILD FAILED in 3m 7s
+BUILD FAILED in 2m 34s
 1 actionable task: 1 executed

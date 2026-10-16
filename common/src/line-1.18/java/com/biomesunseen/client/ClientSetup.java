@@ -50,21 +50,21 @@ public final class ClientSetup {
         EntityRendererRegistry.register(ModEntities.HeartOfTheForest, context -> new UnseenLegacyRenderer<>(context, "heart_of_the_forest"));
         EntityRendererRegistry.register(ModEntities.VoidSerpent, context -> new UnseenLegacyRenderer<>(context, "void_serpent"));
 
-        ParticleProviderRegistry.register(ModParticles.BY_ID.get("crystal_spark"),
+        ParticleProviderRegistry.register(ModParticles.BY_ID.get("crystal_spark").get(),
                 UnseenParticle.Provider::new);
-        ParticleProviderRegistry.register(ModParticles.BY_ID.get("ember_flake"),
+        ParticleProviderRegistry.register(ModParticles.BY_ID.get("ember_flake").get(),
                 UnseenParticle.Provider::new);
-        ParticleProviderRegistry.register(ModParticles.BY_ID.get("void_mote"),
+        ParticleProviderRegistry.register(ModParticles.BY_ID.get("void_mote").get(),
                 UnseenParticle.Provider::new);
-        ParticleProviderRegistry.register(ModParticles.BY_ID.get("spore_drift"),
+        ParticleProviderRegistry.register(ModParticles.BY_ID.get("spore_drift").get(),
                 UnseenParticle.Provider::new);
-        ParticleProviderRegistry.register(ModParticles.BY_ID.get("frost_mote"),
+        ParticleProviderRegistry.register(ModParticles.BY_ID.get("frost_mote").get(),
                 UnseenParticle.Provider::new);
-        ParticleProviderRegistry.register(ModParticles.BY_ID.get("storm_arc"),
+        ParticleProviderRegistry.register(ModParticles.BY_ID.get("storm_arc").get(),
                 UnseenParticle.Provider::new);
-        ParticleProviderRegistry.register(ModParticles.BY_ID.get("petal_burst"),
+        ParticleProviderRegistry.register(ModParticles.BY_ID.get("petal_burst").get(),
                 UnseenParticle.Provider::new);
-        ParticleProviderRegistry.register(ModParticles.BY_ID.get("heal_glow"),
+        ParticleProviderRegistry.register(ModParticles.BY_ID.get("heal_glow").get(),
                 UnseenParticle.Provider::new);
     }
 }

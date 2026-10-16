@@ -14,14 +14,6 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.resources.ResourceLocation;
                               ^
 ---
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/item/LoreBookItem.java:30: error: cannot find symbol
-    public InteractionResult use(Level level, Player player, InteractionHand hand) {
-           ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/item/UnseenTonicItem.java:32: error: cannot find symbol
-    public InteractionResult use(Level level, Player player, InteractionHand hand) {
-           ^
----
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/item/UnseenGearItems.java:5: error: cannot find symbol
 import net.minecraft.world.item.ArmorMaterial;
                                ^
@@ -62,43 +54,15 @@ import net.minecraft.resources.ResourceLocation;
             SpawnCaps.onRemoved(unseenLevel().dimension().location().toString());
                                                          ^
 ---
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/BiomesUnseenMob.java:180: error: hurt(DamageSource,float) in BiomesUnseenMob cannot override hurt(DamageSource,float) in Entity
-    public void hurt(DamageSource source, float amount) {
-                ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/mobs/CinderPupEntity.java:68: error: cannot find symbol
-            return net.minecraft.world.InteractionResult.sidedSuccess(unseenLevel().isClientSide());
-                                                        ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/mobs/LanternFoxEntity.java:64: error: cannot find symbol
-            return net.minecraft.world.InteractionResult.sidedSuccess(unseenLevel().isClientSide());
-                                                        ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/mobs/FrostFawnEntity.java:66: error: cannot find symbol
-            return net.minecraft.world.InteractionResult.sidedSuccess(unseenLevel().isClientSide());
-                                                        ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/mobs/LumoxEntity.java:66: error: cannot find symbol
-            return net.minecraft.world.InteractionResult.sidedSuccess(unseenLevel().isClientSide());
-                                                        ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/mobs/EmberCalfEntity.java:65: error: cannot find symbol
-            return net.minecraft.world.InteractionResult.sidedSuccess(unseenLevel().isClientSide());
-                                                        ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/mobs/SporeSproutEntity.java:64: error: cannot find symbol
-            return net.minecraft.world.InteractionResult.sidedSuccess(unseenLevel().isClientSide());
-                                                        ^
----
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/VoidSerpentEntity.java:138: error: cannot find symbol
             moveTo(target.getX() + getRandom().nextInt(7) - 3, target.getY() + 2.0D,
             ^
 ---
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/HeartOfTheForestEntity.java:125: error: cannot find symbol
-            for (Player player : unseenLevel().getNearestPlayers(this, 10.0D, 10.0D)) {
-                                              ^
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/VoidSerpentEntity.java:144: error: package net.minecraft.world.phys.net.minecraft.world.phys does not exist
+                net.minecraft.world.phys.net.minecraft.world.phys.AABB box = new net.minecraft.world.phys.AABB(segmentX(i) - 2.0D, segmentY(i) - 2.0D, segmentZ(i) - 2.0D,
+                                                                 ^
 ---
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/HeartOfTheForestEntity.java:137: error: cannot find symbol
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/HeartOfTheForestEntity.java:138: error: cannot find symbol
             minion.moveTo(blockPosition().getX() + getRandom().nextInt(7) - 3, getY(),
                   ^
 ---
@@ -238,6 +202,42 @@ import net.minecraft.resources.ResourceLocation;
     public static final TagKey<Block> UNSEEN_ORES = TagKey.create(Registries.BLOCK, net.minecraft.resources.ResourceLocation.fromNamespaceAndPath("biomesunseen", "ores"));
                                                                                                            ^
 ---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/registry/ModTags.java:23: error: cannot find symbol
+    public static final TagKey<Block> UNSEEN_TERRAIN = TagKey.create(Registries.BLOCK, net.minecraft.resources.ResourceLocation.fromNamespaceAndPath("biomesunseen", "terrain"));
+                                                                                                              ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/registry/ModTags.java:24: error: cannot find symbol
+    public static final TagKey<Block> UNSEEN_PLANTS = TagKey.create(Registries.BLOCK, net.minecraft.resources.ResourceLocation.fromNamespaceAndPath("biomesunseen", "plants"));
+                                                                                                             ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/registry/ModTags.java:26: error: cannot find symbol
+    public static final TagKey<Item> ITEM_ORES = TagKey.create(Registries.ITEM, net.minecraft.resources.ResourceLocation.fromNamespaceAndPath("c", "ores"));
+                                                                                                       ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/registry/ModTags.java:27: error: cannot find symbol
+    public static final TagKey<Item> ITEM_DUSTS = TagKey.create(Registries.ITEM, net.minecraft.resources.ResourceLocation.fromNamespaceAndPath("c", "dusts"));
+                                                                                                        ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/registry/ModTags.java:28: error: cannot find symbol
+    public static final TagKey<Item> ITEM_GEMS = TagKey.create(Registries.ITEM, net.minecraft.resources.ResourceLocation.fromNamespaceAndPath("c", "gems"));
+                                                                                                       ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/registry/ModTags.java:29: error: cannot find symbol
+    public static final TagKey<Item> ITEM_INGOTS = TagKey.create(Registries.ITEM, net.minecraft.resources.ResourceLocation.fromNamespaceAndPath("c", "ingots"));
+                                                                                                         ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/registry/ModTags.java:30: error: cannot find symbol
+    public static final TagKey<Item> UNSEEN_ITEM_ORES = TagKey.create(Registries.ITEM, net.minecraft.resources.ResourceLocation.fromNamespaceAndPath("biomesunseen", "ores"));
+                                                                                                              ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/registry/ModTags.java:32: error: cannot find symbol
+    public static final TagKey<EntityType<?>> UNSEEN_MOBS = TagKey.create(Registries.ENTITY_TYPE, net.minecraft.resources.ResourceLocation.fromNamespaceAndPath("biomesunseen", "mobs"));
+                                                                                                                         ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/registry/ModTags.java:33: error: cannot find symbol
+    public static final TagKey<EntityType<?>> UNSEEN_BOSSES = TagKey.create(Registries.ENTITY_TYPE, net.minecraft.resources.ResourceLocation.fromNamespaceAndPath("biomesunseen", "bosses"));
+                                                                                                                           ^
+---
 === STACKTRACE ===
 Caused by: org.gradle.api.internal.tasks.compile.CompilationFailedException: Compilation failed; see the compiler output below.
 === WHAT WENT WRONG ===
@@ -264,16 +264,6 @@ Execution failed for task ':fabric-26.1.1:compileJava' (registered by plugin cla
                                 ^
     symbol:   class ResourceLocation
     location: package net.minecraft.resources
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/item/LoreBookItem.java:30: error: cannot find symbol
-      public InteractionResult use(Level level, Player player, InteractionHand hand) {
-             ^
-    symbol:   class InteractionResult
-    location: class LoreBookItem
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/item/UnseenTonicItem.java:32: error: cannot find symbol
-      public InteractionResult use(Level level, Player player, InteractionHand hand) {
-             ^
-    symbol:   class InteractionResult
-    location: class UnseenTonicItem
   /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/item/UnseenGearItems.java:5: error: cannot find symbol
   import net.minecraft.world.item.ArmorMaterial;
                                  ^
@@ -281,6 +271,16 @@ Execution failed for task ':fabric-26.1.1:compileJava' (registered by plugin cla
     location: package net.minecraft.world.item
   /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/client/legacy/UnseenLegacyModel.java:13: error: cannot find symbol
   import net.minecraft.resources.ResourceLocation;
+                                ^
+    symbol:   class ResourceLocation
+    location: package net.minecraft.resources
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/client/legacy/UnseenLegacyRenderer.java:5: error: cannot find symbol
+  import net.minecraft.resources.ResourceLocation;
+                                ^
+    symbol:   class ResourceLocation
+    location: package net.minecraft.resources
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/client/legacy/UnseenLegacyRenderer.java:23: error: cannot find symbol
+      public ResourceLocation getTextureLocation(T entity) {
 === LAST 40 ===
 	at org.gradle.internal.execution.steps.MutableStep.execute(MutableStep.java:26)
 	at org.gradle.internal.execution.steps.ValidateStep$Mutable.executeDelegate(ValidateStep.java:79)
@@ -317,8 +317,8 @@ Execution failed for task ':fabric-26.1.1:compileJava' (registered by plugin cla
 	at org.gradle.internal.execution.steps.IdentifyStep.execute(IdentifyStep.java:38)
 	at org.gradle.internal.execution.impl.DefaultExecutionEngine$1.execute(DefaultExecutionEngine.java:68)
 	at org.gradle.api.internal.tasks.execution.DefaultTaskNodeExecutor.doExecute(DefaultTaskNodeExecutor.java:364)
-	... 55 more
+	... 25 more
 
 
-BUILD FAILED in 1m 5s
+BUILD FAILED in 52s
 1 actionable task: 1 executed
