@@ -98,6 +98,8 @@ jobs:
 
       - name: Build ${{ matrix.module }}
         run: gradle :${{ matrix.module }}:build -x test --stacktrace --no-daemon
+        env:
+          BIOMESUNSEEN_MODULE: ${{ matrix.module }}
 
       - name: Upload jars
         if: success()

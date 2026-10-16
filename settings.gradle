@@ -20,7 +20,11 @@ plugins {
 
 rootProject.name = "biomes-unseen"
 
-include(
+// Every target module is included by default.  Set BIOMESUNSEEN_MODULE to
+// configure exactly one module (CI does this so each matrix job only
+// evaluates and builds its own target).
+def requestedModule = System.getenv("BIOMESUNSEEN_MODULE")
+def allModules = [
     "fabric-1.16.5",
     "forge-1.16.5",
     "fabric-1.17.1",
@@ -87,4 +91,12 @@ include(
     "neoforge-26.2",
     "fabric-26.3",
     "neoforge-26.3"
-)
+]
+if (requestedModule) {
+    if (!allModules.contains(requestedModule)) {
+        throw new GradleException("Unknown BIOMESUNSEEN_MODULE: " + requestedModule)
+    }
+    include(requestedModule)
+} else {
+    allModules.each { include(it) }
+}

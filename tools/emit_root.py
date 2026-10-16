@@ -38,9 +38,21 @@ plugins {
 
 rootProject.name = "biomes-unseen"
 
-include(
+// Every target module is included by default.  Set BIOMESUNSEEN_MODULE to
+// configure exactly one module (CI does this so each matrix job only
+// evaluates and builds its own target).
+def requestedModule = System.getenv("BIOMESUNSEEN_MODULE")
+def allModules = [
 %(includes)s
-)
+]
+if (requestedModule) {
+    if (!allModules.contains(requestedModule)) {
+        throw new GradleException("Unknown BIOMESUNSEEN_MODULE: " + requestedModule)
+    }
+    include(requestedModule)
+} else {
+    allModules.each { include(it) }
+}
 '''
 
 BUILD_GRADLE = '''// Biomes Unseen - root build script.
