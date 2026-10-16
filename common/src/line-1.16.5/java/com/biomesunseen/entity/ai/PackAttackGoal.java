@@ -38,8 +38,8 @@ public class PackAttackGoal extends MeleeAttackGoal {
     }
 
     @Override
-    protected void checkAndPerformAttack(net.minecraft.world.entity.LivingEntity target) {
-        super.checkAndPerformAttack(target);
+    protected void checkAndPerformAttack(net.minecraft.world.entity.LivingEntity target, double distance) {
+        super.checkAndPerformAttack(target, distance);
         if (target != null && mob.distanceTo(target) < 3.0D) {
             // Circle-strafe around the target for pack flanking.
             double angle = Math.atan2(target.getZ() - mob.getZ(), target.getX() - mob.getX())

@@ -145,15 +145,43 @@ public class HeartOfTheForestEntity extends BiomesUnseenMob {
         super.die(source);
         if (!unseenLevel().isClientSide()) {
             // Boss loot: trophies, rare minerals and the boss artifact.
-            spawnAtLocation(new ItemStack(ModItems.UNSEEN_SIGIL.get()));
+            {
+                net.minecraft.world.level.Level dropLevel =
+                        com.biomesunseen.util.EntityLevels.of(this);
+                if (dropLevel instanceof net.minecraft.server.level.ServerLevel) {
+                    spawnAtLocation((net.minecraft.server.level.ServerLevel) dropLevel,
+                            new ItemStack(ModItems.UNSEEN_SIGIL.get()));
+                }
+            }
             java.util.List<dev.architectury.registry.registries.RegistrySupplier<net.minecraft.world.item.Item>> minerals =
                     new java.util.ArrayList<>(ModItems.MINERALS.values());
             for (int i = 0; i < 4 && !minerals.isEmpty(); i++) {
-                spawnAtLocation(new ItemStack(minerals.get(getRandom().nextInt(minerals.size())).get(), 2 + getRandom().nextInt(3)));
+                {
+                net.minecraft.world.level.Level dropLevel =
+                        com.biomesunseen.util.EntityLevels.of(this);
+                if (dropLevel instanceof net.minecraft.server.level.ServerLevel) {
+                    spawnAtLocation((net.minecraft.server.level.ServerLevel) dropLevel,
+                            new ItemStack(minerals.get(getRandom().nextInt(minerals.size())).get(), 2 + getRandom().nextInt(3)));
+                }
             }
-            spawnAtLocation(new ItemStack(ModItems.TROPHIES.get("brambleback").get(), 3));
+            }
+            {
+                net.minecraft.world.level.Level dropLevel =
+                        com.biomesunseen.util.EntityLevels.of(this);
+                if (dropLevel instanceof net.minecraft.server.level.ServerLevel) {
+                    spawnAtLocation((net.minecraft.server.level.ServerLevel) dropLevel,
+                            new ItemStack(ModItems.TROPHIES.get("brambleback").get(), 3));
+                }
+            }
             if (getRandom().nextInt(4) == 0) {
-                spawnAtLocation(new ItemStack(ModItems.GEAR.get("sylvanite_sword").get()));
+                {
+                net.minecraft.world.level.Level dropLevel =
+                        com.biomesunseen.util.EntityLevels.of(this);
+                if (dropLevel instanceof net.minecraft.server.level.ServerLevel) {
+                    spawnAtLocation((net.minecraft.server.level.ServerLevel) dropLevel,
+                            new ItemStack(ModItems.GEAR.get("sylvanite_sword").get()));
+                }
+            }
             }
         }
     }

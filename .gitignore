@@ -23,7 +23,3 @@ metals.sbt
 .kotlin/
 *.log
 .DS_Store
-
-# Python bytecode from tools/ (regenerated on every run; only causes merge noise)
-__pycache__/
-*.pyc

@@ -38,7 +38,7 @@ public final class UnseenArmorMaterial {
         this.material = new ArmorMaterial(
                 defense,
                 ore.toolEnchantability,
-                BuiltInRegistries.SOUND_EVENT.wrapAsHolder(SoundEvents.ARMOR_EQUIP_IRON),
+                SoundEvents.ARMOR_EQUIP_IRON,
                 repairIngredient,
                 List.of(new ArmorMaterial.Layer(net.minecraft.resources.ResourceLocation.fromNamespaceAndPath("biomesunseen", ore.id))),
                 ore.toolMiningLevel * 0.5F,

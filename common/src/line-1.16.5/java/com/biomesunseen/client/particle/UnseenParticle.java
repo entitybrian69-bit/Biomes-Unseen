@@ -2,6 +2,7 @@ package com.biomesunseen.client.particle;
 
 import net.minecraft.client.particle.Particle;
 import net.minecraft.client.particle.ParticleProvider;
+import net.minecraft.client.particle.TextureSheetParticle;
 import net.minecraft.client.particle.ParticleRenderType;
 import net.minecraft.client.particle.SpriteSet;
 import net.minecraft.client.world.ClientWorld;
@@ -12,7 +13,7 @@ import net.minecraft.core.particles.SimpleParticleType;
  * gently rising, fading out.  Ambience for crystal sparks, embers, void
  * motes, spores, frost, storm arcs, petals and heal glows.
  */
-public class UnseenParticle extends Particle {
+public class UnseenParticle extends TextureSheetParticle {
 
     private final SpriteSet sprites;
 

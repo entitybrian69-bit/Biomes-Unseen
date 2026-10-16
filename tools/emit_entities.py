@@ -443,7 +443,7 @@ public abstract class ThrottledGoal extends Goal {
 
     @Override
     public boolean canUse() {
-        return AiThrottle.shouldThink(mob.getId(), mob.unseenLevel().getGameTime())
+        return AiThrottle.shouldThink(mob.getId(), com.biomesunseen.util.EntityLevels.of(mob).getGameTime())
                 && throttledCanUse();
     }
 
@@ -730,7 +730,7 @@ public class WanderTradeGoal extends ThrottledGoal {
     @Override
     public void tick() {
         tradeCooldown--;
-        if (customer != null && tradeCooldown == 390 && !mob.unseenLevel().isClientSide) {
+        if (customer != null && tradeCooldown == 390 && !com.biomesunseen.util.EntityLevels.of(mob).isClientSide()) {
             // Simple barter: trophy from the mob, mineral to the player.
             java.util.List<me.shedaniel.architectury.registry.RegistrySupplier<net.minecraft.world.item.Item>> minerals =
                     new java.util.ArrayList<>(ModItems.MINERALS.values());

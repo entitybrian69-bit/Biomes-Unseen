@@ -5,6 +5,12 @@ on:
     branches: ["arena/721c719c-biomes-unseen", "arena/be9e6e99-biomes-unseen", "main"]
   workflow_dispatch:
 
+# A 66-job matrix takes 15-40 minutes; when a newer commit lands, the older
+# run's result is already obsolete, so cancel it instead of queueing behind it.
+concurrency:
+  group: build-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   # Full-matrix API probe: javap the Minecraft jar every target compiles
   # against, so generated code is written against the real API per version.

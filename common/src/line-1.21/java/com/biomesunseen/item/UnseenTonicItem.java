@@ -39,7 +39,7 @@ public class UnseenTonicItem extends Item {
         return InteractionResultHolder.success(stack);
     }
 
-    private static net.minecraft.world.effect.MobEffect effectFor(OreDef ore) {
+    private static net.minecraft.core.Holder<net.minecraft.world.effect.MobEffect> effectFor(OreDef ore) {
         if ("fire_resistance".equals(ore.potionEffect)) {
             return MobEffects.FIRE_RESISTANCE;
         }

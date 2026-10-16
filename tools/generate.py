@@ -210,6 +210,25 @@ _RE_ENTITY_BUILD = re.compile(r'\.build\("([a-z0-9_/]+)"\)')
 # Item.use return type and the InteractionResultHolder factories
 _RE_IRH_TYPE = re.compile(r'InteractionResultHolder<\s*ItemStack\s*>')
 _RE_IRH_FACTORY = re.compile(r'InteractionResultHolder\.(success|consume|pass|fail)\([^()]*\)')
+# MeleeAttackGoal.checkAndPerformAttack lost its distance parameter in 1.20.2
+# (probe-fabric-1.19.4: (LivingEntity,double); probe-fabric-1.20.4: (LivingEntity)).
+CHECK_ATTACK_TWO_ARG_BEFORE = "1.20.2"
+# 1.19.3+: SoundEvents.* are Holder.Reference<SoundEvent>.
+# 1.20.5+: MobEffects.* are Holder<MobEffect> and MobEffectInstance takes one.
+MOB_EFFECT_HOLDER_FROM = "1.20.5"
+
+_RE_CHECK_ATTACK_DECL = re.compile(
+    r'protected void checkAndPerformAttack\((LivingEntity|[A-Za-z.]*LivingEntity) (\w+)\) \{')
+_RE_CHECK_ATTACK_SUPER = re.compile(
+    r'super\.checkAndPerformAttack\((\w+)\);')
+_RE_WRAP_AS_HOLDER = re.compile(
+    r'BuiltInRegistries\.SOUND_EVENT\.wrapAsHolder\((SoundEvents\.[A-Z_0-9]+)\)')
+_RE_EFFECT_FOR_TYPE = re.compile(
+    r'net\.minecraft\.world\.effect\.MobEffect effectFor\(')
+# probe-fabric-1.21.5: Entity.spawnAtLocation gained a leading ServerLevel
+# parameter (all four overloads), so the item-drop calls need a server check.
+SPAWN_AT_LOCATION_NEEDS_LEVEL_FROM = "1.21.5"
+
 _RE_PACKAGE_LINE = re.compile(r'^(package [^\n]+\n)', re.M)
 
 
@@ -219,6 +238,70 @@ def _ensure_import(text, fqn):
     if stmt in text:
         return text
     return _RE_PACKAGE_LINE.sub(r'\1\n' + stmt + "\n", text, count=1)
+
+
+def _rewrite_spawn_at_location(text):
+    """Wrap bare spawnAtLocation(stack) calls in a ServerLevel guard.
+
+    From 1.21.5 every Entity.spawnAtLocation overload takes the ServerLevel as
+    its first argument.  The call sites are statements inside entity classes, so
+    each one becomes a block that resolves the level and drops only server-side.
+    Arguments are matched with a paren/quote-aware scan because they nest
+    (new ItemStack(minerals.get(getRandom().nextInt(...)).get(), 3 + ...)).
+    """
+    out = []
+    i = 0
+    needle = "spawnAtLocation("
+    while True:
+        j = text.find(needle, i)
+        if j < 0:
+            out.append(text[i:])
+            break
+        # A qualified call (x.spawnAtLocation) targets another entity, and an
+        # already-guarded one starts with our own dropServer parameter: skip both
+        # so the rewrite stays idempotent.
+        rest = text[j + len(needle):]
+        if text[max(0, j - 1):j] == "." or rest.startswith("(net.minecraft.server.level.ServerLevel) dropLevel"):
+            out.append(text[i:j + len(needle)])
+            i = j + len(needle)
+            continue
+        k = j + len(needle)
+        depth = 1
+        in_str = False
+        while k < len(text) and depth:
+            c = text[k]
+            if in_str:
+                if c == "\\":
+                    k += 2
+                    continue
+                if c == '"':
+                    in_str = False
+            elif c == '"':
+                in_str = True
+            elif c in "([{":
+                depth += 1
+            elif c in ")]}":
+                depth -= 1
+            k += 1
+        args = text[j + len(needle):k - 1]
+        # Swallow the statement's own semicolon; the guard block supplies its own.
+        if k < len(text) and text[k] == ";":
+            k += 1
+        out.append(text[i:j])
+        # Classic instanceof + cast rather than a Java 16 pattern binding: it is
+        # valid on every toolchain in the matrix and keeps the generated tree
+        # parseable by the pre-flight syntax check in tools/.
+        out.append(
+            "{\n"
+            "                net.minecraft.world.level.Level dropLevel =\n"
+            "                        com.biomesunseen.util.EntityLevels.of(this);\n"
+            "                if (dropLevel instanceof net.minecraft.server.level.ServerLevel) {\n"
+            "                    spawnAtLocation((net.minecraft.server.level.ServerLevel) dropLevel,\n"
+            "                            " + args + ");\n"
+            "                }\n"
+            "            }")
+        i = k
+    return "".join(out)
 
 
 def apply_api_drift(text, line_key):
@@ -261,6 +344,40 @@ def apply_api_drift(text, line_key):
         text = _RE_IRH_TYPE.sub('InteractionResult', text)
         text = _RE_IRH_FACTORY.sub(
             lambda m: "InteractionResult." + m.group(1).upper(), text)
+
+    # -- SoundEvents.X has been a Holder since 1.19.3, so wrapAsHolder() on it
+    #    is a type error; pass the holder straight through.
+    if rank >= LINE_RANK[SOUND_HOLDER_FROM]:
+        text = _RE_WRAP_AS_HOLDER.sub(r'\1', text)
+
+    # -- 1.20.5+: MobEffects.* are Holder<MobEffect> and MobEffectInstance takes
+    #    the holder, so effectFor() must return the holder too.
+    if rank >= LINE_RANK[MOB_EFFECT_HOLDER_FROM]:
+        text = _RE_EFFECT_FOR_TYPE.sub(
+            'net.minecraft.core.Holder<net.minecraft.world.effect.MobEffect> effectFor(',
+            text)
+
+    # -- Before 1.20.2 checkAndPerformAttack still takes the attack distance.
+    if rank < LINE_RANK[CHECK_ATTACK_TWO_ARG_BEFORE]:
+        text = _RE_CHECK_ATTACK_DECL.sub(
+            r'protected void checkAndPerformAttack(\1 \2, double distance) {', text)
+        text = _RE_CHECK_ATTACK_SUPER.sub(
+            r'super.checkAndPerformAttack(\1, distance);', text)
+
+    # -- 1.21.5+: spawnAtLocation takes the ServerLevel first.
+    if rank >= LINE_RANK[SPAWN_AT_LOCATION_NEEDS_LEVEL_FROM]:
+        text = _rewrite_spawn_at_location(text)
+
+    # -- Particle declares render(VertexConsumer,Camera,float) abstract and has
+    #    no setSpriteFromAge(); TextureSheetParticle is the sprite-particle base
+    #    that supplies both on every version.
+    text = text.replace("public class UnseenParticle extends Particle {",
+                        "public class UnseenParticle extends TextureSheetParticle {")
+    text = text.replace("import net.minecraft.client.particle.Particle;\n"
+                        "import net.minecraft.client.particle.ParticleProvider;",
+                        "import net.minecraft.client.particle.Particle;\n"
+                        "import net.minecraft.client.particle.ParticleProvider;\n"
+                        "import net.minecraft.client.particle.TextureSheetParticle;")
 
     return text
 
