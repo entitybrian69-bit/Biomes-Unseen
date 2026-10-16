@@ -21,7 +21,7 @@ public class UnseenPlantBlock extends Block {
 
     private static BlockBehaviour.Properties buildProperties() {
         BlockBehaviour.Properties properties = BlockBehaviour.Properties.of(net.minecraft.world.level.material.Material.PLANT);
-        return properties.noCollission().instabreak().offsetType(BlockBehaviour.OffsetType.XZ)
+        return properties.noCollission().instabreak()
                 .sound(SoundType.GRASS);
     }
 

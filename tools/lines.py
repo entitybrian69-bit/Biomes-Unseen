@@ -43,7 +43,7 @@ LINES = {
     "1.18.1": dict(
         line="1.18.1", mc="1.18.1", java=17, pkgs="modern", reg="core_registry",
         geckolib="none", tab="old", damage="old", synched="old",
-        text="component", material=True, sound_ctor="new", data_dirs="plural",
+        text="translatable_class", material=True, sound_ctor="new", data_dirs="plural",
         biome_json="old", worldgen="noise", biome_add="mixin_legacy",
         item_def="model_only", expect="dev", entity_base="modern",
         tagkey=False, features="placed", structures="legacy",
@@ -51,7 +51,7 @@ LINES = {
     "1.18": dict(
         line="1.18", mc="1.18.2", java=17, pkgs="modern", reg="core_registry",
         geckolib="none", tab="old", damage="old", synched="old",
-        text="component", material=True, sound_ctor="new", data_dirs="plural",
+        text="translatable_class", material=True, sound_ctor="new", data_dirs="plural",
         biome_json="old", worldgen="noise", biome_add="noise_list",
         item_def="model_only", expect="dev", entity_base="modern",
         tagkey=True, features="placed", structures="sets",
@@ -175,96 +175,6 @@ MC_TO_LINE = {
 }
 
 # Mojang-mapping type names per package generation.
-LEGACY_TYPES = {
-    "Block": "net.minecraft.block.Block",
-    "BlockBehaviour": "net.minecraft.block.AbstractBlock",
-    "Blocks": "net.minecraft.block.Blocks",
-    "SoundType": "net.minecraft.block.SoundType",
-    "BlockState": "net.minecraft.block.BlockState",
-    "BlockPos": "net.minecraft.util.math.BlockPos",
-    "Direction": "net.minecraft.util.Direction",
-    "Item": "net.minecraft.item.Item",
-    "BlockItem": "net.minecraft.item.BlockItem",
-    "Items": "net.minecraft.item.Items",
-    "ItemStack": "net.minecraft.item.ItemStack",
-    "ItemGroup": "net.minecraft.item.ItemGroup",
-    "SpawnEggItem": "net.minecraft.item.SpawnEggItem",
-    "Tier": "net.minecraft.item.ItemTier",
-    "SwordItem": "net.minecraft.item.SwordItem",
-    "PickaxeItem": "net.minecraft.item.PickaxeItem",
-    "ArmorItem": "net.minecraft.item.ArmorItem",
-    "ArmorMaterial": "net.minecraft.item.ArmorMaterial",
-    "EntityType": "net.minecraft.entity.EntityType",
-    "MobCategory": "net.minecraft.entity.EntityClassification",
-    "Entity": "net.minecraft.entity.Entity",
-    "LivingEntity": "net.minecraft.entity.LivingEntity",
-    "Mob": "net.minecraft.entity.MobEntity",
-    "PathfinderMob": "net.minecraft.entity.CreatureEntity",
-    "Monster": "net.minecraft.entity.MonsterEntity",
-    "Player": "net.minecraft.entity.player.PlayerEntity",
-    "Goal": "net.minecraft.entity.ai.goal.Goal",
-    "Attributes": "net.minecraft.entity.ai.attributes.Attributes",
-    "AttributeSupplier": "net.minecraft.entity.ai.attributes.AttributeModifierMap",
-    "Level": "net.minecraft.world.World",
-    "ServerLevel": "net.minecraft.world.server.ServerWorld",
-    "WorldGenLevel": "net.minecraft.world.IWorld",
-    "DamageSource": "net.minecraft.util.DamageSource",
-    "ResourceLocation": "net.minecraft.util.ResourceLocation",
-    "SoundEvent": "net.minecraft.util.SoundEvent",
-    "SoundEvents": "net.minecraft.util.SoundEvents",
-    "SoundCategory": "net.minecraft.util.SoundCategory",
-    "ParticleType": "net.minecraft.particles.ParticleType",
-    "SimpleParticleType": "net.minecraft.particles.BasicParticleType",
-    "ParticleOptions": "net.minecraft.particles.IParticleData",
-    "ParticleEngine": "net.minecraft.client.particle.ParticleManager",
-    "AABB": "net.minecraft.util.math.AxisAlignedBB",
-    "Vec3": "net.minecraft.util.math.vector.Vector3d",
-    "InteractionHand": "net.minecraft.util.Hand",
-    "InteractionResult": "net.minecraft.util.ActionResultType",
-    "SynchedEntityData": "net.minecraft.network.datasync.EntityDataManager",
-    "EntityDataAccessor": "net.minecraft.network.datasync.DataParameter",
-    "EntityDataSerializers": "net.minecraft.network.datasync.DataSerializers",
-    "CompoundTag": "net.minecraft.nbt.CompoundNBT",
-    "Translation": "net.minecraft.util.text.TranslationTextComponent",
-    "BuiltinRegistries": "net.minecraft.util.registry.BuiltinRegistries",
-    "Registry": "net.minecraft.util.registry.Registry",
-    "ConfiguredFeature": "net.minecraft.world.gen.feature.ConfiguredFeature",
-    "Feature": "net.minecraft.world.gen.feature.Feature",
-    "OreFeatureConfig": "net.minecraft.world.gen.feature.OreFeatureConfig",
-    "ConfiguredSurfaceBuilder": "net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder",
-    "SurfaceBuilder": "net.minecraft.world.gen.surfacebuilders.SurfaceBuilder",
-    "SurfaceBuilderConfig": "net.minecraft.world.gen.surfacebuilders.SurfaceBuilderConfig",
-    "Biome": "net.minecraft.world.biome.Biome",
-    "BiomeAmbience": "net.minecraft.world.biome.BiomeAmbience",
-    "MoodSoundAmbience": "net.minecraft.world.biome.MoodSoundAmbience",
-    "BiomeGenerationSettings": "net.minecraft.world.biome.BiomeGenerationSettings",
-    "MobSpawnInfo": "net.minecraft.world.biome.MobSpawnInfo",
-    "BiomeCategory": "net.minecraft.world.biome.Biome.Category",
-    "World": "net.minecraft.world.World",
-    "EntityLookup": "net.minecraft.entity.Entity",
-    "Predicate": "java.util.function.Predicate",
-    "Flag": "net.minecraft.entity.ai.goal.Goal.Flag",
-    "FollowOwnerGoal": "net.minecraft.entity.ai.goal.FollowOwnerGoal",
-    "SitWhenOrderedToGoal": "net.minecraft.entity.ai.goal.SitWhenOrderedToGoal",
-    "TemptGoal": "net.minecraft.entity.ai.goal.TemptGoal",
-    "FollowParentGoal": "net.minecraft.entity.ai.goal.FollowParentGoal",
-    "PanicGoal": "net.minecraft.entity.ai.goal.PanicGoal",
-    "LookAtGoal": "net.minecraft.entity.ai.goal.LookAtGoal",
-    "LookRandomlyGoal": "net.minecraft.entity.ai.goal.LookRandomlyGoal",
-    "SwimGoal": "net.minecraft.entity.ai.goal.SwimGoal",
-    "MeleeAttackGoal": "net.minecraft.entity.ai.goal.MeleeAttackGoal",
-    "NearestAttackableTargetGoal": "net.minecraft.entity.ai.goal.NearestAttackableTargetGoal",
-    "WaterAvoidingRandomStrollGoal": "net.minecraft.entity.ai.goal.WaterAvoidingRandomWalkingGoal",
-    "RandomLookAroundGoal": "net.minecraft.entity.ai.goal.LookRandomlyGoal",
-    "FloatGoal": "net.minecraft.entity.ai.goal.SwimGoal",
-    "FleeEntityGoal": "net.minecraft.entity.ai.goal.FleeEntityGoal",
-    "HurtByTargetGoal": "net.minecraft.entity.ai.goal.HurtByTargetGoal",
-    "RangedAttackGoal": "net.minecraft.entity.ai.goal.RangedAttackGoal",
-    "SpawnGroupData": "net.minecraft.entity.SpawnGroupData",
-    "AgeableMob": "net.minecraft.entity.AgeableEntity",
-    "MobSpawnType": "net.minecraft.entity.MobSpawnType",
-}
-
 MODERN_TYPES = {
     "Block": "net.minecraft.world.level.block.Block",
     "BlockBehaviour": "net.minecraft.world.level.block.state.BlockBehaviour",
@@ -353,6 +263,22 @@ MODERN_TYPES = {
     "MobSpawnType": "net.minecraft.world.entity.MobSpawnType",
 }
 
+# The 1.16.5 line builds against the *official Mojang* mappings, which already
+# use the modern class layout.  Verified against the target's own class index
+# (docs/api-probe/probe-fabric-1.16.5.txt ### ALL-CLASSES): MobCategory,
+# EntityType, Player, Level, InteractionResult, InteractionHand,
+# EntityDataAccessor, SimpleParticleType, CreativeModeTab, ModelPart,
+# MobRenderer, Tier, ArmorMaterial, PathfinderMob, StructureFeature and
+# StructureFeatureConfiguration are all present there, while every MCP name
+# (EntityClassification, World, ActionResultType, ...) is absent.  The legacy
+# line therefore shares the modern table, plus the two legacy-only helpers.
+LEGACY_TYPES = dict(MODERN_TYPES)
+LEGACY_TYPES.update({
+    "EntityLookup": "net.minecraft.world.entity.Entity",
+    "Predicate": "java.util.function.Predicate",
+})
+
+
 
 def types_for(flags):
     return LEGACY_TYPES if flags["pkgs"] == "legacy" else MODERN_TYPES
@@ -383,7 +309,10 @@ def registry_constant(flags, kind):
     }
     old, new = names[kind]
     if flags["reg"] == "util_registry":
-        return "Registry." + (old or new)
+        # 1.16.5 keeps the ResourceKey<Registry<T>> constants on Registry; the
+        # bare Registry.BLOCK/ITEM/... constants are Registry<Block> values and
+        # do not match DeferredRegister.create(String, ResourceKey<Registry<T>>).
+        return "Registry." + (old or new) + "_REGISTRY"
     if flags["reg"] == "core_registry":
         return ("net.minecraft.resources.ResourceKey.createRegistryKey("
                 "new net.minecraft.resources.ResourceLocation(\"minecraft\", \"%s\"))"

@@ -1,26 +1,27 @@
 package com.biomesunseen.client.legacy;
 
-import net.minecraft.client.renderer.entity.EntityRendererProvider;
+import net.minecraft.client.renderer.entity.EntityRenderDispatcher;
 import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.resources.ResourceLocation;
 
 import com.biomesunseen.entity.BiomesUnseenMob;
 
 /**
- * Mob renderer for the 1.16.5 line using the legacy box model.
+ * Mob renderer for the 1.16.5 line: the renderer takes the dispatcher directly
+ * (EntityRendererProvider does not exist yet) and the texture is resolved once.
  */
 public class UnseenLegacyRenderer<T extends BiomesUnseenMob>
         extends MobRenderer<T, UnseenLegacyModel<T>> {
 
-    private final String id;
+    private final ResourceLocation texture;
 
-    public UnseenLegacyRenderer(EntityRendererProvider.Context context, String id) {
-        super(context, new UnseenLegacyModel<T>(context.bakeLayer(UnseenLegacyModel.LAYER)), 0.5F);
-        this.id = id;
+    public UnseenLegacyRenderer(EntityRenderDispatcher dispatcher, String id) {
+        super(dispatcher, new UnseenLegacyModel<T>(), 0.5F);
+        this.texture = new ResourceLocation("biomesunseen", "textures/entity/" + id + ".png");
     }
 
     @Override
     public ResourceLocation getTextureLocation(T entity) {
-        return new ResourceLocation("biomesunseen", "textures/entity/" + id + ".png");
+        return this.texture;
     }
 }

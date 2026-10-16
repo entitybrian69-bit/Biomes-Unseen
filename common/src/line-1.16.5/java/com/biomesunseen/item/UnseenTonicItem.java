@@ -1,5 +1,7 @@
 package com.biomesunseen.item;
 
+import net.minecraft.world.InteractionResultHolder;
+
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -29,53 +31,53 @@ public class UnseenTonicItem extends Item {
     }
 
     @Override
-    public InteractionResult use(Level world, Player player, InteractionHand hand) {
+    public InteractionResultHolder<ItemStack> use(Level world, Player player, InteractionHand hand) {
         ItemStack stack = player.getItemInHand(hand);
-        player.addEffect(new EffectInstance(effectFor(ore), 20 * 60, 0));
+        player.addEffect(new MobEffectInstance(effectFor(ore), 20 * 60, 0));
         if (!player.abilities.instabuild) {
             stack.shrink(1);
         }
-        return InteractionResult.SUCCESS;
+        return InteractionResultHolder.success(stack);
     }
 
     private static net.minecraft.world.effect.MobEffect effectFor(OreDef ore) {
         if ("fire_resistance".equals(ore.potionEffect)) {
-            return Effects.FIRE_RESISTANCE;
+            return MobEffects.FIRE_RESISTANCE;
         }
         if ("swiftness".equals(ore.potionEffect)) {
-            return Effects.MOVEMENT_SPEED;
+            return MobEffects.MOVEMENT_SPEED;
         }
         if ("strength".equals(ore.potionEffect)) {
-            return Effects.DAMAGE_BOOST;
+            return MobEffects.DAMAGE_BOOST;
         }
         if ("regeneration".equals(ore.potionEffect)) {
-            return Effects.REGENERATION;
+            return MobEffects.REGENERATION;
         }
         if ("invisibility".equals(ore.potionEffect)) {
-            return Effects.INVISIBILITY;
+            return MobEffects.INVISIBILITY;
         }
         if ("night_vision".equals(ore.potionEffect)) {
-            return Effects.NIGHT_VISION;
+            return MobEffects.NIGHT_VISION;
         }
         if ("water_breathing".equals(ore.potionEffect)) {
-            return Effects.WATER_BREATHING;
+            return MobEffects.WATER_BREATHING;
         }
         if ("poison".equals(ore.potionEffect)) {
-            return Effects.POISON;
+            return MobEffects.POISON;
         }
         if ("slowness".equals(ore.potionEffect)) {
-            return Effects.MOVEMENT_SLOWDOWN;
+            return MobEffects.MOVEMENT_SLOWDOWN;
         }
         if ("haste".equals(ore.potionEffect)) {
-            return Effects.DIG_SPEED;
+            return MobEffects.DIG_SPEED;
         }
         if ("levitation".equals(ore.potionEffect)) {
-            return Effects.LEVITATION;
+            return MobEffects.LEVITATION;
         }
         if ("absorption".equals(ore.potionEffect)) {
-            return Effects.ABSORPTION;
+            return MobEffects.ABSORPTION;
         }
-        return Effects.DAMAGE_RESISTANCE;
+        return MobEffects.DAMAGE_RESISTANCE;
     }
 
 }

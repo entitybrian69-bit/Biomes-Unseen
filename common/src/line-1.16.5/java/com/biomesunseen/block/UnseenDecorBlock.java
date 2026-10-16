@@ -17,8 +17,8 @@ public class UnseenDecorBlock extends Block {
         this.decor = decor;
     }
 
-    private static AbstractBlock.Properties buildProperties(DecorDef decor) {
-        AbstractBlock.Properties properties = AbstractBlock.Properties.of(net.minecraft.world.level.material.Material.STONE).strength(1.5F, 6.0F);
+    private static BlockBehaviour.Properties buildProperties(DecorDef decor) {
+        BlockBehaviour.Properties properties = BlockBehaviour.Properties.of(net.minecraft.world.level.material.Material.STONE).strength(1.5F, 6.0F);
         properties = properties.strength("stone".equals(decor.material) ? 1.5F : 1.0F, 6.0F);
         if (decor.isTransparent()) {
             properties = properties.noOcclusion().isViewBlocking((state, getter, pos) -> false);

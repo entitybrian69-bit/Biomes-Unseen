@@ -387,7 +387,7 @@ public final class ModParticles {
             % (_camel(mid).upper() if False else _camel(mid), mid, cls, mob_cat,
                w, h, mid))
         attr_entries.append(
-            '        EntityAttributeRegistry.register(%s, () -> Mob.createMobAttributes()\n'
+            '        EntityAttributeRegistry.register(() -> %s.get(), () -> Mob.createMobAttributes()\n'
             '                .add(Attributes.MAX_HEALTH, %sD)\n'
             '                .add(Attributes.MOVEMENT_SPEED, %sD)\n'
             '                .add(Attributes.ATTACK_DAMAGE, %sD)\n'
@@ -403,7 +403,7 @@ public final class ModParticles {
             '                .fireImmune().build("%s"));'
             % (_camel(bid), bid, cls, w, h, bid))
         attr_entries.append(
-            '        EntityAttributeRegistry.register(%s, () -> Mob.createMobAttributes()\n'
+            '        EntityAttributeRegistry.register(() -> %s.get(), () -> Mob.createMobAttributes()\n'
             '                .add(Attributes.MAX_HEALTH, %sD)\n'
             '                .add(Attributes.MOVEMENT_SPEED, %sD)\n'
             '                .add(Attributes.ATTACK_DAMAGE, %sD)\n'

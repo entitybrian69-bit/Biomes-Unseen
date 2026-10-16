@@ -2,7 +2,7 @@ package com.biomesunseen.worldgen.mixin;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.biome.Biome;
-import net.minecraft.world.level.biome.BiomeProvider;
+import net.minecraft.world.level.biome.BiomeSource;
 
 import com.biomesunseen.worldgen.UnseenBiomeSelector;
 
@@ -16,7 +16,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
  * 1.18.1 line).  After the vanilla provider picks a biome, we may replace it
  * with a deterministic "unseen pocket" biome.
  */
-@Mixin(BiomeProvider.class)
+@Mixin(BiomeSource.class)
 public abstract class BiomeProviderMixin {
 
     @Inject(method = "getNoiseBiome", at = @At("RETURN"), cancellable = true)

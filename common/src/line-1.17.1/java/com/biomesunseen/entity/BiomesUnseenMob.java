@@ -133,7 +133,7 @@ public abstract class BiomesUnseenMob extends PathfinderMob  {
         }
         double temperature = 0.7D;
         try {
-            temperature = unseenLevel().getBiome(blockPosition()).value().getBaseTemperature();
+            temperature = unseenLevel().getBiome(blockPosition()).getBaseTemperature();
         } catch (Throwable ignored) {
             // Older mappings expose the temperature accessor differently.
         }

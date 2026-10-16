@@ -129,7 +129,7 @@ public class VoidSerpentEntity extends BiomesUnseenMob {
             // void_beam
             triggerAnim("beam");
             if (distanceTo(target) < 32.0D) {
-                target.hurt(DamageSource.causeMobDamage(this), (float) DEF.phaseAttackDamage(phase));
+                target.hurt(DamageSource.mobAttack(this), (float) DEF.phaseAttackDamage(phase));
             }
         } else if (choice == 1) {
             // phase_shift: blink behind the target, invulnerable during
@@ -145,7 +145,7 @@ public class VoidSerpentEntity extends BiomesUnseenMob {
                         segmentX(i) + 2.0D, segmentY(i) + 2.0D, segmentZ(i) + 2.0D);
                 for (LivingEntity entity : unseenLevel().getEntitiesOfClass(LivingEntity.class, box,
                         e -> e != this)) {
-                    entity.hurt(DamageSource.causeMobDamage(this), 4.0F + phase * 2.0F);
+                    entity.hurt(DamageSource.mobAttack(this), 4.0F + phase * 2.0F);
                 }
             }
         } else if (choice == 3) {
@@ -155,7 +155,7 @@ public class VoidSerpentEntity extends BiomesUnseenMob {
                 double sx = getX() + getRandom().nextGaussian() * 4.0D;
                 double sy = getY() + getRandom().nextGaussian() * 2.0D;
                 double sz = getZ() + getRandom().nextGaussian() * 4.0D;
-                target.hurt(DamageSource.causeMobDamage(this), 2.0F + phase);
+                target.hurt(DamageSource.mobAttack(this), 2.0F + phase);
             }
         } else {
             // devour: pull the target in

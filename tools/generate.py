@@ -189,11 +189,14 @@ NO_REGISTRIES_LINES = ("1.16.5", "1.17.1", "1.18", "1.18.1", "1.19", "1.19.1", "
 # on 1.17.1/1.18.1 the legacy registrar works off StructureFeature instead.
 NO_STRUCTURE_CLASS_LINES = ("1.17.1", "1.18.1")
 
-# Text components: Component.literal/translatable statics appeared in 1.18.2.
+# Text components: the Component.literal/translatable statics only exist from
+# 1.19 on.  Everything up to and including the 1.18 line (MC 1.18.2) uses the
+# component *classes* instead - TextComponent/TranslatableComponent, which the
+# class index of every legacy target lists.
 TEXT_REWRITES = [
-    ("net.minecraft.network.chat.Component.literal(", "new net.minecraft.network.chat.StringTextComponent("),
+    ("net.minecraft.network.chat.Component.literal(", "new net.minecraft.network.chat.TextComponent("),
     ("net.minecraft.network.chat.Component.translatable(", "new net.minecraft.network.chat.TranslatableComponent("),
-    ("Component.literal(", "new net.minecraft.network.chat.StringTextComponent("),
+    ("Component.literal(", "new net.minecraft.network.chat.TextComponent("),
     ("Component.translatable(", "new net.minecraft.network.chat.TranslatableComponent("),
 ]
 
@@ -446,8 +449,144 @@ def _rewrite_spawn_at_location(text):
     return "".join(out)
 
 
+# Lines whose Minecraft version predates the 1.19 API generation: 1.16.5,
+# 1.17.1, 1.18.1 and 1.18 (MC 1.18.2).
+LEGACY_TEXT_LINES = ("1.16.5", "1.17.1", "1.18.1", "1.18")
+# Goal#requiresUpdateEveryTick() arrived in 1.20.2.
+_RE_REQUIRES_TICK = re.compile(
+    r"\n    @Override\n    public boolean requiresUpdateEveryTick\(\) \{\n"
+    r"        return true;\n    \}")
+
+
+def apply_legacy_drift(text, rank):
+    """Rewrites for the pre-1.19 API generations.  Every rule below is taken
+    from the javac reports in docs/ci-errors and the class indices in
+    docs/api-probe (see the per-line comments)."""
+    if rank > LINE_RANK["1.18"]:
+        return text
+    # Goal#requiresUpdateEveryTick() does not exist before 1.20.2.
+    text = _RE_REQUIRES_TICK.sub("", text)
+    # BlockBehaviour.Properties#offsetType() is not resolvable on the legacy
+    # targets (fabric-1.17.1/1.18.1/1.18.2 report "cannot find symbol: method
+    # offsetType(OffsetType)").  The plants simply skip the visual offset.
+    text = text.replace(".offsetType(BlockBehaviour.OffsetType.XZ)", "")
+    text = text.replace(".offsetType(AbstractBlock.OffsetType.XZ)", "")
+    # Player#sendSystemMessage arrived in 1.19; every legacy target has
+    # displayClientMessage(Component, boolean) instead.
+    text = re.sub(r"player\.sendSystemMessage\((.*)\);",
+                  r"player.displayClientMessage(\1, false);", text)
+    return text
+
+
+def apply_legacy_mc_drift(text, rank):
+    """Fixes for the 1.16.5 / 1.17.1 / 1.18.1 Minecraft generations."""
+    if rank > LINE_RANK["1.18.1"]:
+        return text
+    # Level#getBiome(BlockPos) returns the Biome itself before 1.18.2, so the
+    # Holder#value() unwrap must go.
+    text = text.replace(".getBiome(blockPosition()).value()", ".getBiome(blockPosition())")
+    if rank != LINE_RANK["1.16.5"]:
+        return text
+    # --- 1.16.5 only ------------------------------------------------------- #
+    # Player#getInventory() arrived in 1.17; 1.16.5 exposes the public field.
+    text = text.replace("customer.getInventory().isEmpty()", "customer.inventory.isEmpty()")
+    # Vec3#horizontalDistanceSqr arrived in 1.17; 1.16.5 has multiply(3) +
+    # lengthSqr().
+    text = text.replace("mob.getDeltaMovement().horizontalDistanceSqr()",
+                        "mob.getDeltaMovement().multiply(1.0D, 0.0D, 1.0D).lengthSqr()")
+    text = text.replace("getDeltaMovement().horizontalDistanceSqr() > 1.0E-4D",
+                        "getDeltaMovement().multiply(1.0D, 0.0D, 1.0D).lengthSqr() > 1.0E-4D")
+    # Entity#getXRot() arrived in 1.17; the field is public on 1.16.5.
+    text = re.sub(r"(mob|entity)\.getXRot\(\)", r"\1.xRot", text)
+    # DamageSource.causeMobDamage arrived in 1.17 (1.16.5: mobAttack).
+    text = text.replace("DamageSource.causeMobDamage(", "DamageSource.mobAttack(")
+    # net.minecraft.world.biome.provider.BiomeProvider -> BiomeSource.
+    text = text.replace("net.minecraft.world.level.biome.BiomeProvider",
+                        "net.minecraft.world.level.biome.BiomeSource")
+    text = text.replace("net.minecraft.world.biome.provider.BiomeProvider",
+                        "net.minecraft.world.level.biome.BiomeSource")
+    # Bare MCP/Yarn identifiers left in the 1.16.5 templates.  The lookbehind
+    # keeps qualified names (own.mc.MobEffects) intact; the missing lookahead
+    # lets class usage (Effects.REGENERATION, BiomeProvider.class) through.
+    for mcp, mojang in LEGACY_BARE_NAMES:
+        text = re.sub(r"(?<![.\w])%s(?!\w)" % mcp, mojang, text)
+
+    # --- 1.16.5-only API spellings --------------------------------------- #
+    # Tier/ArmorMaterial: Mojang's 1.16.5 names are the modern ones.
+    for old_name, new_name in (("getEnchantability", "getEnchantmentValue"),
+                               ("getRepairMaterial", "getRepairIngredient"),
+                               ("getMaxUses", "getUses"),
+                               ("getEfficiency", "getSpeed"),
+                               ("getHarvestLevel", "getLevel")):
+        text = re.sub(r"(?<![.\w])%s(?=\()" % old_name, new_name, text)
+    # Item#use still returns InteractionResultHolder<ItemStack> on 1.16.5.
+    if "public InteractionResult use(" in text and "ItemStack stack" in text:
+        text = text.replace("public InteractionResult use(",
+                            "public InteractionResultHolder<ItemStack> use(")
+        text = text.replace("return InteractionResult.SUCCESS;",
+                            "return InteractionResultHolder.success(stack);")
+        text = _ensure_import(text, "net.minecraft.world.InteractionResultHolder")
+    # Architectury 1.x: DeferredRegister.create wants the *_REGISTRY keys.
+    for kind in ("BLOCK", "ITEM", "ENTITY_TYPE", "SOUND_EVENT", "PARTICLE_TYPE"):
+        text = text.replace("DeferredRegister.create(MOD_ID, Registry.%s)" % kind,
+                            "DeferredRegister.create(MOD_ID, Registry.%s_REGISTRY)" % kind)
+    # Architectury 1.x: the attribute registry lives in registry.entity, and it
+    # takes a Supplier<EntityType<? extends LivingEntity>>.
+    text = text.replace("me.shedaniel.architectury.registry.EntityAttributeRegistry",
+                        "me.shedaniel.architectury.registry.entity.EntityAttributes")
+    text = text.replace("EntityAttributeRegistry.register(", "EntityAttributes.register(")
+    text = re.sub(r"EntityAttributes\.register\((\w+),",
+                  r"EntityAttributes.register(() -> \1.get(),", text)
+    # The mob templates call mobInteract(Player, Hand) without importing Player.
+    if re.search(r"\bmobInteract\(\s*Player\b", text) \
+            and "import net.minecraft.world.entity.player.Player;" not in text \
+            and "import net.minecraft.world.level.Level;" in text:
+        text = text.replace(
+            "import net.minecraft.world.level.Level;",
+            "import net.minecraft.world.entity.player.Player;\n"
+            "import net.minecraft.world.level.Level;", 1)
+    return text
+
+
+# Bare legacy identifiers -> the names the 1.16.5 jar actually declares (see
+# docs/api-probe/probe-fabric-1.16.5.txt ### ALL-CLASSES).
+LEGACY_BARE_NAMES = (
+    ("ClientWorld", "ClientLevel"),
+    ("EffectInstance", "MobEffectInstance"),
+    ("Effects", "MobEffects"),
+    ("BiomeProvider", "BiomeSource"),
+    ("AbstractBlock", "BlockBehaviour"),
+    ("EntityClassification", "MobCategory"),
+    ("ParticleManager", "ParticleEngine"),
+    ("DataParameter", "EntityDataAccessor"),
+    ("DataSerializers", "EntityDataSerializers"),
+    ("EntityDataManager", "SynchedEntityData"),
+    ("AxisAlignedBB", "AABB"),
+    ("ServerWorld", "ServerLevel"),
+    ("ItemGroup", "CreativeModeTab"),
+    ("IItemTier", "Tier"),
+    ("ItemTier", "Tier"),
+    ("IArmorMaterial", "ArmorMaterial"),
+    ("EquipmentSlotType", "EquipmentSlot"),
+    ("TranslationTextComponent", "TranslatableComponent"),
+    ("StringTextComponent", "TextComponent"),
+    ("AttributeModifierMap.MutableAttribute", "AttributeSupplier.Builder"),
+    ("AttributeModifierMap", "AttributeSupplier"),
+    ("IParticleData", "ParticleOptions"),
+    ("BasicParticleType", "SimpleParticleType"),
+    ("CreatureEntity", "PathfinderMob"),
+    ("AgeableEntity", "AgeableMob"),
+    ("MobEntity", "Mob"),
+    ("PlayerEntity", "Player"),
+    ("ActionResultType", "InteractionResult"),
+    ("CompoundNBT", "CompoundTag"),
+    ("RegistryKey", "ResourceKey"),
+)
+
+
 def apply_api_drift(text, line_key):
     rank = LINE_RANK[line_key]
+    text = apply_legacy_mc_drift(apply_legacy_drift(text, rank), rank)
 
     # Level.isClientSide went private in 1.21.9; isClientSide() exists on every
     # version, so the accessor is always the safe spelling.

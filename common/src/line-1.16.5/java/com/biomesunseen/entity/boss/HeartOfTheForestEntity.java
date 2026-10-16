@@ -101,14 +101,14 @@ public class HeartOfTheForestEntity extends BiomesUnseenMob {
             // root_slam: melee AoE
             triggerAnim("attack");
             if (distance < 6.0D) {
-                target.hurt(DamageSource.causeMobDamage(this), (float) DEF.phaseAttackDamage(phase));
+                target.hurt(DamageSource.mobAttack(this), (float) DEF.phaseAttackDamage(phase));
                 target.setDeltaMovement(target.getDeltaMovement().add(0.0D, 0.6D, 0.0D));
             }
         } else if (choice == 1) {
             // spore_cloud
             triggerAnim("spore_cloud");
             if (distance < 12.0D) {
-                target.hurt(DamageSource.causeMobDamage(this), 4.0F + phase * 2.0F);
+                target.hurt(DamageSource.mobAttack(this), 4.0F + phase * 2.0F);
                 target.addEffect(new net.minecraft.world.effect.MobEffectInstance(
                         net.minecraft.world.effect.MobEffects.POISON, 80, 0));
             }
@@ -116,7 +116,7 @@ public class HeartOfTheForestEntity extends BiomesUnseenMob {
             // verdant_beam: ranged
             triggerAnim("beam");
             if (distance < 24.0D) {
-                target.hurt(DamageSource.causeMobDamage(this), 6.0F + phase * 2.0F);
+                target.hurt(DamageSource.mobAttack(this), 6.0F + phase * 2.0F);
                 unseenLevel().broadcastEntityEvent(this, (byte) 4);
             }
         } else {
@@ -124,7 +124,7 @@ public class HeartOfTheForestEntity extends BiomesUnseenMob {
             triggerAnim("slam");
             for (Player player : unseenLevel().getEntitiesOfClass(Player.class,
                     getBoundingBox().inflate(10.0D))) {
-                player.hurt(DamageSource.causeMobDamage(this), 5.0F + phase * 2.0F);
+                player.hurt(DamageSource.mobAttack(this), 5.0F + phase * 2.0F);
                 player.setDeltaMovement(player.getDeltaMovement().add(0.0D, 0.8D, 0.0D));
             }
         }

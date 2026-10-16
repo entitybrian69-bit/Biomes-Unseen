@@ -1,5 +1,7 @@
 package com.biomesunseen.item;
 
+import net.minecraft.world.InteractionResultHolder;
+
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -27,14 +29,14 @@ public class LoreBookItem extends Item {
     }
 
     @Override
-    public InteractionResult use(Level world, Player player, InteractionHand hand) {
+    public InteractionResultHolder<ItemStack> use(Level world, Player player, InteractionHand hand) {
         ItemStack stack = player.getItemInHand(hand);
         if (world.isClientSide()) {
-            return InteractionResult.SUCCESS;
+            return InteractionResultHolder.success(stack);
         }
         player.sendMessage(new net.minecraft.network.chat.TranslatableComponent(
                 "book.biomesunseen." + theme), player.getUUID());
-        return InteractionResult.SUCCESS;
+        return InteractionResultHolder.success(stack);
     }
 
 }

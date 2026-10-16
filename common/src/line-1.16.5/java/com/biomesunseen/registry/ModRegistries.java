@@ -21,15 +21,15 @@ public final class ModRegistries {
     public static final String MOD_ID = ModConstants.MOD_ID;
 
     public static final DeferredRegister<Block> BLOCKS =
-            DeferredRegister.create(MOD_ID, Registry.BLOCK);
+            DeferredRegister.create(MOD_ID, Registry.BLOCK_REGISTRY);
     public static final DeferredRegister<Item> ITEMS =
-            DeferredRegister.create(MOD_ID, Registry.ITEM);
+            DeferredRegister.create(MOD_ID, Registry.ITEM_REGISTRY);
     public static final DeferredRegister<EntityType<?>> ENTITIES =
-            DeferredRegister.create(MOD_ID, Registry.ENTITY_TYPE);
+            DeferredRegister.create(MOD_ID, Registry.ENTITY_TYPE_REGISTRY);
     public static final DeferredRegister<SoundEvent> SOUNDS =
-            DeferredRegister.create(MOD_ID, Registry.SOUND_EVENT);
+            DeferredRegister.create(MOD_ID, Registry.SOUND_EVENT_REGISTRY);
     public static final DeferredRegister<ParticleType<?>> PARTICLES =
-            DeferredRegister.create(MOD_ID, Registry.PARTICLE_TYPE);
+            DeferredRegister.create(MOD_ID, Registry.PARTICLE_TYPE_REGISTRY);
 
     private ModRegistries() {
     }

@@ -43,6 +43,13 @@ while :; do
   if [ "$pin_is_neoforge" != true ] || [ "$attempt" -ge 2 ]; then
     break
   fi
+  # The NeoForge patcher checksum mismatch ("Patch expected ... to have the
+  # checksum ...") is version-independent: retrying another 20.2.x build only
+  # hides the first failure, so keep the report from the pinned version.
+  if grep -q "Patch expected" build.log; then
+    echo "=== patcher checksum failure; not retrying ===" >> pin.log
+    break
+  fi
   if ! grep -q "A problem occurred configuring project" build.log; then
     break
   fi

@@ -48,7 +48,7 @@ public class UnseenArmorMaterial implements ArmorMaterial {
     }
 
     @Override
-    public Ingredient getRepairMaterial() {
+    public Ingredient getRepairIngredient() {
         return repairIngredient.get();
     }
 

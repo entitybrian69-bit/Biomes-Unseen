@@ -44,7 +44,7 @@ public final class PlatformExpectImpl {
         // Modern lines: the shipped datapack overrides
         // multi_noise_biome_source_parameter_list/overworld.json which inserts
         // every Biomes Unseen biome into the overworld climate system.
-        // Legacy lines: the BiomeProvider mixin performs insertion.
+        // Legacy lines: the BiomeSource mixin performs insertion.
         System.out.println("[Biomes Unseen] biome injection installed for "
                 + WorldGenKeys.allBiomeKeys().size() + " biomes");
     }

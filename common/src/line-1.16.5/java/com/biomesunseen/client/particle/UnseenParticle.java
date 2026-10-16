@@ -17,7 +17,7 @@ public class UnseenParticle extends TextureSheetParticle {
 
     private final SpriteSet sprites;
 
-    protected UnseenParticle(ClientWorld level, double x, double y, double z,
+    protected UnseenParticle(ClientLevel level, double x, double y, double z,
                              double xSpeed, double ySpeed, double zSpeed, SpriteSet sprites) {
         super(level, x, y, z, xSpeed, ySpeed, zSpeed);
         this.sprites = sprites;
@@ -50,7 +50,7 @@ public class UnseenParticle extends TextureSheetParticle {
         }
 
         @Override
-        public Particle createParticle(SimpleParticleType type, ClientWorld level,
+        public Particle createParticle(SimpleParticleType type, ClientLevel level,
                 double x, double y, double z, double xSpeed, double ySpeed, double zSpeed) {
             return new UnseenParticle(level, x, y, z, xSpeed, ySpeed, zSpeed, sprites);
         }

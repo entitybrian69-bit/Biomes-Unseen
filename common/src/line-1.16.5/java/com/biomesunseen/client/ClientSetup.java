@@ -1,6 +1,6 @@
 package com.biomesunseen.client;
 
-import me.shedaniel.architectury.registry.EntityRendererRegistry;
+import me.shedaniel.architectury.registry.entity.EntityRenderers;
 import me.shedaniel.architectury.registry.ParticleProviderRegistry;
 
 import com.biomesunseen.registry.ModEntities;
@@ -19,49 +19,49 @@ public final class ClientSetup {
     }
 
     public static void init() {
-        EntityRendererRegistry.register(ModEntities.Lumox, context -> new UnseenLegacyRenderer<>(context, "lumox"));
-        EntityRendererRegistry.register(ModEntities.Brambleback, context -> new UnseenLegacyRenderer<>(context, "brambleback"));
-        EntityRendererRegistry.register(ModEntities.Siltstrider, context -> new UnseenLegacyRenderer<>(context, "siltstrider"));
-        EntityRendererRegistry.register(ModEntities.Glimmermoth, context -> new UnseenLegacyRenderer<>(context, "glimmermoth"));
-        EntityRendererRegistry.register(ModEntities.PeatHopper, context -> new UnseenLegacyRenderer<>(context, "peat_hopper"));
-        EntityRendererRegistry.register(ModEntities.EmberCalf, context -> new UnseenLegacyRenderer<>(context, "ember_calf"));
-        EntityRendererRegistry.register(ModEntities.FrostFawn, context -> new UnseenLegacyRenderer<>(context, "frost_fawn"));
-        EntityRendererRegistry.register(ModEntities.Murkling, context -> new UnseenLegacyRenderer<>(context, "murkling"));
-        EntityRendererRegistry.register(ModEntities.SporeSprout, context -> new UnseenLegacyRenderer<>(context, "spore_sprout"));
-        EntityRendererRegistry.register(ModEntities.Skywisp, context -> new UnseenLegacyRenderer<>(context, "skywisp"));
-        EntityRendererRegistry.register(ModEntities.ThunderRam, context -> new UnseenLegacyRenderer<>(context, "thunder_ram"));
-        EntityRendererRegistry.register(ModEntities.Mosshorn, context -> new UnseenLegacyRenderer<>(context, "mosshorn"));
-        EntityRendererRegistry.register(ModEntities.CinderPup, context -> new UnseenLegacyRenderer<>(context, "cinder_pup"));
-        EntityRendererRegistry.register(ModEntities.EchoHowler, context -> new UnseenLegacyRenderer<>(context, "echo_howler"));
-        EntityRendererRegistry.register(ModEntities.DuneSkimmer, context -> new UnseenLegacyRenderer<>(context, "dune_skimmer"));
-        EntityRendererRegistry.register(ModEntities.TideCaller, context -> new UnseenLegacyRenderer<>(context, "tide_caller"));
-        EntityRendererRegistry.register(ModEntities.GloomStalker, context -> new UnseenLegacyRenderer<>(context, "gloom_stalker"));
-        EntityRendererRegistry.register(ModEntities.CrystalHermit, context -> new UnseenLegacyRenderer<>(context, "crystal_hermit"));
-        EntityRendererRegistry.register(ModEntities.WindDancer, context -> new UnseenLegacyRenderer<>(context, "wind_dancer"));
-        EntityRendererRegistry.register(ModEntities.MireGolem, context -> new UnseenLegacyRenderer<>(context, "mire_golem"));
-        EntityRendererRegistry.register(ModEntities.LanternFox, context -> new UnseenLegacyRenderer<>(context, "lantern_fox"));
-        EntityRendererRegistry.register(ModEntities.ReefGrazer, context -> new UnseenLegacyRenderer<>(context, "reef_grazer"));
-        EntityRendererRegistry.register(ModEntities.AshCrawler, context -> new UnseenLegacyRenderer<>(context, "ash_crawler"));
-        EntityRendererRegistry.register(ModEntities.StarWhale, context -> new UnseenLegacyRenderer<>(context, "star_whale"));
-        EntityRendererRegistry.register(ModEntities.PetalWing, context -> new UnseenLegacyRenderer<>(context, "petal_wing"));
-        EntityRendererRegistry.register(ModEntities.HeartOfTheForest, context -> new UnseenLegacyRenderer<>(context, "heart_of_the_forest"));
-        EntityRendererRegistry.register(ModEntities.VoidSerpent, context -> new UnseenLegacyRenderer<>(context, "void_serpent"));
+        EntityRenderers.register(ModEntities.Lumox.get(), dispatcher -> new UnseenLegacyRenderer<>(dispatcher, "lumox"));
+        EntityRenderers.register(ModEntities.Brambleback.get(), dispatcher -> new UnseenLegacyRenderer<>(dispatcher, "brambleback"));
+        EntityRenderers.register(ModEntities.Siltstrider.get(), dispatcher -> new UnseenLegacyRenderer<>(dispatcher, "siltstrider"));
+        EntityRenderers.register(ModEntities.Glimmermoth.get(), dispatcher -> new UnseenLegacyRenderer<>(dispatcher, "glimmermoth"));
+        EntityRenderers.register(ModEntities.PeatHopper.get(), dispatcher -> new UnseenLegacyRenderer<>(dispatcher, "peat_hopper"));
+        EntityRenderers.register(ModEntities.EmberCalf.get(), dispatcher -> new UnseenLegacyRenderer<>(dispatcher, "ember_calf"));
+        EntityRenderers.register(ModEntities.FrostFawn.get(), dispatcher -> new UnseenLegacyRenderer<>(dispatcher, "frost_fawn"));
+        EntityRenderers.register(ModEntities.Murkling.get(), dispatcher -> new UnseenLegacyRenderer<>(dispatcher, "murkling"));
+        EntityRenderers.register(ModEntities.SporeSprout.get(), dispatcher -> new UnseenLegacyRenderer<>(dispatcher, "spore_sprout"));
+        EntityRenderers.register(ModEntities.Skywisp.get(), dispatcher -> new UnseenLegacyRenderer<>(dispatcher, "skywisp"));
+        EntityRenderers.register(ModEntities.ThunderRam.get(), dispatcher -> new UnseenLegacyRenderer<>(dispatcher, "thunder_ram"));
+        EntityRenderers.register(ModEntities.Mosshorn.get(), dispatcher -> new UnseenLegacyRenderer<>(dispatcher, "mosshorn"));
+        EntityRenderers.register(ModEntities.CinderPup.get(), dispatcher -> new UnseenLegacyRenderer<>(dispatcher, "cinder_pup"));
+        EntityRenderers.register(ModEntities.EchoHowler.get(), dispatcher -> new UnseenLegacyRenderer<>(dispatcher, "echo_howler"));
+        EntityRenderers.register(ModEntities.DuneSkimmer.get(), dispatcher -> new UnseenLegacyRenderer<>(dispatcher, "dune_skimmer"));
+        EntityRenderers.register(ModEntities.TideCaller.get(), dispatcher -> new UnseenLegacyRenderer<>(dispatcher, "tide_caller"));
+        EntityRenderers.register(ModEntities.GloomStalker.get(), dispatcher -> new UnseenLegacyRenderer<>(dispatcher, "gloom_stalker"));
+        EntityRenderers.register(ModEntities.CrystalHermit.get(), dispatcher -> new UnseenLegacyRenderer<>(dispatcher, "crystal_hermit"));
+        EntityRenderers.register(ModEntities.WindDancer.get(), dispatcher -> new UnseenLegacyRenderer<>(dispatcher, "wind_dancer"));
+        EntityRenderers.register(ModEntities.MireGolem.get(), dispatcher -> new UnseenLegacyRenderer<>(dispatcher, "mire_golem"));
+        EntityRenderers.register(ModEntities.LanternFox.get(), dispatcher -> new UnseenLegacyRenderer<>(dispatcher, "lantern_fox"));
+        EntityRenderers.register(ModEntities.ReefGrazer.get(), dispatcher -> new UnseenLegacyRenderer<>(dispatcher, "reef_grazer"));
+        EntityRenderers.register(ModEntities.AshCrawler.get(), dispatcher -> new UnseenLegacyRenderer<>(dispatcher, "ash_crawler"));
+        EntityRenderers.register(ModEntities.StarWhale.get(), dispatcher -> new UnseenLegacyRenderer<>(dispatcher, "star_whale"));
+        EntityRenderers.register(ModEntities.PetalWing.get(), dispatcher -> new UnseenLegacyRenderer<>(dispatcher, "petal_wing"));
+        EntityRenderers.register(ModEntities.HeartOfTheForest.get(), dispatcher -> new UnseenLegacyRenderer<>(dispatcher, "heart_of_the_forest"));
+        EntityRenderers.register(ModEntities.VoidSerpent.get(), dispatcher -> new UnseenLegacyRenderer<>(dispatcher, "void_serpent"));
 
-        ParticleProviderRegistry.register(ModParticles.BY_ID.get("crystal_spark"),
+        ParticleProviderRegistry.register(ModParticles.BY_ID.get("crystal_spark").get(),
                 UnseenParticle.Provider::new);
-        ParticleProviderRegistry.register(ModParticles.BY_ID.get("ember_flake"),
+        ParticleProviderRegistry.register(ModParticles.BY_ID.get("ember_flake").get(),
                 UnseenParticle.Provider::new);
-        ParticleProviderRegistry.register(ModParticles.BY_ID.get("void_mote"),
+        ParticleProviderRegistry.register(ModParticles.BY_ID.get("void_mote").get(),
                 UnseenParticle.Provider::new);
-        ParticleProviderRegistry.register(ModParticles.BY_ID.get("spore_drift"),
+        ParticleProviderRegistry.register(ModParticles.BY_ID.get("spore_drift").get(),
                 UnseenParticle.Provider::new);
-        ParticleProviderRegistry.register(ModParticles.BY_ID.get("frost_mote"),
+        ParticleProviderRegistry.register(ModParticles.BY_ID.get("frost_mote").get(),
                 UnseenParticle.Provider::new);
-        ParticleProviderRegistry.register(ModParticles.BY_ID.get("storm_arc"),
+        ParticleProviderRegistry.register(ModParticles.BY_ID.get("storm_arc").get(),
                 UnseenParticle.Provider::new);
-        ParticleProviderRegistry.register(ModParticles.BY_ID.get("petal_burst"),
+        ParticleProviderRegistry.register(ModParticles.BY_ID.get("petal_burst").get(),
                 UnseenParticle.Provider::new);
-        ParticleProviderRegistry.register(ModParticles.BY_ID.get("heal_glow"),
+        ParticleProviderRegistry.register(ModParticles.BY_ID.get("heal_glow").get(),
                 UnseenParticle.Provider::new);
     }
 }

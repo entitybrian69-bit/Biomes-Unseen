@@ -936,8 +936,7 @@ public class GrazeGoal extends ThrottledGoal {
          pack, herd, flees, terrain, bg, weight, night, anims, color, glow) in MOB_ROWS:
         cls = _camel(mid) + "Entity"
         goals = []
-        float_goal = ("net.minecraft.entity.ai.goal.SwimGoal" if legacy
-                      else "net.minecraft.world.entity.ai.goal.FloatGoal")
+        float_goal = "net.minecraft.world.entity.ai.goal.FloatGoal"
         goals.append("        this.goalSelector.addGoal(0, new %s(this));" % float_goal)
         if flees:
             goals.append("        this.goalSelector.addGoal(1, new FleeDangerGoal(this, 1.3D));")
@@ -948,9 +947,11 @@ public class GrazeGoal extends ThrottledGoal {
                              "NearestAttackableTargetGoal<>(this, net.minecraft.world.entity.player.Player.class, true));")
                 goals.append("        this.targetSelector.addGoal(2, new net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal(this));")
             else:
-                goals.append("        this.targetSelector.addGoal(1, new net.minecraft.entity.ai.goal."
-                             "NearestAttackableTargetGoal<>(this, net.minecraft.entity.player.PlayerEntity.class, true));")
-                goals.append("        this.targetSelector.addGoal(2, new net.minecraft.entity.ai.goal.HurtByTargetGoal(this));")
+                # 1.16.5 declares these in ...ai.goal.target (probe-fabric-1.16.5
+                # ### ALL-CLASSES); the MCP ...entity.ai.goal path is absent.
+                goals.append("        this.targetSelector.addGoal(1, new net.minecraft.world.entity.ai.goal.target."
+                             "NearestAttackableTargetGoal<>(this, net.minecraft.world.entity.player.Player.class, true));")
+                goals.append("        this.targetSelector.addGoal(2, new net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal(this));")
         if "graze" in behaviors:
             goals.append("        this.goalSelector.addGoal(3, new GrazeGoal(this));")
         if herd or pack or "follow_herd" in behaviors:
@@ -963,8 +964,7 @@ public class GrazeGoal extends ThrottledGoal {
             goals.append("        this.goalSelector.addGoal(4, new TerrainUseGoal(this, 1.0D));")
         if tame:
             goals.append("        // Tameable: sit/follow wiring handled in mobInteract/onTamedInteraction.")
-        stroll = ("net.minecraft.entity.ai.goal.WaterAvoidingRandomWalkingGoal" if legacy
-                 else "net.minecraft.world.entity.ai.goal.WaterAvoidingRandomStrollGoal")
+        stroll = "net.minecraft.world.entity.ai.goal.WaterAvoidingRandomStrollGoal"
         goals.append("        this.goalSelector.addGoal(5, new %s(this, 1.0D));" % stroll)
         if not legacy:
             goals.append("        this.goalSelector.addGoal(6, new net.minecraft.world.entity.ai.goal."

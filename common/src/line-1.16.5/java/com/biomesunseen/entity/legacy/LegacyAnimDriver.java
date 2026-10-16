@@ -26,12 +26,12 @@ public class LegacyAnimDriver {
 
     /** Called from the mob's aiStep. */
     public void tick() {
-        double speedSq = mob.getDeltaMovement().horizontalDistanceSqr();
+        double speedSq = mob.getDeltaMovement().multiply(1.0D, 0.0D, 1.0D).lengthSqr();
         float targetAmount = speedSq > 1.0E-4F ? 1.0F : 0.0F;
         limbSwingAmount += (targetAmount - limbSwingAmount) * 0.25F;
         limbSwing += limbSwingAmount * 1.4F;
         headYaw = mob.getYHeadRot() - mob.yBodyRot;
-        headPitch = mob.getXRot();
+        headPitch = mob.xRot;
         if (oneShotTicks > 0) {
             oneShotTicks--;
             oneShotPhase = 1.0F - oneShotTicks / 24.0F;

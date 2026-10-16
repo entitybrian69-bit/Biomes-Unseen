@@ -72,8 +72,4 @@ public class WanderTradeGoal extends ThrottledGoal {
         customer = null;
     }
 
-    @Override
-    public boolean requiresUpdateEveryTick() {
-        return true;
-    }
 }

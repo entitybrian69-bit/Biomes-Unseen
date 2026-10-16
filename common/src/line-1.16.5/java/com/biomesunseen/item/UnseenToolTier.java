@@ -42,12 +42,12 @@ public class UnseenToolTier implements Tier {
     }
 
     @Override
-    public int getEnchantability() {
+    public int getEnchantmentValue() {
         return ore.toolEnchantability;
     }
 
     @Override
-    public Ingredient getRepairMaterial() {
+    public Ingredient getRepairIngredient() {
         return repairIngredient.get();
     }
 

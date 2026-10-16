@@ -13,6 +13,14 @@ from emit_families import _w, _s, _camel
 # and EntityModel is now bound to EntityRenderState (probe-fabric-1.21.2).
 RS_LINES = ("1.21.2", "1.21.4", "1.21.5", "1.21.9", "1.21.11", "26")
 
+# The three 1.17.1 - 1.18.2 lines use the modern architectury client API with
+# the 3.x signatures.  There RegistrySupplier<T> *is* a Supplier<T> but the
+# register methods want Supplier<EntityType<? extends T>>, and generics are
+# invariant, so the call sites need an explicit widening cast:
+#   required: Supplier<EntityType<? extends T>>,EntityRendererProvider<T>
+#   found:    RegistrySupplier<EntityType<LumoxEntity>>,...
+DEV_LEGACY_LINES = ("1.17.1", "1.18.1", "1.18")
+
 # The 1.21.9 particle overhaul removed TextureSheetParticle and moved the
 # velocity/position fields, so the custom sprite particle (and its provider)
 # cannot be compiled against those jars.  Those lines ship the particle *types*
@@ -241,7 +249,7 @@ public class %(cls)s extends %(renderer_base)s<%(entity)s> {
             })
 
     # ================================================================== #
-    # Legacy renderer + model (1.16.5 line)
+    # Legacy renderer + model (1.17.1 - 1.18.2 lines: model builders exist)
     # ================================================================== #
     if geckolib == "none":
         _w(root, base + "/client/legacy/UnseenLegacyModel.java", '''package com.biomesunseen.client.legacy;
@@ -372,6 +380,19 @@ public class UnseenLegacyRenderer<T extends BiomesUnseenMob>
     }
 }
 ''')
+
+    # ================================================================== #
+    # 1.16.5 client rig
+    # ================================================================== #
+    # probe-fabric-1.16.5: net.minecraft.client.model.geom.builders.* and
+    # net.minecraft.client.renderer.entity.EntityRendererProvider are absent,
+    # while ModelPart, EntityModel and MobRenderer(EntityRenderDispatcher,
+    # M, float) are all present.  The rig is therefore built by hand.
+    if legacy and geckolib == "none":
+        _w(root, base + "/client/legacy/UnseenLegacyModel.java",
+           _LEGACY_16_MODEL)
+        _w(root, base + "/client/legacy/UnseenLegacyRenderer.java",
+           _LEGACY_16_RENDERER)
 
     # ================================================================== #
     # 1.21.2+ render-state rewrite
@@ -565,17 +586,50 @@ public class UnseenLegacyRenderer<T extends BiomesUnseenMob>
         renderer_cls = "com.biomesunseen.client.render.BiomesUnseenGeoRenderer"
 
     registrations = []
+    dev_legacy = geckolib == "none" and line_key in DEV_LEGACY_LINES
     if geckolib == "none" and not legacy:
         registrations.append(
             "        EntityModelLayerRegistry.register(UnseenLegacyModel.LAYER,"
             " UnseenLegacyModel::createBodyLayer);")
+    if legacy and geckolib == "none":
+        # Architectury 1.x registers renderers against the resolved EntityType
+        # (me.shedaniel.architectury.registry.entity.EntityRenderers), because
+        # net.minecraft.client.renderer.entity.EntityRendererProvider does not
+        # exist on 1.16.5.
+        for (mid, *_r) in MOB_ROWS:
+            registrations.append(
+                '        EntityRenderers.register(ModEntities.%s.get(),'
+                ' dispatcher -> new UnseenLegacyRenderer<>(dispatcher, "%s"));'
+                % (_camel(mid), mid))
+        for (bid, *_r) in BOSS_ROWS:
+            registrations.append(
+                '        EntityRenderers.register(ModEntities.%s.get(),'
+                ' dispatcher -> new UnseenLegacyRenderer<>(dispatcher, "%s"));'
+                % (_camel(bid), bid))
+    elif dev_legacy:
+        # Architectury 3.x wants Supplier<EntityType<? extends T>>;
+        # RegistrySupplier<EntityType<X>> is invariant in X, so widen it.
+        for (mid, *_r) in MOB_ROWS:
+            registrations.append(
+                '        EntityRendererRegistry.register('
+                '(Supplier<EntityType<? extends BiomesUnseenMob>>) (Supplier<?>) ModEntities.%s,\n'
+                '                context -> %s);' % (_camel(mid), renderer_new % mid))
+        for (bid, *_r) in BOSS_ROWS:
+            registrations.append(
+                '        EntityRendererRegistry.register('
+                '(Supplier<EntityType<? extends BiomesUnseenMob>>) (Supplier<?>) ModEntities.%s,\n'
+                '                context -> %s);' % (_camel(bid), renderer_new % bid))
     for (mid, *_r) in MOB_ROWS:
+        if legacy or dev_legacy:
+            break
         registrations.append(
             ('        EntityRendererRegistry.register(ModEntities.%s, %s);'
              if line_key in RS_LINES and geckolib == "none" else
              '        EntityRendererRegistry.register(ModEntities.%s, context -> %s);')
             % (_camel(mid), renderer_new % mid))
     for (bid, *_r) in BOSS_ROWS:
+        if legacy or dev_legacy:
+            break
         if geckolib == "none":
             # Bosses share the hand-animated legacy renderer: full keyframe
             # animation without a GeckoLib dependency on any API line.
@@ -592,13 +646,14 @@ public class UnseenLegacyRenderer<T extends BiomesUnseenMob>
     particle_regs = []
     for p in (() if line_key in NO_CUSTOM_PARTICLE_LINES else PARTICLE_TYPES):
         particle_regs.append(
-            '        ParticleProviderRegistry.register(ModParticles.BY_ID.get("%s"),\n'
-            '                UnseenParticle.Provider::new);' % p)
+            '        ParticleProviderRegistry.register(ModParticles.BY_ID.get("%s")%s,\n'
+            '                UnseenParticle.Provider::new);'
+            % (p, ".get()" if (legacy or dev_legacy) else ""))
 
     _w(root, base + "/client/ClientSetup.java", '''package com.biomesunseen.client;
 
-import %(arch_rr)s.EntityRendererRegistry;
-import %(arch_pr)s.ParticleProviderRegistry;
+%(legacy_imports)simport %(arch_rr)s.%(rr_cls)s;
+import %(arch_pr)s.%(pr_cls)s;
 %(layer_import)s
 import com.biomesunseen.registry.ModEntities;
 import com.biomesunseen.registry.ModParticles;
@@ -621,12 +676,18 @@ public final class ClientSetup {
 }
 ''' % {
         "arch": arch_pkg,
-        "arch_rr": ("me.shedaniel.architectury.registry"
-                    if F["expect"] == "me.shedaniel"
-                    else "dev.architectury.registry.client.level.entity"),
+        "arch_rr": ("me.shedaniel.architectury.registry.entity"
+                    if legacy else
+                    "dev.architectury.registry.client.level.entity"),
         "arch_pr": ("me.shedaniel.architectury.registry"
-                    if F["expect"] == "me.shedaniel"
-                    else "dev.architectury.registry.client.particle"),
+                    if legacy else
+                    "dev.architectury.registry.client.particle"),
+        "legacy_imports": ("" if not dev_legacy else
+                           "import java.util.function.Supplier;\n"
+                           "import net.minecraft.world.entity.EntityType;\n"
+                           "import com.biomesunseen.entity.BiomesUnseenMob;\n"),
+        "rr_cls": "EntityRenderers" if legacy else "EntityRendererRegistry",
+        "pr_cls": "ParticleProviderRegistry",
         "layer_import": ("" if geckolib != "none" or legacy else
                          "import dev.architectury.registry.client.level.entity.EntityModelLayerRegistry;\n"
                          "import com.biomesunseen.client.legacy.UnseenLegacyModel;\n"),
@@ -1614,3 +1675,117 @@ public final class ModWorldGenProvider {
     }
 }
 ''')
+
+
+# --- 1.16.5 client templates -------------------------------------------------
+# ModelPart#addBox(float x6) / setPos / render(PoseStack, VertexConsumer, int,
+# int, float, float, float, float) and EntityModel#renderToBuffer(...) are the
+# 1.16.5 spellings (the builders package arrived in 1.17.1).
+_LEGACY_16_MODEL = '''package com.biomesunseen.client.legacy;
+
+import com.mojang.blaze3d.vertex.PoseStack;
+import com.mojang.blaze3d.vertex.VertexConsumer;
+import net.minecraft.client.model.EntityModel;
+import net.minecraft.client.model.geom.ModelPart;
+
+import com.biomesunseen.entity.BiomesUnseenMob;
+
+/**
+ * Box model for the 1.16.5 line: head, body and four limbs, animated from the
+ * entity's LegacyAnimDriver (limb swing, head yaw, one-shot poses).  The parts
+ * are built by hand because the model-builder classes do not exist before
+ * 1.17.
+ */
+public class UnseenLegacyModel<T extends BiomesUnseenMob> extends EntityModel<T> {
+
+    private final ModelPart head;
+    private final ModelPart body;
+    private final ModelPart leg0;
+    private final ModelPart leg1;
+    private final ModelPart leg2;
+    private final ModelPart leg3;
+
+    public UnseenLegacyModel() {
+        head = new ModelPart(64, 32, 0, 0);
+        head.addBox(-4.0F, -8.0F, -4.0F, 8.0F, 8.0F, 8.0F);
+        head.setPos(0.0F, 4.0F, -4.0F);
+        body = new ModelPart(64, 32, 16, 16);
+        body.addBox(-5.0F, -10.0F, -7.0F, 10.0F, 16.0F, 8.0F);
+        body.setPos(0.0F, 5.0F, 2.0F);
+        leg0 = new ModelPart(64, 32, 0, 16);
+        leg0.addBox(-2.0F, 0.0F, -2.0F, 4.0F, 12.0F, 4.0F);
+        leg0.setPos(-3.0F, 12.0F, 7.0F);
+        leg1 = new ModelPart(64, 32, 0, 16);
+        leg1.addBox(-2.0F, 0.0F, -2.0F, 4.0F, 12.0F, 4.0F);
+        leg1.setPos(3.0F, 12.0F, 7.0F);
+        leg2 = new ModelPart(64, 32, 0, 16);
+        leg2.addBox(-2.0F, 0.0F, -2.0F, 4.0F, 12.0F, 4.0F);
+        leg2.setPos(-3.0F, 12.0F, -5.0F);
+        leg3 = new ModelPart(64, 32, 0, 16);
+        leg3.addBox(-2.0F, 0.0F, -2.0F, 4.0F, 12.0F, 4.0F);
+        leg3.setPos(3.0F, 12.0F, -5.0F);
+    }
+
+    @Override
+    public void setupAnim(T entity, float limbSwing, float limbSwingAmount,
+                          float ageInTicks, float netHeadYaw, float headPitch) {
+        head.yRot = netHeadYaw * ((float) Math.PI / 180.0F);
+        head.xRot = headPitch * ((float) Math.PI / 180.0F);
+        leg0.xRot = (float) Math.cos(limbSwing * 0.6662F) * 1.4F * limbSwingAmount;
+        leg1.xRot = (float) Math.cos(limbSwing * 0.6662F + (float) Math.PI) * 1.4F * limbSwingAmount;
+        leg2.xRot = (float) Math.cos(limbSwing * 0.6662F + (float) Math.PI) * 1.4F * limbSwingAmount;
+        leg3.xRot = (float) Math.cos(limbSwing * 0.6662F) * 1.4F * limbSwingAmount;
+        if (entity.animDriver().oneShotClip != null) {
+            float phase = entity.animDriver().oneShotPhase;
+            if ("attack".equals(entity.animDriver().oneShotClip)
+                    || "slam".equals(entity.animDriver().oneShotClip)) {
+                body.xRot = (float) Math.sin(phase * (float) Math.PI) * 0.4F;
+            } else if ("graze".equals(entity.animDriver().oneShotClip)) {
+                head.xRot = (float) Math.sin(phase * (float) Math.PI) * 0.9F;
+            } else if ("flee".equals(entity.animDriver().oneShotClip)) {
+                body.xRot = -0.2F;
+            }
+        }
+    }
+
+    @Override
+    public void renderToBuffer(PoseStack matrixStack, VertexConsumer buffer,
+            int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
+        head.render(matrixStack, buffer, packedLight, packedOverlay, red, green, blue, alpha);
+        body.render(matrixStack, buffer, packedLight, packedOverlay, red, green, blue, alpha);
+        leg0.render(matrixStack, buffer, packedLight, packedOverlay, red, green, blue, alpha);
+        leg1.render(matrixStack, buffer, packedLight, packedOverlay, red, green, blue, alpha);
+        leg2.render(matrixStack, buffer, packedLight, packedOverlay, red, green, blue, alpha);
+        leg3.render(matrixStack, buffer, packedLight, packedOverlay, red, green, blue, alpha);
+    }
+}
+'''
+
+_LEGACY_16_RENDERER = '''package com.biomesunseen.client.legacy;
+
+import net.minecraft.client.renderer.entity.EntityRenderDispatcher;
+import net.minecraft.client.renderer.entity.MobRenderer;
+import net.minecraft.resources.ResourceLocation;
+
+import com.biomesunseen.entity.BiomesUnseenMob;
+
+/**
+ * Mob renderer for the 1.16.5 line: the renderer takes the dispatcher directly
+ * (EntityRendererProvider does not exist yet) and the texture is resolved once.
+ */
+public class UnseenLegacyRenderer<T extends BiomesUnseenMob>
+        extends MobRenderer<T, UnseenLegacyModel<T>> {
+
+    private final ResourceLocation texture;
+
+    public UnseenLegacyRenderer(EntityRenderDispatcher dispatcher, String id) {
+        super(dispatcher, new UnseenLegacyModel<T>(), 0.5F);
+        this.texture = new ResourceLocation("biomesunseen", "textures/entity/" + id + ".png");
+    }
+
+    @Override
+    public ResourceLocation getTextureLocation(T entity) {
+        return this.texture;
+    }
+}
+'''

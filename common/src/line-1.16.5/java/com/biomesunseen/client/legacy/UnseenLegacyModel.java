@@ -3,20 +3,15 @@ package com.biomesunseen.client.legacy;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.minecraft.client.model.EntityModel;
-import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.model.geom.ModelPart;
-import net.minecraft.client.model.geom.PartPose;
-import net.minecraft.client.model.geom.builders.CubeListBuilder;
-import net.minecraft.client.model.geom.builders.LayerDefinition;
-import net.minecraft.client.model.geom.builders.MeshDefinition;
-import net.minecraft.client.model.geom.builders.PartDefinition;
-import net.minecraft.resources.ResourceLocation;
 
 import com.biomesunseen.entity.BiomesUnseenMob;
 
 /**
- * Box model for the 1.16.5 line: head, body and four limbs, animated from
- * the entity's LegacyAnimDriver (limb swing, head yaw, one-shot poses).
+ * Box model for the 1.16.5 line: head, body and four limbs, animated from the
+ * entity's LegacyAnimDriver (limb swing, head yaw, one-shot poses).  The parts
+ * are built by hand because the model-builder classes do not exist before
+ * 1.17.
  */
 public class UnseenLegacyModel<T extends BiomesUnseenMob> extends EntityModel<T> {
 
@@ -27,41 +22,25 @@ public class UnseenLegacyModel<T extends BiomesUnseenMob> extends EntityModel<T>
     private final ModelPart leg2;
     private final ModelPart leg3;
 
-    public UnseenLegacyModel(ModelPart root) {
-        head = root.getChild("head");
-        body = root.getChild("body");
-        leg0 = root.getChild("leg0");
-        leg1 = root.getChild("leg1");
-        leg2 = root.getChild("leg2");
-        leg3 = root.getChild("leg3");
-    }
-
-    /** Shared model layer: every Biomes Unseen mob uses this six-part rig. */
-    public static final ModelLayerLocation LAYER = new ModelLayerLocation(
-            new ResourceLocation("biomesunseen", "legacy_mob"), "main");
-
-    public static LayerDefinition createBodyLayer() {
-        MeshDefinition mesh = new MeshDefinition();
-        PartDefinition root = mesh.getRoot();
-        root.addOrReplaceChild("head", CubeListBuilder.create().texOffs(0, 0)
-                .addBox(-4.0F, -8.0F, -4.0F, 8.0F, 8.0F, 8.0F),
-                PartPose.offset(0.0F, 4.0F, -4.0F));
-        root.addOrReplaceChild("body", CubeListBuilder.create().texOffs(16, 16)
-                .addBox(-5.0F, -10.0F, -7.0F, 10.0F, 16.0F, 8.0F),
-                PartPose.offset(0.0F, 5.0F, 2.0F));
-        root.addOrReplaceChild("leg0", CubeListBuilder.create().texOffs(0, 16)
-                .addBox(-2.0F, 0.0F, -2.0F, 4.0F, 12.0F, 4.0F),
-                PartPose.offset(-3.0F, 12.0F, 7.0F));
-        root.addOrReplaceChild("leg1", CubeListBuilder.create().texOffs(0, 16)
-                .addBox(-2.0F, 0.0F, -2.0F, 4.0F, 12.0F, 4.0F),
-                PartPose.offset(3.0F, 12.0F, 7.0F));
-        root.addOrReplaceChild("leg2", CubeListBuilder.create().texOffs(0, 16)
-                .addBox(-2.0F, 0.0F, -2.0F, 4.0F, 12.0F, 4.0F),
-                PartPose.offset(-3.0F, 12.0F, -5.0F));
-        root.addOrReplaceChild("leg3", CubeListBuilder.create().texOffs(0, 16)
-                .addBox(-2.0F, 0.0F, -2.0F, 4.0F, 12.0F, 4.0F),
-                PartPose.offset(3.0F, 12.0F, -5.0F));
-        return LayerDefinition.create(mesh, 64, 32);
+    public UnseenLegacyModel() {
+        head = new ModelPart(64, 32, 0, 0);
+        head.addBox(-4.0F, -8.0F, -4.0F, 8.0F, 8.0F, 8.0F);
+        head.setPos(0.0F, 4.0F, -4.0F);
+        body = new ModelPart(64, 32, 16, 16);
+        body.addBox(-5.0F, -10.0F, -7.0F, 10.0F, 16.0F, 8.0F);
+        body.setPos(0.0F, 5.0F, 2.0F);
+        leg0 = new ModelPart(64, 32, 0, 16);
+        leg0.addBox(-2.0F, 0.0F, -2.0F, 4.0F, 12.0F, 4.0F);
+        leg0.setPos(-3.0F, 12.0F, 7.0F);
+        leg1 = new ModelPart(64, 32, 0, 16);
+        leg1.addBox(-2.0F, 0.0F, -2.0F, 4.0F, 12.0F, 4.0F);
+        leg1.setPos(3.0F, 12.0F, 7.0F);
+        leg2 = new ModelPart(64, 32, 0, 16);
+        leg2.addBox(-2.0F, 0.0F, -2.0F, 4.0F, 12.0F, 4.0F);
+        leg2.setPos(-3.0F, 12.0F, -5.0F);
+        leg3 = new ModelPart(64, 32, 0, 16);
+        leg3.addBox(-2.0F, 0.0F, -2.0F, 4.0F, 12.0F, 4.0F);
+        leg3.setPos(3.0F, 12.0F, -5.0F);
     }
 
     @Override
@@ -87,8 +66,7 @@ public class UnseenLegacyModel<T extends BiomesUnseenMob> extends EntityModel<T>
     }
 
     @Override
-    public void renderToBuffer(com.mojang.blaze3d.vertex.PoseStack matrixStack,
-            com.mojang.blaze3d.vertex.VertexConsumer buffer,
+    public void renderToBuffer(PoseStack matrixStack, VertexConsumer buffer,
             int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
         head.render(matrixStack, buffer, packedLight, packedOverlay, red, green, blue, alpha);
         body.render(matrixStack, buffer, packedLight, packedOverlay, red, green, blue, alpha);
