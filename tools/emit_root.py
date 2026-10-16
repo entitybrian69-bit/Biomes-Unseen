@@ -17,15 +17,20 @@ def _w(root, rel, text):
 
 
 SETTINGS_GRADLE = '''pluginManagement {
+    // Plugin dependencies (Loom, the Kotlin metadata read by Gradle's own
+    // plugins, ...) come from the portal and Central.  The Forge maven is
+    // deliberately not a pluginManagement repository: it is a CDN mirror that
+    // intermittently answers 409, which breaks the buildscript classpath for
+    // unrelated modules.  The Forge *artifacts* still resolve from the
+    // repositories declared in the root build script.
     repositories {
-        maven { url = "https://maven.fabricmc.net/" }
-        maven { url = "https://maven.architectury.dev/" }
-        maven { url = "https://maven.minecraftforge.net/" }
-        maven { url = "https://maven.neoforged.net/releases" }
-        maven { url = "https://dl.cloudsmith.io/public/geckolib3/geckolib/maven/" }
-        maven { url = "https://maven.shedaniel.me/" }
         gradlePluginPortal()
         mavenCentral()
+        maven { url = "https://maven.fabricmc.net/" }
+        maven { url = "https://maven.architectury.dev/" }
+        maven { url = "https://maven.neoforged.net/releases" }
+        maven { url = "https://maven.shedaniel.me/" }
+        maven { url = "https://dl.cloudsmith.io/public/geckolib3/geckolib/maven/" }
     }
     plugins {
         id "org.gradle.toolchains.foojay-resolver-convention" version "1.0.0"
