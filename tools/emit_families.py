@@ -21,15 +21,15 @@ MAT = "net.minecraft.world.level.material.Material"
 # 1.21.2 dropped net.minecraft.world.item.Tier/.Tiers; the probe of the real
 # 1.21.2/1.21.4/1.21.5 jars shows every tool item taking
 # net.minecraft.world.item.ToolMaterial instead.
-TOOL_MATERIAL_LINES = ("1.21.2", "1.21.4", "1.21.5", "1.21.9", "26")
+TOOL_MATERIAL_LINES = ("1.21.2", "1.21.4", "1.21.5", "1.21.9", "1.21.11", "26")
 
 # 1.20.5 turned ArmorMaterial into a final record and ArmorItem into
 # ArmorItem(Holder<ArmorMaterial>, ArmorItem$Type, Item$Properties).
-ARMOR_RECORD_LINES = ("1.20.5", "1.21", "1.21.2", "1.21.4", "1.21.5", "1.21.9", "26")
+ARMOR_RECORD_LINES = ("1.20.5", "1.21", "1.21.2", "1.21.4", "1.21.5", "1.21.9", "1.21.11", "26")
 
 # 1.21.5 removed ArmorItem alongside SwordItem/PickaxeItem, so the armor pieces
 # are plain Items on those lines.
-NO_ARMOR_ITEM_LINES = ("1.21.5", "1.21.9", "26")
+NO_ARMOR_ITEM_LINES = ("1.21.5", "1.21.9", "1.21.11", "26")
 
 # 1.21.5 removed SwordItem and PickaxeItem outright (probe: "class not found:
 # net.minecraft.world.item.SwordItem" / ".PickaxeItem" on 1.21.5 and 1.21.9),
@@ -37,7 +37,7 @@ NO_ARMOR_ITEM_LINES = ("1.21.5", "1.21.9", "26")
 # Item$Properties) ctor.  On those lines the sword and the pickaxe are built as
 # plain Items carrying their attribute modifiers, with block-breaking rules
 # supplied by the generated mineable/incorrect_blocks_for_drops tags.
-NO_SWORD_PICKAXE_LINES = ("1.21.5", "1.21.9", "26")
+NO_SWORD_PICKAXE_LINES = ("1.21.5", "1.21.9", "1.21.11", "26")
 
 def _w(root, rel, text):
     path = os.path.join(root, rel)
@@ -1608,12 +1608,12 @@ import com.biomesunseen.core.OreDef;
                         "import net.minecraft.world.item.SwordItem;\n")
         slot_import = ("" if line_key in ("1.19.4", "1.20", "1.20.1", "1.20.2",
                                           "1.20.3", "1.20.4", "1.20.5", "1.21",
-                                          "1.21.2", "1.21.4", "1.21.5", "1.21.9", "26")
+                                          "1.21.2", "1.21.4", "1.21.5", "1.21.9", "1.21.11", "26")
                        else "import net.minecraft.world.entity.EquipmentSlot;\n")
         gear_head = ('package com.biomesunseen.item;\n\n'
                      + slot_import +
                      'import net.minecraft.world.item.ArmorItem;\n'
-                     'import net.minecraft.world.item.ArmorMaterial;\n'
+                     'import ' + armor_material_import + ';\n'
                      'import net.minecraft.world.item.Item;\n'
                      + tool_imports + tier_import + '\n\n'
                      'import com.biomesunseen.core.OreDef;\n')

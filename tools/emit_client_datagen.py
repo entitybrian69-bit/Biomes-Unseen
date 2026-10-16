@@ -490,13 +490,13 @@ public class UnseenLegacyModel<S extends UnseenLegacyRenderState> extends Entity
     @Override
     public void renderToBuffer(com.mojang.blaze3d.vertex.PoseStack matrixStack,
             com.mojang.blaze3d.vertex.VertexConsumer buffer,
-            int packedLight, int packedOverlay, int packedColor) {
-        head.render(matrixStack, buffer, packedLight, packedOverlay, packedColor);
-        body.render(matrixStack, buffer, packedLight, packedOverlay, packedColor);
-        leg0.render(matrixStack, buffer, packedLight, packedOverlay, packedColor);
-        leg1.render(matrixStack, buffer, packedLight, packedOverlay, packedColor);
-        leg2.render(matrixStack, buffer, packedLight, packedOverlay, packedColor);
-        leg3.render(matrixStack, buffer, packedLight, packedOverlay, packedColor);
+            int packedLight, int packedOverlay) {
+        head.render(matrixStack, buffer, packedLight, packedOverlay);
+        body.render(matrixStack, buffer, packedLight, packedOverlay);
+        leg0.render(matrixStack, buffer, packedLight, packedOverlay);
+        leg1.render(matrixStack, buffer, packedLight, packedOverlay);
+        leg2.render(matrixStack, buffer, packedLight, packedOverlay);
+        leg3.render(matrixStack, buffer, packedLight, packedOverlay);
     }
 }
 ''')

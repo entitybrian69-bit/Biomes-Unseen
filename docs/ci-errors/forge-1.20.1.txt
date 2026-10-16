@@ -1,34 +1,47 @@
 > Task :forge-1.20.1:processResources FAILED
-gradle/actions: Writing build results to /home/runner/work/_temp/.gradle-actions/build-results/__run_2-1792163953736.json
+gradle/actions: Writing build results to /home/runner/work/_temp/.gradle-actions/build-results/__run_2-1792164880228.json
 
 ---
 * What went wrong:
 Execution failed for task ':forge-1.20.1:processResources' (registered by plugin class 'org.gradle.api.plugins.JavaBasePlugin').
-> Could not copy file '/home/runner/work/Biomes-Unseen/Biomes-Unseen/forge-1.20.1/src/main/resources/META-INF/mods.toml' to '/home/runner/work/Biomes-Unseen/Biomes-Unseen/forge-1.20.1/build/resources/main/META-INF/mods.toml'.
+> Entry pack.mcmeta is a duplicate but no duplicate handling strategy has been set. Please refer to https://docs.gradle.org/9.8.1/dsl/org.gradle.api.tasks.Copy.html#org.gradle.api.tasks.Copy:duplicatesStrategy for details.
 ---
 Execution failed for task ':forge-1.20.1:processResources' (registered by plugin class 'org.gradle.api.plugins.JavaBasePlugin').
-> Could not copy file '/home/runner/work/Biomes-Unseen/Biomes-Unseen/forge-1.20.1/src/main/resources/META-INF/mods.toml' to '/home/runner/work/Biomes-Unseen/Biomes-Unseen/forge-1.20.1/build/resources/main/META-INF/mods.toml'.
-   > Missing property (version) for Groovy template expansion. Defined keys [mod_version, mod_id, mod_name, minecraft_version].
+> Entry pack.mcmeta is a duplicate but no duplicate handling strategy has been set. Please refer to https://docs.gradle.org/9.8.1/dsl/org.gradle.api.tasks.Copy.html#org.gradle.api.tasks.Copy:duplicatesStrategy for details.
+
 ---
 org.gradle.api.tasks.TaskExecutionException: Execution failed for task ':forge-1.20.1:processResources' (registered by plugin class 'org.gradle.api.plugins.JavaBasePlugin').
 	at org.gradle.api.internal.tasks.execution.DefaultTaskNodeExecutor.lambda$doExecute$1(DefaultTaskNodeExecutor.java:367)
 	at org.gradle.internal.Try$Failure.ifSuccessfulOrElse(Try.java:288)
 ---
-BUILD FAILED in 2m 4s
+BUILD FAILED in 2m 39s
 2 actionable tasks: 2 executed
 ---
 === STACKTRACE ===
-Caused by: org.gradle.api.internal.file.AbstractFileTreeElement$CopyFileElementException: Could not copy file '/home/runner/work/Biomes-Unseen/Biomes-Unseen/forge-1.20.1/src/main/resources/META-INF/mods.toml' to '/home/runner/work/Biomes-Unseen/Biomes-Unseen/forge-1.20.1/build/resources/main/META-INF/mods.toml'.
-Caused by: org.gradle.api.GradleException: Missing property (version) for Groovy template expansion. Defined keys [mod_version, mod_id, mod_name, minecraft_version].
-Caused by: groovy.lang.MissingPropertyException: No such property: version for class: SimpleTemplateScript1
+Caused by: org.gradle.api.InvalidUserCodeException: Entry pack.mcmeta is a duplicate but no duplicate handling strategy has been set. Please refer to https://docs.gradle.org/9.8.1/dsl/org.gradle.api.tasks.Copy.html#org.gradle.api.tasks.Copy:duplicatesStrategy for details.
 === WHAT WENT WRONG ===
 * What went wrong:
 Execution failed for task ':forge-1.20.1:processResources' (registered by plugin class 'org.gradle.api.plugins.JavaBasePlugin').
-> Could not copy file '/home/runner/work/Biomes-Unseen/Biomes-Unseen/forge-1.20.1/src/main/resources/META-INF/mods.toml' to '/home/runner/work/Biomes-Unseen/Biomes-Unseen/forge-1.20.1/build/resources/main/META-INF/mods.toml'.
-   > Missing property (version) for Groovy template expansion. Defined keys [mod_version, mod_id, mod_name, minecraft_version].
+> Entry pack.mcmeta is a duplicate but no duplicate handling strategy has been set. Please refer to https://docs.gradle.org/9.8.1/dsl/org.gradle.api.tasks.Copy.html#org.gradle.api.tasks.Copy:duplicatesStrategy for details.
 
 * Try:
 === LAST 40 ===
+	at org.gradle.internal.execution.steps.CaptureMutableStateBeforeExecutionStep.execute(CaptureMutableStateBeforeExecutionStep.java:65)
+	at org.gradle.internal.execution.steps.CaptureMutableStateBeforeExecutionStep.execute(CaptureMutableStateBeforeExecutionStep.java:45)
+	at org.gradle.internal.execution.steps.SkipEmptyMutableWorkStep.executeWithNonEmptySources(SkipEmptyMutableWorkStep.java:210)
+	at org.gradle.internal.execution.steps.SkipEmptyMutableWorkStep.executeMutable(SkipEmptyMutableWorkStep.java:90)
+	at org.gradle.internal.execution.steps.SkipEmptyMutableWorkStep.executeMutable(SkipEmptyMutableWorkStep.java:53)
+	at org.gradle.internal.execution.steps.MutableStep.execute(MutableStep.java:26)
+	at org.gradle.internal.execution.steps.legacy.MarkSnapshottingInputsStartedStep.execute(MarkSnapshottingInputsStartedStep.java:38)
+	at org.gradle.internal.execution.steps.LoadPreviousExecutionStateStep.executeMutable(LoadPreviousExecutionStateStep.java:36)
+	at org.gradle.internal.execution.steps.LoadPreviousExecutionStateStep.executeMutable(LoadPreviousExecutionStateStep.java:23)
+	at org.gradle.internal.execution.steps.MutableStep.execute(MutableStep.java:26)
+	at org.gradle.internal.execution.steps.HandleStaleOutputsStep.executeMutable(HandleStaleOutputsStep.java:77)
+	at org.gradle.internal.execution.steps.HandleStaleOutputsStep.executeMutable(HandleStaleOutputsStep.java:43)
+	at org.gradle.internal.execution.steps.MutableStep.execute(MutableStep.java:26)
+	at org.gradle.internal.execution.steps.AssignMutableWorkspaceStep.lambda$executeMutable$0(AssignMutableWorkspaceStep.java:34)
+	at org.gradle.api.internal.tasks.execution.TaskExecution$4.withWorkspace(TaskExecution.java:314)
+	at org.gradle.internal.execution.steps.AssignMutableWorkspaceStep.executeMutable(AssignMutableWorkspaceStep.java:30)
 	at org.gradle.internal.execution.steps.AssignMutableWorkspaceStep.executeMutable(AssignMutableWorkspaceStep.java:21)
 	at org.gradle.internal.execution.steps.MutableStep.execute(MutableStep.java:26)
 	at org.gradle.internal.execution.steps.ChoosePipelineStep.execute(ChoosePipelineStep.java:40)
@@ -42,23 +55,7 @@ Execution failed for task ':forge-1.20.1:processResources' (registered by plugin
 	at org.gradle.internal.execution.steps.IdentifyStep.execute(IdentifyStep.java:38)
 	at org.gradle.internal.execution.impl.DefaultExecutionEngine$1.execute(DefaultExecutionEngine.java:68)
 	at org.gradle.api.internal.tasks.execution.DefaultTaskNodeExecutor.doExecute(DefaultTaskNodeExecutor.java:364)
-	... 25 more
-Caused by: org.gradle.api.GradleException: Missing property (version) for Groovy template expansion. Defined keys [mod_version, mod_id, mod_name, minecraft_version].
-	at org.gradle.api.internal.file.copy.FilterChain$3.transform(FilterChain.java:131)
-	at org.gradle.api.internal.file.copy.FilterChain$3.transform(FilterChain.java:114)
-	at org.gradle.api.internal.file.copy.ChainingTransformer.transform(ChainingTransformer.java:37)
-	at org.gradle.api.internal.file.copy.FilterChain.transform(FilterChain.java:58)
-	at org.gradle.api.internal.file.copy.FilterChain.transform(FilterChain.java:67)
-	at org.gradle.api.internal.file.copy.DefaultFileCopyDetails.open(DefaultFileCopyDetails.java:122)
-	at org.gradle.api.internal.file.AbstractFileTreeElement.copyTo(AbstractFileTreeElement.java:64)
-	at org.gradle.api.internal.file.copy.DefaultFileCopyDetails.copyTo(DefaultFileCopyDetails.java:131)
-	at org.gradle.api.internal.file.AbstractFileTreeElement.copyFile(AbstractFileTreeElement.java:102)
-	at org.gradle.api.internal.file.AbstractFileTreeElement.copyTo(AbstractFileTreeElement.java:83)
-	... 154 more
-Caused by: groovy.lang.MissingPropertyException: No such property: version for class: SimpleTemplateScript1
-	at SimpleTemplateScript1.run(SimpleTemplateScript1.groovy:1)
-	at org.gradle.api.internal.file.copy.FilterChain$3.transform(FilterChain.java:128)
-	... 163 more
+	... 55 more
 
 
 Deprecated Gradle features were used in this build, making it incompatible with Gradle 10.
@@ -67,5 +64,5 @@ You can use '--warning-mode all' to show the individual deprecation warnings and
 
 For more on this, please refer to https://docs.gradle.org/9.8.1/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
 
-BUILD FAILED in 2m 4s
+BUILD FAILED in 2m 39s
 2 actionable tasks: 2 executed

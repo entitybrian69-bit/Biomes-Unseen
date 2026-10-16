@@ -1,74 +1,81 @@
 package com.biomesunseen.item;
 
-import net.minecraft.world.entity.EquipmentSlot;
-import net.minecraft.world.item.ArmorItem;
-import net.minecraft.world.item.ArmorMaterial;
-import net.minecraft.world.item.crafting.Ingredient;
-import net.minecraft.sounds.SoundEvent;
+import net.minecraft.core.Holder;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.resources.Identifier;
 import net.minecraft.sounds.SoundEvents;
+import net.minecraft.world.item.equipment.ArmorMaterial;
+import net.minecraft.world.item.equipment.ArmorType;
+import net.minecraft.world.item.crafting.Ingredient;
 
 import com.biomesunseen.core.OreDef;
 
+import java.util.EnumMap;
+import java.util.List;
+import java.util.Map;
 import java.util.function.Supplier;
 
 /**
- * Armor material derived from an ore definition.  Defense values scale with
- * the ore's tool tier so stronger ores make stronger armor.
+ * Armor material derived from an ore definition.  From 1.20.5 the vanilla
+ * ArmorMaterial is a final record, so this class builds one and hands the
+ * armor items a holder of it.
  */
-public class UnseenArmorMaterial implements ArmorMaterial {
-
-    private static final int[] BASE_DURABILITY = new int[]{13, 15, 16, 11};
-    private static final int[] BASE_DEFENSE = new int[]{2, 5, 6, 2};
+public final class UnseenArmorMaterial {
 
     private final OreDef ore;
     private final Supplier<Ingredient> repairIngredient;
+    private final ArmorMaterial material;
+    private final Holder<ArmorMaterial> holder;
 
     public UnseenArmorMaterial(OreDef ore, Supplier<Ingredient> repairIngredient) {
         this.ore = ore;
         this.repairIngredient = repairIngredient;
+        Map<ArmorType, Integer> defense = new EnumMap<>(ArmorType.class);
+        defense.put(ArmorType.HELMET, ore.toolMiningLevel + 2);
+        defense.put(ArmorType.CHESTPLATE, ore.toolMiningLevel + 5);
+        defense.put(ArmorType.LEGGINGS, ore.toolMiningLevel + 4);
+        defense.put(ArmorType.BOOTS, ore.toolMiningLevel + 2);
+        this.material = new ArmorMaterial(
+                defense,
+                ore.toolEnchantability,
+                SoundEvents.ARMOR_EQUIP_IRON,
+                repairIngredient,
+                List.of(new ArmorMaterial.Layer(Identifier.fromNamespaceAndPath("biomesunseen", ore.id))),
+                ore.toolMiningLevel * 0.5F,
+                ore.toolMiningLevel >= 4 ? 0.1F : 0.0F);
+        this.holder = Holder.direct(this.material);
     }
 
-    @Override
-    public int getDurabilityForSlot(EquipmentSlot slot) {
-        return BASE_DURABILITY[slot.getIndex()] * (ore.toolDurability / 33);
+    /** @return the holder the ArmorItem constructor needs. */
+    public Holder<ArmorMaterial> holder() {
+        return holder;
     }
 
-    @Override
-    public int getDefenseForSlot(EquipmentSlot slot) {
-        return BASE_DEFENSE[slot.getIndex()] + ore.toolMiningLevel;
-    }
-
-    @Override
-    public int getEnchantmentValue() {
-        return ore.toolEnchantability;
-    }
-
-    @Override
-    public SoundEvent getEquipSound() {
-        return SoundEvents.ARMOR_EQUIP_IRON;
-    }
-
-    @Override
-    public Ingredient getRepairIngredient() {
-        return repairIngredient.get();
-    }
-
-    @Override
-    public String getName() {
-        return "biomesunseen:" + ore.id;
-    }
-
-    @Override
-    public float getToughness() {
-        return ore.toolMiningLevel * 0.5F;
-    }
-
-    @Override
-    public float getKnockbackResistance() {
-        return ore.toolMiningLevel >= 4 ? 0.1F : 0.0F;
+    public ArmorMaterial material() {
+        return material;
     }
 
     public OreDef ore() {
         return ore;
+    }
+
+    public int getDefenseForType(ArmorType type) {
+        return material.getDefense(type);
+    }
+
+    public int getEnchantmentValue() {
+        return ore.toolEnchantability;
+    }
+
+    public Ingredient getRepairIngredient() {
+        return repairIngredient.get();
+    }
+
+    public float getToughness() {
+        return ore.toolMiningLevel * 0.5F;
+    }
+
+    public float getKnockbackResistance() {
+        return ore.toolMiningLevel >= 4 ? 0.1F : 0.0F;
     }
 }

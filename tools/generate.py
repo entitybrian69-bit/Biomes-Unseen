@@ -227,7 +227,7 @@ _RE_EFFECT_FOR_TYPE = re.compile(
     r'net\.minecraft\.world\.effect\.MobEffect effectFor\(')
 # probe-fabric-1.21.5: Entity.spawnAtLocation gained a leading ServerLevel
 # parameter (all four overloads), so the item-drop calls need a server check.
-SPAWN_AT_LOCATION_NEEDS_LEVEL_FROM = "1.21.5"
+SPAWN_AT_LOCATION_NEEDS_LEVEL_FROM = "1.21.2"
 
 # probe-fabric-1.21.2: Entity.isInvulnerableTo gained a leading ServerLevel and
 # Entity.hurt stopped returning boolean; both changed in the same release.
@@ -596,7 +596,8 @@ def postprocess(root, line_key):
         if F["pkgs"] != "legacy":
             text = text.replace("RemovalReason",
                                 "net.minecraft.world.entity.Entity.RemovalReason")
-        if line_key in ("1.21", "1.21.2", "1.21.3", "1.21.4", "1.21.5", "1.21.9", "26"):
+        if line_key in ("1.21", "1.21.2", "1.21.3", "1.21.4", "1.21.5", "1.21.9",
+                        "1.21.11", "26"):
             text = text.replace(
                 "int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {",
                 "int packedLight, int packedOverlay, int packedColor) {")
@@ -610,7 +611,7 @@ def postprocess(root, line_key):
                 text = text.replace(a, b)
             for pat, rep in LEGACY_MOJANG_ID:
                 text = re.sub(pat, rep, text)
-        if line_key in ("1.21.5", "1.21.9", "26"):
+        if line_key in ("1.21.5", "1.21.9", "1.21.11", "26"):
             # 1.21.5 removed net.minecraft.world.item.ArmorItem alongside
             # SwordItem/PickaxeItem, and ArmorItem$Type became
             # net.minecraft.world.item.equipment.ArmorType from 1.21.2.

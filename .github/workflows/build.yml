@@ -439,8 +439,9 @@ jobs:
 
       - name: Collect jars
         run: |
-          mkdir -p out
-          find jars -name '*.jar' ! -name '*-sources.jar' ! -name '*-dev.jar' ! -name '*-javadoc.jar' -exec cp -n {} out/ \;
+          mkdir -p out jars
+          find jars -name '*.jar' ! -name '*-sources.jar' ! -name '*-dev.jar' ! -name '*-javadoc.jar' -exec cp -n {} out/ \; || true
+          echo "collected $(ls out | wc -l) jar(s)"
           ls -la out || true
 
       - name: Create or update release v1.0.0

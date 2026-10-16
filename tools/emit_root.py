@@ -100,6 +100,9 @@ subprojects {
     }
 
     tasks.withType(ProcessResources).configureEach {
+        // pack.mcmeta (and the mod metadata files) can appear in more than one
+        // of the configured resource roots; keep the first (module-local) copy.
+        duplicatesStrategy = DuplicatesStrategy.EXCLUDE
         def props = [
                 version          : project.mod_version,
                 mod_version      : project.mod_version,
