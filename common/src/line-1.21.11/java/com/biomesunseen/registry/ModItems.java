@@ -156,7 +156,7 @@ public final class ModItems {
             SPAWN_EGGS.put(mobId, track(ModRegistries.ITEMS.register(
                     mobId + "_spawn_egg",
                     () -> new SpawnEggItem((EntityType<? extends Mob>) (EntityType<?>) ModEntities.MOB_TYPES.get(mobId).get(),
-                            color, accent, new Item.Properties()))));
+                            new Item.Properties()))));
         }
         for (int i = 0; i < Content.BOSSES.size(); i++) {
             final String bossId = Content.BOSSES.get(i).id;
@@ -165,7 +165,7 @@ public final class ModItems {
             SPAWN_EGGS.put(bossId, track(ModRegistries.ITEMS.register(
                     bossId + "_spawn_egg",
                     () -> new SpawnEggItem((EntityType<? extends Mob>) (EntityType<?>) ModEntities.BOSS_TYPES.get(bossId).get(),
-                            color, accent, new Item.Properties()))));
+                            new Item.Properties()))));
         }
 
         // Lore journals: one per structure lore theme.

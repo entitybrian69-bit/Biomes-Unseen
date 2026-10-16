@@ -14,40 +14,12 @@
                     () -> new SpawnEggItem((EntityType<? extends Mob>) (EntityType<?>) ModEntities.BOSS_TYPES.get(bossId).get(),
                           ^
 ---
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/item/UnseenArmorMaterial.java:43: error: cannot find symbol
-                List.of(new ArmorMaterial.Layer(Identifier.fromNamespaceAndPath("biomesunseen", ore.id))),
-                                         ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/item/UnseenArmorMaterial.java:63: error: cannot find symbol
-        return material.getDefense(type);
-                       ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/item/UnseenTonicItem.java:47: error: cannot find symbol
-            return MobEffects.MOVEMENT_SPEED;
-                             ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/item/UnseenTonicItem.java:50: error: cannot find symbol
-            return MobEffects.DAMAGE_BOOST;
-                             ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/item/UnseenTonicItem.java:68: error: cannot find symbol
-            return MobEffects.MOVEMENT_SLOWDOWN;
-                             ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/item/UnseenTonicItem.java:71: error: cannot find symbol
-            return MobEffects.DIG_SPEED;
-                             ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/item/UnseenTonicItem.java:79: error: cannot find symbol
-        return MobEffects.DAMAGE_RESISTANCE;
-                         ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/client/legacy/UnseenLegacyModel.java:85: error: method does not override or implement a method from a supertype
-    @Override
-    ^
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/item/UnseenArmorMaterial.java:47: error: cannot find symbol
+                ResourceKey.create(Registries.EQUIPMENT_ASSET,
+                                             ^
 ---
 > Task :fabric-26.2:compileJava FAILED
-gradle/actions: Writing build results to /home/runner/work/_temp/.gradle-actions/build-results/__run_2-1792167496369.json
+gradle/actions: Writing build results to /home/runner/work/_temp/.gradle-actions/build-results/__run_2-1792168782546.json
 
 ---
 * What went wrong:
@@ -66,10 +38,6 @@ Execution failed for task ':fabric-26.2:compileJava' (registered by plugin class
               SpawnCaps.onRemoved(unseenLevel().dimension().location().toString());
                                                            ^
 ---
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/item/UnseenArmorMaterial.java:63: error: cannot find symbol
-          return material.getDefense(type);
-                         ^
----
   /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/registry/ModItems.java:158: error: constructor SpawnEggItem in class SpawnEggItem cannot be applied to given types;
                       () -> new SpawnEggItem((EntityType<? extends Mob>) (EntityType<?>) ModEntities.MOB_TYPES.get(mobId).get(),
                             ^
@@ -78,33 +46,9 @@ Execution failed for task ':fabric-26.2:compileJava' (registered by plugin class
                       () -> new SpawnEggItem((EntityType<? extends Mob>) (EntityType<?>) ModEntities.BOSS_TYPES.get(bossId).get(),
                             ^
 ---
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/item/UnseenArmorMaterial.java:43: error: cannot find symbol
-                  List.of(new ArmorMaterial.Layer(Identifier.fromNamespaceAndPath("biomesunseen", ore.id))),
-                                           ^
----
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/item/UnseenTonicItem.java:47: error: cannot find symbol
-              return MobEffects.MOVEMENT_SPEED;
-                               ^
----
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/item/UnseenTonicItem.java:50: error: cannot find symbol
-              return MobEffects.DAMAGE_BOOST;
-                               ^
----
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/item/UnseenTonicItem.java:68: error: cannot find symbol
-              return MobEffects.MOVEMENT_SLOWDOWN;
-                               ^
----
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/item/UnseenTonicItem.java:71: error: cannot find symbol
-              return MobEffects.DIG_SPEED;
-                               ^
----
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/item/UnseenTonicItem.java:79: error: cannot find symbol
-          return MobEffects.DAMAGE_RESISTANCE;
-                           ^
----
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/client/legacy/UnseenLegacyModel.java:85: error: method does not override or implement a method from a supertype
-      @Override
-      ^
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/item/UnseenArmorMaterial.java:47: error: cannot find symbol
+                  ResourceKey.create(Registries.EQUIPMENT_ASSET,
+                                               ^
 ---
 org.gradle.api.tasks.TaskExecutionException: Execution failed for task ':fabric-26.2:compileJava' (registered by plugin class 'org.gradle.api.plugins.JavaBasePlugin').
 	at org.gradle.api.internal.tasks.execution.DefaultTaskNodeExecutor.lambda$doExecute$1(DefaultTaskNodeExecutor.java:367)
@@ -126,39 +70,11 @@ org.gradle.api.tasks.TaskExecutionException: Execution failed for task ':fabric-
                     () -> new SpawnEggItem((EntityType<? extends Mob>) (EntityType<?>) ModEntities.BOSS_TYPES.get(bossId).get(),
                           ^
 ---
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/item/UnseenArmorMaterial.java:43: error: cannot find symbol
-                List.of(new ArmorMaterial.Layer(Identifier.fromNamespaceAndPath("biomesunseen", ore.id))),
-                                         ^
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/item/UnseenArmorMaterial.java:47: error: cannot find symbol
+                ResourceKey.create(Registries.EQUIPMENT_ASSET,
+                                             ^
 ---
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/item/UnseenArmorMaterial.java:63: error: cannot find symbol
-        return material.getDefense(type);
-                       ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/item/UnseenTonicItem.java:47: error: cannot find symbol
-            return MobEffects.MOVEMENT_SPEED;
-                             ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/item/UnseenTonicItem.java:50: error: cannot find symbol
-            return MobEffects.DAMAGE_BOOST;
-                             ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/item/UnseenTonicItem.java:68: error: cannot find symbol
-            return MobEffects.MOVEMENT_SLOWDOWN;
-                             ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/item/UnseenTonicItem.java:71: error: cannot find symbol
-            return MobEffects.DIG_SPEED;
-                             ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/item/UnseenTonicItem.java:79: error: cannot find symbol
-        return MobEffects.DAMAGE_RESISTANCE;
-                         ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/client/legacy/UnseenLegacyModel.java:85: error: method does not override or implement a method from a supertype
-    @Override
-    ^
----
-BUILD FAILED in 1m 7s
+BUILD FAILED in 51s
 1 actionable task: 1 executed
 ---
 === STACKTRACE ===
@@ -177,11 +93,6 @@ Execution failed for task ':fabric-26.2:compileJava' (registered by plugin class
                                                            ^
     symbol:   method location()
     location: class ResourceKey<Level>
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/item/UnseenArmorMaterial.java:63: error: cannot find symbol
-          return material.getDefense(type);
-                         ^
-    symbol:   method getDefense(ArmorType)
-    location: variable material of type ArmorMaterial
   /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/registry/ModItems.java:158: error: constructor SpawnEggItem in class SpawnEggItem cannot be applied to given types;
                       () -> new SpawnEggItem((EntityType<? extends Mob>) (EntityType<?>) ModEntities.MOB_TYPES.get(mobId).get(),
                             ^
@@ -198,12 +109,17 @@ Execution failed for task ':fabric-26.2:compileJava' (registered by plugin class
     reason: actual and formal argument lists differ in length
     where CAP#1 is a fresh type-variable:
       CAP#1 extends Mob from capture of ? extends Mob
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/item/UnseenArmorMaterial.java:43: error: cannot find symbol
-                  List.of(new ArmorMaterial.Layer(Identifier.fromNamespaceAndPath("biomesunseen", ore.id))),
-                                           ^
-    symbol:   class Layer
-    location: class ArmorMaterial
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/item/UnseenTonicItem.java:47: error: cannot find symbol
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/item/UnseenArmorMaterial.java:47: error: cannot find symbol
+                  ResourceKey.create(Registries.EQUIPMENT_ASSET,
+                                               ^
+    symbol:   variable EQUIPMENT_ASSET
+    location: class Registries
+  Note: Some input files use or override a deprecated API.
+  Note: Recompile with -Xlint:deprecation for details.
+  Note: Some input files use unchecked or unsafe operations.
+  Note: Recompile with -Xlint:unchecked for details.
+  5 errors
+
 === LAST 40 ===
 	at org.gradle.internal.execution.steps.MutableStep.execute(MutableStep.java:26)
 	at org.gradle.internal.execution.steps.ValidateStep$Mutable.executeDelegate(ValidateStep.java:79)
@@ -243,5 +159,5 @@ Execution failed for task ':fabric-26.2:compileJava' (registered by plugin class
 	... 25 more
 
 
-BUILD FAILED in 1m 7s
+BUILD FAILED in 51s
 1 actionable task: 1 executed

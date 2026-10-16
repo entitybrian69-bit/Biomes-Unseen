@@ -6,44 +6,16 @@
                     () -> new SpawnEggItem((EntityType<? extends Mob>) (EntityType<?>) ModEntities.BOSS_TYPES.get(bossId).get(),
                           ^
 ---
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/item/UnseenArmorMaterial.java:43: error: cannot find symbol
-                List.of(new ArmorMaterial.Layer(ResourceLocation.fromNamespaceAndPath("biomesunseen", ore.id))),
-                                         ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/item/UnseenArmorMaterial.java:63: error: cannot find symbol
-        return material.getDefense(type);
-                       ^
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/item/UnseenArmorMaterial.java:47: error: cannot find symbol
+                ResourceKey.create(Registries.EQUIPMENT_ASSET,
+                                             ^
 ---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/item/LoreBookItem.java:36: error: cannot find symbol
         player.sendSystemMessage(net.minecraft.network.chat.Component.translatable(
               ^
 ---
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/item/UnseenTonicItem.java:47: error: cannot find symbol
-            return MobEffects.MOVEMENT_SPEED;
-                             ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/item/UnseenTonicItem.java:50: error: cannot find symbol
-            return MobEffects.DAMAGE_BOOST;
-                             ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/item/UnseenTonicItem.java:68: error: cannot find symbol
-            return MobEffects.MOVEMENT_SLOWDOWN;
-                             ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/item/UnseenTonicItem.java:71: error: cannot find symbol
-            return MobEffects.DIG_SPEED;
-                             ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/item/UnseenTonicItem.java:79: error: cannot find symbol
-        return MobEffects.DAMAGE_RESISTANCE;
-                         ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/client/legacy/UnseenLegacyModel.java:86: error: renderToBuffer(PoseStack,VertexConsumer,int,int) in UnseenLegacyModel cannot override renderToBuffer(PoseStack,VertexConsumer,int,int) in Model
-    public void renderToBuffer(com.mojang.blaze3d.vertex.PoseStack matrixStack,
-                ^
----
 > Task :neoforge-1.21.5:compileJava FAILED
-gradle/actions: Writing build results to /home/runner/work/_temp/.gradle-actions/build-results/__run_2-1792167301274.json
+gradle/actions: Writing build results to /home/runner/work/_temp/.gradle-actions/build-results/__run_2-1792168616248.json
 
 ---
 * What went wrong:
@@ -62,41 +34,13 @@ Execution failed for task ':neoforge-1.21.5:compileJava' (registered by plugin c
                       () -> new SpawnEggItem((EntityType<? extends Mob>) (EntityType<?>) ModEntities.BOSS_TYPES.get(bossId).get(),
                             ^
 ---
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/item/UnseenArmorMaterial.java:43: error: cannot find symbol
-                  List.of(new ArmorMaterial.Layer(ResourceLocation.fromNamespaceAndPath("biomesunseen", ore.id))),
-                                           ^
----
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/item/UnseenTonicItem.java:47: error: cannot find symbol
-              return MobEffects.MOVEMENT_SPEED;
-                               ^
----
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/item/UnseenTonicItem.java:50: error: cannot find symbol
-              return MobEffects.DAMAGE_BOOST;
-                               ^
----
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/item/UnseenTonicItem.java:68: error: cannot find symbol
-              return MobEffects.MOVEMENT_SLOWDOWN;
-                               ^
----
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/item/UnseenTonicItem.java:71: error: cannot find symbol
-              return MobEffects.DIG_SPEED;
-                               ^
----
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/item/UnseenTonicItem.java:79: error: cannot find symbol
-          return MobEffects.DAMAGE_RESISTANCE;
-                           ^
----
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/item/UnseenArmorMaterial.java:63: error: cannot find symbol
-          return material.getDefense(type);
-                         ^
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/item/UnseenArmorMaterial.java:47: error: cannot find symbol
+                  ResourceKey.create(Registries.EQUIPMENT_ASSET,
+                                               ^
 ---
   /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/item/LoreBookItem.java:36: error: cannot find symbol
           player.sendSystemMessage(net.minecraft.network.chat.Component.translatable(
                 ^
----
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/client/legacy/UnseenLegacyModel.java:86: error: renderToBuffer(PoseStack,VertexConsumer,int,int) in UnseenLegacyModel cannot override renderToBuffer(PoseStack,VertexConsumer,int,int) in Model
-      public void renderToBuffer(com.mojang.blaze3d.vertex.PoseStack matrixStack,
-                  ^
 ---
 org.gradle.api.tasks.TaskExecutionException: Execution failed for task ':neoforge-1.21.5:compileJava' (registered by plugin class 'org.gradle.api.plugins.JavaBasePlugin').
 	at org.gradle.api.internal.tasks.execution.DefaultTaskNodeExecutor.lambda$doExecute$1(DefaultTaskNodeExecutor.java:367)
@@ -110,43 +54,15 @@ org.gradle.api.tasks.TaskExecutionException: Execution failed for task ':neoforg
                     () -> new SpawnEggItem((EntityType<? extends Mob>) (EntityType<?>) ModEntities.BOSS_TYPES.get(bossId).get(),
                           ^
 ---
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/item/UnseenArmorMaterial.java:43: error: cannot find symbol
-                List.of(new ArmorMaterial.Layer(ResourceLocation.fromNamespaceAndPath("biomesunseen", ore.id))),
-                                         ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/item/UnseenArmorMaterial.java:63: error: cannot find symbol
-        return material.getDefense(type);
-                       ^
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/item/UnseenArmorMaterial.java:47: error: cannot find symbol
+                ResourceKey.create(Registries.EQUIPMENT_ASSET,
+                                             ^
 ---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/item/LoreBookItem.java:36: error: cannot find symbol
         player.sendSystemMessage(net.minecraft.network.chat.Component.translatable(
               ^
 ---
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/item/UnseenTonicItem.java:47: error: cannot find symbol
-            return MobEffects.MOVEMENT_SPEED;
-                             ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/item/UnseenTonicItem.java:50: error: cannot find symbol
-            return MobEffects.DAMAGE_BOOST;
-                             ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/item/UnseenTonicItem.java:68: error: cannot find symbol
-            return MobEffects.MOVEMENT_SLOWDOWN;
-                             ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/item/UnseenTonicItem.java:71: error: cannot find symbol
-            return MobEffects.DIG_SPEED;
-                             ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/item/UnseenTonicItem.java:79: error: cannot find symbol
-        return MobEffects.DAMAGE_RESISTANCE;
-                         ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/client/legacy/UnseenLegacyModel.java:86: error: renderToBuffer(PoseStack,VertexConsumer,int,int) in UnseenLegacyModel cannot override renderToBuffer(PoseStack,VertexConsumer,int,int) in Model
-    public void renderToBuffer(com.mojang.blaze3d.vertex.PoseStack matrixStack,
-                ^
----
-BUILD FAILED in 2m 9s
+BUILD FAILED in 2m 13s
 1 actionable task: 1 executed
 ---
 === STACKTRACE ===
@@ -171,27 +87,23 @@ Execution failed for task ':neoforge-1.21.5:compileJava' (registered by plugin c
     reason: actual and formal argument lists differ in length
     where CAP#1 is a fresh type-variable:
       CAP#1 extends Mob from capture of ? extends Mob
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/item/UnseenArmorMaterial.java:43: error: cannot find symbol
-                  List.of(new ArmorMaterial.Layer(ResourceLocation.fromNamespaceAndPath("biomesunseen", ore.id))),
-                                           ^
-    symbol:   class Layer
-    location: class ArmorMaterial
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/item/UnseenTonicItem.java:47: error: cannot find symbol
-              return MobEffects.MOVEMENT_SPEED;
-                               ^
-    symbol:   variable MOVEMENT_SPEED
-    location: class MobEffects
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/item/UnseenTonicItem.java:50: error: cannot find symbol
-              return MobEffects.DAMAGE_BOOST;
-                               ^
-    symbol:   variable DAMAGE_BOOST
-    location: class MobEffects
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/item/UnseenTonicItem.java:68: error: cannot find symbol
-              return MobEffects.MOVEMENT_SLOWDOWN;
-                               ^
-    symbol:   variable MOVEMENT_SLOWDOWN
-    location: class MobEffects
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/item/UnseenTonicItem.java:71: error: cannot find symbol
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/item/UnseenArmorMaterial.java:47: error: cannot find symbol
+                  ResourceKey.create(Registries.EQUIPMENT_ASSET,
+                                               ^
+    symbol:   variable EQUIPMENT_ASSET
+    location: class Registries
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/item/LoreBookItem.java:36: error: cannot find symbol
+          player.sendSystemMessage(net.minecraft.network.chat.Component.translatable(
+                ^
+    symbol:   method sendSystemMessage(MutableComponent)
+    location: variable player of type Player
+  Note: Some input files use or override a deprecated API.
+  Note: Recompile with -Xlint:deprecation for details.
+  Note: Some input files use unchecked or unsafe operations.
+  Note: Recompile with -Xlint:unchecked for details.
+  4 errors
+
+* Try:
 === LAST 40 ===
 	at org.gradle.internal.execution.steps.MutableStep.execute(MutableStep.java:26)
 	at org.gradle.internal.execution.steps.ValidateStep$Mutable.executeDelegate(ValidateStep.java:79)
@@ -231,5 +143,5 @@ Execution failed for task ':neoforge-1.21.5:compileJava' (registered by plugin c
 	... 25 more
 
 
-BUILD FAILED in 2m 9s
+BUILD FAILED in 2m 13s
 1 actionable task: 1 executed

@@ -265,6 +265,7 @@ IDENTIFIER_LINES = ("1.21.11", "26")
 
 # probe-fabric-1.21.5: several MobEffects constants were renamed (the field
 # set changed from DAMAGE_BOOST/MOVEMENT_SPEED/... to STRENGTH/SPEED/...).
+SPAWN_EGG_SIMPLE_FROM = "1.21.4"
 MOB_EFFECT_RENAMES_FROM = "1.21.5"
 MOB_EFFECT_RENAMES = (
     ("MOVEMENT_SPEED", "SPEED"),
@@ -460,6 +461,17 @@ def apply_api_drift(text, line_key):
             r'protected void checkAndPerformAttack(\1 \2, double distance) {', text)
         text = _RE_CHECK_ATTACK_SUPER.sub(
             r'super.checkAndPerformAttack(\1, distance);', text)
+
+    # -- 1.21.4+: SpawnEggItem lost its two colour arguments
+    #    (probe-fabric-1.21.4: SpawnEggItem(EntityType<? extends Mob>, Item$Properties)).
+    # -- 1.21.4+: Player#sendSystemMessage is gone; displayClientMessage is the
+    #    surviving client-message entry point (probe-fabric-1.21.4).
+    if rank >= LINE_RANK[SPAWN_EGG_SIMPLE_FROM]:
+        text = text.replace("player.sendSystemMessage(", "player.displayClientMessage(")
+        text = text.replace('"book.biomesunseen." + theme));',
+                            '"book.biomesunseen." + theme), false);')
+        text = text.replace("color, accent, new Item.Properties()",
+                            "new Item.Properties()")
 
     # -- 1.21.5+: MobEffects constant renames.
     if rank >= LINE_RANK[MOB_EFFECT_RENAMES_FROM]:

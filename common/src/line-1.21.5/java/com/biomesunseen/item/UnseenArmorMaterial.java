@@ -44,7 +44,9 @@ public final class UnseenArmorMaterial {
                 ore.toolMiningLevel >= 4 ? 0.1F : 0.0F,
                 TagKey.create(Registries.ITEM,
                         ResourceLocation.fromNamespaceAndPath("biomesunseen", "repairs_armor")),
-                ResourceKey.create(Registries.EQUIPMENT_ASSET,
+                ResourceKey.create(
+                        ResourceKey.createRegistryKey(
+                                ResourceLocation.fromNamespaceAndPath("minecraft", "equipment_asset")),
                         ResourceLocation.fromNamespaceAndPath("minecraft", "iron")));
     }
 
