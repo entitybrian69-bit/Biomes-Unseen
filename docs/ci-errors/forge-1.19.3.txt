@@ -1,30 +1,26 @@
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.19.3/java/com/biomesunseen/item/UnseenArmorMaterial.java:31: error: cannot find symbol
-    private static int indexOf(ArmorItem.Type type) {
-                                        ^
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.19.3/java/com/biomesunseen/item/UnseenGearItems.java:30: error: cannot find symbol
+    public static ArmorItem helmet(OreDef ore, UnseenArmorMaterial material, Item.Properties properties) {
+                  ^
 ---
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.19.3/java/com/biomesunseen/item/UnseenArmorMaterial.java:45: error: cannot find symbol
-    public int getDurabilityForType(ArmorItem.Type type) {
-                                             ^
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.19.3/java/com/biomesunseen/item/UnseenGearItems.java:34: error: cannot find symbol
+    public static ArmorItem chestplate(OreDef ore, UnseenArmorMaterial material, Item.Properties properties) {
+                  ^
 ---
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.19.3/java/com/biomesunseen/item/UnseenArmorMaterial.java:50: error: cannot find symbol
-    public int getDefenseForType(ArmorItem.Type type) {
-                                          ^
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.19.3/java/com/biomesunseen/item/UnseenGearItems.java:38: error: cannot find symbol
+    public static ArmorItem leggings(OreDef ore, UnseenArmorMaterial material, Item.Properties properties) {
+                  ^
 ---
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/forge-1.19.3/src/main/java/com/biomesunseen/platform/PlatformExpectImpl.java:40: error: method register in class SpawnPlacements cannot be applied to given types;
-                .ifPresent(resolved -> net.minecraft.world.entity.SpawnPlacements.register(
-                                                                                 ^
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.19.3/java/com/biomesunseen/item/UnseenGearItems.java:42: error: cannot find symbol
+    public static ArmorItem boots(OreDef ore, UnseenArmorMaterial material, Item.Properties properties) {
+                  ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.19.3/java/com/biomesunseen/item/UnseenGearItems.java:75: error: cannot find symbol
+    public static final class UnseenArmorItem extends ArmorItem {
+                                                      ^
 ---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.19.3/java/com/biomesunseen/entity/boss/VoidSerpentEntity.java:159: error: cannot find symbol
                 unseenLevel().broadcastDamageEvent(target, DamageSource.mobAttack(this));
                              ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.19.3/java/com/biomesunseen/entity/boss/VoidSerpentEntity.java:188: error: no suitable constructor found for ItemStack(RegistrySupplier<Item>,int)
-            spawnAtLocation(new ItemStack(ModItems.TROPHIES.get("star_whale"), 3));
-                            ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.19.3/java/com/biomesunseen/entity/boss/VoidSerpentEntity.java:190: error: no suitable constructor found for ItemStack(RegistrySupplier<Item>)
-                spawnAtLocation(new ItemStack(ModItems.GEAR.get("voidshard_sword")));
-                                ^
 ---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.19.3/java/com/biomesunseen/entity/boss/HeartOfTheForestEntity.java:94: error: incompatible types: Reference<SoundEvent> cannot be converted to SoundEvent
         playSound(SoundEvents.RAID_HORN, 2.0F, 0.8F);
@@ -33,14 +29,6 @@
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.19.3/java/com/biomesunseen/entity/boss/HeartOfTheForestEntity.java:125: error: cannot find symbol
             for (Player player : unseenLevel().getNearestPlayers(this, 10.0D, 10.0D)) {
                                               ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.19.3/java/com/biomesunseen/entity/boss/HeartOfTheForestEntity.java:154: error: no suitable constructor found for ItemStack(RegistrySupplier<Item>,int)
-            spawnAtLocation(new ItemStack(ModItems.TROPHIES.get("brambleback"), 3));
-                            ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.19.3/java/com/biomesunseen/entity/boss/HeartOfTheForestEntity.java:156: error: no suitable constructor found for ItemStack(RegistrySupplier<Item>)
-                spawnAtLocation(new ItemStack(ModItems.GEAR.get("sylvanite_sword")));
-                                ^
 ---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.19.3/java/com/biomesunseen/registry/ModEntities.java:65: error: cannot find symbol
         Lumox = ENTITIES.register("lumox", () -> EntityType.Builder.of(LumoxEntity::new, MobCategory.CREATURE)
@@ -154,18 +142,6 @@
 public class UnseenArmorMaterial implements ArmorMaterial {
        ^
 ---
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.19.3/java/com/biomesunseen/item/UnseenArmorMaterial.java:33: error: cannot find symbol
-            case BOOTS:
-                 ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.19.3/java/com/biomesunseen/item/UnseenArmorMaterial.java:35: error: cannot find symbol
-            case LEGGINGS:
-                 ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.19.3/java/com/biomesunseen/item/UnseenArmorMaterial.java:37: error: cannot find symbol
-            case CHESTPLATE:
-                 ^
----
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.19.3/java/com/biomesunseen/item/UnseenArmorMaterial.java:44: error: method does not override or implement a method from a supertype
     @Override
     ^
@@ -199,7 +175,7 @@ public class UnseenParticle extends Particle {
                                                                         ^
 ---
 > Task :forge-1.19.3:compileJava FAILED
-gradle/actions: Writing build results to /home/runner/work/_temp/.gradle-actions/build-results/__run-1792157861385.json
+gradle/actions: Writing build results to /home/runner/work/_temp/.gradle-actions/build-results/__run-1792160102563.json
 
 ---
 * What went wrong:
@@ -208,35 +184,59 @@ Execution failed for task ':forge-1.19.3:compileJava' (registered by plugin clas
 ---
 Execution failed for task ':forge-1.19.3:compileJava' (registered by plugin class 'org.gradle.api.plugins.JavaBasePlugin').
 > Compilation failed; see the compiler output below.
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.19.3/java/com/biomesunseen/item/UnseenArmorMaterial.java:31: error: cannot find symbol
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.19.3/java/com/biomesunseen/item/UnseenGearItems.java:30: error: cannot find symbol
 ---
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.19.3/java/com/biomesunseen/item/UnseenArmorMaterial.java:31: error: cannot find symbol
-      private static int indexOf(ArmorItem.Type type) {
-                                          ^
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.19.3/java/com/biomesunseen/item/UnseenGearItems.java:30: error: cannot find symbol
+      public static ArmorItem helmet(OreDef ore, UnseenArmorMaterial material, Item.Properties properties) {
+                    ^
 ---
 org.gradle.api.tasks.TaskExecutionException: Execution failed for task ':forge-1.19.3:compileJava' (registered by plugin class 'org.gradle.api.plugins.JavaBasePlugin').
 	at org.gradle.api.internal.tasks.execution.DefaultTaskNodeExecutor.lambda$doExecute$1(DefaultTaskNodeExecutor.java:367)
 	at org.gradle.internal.Try$Failure.ifSuccessfulOrElse(Try.java:288)
 ---
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.19.3/java/com/biomesunseen/item/UnseenArmorMaterial.java:31: error: cannot find symbol
-    private static int indexOf(ArmorItem.Type type) {
-                                        ^
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.19.3/java/com/biomesunseen/item/UnseenGearItems.java:30: error: cannot find symbol
+    public static ArmorItem helmet(OreDef ore, UnseenArmorMaterial material, Item.Properties properties) {
+                  ^
 ---
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.19.3/java/com/biomesunseen/item/UnseenArmorMaterial.java:45: error: cannot find symbol
-    public int getDurabilityForType(ArmorItem.Type type) {
-                                             ^
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.19.3/java/com/biomesunseen/item/UnseenGearItems.java:34: error: cannot find symbol
+    public static ArmorItem chestplate(OreDef ore, UnseenArmorMaterial material, Item.Properties properties) {
+                  ^
 ---
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.19.3/java/com/biomesunseen/item/UnseenArmorMaterial.java:50: error: cannot find symbol
-    public int getDefenseForType(ArmorItem.Type type) {
-                                          ^
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.19.3/java/com/biomesunseen/item/UnseenGearItems.java:38: error: cannot find symbol
+    public static ArmorItem leggings(OreDef ore, UnseenArmorMaterial material, Item.Properties properties) {
+                  ^
 ---
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/forge-1.19.3/src/main/java/com/biomesunseen/platform/PlatformExpectImpl.java:40: error: method register in class SpawnPlacements cannot be applied to given types;
-                .ifPresent(resolved -> net.minecraft.world.entity.SpawnPlacements.register(
-                                                                                 ^
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.19.3/java/com/biomesunseen/item/UnseenGearItems.java:42: error: cannot find symbol
+    public static ArmorItem boots(OreDef ore, UnseenArmorMaterial material, Item.Properties properties) {
+                  ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.19.3/java/com/biomesunseen/item/UnseenGearItems.java:75: error: cannot find symbol
+    public static final class UnseenArmorItem extends ArmorItem {
+                                                      ^
 ---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.19.3/java/com/biomesunseen/entity/boss/VoidSerpentEntity.java:159: error: cannot find symbol
                 unseenLevel().broadcastDamageEvent(target, DamageSource.mobAttack(this));
                              ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.19.3/java/com/biomesunseen/entity/boss/HeartOfTheForestEntity.java:94: error: incompatible types: Reference<SoundEvent> cannot be converted to SoundEvent
+        playSound(SoundEvents.RAID_HORN, 2.0F, 0.8F);
+                             ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.19.3/java/com/biomesunseen/entity/boss/HeartOfTheForestEntity.java:125: error: cannot find symbol
+            for (Player player : unseenLevel().getNearestPlayers(this, 10.0D, 10.0D)) {
+                                              ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.19.3/java/com/biomesunseen/registry/ModEntities.java:65: error: cannot find symbol
+        Lumox = ENTITIES.register("lumox", () -> EntityType.Builder.of(LumoxEntity::new, MobCategory.CREATURE)
+                ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.19.3/java/com/biomesunseen/registry/ModEntities.java:68: error: cannot find symbol
+        Brambleback = ENTITIES.register("brambleback", () -> EntityType.Builder.of(BramblebackEntity::new, MobCategory.CREATURE)
+                      ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.19.3/java/com/biomesunseen/registry/ModEntities.java:71: error: cannot find symbol
+        Siltstrider = ENTITIES.register("siltstrider", () -> EntityType.Builder.of(SiltstriderEntity::new, MobCategory.CREATURE)
+                      ^
 ---
 === STACKTRACE ===
 Caused by: org.gradle.api.internal.tasks.compile.CompilationFailedException: Compilation failed; see the compiler output below.
@@ -244,12 +244,12 @@ Caused by: org.gradle.api.internal.tasks.compile.CompilationFailedException: Com
 * What went wrong:
 Execution failed for task ':forge-1.19.3:compileJava' (registered by plugin class 'org.gradle.api.plugins.JavaBasePlugin').
 > Compilation failed; see the compiler output below.
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.19.3/java/com/biomesunseen/item/UnseenArmorMaterial.java:31: error: cannot find symbol
-      private static int indexOf(ArmorItem.Type type) {
-                                          ^
-    symbol:   class Type
-    location: class ArmorItem
-  50 errors
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.19.3/java/com/biomesunseen/item/UnseenGearItems.java:30: error: cannot find symbol
+      public static ArmorItem helmet(OreDef ore, UnseenArmorMaterial material, Item.Properties properties) {
+                    ^
+    symbol:   class ArmorItem
+    location: class UnseenGearItems
+  44 errors
 
 * Try:
 === LAST 40 ===
@@ -263,7 +263,7 @@ Note: Recompile with -Xlint:deprecation for details.
 Note: Some input files use unchecked or unsafe operations.
 Note: Recompile with -Xlint:unchecked for details.
 Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
-50 errors
+44 errors
 	at org.gradle.api.internal.tasks.compile.JdkJavaCompiler.execute(JdkJavaCompiler.java:88)
 	at org.gradle.api.internal.tasks.compile.JdkJavaCompiler.execute(JdkJavaCompiler.java:49)
 	at org.gradle.api.internal.tasks.compile.daemon.CompilerWorkAction.execute(CompilerWorkAction.java:52)
@@ -291,5 +291,5 @@ Note: Some messages have been simplified; recompile with -Xdiags:verbose to get 
 	at org.gradle.internal.concurrent.AbstractManagedExecutor$1.run(AbstractManagedExecutor.java:47)
 
 
-BUILD FAILED in 2m 1s
+BUILD FAILED in 2m 24s
 1 actionable task: 1 executed

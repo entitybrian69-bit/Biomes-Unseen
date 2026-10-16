@@ -2,7 +2,7 @@
 A problem occurred configuring project ':neoforge-1.20.3'.
 > Could not resolve all dependencies for configuration ':neoforge-1.20.3:neoForge'.
 ---
-BUILD FAILED in 48s
+BUILD FAILED in 42s
 ---
 === STACKTRACE ===
 Caused by: java.lang.RuntimeException: Failed to setup Minecraft, java.lang.RuntimeException: Failed to provide net.neoforged:neoforge:20.3.113 : org.gradle.api.internal.artifacts.ivyservice.TypedResolveException: Could not resolve all dependencies for configuration ':neoforge-1.20.3:neoForge'.
@@ -85,4 +85,4 @@ Required by:
     project ':neoforge-1.20.3'
 
 
-BUILD FAILED in 48s
+BUILD FAILED in 42s

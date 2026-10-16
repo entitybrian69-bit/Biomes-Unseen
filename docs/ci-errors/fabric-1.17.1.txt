@@ -1,242 +1,242 @@
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/worldgen/LegacyStructureRegistrar.java:5: error: cannot find symbol
-import net.minecraft.world.level.levelgen.StructureSeparationSettings;
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModEntities.java:12: error: package me.shedaniel.architectury.registry does not exist
+import me.shedaniel.architectury.registry.EntityAttributeRegistry;
                                          ^
 ---
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/entity/BiomesUnseenMob.java:136: error: cannot find symbol
-            temperature = unseenLevel().getBiome(blockPosition()).value().getBaseTemperature();
-                                                                 ^
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModEntities.java:13: error: package me.shedaniel.architectury.registry does not exist
+import me.shedaniel.architectury.registry.RegistrySupplier;
+                                         ^
 ---
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/entity/ai/WanderTradeGoal.java:75: error: method does not override or implement a method from a supertype
-    @Override
-    ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/entity/boss/VoidSerpentEntity.java:159: error: cannot find symbol
-                unseenLevel().broadcastDamageEvent(target, DamageSource.mobAttack(this));
-                             ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/entity/boss/VoidSerpentEntity.java:188: error: incompatible types: RegistrySupplier<Item> cannot be converted to ItemLike
-            spawnAtLocation(new ItemStack(ModItems.TROPHIES.get("star_whale"), 3));
-                                                               ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/entity/boss/VoidSerpentEntity.java:190: error: no suitable constructor found for ItemStack(RegistrySupplier<Item>)
-                spawnAtLocation(new ItemStack(ModItems.GEAR.get("voidshard_sword")));
-                                ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/entity/boss/HeartOfTheForestEntity.java:125: error: cannot find symbol
-            for (Player player : unseenLevel().getNearestPlayers(this, 10.0D, 10.0D)) {
-                                              ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/entity/boss/HeartOfTheForestEntity.java:154: error: incompatible types: RegistrySupplier<Item> cannot be converted to ItemLike
-            spawnAtLocation(new ItemStack(ModItems.TROPHIES.get("brambleback"), 3));
-                                                               ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/entity/boss/HeartOfTheForestEntity.java:156: error: no suitable constructor found for ItemStack(RegistrySupplier<Item>)
-                spawnAtLocation(new ItemStack(ModItems.GEAR.get("sylvanite_sword")));
-                                ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModEntities.java:65: error: cannot find symbol
-        Lumox = ENTITIES.register("lumox", () -> EntityType.Builder.of(LumoxEntity::new, MobCategory.CREATURE)
-                ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModEntities.java:68: error: cannot find symbol
-        Brambleback = ENTITIES.register("brambleback", () -> EntityType.Builder.of(BramblebackEntity::new, MobCategory.CREATURE)
-                      ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModEntities.java:71: error: cannot find symbol
-        Siltstrider = ENTITIES.register("siltstrider", () -> EntityType.Builder.of(SiltstriderEntity::new, MobCategory.CREATURE)
-                      ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModEntities.java:74: error: cannot find symbol
-        Glimmermoth = ENTITIES.register("glimmermoth", () -> EntityType.Builder.of(GlimmermothEntity::new, MobCategory.CREATURE)
-                      ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModEntities.java:77: error: cannot find symbol
-        PeatHopper = ENTITIES.register("peat_hopper", () -> EntityType.Builder.of(PeatHopperEntity::new, MobCategory.CREATURE)
-                     ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModEntities.java:80: error: cannot find symbol
-        EmberCalf = ENTITIES.register("ember_calf", () -> EntityType.Builder.of(EmberCalfEntity::new, MobCategory.CREATURE)
-                    ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModEntities.java:83: error: cannot find symbol
-        FrostFawn = ENTITIES.register("frost_fawn", () -> EntityType.Builder.of(FrostFawnEntity::new, MobCategory.CREATURE)
-                    ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModEntities.java:86: error: cannot find symbol
-        Murkling = ENTITIES.register("murkling", () -> EntityType.Builder.of(MurklingEntity::new, MobCategory.MONSTER)
-                   ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModEntities.java:89: error: cannot find symbol
-        SporeSprout = ENTITIES.register("spore_sprout", () -> EntityType.Builder.of(SporeSproutEntity::new, MobCategory.CREATURE)
-                      ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModEntities.java:92: error: cannot find symbol
-        Skywisp = ENTITIES.register("skywisp", () -> EntityType.Builder.of(SkywispEntity::new, MobCategory.CREATURE)
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModEntities.java:25: error: cannot find symbol
+    public static RegistrySupplier<EntityType<LumoxEntity>> Lumox;
                   ^
 ---
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModEntities.java:95: error: cannot find symbol
-        ThunderRam = ENTITIES.register("thunder_ram", () -> EntityType.Builder.of(ThunderRamEntity::new, MobCategory.CREATURE)
-                     ^
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModEntities.java:26: error: cannot find symbol
+    public static RegistrySupplier<EntityType<BramblebackEntity>> Brambleback;
+                  ^
 ---
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModEntities.java:98: error: cannot find symbol
-        Mosshorn = ENTITIES.register("mosshorn", () -> EntityType.Builder.of(MosshornEntity::new, MobCategory.CREATURE)
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModEntities.java:27: error: cannot find symbol
+    public static RegistrySupplier<EntityType<SiltstriderEntity>> Siltstrider;
+                  ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModEntities.java:28: error: cannot find symbol
+    public static RegistrySupplier<EntityType<GlimmermothEntity>> Glimmermoth;
+                  ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModEntities.java:29: error: cannot find symbol
+    public static RegistrySupplier<EntityType<PeatHopperEntity>> PeatHopper;
+                  ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModEntities.java:30: error: cannot find symbol
+    public static RegistrySupplier<EntityType<EmberCalfEntity>> EmberCalf;
+                  ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModEntities.java:31: error: cannot find symbol
+    public static RegistrySupplier<EntityType<FrostFawnEntity>> FrostFawn;
+                  ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModEntities.java:32: error: cannot find symbol
+    public static RegistrySupplier<EntityType<MurklingEntity>> Murkling;
+                  ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModEntities.java:33: error: cannot find symbol
+    public static RegistrySupplier<EntityType<SporeSproutEntity>> SporeSprout;
+                  ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModEntities.java:34: error: cannot find symbol
+    public static RegistrySupplier<EntityType<SkywispEntity>> Skywisp;
+                  ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModEntities.java:35: error: cannot find symbol
+    public static RegistrySupplier<EntityType<ThunderRamEntity>> ThunderRam;
+                  ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModEntities.java:36: error: cannot find symbol
+    public static RegistrySupplier<EntityType<MosshornEntity>> Mosshorn;
+                  ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModEntities.java:37: error: cannot find symbol
+    public static RegistrySupplier<EntityType<CinderPupEntity>> CinderPup;
+                  ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModEntities.java:38: error: cannot find symbol
+    public static RegistrySupplier<EntityType<EchoHowlerEntity>> EchoHowler;
+                  ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModEntities.java:39: error: cannot find symbol
+    public static RegistrySupplier<EntityType<DuneSkimmerEntity>> DuneSkimmer;
+                  ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModEntities.java:40: error: cannot find symbol
+    public static RegistrySupplier<EntityType<TideCallerEntity>> TideCaller;
+                  ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModEntities.java:41: error: cannot find symbol
+    public static RegistrySupplier<EntityType<GloomStalkerEntity>> GloomStalker;
+                  ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModEntities.java:42: error: cannot find symbol
+    public static RegistrySupplier<EntityType<CrystalHermitEntity>> CrystalHermit;
+                  ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModEntities.java:43: error: cannot find symbol
+    public static RegistrySupplier<EntityType<WindDancerEntity>> WindDancer;
+                  ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModEntities.java:44: error: cannot find symbol
+    public static RegistrySupplier<EntityType<MireGolemEntity>> MireGolem;
+                  ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModEntities.java:45: error: cannot find symbol
+    public static RegistrySupplier<EntityType<LanternFoxEntity>> LanternFox;
+                  ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModEntities.java:46: error: cannot find symbol
+    public static RegistrySupplier<EntityType<ReefGrazerEntity>> ReefGrazer;
+                  ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModEntities.java:47: error: cannot find symbol
+    public static RegistrySupplier<EntityType<AshCrawlerEntity>> AshCrawler;
+                  ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModEntities.java:48: error: cannot find symbol
+    public static RegistrySupplier<EntityType<StarWhaleEntity>> StarWhale;
+                  ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModEntities.java:49: error: cannot find symbol
+    public static RegistrySupplier<EntityType<PetalWingEntity>> PetalWing;
+                  ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModEntities.java:50: error: cannot find symbol
+    public static RegistrySupplier<EntityType<HeartOfTheForestEntity>> HeartOfTheForest;
+                  ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModEntities.java:51: error: cannot find symbol
+    public static RegistrySupplier<EntityType<VoidSerpentEntity>> VoidSerpent;
+                  ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModEntities.java:54: error: cannot find symbol
+    public static final Map<String, RegistrySupplier<EntityType<?>>> MOB_TYPES =
+                                    ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModEntities.java:57: error: cannot find symbol
+    public static final Map<String, RegistrySupplier<EntityType<?>>> BOSS_TYPES =
+                                    ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModEntities.java:322: error: cannot find symbol
+    private static RegistrySupplier<EntityType<?>> byMobId(String id) {
                    ^
 ---
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModEntities.java:101: error: cannot find symbol
-        CinderPup = ENTITIES.register("cinder_pup", () -> EntityType.Builder.of(CinderPupEntity::new, MobCategory.CREATURE)
-                    ^
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModEntities.java:401: error: cannot find symbol
+    private static RegistrySupplier<EntityType<?>> byBossId(String id) {
+                   ^
 ---
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModEntities.java:104: error: cannot find symbol
-        EchoHowler = ENTITIES.register("echo_howler", () -> EntityType.Builder.of(EchoHowlerEntity::new, MobCategory.MONSTER)
-                     ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModEntities.java:107: error: cannot find symbol
-        DuneSkimmer = ENTITIES.register("dune_skimmer", () -> EntityType.Builder.of(DuneSkimmerEntity::new, MobCategory.CREATURE)
-                      ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModEntities.java:110: error: cannot find symbol
-        TideCaller = ENTITIES.register("tide_caller", () -> EntityType.Builder.of(TideCallerEntity::new, MobCategory.CREATURE)
-                     ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModEntities.java:113: error: cannot find symbol
-        GloomStalker = ENTITIES.register("gloom_stalker", () -> EntityType.Builder.of(GloomStalkerEntity::new, MobCategory.MONSTER)
-                       ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModEntities.java:116: error: cannot find symbol
-        CrystalHermit = ENTITIES.register("crystal_hermit", () -> EntityType.Builder.of(CrystalHermitEntity::new, MobCategory.CREATURE)
-                        ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModEntities.java:119: error: cannot find symbol
-        WindDancer = ENTITIES.register("wind_dancer", () -> EntityType.Builder.of(WindDancerEntity::new, MobCategory.CREATURE)
-                     ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModEntities.java:122: error: cannot find symbol
-        MireGolem = ENTITIES.register("mire_golem", () -> EntityType.Builder.of(MireGolemEntity::new, MobCategory.CREATURE)
-                    ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModEntities.java:125: error: cannot find symbol
-        LanternFox = ENTITIES.register("lantern_fox", () -> EntityType.Builder.of(LanternFoxEntity::new, MobCategory.CREATURE)
-                     ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModEntities.java:128: error: cannot find symbol
-        ReefGrazer = ENTITIES.register("reef_grazer", () -> EntityType.Builder.of(ReefGrazerEntity::new, MobCategory.CREATURE)
-                     ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModEntities.java:131: error: cannot find symbol
-        AshCrawler = ENTITIES.register("ash_crawler", () -> EntityType.Builder.of(AshCrawlerEntity::new, MobCategory.MONSTER)
-                     ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModEntities.java:134: error: cannot find symbol
-        StarWhale = ENTITIES.register("star_whale", () -> EntityType.Builder.of(StarWhaleEntity::new, MobCategory.CREATURE)
-                    ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModEntities.java:137: error: cannot find symbol
-        PetalWing = ENTITIES.register("petal_wing", () -> EntityType.Builder.of(PetalWingEntity::new, MobCategory.CREATURE)
-                    ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModEntities.java:140: error: cannot find symbol
-        HeartOfTheForest = ENTITIES.register("heart_of_the_forest", () -> EntityType.Builder.of(HeartOfTheForestEntity::new, MobCategory.MONSTER)
-                           ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModEntities.java:143: error: cannot find symbol
-        VoidSerpent = ENTITIES.register("void_serpent", () -> EntityType.Builder.of(VoidSerpentEntity::new, MobCategory.MONSTER)
-                      ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModEntities.java:147: error: incompatible types: RegistrySupplier<EntityType<LumoxEntity>> cannot be converted to Supplier<EntityType<? extends LivingEntity>>
-        EntityAttributeRegistry.register(Lumox, () -> Mob.createMobAttributes()
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModParticles.java:9: error: package me.shedaniel.architectury.registry does not exist
+import me.shedaniel.architectury.registry.RegistrySupplier;
                                          ^
 ---
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModEntities.java:153: error: incompatible types: RegistrySupplier<EntityType<BramblebackEntity>> cannot be converted to Supplier<EntityType<? extends LivingEntity>>
-        EntityAttributeRegistry.register(Brambleback, () -> Mob.createMobAttributes()
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModParticles.java:20: error: cannot find symbol
+    public static final Map<String, RegistrySupplier<ParticleType<SimpleParticleType>>> BY_ID =
+                                    ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModParticles.java:55: error: cannot find symbol
+    private static RegistrySupplier<ParticleType<SimpleParticleType>> narrow(RegistrySupplier<?> supplier) {
+                                                                             ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModParticles.java:55: error: cannot find symbol
+    private static RegistrySupplier<ParticleType<SimpleParticleType>> narrow(RegistrySupplier<?> supplier) {
+                   ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModSounds.java:9: error: package me.shedaniel.architectury.registry does not exist
+import me.shedaniel.architectury.registry.RegistrySupplier;
                                          ^
 ---
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModEntities.java:159: error: incompatible types: RegistrySupplier<EntityType<SiltstriderEntity>> cannot be converted to Supplier<EntityType<? extends LivingEntity>>
-        EntityAttributeRegistry.register(Siltstrider, () -> Mob.createMobAttributes()
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModSounds.java:20: error: cannot find symbol
+    public static final Map<String, RegistrySupplier<SoundEvent>> BY_ID =
+                                    ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModBlocks.java:14: error: package me.shedaniel.architectury.registry does not exist
+import me.shedaniel.architectury.registry.RegistrySupplier;
                                          ^
 ---
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModEntities.java:165: error: incompatible types: RegistrySupplier<EntityType<GlimmermothEntity>> cannot be converted to Supplier<EntityType<? extends LivingEntity>>
-        EntityAttributeRegistry.register(Glimmermoth, () -> Mob.createMobAttributes()
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModBlocks.java:27: error: cannot find symbol
+    public static final Map<String, RegistrySupplier<Block>> ORES =
+                                    ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModBlocks.java:30: error: cannot find symbol
+    public static final Map<String, RegistrySupplier<Block>> DECOR =
+                                    ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModBlocks.java:33: error: cannot find symbol
+    public static final Map<String, RegistrySupplier<Block>> PLANTS =
+                                    ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModBlocks.java:62: error: cannot find symbol
+    public static RegistrySupplier<Block> oreBlock(String oreId) {
+                  ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModBlocks.java:66: error: cannot find symbol
+    public static Map<String, RegistrySupplier<Block>> allOres() {
+                              ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModBlocks.java:70: error: cannot find symbol
+    public static Map<String, RegistrySupplier<Block>> allDecor() {
+                              ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModBlocks.java:74: error: cannot find symbol
+    public static Map<String, RegistrySupplier<Block>> allPlants() {
+                              ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModItems.java:21: error: package me.shedaniel.architectury.registry does not exist
+import me.shedaniel.architectury.registry.DeferredRegister;
                                          ^
 ---
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModEntities.java:171: error: incompatible types: RegistrySupplier<EntityType<PeatHopperEntity>> cannot be converted to Supplier<EntityType<? extends LivingEntity>>
-        EntityAttributeRegistry.register(PeatHopper, () -> Mob.createMobAttributes()
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModItems.java:22: error: package me.shedaniel.architectury.registry does not exist
+import me.shedaniel.architectury.registry.RegistrySupplier;
                                          ^
 ---
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModEntities.java:177: error: incompatible types: RegistrySupplier<EntityType<EmberCalfEntity>> cannot be converted to Supplier<EntityType<? extends LivingEntity>>
-        EntityAttributeRegistry.register(EmberCalf, () -> Mob.createMobAttributes()
-                                         ^
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModItems.java:44: error: cannot find symbol
+    public static final List<RegistrySupplier<Item>> ALL_ITEMS =
+                             ^
 ---
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModEntities.java:183: error: incompatible types: RegistrySupplier<EntityType<FrostFawnEntity>> cannot be converted to Supplier<EntityType<? extends LivingEntity>>
-        EntityAttributeRegistry.register(FrostFawn, () -> Mob.createMobAttributes()
-                                         ^
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModItems.java:47: error: cannot find symbol
+    public static RegistrySupplier<Item> UNSEEN_SIGIL;
+                  ^
 ---
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModEntities.java:189: error: incompatible types: RegistrySupplier<EntityType<MurklingEntity>> cannot be converted to Supplier<EntityType<? extends LivingEntity>>
-        EntityAttributeRegistry.register(Murkling, () -> Mob.createMobAttributes()
-                                         ^
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModItems.java:50: error: cannot find symbol
+    public static final Map<String, RegistrySupplier<Item>> MINERALS =
+                                    ^
 ---
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModEntities.java:195: error: incompatible types: RegistrySupplier<EntityType<SporeSproutEntity>> cannot be converted to Supplier<EntityType<? extends LivingEntity>>
-        EntityAttributeRegistry.register(SporeSprout, () -> Mob.createMobAttributes()
-                                         ^
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModItems.java:59: error: cannot find symbol
+    public static final Map<String, RegistrySupplier<Item>> GEAR =
+                                    ^
 ---
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModEntities.java:201: error: incompatible types: RegistrySupplier<EntityType<SkywispEntity>> cannot be converted to Supplier<EntityType<? extends LivingEntity>>
-        EntityAttributeRegistry.register(Skywisp, () -> Mob.createMobAttributes()
-                                         ^
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModItems.java:62: error: cannot find symbol
+    public static final Map<String, RegistrySupplier<Item>> TONICS =
+                                    ^
 ---
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModEntities.java:207: error: incompatible types: RegistrySupplier<EntityType<ThunderRamEntity>> cannot be converted to Supplier<EntityType<? extends LivingEntity>>
-        EntityAttributeRegistry.register(ThunderRam, () -> Mob.createMobAttributes()
-                                         ^
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModItems.java:65: error: cannot find symbol
+    public static final Map<Integer, RegistrySupplier<Item>> MACHINE_CORES =
+                                     ^
 ---
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModEntities.java:213: error: incompatible types: RegistrySupplier<EntityType<MosshornEntity>> cannot be converted to Supplier<EntityType<? extends LivingEntity>>
-        EntityAttributeRegistry.register(Mosshorn, () -> Mob.createMobAttributes()
-                                         ^
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModItems.java:68: error: cannot find symbol
+    public static final Map<String, RegistrySupplier<Item>> SPAWN_EGGS =
+                                    ^
 ---
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModEntities.java:219: error: incompatible types: RegistrySupplier<EntityType<CinderPupEntity>> cannot be converted to Supplier<EntityType<? extends LivingEntity>>
-        EntityAttributeRegistry.register(CinderPup, () -> Mob.createMobAttributes()
-                                         ^
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModItems.java:71: error: cannot find symbol
+    public static final Map<String, RegistrySupplier<Item>> LORE_BOOKS =
+                                    ^
 ---
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModEntities.java:225: error: incompatible types: RegistrySupplier<EntityType<EchoHowlerEntity>> cannot be converted to Supplier<EntityType<? extends LivingEntity>>
-        EntityAttributeRegistry.register(EchoHowler, () -> Mob.createMobAttributes()
-                                         ^
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModItems.java:74: error: cannot find symbol
+    public static final Map<String, RegistrySupplier<Item>> TROPHIES =
+                                    ^
 ---
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModEntities.java:231: error: incompatible types: RegistrySupplier<EntityType<DuneSkimmerEntity>> cannot be converted to Supplier<EntityType<? extends LivingEntity>>
-        EntityAttributeRegistry.register(DuneSkimmer, () -> Mob.createMobAttributes()
-                                         ^
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModItems.java:77: error: cannot find symbol
+    private static RegistrySupplier<Item> track(RegistrySupplier<Item> supplier) {
+                                                ^
 ---
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModEntities.java:237: error: incompatible types: RegistrySupplier<EntityType<TideCallerEntity>> cannot be converted to Supplier<EntityType<? extends LivingEntity>>
-        EntityAttributeRegistry.register(TideCaller, () -> Mob.createMobAttributes()
-                                         ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModEntities.java:243: error: incompatible types: RegistrySupplier<EntityType<GloomStalkerEntity>> cannot be converted to Supplier<EntityType<? extends LivingEntity>>
-        EntityAttributeRegistry.register(GloomStalker, () -> Mob.createMobAttributes()
-                                         ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModEntities.java:249: error: incompatible types: RegistrySupplier<EntityType<CrystalHermitEntity>> cannot be converted to Supplier<EntityType<? extends LivingEntity>>
-        EntityAttributeRegistry.register(CrystalHermit, () -> Mob.createMobAttributes()
-                                         ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModEntities.java:255: error: incompatible types: RegistrySupplier<EntityType<WindDancerEntity>> cannot be converted to Supplier<EntityType<? extends LivingEntity>>
-        EntityAttributeRegistry.register(WindDancer, () -> Mob.createMobAttributes()
-                                         ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModEntities.java:261: error: incompatible types: RegistrySupplier<EntityType<MireGolemEntity>> cannot be converted to Supplier<EntityType<? extends LivingEntity>>
-        EntityAttributeRegistry.register(MireGolem, () -> Mob.createMobAttributes()
-                                         ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModEntities.java:267: error: incompatible types: RegistrySupplier<EntityType<LanternFoxEntity>> cannot be converted to Supplier<EntityType<? extends LivingEntity>>
-        EntityAttributeRegistry.register(LanternFox, () -> Mob.createMobAttributes()
-                                         ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModEntities.java:273: error: incompatible types: RegistrySupplier<EntityType<ReefGrazerEntity>> cannot be converted to Supplier<EntityType<? extends LivingEntity>>
-        EntityAttributeRegistry.register(ReefGrazer, () -> Mob.createMobAttributes()
-                                         ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModEntities.java:279: error: incompatible types: RegistrySupplier<EntityType<AshCrawlerEntity>> cannot be converted to Supplier<EntityType<? extends LivingEntity>>
-        EntityAttributeRegistry.register(AshCrawler, () -> Mob.createMobAttributes()
-                                         ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModEntities.java:285: error: incompatible types: RegistrySupplier<EntityType<StarWhaleEntity>> cannot be converted to Supplier<EntityType<? extends LivingEntity>>
-        EntityAttributeRegistry.register(StarWhale, () -> Mob.createMobAttributes()
-                                         ^
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModItems.java:77: error: cannot find symbol
+    private static RegistrySupplier<Item> track(RegistrySupplier<Item> supplier) {
+                   ^
 ---
 === STACKTRACE ===
 Caused by: org.gradle.api.internal.tasks.compile.CompilationFailedException: Compilation failed; see the compiler output below.
@@ -244,25 +244,23 @@ Caused by: org.gradle.api.internal.tasks.compile.CompilationFailedException: Com
 * What went wrong:
 Execution failed for task ':fabric-1.17.1:compileJava' (registered by plugin class 'org.gradle.api.plugins.JavaBasePlugin').
 > Compilation failed; see the compiler output below.
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/worldgen/LegacyStructureRegistrar.java:5: error: cannot find symbol
-  import net.minecraft.world.level.levelgen.StructureSeparationSettings;
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModEntities.java:12: error: package me.shedaniel.architectury.registry does not exist
+  import me.shedaniel.architectury.registry.EntityAttributeRegistry;
                                            ^
-    symbol:   class StructureSeparationSettings
-    location: package net.minecraft.world.level.levelgen
   100 errors
 
 * Try:
 === LAST 40 ===
-                              ^
-  required: Supplier<EntityType<? extends T>>,EntityRendererProvider<T>
-  found:    RegistrySupplier<EntityType<GlimmermothEntity>>,(context)-[...]oth")
-  reason: cannot infer type-variable(s) T
-    (argument mismatch; RegistrySupplier<EntityType<GlimmermothEntity>> cannot be converted to Supplier<EntityType<? extends T>>)
-  where T is a type-variable:
-    T extends Entity declared in method <T>register(Supplier<EntityType<? extends T>>,EntityRendererProvider<T>)
-Note: Some input files use unchecked or unsafe operations.
+                     ^
+  symbol:   variable ENTITIES
+  location: class ModEntities
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModEntities.java:131: error: cannot find symbol
+        AshCrawler = ENTITIES.register("ash_crawler", () -> EntityType.Builder.of(AshCrawlerEntity::new, MobCategory.MONSTER)
+                     ^
+  symbol:   variable ENTITIES
+  location: class ModEntities
+Note: /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModItems.java uses unchecked or unsafe operations.
 Note: Recompile with -Xlint:unchecked for details.
-Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
 100 errors
 	at org.gradle.api.internal.tasks.compile.JdkJavaCompiler.execute(JdkJavaCompiler.java:88)
 	at org.gradle.api.internal.tasks.compile.JdkJavaCompiler.execute(JdkJavaCompiler.java:49)

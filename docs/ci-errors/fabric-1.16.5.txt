@@ -1,7 +1,3 @@
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.16.5/java/com/biomesunseen/entity/BiomesUnseenMob.java:172: error: cannot find symbol
-    public void remove(net.minecraft.world.entity.Entity.RemovalReason reason) {
-                                                        ^
----
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.16.5/java/com/biomesunseen/entity/mobs/CinderPupEntity.java:52: error: cannot find symbol
     public net.minecraft.world.InteractionResult mobInteract(Player player, net.minecraft.world.InteractionHand hand) {
                                                              ^
@@ -238,17 +234,21 @@ import net.minecraft.world.level.block.AbstractBlock;
         mc.setScreen((net.minecraft.client.gui.screen.Screen) screen);
                                                      ^
 ---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/fabric-1.16.5/src/main/java/com/biomesunseen/platform/PlatformExpectImpl.java:71: error: cannot find symbol
+            player.playNotifySound(sound, net.minecraft.util.SoundCategory.MUSIC, 1.0F, 1.0F);
+                                                            ^
+---
 === STACKTRACE ===
 Caused by: org.gradle.api.internal.tasks.compile.CompilationFailedException: Compilation failed; see the compiler output below.
 === WHAT WENT WRONG ===
 * What went wrong:
 Execution failed for task ':fabric-1.16.5:compileJava' (registered by plugin class 'org.gradle.api.plugins.JavaBasePlugin').
 > Compilation failed; see the compiler output below.
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.16.5/java/com/biomesunseen/entity/BiomesUnseenMob.java:172: error: cannot find symbol
-      public void remove(net.minecraft.world.entity.Entity.RemovalReason reason) {
-                                                          ^
-    symbol:   class RemovalReason
-    location: class net.minecraft.world.entity.Entity
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.16.5/java/com/biomesunseen/entity/mobs/CinderPupEntity.java:52: error: cannot find symbol
+      public net.minecraft.world.InteractionResult mobInteract(Player player, net.minecraft.world.InteractionHand hand) {
+                                                               ^
+    symbol:   class Player
+    location: class com.biomesunseen.entity.mobs.CinderPupEntity
   100 errors
 
 * Try:
@@ -256,7 +256,7 @@ Execution failed for task ':fabric-1.16.5:compileJava' (registered by plugin cla
                                                                            ^
   symbol:   class LookRandomlyGoal
   location: package net.minecraft.world.entity.ai.goal
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.16.5/java/com/biomesunseen/entity/mobs/CrystalHermitEntity.java:36: error: cannot find symbol
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.16.5/java/com/biomesunseen/entity/mobs/ReefGrazerEntity.java:37: error: cannot find symbol
         this.goalSelector.addGoal(6, new net.minecraft.world.entity.ai.goal.LookAtGoal(this, net.minecraft.world.entity.player.Player.class, 8.0F));
                                                                            ^
   symbol:   class LookAtGoal
@@ -291,5 +291,5 @@ Note: Some messages have been simplified; recompile with -Xdiags:verbose to get 
 	... 2 more
 
 
-BUILD FAILED in 1m 17s
+BUILD FAILED in 1m 23s
 1 actionable task: 1 executed

@@ -2,7 +2,7 @@
 A problem occurred configuring project ':neoforge-26.3'.
 > Failed to notify project evaluation listener.
 ---
-BUILD FAILED in 39s
+BUILD FAILED in 42s
 ---
 === STACKTRACE ===
 Caused by: org.gradle.internal.event.ListenerNotificationException: Failed to notify project evaluation listener.
@@ -65,4 +65,4 @@ A problem occurred configuring project ':neoforge-26.3'.
 	at java.base/java.lang.Thread.run(Thread.java:1474)
 
 
-BUILD FAILED in 39s
+BUILD FAILED in 42s

@@ -1,19 +1,3 @@
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/item/LoreBookItem.java:9: error: cannot find symbol
-import net.minecraft.world.InteractionResultHolder;
-                          ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/item/LoreBookItem.java:31: error: cannot find symbol
-    public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
-           ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/item/UnseenTonicItem.java:9: error: cannot find symbol
-import net.minecraft.world.InteractionResultHolder;
-                          ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/item/UnseenTonicItem.java:33: error: cannot find symbol
-    public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
-           ^
----
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/item/UnseenGearItems.java:3: error: cannot find symbol
 import net.minecraft.world.item.ArmorMaterial;
                                ^
@@ -66,14 +50,6 @@ import net.minecraft.world.item.ArmorMaterial;
                 if (!customer.getInventory().items.stream().anyMatch(s -> !s.isEmpty())) {
                                             ^
 ---
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/entity/ai/PackAttackGoal.java:33: error: method does not override or implement a method from a supertype
-    @Override
-    ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/entity/ai/PackAttackGoal.java:35: error: method checkAndPerformAttack in class MeleeAttackGoal cannot be applied to given types;
-        super.checkAndPerformAttack(target, distance);
-             ^
----
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/entity/boss/VoidSerpentEntity.java:139: error: cannot find symbol
             moveTo(target.getX() + getRandom().nextInt(7) - 3, target.getY() + 2.0D,
             ^
@@ -95,11 +71,11 @@ import net.minecraft.world.item.ArmorMaterial;
                 ^
 ---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/entity/boss/VoidSerpentEntity.java:188: error: no suitable method found for spawnAtLocation(ItemStack)
-            spawnAtLocation(new ItemStack(ModItems.TROPHIES.get("star_whale"), 3));
+            spawnAtLocation(new ItemStack(ModItems.TROPHIES.get("star_whale").get(), 3));
             ^
 ---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/entity/boss/VoidSerpentEntity.java:190: error: no suitable method found for spawnAtLocation(ItemStack)
-                spawnAtLocation(new ItemStack(ModItems.GEAR.get("voidshard_sword")));
+                spawnAtLocation(new ItemStack(ModItems.GEAR.get("voidshard_sword").get()));
                 ^
 ---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/entity/boss/HeartOfTheForestEntity.java:94: error: incompatible types: Reference<SoundEvent> cannot be converted to SoundEvent
@@ -123,11 +99,11 @@ import net.minecraft.world.item.ArmorMaterial;
                 ^
 ---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/entity/boss/HeartOfTheForestEntity.java:154: error: no suitable method found for spawnAtLocation(ItemStack)
-            spawnAtLocation(new ItemStack(ModItems.TROPHIES.get("brambleback"), 3));
+            spawnAtLocation(new ItemStack(ModItems.TROPHIES.get("brambleback").get(), 3));
             ^
 ---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/entity/boss/HeartOfTheForestEntity.java:156: error: no suitable method found for spawnAtLocation(ItemStack)
-                spawnAtLocation(new ItemStack(ModItems.GEAR.get("sylvanite_sword")));
+                spawnAtLocation(new ItemStack(ModItems.GEAR.get("sylvanite_sword").get()));
                 ^
 ---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/registry/ModEntities.java:65: error: cannot find symbol
@@ -238,32 +214,36 @@ import net.minecraft.world.item.ArmorMaterial;
         EchoHowler = ENTITIES.register("echo_howler", () -> EntityType.Builder.of(EchoHowlerEntity::new, MobCategory.MONSTER)
                      ^
 ---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/registry/ModEntities.java:106: error: incompatible types: String cannot be converted to ResourceKey<EntityType<?>>
+                .build("echo_howler"));
+                       ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/registry/ModEntities.java:107: error: cannot find symbol
+        DuneSkimmer = ENTITIES.register("dune_skimmer", () -> EntityType.Builder.of(DuneSkimmerEntity::new, MobCategory.CREATURE)
+                      ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/registry/ModEntities.java:109: error: incompatible types: String cannot be converted to ResourceKey<EntityType<?>>
+                .build("dune_skimmer"));
+                       ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/registry/ModEntities.java:110: error: cannot find symbol
+        TideCaller = ENTITIES.register("tide_caller", () -> EntityType.Builder.of(TideCallerEntity::new, MobCategory.CREATURE)
+                     ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/registry/ModEntities.java:112: error: incompatible types: String cannot be converted to ResourceKey<EntityType<?>>
+                .build("tide_caller"));
+                       ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/registry/ModEntities.java:113: error: cannot find symbol
+        GloomStalker = ENTITIES.register("gloom_stalker", () -> EntityType.Builder.of(GloomStalkerEntity::new, MobCategory.MONSTER)
+                       ^
+---
 === STACKTRACE ===
 Caused by: org.gradle.api.internal.tasks.compile.CompilationFailedException: Compilation failed; see the compiler output below.
 === WHAT WENT WRONG ===
 * What went wrong:
 Execution failed for task ':fabric-1.21.8:compileJava' (registered by plugin class 'org.gradle.api.plugins.JavaBasePlugin').
 > Compilation failed; see the compiler output below.
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/item/LoreBookItem.java:9: error: cannot find symbol
-  import net.minecraft.world.InteractionResultHolder;
-                            ^
-    symbol:   class InteractionResultHolder
-    location: package net.minecraft.world
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/item/LoreBookItem.java:31: error: cannot find symbol
-      public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
-             ^
-    symbol:   class InteractionResultHolder
-    location: class LoreBookItem
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/item/UnseenTonicItem.java:9: error: cannot find symbol
-  import net.minecraft.world.InteractionResultHolder;
-                            ^
-    symbol:   class InteractionResultHolder
-    location: package net.minecraft.world
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/item/UnseenTonicItem.java:33: error: cannot find symbol
-      public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
-             ^
-    symbol:   class InteractionResultHolder
-    location: class UnseenTonicItem
   /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/item/UnseenGearItems.java:3: error: cannot find symbol
   import net.minecraft.world.item.ArmorMaterial;
                                  ^
@@ -281,6 +261,26 @@ Execution failed for task ':fabric-1.21.8:compileJava' (registered by plugin cla
     location: class ModEntities
   /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/registry/ModEntities.java:68: error: cannot find symbol
           Brambleback = ENTITIES.register("brambleback", () -> EntityType.Builder.of(BramblebackEntity::new, MobCategory.CREATURE)
+                        ^
+    symbol:   variable ENTITIES
+    location: class ModEntities
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/registry/ModEntities.java:71: error: cannot find symbol
+          Siltstrider = ENTITIES.register("siltstrider", () -> EntityType.Builder.of(SiltstriderEntity::new, MobCategory.CREATURE)
+                        ^
+    symbol:   variable ENTITIES
+    location: class ModEntities
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/registry/ModEntities.java:74: error: cannot find symbol
+          Glimmermoth = ENTITIES.register("glimmermoth", () -> EntityType.Builder.of(GlimmermothEntity::new, MobCategory.CREATURE)
+                        ^
+    symbol:   variable ENTITIES
+    location: class ModEntities
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/registry/ModEntities.java:77: error: cannot find symbol
+          PeatHopper = ENTITIES.register("peat_hopper", () -> EntityType.Builder.of(PeatHopperEntity::new, MobCategory.CREATURE)
+                       ^
+    symbol:   variable ENTITIES
+    location: class ModEntities
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/registry/ModEntities.java:80: error: cannot find symbol
+          EmberCalf = ENTITIES.register("ember_calf", () -> EntityType.Builder.of(EmberCalfEntity::new, MobCategory.CREATURE)
 === LAST 40 ===
 	at org.gradle.internal.execution.steps.MutableStep.execute(MutableStep.java:26)
 	at org.gradle.internal.execution.steps.ValidateStep$Mutable.executeDelegate(ValidateStep.java:79)
@@ -320,5 +320,5 @@ Execution failed for task ':fabric-1.21.8:compileJava' (registered by plugin cla
 	... 25 more
 
 
-BUILD FAILED in 1m 26s
+BUILD FAILED in 1m 39s
 1 actionable task: 1 executed

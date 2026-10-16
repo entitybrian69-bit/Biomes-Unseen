@@ -1,30 +1,10 @@
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/forge-1.18.2/src/main/java/com/biomesunseen/platform/PlatformExpectImpl.java:39: error: cannot find symbol
-                .getOptional(new net.minecraft.resources.ResourceLocation("biomesunseen", mobId))
-                ^
----
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/entity/boss/VoidSerpentEntity.java:159: error: cannot find symbol
                 unseenLevel().broadcastDamageEvent(target, DamageSource.mobAttack(this));
                              ^
 ---
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/entity/boss/VoidSerpentEntity.java:188: error: incompatible types: RegistrySupplier<Item> cannot be converted to ItemLike
-            spawnAtLocation(new ItemStack(ModItems.TROPHIES.get("star_whale"), 3));
-                                                               ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/entity/boss/VoidSerpentEntity.java:190: error: no suitable constructor found for ItemStack(RegistrySupplier<Item>)
-                spawnAtLocation(new ItemStack(ModItems.GEAR.get("voidshard_sword")));
-                                ^
----
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/entity/boss/HeartOfTheForestEntity.java:125: error: cannot find symbol
             for (Player player : unseenLevel().getNearestPlayers(this, 10.0D, 10.0D)) {
                                               ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/entity/boss/HeartOfTheForestEntity.java:154: error: incompatible types: RegistrySupplier<Item> cannot be converted to ItemLike
-            spawnAtLocation(new ItemStack(ModItems.TROPHIES.get("brambleback"), 3));
-                                                               ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/entity/boss/HeartOfTheForestEntity.java:156: error: no suitable constructor found for ItemStack(RegistrySupplier<Item>)
-                spawnAtLocation(new ItemStack(ModItems.GEAR.get("sylvanite_sword")));
-                                ^
 ---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/registry/ModEntities.java:65: error: cannot find symbol
         Lumox = ENTITIES.register("lumox", () -> EntityType.Builder.of(LumoxEntity::new, MobCategory.CREATURE)
@@ -238,24 +218,44 @@
         EntityAttributeRegistry.register(HeartOfTheForest, () -> Mob.createMobAttributes()
                                          ^
 ---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/registry/ModEntities.java:304: error: incompatible types: RegistrySupplier<EntityType<VoidSerpentEntity>> cannot be converted to Supplier<EntityType<? extends LivingEntity>>
+        EntityAttributeRegistry.register(VoidSerpent, () -> Mob.createMobAttributes()
+                                         ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/registry/ModBlocks.java:39: error: package ModRegistry does not exist
+            ORES.put(ore.id, ModRegistry.BLOCK_REGISTRYS.register(ore.id + "_ore",
+                                        ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/registry/ModBlocks.java:44: error: package ModRegistry does not exist
+            DECOR.put(decor.id, ModRegistry.BLOCK_REGISTRYS.register(decor.id,
+                                           ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/registry/ModBlocks.java:49: error: package ModRegistry does not exist
+            PLANTS.put(plant.id, ModRegistry.BLOCK_REGISTRYS.register(plant.id,
+                                            ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/registry/ModItems.java:87: error: package ModRegistry does not exist
+        UNSEEN_SIGIL = track(ModRegistry.ITEM_REGISTRYS.register("unseen_sigil",
+                                        ^
+---
 === STACKTRACE ===
 Caused by: org.gradle.api.internal.tasks.compile.CompilationFailedException: Compilation failed; see the compiler output below.
 === WHAT WENT WRONG ===
 * What went wrong:
 Execution failed for task ':forge-1.18.2:compileJava' (registered by plugin class 'org.gradle.api.plugins.JavaBasePlugin').
 > Compilation failed; see the compiler output below.
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/forge-1.18.2/src/main/java/com/biomesunseen/platform/PlatformExpectImpl.java:39: error: cannot find symbol
-                  .getOptional(new net.minecraft.resources.ResourceLocation("biomesunseen", mobId))
-                  ^
-    symbol:   method getOptional(ResourceLocation)
-    location: variable ENTITY_TYPE_REGISTRY of type ResourceKey<Registry<EntityType<?>>>
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/entity/boss/VoidSerpentEntity.java:159: error: cannot find symbol
+                  unseenLevel().broadcastDamageEvent(target, DamageSource.mobAttack(this));
+                               ^
+    symbol:   method broadcastDamageEvent(LivingEntity,DamageSource)
+    location: class Level
   100 errors
 
 * Try:
 === LAST 40 ===
-  found:    RegistrySupplier<EntityType<EmberCalfEntity>>,(context)-[...]alf")
+  found:    RegistrySupplier<EntityType<ThunderRamEntity>>,(context)-[...]ram")
   reason: cannot infer type-variable(s) T
-    (argument mismatch; RegistrySupplier<EntityType<EmberCalfEntity>> cannot be converted to Supplier<EntityType<? extends T>>)
+    (argument mismatch; RegistrySupplier<EntityType<ThunderRamEntity>> cannot be converted to Supplier<EntityType<? extends T>>)
   where T is a type-variable:
     T extends Entity declared in method <T>register(Supplier<EntityType<? extends T>>,EntityRendererProvider<T>)
 Note: Some input files use or override a deprecated API.
@@ -291,5 +291,5 @@ Note: Some messages have been simplified; recompile with -Xdiags:verbose to get 
 	at org.gradle.internal.concurrent.AbstractManagedExecutor$1.run(AbstractManagedExecutor.java:47)
 
 
-BUILD FAILED in 2m 6s
+BUILD FAILED in 2m 37s
 1 actionable task: 1 executed
