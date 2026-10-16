@@ -88,7 +88,7 @@ public class VoidSerpentEntity extends BiomesUnseenMob {
             py = segmentY[i];
             pz = segmentZ[i];
         }
-        if (level().isClientSide) {
+        if (unseenLevel().isClientSide) {
             return;
         }
         if (phaseShiftTicks > 0) {

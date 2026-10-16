@@ -4,12 +4,11 @@ NO MINECRAFT JAR RESOLVED
 
 FAILURE: Build failed with an exception.
 
-* Where:
-Build file '/home/runner/work/Biomes-Unseen/Biomes-Unseen/neoforge-26.2/build.gradle' line: 25
-
 * What went wrong:
-A problem occurred evaluating project ':neoforge-26.2'.
-> Could not find method modImplementation() for arguments [dev.architectury:architectury-neoforge:21.0.7] on object of type org.gradle.api.internal.artifacts.dsl.dependencies.DefaultDependencyHandler.
+A problem occurred configuring project ':neoforge-26.2'.
+> Failed to notify project evaluation listener.
+   > Failed to setup Minecraft, java.lang.UnsupportedOperationException: Architectury Loom: The Minecraft version '26.2' is unobfuscated (no mappings). Forge / NeoForge support for unobfuscated Minecraft is through the dev.architectury.loom-no-remap plugin instead.
+   > Cannot get MinecraftProvider before it has been setup
 
 * Try:
 > Run with --stacktrace option to get the stack trace.
@@ -17,4 +16,4 @@ A problem occurred evaluating project ':neoforge-26.2'.
 > Run with --scan to get full insights from a Build Scan (powered by Develocity).
 > Get more help at https://help.gradle.org.
 
-BUILD FAILED in 40s
+BUILD FAILED in 48s

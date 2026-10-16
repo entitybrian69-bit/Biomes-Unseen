@@ -53,7 +53,7 @@ public class HeartOfTheForestEntity extends BiomesUnseenMob {
     @Override
     public void aiStep() {
         super.aiStep();
-        if (level().isClientSide) {
+        if (unseenLevel().isClientSide) {
             return;
         }
         float fraction = getHealth() / getMaxHealth();

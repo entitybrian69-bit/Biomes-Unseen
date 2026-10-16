@@ -6,7 +6,7 @@ FAILURE: Build failed with an exception.
 
 * What went wrong:
 A problem occurred configuring project ':neoforge-1.21.1'.
-> Failed to setup Minecraft, java.lang.IllegalArgumentException: Configuration 'mappings' has no dependencies
+> Failed to setup Minecraft, java.lang.RuntimeException: Failed to provide net.neoforged:neoforge:21.1.+ : java.lang.RuntimeException: Could not resolve Forge userdev
 
 * Try:
 > Run with --stacktrace option to get the stack trace.

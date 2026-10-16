@@ -36,8 +36,8 @@ public final class PlatformExpectImpl {
             net.minecraft.world.entity.EntityType<net.minecraft.world.entity.Mob> type) {
         net.minecraft.core.registries.BuiltInRegistries.ENTITY_TYPE
                 .getOptional(new net.minecraft.resources.ResourceLocation("biomesunseen", mobId))
-                .ifPresent(type -> net.minecraft.world.entity.SpawnPlacements.register(
-                        type,
+                .ifPresent(resolved -> net.minecraft.world.entity.SpawnPlacements.register(
+                        resolved,
                         net.minecraft.world.entity.SpawnPlacements.Type.ON_GROUND,
                         net.minecraft.world.level.levelgen.Heightmap.Types
                                 .MOTION_BLOCKING_NO_LEAVES,

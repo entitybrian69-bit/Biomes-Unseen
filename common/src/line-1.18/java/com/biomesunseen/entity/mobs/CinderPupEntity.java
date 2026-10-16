@@ -65,7 +65,7 @@ public class CinderPupEntity extends BiomesUnseenMob {
                 }
                 stack.shrink(1);
             }
-            return net.minecraft.world.InteractionResult.sidedSuccess(level().isClientSide);
+            return net.minecraft.world.InteractionResult.sidedSuccess(unseenLevel().isClientSide);
         }
         return super.mobInteract(player, hand);
     }

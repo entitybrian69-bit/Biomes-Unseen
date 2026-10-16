@@ -27,19 +27,19 @@ public final class UnseenGearItems {
     }
 
     public static ArmorItem helmet(OreDef ore, UnseenArmorMaterial material, Item.Properties properties) {
-        return new UnseenArmorItem(ore, material, ArmorItem.Type.HELMET, properties);
+        return new UnseenArmorItem(ore, material, ArmorType.HELMET, properties);
     }
 
     public static ArmorItem chestplate(OreDef ore, UnseenArmorMaterial material, Item.Properties properties) {
-        return new UnseenArmorItem(ore, material, ArmorItem.Type.CHESTPLATE, properties);
+        return new UnseenArmorItem(ore, material, ArmorType.CHESTPLATE, properties);
     }
 
     public static ArmorItem leggings(OreDef ore, UnseenArmorMaterial material, Item.Properties properties) {
-        return new UnseenArmorItem(ore, material, ArmorItem.Type.LEGGINGS, properties);
+        return new UnseenArmorItem(ore, material, ArmorType.LEGGINGS, properties);
     }
 
     public static ArmorItem boots(OreDef ore, UnseenArmorMaterial material, Item.Properties properties) {
-        return new UnseenArmorItem(ore, material, ArmorItem.Type.BOOTS, properties);
+        return new UnseenArmorItem(ore, material, ArmorType.BOOTS, properties);
     }
 
     /** Concrete pickaxe bound to its ore. */
@@ -74,7 +74,7 @@ public final class UnseenGearItems {
     public static final class UnseenArmorItem extends ArmorItem {
         private final OreDef ore;
 
-        UnseenArmorItem(OreDef ore, UnseenArmorMaterial material, ArmorItem.Type slot, Item.Properties properties) {
+        UnseenArmorItem(OreDef ore, UnseenArmorMaterial material, ArmorType slot, Item.Properties properties) {
             super(material.holder(), slot, properties);
             this.ore = ore;
         }

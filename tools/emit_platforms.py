@@ -122,8 +122,7 @@ loom {
 dependencies {
     minecraft "com.mojang:minecraft:${minecraft_version}"
 %(mappings)s
-    forge "net.minecraftforge:forge:${forge_version}"
-    modImplementation "dev.architectury:architectury-forge:${architectury_version}"%(arch_legacy)s
+    forge "net.minecraftforge:forge:${forge_version}"%(arch_dep)s%(arch_legacy)s
 %(geckolib)s}
 
 processResources {
@@ -172,6 +171,7 @@ dependencies {
     minecraft "com.mojang:minecraft:${minecraft_version}"
 %(mappings)s
     neoForge "net.neoforged:neoforge:${neoforge_version}"
+    // resolved through maven.neoforged.net/releases declared in the root build script
     modImplementation "dev.architectury:architectury-neoforge:${architectury_version}"
 %(geckolib)s}
 
@@ -536,9 +536,14 @@ public final class PlatformExpectImpl {
         open_config = '''        net.minecraft.client.Minecraft mc = net.minecraft.client.Minecraft.getInstance();
         Object screen = ClothConfigScreen.build("Biomes Unseen", parentScreen, key -> key);
         mc.setScreen((net.minecraft.client.gui.screens.Screen) screen);'''
-        spawn_placement = '''        net.minecraftforge.event.entity.EntityAttributeCreationEvent.class.getName();
-        net.minecraftforge.registries.ForgeRegistries.ENTITY_TYPES.getValue(
-                new net.minecraft.resources.ResourceLocation("biomesunseen", mobId));'''
+        spawn_placement = '''        net.minecraft.core.registries.BuiltInRegistries.ENTITY_TYPE
+                .getOptional(new net.minecraft.resources.ResourceLocation("biomesunseen", mobId))
+                .ifPresent(resolved -> net.minecraft.world.entity.SpawnPlacements.register(
+                        resolved,
+                        net.minecraft.world.entity.SpawnPlacements.Type.ON_GROUND,
+                        net.minecraft.world.level.levelgen.Heightmap.Types
+                                .MOTION_BLOCKING_NO_LEAVES,
+                        net.minecraft.world.entity.Mob::checkMobSpawnRules));'''
         biome_injection = '''        System.out.println("[Biomes Unseen] biome injection installed for "
                 + WorldGenKeys.allBiomeKeys().size() + " biomes");'''
         biome_mods = '''        MinecraftForge.EVENT_BUS.addListener(PlatformExpectImpl::onBiomeLoading);'''
@@ -559,8 +564,8 @@ public final class PlatformExpectImpl {
         mc.setScreen((net.minecraft.client.gui.screens.Screen) screen);'''
         spawn_placement = '''        net.minecraft.core.registries.BuiltInRegistries.ENTITY_TYPE
                 .getOptional(new net.minecraft.resources.ResourceLocation("biomesunseen", mobId))
-                .ifPresent(type -> net.minecraft.world.entity.SpawnPlacements.register(
-                        type,
+                .ifPresent(resolved -> net.minecraft.world.entity.SpawnPlacements.register(
+                        resolved,
                         net.minecraft.world.entity.SpawnPlacements.Type.ON_GROUND,
                         net.minecraft.world.level.levelgen.Heightmap.Types
                                 .MOTION_BLOCKING_NO_LEAVES,
@@ -639,9 +644,16 @@ def emit(root):
                     "geckolib": ('    modImplementation "%s"\n'
                                  % geckolib_coord("fabric", mc)) if geckolib_v else "",
                     "arch_legacy": ('' if F["expect"] == "dev" else ""),
-                    "mappings": ("" if str(F["line"]) == "26" else
+                    "mappings": ("    mappings loom.layered { }"
+                                 if str(F["line"]) == "26" else
                                  "    mappings loom.officialMojangMappings()"),
                     "loom_plugin": "dev.architectury.loom",
+                    # dev.architectury:architectury-forge has no artifact for the
+                    # 1.16.5/1.17.1/1.18.1 Architectury lines, so those three build
+                    # against Forge alone.
+                    "arch_dep": ("" if mc in ("1.16.5", "1.17.1", "1.18.1")
+                                 else '\n    modImplementation "dev.architectury:'
+                                      'architectury-forge:${architectury_version}"'),
                 }
                 if F["expect"] == "me.shedaniel":
                     build = build.replace(
@@ -664,9 +676,13 @@ def emit(root):
                     "mixin_block": ('    forge {\n        mixinConfig "biomesunseen.mixins.json"\n    }\n'
                                     if F["biome_add"] == "mixin_legacy" else "    // no mixin config needed\n"),
                     "arch_legacy": "",
-                    "mappings": ("" if str(F["line"]) == "26" else
+                    "mappings": ("    mappings loom.layered { }"
+                                 if str(F["line"]) == "26" else
                                  "    mappings loom.officialMojangMappings()"),
                     "loom_plugin": "dev.architectury.loom",
+                    "arch_dep": ("" if mc in ("1.16.5", "1.17.1", "1.18.1")
+                                 else '\n    modImplementation "dev.architectury:'
+                                      'architectury-forge:${architectury_version}"'),
                 }
                 if F["expect"] == "me.shedaniel":
                     build = build.replace(
@@ -687,7 +703,8 @@ def emit(root):
                     "geckolib": ('    modImplementation "%s"\n'
                                  % geckolib_coord("neoforge", mc)) if geckolib_v else "",
                     "mixin_block": "    // no mixin config needed\n",
-                    "mappings": ("" if str(F["line"]) == "26" else
+                    "mappings": ("    mappings loom.layered { }"
+                                 if str(F["line"]) == "26" else
                                  "    mappings loom.officialMojangMappings()"),
                     "loom_plugin": "dev.architectury.loom",
                 }

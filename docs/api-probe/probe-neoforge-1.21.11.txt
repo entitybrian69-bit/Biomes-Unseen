@@ -6,26 +6,7 @@ FAILURE: Build failed with an exception.
 
 * What went wrong:
 A problem occurred configuring project ':neoforge-1.21.11'.
-> Could not resolve all dependencies for configuration ':neoforge-1.21.11:neoForge'.
-   > Could not find net.neoforged:neoforge:21.11.1.
-     Searched in the following locations:
-       - https://libraries.minecraft.net/net/neoforged/neoforge/21.11.1/neoforge-21.11.1.pom
-       - https://libraries.minecraft.net/net/neoforged/neoforge/21.11.1/neoforge-21.11.1.jar
-       - https://repo.maven.apache.org/maven2/net/neoforged/neoforge/21.11.1/neoforge-21.11.1.pom
-       - https://maven.fabricmc.net/net/neoforged/neoforge/21.11.1/neoforge-21.11.1.pom
-       - https://maven.architectury.dev/net/neoforged/neoforge/21.11.1/neoforge-21.11.1.pom
-       - https://maven.minecraftforge.net/net/neoforged/neoforge/21.11.1/neoforge-21.11.1.pom
-       - https://maven.neoforged.net/releases/net/neoforged/neoforge/21.11.1/neoforge-21.11.1.pom
-       - https://dl.cloudsmith.io/public/geckolib3/geckolib/maven/net/neoforged/neoforge/21.11.1/neoforge-21.11.1.pom
-       - https://maven.shedaniel.me/net/neoforged/neoforge/21.11.1/neoforge-21.11.1.pom
-       - https://maven.terraformersmc.com/releases/net/neoforged/neoforge/21.11.1/neoforge-21.11.1.pom
-       - https://oss.sonatype.org/content/repositories/snapshots/net/neoforged/neoforge/21.11.1/neoforge-21.11.1.pom
-       - file:/home/runner/work/Biomes-Unseen/Biomes-Unseen/.gradle/loom-cache/remapped_mods/net/neoforged/neoforge/21.11.1/neoforge-21.11.1.pom
-       - file:/home/runner/.gradle/caches/fabric-loom/minecraftMaven/net/neoforged/neoforge/21.11.1/neoforge-21.11.1.pom
-       - file:/home/runner/work/Biomes-Unseen/Biomes-Unseen/.gradle/loom-cache/minecraftMaven/net/neoforged/neoforge/21.11.1/neoforge-21.11.1.pom
-       - file:/home/runner/.gradle/caches/fabric-loom/forge/transformed-dependencies-v1/net/neoforged/neoforge/21.11.1/neoforge-21.11.1.pom
-     Required by:
-         project ':neoforge-1.21.11'
+> Failed to setup Minecraft, java.lang.RuntimeException: Failed to provide net.neoforged:neoforge:21.11.+ : java.lang.RuntimeException: Could not resolve Forge userdev
 
 * Try:
 > Run with --stacktrace option to get the stack trace.
@@ -33,4 +14,4 @@ A problem occurred configuring project ':neoforge-1.21.11'.
 > Run with --scan to get full insights from a Build Scan (powered by Develocity).
 > Get more help at https://help.gradle.org.
 
-BUILD FAILED in 48s
+BUILD FAILED in 1m 26s

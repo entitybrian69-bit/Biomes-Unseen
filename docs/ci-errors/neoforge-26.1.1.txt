@@ -1,18 +1,51 @@
 * What went wrong:
-A problem occurred evaluating project ':neoforge-26.1.1'.
-> Could not find method modImplementation() for arguments [dev.architectury:architectury-neoforge:20.0.12] on object of type org.gradle.api.internal.artifacts.dsl.dependencies.DefaultDependencyHandler.
+A problem occurred configuring project ':neoforge-26.1.1'.
+> Failed to notify project evaluation listener.
 ---
 BUILD FAILED in 35s
 ---
 === STACKTRACE ===
-Caused by: org.gradle.internal.metaobject.AbstractDynamicObject$CustomMessageMissingMethodException: Could not find method modImplementation() for arguments [dev.architectury:architectury-neoforge:20.0.12] on object of type org.gradle.api.internal.artifacts.dsl.dependencies.DefaultDependencyHandler.
+Caused by: org.gradle.internal.event.ListenerNotificationException: Failed to notify project evaluation listener.
+	at net.fabricmc.loom.util.ExceptionUtil.createDescriptiveWrapper(ExceptionUtil.java:59)
+	at net.fabricmc.loom.configuration.CompileConfiguration.lambda$run$1(CompileConfiguration.java:152)
+	at net.fabricmc.loom.configuration.CompileConfiguration.lambda$afterEvaluationWithService$0(CompileConfiguration.java:617)
+	at net.fabricmc.loom.util.gradle.GradleUtils.lambda$afterSuccessfulEvaluation$0(GradleUtils.java:51)
+Caused by: java.lang.UnsupportedOperationException: Architectury Loom: The Minecraft version '26.1.1' is unobfuscated (no mappings). Forge / NeoForge support for unobfuscated Minecraft is through the dev.architectury.loom-no-remap plugin instead.
+	at net.fabricmc.loom.configuration.CompileConfiguration.setupMinecraft(CompileConfiguration.java:238)
+	at net.fabricmc.loom.configuration.CompileConfiguration.lambda$run$1(CompileConfiguration.java:144)
+	at net.fabricmc.loom.extension.LoomGradleExtensionImpl.getMinecraftProvider(LoomGradleExtensionImpl.java:184)
+	at net.fabricmc.loom.extension.LoomGradleExtensionImpl_Decorated.getMinecraftProvider(Unknown Source)
+	at net.fabricmc.loom.task.LoomTasks.lambda$run$6(LoomTasks.java:128)
+	at net.fabricmc.loom.util.gradle.GradleUtils.lambda$afterSuccessfulEvaluation$0(GradleUtils.java:51)
 === WHAT WENT WRONG ===
 * What went wrong:
-A problem occurred evaluating project ':neoforge-26.1.1'.
-> Could not find method modImplementation() for arguments [dev.architectury:architectury-neoforge:20.0.12] on object of type org.gradle.api.internal.artifacts.dsl.dependencies.DefaultDependencyHandler.
+A problem occurred configuring project ':neoforge-26.1.1'.
+> Failed to notify project evaluation listener.
+   > Failed to setup Minecraft, java.lang.UnsupportedOperationException: Architectury Loom: The Minecraft version '26.1.1' is unobfuscated (no mappings). Forge / NeoForge support for unobfuscated Minecraft is through the dev.architectury.loom-no-remap plugin instead.
+   > Cannot get MinecraftProvider before it has been setup
 
 * Try:
 === LAST 40 ===
+	at org.gradle.internal.buildprocess.execution.StartParamsValidatingActionExecutor.execute(StartParamsValidatingActionExecutor.java:57)
+	at org.gradle.internal.buildprocess.execution.StartParamsValidatingActionExecutor.execute(StartParamsValidatingActionExecutor.java:32)
+	at org.gradle.internal.buildprocess.execution.SessionFailureReportingActionExecutor.execute(SessionFailureReportingActionExecutor.java:51)
+	at org.gradle.internal.buildprocess.execution.SessionFailureReportingActionExecutor.execute(SessionFailureReportingActionExecutor.java:39)
+	at org.gradle.internal.buildprocess.execution.SetupLoggingActionExecutor.execute(SetupLoggingActionExecutor.java:47)
+	at org.gradle.internal.buildprocess.execution.SetupLoggingActionExecutor.execute(SetupLoggingActionExecutor.java:31)
+	at org.gradle.launcher.daemon.server.exec.ExecuteBuild.doBuild(ExecuteBuild.java:70)
+	at org.gradle.launcher.daemon.server.exec.BuildCommandOnly.execute(BuildCommandOnly.java:37)
+	at org.gradle.launcher.daemon.server.api.DaemonCommandExecution.proceed(DaemonCommandExecution.java:104)
+	at org.gradle.launcher.daemon.server.exec.WatchForDisconnection.execute(WatchForDisconnection.java:39)
+	at org.gradle.launcher.daemon.server.api.DaemonCommandExecution.proceed(DaemonCommandExecution.java:104)
+	at org.gradle.launcher.daemon.server.exec.ResetDeprecationLogger.execute(ResetDeprecationLogger.java:29)
+	at org.gradle.launcher.daemon.server.api.DaemonCommandExecution.proceed(DaemonCommandExecution.java:104)
+	at org.gradle.launcher.daemon.server.exec.RequestStopIfSingleUsedDaemon.execute(RequestStopIfSingleUsedDaemon.java:35)
+	at org.gradle.launcher.daemon.server.api.DaemonCommandExecution.proceed(DaemonCommandExecution.java:104)
+	at org.gradle.launcher.daemon.server.exec.ForwardClientInput.lambda$execute$0(ForwardClientInput.java:40)
+	at org.gradle.internal.daemon.clientinput.ClientInputForwarder.forwardInput(ClientInputForwarder.java:80)
+	at org.gradle.launcher.daemon.server.exec.ForwardClientInput.execute(ForwardClientInput.java:37)
+	at org.gradle.launcher.daemon.server.api.DaemonCommandExecution.proceed(DaemonCommandExecution.java:104)
+	at org.gradle.launcher.daemon.server.exec.LogAndCheckHealth.execute(LogAndCheckHealth.java:53)
 	at org.gradle.launcher.daemon.server.api.DaemonCommandExecution.proceed(DaemonCommandExecution.java:104)
 	at org.gradle.launcher.daemon.server.exec.ApplyClientEnvironmentVariables.doBuild(ApplyClientEnvironmentVariables.java:82)
 	at org.gradle.launcher.daemon.server.exec.BuildCommandOnly.execute(BuildCommandOnly.java:37)
@@ -27,29 +60,9 @@ A problem occurred evaluating project ':neoforge-26.1.1'.
 	at org.gradle.launcher.daemon.server.DaemonStateCoordinator.lambda$runCommand$0(DaemonStateCoordinator.java:321)
 	at org.gradle.internal.concurrent.ExecutorPolicy$CatchAndRecordFailures.onExecute(ExecutorPolicy.java:65)
 	at org.gradle.internal.concurrent.AbstractManagedExecutor$1.run(AbstractManagedExecutor.java:47)
-Caused by: org.gradle.internal.metaobject.AbstractDynamicObject$CustomMessageMissingMethodException: Could not find method modImplementation() for arguments [dev.architectury:architectury-neoforge:20.0.12] on object of type org.gradle.api.internal.artifacts.dsl.dependencies.DefaultDependencyHandler.
-	at org.gradle.internal.metaobject.AbstractDynamicObject$CustomMissingMethodExecutionFailed.<init>(AbstractDynamicObject.java:196)
-	at org.gradle.internal.metaobject.AbstractDynamicObject.methodMissingException(AbstractDynamicObject.java:190)
-	at org.gradle.internal.metaobject.ConfigureDelegate.invokeMethod(ConfigureDelegate.java:84)
-	at build_85wktmls8cwkdfi0b2y9itqt3$_run_closure3.doCall$original(/home/runner/work/Biomes-Unseen/Biomes-Unseen/neoforge-26.1.1/build.gradle:25)
-	at build_85wktmls8cwkdfi0b2y9itqt3$_run_closure3.doCall(/home/runner/work/Biomes-Unseen/Biomes-Unseen/neoforge-26.1.1/build.gradle)
-	at org.gradle.util.internal.ClosureBackedAction.execute(ClosureBackedAction.java:73)
-	at org.gradle.util.internal.ConfigureUtil.configureTarget(ConfigureUtil.java:166)
-	at org.gradle.util.internal.ConfigureUtil.configure(ConfigureUtil.java:107)
-	at org.gradle.api.internal.project.DefaultProject.dependencies(DefaultProject.java:1286)
-	at org.gradle.internal.metaobject.BeanDynamicObject$MetaClassAdapter.invokeMethod(BeanDynamicObject.java:586)
-	at org.gradle.internal.metaobject.BeanDynamicObject.tryInvokeMethod(BeanDynamicObject.java:228)
-	at org.gradle.internal.metaobject.CompositeDynamicObject.tryInvokeMethod(CompositeDynamicObject.java:113)
-	at org.gradle.internal.extensibility.ExtensibleDynamicObject.doTryInvokeMethod(ExtensibleDynamicObject.java:345)
-	at org.gradle.internal.extensibility.ExtensibleDynamicObject.tryInvokeMethod(ExtensibleDynamicObject.java:394)
-	at org.gradle.groovy.scripts.BasicScript$ScriptDynamicObject.tryInvokeMethod(BasicScript.java:186)
-	at org.gradle.internal.metaobject.AbstractDynamicObject.invokeMethod(AbstractDynamicObject.java:169)
-	at org.gradle.groovy.scripts.BasicScript.lambda$invokeMethod$0(BasicScript.java:100)
-	at org.gradle.groovy.scripts.BasicScript.withCallerContext(BasicScript.java:120)
-	at org.gradle.groovy.scripts.BasicScript.invokeMethod(BasicScript.java:100)
-	at build_85wktmls8cwkdfi0b2y9itqt3.run(/home/runner/work/Biomes-Unseen/Biomes-Unseen/neoforge-26.1.1/build.gradle:21)
-	at org.gradle.groovy.scripts.internal.DefaultScriptRunnerFactory$ScriptRunnerImpl.run(DefaultScriptRunnerFactory.java:91)
-	... 179 more
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1090)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614)
+	at java.base/java.lang.Thread.run(Thread.java:1474)
 
 
 BUILD FAILED in 35s

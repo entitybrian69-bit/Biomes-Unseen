@@ -22,6 +22,10 @@ TOOL_MATERIAL_LINES = ("1.21.2", "1.21.4", "1.21.5", "1.21.9", "26")
 # ArmorItem(Holder<ArmorMaterial>, ArmorItem$Type, Item$Properties).
 ARMOR_RECORD_LINES = ("1.20.5", "1.21", "1.21.2", "1.21.4", "1.21.5", "1.21.9", "26")
 
+# 1.21.5 removed ArmorItem alongside SwordItem/PickaxeItem, so the armor pieces
+# are plain Items on those lines.
+NO_ARMOR_ITEM_LINES = ("1.21.5", "1.21.9", "26")
+
 # 1.21.5 removed SwordItem and PickaxeItem outright (probe: "class not found:
 # net.minecraft.world.item.SwordItem" / ".PickaxeItem" on 1.21.5 and 1.21.9),
 # while AxeItem/ShovelItem/HoeItem remain with the (ToolMaterial, float, float,
@@ -1152,6 +1156,10 @@ public class UnseenToolTier implements Tier {
 '''
     _w(root, base + "/item/UnseenToolTier.java", tier_body)
 
+    armor_type_import = ""
+    armor_item_import = "import net.minecraft.world.item.ArmorItem;\n"
+    armor_type_ref = "ArmorItem.Type"
+    armor_base = "ArmorItem"
     if F["pkgs"] == "legacy":
         armor_body = '''package com.biomesunseen.item;
 
@@ -1248,8 +1256,7 @@ import net.minecraft.core.Holder;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvents;
-import net.minecraft.world.item.ArmorItem;
-import %(armor_material_import)s;
+%(armor_item_import)s%(armor_type_import)simport %(armor_material_import)s;
 import net.minecraft.world.item.crafting.Ingredient;
 
 import com.biomesunseen.core.OreDef;
@@ -1497,7 +1504,11 @@ public class UnseenArmorMaterial implements ArmorMaterial {
 }
 '''
 
-    armor_body = armor_body.replace("%(armor_material_import)s", armor_material_import)
+    armor_body = (armor_body
+                  .replace("%(armor_material_import)s", armor_material_import)
+                  .replace("%(armor_item_import)s", armor_item_import)
+                  .replace("%(armor_type_import)s", armor_type_import)
+                  .replace("ArmorItem.Type", armor_type_ref))
     _w(root, base + "/item/UnseenArmorMaterial.java", armor_body)
 
     # ================================================================== #
@@ -1517,6 +1528,9 @@ import net.minecraft.item.SwordItem;
 import com.biomesunseen.core.OreDef;
 '''
         armor_slot_expr = "EquipmentSlotType"
+        armor_ret = "ArmorItem"
+        slot_head, slot_chest = "EquipmentSlotType.HEAD", "EquipmentSlotType.CHEST"
+        slot_legs, slot_boots = "EquipmentSlotType.LEGS", "EquipmentSlotType.FEET"
         pickaxe_base = "PickaxeItem"
         sword_base = "SwordItem"
         pickaxe_ret = "PickaxeItem"
@@ -1567,6 +1581,17 @@ import com.biomesunseen.core.OreDef;
                      'import net.minecraft.world.item.Item;\n'
                      + tool_imports + tier_import + '\n\n'
                      'import com.biomesunseen.core.OreDef;\n')
+        if line_key in ("1.16.5", "1.17.1", "1.18", "1.18.1", "1.19", "1.19.1",
+                        "1.19.2", "1.19.3"):
+            slot_head, slot_chest = "EquipmentSlot.HEAD", "EquipmentSlot.CHEST"
+            slot_legs, slot_boots = "EquipmentSlot.LEGS", "EquipmentSlot.FEET"
+        elif line_key in TOOL_MATERIAL_LINES:
+            slot_head, slot_chest = "ArmorType.HELMET", "ArmorType.CHESTPLATE"
+            slot_legs, slot_boots = "ArmorType.LEGGINGS", "ArmorType.BOOTS"
+        else:
+            slot_head, slot_chest = "ArmorItem.Type.HELMET", "ArmorItem.Type.CHESTPLATE"
+            slot_legs, slot_boots = "ArmorItem.Type.LEGGINGS", "ArmorItem.Type.BOOTS"
+        armor_ret = "Item" if line_key in NO_ARMOR_ITEM_LINES else "ArmorItem"
         if line_key in NO_SWORD_PICKAXE_LINES:
             # 1.21.5 has neither SwordItem nor PickaxeItem; the sword and the
             # pickaxe are plain Items and take their combat stats from the
@@ -1605,30 +1630,33 @@ import com.biomesunseen.core.OreDef;
         return new UnseenSwordItem(ore, tier, properties);
     }
 
-    public static ArmorItem helmet(OreDef ore, UnseenArmorMaterial material, Item.Properties properties) {
-        return new UnseenArmorItem(ore, material, ArmorItem.Type.HELMET, properties);
+    public static ''' + armor_ret + ''' helmet(OreDef ore, UnseenArmorMaterial material, Item.Properties properties) {
+        return new UnseenArmorItem(ore, material, ''' + slot_head + ''', properties);
     }
 
-    public static ArmorItem chestplate(OreDef ore, UnseenArmorMaterial material, Item.Properties properties) {
-        return new UnseenArmorItem(ore, material, ArmorItem.Type.CHESTPLATE, properties);
+    public static ''' + armor_ret + ''' chestplate(OreDef ore, UnseenArmorMaterial material, Item.Properties properties) {
+        return new UnseenArmorItem(ore, material, ''' + slot_chest + ''', properties);
     }
 
-    public static ArmorItem leggings(OreDef ore, UnseenArmorMaterial material, Item.Properties properties) {
-        return new UnseenArmorItem(ore, material, ArmorItem.Type.LEGGINGS, properties);
+    public static ''' + armor_ret + ''' leggings(OreDef ore, UnseenArmorMaterial material, Item.Properties properties) {
+        return new UnseenArmorItem(ore, material, ''' + slot_legs + ''', properties);
     }
 
-    public static ArmorItem boots(OreDef ore, UnseenArmorMaterial material, Item.Properties properties) {
-        return new UnseenArmorItem(ore, material, ArmorItem.Type.BOOTS, properties);
+    public static ''' + armor_ret + ''' boots(OreDef ore, UnseenArmorMaterial material, Item.Properties properties) {
+        return new UnseenArmorItem(ore, material, ''' + slot_boots + ''', properties);
     }
 '''
-        armor_ctor = ("super(material.holder(), slot, properties)"
-                      if line_key in ARMOR_RECORD_LINES
-                      else "super(material, slot, properties)")
+        armor_ctor = ("super(properties)"
+                      if line_key in NO_ARMOR_ITEM_LINES
+                      else ("super(material.holder(), slot, properties)"
+                            if line_key in ARMOR_RECORD_LINES
+                            else "super(material, slot, properties)"))
         armor_inner_slot = (
             "EquipmentSlot slot"
             if line_key in ("1.16.5", "1.17.1", "1.18", "1.18.1", "1.19", "1.19.1",
                             "1.19.2", "1.19.3")
-            else "ArmorItem.Type slot")
+            else ("ArmorType slot" if line_key in TOOL_MATERIAL_LINES
+                  else "ArmorItem.Type slot"))
 
     gear_body = gear_head + '''
 /**
@@ -1670,7 +1698,7 @@ public final class UnseenGearItems {
     }
 
     /** Concrete armor piece bound to its ore. */
-    public static final class UnseenArmorItem extends ArmorItem {
+    public static final class UnseenArmorItem extends ''' + armor_base + ''' {
         private final OreDef ore;
 
         UnseenArmorItem(OreDef ore, UnseenArmorMaterial material, ''' + armor_inner_slot + ''', Item.Properties properties) {
