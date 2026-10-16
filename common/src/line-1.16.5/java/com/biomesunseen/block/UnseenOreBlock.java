@@ -19,7 +19,7 @@ public class UnseenOreBlock extends Block {
     }
 
     private static AbstractBlock.Properties buildProperties(OreDef ore) {
-        AbstractBlock.Properties properties = AbstractBlock.Properties.of(Material.STONE).strength(3.0F, 3.0F);
+        AbstractBlock.Properties properties = AbstractBlock.Properties.of(net.minecraft.world.level.material.Material.STONE).strength(3.0F, 3.0F);
         if (ore.glows) {
             properties = properties.lightLevel(state -> 8);
         }

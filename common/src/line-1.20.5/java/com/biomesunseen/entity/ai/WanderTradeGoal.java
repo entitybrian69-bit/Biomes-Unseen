@@ -60,7 +60,7 @@ public class WanderTradeGoal extends ThrottledGoal {
                 if (!customer.addItem(gift)) {
                     customer.drop(gift, false);
                 }
-                if (!customer.getInventory().items.stream().anyMatch(s -> !s.isEmpty())) {
+                if (customer.getInventory().isEmpty()) {
                     // No payment expected: this is ambient life, not a villager UI.
                 }
             }

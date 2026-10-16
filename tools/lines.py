@@ -59,7 +59,7 @@ LINES = {
     "1.19.3": dict(
         line="1.19.3", mc="1.19.3", java=17, pkgs="modern", reg="registries",
         geckolib="none", tab="new", damage="old", synched="old",
-        text="component", material=False, sound_ctor="factory", data_dirs="plural",
+        text="component", material=True, sound_ctor="factory", data_dirs="plural",
         biome_json="new", worldgen="noise", biome_add="noise_list",
         item_def="model_only", expect="dev", entity_base="modern",
         tagkey=True, features="placed", structures="sets",
@@ -67,7 +67,7 @@ LINES = {
     "1.19.4": dict(
         line="1.19.4", mc="1.19.4", java=17, pkgs="modern", reg="registries",
         geckolib="none", tab="new", damage="new", synched="old",
-        text="component", material=False, sound_ctor="factory", data_dirs="plural",
+        text="component", material=True, sound_ctor="factory", data_dirs="plural",
         biome_json="new", worldgen="modern", biome_add="noise_list",
         item_def="model_only", expect="dev", entity_base="modern",
         tagkey=True, features="placed", structures="sets",

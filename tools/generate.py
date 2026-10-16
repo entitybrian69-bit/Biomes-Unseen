@@ -229,6 +229,43 @@ _RE_EFFECT_FOR_TYPE = re.compile(
 # parameter (all four overloads), so the item-drop calls need a server check.
 SPAWN_AT_LOCATION_NEEDS_LEVEL_FROM = "1.21.5"
 
+# probe-fabric-1.21.2: Entity.isInvulnerableTo gained a leading ServerLevel and
+# Entity.hurt stopped returning boolean; both changed in the same release.
+HURT_VOID_FROM = "1.21.2"
+
+_HURT_BOOLEAN_IMPL = """    @Override
+    public boolean hurt(DamageSource source, float amount) {
+        boolean hurt = super.hurt(source, amount);
+        if (hurt) {
+            triggerAnim(\"hurt\");
+        }
+        return hurt;
+    }"""
+
+_HURT_VOID_IMPL = """    @Override
+    public void hurt(DamageSource source, float amount) {
+        float healthBefore = getHealth();
+        super.hurt(source, amount);
+        if (getHealth() < healthBefore) {
+            triggerAnim(\"hurt\");
+        }
+    }"""
+
+_INVULN_ONE_ARG = """    public boolean isInvulnerableTo(DamageSource source) {
+        return phaseShiftTicks > 0 || super.isInvulnerableTo(source);"""
+_INVULN_TWO_ARG = """    public boolean isInvulnerableTo(net.minecraft.server.level.ServerLevel level,
+            DamageSource source) {
+        return phaseShiftTicks > 0 || super.isInvulnerableTo(level, source);"""
+
+# Inventory.items went private; isEmpty() is public on every version and means
+# exactly "no non-empty stack", which is what the trade goal was testing.
+_INVENTORY_ITEMS = ("!customer.getInventory().items.stream().anyMatch(s -> !s.isEmpty())",
+                    "customer.getInventory().isEmpty()")
+
+# "net.minecraft.world.phys.AABB box = new AABB(...)" - the declaration is
+# qualified but the constructor is not, and nothing imports the short name.
+_RE_NEW_AABB = re.compile(r'(?<![.\w])new AABB\(')
+
 _RE_PACKAGE_LINE = re.compile(r'^(package [^\n]+\n)', re.M)
 
 
@@ -367,6 +404,16 @@ def apply_api_drift(text, line_key):
     # -- 1.21.5+: spawnAtLocation takes the ServerLevel first.
     if rank >= LINE_RANK[SPAWN_AT_LOCATION_NEEDS_LEVEL_FROM]:
         text = _rewrite_spawn_at_location(text)
+
+    # -- 1.21.2+: Entity.hurt returns void, isInvulnerableTo takes the ServerLevel.
+    if rank >= LINE_RANK[HURT_VOID_FROM]:
+        text = text.replace(_HURT_BOOLEAN_IMPL, _HURT_VOID_IMPL)
+        text = text.replace(_INVULN_ONE_ARG, _INVULN_TWO_ARG)
+
+    # -- Inventory.items is private; isEmpty() says the same thing publicly.
+    text = text.replace(_INVENTORY_ITEMS[0], _INVENTORY_ITEMS[1])
+
+    text = _RE_NEW_AABB.sub('new net.minecraft.world.phys.AABB(', text)
 
     # -- Particle declares render(VertexConsumer,Camera,float) abstract and has
     #    no setSpriteFromAge(); TextureSheetParticle is the sprite-particle base

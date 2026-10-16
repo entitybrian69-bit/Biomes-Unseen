@@ -177,12 +177,12 @@ public abstract class BiomesUnseenMob extends PathfinderMob  {
     }
 
     @Override
-    public boolean hurt(DamageSource source, float amount) {
-        boolean hurt = super.hurt(source, amount);
-        if (hurt) {
+    public void hurt(DamageSource source, float amount) {
+        float healthBefore = getHealth();
+        super.hurt(source, amount);
+        if (getHealth() < healthBefore) {
             triggerAnim("hurt");
         }
-        return hurt;
     }
 
     /** Pack helper: nearest same-type mob within radius. */

@@ -20,7 +20,7 @@ public class UnseenPlantBlock extends Block {
     }
 
     private static AbstractBlock.Properties buildProperties() {
-        AbstractBlock.Properties properties = AbstractBlock.Properties.of(net.minecraft.world.level.block.material.Material.PLANT);
+        AbstractBlock.Properties properties = AbstractBlock.Properties.of(net.minecraft.world.level.material.Material.PLANT);
         return properties.noCollission().instabreak().offsetType(AbstractBlock.OffsetType.XZ)
                 .sound(SoundType.GRASS);
     }

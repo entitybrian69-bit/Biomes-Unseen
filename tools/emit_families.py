@@ -12,6 +12,11 @@ from lines import LINES, types_for, registry_constant
 
 PKG = "com/biomesunseen"
 
+# Material lives at this package from 1.17 through 1.19.4 in the official Mojang
+# mappings (probe-fabric-1.16.5/1.19.4).  Always written fully qualified: the
+# block templates import only Block/BlockBehaviour, never the short name.
+MAT = "net.minecraft.world.level.material.Material"
+
 
 # 1.21.2 dropped net.minecraft.world.item.Tier/.Tiers; the probe of the real
 # 1.21.2/1.21.4/1.21.5 jars shows every tool item taking
@@ -796,18 +801,21 @@ public final class LodCache {
     # ================================================================== #
     mat_args = "net.minecraft.world.level.material.MapColor" if F["pkgs"] == "modern" else "net.minecraft.block.material.Material"
     if F["material"]:
-        props_expr = ("BlockBehaviour.Properties.of(Material.STONE, MapColor.NONE)"
+        props_expr = ("BlockBehaviour.Properties.of(%s.STONE)" % MAT
                       if F["pkgs"] == "modern"
-                      else "AbstractBlock.Properties.of(Material.STONE)")
+                      else "AbstractBlock.Properties.of(%s.STONE)" % MAT)
     else:
         props_expr = "BlockBehaviour.Properties.of()"
     # 1.16/1.17 use Material; 1.18-1.19.2 mojmap still has Material + MapColor variants.
+    # probe-fabric-1.19.4: Properties.of(Material) is the only form up to 1.19.4;
+    # probe-fabric-1.20.4: only the no-arg of() remains.  That is exactly what the
+    # per-line "material" flag encodes, so drive the choice off the flag alone.
     if F["pkgs"] == "legacy":
-        ore_props = "AbstractBlock.Properties.of(Material.STONE).strength(3.0F, 3.0F)"
+        ore_props = ("AbstractBlock.Properties.of(%s.STONE).strength(3.0F, 3.0F)" % MAT
+                     if F["material"] else
+                     "AbstractBlock.Properties.of().strength(3.0F, 3.0F)")
     elif F["material"]:
-        ore_props = ("BlockBehaviour.Properties.of(Material.STONE).strength(3.0F, 3.0F)"
-                     if F["mc"] in ("1.17.1", "1.18.2")
-                     else "BlockBehaviour.Properties.of().strength(3.0F, 3.0F)")
+        ore_props = "BlockBehaviour.Properties.of(%s.STONE).strength(3.0F, 3.0F)" % MAT
     else:
         ore_props = "BlockBehaviour.Properties.of().strength(3.0F, 3.0F)"
     _w(root, base + "/block/UnseenOreBlock.java", '''package com.biomesunseen.block;
@@ -860,10 +868,13 @@ public class UnseenOreBlock extends Block {
     # block/UnseenDecorBlock.java
     # ================================================================== #
     if F["pkgs"] == "legacy":
-        decor_props = ("AbstractBlock.Properties.of(%s).strength(1.5F, 6.0F)"
-                       % "Material.STONE")
+        decor_props = ("AbstractBlock.Properties.of(%s.STONE).strength(1.5F, 6.0F)" % MAT
+                       if F["material"] else
+                       "AbstractBlock.Properties.of().strength(1.5F, 6.0F)")
+    elif F["material"]:
+        decor_props = "BlockBehaviour.Properties.of(%s.STONE).strength(1.5F, 6.0F)" % MAT
     else:
-        decor_props = "BlockBehaviour.Properties.of()"
+        decor_props = "BlockBehaviour.Properties.of().strength(1.5F, 6.0F)"
     _w(root, base + "/block/UnseenDecorBlock.java", '''package com.biomesunseen.block;
 
 %(imports)s
@@ -943,8 +954,10 @@ public class UnseenPlantBlock extends Block {
 }
 ''' % {
         "imports": _imports(F, ["Block", "BlockBehaviour", "SoundType"]),
-        "props": ("AbstractBlock.Properties.of(net.minecraft.block.material.Material.PLANT)"
-                  if F["pkgs"] == "legacy" else "BlockBehaviour.Properties.of()"),
+        "props": (("AbstractBlock.Properties.of(%s.PLANT)" % MAT)
+                  if F["pkgs"] == "legacy"
+                  else (("BlockBehaviour.Properties.of(%s.PLANT)" % MAT)
+                        if F["material"] else "BlockBehaviour.Properties.of()")),
     })
 
     # ================================================================== #
