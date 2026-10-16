@@ -19,6 +19,7 @@ def _loom_for(mc):
     if len(parts) >= 3 and int(parts[1]) == 21 and int(parts[2]) >= 6:
         return LOOM_VERSION_MID
     return LOOM_VERSION
+from emit_data import STYLE_DIRS, style_key
 from lines import LINES, MC_TO_LINE
 from emit_families import _w, _s
 
@@ -66,7 +67,7 @@ sourceSets.main.java.srcDirs += rootProject.file("common/src/main/java")
 sourceSets.main.java.srcDirs += rootProject.file("common/src/line-%(line)s/java")
 sourceSets.main.resources.srcDirs += rootProject.file("common/src/main/resources")
 sourceSets.main.resources.srcDirs += rootProject.file("common/src/line-%(line)s/resources")
-sourceSets.main.resources.srcDirs += "src/generated/resources"
+%(data_res)ssourceSets.main.resources.srcDirs += "src/generated/resources"
 
 
 
@@ -114,7 +115,7 @@ sourceSets.main.java.srcDirs += rootProject.file("common/src/main/java")
 sourceSets.main.java.srcDirs += rootProject.file("common/src/line-%(line)s/java")
 sourceSets.main.resources.srcDirs += rootProject.file("common/src/main/resources")
 sourceSets.main.resources.srcDirs += rootProject.file("common/src/line-%(line)s/resources")
-sourceSets.main.resources.srcDirs += "src/generated/resources"
+%(data_res)ssourceSets.main.resources.srcDirs += "src/generated/resources"
 
 loom {
 %(mixin_block)s}
@@ -162,7 +163,7 @@ sourceSets.main.java.srcDirs += rootProject.file("common/src/main/java")
 sourceSets.main.java.srcDirs += rootProject.file("common/src/line-%(line)s/java")
 sourceSets.main.resources.srcDirs += rootProject.file("common/src/main/resources")
 sourceSets.main.resources.srcDirs += rootProject.file("common/src/line-%(line)s/resources")
-sourceSets.main.resources.srcDirs += "src/generated/resources"
+%(data_res)ssourceSets.main.resources.srcDirs += "src/generated/resources"
 
 loom {
 %(mixin_block)s}
@@ -211,7 +212,7 @@ FABRIC_MOD_JSON = '''{
     "main": ["com.biomesunseen.fabric.BiomesUnseenFabric"],
     "client": ["com.biomesunseen.fabric.client.BiomesUnseenFabricClient"]
   },
-  "mixins": ["biomesunseen.mixins.json"],
+%(mixins)s  "icon": "assets/biomesunseen/icon.png",
   "depends": {
     "fabricloader": ">=0.16.0",
     "minecraft": "~%(mc)s",
@@ -233,6 +234,7 @@ license="MIT"
 modId="biomesunseen"
 version="${version}"
 displayName="Biomes Unseen"
+logoFile="assets/biomesunseen/icon.png"
 authors="Biomes Unseen Team"
 description='''
 '''A massive world-generation, adventure, biome, structure, ore, mob and boss mod: 80 biomes, 20 ores, 30 structures, 25 mobs and 2 multi-phase bosses.'''
@@ -268,6 +270,7 @@ license="MIT"
 modId="biomesunseen"
 version="${version}"
 displayName="Biomes Unseen"
+logoFile="assets/biomesunseen/icon.png"
 authors="Biomes Unseen Team"
 description='''
 '''A massive world-generation, adventure, biome, structure, ore, mob and boss mod: 80 biomes, 20 ores, 30 structures, 25 mobs and 2 multi-phase bosses.'''
@@ -674,6 +677,11 @@ def emit(root):
                     "mc": mc,
                     "loom_ver": _loom_for(mc),
                     "line": line_key,
+                    # The datapack tree for this line's worldgen style; without
+                    # it the jar ships no biomes, features or structures.
+                    "data_res": ('sourceSets.main.resources.srcDirs += '
+                                 'rootProject.file("common/src/%s/resources")\n'
+                                 % STYLE_DIRS[style_key(F)]),
                     "geckolib": ('    modImplementation "%s"\n'
                                  % geckolib_coord("fabric", mc)) if geckolib_v else "",
                     "arch_legacy": ('' if F["expect"] == "dev" else ""),
@@ -691,7 +699,13 @@ def emit(root):
                         'modImplementation "me.shedaniel:architectury:${architectury_version}"')
                 _w(root, "%s/build.gradle" % mod_dir, build)
                 _w(root, "%s/src/main/resources/fabric.mod.json" % mod_dir,
-                   FABRIC_MOD_JSON % {"mc": mc, "java": java})
+                   FABRIC_MOD_JSON % {
+                       "mc": mc, "java": java,
+                       # The mixin config is only generated for the legacy
+                       # lines; declaring it on every line makes Fabric Loader
+                       # abort the launch ("mixin config ... could not be read").
+                       "mixins": ('  "mixins": ["biomesunseen.mixins.json"],\n'
+                                  if F["biome_add"] == "mixin_legacy" else "")})
                 _w(root, "%s/src/main/java/com/biomesunseen/fabric/BiomesUnseenFabric.java" % mod_dir,
                    _fabric_main())
                 _w(root, "%s/src/main/java/com/biomesunseen/fabric/client/BiomesUnseenFabricClient.java" % mod_dir,
@@ -701,6 +715,11 @@ def emit(root):
                     "mc": mc,
                     "loom_ver": _loom_for(mc),
                     "line": line_key,
+                    # The datapack tree for this line's worldgen style; without
+                    # it the jar ships no biomes, features or structures.
+                    "data_res": ('sourceSets.main.resources.srcDirs += '
+                                 'rootProject.file("common/src/%s/resources")\n'
+                                 % STYLE_DIRS[style_key(F)]),
                     "geckolib": ('    modImplementation "%s"\n'
                                  % geckolib_coord("forge", mc)) if geckolib_v else "",
                     "mixin_block": ('    forge {\n        mixinConfig "biomesunseen.mixins.json"\n    }\n'
@@ -735,6 +754,11 @@ def emit(root):
                     "mc": mc,
                     "loom_ver": _loom_for(mc),
                     "line": line_key,
+                    # The datapack tree for this line's worldgen style; without
+                    # it the jar ships no biomes, features or structures.
+                    "data_res": ('sourceSets.main.resources.srcDirs += '
+                                 'rootProject.file("common/src/%s/resources")\n'
+                                 % STYLE_DIRS[style_key(F)]),
                     "geckolib": ('    modImplementation "%s"\n'
                                  % geckolib_coord("neoforge", mc)) if geckolib_v else "",
                     "mixin_block": "    // no mixin config needed\n",

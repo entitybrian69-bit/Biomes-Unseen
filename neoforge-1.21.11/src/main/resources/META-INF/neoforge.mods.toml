@@ -6,5 +6,6 @@ license="MIT"
 modId="biomesunseen"
 version="${version}"
 displayName="Biomes Unseen"
+logoFile="assets/biomesunseen/icon.png"
 authors="Biomes Unseen Team"
 description=

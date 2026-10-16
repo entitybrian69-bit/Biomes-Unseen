@@ -11,7 +11,7 @@
     "main": ["com.biomesunseen.fabric.BiomesUnseenFabric"],
     "client": ["com.biomesunseen.fabric.client.BiomesUnseenFabricClient"]
   },
-  "mixins": ["biomesunseen.mixins.json"],
+  "icon": "assets/biomesunseen/icon.png",
   "depends": {
     "fabricloader": ">=0.16.0",
     "minecraft": "~1.20.5",
