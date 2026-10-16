@@ -19,6 +19,27 @@ def _w(root, rel, text):
         fh.write(text if text.endswith("\n") else text + "\n")
 
 
+def emit_logo(root):
+    """Copy the mod icon into the asset root.
+
+    The icon is part of the loader metadata (fabric.mod.json "icon",
+    mods.toml logoFile), so it has to be re-emitted with everything else -
+    generate.py purges and rewrites the whole content tree.
+    """
+    import shutil
+    assets = os.path.join(root, "common", "src", "main", "resources",
+                          "assets", "biomesunseen")
+    source = os.path.join(root, "docs", "assets")
+    os.makedirs(assets, exist_ok=True)
+    copied = []
+    for name in ("icon.png", "icon_256.png"):
+        src = os.path.join(source, name)
+        if os.path.exists(src):
+            shutil.copyfile(src, os.path.join(assets, name))
+            copied.append(name)
+    return copied
+
+
 def _wj(root, rel, obj):
     _w(root, rel, json.dumps(obj, indent=2))
 
@@ -372,6 +393,7 @@ def _boss_anims(boss_id, phases, attacks):
 
 
 def emit(root):
+    emit_logo(root)
     A = "common/src/main/resources/assets/biomesunseen"
     D = "common/src/main/resources/data/biomesunseen"
 

@@ -13,13 +13,14 @@ import sys
 from PIL import Image
 
 MOD_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-ASSETS = os.path.join(MOD_ROOT, "common", "src", "main", "resources",
-                      "assets", "biomesunseen")
+# Rendered icons live here, outside the generator's purge-and-reemit tree;
+# emit_assets.py copies them into the mod's asset root on every run.
+ASSETS = os.path.join(MOD_ROOT, "docs", "assets")
 
 
 def main():
     # The master artwork intentionally lives outside the jar resources.
-    raw = os.path.join(MOD_ROOT, "docs", "assets", "icon_raw.png")
+    raw = os.path.join(ASSETS, "icon_raw.png")
     if not os.path.exists(raw):
         print("missing master artwork: %s" % raw, file=sys.stderr)
         return 1
