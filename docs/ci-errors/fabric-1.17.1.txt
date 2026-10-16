@@ -1,10 +1,10 @@
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModEntities.java:12: error: package me.shedaniel.architectury.registry does not exist
-import me.shedaniel.architectury.registry.EntityAttributeRegistry;
-                                         ^
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModEntities.java:12: error: cannot find symbol
+import dev.architectury.registry.EntityAttributeRegistry;
+                                ^
 ---
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModEntities.java:13: error: package me.shedaniel.architectury.registry does not exist
-import me.shedaniel.architectury.registry.RegistrySupplier;
-                                         ^
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModEntities.java:13: error: cannot find symbol
+import dev.architectury.registry.RegistrySupplier;
+                                ^
 ---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModEntities.java:25: error: cannot find symbol
     public static RegistrySupplier<EntityType<LumoxEntity>> Lumox;
@@ -130,9 +130,9 @@ import me.shedaniel.architectury.registry.RegistrySupplier;
     private static RegistrySupplier<EntityType<?>> byBossId(String id) {
                    ^
 ---
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModParticles.java:9: error: package me.shedaniel.architectury.registry does not exist
-import me.shedaniel.architectury.registry.RegistrySupplier;
-                                         ^
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModParticles.java:9: error: cannot find symbol
+import dev.architectury.registry.RegistrySupplier;
+                                ^
 ---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModParticles.java:20: error: cannot find symbol
     public static final Map<String, RegistrySupplier<ParticleType<SimpleParticleType>>> BY_ID =
@@ -146,17 +146,17 @@ import me.shedaniel.architectury.registry.RegistrySupplier;
     private static RegistrySupplier<ParticleType<SimpleParticleType>> narrow(RegistrySupplier<?> supplier) {
                    ^
 ---
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModSounds.java:9: error: package me.shedaniel.architectury.registry does not exist
-import me.shedaniel.architectury.registry.RegistrySupplier;
-                                         ^
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModSounds.java:9: error: cannot find symbol
+import dev.architectury.registry.RegistrySupplier;
+                                ^
 ---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModSounds.java:20: error: cannot find symbol
     public static final Map<String, RegistrySupplier<SoundEvent>> BY_ID =
                                     ^
 ---
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModBlocks.java:14: error: package me.shedaniel.architectury.registry does not exist
-import me.shedaniel.architectury.registry.RegistrySupplier;
-                                         ^
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModBlocks.java:14: error: cannot find symbol
+import dev.architectury.registry.RegistrySupplier;
+                                ^
 ---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModBlocks.java:27: error: cannot find symbol
     public static final Map<String, RegistrySupplier<Block>> ORES =
@@ -186,13 +186,13 @@ import me.shedaniel.architectury.registry.RegistrySupplier;
     public static Map<String, RegistrySupplier<Block>> allPlants() {
                               ^
 ---
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModItems.java:21: error: package me.shedaniel.architectury.registry does not exist
-import me.shedaniel.architectury.registry.DeferredRegister;
-                                         ^
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModItems.java:21: error: cannot find symbol
+import dev.architectury.registry.DeferredRegister;
+                                ^
 ---
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModItems.java:22: error: package me.shedaniel.architectury.registry does not exist
-import me.shedaniel.architectury.registry.RegistrySupplier;
-                                         ^
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModItems.java:22: error: cannot find symbol
+import dev.architectury.registry.RegistrySupplier;
+                                ^
 ---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModItems.java:44: error: cannot find symbol
     public static final List<RegistrySupplier<Item>> ALL_ITEMS =
@@ -244,9 +244,11 @@ Caused by: org.gradle.api.internal.tasks.compile.CompilationFailedException: Com
 * What went wrong:
 Execution failed for task ':fabric-1.17.1:compileJava' (registered by plugin class 'org.gradle.api.plugins.JavaBasePlugin').
 > Compilation failed; see the compiler output below.
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModEntities.java:12: error: package me.shedaniel.architectury.registry does not exist
-  import me.shedaniel.architectury.registry.EntityAttributeRegistry;
-                                           ^
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModEntities.java:12: error: cannot find symbol
+  import dev.architectury.registry.EntityAttributeRegistry;
+                                  ^
+    symbol:   class EntityAttributeRegistry
+    location: package dev.architectury.registry
   100 errors
 
 * Try:
@@ -289,5 +291,5 @@ Note: Recompile with -Xlint:unchecked for details.
 	at org.gradle.internal.concurrent.AbstractManagedExecutor$1.run(AbstractManagedExecutor.java:47)
 
 
-BUILD FAILED in 1m 28s
+BUILD FAILED in 53s
 1 actionable task: 1 executed

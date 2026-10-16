@@ -14,10 +14,6 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.resources.ResourceLocation;
                               ^
 ---
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/item/UnseenGearItems.java:3: error: cannot find symbol
-import net.minecraft.world.item.ArmorMaterial;
-                               ^
----
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/item/UnseenGearItems.java:74: error: cannot find symbol
         UnseenArmorItem(OreDef ore, UnseenArmorMaterial material, ArmorType slot, Item.Properties properties) {
                                                                   ^
@@ -194,10 +190,6 @@ import net.minecraft.resources.ResourceLocation;
         if (unseenLevel().isClientSide) {
                          ^
 ---
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/entity/boss/HeartOfTheForestEntity.java:94: error: incompatible types: Reference<SoundEvent> cannot be converted to SoundEvent
-        playSound(SoundEvents.RAID_HORN, 2.0F, 0.8F);
-                             ^
----
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/entity/boss/HeartOfTheForestEntity.java:125: error: cannot find symbol
             for (Player player : unseenLevel().getNearestPlayers(this, 10.0D, 10.0D)) {
                                               ^
@@ -238,6 +230,14 @@ import net.minecraft.resources.ResourceLocation;
         Brambleback = ENTITIES.register("brambleback", () -> EntityType.Builder.of(BramblebackEntity::new, MobCategory.CREATURE)
                       ^
 ---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/registry/ModEntities.java:70: error: incompatible types: String cannot be converted to ResourceKey<EntityType<?>>
+                .build("brambleback"));
+                       ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/registry/ModEntities.java:71: error: cannot find symbol
+        Siltstrider = ENTITIES.register("siltstrider", () -> EntityType.Builder.of(SiltstriderEntity::new, MobCategory.CREATURE)
+                      ^
+---
 === STACKTRACE ===
 Caused by: org.gradle.api.internal.tasks.compile.CompilationFailedException: Compilation failed; see the compiler output below.
 === WHAT WENT WRONG ===
@@ -264,11 +264,6 @@ Execution failed for task ':fabric-1.21.11:compileJava' (registered by plugin cl
                                 ^
     symbol:   class ResourceLocation
     location: package net.minecraft.resources
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/item/UnseenGearItems.java:3: error: cannot find symbol
-  import net.minecraft.world.item.ArmorMaterial;
-                                 ^
-    symbol:   class ArmorMaterial
-    location: package net.minecraft.world.item
   /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/item/UnseenGearItems.java:74: error: cannot find symbol
           UnseenArmorItem(OreDef ore, UnseenArmorMaterial material, ArmorType slot, Item.Properties properties) {
                                                                     ^
@@ -281,6 +276,11 @@ Execution failed for task ':fabric-1.21.11:compileJava' (registered by plugin cl
     location: package net.minecraft.resources
   /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/client/legacy/UnseenLegacyRenderer.java:5: error: cannot find symbol
   import net.minecraft.resources.ResourceLocation;
+                                ^
+    symbol:   class ResourceLocation
+    location: package net.minecraft.resources
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/client/legacy/UnseenLegacyRenderer.java:23: error: cannot find symbol
+      public ResourceLocation getTextureLocation(T entity) {
 === LAST 40 ===
 	at org.gradle.internal.execution.steps.MutableStep.execute(MutableStep.java:26)
 	at org.gradle.internal.execution.steps.ValidateStep$Mutable.executeDelegate(ValidateStep.java:79)
@@ -320,5 +320,5 @@ Execution failed for task ':fabric-1.21.11:compileJava' (registered by plugin cl
 	... 25 more
 
 
-BUILD FAILED in 1m 16s
+BUILD FAILED in 1m 21s
 1 actionable task: 1 executed

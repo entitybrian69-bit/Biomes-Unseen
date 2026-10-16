@@ -6,10 +6,6 @@
         return net.neoforged.neoforgespi.language.ModList.get().isLoaded(modId);
                                                  ^
 ---
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/entity/boss/HeartOfTheForestEntity.java:94: error: incompatible types: Reference<SoundEvent> cannot be converted to SoundEvent
-        playSound(SoundEvents.RAID_HORN, 2.0F, 0.8F);
-                             ^
----
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/entity/boss/HeartOfTheForestEntity.java:125: error: cannot find symbol
             for (Player player : unseenLevel().getNearestPlayers(this, 10.0D, 10.0D)) {
                                               ^
@@ -215,7 +211,7 @@ public class UnseenParticle extends Particle {
             ^
 ---
 > Task :neoforge-1.21.1:compileJava FAILED
-gradle/actions: Writing build results to /home/runner/work/_temp/.gradle-actions/build-results/__run-1792160607490.json
+gradle/actions: Writing build results to /home/runner/work/_temp/.gradle-actions/build-results/__run-1792161568204.json
 
 ---
 * What went wrong:
@@ -237,6 +233,10 @@ Execution failed for task ':neoforge-1.21.1:compileJava' (registered by plugin c
   /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/registry/ModEntities.java:65: error: cannot find symbol
           Lumox = ENTITIES.register("lumox", () -> EntityType.Builder.of(LumoxEntity::new, MobCategory.CREATURE)
                   ^
+---
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/registry/ModEntities.java:68: error: cannot find symbol
+          Brambleback = ENTITIES.register("brambleback", () -> EntityType.Builder.of(BramblebackEntity::new, MobCategory.CREATURE)
+                        ^
 ---
 === STACKTRACE ===
 Caused by: org.gradle.api.internal.tasks.compile.CompilationFailedException: Compilation failed; see the compiler output below.
@@ -320,5 +320,5 @@ Execution failed for task ':neoforge-1.21.1:compileJava' (registered by plugin c
 	... 25 more
 
 
-BUILD FAILED in 1m 52s
+BUILD FAILED in 1m 41s
 1 actionable task: 1 executed

@@ -291,5 +291,5 @@ Note: Recompile with -Xlint:unchecked for details.
 	at org.gradle.internal.concurrent.AbstractManagedExecutor$1.run(AbstractManagedExecutor.java:47)
 
 
-BUILD FAILED in 2m 29s
+BUILD FAILED in 2m 7s
 1 actionable task: 1 executed
