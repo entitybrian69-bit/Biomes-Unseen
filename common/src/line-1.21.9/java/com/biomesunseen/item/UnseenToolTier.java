@@ -1,17 +1,20 @@
 package com.biomesunseen.item;
 
-import net.minecraft.world.item.Tier;
+import net.minecraft.tags.BlockTags;
+import net.minecraft.tags.TagKey;
+import net.minecraft.world.item.ToolMaterial;
 import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.world.level.block.Block;
 
 import com.biomesunseen.core.OreDef;
 
 import java.util.function.Supplier;
 
 /**
- * Tool tier derived from an ore definition: durability, mining level, speed
- * and enchantability all come straight from the ore catalog.
+ * Tool material derived from an ore definition: durability, mining speed,
+ * attack bonus and enchantability all come straight from the ore catalog.
  */
-public class UnseenToolTier implements Tier {
+public class UnseenToolTier implements ToolMaterial {
 
     private final OreDef ore;
     private final Supplier<Ingredient> repairIngredient;
@@ -37,8 +40,8 @@ public class UnseenToolTier implements Tier {
     }
 
     @Override
-    public int getLevel() {
-        return ore.toolMiningLevel;
+    public TagKey<Block> getIncorrectBlocksForDrops() {
+        return BlockTags.INCORRECT_FOR_NETHERITE_TOOL;
     }
 
     @Override
@@ -53,5 +56,9 @@ public class UnseenToolTier implements Tier {
 
     public OreDef ore() {
         return ore;
+    }
+
+    public int getLevel() {
+        return ore.toolMiningLevel;
     }
 }

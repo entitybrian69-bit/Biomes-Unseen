@@ -30,7 +30,7 @@ import emit_client_datagen
 import emit_assets
 import emit_data
 import emit_platforms
-from lines import LINES, types_for
+from lines import LINES, MC_TO_LINE, types_for
 from content import TARGETS
 
 # Architectury registry package moved at Architectury 2.x (1.17+).
@@ -163,6 +163,55 @@ def _walk_java(directory):
                 yield os.path.join(r, f)
 
 
+def _rewrite_text(text, F, T, line_key):
+    """Shared line-specific source rewrite, used for common/src/line-* and for
+    the per-loader platform modules so both trees see identical names."""
+    for short, full in T.items():
+        simple = full.rsplit(".", 1)[-1]
+        if simple != short:
+            text = re.sub(r"(?<!\.)\b%s\b" % re.escape(short), simple, text)
+    if F["pkgs"] == "legacy":
+        for a, b in LEGACY_REWRITES:
+            text = text.replace(a, b)
+        for a, b in LEGACY_MOJANG_FQN:
+            text = text.replace(a, b)
+        for pat, rep in LEGACY_MOJANG_ID:
+            text = re.sub(pat, rep, text)
+    if line_key in NO_REGISTRIES_LINES:
+        text = text.replace("import net.minecraft.core.registries.Registries;",
+                            "import net.minecraft.core.Registry;")
+        for name in ("BLOCK", "ITEM", "ENTITY_TYPE", "FLUID"):
+            text = text.replace("Registries." + name, "Registry." + name + "_REGISTRY")
+    return text
+
+
+def postprocess_platforms(root):
+    """The per-loader modules (fabric-*/forge-*/neoforge-*) compile their own
+    sources alongside common/src/line-*, so they must get the very same
+    MCP -> Mojang translation.  Skipping them is what produced
+    'PlatformExpectImpl.java:36: package net.minecraft.entity does not exist'
+    on fabric-1.16.5 while common/src/line-1.16.5 was already clean."""
+    for name in sorted(os.listdir(root)):
+        m = re.match(r"^(?:fabric|forge|neoforge)-(.+)$", name)
+        if not m:
+            continue
+        line_key = MC_TO_LINE.get(m.group(1))
+        if not line_key:
+            continue
+        F = LINES[line_key]
+        T = types_for(F)
+        src = os.path.join(root, name, "src", "main", "java")
+        if not os.path.isdir(src):
+            continue
+        for path in _walk_java(src):
+            with open(path) as fh:
+                text = fh.read()
+            new = _rewrite_text(text, F, T, line_key)
+            if new != text:
+                with open(path, "w") as fh:
+                    fh.write(new)
+
+
 def postprocess(root, line_key):
     F = LINES[line_key]
     T = types_for(F)
@@ -272,6 +321,9 @@ def main():
 
     print("  platform modules ...")
     emit_platforms.emit(root)
+
+    print("  platform sources ...")
+    postprocess_platforms(root)
 
     n = sum(len(files) for r, _d, files in os.walk(root) if ".git" not in r)
     print("Done. Files in tree (excluding .git):", n)

@@ -152,3 +152,11 @@ net.minecraft.world.level.block.entity.BlockEntityType
 net.minecraft.world.level.block.entity.BlockEntityType$Builder
 net.minecraft.client.renderer.blockentity.BlockEntityRenderer
 net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider
+net.minecraft.world.item.ToolMaterial
+net.minecraft.world.item.ToolMaterials
+net.minecraft.world.item.equipment.ToolTier
+net.minecraft.world.item.equipment.ToolTiers
+net.minecraft.world.item.DiggerItem
+net.minecraft.world.item.component.Tool
+net.minecraft.core.component.DataComponents
+net.minecraft.resources.Identifier

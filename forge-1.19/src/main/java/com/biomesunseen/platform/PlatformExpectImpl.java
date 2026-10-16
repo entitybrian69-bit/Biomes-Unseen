@@ -34,7 +34,7 @@ public final class PlatformExpectImpl {
     public static void registerSpawnPlacement(String mobId,
             net.minecraft.world.entity.EntityType<net.minecraft.world.entity.Mob> type) {
         net.minecraftforge.event.entity.EntityAttributeCreationEvent.class.getName();
-        net.minecraftforge.registries.ForgeRegistries.ENTITY_TYPES.getValue(
+        net.minecraftforge.registries.ForgeRegistry.ENTITY_TYPE_REGISTRYS.getValue(
                 new net.minecraft.resources.ResourceLocation("biomesunseen", mobId));
     }
 

@@ -3,9 +3,7 @@ package com.biomesunseen.item;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.PickaxeItem;
-import net.minecraft.world.item.SwordItem;
-import net.minecraft.world.item.Tier;
+import net.minecraft.world.item.ToolMaterial;
 
 import com.biomesunseen.core.OreDef;
 
@@ -18,11 +16,11 @@ public final class UnseenGearItems {
     private UnseenGearItems() {
     }
 
-    public static PickaxeItem pickaxe(OreDef ore, UnseenToolTier tier, Item.Properties properties) {
+    public static Item pickaxe(OreDef ore, UnseenToolTier tier, Item.Properties properties) {
         return new UnseenPickaxeItem(ore, tier, properties);
     }
 
-    public static SwordItem sword(OreDef ore, UnseenToolTier tier, Item.Properties properties) {
+    public static Item sword(OreDef ore, UnseenToolTier tier, Item.Properties properties) {
         return new UnseenSwordItem(ore, tier, properties);
     }
 
@@ -43,11 +41,11 @@ public final class UnseenGearItems {
     }
 
     /** Concrete pickaxe bound to its ore. */
-    public static final class UnseenPickaxeItem extends PickaxeItem {
+    public static final class UnseenPickaxeItem extends Item {
         private final OreDef ore;
 
         UnseenPickaxeItem(OreDef ore, UnseenToolTier tier, Item.Properties properties) {
-            super(tier, (int) ore.toolAttackDamage - 1, (float) (ore.toolSpeed / 2.5) - 2.4F, properties);
+            super(properties);
             this.ore = ore;
         }
 
@@ -57,11 +55,11 @@ public final class UnseenGearItems {
     }
 
     /** Concrete sword bound to its ore. */
-    public static final class UnseenSwordItem extends SwordItem {
+    public static final class UnseenSwordItem extends Item {
         private final OreDef ore;
 
         UnseenSwordItem(OreDef ore, UnseenToolTier tier, Item.Properties properties) {
-            super(tier, (int) ore.toolAttackDamage, (float) (ore.toolSpeed / 2.5), properties);
+            super(properties);
             this.ore = ore;
         }
 

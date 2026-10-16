@@ -53,7 +53,7 @@ def _gradle_props(F, mc, java, loader, arch, geckolib, cloth, loader_ver,
 
 
 BUILD_FABRIC = '''plugins {
-    id "dev.architectury.loom" version "%(loom_ver)s"
+    id "%(loom_plugin)s" version "%(loom_ver)s"
     id "java"
 }
 
@@ -101,7 +101,7 @@ tasks.register("runDatagen", JavaExec) {
 '''
 
 BUILD_FORGE = '''plugins {
-    id "dev.architectury.loom" version "%(loom_ver)s"
+    id "%(loom_plugin)s" version "%(loom_ver)s"
     id "java"
 }
 
@@ -123,7 +123,7 @@ dependencies {
     minecraft "com.mojang:minecraft:${minecraft_version}"
 %(mappings)s
     forge "net.minecraftforge:forge:${forge_version}"
-    modImplementation "dev.architectury:architectury:${architectury_version}"%(arch_legacy)s
+    modImplementation "dev.architectury:architectury-forge:${architectury_version}"%(arch_legacy)s
 %(geckolib)s}
 
 processResources {
@@ -150,7 +150,7 @@ tasks.register("runDatagen", JavaExec) {
 '''
 
 BUILD_NEOFORGE = '''plugins {
-    id "dev.architectury.loom" version "%(loom_ver)s"
+    id "%(loom_plugin)s" version "%(loom_ver)s"
     id "java"
 }
 
@@ -172,7 +172,7 @@ dependencies {
     minecraft "com.mojang:minecraft:${minecraft_version}"
 %(mappings)s
     neoForge "net.neoforged:neoforge:${neoforge_version}"
-    modImplementation "dev.architectury:architectury:${architectury_version}"
+    modImplementation "dev.architectury:architectury-neoforge:${architectury_version}"
 %(geckolib)s}
 
 processResources {
@@ -634,6 +634,9 @@ def emit(root):
                     "arch_legacy": ('' if F["expect"] == "dev" else ""),
                     "mappings": ("" if str(F["line"]) == "26" else
                                  "    mappings loom.officialMojangMappings()"),
+                    "loom_plugin": ("dev.architectury.loom-no-remap"
+                                    if mc.startswith("26")
+                                    else "dev.architectury.loom"),
                 }
                 if F["expect"] == "me.shedaniel":
                     build = build.replace(
@@ -658,6 +661,9 @@ def emit(root):
                     "arch_legacy": "",
                     "mappings": ("" if str(F["line"]) == "26" else
                                  "    mappings loom.officialMojangMappings()"),
+                    "loom_plugin": ("dev.architectury.loom-no-remap"
+                                    if mc.startswith("26")
+                                    else "dev.architectury.loom"),
                 }
                 if F["expect"] == "me.shedaniel":
                     build = build.replace(
@@ -680,6 +686,9 @@ def emit(root):
                     "mixin_block": "    // no mixin config needed\n",
                     "mappings": ("" if str(F["line"]) == "26" else
                                  "    mappings loom.officialMojangMappings()"),
+                    "loom_plugin": ("dev.architectury.loom-no-remap"
+                                    if mc.startswith("26")
+                                    else "dev.architectury.loom"),
                 }
                 _w(root, "%s/build.gradle" % mod_dir, build)
                 neoforge_min = NEOFORGE_VERSIONS[mc].rsplit(".", 1)[0]

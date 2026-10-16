@@ -68,3 +68,8 @@ net.minecraft.entity.attribute.EntityAttribute
 net.minecraft.world.entity.ai.attributes.Attribute
 net.minecraft.entity.attribute.DefaultAttributeContainer
 net.minecraft.world.entity.ai.attributes.AttributeSupplier
+net.minecraft.world.item.ToolMaterial
+net.minecraft.world.item.ToolMaterials
+net.minecraft.world.item.equipment.ToolTier
+net.minecraft.world.item.DiggerItem
+net.minecraft.resources.Identifier

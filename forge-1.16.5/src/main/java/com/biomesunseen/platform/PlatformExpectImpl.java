@@ -32,10 +32,10 @@ public final class PlatformExpectImpl {
     }
 
     public static void registerSpawnPlacement(String mobId,
-            net.minecraft.entity.EntityType<net.minecraft.entity.MobEntity> type) {
+            net.minecraft.world.entity.EntityType<net.minecraft.world.entity.Mob> type) {
         net.minecraftforge.event.entity.EntityAttributeCreationEvent.class.getName();
-        net.minecraftforge.registries.ForgeRegistries.ENTITY_TYPES.getValue(
-                new net.minecraft.util.ResourceLocation("biomesunseen", mobId));
+        net.minecraftforge.registries.ForgeRegistry.ENTITY_TYPE_REGISTRYS.getValue(
+                new net.minecraft.resources.ResourceLocation("biomesunseen", mobId));
     }
 
     public static void installBiomeInjection() {
@@ -47,13 +47,13 @@ public final class PlatformExpectImpl {
         MinecraftForge.EVENT_BUS.addListener(PlatformExpectImpl::onBiomeLoading);
     }
 
-    public static void playBossMusic(net.minecraft.world.server.ServerWorld level,
-            net.minecraft.util.math.BlockPos center, String soundEventId, int radius) {
+    public static void playBossMusic(net.minecraft.server.level.ServerLevel level,
+            net.minecraft.core.BlockPos center, String soundEventId, int radius) {
         net.minecraft.sounds.SoundEvent sound = com.biomesunseen.registry.ModSounds.byId(soundEventId);
         if (sound == null) {
             return;
         }
-        for (net.minecraft.entity.player.PlayerEntity player :
+        for (net.minecraft.world.entity.player.Player player :
                 level.getPlayers(p -> p.distanceToSqr(center.getX(), center.getY(), center.getZ()) < radius * radius)) {
             player.playNotifySound(sound, net.minecraft.util.SoundCategory.MUSIC, 1.0F, 1.0F);
         }

@@ -13,6 +13,19 @@ from lines import LINES, types_for, registry_constant
 PKG = "com/biomesunseen"
 
 
+# 1.21.2 dropped net.minecraft.world.item.Tier/.Tiers; the probe of the real
+# 1.21.2/1.21.4/1.21.5 jars shows every tool item taking
+# net.minecraft.world.item.ToolMaterial instead.
+TOOL_MATERIAL_LINES = ("1.21.2", "1.21.4", "1.21.5", "1.21.9", "26")
+
+# 1.21.5 removed SwordItem and PickaxeItem outright (probe: "class not found:
+# net.minecraft.world.item.SwordItem" / ".PickaxeItem" on 1.21.5 and 1.21.9),
+# while AxeItem/ShovelItem/HoeItem remain with the (ToolMaterial, float, float,
+# Item$Properties) ctor.  On those lines the sword and the pickaxe are built as
+# plain Items carrying their attribute modifiers, with block-breaking rules
+# supplied by the generated mineable/incorrect_blocks_for_drops tags.
+NO_SWORD_PICKAXE_LINES = ("1.21.5", "1.21.9", "26")
+
 def _w(root, rel, text):
     path = os.path.join(root, rel)
     os.makedirs(os.path.dirname(path), exist_ok=True)
@@ -988,6 +1001,77 @@ public class UnseenToolTier implements IItemTier {
     }
 }
 '''
+    elif line_key in TOOL_MATERIAL_LINES:
+        # 1.21.2 dropped net.minecraft.world.item.Tier/.Tiers entirely; the
+        # probe of the real jars shows every tool item taking
+        # net.minecraft.world.item.ToolMaterial instead (verified:
+        # SwordItem/PickaxeItem/AxeItem/ShovelItem/HoeItem all have the ctor
+        # (ToolMaterial, float, float, Item$Properties) on 1.21.2 and 1.21.4).
+        tier_body = '''package com.biomesunseen.item;
+
+import net.minecraft.tags.BlockTags;
+import net.minecraft.tags.TagKey;
+import net.minecraft.world.item.ToolMaterial;
+import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.world.level.block.Block;
+
+import com.biomesunseen.core.OreDef;
+
+import java.util.function.Supplier;
+
+/**
+ * Tool material derived from an ore definition: durability, mining speed,
+ * attack bonus and enchantability all come straight from the ore catalog.
+ */
+public class UnseenToolTier implements ToolMaterial {
+
+    private final OreDef ore;
+    private final Supplier<Ingredient> repairIngredient;
+
+    public UnseenToolTier(OreDef ore, Supplier<Ingredient> repairIngredient) {
+        this.ore = ore;
+        this.repairIngredient = repairIngredient;
+    }
+
+    @Override
+    public int getUses() {
+        return ore.toolDurability;
+    }
+
+    @Override
+    public float getSpeed() {
+        return (float) ore.toolSpeed;
+    }
+
+    @Override
+    public float getAttackDamageBonus() {
+        return (float) ore.toolAttackDamage;
+    }
+
+    @Override
+    public TagKey<Block> getIncorrectBlocksForDrops() {
+        return BlockTags.INCORRECT_FOR_NETHERITE_TOOL;
+    }
+
+    @Override
+    public int getEnchantmentValue() {
+        return ore.toolEnchantability;
+    }
+
+    @Override
+    public Ingredient getRepairIngredient() {
+        return repairIngredient.get();
+    }
+
+    public OreDef ore() {
+        return ore;
+    }
+
+    public int getLevel() {
+        return ore.toolMiningLevel;
+    }
+}
+'''
     else:
         tier_body = '''package com.biomesunseen.item;
 
@@ -1312,13 +1396,17 @@ import net.minecraft.item.SwordItem;
 import com.biomesunseen.core.OreDef;
 '''
         armor_slot_expr = "EquipmentSlotType"
+        pickaxe_base = "PickaxeItem"
+        sword_base = "SwordItem"
+        pickaxe_ret = "PickaxeItem"
+        sword_ret = "SwordItem"
         pickaxe_ctor = "super(tier, (int) ore.toolAttackDamage - 1, (float) (ore.toolSpeed / 2.5) - 2.4F, properties)"
         sword_ctor = "super(tier, (int) ore.toolAttackDamage, (float) (ore.toolSpeed / 2.5), properties)"
-        gear_factories = '''    public static PickaxeItem pickaxe(OreDef ore, UnseenToolTier tier, Item.Properties properties) {
+        gear_factories = '''    public static ''' + pickaxe_ret + ''' pickaxe(OreDef ore, UnseenToolTier tier, Item.Properties properties) {
         return new UnseenPickaxeItem(ore, tier, properties);
     }
 
-    public static SwordItem sword(OreDef ore, UnseenToolTier tier, Item.Properties properties) {
+    public static ''' + sword_ret + ''' sword(OreDef ore, UnseenToolTier tier, Item.Properties properties) {
         return new UnseenSwordItem(ore, tier, properties);
     }
 
@@ -1341,28 +1429,47 @@ import com.biomesunseen.core.OreDef;
         armor_ctor = "super(material, slot, properties)"
         armor_inner_slot = "EquipmentSlotType slot"
     else:
-        gear_head = '''package com.biomesunseen.item;
-
-import net.minecraft.world.item.ArmorItem;
-import net.minecraft.world.item.ArmorMaterial;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.PickaxeItem;
-import net.minecraft.world.item.SwordItem;
-import net.minecraft.world.item.Tier;
-
-import com.biomesunseen.core.OreDef;
-'''
-        if F.get("tool_new"):
+        tier_import = ("import net.minecraft.world.item.ToolMaterial;"
+                       if line_key in TOOL_MATERIAL_LINES
+                       else "import net.minecraft.world.item.Tier;")
+        tool_imports = ("" if line_key in NO_SWORD_PICKAXE_LINES else
+                        "import net.minecraft.world.item.PickaxeItem;\n"
+                        "import net.minecraft.world.item.SwordItem;\n")
+        gear_head = ('package com.biomesunseen.item;\n\n'
+                     'import net.minecraft.world.item.ArmorItem;\n'
+                     'import net.minecraft.world.item.ArmorMaterial;\n'
+                     'import net.minecraft.world.item.Item;\n'
+                     + tool_imports + tier_import + '\n\n'
+                     'import com.biomesunseen.core.OreDef;\n')
+        if line_key in NO_SWORD_PICKAXE_LINES:
+            # 1.21.5 has neither SwordItem nor PickaxeItem; the sword and the
+            # pickaxe are plain Items and take their combat stats from the
+            # Item.Properties the registry hands them, while block-breaking
+            # rules come from the generated mineable/incorrect_blocks tags.
+            pickaxe_base = "Item"
+            sword_base = "Item"
+            pickaxe_ret = "Item"
+            sword_ret = "Item"
+            pickaxe_ctor = "super(properties)"
+            sword_ctor = "super(properties)"
+        else:
+            pickaxe_base = "PickaxeItem"
+            sword_base = "SwordItem"
+            pickaxe_ret = "PickaxeItem"
+            sword_ret = "SwordItem"
+        if line_key in NO_SWORD_PICKAXE_LINES:
+            pass
+        elif F.get("tool_new"):
             pickaxe_ctor = "super(tier, (float) ore.toolAttackDamage - 1.0F, (float) (ore.toolSpeed / 2.5) - 2.4F, properties)"
             sword_ctor = "super(tier, (float) ore.toolAttackDamage, (float) (ore.toolSpeed / 2.5), properties)"
         else:
             pickaxe_ctor = "super(tier, (int) ore.toolAttackDamage - 1, (float) (ore.toolSpeed / 2.5) - 2.4F, properties)"
             sword_ctor = "super(tier, (int) ore.toolAttackDamage, (float) (ore.toolSpeed / 2.5), properties)"
-        gear_factories = '''    public static PickaxeItem pickaxe(OreDef ore, UnseenToolTier tier, Item.Properties properties) {
+        gear_factories = '''    public static ''' + pickaxe_ret + ''' pickaxe(OreDef ore, UnseenToolTier tier, Item.Properties properties) {
         return new UnseenPickaxeItem(ore, tier, properties);
     }
 
-    public static SwordItem sword(OreDef ore, UnseenToolTier tier, Item.Properties properties) {
+    public static ''' + sword_ret + ''' sword(OreDef ore, UnseenToolTier tier, Item.Properties properties) {
         return new UnseenSwordItem(ore, tier, properties);
     }
 
@@ -1401,7 +1508,7 @@ public final class UnseenGearItems {
 
 ''' + gear_factories + '''
     /** Concrete pickaxe bound to its ore. */
-    public static final class UnseenPickaxeItem extends PickaxeItem {
+    public static final class UnseenPickaxeItem extends ''' + pickaxe_base + ''' {
         private final OreDef ore;
 
         UnseenPickaxeItem(OreDef ore, UnseenToolTier tier, Item.Properties properties) {
@@ -1415,7 +1522,7 @@ public final class UnseenGearItems {
     }
 
     /** Concrete sword bound to its ore. */
-    public static final class UnseenSwordItem extends SwordItem {
+    public static final class UnseenSwordItem extends ''' + sword_base + ''' {
         private final OreDef ore;
 
         UnseenSwordItem(OreDef ore, UnseenToolTier tier, Item.Properties properties) {

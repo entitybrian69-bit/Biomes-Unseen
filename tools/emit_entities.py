@@ -212,33 +212,6 @@ public abstract class BiomesUnseenMob extends %(base_class)s %(gecko_iface)s {
         return (net.minecraft.world.level.Level) unseenLevelCache;
     }
 
-    /** Field cache - the {@code level} field is public on 1.19.4 and private
-     *  from 1.20 on, so both are reached through one reflection-free path. */
-    private static java.lang.reflect.Field unseenLevelField;
-    private java.lang.Object unseenLevelCache;
-
-    /** @return the {@code Level} this mob is ticking in, on every 1.19.4+ line. */
-    public final net.minecraft.world.level.Level unseenLevel() {
-        if (unseenLevelCache instanceof net.minecraft.world.level.Level) {
-            return (net.minecraft.world.level.Level) unseenLevelCache;
-        }
-        if (unseenLevelField == null) {
-            try {
-                java.lang.reflect.Field f = net.minecraft.world.entity.Entity.class
-                        .getDeclaredField("level");
-                f.setAccessible(true);
-                unseenLevelField = f;
-            } catch (ReflectiveOperationException e) {
-                throw new IllegalStateException("Cannot reach Entity#level", e);
-            }
-        }
-        try {
-            unseenLevelCache = unseenLevelField.get(this);
-        } catch (ReflectiveOperationException e) {
-            throw new IllegalStateException("Cannot read Entity#level", e);
-        }
-        return (net.minecraft.world.level.Level) unseenLevelCache;
-    }
 
     protected final MobDef mobDef;
 

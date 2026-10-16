@@ -371,16 +371,27 @@ jobs:
           BIOMESUNSEEN_MODULE: ${{ matrix.module }}
         run: |
           set +e
-          gradle :${{ matrix.module }}:build -x test --no-daemon 2>&1 | tee build.log
+          gradle :${{ matrix.module }}:build -x test --no-daemon --stacktrace 2>&1 | tee build.log
           code=${PIPESTATUS[0]}
           mkdir -p ci-errors
+          out="ci-errors/${{ matrix.module }}.txt"
+          : > "$out"
           grep -n -E "error:|Execution failed|What went wrong|FAILED" build.log > hits.txt
-          : > "ci-errors/${{ matrix.module }}.txt"
-          cut -d: -f1 hits.txt | head -40 | while read -r ln; do
-            sed -n "$((ln)),$((ln+2))p" build.log >> "ci-errors/${{ matrix.module }}.txt"
-            echo "---" >> "ci-errors/${{ matrix.module }}.txt"
+          cut -d: -f1 hits.txt | head -60 | while read -r ln; do
+            sed -n "$((ln)),$((ln+2))p" build.log >> "$out"
+            echo "---" >> "$out"
           done
-          echo "captured $(wc -l < ci-errors/${{ matrix.module }}.txt) lines (exit $code)"
+          # Configuration failures (Loom/provider bugs) only reveal their cause
+          # through the stack trace, so keep the first frames of every trace.
+          {
+            echo "=== STACKTRACE ==="
+            grep -E "Caused by:|^	at (net\.fabricmc|dev\.architectury|net\.neoforged|net\.minecraftforge)\." build.log | head -60
+            echo "=== WHAT WENT WRONG ==="
+            sed -n "/\* What went wrong:/,/^\* Try:/p" build.log | head -40
+            echo "=== LAST 40 ==="
+            tail -40 build.log
+          } >> "$out"
+          echo "captured $(wc -l < $out) lines (exit $code)"
           exit $code
 
       - name: Upload compiler errors
@@ -460,6 +471,11 @@ jobs:
           pattern: errs-*
           merge-multiple: true
           path: raw-errors
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: neoforge-cfg-*
+          merge-multiple: true
+          path: raw-probes
       - name: Commit reports back to the branch
         env:
           GH_TOKEN: ${{ github.token }}
