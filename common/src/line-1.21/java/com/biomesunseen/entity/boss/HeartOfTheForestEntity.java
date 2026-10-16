@@ -91,7 +91,7 @@ public class HeartOfTheForestEntity extends BiomesUnseenMob {
         if (newPhase >= 2) {
             regenerateTicks = 100;
         }
-        playSound(SoundEvents.RAID_HORN, 2.0F, 0.8F);
+        playSound(SoundEvents.RAID_HORN.value(), 2.0F, 0.8F);
     }
 
     private void performAttack(LivingEntity target) {

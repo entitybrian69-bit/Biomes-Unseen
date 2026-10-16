@@ -6,7 +6,7 @@ import net.minecraft.core.particles.ParticleType;
 import com.biomesunseen.core.CoreRegistries;
 import com.biomesunseen.core.ModConstants;
 
-import me.shedaniel.architectury.registry.RegistrySupplier;
+import dev.architectury.registry.RegistrySupplier;
 
 import java.util.Collections;
 import java.util.LinkedHashMap;

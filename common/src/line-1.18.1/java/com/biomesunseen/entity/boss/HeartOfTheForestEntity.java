@@ -146,7 +146,7 @@ public class HeartOfTheForestEntity extends BiomesUnseenMob {
         if (!unseenLevel().isClientSide) {
             // Boss loot: trophies, rare minerals and the boss artifact.
             spawnAtLocation(new ItemStack(ModItems.UNSEEN_SIGIL.get()));
-            java.util.List<me.shedaniel.architectury.registry.RegistrySupplier<net.minecraft.world.item.Item>> minerals =
+            java.util.List<dev.architectury.registry.RegistrySupplier<net.minecraft.world.item.Item>> minerals =
                     new java.util.ArrayList<>(ModItems.MINERALS.values());
             for (int i = 0; i < 4 && !minerals.isEmpty(); i++) {
                 spawnAtLocation(new ItemStack(minerals.get(getRandom().nextInt(minerals.size())).get(), 2 + getRandom().nextInt(3)));

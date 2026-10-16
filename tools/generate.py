@@ -339,6 +339,32 @@ def postprocess(root, line_key):
                 "        super.remove(reason);\n",
                 "    public void die(net.minecraft.world.damagesource.DamageSource cause) {\n"
                 "        super.die(cause);\n")
+        # UnseenGearItems imports ArmorMaterial too; from 1.21.2 it lives in
+        # net.minecraft.world.item.equipment and ArmorItem is gone from 1.21.5.
+        if line_key in ("1.21.2", "1.21.4", "1.21.5", "1.21.9", "26"):
+            text = text.replace("import net.minecraft.world.item.ArmorMaterial;",
+                                "import net.minecraft.world.item.equipment.ArmorMaterial;")
+        if line_key == "1.19.3":
+            if "ArmorItem" in text and "import net.minecraft.world.item.ArmorItem;" not in text:
+                text = text.replace("import net.minecraft.world.item.Item;",
+                                    "import net.minecraft.world.item.ArmorItem;\n"
+                                    "import net.minecraft.world.item.Item;", 1)
+        # SoundEvents.RAID_HORN and friends are Holder.Reference<SoundEvent>
+        # from 1.19.4 on; playSound wants the SoundEvent itself.
+        if line_key in ("1.19.4", "1.20", "1.20.1", "1.20.2", "1.20.3", "1.20.4",
+                        "1.20.5", "1.21", "1.21.2", "1.21.4", "1.21.5", "1.21.9", "26"):
+            text = text.replace("playSound(SoundEvents.RAID_HORN,",
+                                "playSound(SoundEvents.RAID_HORN.value(),")
+            text = text.replace("playSound(SoundEvents.ENDER_DRAGON_GROWL,",
+                                "playSound(SoundEvents.ENDER_DRAGON_GROWL.value(),")
+            text = text.replace("playSound(SoundEvents.WARDEN_HEARTBEAT,",
+                                "playSound(SoundEvents.WARDEN_HEARTBEAT.value(),")
+        # Architectury 1.x is still dev.architectury on Fabric; only the old
+        # Forge lines used the me.shedaniel coordinates, and neither exists for
+        # 1.17.1/1.18.1, so the flat package is used there.
+        if line_key in ("1.17.1", "1.18.1"):
+            text = text.replace("me.shedaniel.architectury.registry.",
+                                "dev.architectury.registry.")
         if line_key in NO_REGISTRIES_LINES:
             text = text.replace("import net.minecraft.core.registries.Registries;",
                                 "import net.minecraft.core.Registry;")
