@@ -22,16 +22,6 @@ IDX="${2:-0}"
 PROPS="$MOD/gradle.properties"
 [ -f "$PROPS" ] || { echo "pin_neoforge: no $PROPS"; exit 1; }
 
-# An exact pin (no '+' range marker) is authoritative: it is the version this
-# line was tested against.  Re-resolving it picks early builds whose binpatches
-# no longer match the shipped Minecraft jar and fails the NeoForm patcher with
-# "Patch expected <class> to have the checksum ...", so leave it alone.
-CURRENT="$(sed -n 's/^neoforge_version=//p' "$PROPS" | head -1)"
-case "$CURRENT" in
-  ""|*+*|*"["*|*"]"*) ;;   # unset or a range - resolve below
-  *) echo "pin_neoforge: $MOD already pinned to exact $CURRENT"; exit 0 ;;
-esac
-
 MC="$(sed -n 's/^minecraft_version=//p' "$PROPS" | head -1)"
 [ -n "$MC" ] || { echo "pin_neoforge: no minecraft_version in $PROPS"; exit 1; }
 
@@ -61,6 +51,23 @@ rm -f "$META"
 if [ "${#CANDIDATES[@]}" -eq 0 ]; then
   echo "pin_neoforge: metadata has no ${SERIES}.x versions (keeping existing pin)"
   exit 0
+fi
+
+# An exact pin that the metadata actually lists is authoritative: it is the
+# version this line was tested against.  Re-resolving a *published* exact pin
+# walks down to early builds whose binpatches no longer match the shipped
+# Minecraft jar and dies in the NeoForm patcher ("Patch expected <class> to
+# have the checksum ..."), while an unpublished pin (a stale guess) still has
+# to be resolved.
+CURRENT="$(sed -n 's/^neoforge_version=//p' "$PROPS" | head -1)"
+if [ -n "$CURRENT" ] && [ "${CURRENT}" != *"+"* ]; then
+  for v in "${CANDIDATES[@]}"; do
+    if [ "$v" = "$CURRENT" ]; then
+      echo "pin_neoforge: $MOD already pinned to published $CURRENT"
+      exit 0
+    fi
+  done
+  echo "pin_neoforge: $CURRENT is not published for ${SERIES}.x; resolving"
 fi
 
 PICK=""
