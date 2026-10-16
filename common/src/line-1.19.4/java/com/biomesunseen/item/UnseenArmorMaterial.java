@@ -1,6 +1,5 @@
 package com.biomesunseen.item;
 
-import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.crafting.Ingredient;
@@ -28,14 +27,28 @@ public class UnseenArmorMaterial implements ArmorMaterial {
         this.repairIngredient = repairIngredient;
     }
 
-    @Override
-    public int getDurabilityForSlot(EquipmentSlot slot) {
-        return BASE_DURABILITY[slot.getIndex()] * (ore.toolDurability / 33);
+    /** Boots, leggings, chestplate, helmet -> index into the stat tables. */
+    private static int indexOf(ArmorItem.Type type) {
+        switch (type) {
+            case BOOTS:
+                return 0;
+            case LEGGINGS:
+                return 1;
+            case CHESTPLATE:
+                return 2;
+            default:
+                return 3;
+        }
     }
 
     @Override
-    public int getDefenseForSlot(EquipmentSlot slot) {
-        return BASE_DEFENSE[slot.getIndex()] + ore.toolMiningLevel;
+    public int getDurabilityForType(ArmorItem.Type type) {
+        return BASE_DURABILITY[indexOf(type)] * (ore.toolDurability / 33);
+    }
+
+    @Override
+    public int getDefenseForType(ArmorItem.Type type) {
+        return BASE_DEFENSE[indexOf(type)] + ore.toolMiningLevel;
     }
 
     @Override

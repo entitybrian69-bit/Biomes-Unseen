@@ -35,8 +35,8 @@ public class CinderPupEntity extends BiomesUnseenMob {
         this.goalSelector.addGoal(0, new net.minecraft.world.entity.ai.goal.FloatGoal(this));
         this.goalSelector.addGoal(1, new FleeDangerGoal(this, 1.3D));
         this.goalSelector.addGoal(2, new PackAttackGoal(this, 1.15D, true));
-        this.targetSelector.addGoal(1, new net.minecraft.world.entity.ai.goal.NearestAttackableTargetGoal<>(this, net.minecraft.world.entity.player.Player.class, true));
-        this.targetSelector.addGoal(2, new net.minecraft.world.entity.ai.goal.HurtByTargetGoal(this));
+        this.targetSelector.addGoal(1, new net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal<>(this, net.minecraft.world.entity.player.Player.class, true));
+        this.targetSelector.addGoal(2, new net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal(this));
         this.goalSelector.addGoal(3, new HerdFollowGoal(this, 1.1D));
         // Tameable: sit/follow wiring handled in mobInteract/onTamedInteraction.
         this.goalSelector.addGoal(5, new net.minecraft.world.entity.ai.goal.WaterAvoidingRandomStrollGoal(this, 1.0D));

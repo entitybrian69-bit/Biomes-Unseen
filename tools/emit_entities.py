@@ -915,9 +915,9 @@ public class GrazeGoal extends ThrottledGoal {
         if "pack_tactics" in behaviors or cat == "monster":
             goals.append("        this.goalSelector.addGoal(2, new PackAttackGoal(this, 1.15D, true));")
             if not legacy:
-                goals.append("        this.targetSelector.addGoal(1, new net.minecraft.world.entity.ai.goal."
+                goals.append("        this.targetSelector.addGoal(1, new net.minecraft.world.entity.ai.goal.target."
                              "NearestAttackableTargetGoal<>(this, net.minecraft.world.entity.player.Player.class, true));")
-                goals.append("        this.targetSelector.addGoal(2, new net.minecraft.world.entity.ai.goal.HurtByTargetGoal(this));")
+                goals.append("        this.targetSelector.addGoal(2, new net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal(this));")
             else:
                 goals.append("        this.targetSelector.addGoal(1, new net.minecraft.entity.ai.goal."
                              "NearestAttackableTargetGoal<>(this, net.minecraft.entity.player.PlayerEntity.class, true));")
