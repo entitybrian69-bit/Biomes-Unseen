@@ -1,0 +1,15 @@
+{
+  "structures": [
+    {
+      "structure": "biomesunseen:alchemists_spire",
+      "weight": 5
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "salt": 72364,
+    "spacing": 30,
+    "separation": 12,
+    "spread_type": "linear"
+  }
+}

@@ -1,0 +1,86 @@
+* What went wrong:
+A problem occurred configuring project ':forge-1.18.1'.
+> Could not resolve all files for configuration ':forge-1.18.1:modImplementation'.
+---
+BUILD FAILED in 1m 55s
+---
+=== STACKTRACE ===
+Caused by: java.lang.RuntimeException: Failed to setup Minecraft, org.gradle.api.internal.artifacts.ivyservice.TypedResolveException: Could not resolve all files for configuration ':forge-1.18.1:modImplementation'.
+	at net.fabricmc.loom.util.ExceptionUtil.createDescriptiveWrapper(ExceptionUtil.java:59)
+	at net.fabricmc.loom.configuration.CompileConfiguration.lambda$run$1(CompileConfiguration.java:152)
+	at net.fabricmc.loom.configuration.CompileConfiguration.lambda$afterEvaluationWithService$0(CompileConfiguration.java:617)
+	at net.fabricmc.loom.util.gradle.GradleUtils.lambda$afterSuccessfulEvaluation$0(GradleUtils.java:51)
+Caused by: org.gradle.api.internal.artifacts.ivyservice.TypedResolveException: Could not resolve all files for configuration ':forge-1.18.1:modImplementation'.
+	at net.fabricmc.loom.configuration.processors.speccontext.RemappedSpecContext.getDependentMods(RemappedSpecContext.java:84)
+	at net.fabricmc.loom.configuration.processors.speccontext.RemappedSpecContext.create(RemappedSpecContext.java:72)
+	at net.fabricmc.loom.configuration.processors.speccontext.RemappedSpecContext.create(RemappedSpecContext.java:65)
+	at net.fabricmc.loom.configuration.processors.MinecraftJarProcessorManager.create(MinecraftJarProcessorManager.java:76)
+	at net.fabricmc.loom.configuration.CompileConfiguration.setupMinecraft(CompileConfiguration.java:287)
+	at net.fabricmc.loom.configuration.CompileConfiguration.lambda$run$1(CompileConfiguration.java:144)
+Caused by: org.gradle.internal.resolve.ModuleVersionNotFoundException: Could not find dev.architectury:architectury-forge:3.6.18.
+=== WHAT WENT WRONG ===
+* What went wrong:
+A problem occurred configuring project ':forge-1.18.1'.
+> Could not resolve all files for configuration ':forge-1.18.1:modImplementation'.
+   > Could not find dev.architectury:architectury-forge:3.6.18.
+     Searched in the following locations:
+       - https://libraries.minecraft.net/dev/architectury/architectury-forge/3.6.18/architectury-forge-3.6.18.pom
+       - https://libraries.minecraft.net/dev/architectury/architectury-forge/3.6.18/architectury-forge-3.6.18.jar
+       - https://repo.maven.apache.org/maven2/dev/architectury/architectury-forge/3.6.18/architectury-forge-3.6.18.pom
+       - https://maven.fabricmc.net/dev/architectury/architectury-forge/3.6.18/architectury-forge-3.6.18.pom
+       - https://maven.architectury.dev/dev/architectury/architectury-forge/3.6.18/architectury-forge-3.6.18.pom
+       - https://maven.minecraftforge.net/dev/architectury/architectury-forge/3.6.18/architectury-forge-3.6.18.pom
+       - https://maven.neoforged.net/releases/dev/architectury/architectury-forge/3.6.18/architectury-forge-3.6.18.pom
+       - https://dl.cloudsmith.io/public/geckolib3/geckolib/maven/dev/architectury/architectury-forge/3.6.18/architectury-forge-3.6.18.pom
+       - https://maven.shedaniel.me/dev/architectury/architectury-forge/3.6.18/architectury-forge-3.6.18.pom
+       - https://maven.terraformersmc.com/releases/dev/architectury/architectury-forge/3.6.18/architectury-forge-3.6.18.pom
+       - https://oss.sonatype.org/content/repositories/snapshots/dev/architectury/architectury-forge/3.6.18/architectury-forge-3.6.18.pom
+       - file:/home/runner/work/Biomes-Unseen/Biomes-Unseen/.gradle/loom-cache/remapped_mods/dev/architectury/architectury-forge/3.6.18/architectury-forge-3.6.18.pom
+       - file:/home/runner/.gradle/caches/fabric-loom/minecraftMaven/dev/architectury/architectury-forge/3.6.18/architectury-forge-3.6.18.pom
+       - file:/home/runner/work/Biomes-Unseen/Biomes-Unseen/.gradle/loom-cache/minecraftMaven/dev/architectury/architectury-forge/3.6.18/architectury-forge-3.6.18.pom
+       - file:/home/runner/.gradle/caches/fabric-loom/forge/transformed-dependencies-v1/dev/architectury/architectury-forge/3.6.18/architectury-forge-3.6.18.pom
+     Required by:
+         project ':forge-1.18.1'
+
+* Try:
+=== LAST 40 ===
+	at org.gradle.api.internal.artifacts.ResolveExceptionMapper.mapFailure(ResolveExceptionMapper.java:74)
+	at org.gradle.api.internal.artifacts.ResolveExceptionMapper.mapFailures(ResolveExceptionMapper.java:66)
+	at org.gradle.api.internal.artifacts.configurations.DefaultConfiguration$DefaultResolutionHost.consolidateFailures(DefaultConfiguration.java:1815)
+	at org.gradle.api.internal.artifacts.configurations.ResolutionHost.rethrowFailuresAndReportProblems(ResolutionHost.java:75)
+	at org.gradle.api.internal.artifacts.configurations.ResolutionBackedFileCollection.maybeThrowResolutionFailures(ResolutionBackedFileCollection.java:86)
+	at org.gradle.api.internal.artifacts.configurations.ResolutionBackedFileCollection.visitContents(ResolutionBackedFileCollection.java:76)
+	at org.gradle.api.internal.file.AbstractFileCollection.visitStructure(AbstractFileCollection.java:358)
+	at org.gradle.api.internal.artifacts.configurations.DefaultConfiguration.visitContents(DefaultConfiguration.java:541)
+	at org.gradle.api.internal.file.AbstractFileCollection.getFiles(AbstractFileCollection.java:123)
+	at org.gradle.api.internal.artifacts.configurations.DefaultLegacyConfiguration_Decorated.getFiles(Unknown Source)
+	at org.gradle.api.internal.artifacts.configurations.DefaultConfiguration.resolve(DefaultConfiguration.java:531)
+	at net.fabricmc.loom.configuration.processors.speccontext.RemappedSpecContext.getDependentMods(RemappedSpecContext.java:84)
+	at net.fabricmc.loom.configuration.processors.speccontext.RemappedSpecContext.create(RemappedSpecContext.java:72)
+	at net.fabricmc.loom.configuration.processors.speccontext.RemappedSpecContext.create(RemappedSpecContext.java:65)
+	at net.fabricmc.loom.configuration.processors.MinecraftJarProcessorManager.create(MinecraftJarProcessorManager.java:76)
+	at net.fabricmc.loom.configuration.CompileConfiguration.setupMinecraft(CompileConfiguration.java:287)
+	at net.fabricmc.loom.configuration.CompileConfiguration.lambda$run$1(CompileConfiguration.java:144)
+	... 193 more
+Caused by: org.gradle.internal.resolve.ModuleVersionNotFoundException: Could not find dev.architectury:architectury-forge:3.6.18.
+Searched in the following locations:
+  - https://libraries.minecraft.net/dev/architectury/architectury-forge/3.6.18/architectury-forge-3.6.18.pom
+  - https://libraries.minecraft.net/dev/architectury/architectury-forge/3.6.18/architectury-forge-3.6.18.jar
+  - https://repo.maven.apache.org/maven2/dev/architectury/architectury-forge/3.6.18/architectury-forge-3.6.18.pom
+  - https://maven.fabricmc.net/dev/architectury/architectury-forge/3.6.18/architectury-forge-3.6.18.pom
+  - https://maven.architectury.dev/dev/architectury/architectury-forge/3.6.18/architectury-forge-3.6.18.pom
+  - https://maven.minecraftforge.net/dev/architectury/architectury-forge/3.6.18/architectury-forge-3.6.18.pom
+  - https://maven.neoforged.net/releases/dev/architectury/architectury-forge/3.6.18/architectury-forge-3.6.18.pom
+  - https://dl.cloudsmith.io/public/geckolib3/geckolib/maven/dev/architectury/architectury-forge/3.6.18/architectury-forge-3.6.18.pom
+  - https://maven.shedaniel.me/dev/architectury/architectury-forge/3.6.18/architectury-forge-3.6.18.pom
+  - https://maven.terraformersmc.com/releases/dev/architectury/architectury-forge/3.6.18/architectury-forge-3.6.18.pom
+  - https://oss.sonatype.org/content/repositories/snapshots/dev/architectury/architectury-forge/3.6.18/architectury-forge-3.6.18.pom
+  - file:/home/runner/work/Biomes-Unseen/Biomes-Unseen/.gradle/loom-cache/remapped_mods/dev/architectury/architectury-forge/3.6.18/architectury-forge-3.6.18.pom
+  - file:/home/runner/.gradle/caches/fabric-loom/minecraftMaven/dev/architectury/architectury-forge/3.6.18/architectury-forge-3.6.18.pom
+  - file:/home/runner/work/Biomes-Unseen/Biomes-Unseen/.gradle/loom-cache/minecraftMaven/dev/architectury/architectury-forge/3.6.18/architectury-forge-3.6.18.pom
+  - file:/home/runner/.gradle/caches/fabric-loom/forge/transformed-dependencies-v1/dev/architectury/architectury-forge/3.6.18/architectury-forge-3.6.18.pom
+Required by:
+    project ':forge-1.18.1'
+
+
+BUILD FAILED in 1m 55s

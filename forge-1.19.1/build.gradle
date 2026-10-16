@@ -1,0 +1,48 @@
+plugins {
+    id "dev.architectury.loom" version "1.17.493"
+    id "java"
+}
+
+base {
+    archivesName = "biomesunseen-1.19.1-forge"
+}
+
+// Shared content trees: core + this API line.
+sourceSets.main.java.srcDirs += rootProject.file("common/src/main/java")
+sourceSets.main.java.srcDirs += rootProject.file("common/src/line-1.18/java")
+sourceSets.main.resources.srcDirs += rootProject.file("common/src/main/resources")
+sourceSets.main.resources.srcDirs += rootProject.file("common/src/line-1.18/resources")
+sourceSets.main.resources.srcDirs += "src/generated/resources"
+
+loom {
+    // no mixin config needed
+}
+
+dependencies {
+    minecraft "com.mojang:minecraft:${minecraft_version}"
+    mappings loom.officialMojangMappings()
+    forge "net.minecraftforge:forge:${forge_version}"
+    modImplementation "dev.architectury:architectury-forge:${architectury_version}"
+}
+
+processResources {
+    inputs.property "version", project.version
+    filesMatching("META-INF/mods.toml") {
+        expand "version": project.version
+    }
+}
+
+// CI diagnostic: prints the resolved compile classpath so the exact Minecraft
+// jar (and therefore the API surface) each module builds against is verifiable.
+tasks.register("printCompileClasspath") {
+    doLast {
+        configurations.compileClasspath.files.each { f -> println("CP " + f.absolutePath) }
+    }
+}
+
+tasks.register("runDatagen", JavaExec) {
+    group = "biomesunseen"
+    classpath = sourceSets.main.runtimeClasspath
+    mainClass = "com.biomesunseen.datagen.DataGenerators"
+    args = ["src/generated/resources"]
+}

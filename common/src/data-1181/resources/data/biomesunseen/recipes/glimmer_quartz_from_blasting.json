@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:blasting",
+  "ingredient": {
+    "item": "biomesunseen:glimmer_quartz_ore"
+  },
+  "result": "biomesunseen:glimmer_quartz",
+  "experience": 0.7,
+  "cookingtime": 100
+}

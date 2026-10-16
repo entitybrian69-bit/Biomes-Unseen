@@ -1,0 +1,17 @@
+{
+  "replace": false,
+  "values": [
+    "biomesunseen:crystal_shard_block",
+    "biomesunseen:ember_rock",
+    "biomesunseen:verdant_soils",
+    "biomesunseen:frostbloom_ice",
+    "biomesunseen:storm_shale",
+    "biomesunseen:mire_muck",
+    "biomesunseen:skystone_bricks",
+    "biomesunseen:nullglass",
+    "biomesunseen:living_heartwood",
+    "biomesunseen:void_veined_stone",
+    "biomesunseen:glowcap_block",
+    "biomesunseen:sunstone_bricks"
+  ]
+}

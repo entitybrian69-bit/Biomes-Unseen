@@ -1,0 +1,15 @@
+{
+  "structures": [
+    {
+      "structure": "biomesunseen:pilgrim_rest",
+      "weight": 8
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "salt": 65019,
+    "spacing": 16,
+    "separation": 7,
+    "spread_type": "linear"
+  }
+}

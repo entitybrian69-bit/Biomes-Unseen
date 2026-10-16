@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "biomesunseen:moonshard_ore"
+  },
+  "result": "biomesunseen:moonshard",
+  "experience": 0.7,
+  "cookingtime": 200
+}

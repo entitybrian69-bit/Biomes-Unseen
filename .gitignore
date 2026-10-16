@@ -1,0 +1,25 @@
+# Gradle
+.gradle/
+build/
+!gradle/wrapper/gradle-wrapper.jar
+out/
+run/
+runs/
+remappedSrc/
+.classpath
+.project
+.settings/
+bin/
+eclipse/
+.idea/
+*.iml
+*.ipr
+*.iws
+.vscode/
+*.launch
+.classpath
+metals.sbt
+.bloop/
+.kotlin/
+*.log
+.DS_Store

@@ -1,0 +1,15 @@
+{
+  "structures": [
+    {
+      "structure": "biomesunseen:prism_labyrinth",
+      "weight": 4
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "salt": 44227,
+    "spacing": 34,
+    "separation": 13,
+    "spread_type": "linear"
+  }
+}

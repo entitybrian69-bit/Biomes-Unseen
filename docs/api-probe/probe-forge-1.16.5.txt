@@ -1,0 +1,36 @@
+MODULE=forge-1.16.5
+MCJAR=
+NO MINECRAFT JAR RESOLVED
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+A problem occurred configuring project ':forge-1.16.5'.
+> Could not resolve all files for configuration ':forge-1.16.5:modImplementation'.
+   > Could not find dev.architectury:architectury-forge:1.32.68.
+     Searched in the following locations:
+       - https://libraries.minecraft.net/dev/architectury/architectury-forge/1.32.68/architectury-forge-1.32.68.pom
+       - https://libraries.minecraft.net/dev/architectury/architectury-forge/1.32.68/architectury-forge-1.32.68.jar
+       - https://repo.maven.apache.org/maven2/dev/architectury/architectury-forge/1.32.68/architectury-forge-1.32.68.pom
+       - https://maven.fabricmc.net/dev/architectury/architectury-forge/1.32.68/architectury-forge-1.32.68.pom
+       - https://maven.architectury.dev/dev/architectury/architectury-forge/1.32.68/architectury-forge-1.32.68.pom
+       - https://maven.minecraftforge.net/dev/architectury/architectury-forge/1.32.68/architectury-forge-1.32.68.pom
+       - https://maven.neoforged.net/releases/dev/architectury/architectury-forge/1.32.68/architectury-forge-1.32.68.pom
+       - https://dl.cloudsmith.io/public/geckolib3/geckolib/maven/dev/architectury/architectury-forge/1.32.68/architectury-forge-1.32.68.pom
+       - https://maven.shedaniel.me/dev/architectury/architectury-forge/1.32.68/architectury-forge-1.32.68.pom
+       - https://maven.terraformersmc.com/releases/dev/architectury/architectury-forge/1.32.68/architectury-forge-1.32.68.pom
+       - https://oss.sonatype.org/content/repositories/snapshots/dev/architectury/architectury-forge/1.32.68/architectury-forge-1.32.68.pom
+       - file:/home/runner/work/Biomes-Unseen/Biomes-Unseen/.gradle/loom-cache/remapped_mods/dev/architectury/architectury-forge/1.32.68/architectury-forge-1.32.68.pom
+       - file:/home/runner/.gradle/caches/fabric-loom/minecraftMaven/dev/architectury/architectury-forge/1.32.68/architectury-forge-1.32.68.pom
+       - file:/home/runner/work/Biomes-Unseen/Biomes-Unseen/.gradle/loom-cache/minecraftMaven/dev/architectury/architectury-forge/1.32.68/architectury-forge-1.32.68.pom
+       - file:/home/runner/.gradle/caches/fabric-loom/forge/transformed-dependencies-v1/dev/architectury/architectury-forge/1.32.68/architectury-forge-1.32.68.pom
+     Required by:
+         project ':forge-1.16.5'
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights from a Build Scan (powered by Develocity).
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 1m 50s

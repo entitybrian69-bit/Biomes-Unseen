@@ -1,0 +1,15 @@
+{
+  "structures": [
+    {
+      "structure": "biomesunseen:drowned_mausoleum",
+      "weight": 4
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "salt": 52478,
+    "spacing": 34,
+    "separation": 13,
+    "spread_type": "linear"
+  }
+}

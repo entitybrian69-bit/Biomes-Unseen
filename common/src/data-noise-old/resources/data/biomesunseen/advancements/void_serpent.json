@@ -1,0 +1,21 @@
+{
+  "parent": "biomesunseen:first_structure",
+  "display": {
+    "icon": {
+      "item": "biomesunseen:unseen_sigil"
+    },
+    "title": "The Void Serpent",
+    "description": "Defeat The Void Serpent",
+    "frame": "challenge"
+  },
+  "criteria": {
+    "killed": {
+      "trigger": "minecraft:player_killed_entity",
+      "conditions": {
+        "entity": {
+          "type": "biomesunseen:void_serpent"
+        }
+      }
+    }
+  }
+}

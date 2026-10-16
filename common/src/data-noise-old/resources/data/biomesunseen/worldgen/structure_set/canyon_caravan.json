@@ -1,0 +1,15 @@
+{
+  "structures": [
+    {
+      "structure": "biomesunseen:canyon_caravan",
+      "weight": 7
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "salt": 9815,
+    "spacing": 18,
+    "separation": 8,
+    "spread_type": "linear"
+  }
+}

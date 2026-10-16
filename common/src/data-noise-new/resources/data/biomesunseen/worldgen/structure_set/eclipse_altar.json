@@ -1,0 +1,15 @@
+{
+  "structures": [
+    {
+      "structure": "biomesunseen:eclipse_altar",
+      "weight": 4
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "salt": 17846,
+    "spacing": 36,
+    "separation": 14,
+    "spread_type": "linear"
+  }
+}

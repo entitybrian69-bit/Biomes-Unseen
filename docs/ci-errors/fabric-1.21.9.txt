@@ -1,0 +1,324 @@
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/item/UnseenArmorMaterial.java:7: error: cannot find symbol
+import net.minecraft.world.item.ArmorItem;
+                               ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/item/UnseenArmorMaterial.java:8: error: cannot find symbol
+import net.minecraft.world.item.ArmorMaterial;
+                               ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/item/UnseenArmorMaterial.java:27: error: cannot find symbol
+    private final ArmorMaterial material;
+                  ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/item/UnseenArmorMaterial.java:28: error: cannot find symbol
+    private final Holder<ArmorMaterial> holder;
+                         ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/item/UnseenArmorMaterial.java:50: error: cannot find symbol
+    public Holder<ArmorMaterial> holder() {
+                  ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/item/UnseenArmorMaterial.java:54: error: cannot find symbol
+    public ArmorMaterial material() {
+           ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/item/UnseenArmorMaterial.java:62: error: package ArmorItem does not exist
+    public int getDefenseForType(ArmorItem.Type type) {
+                                          ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/item/LoreBookItem.java:9: error: cannot find symbol
+import net.minecraft.world.InteractionResultHolder;
+                          ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/item/LoreBookItem.java:31: error: cannot find symbol
+    public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
+           ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/item/UnseenTonicItem.java:9: error: cannot find symbol
+import net.minecraft.world.InteractionResultHolder;
+                          ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/item/UnseenTonicItem.java:33: error: cannot find symbol
+    public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
+           ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/item/UnseenGearItems.java:3: error: cannot find symbol
+import net.minecraft.world.item.ArmorItem;
+                               ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/item/UnseenGearItems.java:4: error: cannot find symbol
+import net.minecraft.world.item.ArmorMaterial;
+                               ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/item/UnseenGearItems.java:27: error: cannot find symbol
+    public static ArmorItem helmet(OreDef ore, UnseenArmorMaterial material, Item.Properties properties) {
+                  ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/item/UnseenGearItems.java:31: error: cannot find symbol
+    public static ArmorItem chestplate(OreDef ore, UnseenArmorMaterial material, Item.Properties properties) {
+                  ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/item/UnseenGearItems.java:35: error: cannot find symbol
+    public static ArmorItem leggings(OreDef ore, UnseenArmorMaterial material, Item.Properties properties) {
+                  ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/item/UnseenGearItems.java:39: error: cannot find symbol
+    public static ArmorItem boots(OreDef ore, UnseenArmorMaterial material, Item.Properties properties) {
+                  ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/item/UnseenGearItems.java:72: error: cannot find symbol
+    public static final class UnseenArmorItem extends ArmorItem {
+                                                      ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/item/UnseenGearItems.java:75: error: package ArmorItem does not exist
+        UnseenArmorItem(OreDef ore, UnseenArmorMaterial material, ArmorItem.Type slot, Item.Properties properties) {
+                                                                           ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/client/legacy/UnseenLegacyRenderer.java:13: error: wrong number of type arguments; required 3
+        extends MobRenderer<T, UnseenLegacyModel<T>> {
+                           ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/entity/BiomesUnseenMob.java:112: error: isClientSide has private access in Level
+        if (!unseenLevel().isClientSide && tickCount % 20 == 0) {
+                          ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/entity/BiomesUnseenMob.java:121: error: isClientSide has private access in Level
+        } else if (!unseenLevel().isClientSide) {
+                                 ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/entity/BiomesUnseenMob.java:174: error: isClientSide has private access in Level
+        if (!unseenLevel().isClientSide) {
+                          ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/entity/BiomesUnseenMob.java:180: error: hurt(DamageSource,float) in BiomesUnseenMob cannot override hurt(DamageSource,float) in Entity
+    public boolean hurt(DamageSource source, float amount) {
+                   ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/entity/BiomesUnseenMob.java:179: error: method does not override or implement a method from a supertype
+    @Override
+    ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/entity/BiomesUnseenMob.java:181: error: incompatible types: void cannot be converted to boolean
+        boolean hurt = super.hurt(source, amount);
+                                 ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/entity/mobs/CinderPupEntity.java:58: error: isClientSide has private access in Level
+            if (!unseenLevel().isClientSide) {
+                              ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/entity/mobs/CinderPupEntity.java:68: error: isClientSide has private access in Level
+            return net.minecraft.world.InteractionResult.sidedSuccess(level().isClientSide);
+                                                                             ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/entity/mobs/CinderPupEntity.java:68: error: cannot find symbol
+            return net.minecraft.world.InteractionResult.sidedSuccess(level().isClientSide);
+                                                        ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/entity/mobs/LanternFoxEntity.java:54: error: isClientSide has private access in Level
+            if (!unseenLevel().isClientSide) {
+                              ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/entity/mobs/LanternFoxEntity.java:64: error: isClientSide has private access in Level
+            return net.minecraft.world.InteractionResult.sidedSuccess(level().isClientSide);
+                                                                             ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/entity/mobs/LanternFoxEntity.java:64: error: cannot find symbol
+            return net.minecraft.world.InteractionResult.sidedSuccess(level().isClientSide);
+                                                        ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/entity/mobs/FrostFawnEntity.java:56: error: isClientSide has private access in Level
+            if (!unseenLevel().isClientSide) {
+                              ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/entity/mobs/FrostFawnEntity.java:66: error: isClientSide has private access in Level
+            return net.minecraft.world.InteractionResult.sidedSuccess(level().isClientSide);
+                                                                             ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/entity/mobs/FrostFawnEntity.java:66: error: cannot find symbol
+            return net.minecraft.world.InteractionResult.sidedSuccess(level().isClientSide);
+                                                        ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/entity/mobs/LumoxEntity.java:56: error: isClientSide has private access in Level
+            if (!unseenLevel().isClientSide) {
+                              ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/entity/mobs/LumoxEntity.java:66: error: isClientSide has private access in Level
+            return net.minecraft.world.InteractionResult.sidedSuccess(level().isClientSide);
+                                                                             ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/entity/mobs/LumoxEntity.java:66: error: cannot find symbol
+            return net.minecraft.world.InteractionResult.sidedSuccess(level().isClientSide);
+                                                        ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/entity/mobs/EmberCalfEntity.java:55: error: isClientSide has private access in Level
+            if (!unseenLevel().isClientSide) {
+                              ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/entity/mobs/EmberCalfEntity.java:65: error: isClientSide has private access in Level
+            return net.minecraft.world.InteractionResult.sidedSuccess(level().isClientSide);
+                                                                             ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/entity/mobs/EmberCalfEntity.java:65: error: cannot find symbol
+            return net.minecraft.world.InteractionResult.sidedSuccess(level().isClientSide);
+                                                        ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/entity/mobs/SporeSproutEntity.java:54: error: isClientSide has private access in Level
+            if (!unseenLevel().isClientSide) {
+                              ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/entity/mobs/SporeSproutEntity.java:64: error: isClientSide has private access in Level
+            return net.minecraft.world.InteractionResult.sidedSuccess(level().isClientSide);
+                                                                             ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/entity/mobs/SporeSproutEntity.java:64: error: cannot find symbol
+            return net.minecraft.world.InteractionResult.sidedSuccess(level().isClientSide);
+                                                        ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/entity/ai/FleeDangerGoal.java:31: error: incompatible types: Player cannot be converted to PathfinderMob
+        threat = mob.level().getNearestPlayer(mob, 8.0D);
+                                             ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/entity/ai/WanderTradeGoal.java:54: error: isClientSide has private access in Level
+        if (customer != null && tradeCooldown == 390 && !mob.level().isClientSide) {
+                                                                    ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/entity/ai/WanderTradeGoal.java:63: error: items has private access in Inventory
+                if (!customer.getInventory().items.stream().anyMatch(s -> !s.isEmpty())) {
+                                            ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/entity/boss/VoidSerpentEntity.java:91: error: isClientSide has private access in Level
+        if (level().isClientSide) {
+                   ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/entity/boss/VoidSerpentEntity.java:138: error: cannot find symbol
+            moveTo(target.getX() + getRandom().nextInt(7) - 3, target.getY() + 2.0D,
+            ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/entity/boss/VoidSerpentEntity.java:144: error: cannot find symbol
+                net.minecraft.world.phys.AABB box = new AABB(segmentX(i) - 2.0D, segmentY(i) - 2.0D, segmentZ(i) - 2.0D,
+                                                        ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/entity/boss/VoidSerpentEntity.java:172: error: method does not override or implement a method from a supertype
+    @Override
+    ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/entity/boss/VoidSerpentEntity.java:174: error: method isInvulnerableTo in class LivingEntity cannot be applied to given types;
+        return phaseShiftTicks > 0 || super.isInvulnerableTo(source);
+                                           ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/entity/boss/VoidSerpentEntity.java:180: error: isClientSide has private access in Level
+        if (!unseenLevel().isClientSide) {
+                          ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/entity/boss/VoidSerpentEntity.java:181: error: no suitable method found for spawnAtLocation(ItemStack)
+            spawnAtLocation(new ItemStack(ModItems.UNSEEN_SIGIL.get()));
+            ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/entity/boss/VoidSerpentEntity.java:185: error: no suitable method found for spawnAtLocation(ItemStack)
+                spawnAtLocation(new ItemStack(minerals.get(getRandom().nextInt(minerals.size())).get(), 3 + getRandom().nextInt(4)));
+                ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/entity/boss/VoidSerpentEntity.java:187: error: no suitable method found for spawnAtLocation(ItemStack)
+            spawnAtLocation(new ItemStack(ModItems.TROPHIES.get("star_whale"), 3));
+            ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/entity/boss/VoidSerpentEntity.java:189: error: no suitable method found for spawnAtLocation(ItemStack)
+                spawnAtLocation(new ItemStack(ModItems.GEAR.get("voidshard_sword")));
+                ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/entity/boss/HeartOfTheForestEntity.java:56: error: isClientSide has private access in Level
+        if (level().isClientSide) {
+                   ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/entity/boss/HeartOfTheForestEntity.java:94: error: incompatible types: Reference<SoundEvent> cannot be converted to SoundEvent
+        playSound(SoundEvents.RAID_HORN, 2.0F, 0.8F);
+                             ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/entity/boss/HeartOfTheForestEntity.java:125: error: cannot find symbol
+            for (Player player : unseenLevel().getNearestPlayers(this, 10.0D, 10.0D)) {
+                                              ^
+---
+=== STACKTRACE ===
+Caused by: org.gradle.api.internal.tasks.compile.CompilationFailedException: Compilation failed; see the compiler output below.
+=== WHAT WENT WRONG ===
+* What went wrong:
+Execution failed for task ':fabric-1.21.9:compileJava' (registered by plugin class 'org.gradle.api.plugins.JavaBasePlugin').
+> Compilation failed; see the compiler output below.
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/item/UnseenArmorMaterial.java:7: error: cannot find symbol
+  import net.minecraft.world.item.ArmorItem;
+                                 ^
+    symbol:   class ArmorItem
+    location: package net.minecraft.world.item
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/item/UnseenArmorMaterial.java:8: error: cannot find symbol
+  import net.minecraft.world.item.ArmorMaterial;
+                                 ^
+    symbol:   class ArmorMaterial
+    location: package net.minecraft.world.item
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/item/UnseenArmorMaterial.java:27: error: cannot find symbol
+      private final ArmorMaterial material;
+                    ^
+    symbol:   class ArmorMaterial
+    location: class UnseenArmorMaterial
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/item/UnseenArmorMaterial.java:28: error: cannot find symbol
+      private final Holder<ArmorMaterial> holder;
+                           ^
+    symbol:   class ArmorMaterial
+    location: class UnseenArmorMaterial
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/item/UnseenArmorMaterial.java:50: error: cannot find symbol
+      public Holder<ArmorMaterial> holder() {
+                    ^
+    symbol:   class ArmorMaterial
+    location: class UnseenArmorMaterial
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/item/UnseenArmorMaterial.java:54: error: cannot find symbol
+      public ArmorMaterial material() {
+             ^
+    symbol:   class ArmorMaterial
+    location: class UnseenArmorMaterial
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/item/LoreBookItem.java:9: error: cannot find symbol
+  import net.minecraft.world.InteractionResultHolder;
+                            ^
+    symbol:   class InteractionResultHolder
+    location: package net.minecraft.world
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/item/LoreBookItem.java:31: error: cannot find symbol
+      public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
+=== LAST 40 ===
+	at org.gradle.internal.execution.steps.MutableStep.execute(MutableStep.java:26)
+	at org.gradle.internal.execution.steps.ValidateStep$Mutable.executeDelegate(ValidateStep.java:79)
+	at org.gradle.internal.execution.steps.ValidateStep$Mutable.executeDelegate(ValidateStep.java:65)
+	at org.gradle.internal.execution.steps.ValidateStep.execute(ValidateStep.java:105)
+	at org.gradle.internal.execution.steps.ValidateStep$Mutable.execute(ValidateStep.java:65)
+	at org.gradle.internal.execution.steps.CaptureMutableStateBeforeExecutionStep.executeMutable(CaptureMutableStateBeforeExecutionStep.java:86)
+	at org.gradle.internal.execution.steps.CaptureMutableStateBeforeExecutionStep.execute(CaptureMutableStateBeforeExecutionStep.java:65)
+	at org.gradle.internal.execution.steps.CaptureMutableStateBeforeExecutionStep.execute(CaptureMutableStateBeforeExecutionStep.java:45)
+	at org.gradle.internal.execution.steps.SkipEmptyMutableWorkStep.executeWithNonEmptySources(SkipEmptyMutableWorkStep.java:210)
+	at org.gradle.internal.execution.steps.SkipEmptyMutableWorkStep.executeMutable(SkipEmptyMutableWorkStep.java:90)
+	at org.gradle.internal.execution.steps.SkipEmptyMutableWorkStep.executeMutable(SkipEmptyMutableWorkStep.java:53)
+	at org.gradle.internal.execution.steps.MutableStep.execute(MutableStep.java:26)
+	at org.gradle.internal.execution.steps.legacy.MarkSnapshottingInputsStartedStep.execute(MarkSnapshottingInputsStartedStep.java:38)
+	at org.gradle.internal.execution.steps.LoadPreviousExecutionStateStep.executeMutable(LoadPreviousExecutionStateStep.java:36)
+	at org.gradle.internal.execution.steps.LoadPreviousExecutionStateStep.executeMutable(LoadPreviousExecutionStateStep.java:23)
+	at org.gradle.internal.execution.steps.MutableStep.execute(MutableStep.java:26)
+	at org.gradle.internal.execution.steps.HandleStaleOutputsStep.executeMutable(HandleStaleOutputsStep.java:77)
+	at org.gradle.internal.execution.steps.HandleStaleOutputsStep.executeMutable(HandleStaleOutputsStep.java:43)
+	at org.gradle.internal.execution.steps.MutableStep.execute(MutableStep.java:26)
+	at org.gradle.internal.execution.steps.AssignMutableWorkspaceStep.lambda$executeMutable$0(AssignMutableWorkspaceStep.java:34)
+	at org.gradle.api.internal.tasks.execution.TaskExecution$4.withWorkspace(TaskExecution.java:314)
+	at org.gradle.internal.execution.steps.AssignMutableWorkspaceStep.executeMutable(AssignMutableWorkspaceStep.java:30)
+	at org.gradle.internal.execution.steps.AssignMutableWorkspaceStep.executeMutable(AssignMutableWorkspaceStep.java:21)
+	at org.gradle.internal.execution.steps.MutableStep.execute(MutableStep.java:26)
+	at org.gradle.internal.execution.steps.ChoosePipelineStep.execute(ChoosePipelineStep.java:40)
+	at org.gradle.internal.execution.steps.ChoosePipelineStep.execute(ChoosePipelineStep.java:23)
+	at org.gradle.internal.execution.steps.ExecuteWorkBuildOperationFiringStep.lambda$execute$2(ExecuteWorkBuildOperationFiringStep.java:67)
+	at org.gradle.internal.execution.steps.ExecuteWorkBuildOperationFiringStep.execute(ExecuteWorkBuildOperationFiringStep.java:67)
+	at org.gradle.internal.execution.steps.ExecuteWorkBuildOperationFiringStep.execute(ExecuteWorkBuildOperationFiringStep.java:39)
+	at org.gradle.internal.execution.steps.IdentityCacheStep.execute(IdentityCacheStep.java:46)
+	at org.gradle.internal.execution.steps.IdentityCacheStep.execute(IdentityCacheStep.java:34)
+	at org.gradle.internal.execution.steps.IdentifyStep.execute(IdentifyStep.java:56)
+	at org.gradle.internal.execution.steps.IdentifyStep.execute(IdentifyStep.java:38)
+	at org.gradle.internal.execution.impl.DefaultExecutionEngine$1.execute(DefaultExecutionEngine.java:68)
+	at org.gradle.api.internal.tasks.execution.DefaultTaskNodeExecutor.doExecute(DefaultTaskNodeExecutor.java:364)
+	... 25 more
+
+
+BUILD FAILED in 1m 23s
+1 actionable task: 1 executed

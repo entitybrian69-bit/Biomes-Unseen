@@ -1,0 +1,15 @@
+{
+  "structures": [
+    {
+      "structure": "biomesunseen:cradle_of_roots",
+      "weight": 4
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "salt": 24588,
+    "spacing": 48,
+    "separation": 18,
+    "spread_type": "linear"
+  }
+}

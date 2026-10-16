@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "biomesunseen:ashium_ore"
+  },
+  "result": "biomesunseen:ashium",
+  "experience": 0.7,
+  "cookingtime": 200
+}

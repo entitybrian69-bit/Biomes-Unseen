@@ -1,0 +1,402 @@
+MODULE=forge-1.18.2
+MCJAR=/home/runner/.gradle/caches/modules-2/files-2.1/net.minecraftforge/javafmllanguage/1.18.2-40.2.21/c6fe3441af3b7980be1ed98298708883124cc3bf/javafmllanguage-1.18.2-40.2.21.jar
+### net.minecraft.world.entity.Entity
+    Error: class not found: net.minecraft.world.entity.Entity
+### net.minecraft.world.entity.LivingEntity
+    Error: class not found: net.minecraft.world.entity.LivingEntity
+### net.minecraft.world.entity.Mob
+    Error: class not found: net.minecraft.world.entity.Mob
+### net.minecraft.world.entity.MobCategory
+    Error: class not found: net.minecraft.world.entity.MobCategory
+### net.minecraft.world.entity.EntityType
+    Error: class not found: net.minecraft.world.entity.EntityType
+### net.minecraft.world.entity.EntityType$Builder
+    Error: class not found: net.minecraft.world.entity.EntityType$Builder
+### net.minecraft.world.entity.EntityDimensions
+    Error: class not found: net.minecraft.world.entity.EntityDimensions
+### net.minecraft.world.entity.EquipmentSlot
+    Error: class not found: net.minecraft.world.entity.EquipmentSlot
+### net.minecraft.world.entity.SpawnPlacements
+    Error: class not found: net.minecraft.world.entity.SpawnPlacements
+### net.minecraft.world.entity.SpawnPlacements$Type
+    Error: class not found: net.minecraft.world.entity.SpawnPlacements$Type
+### net.minecraft.world.entity.SpawnPlacements$SpawnPredicate
+    Error: class not found: net.minecraft.world.entity.SpawnPlacements$SpawnPredicate
+### net.minecraft.world.entity.ai.goal.Goal
+    Error: class not found: net.minecraft.world.entity.ai.goal.Goal
+### net.minecraft.world.entity.ai.goal.FloatGoal
+    Error: class not found: net.minecraft.world.entity.ai.goal.FloatGoal
+### net.minecraft.world.entity.ai.goal.SwimGoal
+    Error: class not found: net.minecraft.world.entity.ai.goal.SwimGoal
+### net.minecraft.world.entity.ai.goal.MeleeAttackGoal
+    Error: class not found: net.minecraft.world.entity.ai.goal.MeleeAttackGoal
+### net.minecraft.world.entity.ai.goal.PanicGoal
+    Error: class not found: net.minecraft.world.entity.ai.goal.PanicGoal
+### net.minecraft.world.entity.ai.goal.LookAtPlayerGoal
+    Error: class not found: net.minecraft.world.entity.ai.goal.LookAtPlayerGoal
+### net.minecraft.world.entity.ai.goal.RandomLookAroundGoal
+    Error: class not found: net.minecraft.world.entity.ai.goal.RandomLookAroundGoal
+### net.minecraft.world.entity.ai.goal.WaterAvoidingRandomStrollGoal
+    Error: class not found: net.minecraft.world.entity.ai.goal.WaterAvoidingRandomStrollGoal
+### net.minecraft.world.entity.ai.goal.WaterAvoidingRandomWalkingGoal
+    Error: class not found: net.minecraft.world.entity.ai.goal.WaterAvoidingRandomWalkingGoal
+### net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal
+    Error: class not found: net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal
+### net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal
+    Error: class not found: net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal
+### net.minecraft.world.entity.ai.attributes.Attributes
+    Error: class not found: net.minecraft.world.entity.ai.attributes.Attributes
+### net.minecraft.world.entity.ai.attributes.AttributeSupplier$Builder
+    Error: class not found: net.minecraft.world.entity.ai.attributes.AttributeSupplier$Builder
+### net.minecraft.world.entity.player.Player
+    Error: class not found: net.minecraft.world.entity.player.Player
+### net.minecraft.world.entity.animal.Animal
+    Error: class not found: net.minecraft.world.entity.animal.Animal
+### net.minecraft.world.entity.PathfinderMob
+    Error: class not found: net.minecraft.world.entity.PathfinderMob
+### net.minecraft.world.entity.TamableAnimal
+    Error: class not found: net.minecraft.world.entity.TamableAnimal
+### net.minecraft.world.InteractionResult
+    Error: class not found: net.minecraft.world.InteractionResult
+### net.minecraft.world.InteractionResultHolder
+    Error: class not found: net.minecraft.world.InteractionResultHolder
+### net.minecraft.world.InteractionHand
+    Error: class not found: net.minecraft.world.InteractionHand
+### net.minecraft.world.damagesource.DamageSource
+    Error: class not found: net.minecraft.world.damagesource.DamageSource
+### net.minecraft.world.damagesource.DamageTypes
+    Error: class not found: net.minecraft.world.damagesource.DamageTypes
+### net.minecraft.world.phys.Vec3
+    Error: class not found: net.minecraft.world.phys.Vec3
+### net.minecraft.world.level.Level
+    Error: class not found: net.minecraft.world.level.Level
+### net.minecraft.world.level.LevelAccessor
+    Error: class not found: net.minecraft.world.level.LevelAccessor
+### net.minecraft.world.level.ServerLevelAccessor
+    Error: class not found: net.minecraft.world.level.ServerLevelAccessor
+### net.minecraft.world.level.block.Block
+    Error: class not found: net.minecraft.world.level.block.Block
+### net.minecraft.world.level.block.state.BlockBehaviour$Properties
+    Error: class not found: net.minecraft.world.level.block.state.BlockBehaviour$Properties
+### net.minecraft.world.level.block.SoundType
+    Error: class not found: net.minecraft.world.level.block.SoundType
+### net.minecraft.world.level.material.MapColor
+    Error: class not found: net.minecraft.world.level.material.MapColor
+### net.minecraft.world.level.material.Material
+    Error: class not found: net.minecraft.world.level.material.Material
+### net.minecraft.world.item.Item
+    Error: class not found: net.minecraft.world.item.Item
+### net.minecraft.world.item.Item$Properties
+    Error: class not found: net.minecraft.world.item.Item$Properties
+### net.minecraft.world.item.BlockItem
+    Error: class not found: net.minecraft.world.item.BlockItem
+### net.minecraft.world.item.SpawnEggItem
+    Error: class not found: net.minecraft.world.item.SpawnEggItem
+### net.minecraft.world.item.SwordItem
+    Error: class not found: net.minecraft.world.item.SwordItem
+### net.minecraft.world.item.PickaxeItem
+    Error: class not found: net.minecraft.world.item.PickaxeItem
+### net.minecraft.world.item.AxeItem
+    Error: class not found: net.minecraft.world.item.AxeItem
+### net.minecraft.world.item.ShovelItem
+    Error: class not found: net.minecraft.world.item.ShovelItem
+### net.minecraft.world.item.HoeItem
+    Error: class not found: net.minecraft.world.item.HoeItem
+### net.minecraft.world.item.Tier
+    Error: class not found: net.minecraft.world.item.Tier
+### net.minecraft.world.item.Tiers
+    Error: class not found: net.minecraft.world.item.Tiers
+### net.minecraft.world.item.ArmorItem
+    Error: class not found: net.minecraft.world.item.ArmorItem
+### net.minecraft.world.item.ArmorItem$Type
+    Error: class not found: net.minecraft.world.item.ArmorItem$Type
+### net.minecraft.world.item.ArmorMaterial
+    Error: class not found: net.minecraft.world.item.ArmorMaterial
+### net.minecraft.world.item.ArmorMaterials
+    Error: class not found: net.minecraft.world.item.ArmorMaterials
+### net.minecraft.world.item.ItemGroup
+    Error: class not found: net.minecraft.world.item.ItemGroup
+### net.minecraft.world.item.CreativeModeTab
+    Error: class not found: net.minecraft.world.item.CreativeModeTab
+### net.minecraft.world.item.CreativeModeTab$Builder
+    Error: class not found: net.minecraft.world.item.CreativeModeTab$Builder
+### net.minecraft.world.item.CreativeModeTab$Row
+    Error: class not found: net.minecraft.world.item.CreativeModeTab$Row
+### net.minecraft.world.item.CreativeModeTabs
+    Error: class not found: net.minecraft.world.item.CreativeModeTabs
+### net.minecraft.world.item.crafting.Ingredient
+    Error: class not found: net.minecraft.world.item.crafting.Ingredient
+### net.minecraft.world.item.ItemStack
+    Error: class not found: net.minecraft.world.item.ItemStack
+### net.minecraft.world.food.FoodProperties
+    Error: class not found: net.minecraft.world.food.FoodProperties
+### net.minecraft.world.effect.MobEffect
+    Error: class not found: net.minecraft.world.effect.MobEffect
+### net.minecraft.world.effect.MobEffectInstance
+    Error: class not found: net.minecraft.world.effect.MobEffectInstance
+### net.minecraft.world.effect.MobEffects
+    Error: class not found: net.minecraft.world.effect.MobEffects
+### net.minecraft.sounds.SoundEvent
+    Error: class not found: net.minecraft.sounds.SoundEvent
+### net.minecraft.sounds.SoundEvents
+    Error: class not found: net.minecraft.sounds.SoundEvents
+### net.minecraft.sounds.Music
+    Error: class not found: net.minecraft.sounds.Music
+### net.minecraft.core.particles.ParticleType
+    Error: class not found: net.minecraft.core.particles.ParticleType
+### net.minecraft.core.particles.SimpleParticleType
+    Error: class not found: net.minecraft.core.particles.SimpleParticleType
+### net.minecraft.core.particles.ParticleOptions
+    Error: class not found: net.minecraft.core.particles.ParticleOptions
+### net.minecraft.core.Registry
+    Error: class not found: net.minecraft.core.Registry
+### net.minecraft.core.BuiltInRegistries
+    Error: class not found: net.minecraft.core.BuiltInRegistries
+### net.minecraft.core.registries.Registries
+    Error: class not found: net.minecraft.core.registries.Registries
+### net.minecraft.core.registries.BuiltInRegistries
+    Error: class not found: net.minecraft.core.registries.BuiltInRegistries
+### net.minecraft.core.Holder
+    Error: class not found: net.minecraft.core.Holder
+### net.minecraft.core.HolderGetter
+    Error: class not found: net.minecraft.core.HolderGetter
+### net.minecraft.core.HolderSet
+    Error: class not found: net.minecraft.core.HolderSet
+### net.minecraft.core.RegistrySetBuilder
+    Error: class not found: net.minecraft.core.RegistrySetBuilder
+### net.minecraft.core.RegistrySetBuilder$RegistryBootstrap
+    Error: class not found: net.minecraft.core.RegistrySetBuilder$RegistryBootstrap
+### net.minecraft.data.worldgen.BootstrapContext
+    Error: class not found: net.minecraft.data.worldgen.BootstrapContext
+### net.minecraft.resources.ResourceLocation
+    Error: class not found: net.minecraft.resources.ResourceLocation
+### net.minecraft.resources.ResourceKey
+    Error: class not found: net.minecraft.resources.ResourceKey
+### net.minecraft.network.chat.Component
+    Error: class not found: net.minecraft.network.chat.Component
+### net.minecraft.network.syncher.SynchedEntityData
+    Error: class not found: net.minecraft.network.syncher.SynchedEntityData
+### net.minecraft.network.syncher.EntityDataAccessor
+    Error: class not found: net.minecraft.network.syncher.EntityDataAccessor
+### net.minecraft.network.syncher.EntityDataSerializers
+    Error: class not found: net.minecraft.network.syncher.EntityDataSerializers
+### net.minecraft.tags.TagKey
+    Error: class not found: net.minecraft.tags.TagKey
+### net.minecraft.tags.BlockTags
+    Error: class not found: net.minecraft.tags.BlockTags
+### net.minecraft.tags.ItemTags
+    Error: class not found: net.minecraft.tags.ItemTags
+### net.minecraft.util.Mth
+    Error: class not found: net.minecraft.util.Mth
+### net.minecraft.util.RandomSource
+    Error: class not found: net.minecraft.util.RandomSource
+### net.minecraft.util.valueproviders.IntProvider
+    Error: class not found: net.minecraft.util.valueproviders.IntProvider
+### net.minecraft.world.level.biome.Biome
+    Error: class not found: net.minecraft.world.level.biome.Biome
+### net.minecraft.world.level.biome.Biome$BiomeBuilder
+    Error: class not found: net.minecraft.world.level.biome.Biome$BiomeBuilder
+### net.minecraft.world.level.biome.BiomeSpecialEffects
+    Error: class not found: net.minecraft.world.level.biome.BiomeSpecialEffects
+### net.minecraft.world.level.biome.BiomeSpecialEffects$Builder
+    Error: class not found: net.minecraft.world.level.biome.BiomeSpecialEffects$Builder
+### net.minecraft.world.level.biome.MobSpawnSettings
+    Error: class not found: net.minecraft.world.level.biome.MobSpawnSettings
+### net.minecraft.world.level.biome.MobSpawnSettings$Builder
+    Error: class not found: net.minecraft.world.level.biome.MobSpawnSettings$Builder
+### net.minecraft.world.level.biome.MobSpawnSettings$SpawnerData
+    Error: class not found: net.minecraft.world.level.biome.MobSpawnSettings$SpawnerData
+### net.minecraft.world.level.biome.BiomeGenerationSettings
+    Error: class not found: net.minecraft.world.level.biome.BiomeGenerationSettings
+### net.minecraft.world.level.biome.BiomeGenerationSettings$Builder
+    Error: class not found: net.minecraft.world.level.biome.BiomeGenerationSettings$Builder
+### net.minecraft.world.level.biome.ClimateSettings
+    Error: class not found: net.minecraft.world.level.biome.ClimateSettings
+### net.minecraft.world.level.biome.AmbientMoodSettings
+    Error: class not found: net.minecraft.world.level.biome.AmbientMoodSettings
+### net.minecraft.world.level.biome.AmbientAdditionsSettings
+    Error: class not found: net.minecraft.world.level.biome.AmbientAdditionsSettings
+### net.minecraft.world.level.biome.BiomeParticle
+    Error: class not found: net.minecraft.world.level.biome.BiomeParticle
+### net.minecraft.world.level.levelgen.GenerationStep
+    Error: class not found: net.minecraft.world.level.levelgen.GenerationStep
+### net.minecraft.world.level.levelgen.GenerationStep$Decoration
+    Error: class not found: net.minecraft.world.level.levelgen.GenerationStep$Decoration
+### net.minecraft.world.level.levelgen.Heightmap$Types
+    Error: class not found: net.minecraft.world.level.levelgen.Heightmap$Types
+### net.minecraft.world.level.levelgen.feature.ConfiguredFeature
+    Error: class not found: net.minecraft.world.level.levelgen.feature.ConfiguredFeature
+### net.minecraft.world.level.levelgen.feature.Feature
+    Error: class not found: net.minecraft.world.level.levelgen.feature.Feature
+### net.minecraft.world.level.levelgen.feature.configurations.OreConfiguration
+    Error: class not found: net.minecraft.world.level.levelgen.feature.configurations.OreConfiguration
+### net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration
+    Error: class not found: net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration
+### net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider
+    Error: class not found: net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider
+### net.minecraft.world.level.levelgen.placement.PlacedFeature
+    Error: class not found: net.minecraft.world.level.levelgen.placement.PlacedFeature
+### net.minecraft.world.level.levelgen.placement.PlacementModifier
+    Error: class not found: net.minecraft.world.level.levelgen.placement.PlacementModifier
+### net.minecraft.world.level.levelgen.placement.PlacementContext
+    Error: class not found: net.minecraft.world.level.levelgen.placement.PlacementContext
+### net.minecraft.world.level.levelgen.structure.Structure
+    Error: class not found: net.minecraft.world.level.levelgen.structure.Structure
+### net.minecraft.world.level.levelgen.structure.StructureType
+    Error: class not found: net.minecraft.world.level.levelgen.structure.StructureType
+### net.minecraft.world.level.levelgen.structure.StructurePiece
+    Error: class not found: net.minecraft.world.level.levelgen.structure.StructurePiece
+### net.minecraft.world.level.levelgen.structure.TemplateStructurePiece
+    Error: class not found: net.minecraft.world.level.levelgen.structure.TemplateStructurePiece
+### net.minecraft.world.level.levelgen.structure.pools.StructureTemplatePool
+    Error: class not found: net.minecraft.world.level.levelgen.structure.pools.StructureTemplatePool
+### net.minecraft.world.level.levelgen.structure.structures.JigsawStructure
+    Error: class not found: net.minecraft.world.level.levelgen.structure.structures.JigsawStructure
+### net.minecraft.world.level.levelgen.structure.templatesystem.StructureProcessorList
+    Error: class not found: net.minecraft.world.level.levelgen.structure.templatesystem.StructureProcessorList
+### net.minecraft.world.level.storage.loot.LootPool
+    Error: class not found: net.minecraft.world.level.storage.loot.LootPool
+### net.minecraft.world.level.storage.loot.LootTable
+    Error: class not found: net.minecraft.world.level.storage.loot.LootTable
+### net.minecraft.client.model.EntityModel
+    Error: class not found: net.minecraft.client.model.EntityModel
+### net.minecraft.client.model.HumanoidModel
+    Error: class not found: net.minecraft.client.model.HumanoidModel
+### net.minecraft.client.model.geom.ModelPart
+    Error: class not found: net.minecraft.client.model.geom.ModelPart
+### net.minecraft.client.model.geom.ModelLayerLocation
+    Error: class not found: net.minecraft.client.model.geom.ModelLayerLocation
+### net.minecraft.client.model.geom.builders.LayerDefinition
+    Error: class not found: net.minecraft.client.model.geom.builders.LayerDefinition
+### net.minecraft.client.model.geom.builders.MeshDefinition
+    Error: class not found: net.minecraft.client.model.geom.builders.MeshDefinition
+### net.minecraft.client.model.geom.builders.PartDefinition
+    Error: class not found: net.minecraft.client.model.geom.builders.PartDefinition
+### net.minecraft.client.model.geom.builders.CubeListBuilder
+    Error: class not found: net.minecraft.client.model.geom.builders.CubeListBuilder
+### net.minecraft.client.model.geom.builders.PartPose
+    Error: class not found: net.minecraft.client.model.geom.builders.PartPose
+### net.minecraft.client.renderer.entity.MobRenderer
+    Error: class not found: net.minecraft.client.renderer.entity.MobRenderer
+### net.minecraft.client.renderer.entity.EntityRenderer
+    Error: class not found: net.minecraft.client.renderer.entity.EntityRenderer
+### net.minecraft.client.renderer.entity.EntityRendererProvider
+    Error: class not found: net.minecraft.client.renderer.entity.EntityRendererProvider
+### net.minecraft.client.renderer.entity.EntityRendererProvider$Context
+    Error: class not found: net.minecraft.client.renderer.entity.EntityRendererProvider$Context
+### net.minecraft.client.renderer.entity.LivingEntityRenderer
+    Error: class not found: net.minecraft.client.renderer.entity.LivingEntityRenderer
+### net.minecraft.client.particle.Particle
+    Error: class not found: net.minecraft.client.particle.Particle
+### net.minecraft.client.particle.ParticleProvider
+    Error: class not found: net.minecraft.client.particle.ParticleProvider
+### net.minecraft.client.particle.ParticleRenderType
+    Error: class not found: net.minecraft.client.particle.ParticleRenderType
+### net.minecraft.client.particle.SpriteSet
+    Error: class not found: net.minecraft.client.particle.SpriteSet
+### net.minecraft.client.multiplayer.ClientLevel
+    Error: class not found: net.minecraft.client.multiplayer.ClientLevel
+### net.minecraft.world.level.levelgen.feature.configurations.NoneDecoratorConfiguration
+    Error: class not found: net.minecraft.world.level.levelgen.feature.configurations.NoneDecoratorConfiguration
+### net.minecraft.world.level.block.entity.BlockEntity
+    Error: class not found: net.minecraft.world.level.block.entity.BlockEntity
+### net.minecraft.world.level.block.entity.BlockEntityType
+    Error: class not found: net.minecraft.world.level.block.entity.BlockEntityType
+### net.minecraft.world.level.block.entity.BlockEntityType$Builder
+    Error: class not found: net.minecraft.world.level.block.entity.BlockEntityType$Builder
+### net.minecraft.client.renderer.blockentity.BlockEntityRenderer
+    Error: class not found: net.minecraft.client.renderer.blockentity.BlockEntityRenderer
+### net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider
+    Error: class not found: net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider
+### net.minecraft.world.item.ToolMaterial
+    Error: class not found: net.minecraft.world.item.ToolMaterial
+### net.minecraft.world.item.ToolMaterials
+    Error: class not found: net.minecraft.world.item.ToolMaterials
+### net.minecraft.world.item.equipment.ToolTier
+    Error: class not found: net.minecraft.world.item.equipment.ToolTier
+### net.minecraft.world.item.equipment.ToolTiers
+    Error: class not found: net.minecraft.world.item.equipment.ToolTiers
+### net.minecraft.world.item.DiggerItem
+    Error: class not found: net.minecraft.world.item.DiggerItem
+### net.minecraft.world.item.component.Tool
+    Error: class not found: net.minecraft.world.item.component.Tool
+### net.minecraft.core.component.DataComponents
+    Error: class not found: net.minecraft.core.component.DataComponents
+### net.minecraft.resources.Identifier
+    Error: class not found: net.minecraft.resources.Identifier
+### CLASS-INDEX
+ABSENT  net.minecraft.entity.EntityType
+ABSENT  net.minecraft.entity.MobEntity
+ABSENT  net.minecraft.entity.LivingEntity
+ABSENT  net.minecraft.entity.Mob
+ABSENT  net.minecraft.entity.player.PlayerEntity
+ABSENT  net.minecraft.entity.player.Player
+ABSENT  net.minecraft.world.World
+ABSENT  net.minecraft.world.level.Level
+ABSENT  net.minecraft.util.ActionResultType
+ABSENT  net.minecraft.util.Hand
+ABSENT  net.minecraft.world.InteractionResult
+ABSENT  net.minecraft.world.InteractionHand
+ABSENT  net.minecraft.network.datasync.DataParameter
+ABSENT  net.minecraft.network.syncher.EntityDataAccessor
+ABSENT  net.minecraft.util.DamageSource
+ABSENT  net.minecraft.world.damagesource.DamageSource
+ABSENT  net.minecraft.particles.BasicParticleType
+ABSENT  net.minecraft.core.particles.SimpleParticleType
+ABSENT  net.minecraft.util.registry.Registry
+ABSENT  net.minecraft.core.Registry
+ABSENT  net.minecraft.core.registries.Registries
+ABSENT  net.minecraft.util.Identifier
+ABSENT  net.minecraft.resources.ResourceLocation
+ABSENT  net.minecraft.util.registry.RegistryKey
+ABSENT  net.minecraft.resources.ResourceKey
+ABSENT  net.minecraft.text.Text
+ABSENT  net.minecraft.network.chat.Component
+ABSENT  net.minecraft.item.Item
+ABSENT  net.minecraft.world.item.Item
+ABSENT  net.minecraft.item.ItemGroup
+ABSENT  net.minecraft.world.item.CreativeModeTab
+ABSENT  net.minecraft.item.ArmorItem
+ABSENT  net.minecraft.world.item.ArmorItem
+ABSENT  net.minecraft.item.ArmorMaterial
+ABSENT  net.minecraft.world.item.ArmorMaterial
+ABSENT  net.minecraft.inventory.EquipmentSlotType
+ABSENT  net.minecraft.world.entity.EquipmentSlot
+ABSENT  net.minecraft.block.Block
+ABSENT  net.minecraft.world.level.block.Block
+ABSENT  net.minecraft.block.AbstractBlock$Properties
+ABSENT  net.minecraft.world.level.block.state.BlockBehaviour$Properties
+ABSENT  net.minecraft.sound.SoundEvent
+ABSENT  net.minecraft.sounds.SoundEvent
+ABSENT  net.minecraft.world.biome.Biome
+ABSENT  net.minecraft.world.level.biome.Biome
+ABSENT  net.minecraft.world.gen.GenerationStep$Category
+ABSENT  net.minecraft.world.level.levelgen.GenerationStep$Decoration
+ABSENT  net.minecraft.world.gen.feature.ConfiguredFeature
+ABSENT  net.minecraft.world.level.levelgen.feature.ConfiguredFeature
+ABSENT  net.minecraft.world.gen.feature.OreFeatureConfig
+ABSENT  net.minecraft.world.level.levelgen.feature.configurations.OreConfiguration
+ABSENT  net.minecraft.world.gen.structure.Structure
+ABSENT  net.minecraft.world.level.levelgen.structure.Structure
+ABSENT  net.minecraft.client.model.ModelPart
+ABSENT  net.minecraft.client.model.geom.ModelPart
+ABSENT  net.minecraft.client.render.entity.MobEntityRenderer
+ABSENT  net.minecraft.client.renderer.entity.MobRenderer
+ABSENT  net.minecraft.client.particle.Particle
+ABSENT  net.minecraft.entity.ai.goal.SwimGoal
+ABSENT  net.minecraft.world.entity.ai.goal.FloatGoal
+ABSENT  net.minecraft.entity.ai.goal.MeleeAttackGoal
+ABSENT  net.minecraft.world.entity.ai.goal.MeleeAttackGoal
+ABSENT  net.minecraft.entity.ai.goal.target.NearestAttackableTargetGoal
+ABSENT  net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal
+ABSENT  net.minecraft.entity.ai.attributes.EntityAttributes
+ABSENT  net.minecraft.world.entity.ai.attributes.Attributes
+ABSENT  net.minecraft.entity.attribute.EntityAttribute
+ABSENT  net.minecraft.world.entity.ai.attributes.Attribute
+ABSENT  net.minecraft.entity.attribute.DefaultAttributeContainer
+ABSENT  net.minecraft.world.entity.ai.attributes.AttributeSupplier
+ABSENT  net.minecraft.world.item.ToolMaterial
+ABSENT  net.minecraft.world.item.ToolMaterials
+ABSENT  net.minecraft.world.item.equipment.ToolTier
+ABSENT  net.minecraft.world.item.DiggerItem
+ABSENT  net.minecraft.resources.Identifier

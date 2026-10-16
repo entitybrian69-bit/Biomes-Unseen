@@ -1,0 +1,15 @@
+{
+  "structures": [
+    {
+      "structure": "biomesunseen:glitterfall_cave",
+      "weight": 6
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "salt": 75802,
+    "spacing": 22,
+    "separation": 9,
+    "spread_type": "linear"
+  }
+}

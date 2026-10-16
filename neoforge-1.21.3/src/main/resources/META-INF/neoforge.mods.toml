@@ -1,0 +1,10 @@
+modLoader="javafml"
+loaderVersion="[1,)"
+license="MIT"
+
+[[mods]]
+modId="biomesunseen"
+version="${version}"
+displayName="Biomes Unseen"
+authors="Biomes Unseen Team"
+description=

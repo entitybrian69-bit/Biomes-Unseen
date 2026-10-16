@@ -1,0 +1,70 @@
+{
+  "category": "frost",
+  "depth": 1.5,
+  "scale": 2.2,
+  "temperature": -0.45,
+  "downfall": 0.55,
+  "precipitation": "snow",
+  "surface_builder": "minecraft:default",
+  "effects": {
+    "grass_color": 11069135,
+    "foliage_color": 9427144,
+    "water_color": 7321832,
+    "sky_color": 14086399,
+    "fog_color": 15399167,
+    "mood_sound": {
+      "sound": "ambient.biomesunseen.frost_loop",
+      "tick_delay": 400,
+      "block_search_extent": 8,
+      "offset": 2.0
+    }
+  },
+  "features": [
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [
+      "biomesunseen:glimmer_quartz_ore",
+      "biomesunseen:froststeel_ore",
+      "biomesunseen:moonshard_ore",
+      "biomesunseen:stelliferrum_ore",
+      "biomesunseen:tideglass_ore",
+      "biomesunseen:hearthstone_ore"
+    ],
+    [],
+    [],
+    []
+  ],
+  "spawners": {
+    "monster": [],
+    "creature": [
+      {
+        "type": "biomesunseen:frost_fawn",
+        "weight": 12,
+        "minCount": 1,
+        "maxCount": 2
+      },
+      {
+        "type": "biomesunseen:mosshorn",
+        "weight": 8,
+        "minCount": 1,
+        "maxCount": 2
+      },
+      {
+        "type": "biomesunseen:lantern_fox",
+        "weight": 11,
+        "minCount": 1,
+        "maxCount": 2
+      }
+    ],
+    "ambient": [],
+    "axolotls": [],
+    "underground_water_creature": [],
+    "water_creature": [],
+    "water_ambient": [],
+    "misc": []
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "structures": [
+    {
+      "structure": "biomesunseen:mossbound_keep",
+      "weight": 5
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "salt": 49573,
+    "spacing": 34,
+    "separation": 13,
+    "spread_type": "linear"
+  }
+}

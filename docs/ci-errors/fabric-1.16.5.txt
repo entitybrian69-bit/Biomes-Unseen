@@ -1,0 +1,295 @@
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.16.5/java/com/biomesunseen/entity/BiomesUnseenMob.java:172: error: cannot find symbol
+    public void remove(RemovalReason reason) {
+                       ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.16.5/java/com/biomesunseen/entity/mobs/CinderPupEntity.java:52: error: cannot find symbol
+    public net.minecraft.world.InteractionResult mobInteract(Player player, net.minecraft.world.InteractionHand hand) {
+                                                             ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.16.5/java/com/biomesunseen/entity/mobs/LanternFoxEntity.java:48: error: cannot find symbol
+    public net.minecraft.world.InteractionResult mobInteract(Player player, net.minecraft.world.InteractionHand hand) {
+                                                             ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.16.5/java/com/biomesunseen/entity/mobs/FrostFawnEntity.java:50: error: cannot find symbol
+    public net.minecraft.world.InteractionResult mobInteract(Player player, net.minecraft.world.InteractionHand hand) {
+                                                             ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.16.5/java/com/biomesunseen/entity/mobs/LumoxEntity.java:50: error: cannot find symbol
+    public net.minecraft.world.InteractionResult mobInteract(Player player, net.minecraft.world.InteractionHand hand) {
+                                                             ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.16.5/java/com/biomesunseen/entity/mobs/EmberCalfEntity.java:49: error: cannot find symbol
+    public net.minecraft.world.InteractionResult mobInteract(Player player, net.minecraft.world.InteractionHand hand) {
+                                                             ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.16.5/java/com/biomesunseen/entity/mobs/SporeSproutEntity.java:48: error: cannot find symbol
+    public net.minecraft.world.InteractionResult mobInteract(Player player, net.minecraft.world.InteractionHand hand) {
+                                                             ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.16.5/java/com/biomesunseen/registry/ModEntities.java:4: error: cannot find symbol
+import net.minecraft.world.entity.EntityClassification;
+                                 ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.16.5/java/com/biomesunseen/registry/ModEntities.java:12: error: cannot find symbol
+import me.shedaniel.architectury.registry.EntityAttributeRegistry;
+                                         ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.16.5/java/com/biomesunseen/registry/ModParticles.java:4: error: package net.minecraft.particles does not exist
+import net.minecraft.particles.ParticleType;
+                              ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.16.5/java/com/biomesunseen/registry/ModParticles.java:20: error: cannot find symbol
+    public static final Map<String, RegistrySupplier<ParticleType<SimpleParticleType>>> BY_ID =
+                                                     ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.16.5/java/com/biomesunseen/registry/ModParticles.java:55: error: cannot find symbol
+    private static RegistrySupplier<ParticleType<SimpleParticleType>> narrow(RegistrySupplier<?> supplier) {
+                                    ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.16.5/java/com/biomesunseen/registry/ModParticles.java:59: error: cannot find symbol
+    public static ParticleType<?> byId(String id) {
+                  ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.16.5/java/com/biomesunseen/registry/ModBlocks.java:4: error: cannot find symbol
+import net.minecraft.world.level.block.AbstractBlock;
+                                      ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.16.5/java/com/biomesunseen/item/UnseenToolTier.java:3: error: cannot find symbol
+import net.minecraft.world.item.IItemTier;
+                               ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.16.5/java/com/biomesunseen/item/UnseenToolTier.java:14: error: cannot find symbol
+public class UnseenToolTier implements IItemTier {
+                                       ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.16.5/java/com/biomesunseen/item/UnseenArmorMaterial.java:4: error: cannot find symbol
+import net.minecraft.world.item.IArmorMaterial;
+                               ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.16.5/java/com/biomesunseen/item/UnseenArmorMaterial.java:17: error: cannot find symbol
+public class UnseenArmorMaterial implements IArmorMaterial {
+                                            ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.16.5/java/com/biomesunseen/registry/ModRegistries.java:6: error: package net.minecraft.particles does not exist
+import net.minecraft.particles.ParticleType;
+                              ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.16.5/java/com/biomesunseen/registry/ModRegistries.java:31: error: cannot find symbol
+    public static final DeferredRegister<ParticleType<?>> PARTICLES =
+                                         ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.16.5/java/com/biomesunseen/item/LoreBookItem.java:6: error: package net.minecraft.potion does not exist
+import net.minecraft.potion.EffectInstance;
+                           ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.16.5/java/com/biomesunseen/item/LoreBookItem.java:7: error: package net.minecraft.potion does not exist
+import net.minecraft.potion.Effects;
+                           ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.16.5/java/com/biomesunseen/item/UnseenTonicItem.java:6: error: package net.minecraft.potion does not exist
+import net.minecraft.potion.EffectInstance;
+                           ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.16.5/java/com/biomesunseen/item/UnseenTonicItem.java:7: error: package net.minecraft.potion does not exist
+import net.minecraft.potion.Effects;
+                           ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.16.5/java/com/biomesunseen/item/UnseenTonicItem.java:41: error: package net.minecraft.potion does not exist
+    private static net.minecraft.potion.Effect effectFor(OreDef ore) {
+                                       ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.16.5/java/com/biomesunseen/item/UnseenGearItems.java:5: error: cannot find symbol
+import net.minecraft.world.item.IArmorMaterial;
+                               ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.16.5/java/com/biomesunseen/item/UnseenGearItems.java:6: error: cannot find symbol
+import net.minecraft.world.item.IItemTier;
+                               ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.16.5/java/com/biomesunseen/client/ClientSetup.java:3: error: cannot find symbol
+import me.shedaniel.architectury.registry.EntityRendererRegistry;
+                                         ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.16.5/java/com/biomesunseen/client/legacy/UnseenLegacyModel.java:6: error: cannot find symbol
+import net.minecraft.client.model.geom.ModelLayerLocation;
+                                      ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.16.5/java/com/biomesunseen/client/legacy/UnseenLegacyModel.java:8: error: cannot find symbol
+import net.minecraft.client.model.geom.PartPose;
+                                      ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.16.5/java/com/biomesunseen/client/legacy/UnseenLegacyModel.java:9: error: package net.minecraft.client.model.geom.builders does not exist
+import net.minecraft.client.model.geom.builders.CubeListBuilder;
+                                               ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.16.5/java/com/biomesunseen/client/legacy/UnseenLegacyModel.java:10: error: package net.minecraft.client.model.geom.builders does not exist
+import net.minecraft.client.model.geom.builders.LayerDefinition;
+                                               ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.16.5/java/com/biomesunseen/client/legacy/UnseenLegacyModel.java:11: error: package net.minecraft.client.model.geom.builders does not exist
+import net.minecraft.client.model.geom.builders.MeshDefinition;
+                                               ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.16.5/java/com/biomesunseen/client/legacy/UnseenLegacyModel.java:12: error: package net.minecraft.client.model.geom.builders does not exist
+import net.minecraft.client.model.geom.builders.PartDefinition;
+                                               ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.16.5/java/com/biomesunseen/client/legacy/UnseenLegacyModel.java:40: error: cannot find symbol
+    public static final ModelLayerLocation LAYER = new ModelLayerLocation(
+                        ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.16.5/java/com/biomesunseen/client/legacy/UnseenLegacyModel.java:43: error: cannot find symbol
+    public static LayerDefinition createBodyLayer() {
+                  ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.16.5/java/com/biomesunseen/client/legacy/UnseenLegacyRenderer.java:3: error: cannot find symbol
+import net.minecraft.client.renderer.entity.EntityRendererProvider;
+                                           ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.16.5/java/com/biomesunseen/client/legacy/UnseenLegacyRenderer.java:17: error: package EntityRendererProvider does not exist
+    public UnseenLegacyRenderer(EntityRendererProvider.Context context, String id) {
+                                                      ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.16.5/java/com/biomesunseen/client/particle/UnseenParticle.java:7: error: package net.minecraft.client.world does not exist
+import net.minecraft.client.world.ClientWorld;
+                                 ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.16.5/java/com/biomesunseen/client/particle/UnseenParticle.java:19: error: cannot find symbol
+    protected UnseenParticle(ClientWorld level, double x, double y, double z,
+                             ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.16.5/java/com/biomesunseen/client/particle/UnseenParticle.java:52: error: cannot find symbol
+        public Particle createParticle(SimpleParticleType type, ClientWorld level,
+                                                                ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.16.5/java/com/biomesunseen/worldgen/UnseenBiomeSelector.java:5: error: package net.minecraft.world.biome does not exist
+import net.minecraft.world.biome.Biome;
+                                ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.16.5/java/com/biomesunseen/worldgen/mixin/BiomeProviderMixin.java:4: error: package net.minecraft.world.biome does not exist
+import net.minecraft.world.biome.Biome;
+                                ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.16.5/java/com/biomesunseen/worldgen/mixin/BiomeProviderMixin.java:5: error: package net.minecraft.world.biome.provider does not exist
+import net.minecraft.world.biome.provider.BiomeProvider;
+                                         ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.16.5/java/com/biomesunseen/worldgen/mixin/BiomeProviderMixin.java:24: error: cannot find symbol
+            CallbackInfoReturnable<Biome> cir) {
+                                   ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.16.5/java/com/biomesunseen/worldgen/LegacyStructureRegistrar.java:3: error: package net.minecraft.world.gen.feature.structure does not exist
+import net.minecraft.world.gen.feature.structure.Structure;
+                                                ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.16.5/java/com/biomesunseen/worldgen/LegacyStructureRegistrar.java:4: error: package net.minecraft.world.gen.feature.structure does not exist
+import net.minecraft.world.gen.feature.structure.StructureSeparationSettings;
+                                                ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.16.5/java/com/biomesunseen/worldgen/LegacyStructureRegistrar.java:5: error: package net.minecraft.world.gen.settings does not exist
+import net.minecraft.world.gen.settings.DimensionStructuresSettings;
+                                       ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.16.5/java/com/biomesunseen/worldgen/LegacyBiomeRegistry.java:4: error: package net.minecraft.world.biome does not exist
+import net.minecraft.world.biome.Biome;
+                                ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.16.5/java/com/biomesunseen/worldgen/LegacyBiomeRegistry.java:11: error: cannot find symbol
+    private static Registry<Biome> biomes;
+                            ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.16.5/java/com/biomesunseen/worldgen/LegacyBiomeRegistry.java:17: error: cannot find symbol
+    public static void set(Registry<Biome> registry) {
+                                    ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.16.5/java/com/biomesunseen/worldgen/LegacyBiomeRegistry.java:21: error: cannot find symbol
+    public static Registry<Biome> get() {
+                           ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.16.5/java/com/biomesunseen/block/UnseenDecorBlock.java:4: error: cannot find symbol
+import net.minecraft.world.level.block.AbstractBlock;
+                                      ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.16.5/java/com/biomesunseen/block/UnseenDecorBlock.java:20: error: package AbstractBlock does not exist
+    private static AbstractBlock.Properties buildProperties(DecorDef decor) {
+                                ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.16.5/java/com/biomesunseen/block/UnseenOreBlock.java:4: error: cannot find symbol
+import net.minecraft.world.level.block.AbstractBlock;
+                                      ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.16.5/java/com/biomesunseen/block/UnseenOreBlock.java:21: error: package AbstractBlock does not exist
+    private static AbstractBlock.Properties buildProperties(OreDef ore) {
+                                ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.16.5/java/com/biomesunseen/block/UnseenPlantBlock.java:4: error: cannot find symbol
+import net.minecraft.world.level.block.AbstractBlock;
+                                      ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.16.5/java/com/biomesunseen/block/UnseenPlantBlock.java:22: error: package AbstractBlock does not exist
+    private static AbstractBlock.Properties buildProperties() {
+                                ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.16.5/java/com/biomesunseen/worldgen/mixin/BiomeProviderMixin.java:19: error: cannot find symbol
+@Mixin(BiomeProvider.class)
+       ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/fabric-1.16.5/src/main/java/com/biomesunseen/platform/PlatformExpectImpl.java:32: error: package net.minecraft.client.gui.screen does not exist
+        mc.setScreen((net.minecraft.client.gui.screen.Screen) screen);
+                                                     ^
+---
+=== STACKTRACE ===
+Caused by: org.gradle.api.internal.tasks.compile.CompilationFailedException: Compilation failed; see the compiler output below.
+=== WHAT WENT WRONG ===
+* What went wrong:
+Execution failed for task ':fabric-1.16.5:compileJava' (registered by plugin class 'org.gradle.api.plugins.JavaBasePlugin').
+> Compilation failed; see the compiler output below.
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.16.5/java/com/biomesunseen/entity/BiomesUnseenMob.java:172: error: cannot find symbol
+      public void remove(RemovalReason reason) {
+                         ^
+    symbol:   class RemovalReason
+    location: class com.biomesunseen.entity.BiomesUnseenMob
+  100 errors
+
+* Try:
+=== LAST 40 ===
+                                                                           ^
+  symbol:   class LookRandomlyGoal
+  location: package net.minecraft.world.entity.ai.goal
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.16.5/java/com/biomesunseen/entity/mobs/CrystalHermitEntity.java:36: error: cannot find symbol
+        this.goalSelector.addGoal(6, new net.minecraft.world.entity.ai.goal.LookAtGoal(this, net.minecraft.world.entity.player.Player.class, 8.0F));
+                                                                           ^
+  symbol:   class LookAtGoal
+  location: package net.minecraft.world.entity.ai.goal
+Note: Some input files use unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+100 errors
+	at org.gradle.api.internal.tasks.compile.JdkJavaCompiler.execute(JdkJavaCompiler.java:88)
+	at org.gradle.api.internal.tasks.compile.JdkJavaCompiler.execute(JdkJavaCompiler.java:49)
+	at org.gradle.api.internal.tasks.compile.daemon.CompilerWorkAction.execute(CompilerWorkAction.java:52)
+	at org.gradle.workers.internal.DefaultWorkerServer.execute(DefaultWorkerServer.java:68)
+	at org.gradle.workers.internal.AbstractClassLoaderWorker$1.create(AbstractClassLoaderWorker.java:54)
+	at org.gradle.workers.internal.AbstractClassLoaderWorker$1.create(AbstractClassLoaderWorker.java:48)
+	at org.gradle.internal.classloader.ClassLoaderUtils.executeInClassloader(ClassLoaderUtils.java:103)
+	at org.gradle.workers.internal.AbstractClassLoaderWorker.executeInClassLoader(AbstractClassLoaderWorker.java:48)
+	at org.gradle.workers.internal.FlatClassLoaderWorker.run(FlatClassLoaderWorker.java:32)
+	at org.gradle.workers.internal.FlatClassLoaderWorker.run(FlatClassLoaderWorker.java:22)
+	at org.gradle.workers.internal.WorkerDaemonServer.run(WorkerDaemonServer.java:109)
+	at org.gradle.workers.internal.WorkerDaemonServer.run(WorkerDaemonServer.java:78)
+	at org.gradle.process.internal.worker.request.WorkerAction.lambda$run$1(WorkerAction.java:150)
+	at org.gradle.process.internal.worker.child.WorkerLogEventListener.withWorkerLoggingProtocol(WorkerLogEventListener.java:41)
+	at org.gradle.process.internal.worker.request.WorkerAction.lambda$run$0(WorkerAction.java:150)
+	at org.gradle.internal.operations.CurrentBuildOperationRef.with(CurrentBuildOperationRef.java:85)
+	at org.gradle.process.internal.worker.request.WorkerAction.run(WorkerAction.java:142)
+	at org.gradle.internal.dispatch.MethodInvocation.invokeOn(MethodInvocation.java:77)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:28)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:19)
+	at org.gradle.internal.remote.internal.hub.MessageHubBackedObjectConnection$DispatchWrapper.dispatch(MessageHubBackedObjectConnection.java:183)
+	at org.gradle.internal.remote.internal.hub.MessageHubBackedObjectConnection$DispatchWrapper.dispatch(MessageHubBackedObjectConnection.java:165)
+	at org.gradle.internal.remote.internal.hub.MessageHub$Handler.run(MessageHub.java:414)
+	... 2 more
+
+
+BUILD FAILED in 1m 4s
+1 actionable task: 1 executed

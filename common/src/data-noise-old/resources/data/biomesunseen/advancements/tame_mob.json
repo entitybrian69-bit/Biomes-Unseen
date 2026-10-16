@@ -1,0 +1,15 @@
+{
+  "parent": "biomesunseen:root",
+  "display": {
+    "icon": {
+      "item": "biomesunseen:unseen_sigil"
+    },
+    "title": "A Bond Unseen",
+    "description": "Tame a Biomes Unseen creature"
+  },
+  "criteria": {
+    "tick": {
+      "trigger": "minecraft:tick"
+    }
+  }
+}

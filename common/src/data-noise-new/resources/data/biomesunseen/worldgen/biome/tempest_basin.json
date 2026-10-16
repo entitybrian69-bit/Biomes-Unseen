@@ -1,0 +1,77 @@
+{
+  "category": "storm",
+  "depth": -0.05,
+  "scale": 0.4,
+  "temperature": 0.5,
+  "downfall": 0.9,
+  "has_precipitation": true,
+  "effects": {
+    "grass_color": 7241610,
+    "foliage_color": 5663098,
+    "water_color": 4090767,
+    "sky_color": 8032168,
+    "fog_color": 10137538,
+    "mood_sound": {
+      "sound": "minecraft:biomesunseen.storm_loop",
+      "tick_delay": 400,
+      "block_search_extent": 8,
+      "offset": 2.0
+    }
+  },
+  "features": [
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [
+      "biomesunseen:glimmer_quartz_ore",
+      "biomesunseen:moonshard_ore",
+      "biomesunseen:thunderglass_ore",
+      "biomesunseen:stelliferrum_ore",
+      "biomesunseen:tideglass_ore",
+      "biomesunseen:hearthstone_ore"
+    ],
+    [],
+    [],
+    []
+  ],
+  "spawners": {
+    "monster": [
+      {
+        "type": "biomesunseen:echo_howler",
+        "weight": 8,
+        "minCount": 1,
+        "maxCount": 4
+      }
+    ],
+    "creature": [
+      {
+        "type": "biomesunseen:skywisp",
+        "weight": 12,
+        "minCount": 1,
+        "maxCount": 4
+      },
+      {
+        "type": "biomesunseen:thunder_ram",
+        "weight": 8,
+        "minCount": 1,
+        "maxCount": 4
+      },
+      {
+        "type": "biomesunseen:tide_caller",
+        "weight": 7,
+        "minCount": 1,
+        "maxCount": 4
+      }
+    ],
+    "ambient": [],
+    "axolotls": [],
+    "underground_water_creature": [],
+    "water_creature": [],
+    "water_ambient": [],
+    "misc": []
+  }
+}

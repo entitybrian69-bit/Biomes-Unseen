@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:blasting",
+  "ingredient": {
+    "item": "biomesunseen:stelliferrum_ore"
+  },
+  "result": "biomesunseen:stelliferrum",
+  "experience": 0.7,
+  "cookingtime": 100
+}
