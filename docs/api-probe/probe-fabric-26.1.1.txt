@@ -6,7 +6,7 @@ FAILURE: Build failed with an exception.
 
 * What went wrong:
 A problem occurred configuring project ':fabric-26.1.1'.
-> Failed to setup Minecraft, java.lang.IllegalArgumentException: Configuration 'mappings' has no dependencies
+> Failed to setup Minecraft, java.lang.NullPointerException: Cannot invoke "String.equals(Object)" because "srcNamespace" is null
 
 * Try:
 > Run with --stacktrace option to get the stack trace.
@@ -14,4 +14,4 @@ A problem occurred configuring project ':fabric-26.1.1'.
 > Run with --scan to get full insights from a Build Scan (powered by Develocity).
 > Get more help at https://help.gradle.org.
 
-BUILD FAILED in 44s
+BUILD FAILED in 58s

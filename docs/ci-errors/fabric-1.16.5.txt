@@ -1,6 +1,6 @@
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.16.5/java/com/biomesunseen/entity/BiomesUnseenMob.java:172: error: cannot find symbol
-    public void remove(RemovalReason reason) {
-                       ^
+    public void remove(net.minecraft.world.entity.Entity.RemovalReason reason) {
+                                                        ^
 ---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.16.5/java/com/biomesunseen/entity/mobs/CinderPupEntity.java:52: error: cannot find symbol
     public net.minecraft.world.InteractionResult mobInteract(Player player, net.minecraft.world.InteractionHand hand) {
@@ -245,10 +245,10 @@ Caused by: org.gradle.api.internal.tasks.compile.CompilationFailedException: Com
 Execution failed for task ':fabric-1.16.5:compileJava' (registered by plugin class 'org.gradle.api.plugins.JavaBasePlugin').
 > Compilation failed; see the compiler output below.
   /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.16.5/java/com/biomesunseen/entity/BiomesUnseenMob.java:172: error: cannot find symbol
-      public void remove(RemovalReason reason) {
-                         ^
+      public void remove(net.minecraft.world.entity.Entity.RemovalReason reason) {
+                                                          ^
     symbol:   class RemovalReason
-    location: class com.biomesunseen.entity.BiomesUnseenMob
+    location: class net.minecraft.world.entity.Entity
   100 errors
 
 * Try:
@@ -291,5 +291,5 @@ Note: Some messages have been simplified; recompile with -Xdiags:verbose to get 
 	... 2 more
 
 
-BUILD FAILED in 1m 28s
+BUILD FAILED in 1m 15s
 1 actionable task: 1 executed

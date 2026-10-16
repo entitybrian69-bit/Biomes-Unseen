@@ -1,41 +1,9 @@
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/entity/mobs/CinderPupEntity.java:68: error: cannot find symbol
-            return net.minecraft.world.InteractionResult.sidedSuccess(level().isClientSide);
-                                                                      ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/entity/mobs/LanternFoxEntity.java:64: error: cannot find symbol
-            return net.minecraft.world.InteractionResult.sidedSuccess(level().isClientSide);
-                                                                      ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/entity/mobs/FrostFawnEntity.java:66: error: cannot find symbol
-            return net.minecraft.world.InteractionResult.sidedSuccess(level().isClientSide);
-                                                                      ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/entity/mobs/LumoxEntity.java:66: error: cannot find symbol
-            return net.minecraft.world.InteractionResult.sidedSuccess(level().isClientSide);
-                                                                      ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/entity/mobs/EmberCalfEntity.java:65: error: cannot find symbol
-            return net.minecraft.world.InteractionResult.sidedSuccess(level().isClientSide);
-                                                                      ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/entity/mobs/SporeSproutEntity.java:64: error: cannot find symbol
-            return net.minecraft.world.InteractionResult.sidedSuccess(level().isClientSide);
-                                                                      ^
----
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/entity/ai/ThrottledGoal.java:24: error: cannot find symbol
-        return AiThrottle.shouldThink(mob.getId(), mob.level().getGameTime())
+        return AiThrottle.shouldThink(mob.getId(), mob.unseenLevel().getGameTime())
                                                       ^
 ---
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/entity/ai/FleeDangerGoal.java:31: error: cannot find symbol
-        threat = mob.level().getNearestPlayer(mob, 8.0D);
-                    ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/entity/ai/WanderTradeGoal.java:34: error: cannot find symbol
-        customer = mob.level().getNearestPlayer(mob, 6.0D);
-                      ^
----
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/entity/ai/WanderTradeGoal.java:54: error: cannot find symbol
-        if (customer != null && tradeCooldown == 390 && !mob.level().isClientSide) {
+        if (customer != null && tradeCooldown == 390 && !mob.unseenLevel().isClientSide) {
                                                             ^
 ---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/entity/ai/PackAttackGoal.java:33: error: method does not override or implement a method from a supertype
@@ -45,14 +13,6 @@
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/entity/ai/PackAttackGoal.java:35: error: method checkAndPerformAttack in class MeleeAttackGoal cannot be applied to given types;
         super.checkAndPerformAttack(target);
              ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/entity/ai/TerrainUseGoal.java:51: error: cannot find symbol
-            net.minecraft.core.BlockPos surface = mob.level().getHeightmapPos(
-                                                     ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/entity/boss/VoidSerpentEntity.java:91: error: cannot find symbol
-        if (level().isClientSide) {
-            ^
 ---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/entity/boss/VoidSerpentEntity.java:144: error: cannot find symbol
                 AABB box = new AABB(segmentX(i) - 2.0D, segmentY(i) - 2.0D, segmentZ(i) - 2.0D,
@@ -73,10 +33,6 @@
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/entity/boss/VoidSerpentEntity.java:189: error: no suitable constructor found for ItemStack(RegistrySupplier<Item>)
                 spawnAtLocation(new ItemStack(ModItems.GEAR.get("voidshard_sword")));
                                 ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/entity/boss/HeartOfTheForestEntity.java:56: error: cannot find symbol
-        if (level().isClientSide) {
-            ^
 ---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/entity/boss/HeartOfTheForestEntity.java:125: error: cannot find symbol
             for (Player player : unseenLevel().getNearestPlayers(this, 10.0D, 10.0D)) {
@@ -238,28 +194,72 @@
         EntityAttributeRegistry.register(Skywisp, () -> Mob.createMobAttributes()
                                          ^
 ---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/registry/ModEntities.java:207: error: incompatible types: RegistrySupplier<EntityType<ThunderRamEntity>> cannot be converted to Supplier<EntityType<? extends LivingEntity>>
+        EntityAttributeRegistry.register(ThunderRam, () -> Mob.createMobAttributes()
+                                         ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/registry/ModEntities.java:213: error: incompatible types: RegistrySupplier<EntityType<MosshornEntity>> cannot be converted to Supplier<EntityType<? extends LivingEntity>>
+        EntityAttributeRegistry.register(Mosshorn, () -> Mob.createMobAttributes()
+                                         ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/registry/ModEntities.java:219: error: incompatible types: RegistrySupplier<EntityType<CinderPupEntity>> cannot be converted to Supplier<EntityType<? extends LivingEntity>>
+        EntityAttributeRegistry.register(CinderPup, () -> Mob.createMobAttributes()
+                                         ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/registry/ModEntities.java:225: error: incompatible types: RegistrySupplier<EntityType<EchoHowlerEntity>> cannot be converted to Supplier<EntityType<? extends LivingEntity>>
+        EntityAttributeRegistry.register(EchoHowler, () -> Mob.createMobAttributes()
+                                         ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/registry/ModEntities.java:231: error: incompatible types: RegistrySupplier<EntityType<DuneSkimmerEntity>> cannot be converted to Supplier<EntityType<? extends LivingEntity>>
+        EntityAttributeRegistry.register(DuneSkimmer, () -> Mob.createMobAttributes()
+                                         ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/registry/ModEntities.java:237: error: incompatible types: RegistrySupplier<EntityType<TideCallerEntity>> cannot be converted to Supplier<EntityType<? extends LivingEntity>>
+        EntityAttributeRegistry.register(TideCaller, () -> Mob.createMobAttributes()
+                                         ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/registry/ModEntities.java:243: error: incompatible types: RegistrySupplier<EntityType<GloomStalkerEntity>> cannot be converted to Supplier<EntityType<? extends LivingEntity>>
+        EntityAttributeRegistry.register(GloomStalker, () -> Mob.createMobAttributes()
+                                         ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/registry/ModEntities.java:249: error: incompatible types: RegistrySupplier<EntityType<CrystalHermitEntity>> cannot be converted to Supplier<EntityType<? extends LivingEntity>>
+        EntityAttributeRegistry.register(CrystalHermit, () -> Mob.createMobAttributes()
+                                         ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/registry/ModEntities.java:255: error: incompatible types: RegistrySupplier<EntityType<WindDancerEntity>> cannot be converted to Supplier<EntityType<? extends LivingEntity>>
+        EntityAttributeRegistry.register(WindDancer, () -> Mob.createMobAttributes()
+                                         ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/registry/ModEntities.java:261: error: incompatible types: RegistrySupplier<EntityType<MireGolemEntity>> cannot be converted to Supplier<EntityType<? extends LivingEntity>>
+        EntityAttributeRegistry.register(MireGolem, () -> Mob.createMobAttributes()
+                                         ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/registry/ModEntities.java:267: error: incompatible types: RegistrySupplier<EntityType<LanternFoxEntity>> cannot be converted to Supplier<EntityType<? extends LivingEntity>>
+        EntityAttributeRegistry.register(LanternFox, () -> Mob.createMobAttributes()
+                                         ^
+---
 === STACKTRACE ===
 Caused by: org.gradle.api.internal.tasks.compile.CompilationFailedException: Compilation failed; see the compiler output below.
 === WHAT WENT WRONG ===
 * What went wrong:
 Execution failed for task ':fabric-1.18.2:compileJava' (registered by plugin class 'org.gradle.api.plugins.JavaBasePlugin').
 > Compilation failed; see the compiler output below.
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/entity/mobs/CinderPupEntity.java:68: error: cannot find symbol
-              return net.minecraft.world.InteractionResult.sidedSuccess(level().isClientSide);
-                                                                        ^
-    symbol:   method level()
-    location: class CinderPupEntity
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/entity/ai/ThrottledGoal.java:24: error: cannot find symbol
+          return AiThrottle.shouldThink(mob.getId(), mob.unseenLevel().getGameTime())
+                                                        ^
+    symbol:   method unseenLevel()
+    location: variable mob of type PathfinderMob
   100 errors
 
 * Try:
 === LAST 40 ===
-  required: String,ResourceKey<Registry<T#1>>
-  found:    String,DefaultedRegistry<EntityType<?>>
-  reason: cannot infer type-variable(s) T#1
-    (argument mismatch; DefaultedRegistry<EntityType<?>> cannot be converted to ResourceKey<Registry<T#1>>)
-  where T#1,T#2 are type-variables:
-    T#1 extends Object declared in method <T#1>create(String,ResourceKey<Registry<T#1>>)
-    T#2 extends Object declared in class DeferredRegister
+                              ^
+  required: Supplier<EntityType<? extends T>>,EntityRendererProvider<T>
+  found:    RegistrySupplier<EntityType<LumoxEntity>>,(context)-[...]mox")
+  reason: cannot infer type-variable(s) T
+    (argument mismatch; RegistrySupplier<EntityType<LumoxEntity>> cannot be converted to Supplier<EntityType<? extends T>>)
+  where T is a type-variable:
+    T extends Entity declared in method <T>register(Supplier<EntityType<? extends T>>,EntityRendererProvider<T>)
 Note: Some input files use unchecked or unsafe operations.
 Note: Recompile with -Xlint:unchecked for details.
 Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
@@ -291,5 +291,5 @@ Note: Some messages have been simplified; recompile with -Xdiags:verbose to get 
 	at org.gradle.internal.concurrent.AbstractManagedExecutor$1.run(AbstractManagedExecutor.java:47)
 
 
-BUILD FAILED in 50s
+BUILD FAILED in 1m 19s
 1 actionable task: 1 executed

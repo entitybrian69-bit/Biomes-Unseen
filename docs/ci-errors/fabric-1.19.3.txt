@@ -10,44 +10,12 @@
     public int getDefenseForType(ArmorItem.Type type) {
                                           ^
 ---
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.19.3/java/com/biomesunseen/entity/mobs/CinderPupEntity.java:68: error: cannot find symbol
-            return net.minecraft.world.InteractionResult.sidedSuccess(level().isClientSide);
-                                                                      ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.19.3/java/com/biomesunseen/entity/mobs/LanternFoxEntity.java:64: error: cannot find symbol
-            return net.minecraft.world.InteractionResult.sidedSuccess(level().isClientSide);
-                                                                      ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.19.3/java/com/biomesunseen/entity/mobs/FrostFawnEntity.java:66: error: cannot find symbol
-            return net.minecraft.world.InteractionResult.sidedSuccess(level().isClientSide);
-                                                                      ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.19.3/java/com/biomesunseen/entity/mobs/LumoxEntity.java:66: error: cannot find symbol
-            return net.minecraft.world.InteractionResult.sidedSuccess(level().isClientSide);
-                                                                      ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.19.3/java/com/biomesunseen/entity/mobs/EmberCalfEntity.java:65: error: cannot find symbol
-            return net.minecraft.world.InteractionResult.sidedSuccess(level().isClientSide);
-                                                                      ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.19.3/java/com/biomesunseen/entity/mobs/SporeSproutEntity.java:64: error: cannot find symbol
-            return net.minecraft.world.InteractionResult.sidedSuccess(level().isClientSide);
-                                                                      ^
----
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.19.3/java/com/biomesunseen/entity/ai/ThrottledGoal.java:24: error: cannot find symbol
-        return AiThrottle.shouldThink(mob.getId(), mob.level().getGameTime())
+        return AiThrottle.shouldThink(mob.getId(), mob.unseenLevel().getGameTime())
                                                       ^
 ---
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.19.3/java/com/biomesunseen/entity/ai/FleeDangerGoal.java:31: error: cannot find symbol
-        threat = mob.level().getNearestPlayer(mob, 8.0D);
-                    ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.19.3/java/com/biomesunseen/entity/ai/WanderTradeGoal.java:34: error: cannot find symbol
-        customer = mob.level().getNearestPlayer(mob, 6.0D);
-                      ^
----
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.19.3/java/com/biomesunseen/entity/ai/WanderTradeGoal.java:54: error: cannot find symbol
-        if (customer != null && tradeCooldown == 390 && !mob.level().isClientSide) {
+        if (customer != null && tradeCooldown == 390 && !mob.unseenLevel().isClientSide) {
                                                             ^
 ---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.19.3/java/com/biomesunseen/entity/ai/PackAttackGoal.java:33: error: method does not override or implement a method from a supertype
@@ -57,14 +25,6 @@
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.19.3/java/com/biomesunseen/entity/ai/PackAttackGoal.java:35: error: method checkAndPerformAttack in class MeleeAttackGoal cannot be applied to given types;
         super.checkAndPerformAttack(target);
              ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.19.3/java/com/biomesunseen/entity/ai/TerrainUseGoal.java:51: error: cannot find symbol
-            net.minecraft.core.BlockPos surface = mob.level().getHeightmapPos(
-                                                     ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.19.3/java/com/biomesunseen/entity/boss/VoidSerpentEntity.java:91: error: cannot find symbol
-        if (level().isClientSide) {
-            ^
 ---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.19.3/java/com/biomesunseen/entity/boss/VoidSerpentEntity.java:144: error: cannot find symbol
                 AABB box = new AABB(segmentX(i) - 2.0D, segmentY(i) - 2.0D, segmentZ(i) - 2.0D,
@@ -85,10 +45,6 @@
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.19.3/java/com/biomesunseen/entity/boss/VoidSerpentEntity.java:189: error: no suitable constructor found for ItemStack(RegistrySupplier<Item>)
                 spawnAtLocation(new ItemStack(ModItems.GEAR.get("voidshard_sword")));
                                 ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.19.3/java/com/biomesunseen/entity/boss/HeartOfTheForestEntity.java:56: error: cannot find symbol
-        if (level().isClientSide) {
-            ^
 ---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.19.3/java/com/biomesunseen/entity/boss/HeartOfTheForestEntity.java:94: error: incompatible types: Reference<SoundEvent> cannot be converted to SoundEvent
         playSound(SoundEvents.RAID_HORN, 2.0F, 0.8F);
@@ -238,6 +194,50 @@ public class UnseenArmorMaterial implements ArmorMaterial {
     @Override
     ^
 ---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.19.3/java/com/biomesunseen/client/particle/UnseenParticle.java:15: error: UnseenParticle is not abstract and does not override abstract method render(VertexConsumer,Camera,float) in Particle
+public class UnseenParticle extends Particle {
+       ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.19.3/java/com/biomesunseen/client/particle/UnseenParticle.java:28: error: cannot find symbol
+        this.setSpriteFromAge(sprites);
+            ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.19.3/java/com/biomesunseen/client/particle/UnseenParticle.java:34: error: cannot find symbol
+        this.setSpriteFromAge(this.sprites);
+            ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.19.3/java/com/biomesunseen/block/UnseenDecorBlock.java:21: error: no suitable method found for of(no arguments)
+        BlockBehaviour.Properties properties = BlockBehaviour.Properties.of();
+                                                                        ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.19.3/java/com/biomesunseen/block/UnseenOreBlock.java:22: error: no suitable method found for of(no arguments)
+        BlockBehaviour.Properties properties = BlockBehaviour.Properties.of().strength(3.0F, 3.0F);
+                                                                        ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.19.3/java/com/biomesunseen/block/UnseenPlantBlock.java:23: error: no suitable method found for of(no arguments)
+        BlockBehaviour.Properties properties = BlockBehaviour.Properties.of();
+                                                                        ^
+---
+> Task :fabric-1.19.3:compileJava FAILED
+gradle/actions: Writing build results to /home/runner/work/_temp/.gradle-actions/build-results/__run-1792155725926.json
+
+---
+* What went wrong:
+Execution failed for task ':fabric-1.19.3:compileJava' (registered by plugin class 'org.gradle.api.plugins.JavaBasePlugin').
+> Compilation failed; see the compiler output below.
+---
+Execution failed for task ':fabric-1.19.3:compileJava' (registered by plugin class 'org.gradle.api.plugins.JavaBasePlugin').
+> Compilation failed; see the compiler output below.
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.19.3/java/com/biomesunseen/item/UnseenArmorMaterial.java:31: error: cannot find symbol
+---
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.19.3/java/com/biomesunseen/item/UnseenArmorMaterial.java:31: error: cannot find symbol
+      private static int indexOf(ArmorItem.Type type) {
+                                          ^
+---
+org.gradle.api.tasks.TaskExecutionException: Execution failed for task ':fabric-1.19.3:compileJava' (registered by plugin class 'org.gradle.api.plugins.JavaBasePlugin').
+	at org.gradle.api.internal.tasks.execution.DefaultTaskNodeExecutor.lambda$doExecute$1(DefaultTaskNodeExecutor.java:367)
+	at org.gradle.internal.Try$Failure.ifSuccessfulOrElse(Try.java:288)
+---
 === STACKTRACE ===
 Caused by: org.gradle.api.internal.tasks.compile.CompilationFailedException: Compilation failed; see the compiler output below.
 === WHAT WENT WRONG ===
@@ -249,7 +249,7 @@ Execution failed for task ':fabric-1.19.3:compileJava' (registered by plugin cla
                                           ^
     symbol:   class Type
     location: class ArmorItem
-  70 errors
+  55 errors
 
 * Try:
 === LAST 40 ===
@@ -263,7 +263,7 @@ Execution failed for task ':fabric-1.19.3:compileJava' (registered by plugin cla
 Note: Some input files use unchecked or unsafe operations.
 Note: Recompile with -Xlint:unchecked for details.
 Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
-70 errors
+55 errors
 	at org.gradle.api.internal.tasks.compile.JdkJavaCompiler.execute(JdkJavaCompiler.java:88)
 	at org.gradle.api.internal.tasks.compile.JdkJavaCompiler.execute(JdkJavaCompiler.java:49)
 	at org.gradle.api.internal.tasks.compile.daemon.CompilerWorkAction.execute(CompilerWorkAction.java:52)
@@ -291,5 +291,5 @@ Note: Some messages have been simplified; recompile with -Xdiags:verbose to get 
 	at org.gradle.internal.concurrent.AbstractManagedExecutor$1.run(AbstractManagedExecutor.java:47)
 
 
-BUILD FAILED in 1m 18s
+BUILD FAILED in 1m 17s
 1 actionable task: 1 executed

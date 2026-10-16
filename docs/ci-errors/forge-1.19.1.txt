@@ -1,45 +1,13 @@
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/forge-1.19.1/src/main/java/com/biomesunseen/platform/PlatformExpectImpl.java:39: error: cannot find symbol
-        net.minecraftforge.registries.ForgeRegistry.ENTITY_TYPE_REGISTRYS.getValue(
-                                                   ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/entity/mobs/CinderPupEntity.java:68: error: cannot find symbol
-            return net.minecraft.world.InteractionResult.sidedSuccess(level().isClientSide);
-                                                                      ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/entity/mobs/LanternFoxEntity.java:64: error: cannot find symbol
-            return net.minecraft.world.InteractionResult.sidedSuccess(level().isClientSide);
-                                                                      ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/entity/mobs/FrostFawnEntity.java:66: error: cannot find symbol
-            return net.minecraft.world.InteractionResult.sidedSuccess(level().isClientSide);
-                                                                      ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/entity/mobs/LumoxEntity.java:66: error: cannot find symbol
-            return net.minecraft.world.InteractionResult.sidedSuccess(level().isClientSide);
-                                                                      ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/entity/mobs/EmberCalfEntity.java:65: error: cannot find symbol
-            return net.minecraft.world.InteractionResult.sidedSuccess(level().isClientSide);
-                                                                      ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/entity/mobs/SporeSproutEntity.java:64: error: cannot find symbol
-            return net.minecraft.world.InteractionResult.sidedSuccess(level().isClientSide);
-                                                                      ^
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/forge-1.19.1/src/main/java/com/biomesunseen/platform/PlatformExpectImpl.java:38: error: package net.minecraft.core.registries.BuiltInRegistry does not exist
+        net.minecraft.core.registries.BuiltInRegistry.ENTITY_TYPE_REGISTRY
+                                                     ^
 ---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/entity/ai/ThrottledGoal.java:24: error: cannot find symbol
-        return AiThrottle.shouldThink(mob.getId(), mob.level().getGameTime())
+        return AiThrottle.shouldThink(mob.getId(), mob.unseenLevel().getGameTime())
                                                       ^
 ---
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/entity/ai/FleeDangerGoal.java:31: error: cannot find symbol
-        threat = mob.level().getNearestPlayer(mob, 8.0D);
-                    ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/entity/ai/WanderTradeGoal.java:34: error: cannot find symbol
-        customer = mob.level().getNearestPlayer(mob, 6.0D);
-                      ^
----
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/entity/ai/WanderTradeGoal.java:54: error: cannot find symbol
-        if (customer != null && tradeCooldown == 390 && !mob.level().isClientSide) {
+        if (customer != null && tradeCooldown == 390 && !mob.unseenLevel().isClientSide) {
                                                             ^
 ---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/entity/ai/PackAttackGoal.java:33: error: method does not override or implement a method from a supertype
@@ -49,14 +17,6 @@
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/entity/ai/PackAttackGoal.java:35: error: method checkAndPerformAttack in class MeleeAttackGoal cannot be applied to given types;
         super.checkAndPerformAttack(target);
              ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/entity/ai/TerrainUseGoal.java:51: error: cannot find symbol
-            net.minecraft.core.BlockPos surface = mob.level().getHeightmapPos(
-                                                     ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/entity/boss/VoidSerpentEntity.java:91: error: cannot find symbol
-        if (level().isClientSide) {
-            ^
 ---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/entity/boss/VoidSerpentEntity.java:144: error: cannot find symbol
                 AABB box = new AABB(segmentX(i) - 2.0D, segmentY(i) - 2.0D, segmentZ(i) - 2.0D,
@@ -77,10 +37,6 @@
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/entity/boss/VoidSerpentEntity.java:189: error: no suitable constructor found for ItemStack(RegistrySupplier<Item>)
                 spawnAtLocation(new ItemStack(ModItems.GEAR.get("voidshard_sword")));
                                 ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/entity/boss/HeartOfTheForestEntity.java:56: error: cannot find symbol
-        if (level().isClientSide) {
-            ^
 ---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/entity/boss/HeartOfTheForestEntity.java:125: error: cannot find symbol
             for (Player player : unseenLevel().getNearestPlayers(this, 10.0D, 10.0D)) {
@@ -238,18 +194,60 @@
             GEAR.put(ore.id + "_pickaxe", track(ModRegistry.ITEM_REGISTRYS.register(
                                                            ^
 ---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/registry/ModItems.java:118: error: package ModRegistry does not exist
+            GEAR.put(ore.id + "_sword", track(ModRegistry.ITEM_REGISTRYS.register(
+                                                         ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/registry/ModItems.java:122: error: package ModRegistry does not exist
+            GEAR.put(ore.id + "_helmet", track(ModRegistry.ITEM_REGISTRYS.register(
+                                                          ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/registry/ModItems.java:126: error: package ModRegistry does not exist
+            GEAR.put(ore.id + "_chestplate", track(ModRegistry.ITEM_REGISTRYS.register(
+                                                              ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/registry/ModItems.java:130: error: package ModRegistry does not exist
+            GEAR.put(ore.id + "_leggings", track(ModRegistry.ITEM_REGISTRYS.register(
+                                                            ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/registry/ModItems.java:134: error: package ModRegistry does not exist
+            GEAR.put(ore.id + "_boots", track(ModRegistry.ITEM_REGISTRYS.register(
+                                                         ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/registry/ModItems.java:138: error: package ModRegistry does not exist
+            TONICS.put(ore.id, track(ModRegistry.ITEM_REGISTRYS.register(
+                                                ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/registry/ModItems.java:146: error: package ModRegistry does not exist
+            MACHINE_CORES.put(tier, track(ModRegistry.ITEM_REGISTRYS.register(
+                                                     ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/registry/ModItems.java:156: error: package ModRegistry does not exist
+            SPAWN_EGGS.put(mobId, track(ModRegistry.ITEM_REGISTRYS.register(
+                                                   ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/registry/ModItems.java:165: error: package ModRegistry does not exist
+            SPAWN_EGGS.put(bossId, track(ModRegistry.ITEM_REGISTRYS.register(
+                                                    ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/registry/ModItems.java:177: error: package ModRegistry does not exist
+            LORE_BOOKS.put(theme, track(ModRegistry.ITEM_REGISTRYS.register(
+                                                   ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/registry/ModItems.java:186: error: package ModRegistry does not exist
+            TROPHIES.put(mobId, track(ModRegistry.ITEM_REGISTRYS.register(
+                                                 ^
+---
 === STACKTRACE ===
 Caused by: org.gradle.api.internal.tasks.compile.CompilationFailedException: Compilation failed; see the compiler output below.
 === WHAT WENT WRONG ===
 * What went wrong:
 Execution failed for task ':forge-1.19.1:compileJava' (registered by plugin class 'org.gradle.api.plugins.JavaBasePlugin').
 > Compilation failed; see the compiler output below.
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/forge-1.19.1/src/main/java/com/biomesunseen/platform/PlatformExpectImpl.java:39: error: cannot find symbol
-          net.minecraftforge.registries.ForgeRegistry.ENTITY_TYPE_REGISTRYS.getValue(
-                                                     ^
-    symbol:   variable ENTITY_TYPE_REGISTRYS
-    location: class ForgeRegistry
-  94 errors
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/forge-1.19.1/src/main/java/com/biomesunseen/platform/PlatformExpectImpl.java:38: error: package net.minecraft.core.registries.BuiltInRegistry does not exist
+          net.minecraft.core.registries.BuiltInRegistry.ENTITY_TYPE_REGISTRY
+                                                       ^
+  79 errors
 
 * Try:
 === LAST 40 ===
@@ -263,7 +261,7 @@ Note: Recompile with -Xlint:deprecation for details.
 Note: Some input files use unchecked or unsafe operations.
 Note: Recompile with -Xlint:unchecked for details.
 Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
-94 errors
+79 errors
 	at org.gradle.api.internal.tasks.compile.JdkJavaCompiler.execute(JdkJavaCompiler.java:88)
 	at org.gradle.api.internal.tasks.compile.JdkJavaCompiler.execute(JdkJavaCompiler.java:49)
 	at org.gradle.api.internal.tasks.compile.daemon.CompilerWorkAction.execute(CompilerWorkAction.java:52)
@@ -291,5 +289,5 @@ Note: Some messages have been simplified; recompile with -Xdiags:verbose to get 
 	at org.gradle.internal.concurrent.AbstractManagedExecutor$1.run(AbstractManagedExecutor.java:47)
 
 
-BUILD FAILED in 2m 18s
+BUILD FAILED in 2m 47s
 1 actionable task: 1 executed

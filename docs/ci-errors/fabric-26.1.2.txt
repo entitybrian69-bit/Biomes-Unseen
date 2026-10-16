@@ -1,34 +1,34 @@
 * What went wrong:
 A problem occurred configuring project ':fabric-26.1.2'.
-> Failed to setup Minecraft, java.lang.IllegalArgumentException: Configuration 'mappings' has no dependencies
+> Failed to setup Minecraft, java.lang.NullPointerException: Cannot invoke "String.equals(Object)" because "srcNamespace" is null
 ---
-BUILD FAILED in 48s
+BUILD FAILED in 46s
 ---
 === STACKTRACE ===
-Caused by: java.lang.RuntimeException: Failed to setup Minecraft, java.lang.IllegalArgumentException: Configuration 'mappings' has no dependencies
+Caused by: java.lang.RuntimeException: Failed to setup Minecraft, java.lang.NullPointerException: Cannot invoke "String.equals(Object)" because "srcNamespace" is null
 	at net.fabricmc.loom.util.ExceptionUtil.createDescriptiveWrapper(ExceptionUtil.java:59)
 	at net.fabricmc.loom.configuration.CompileConfiguration.lambda$run$1(CompileConfiguration.java:152)
 	at net.fabricmc.loom.configuration.CompileConfiguration.lambda$afterEvaluationWithService$0(CompileConfiguration.java:617)
 	at net.fabricmc.loom.util.gradle.GradleUtils.lambda$afterSuccessfulEvaluation$0(GradleUtils.java:51)
-Caused by: java.lang.IllegalArgumentException: Configuration 'mappings' has no dependencies
-	at net.fabricmc.loom.configuration.DependencyInfo.create(DependencyInfo.java:55)
-	at net.fabricmc.loom.configuration.DependencyInfo.create(DependencyInfo.java:48)
-	at net.fabricmc.loom.configuration.CompileConfiguration.setupMinecraft(CompileConfiguration.java:256)
+Caused by: java.lang.NullPointerException: Cannot invoke "String.equals(Object)" because "srcNamespace" is null
+	at net.fabricmc.mappingio.adapter.MappingSourceNsSwitch.visitNamespaces(MappingSourceNsSwitch.java:99)
+	at net.fabricmc.mappingio.adapter.ForwardingMappingVisitor.visitNamespaces(ForwardingMappingVisitor.java:59)
+	at net.fabricmc.loom.configuration.providers.mappings.utils.AddConstructorMappingVisitor.visitNamespaces(AddConstructorMappingVisitor.java:50)
+	at net.fabricmc.mappingio.tree.MemoryMappingTree.accept(MemoryMappingTree.java:358)
+	at net.fabricmc.mappingio.tree.MappingTreeView.accept(MappingTreeView.java:136)
+	at net.fabricmc.loom.configuration.providers.mappings.LayeredMappingsFactory.writeMapping(LayeredMappingsFactory.java:129)
+	at net.fabricmc.loom.configuration.providers.mappings.LayeredMappingsFactory.resolve(LayeredMappingsFactory.java:104)
+	at net.fabricmc.loom.configuration.providers.mappings.LayeredMappingsFactory.evaluate(LayeredMappingsFactory.java:84)
+	at net.fabricmc.loom.configuration.providers.mappings.LayeredMappingsFactory.afterEvaluate(LayeredMappingsFactory.java:72)
+	at net.fabricmc.loom.configuration.CompileConfiguration.setupMinecraft(CompileConfiguration.java:249)
 	at net.fabricmc.loom.configuration.CompileConfiguration.lambda$run$1(CompileConfiguration.java:144)
 === WHAT WENT WRONG ===
 * What went wrong:
 A problem occurred configuring project ':fabric-26.1.2'.
-> Failed to setup Minecraft, java.lang.IllegalArgumentException: Configuration 'mappings' has no dependencies
+> Failed to setup Minecraft, java.lang.NullPointerException: Cannot invoke "String.equals(Object)" because "srcNamespace" is null
 
 * Try:
 === LAST 40 ===
-	at net.fabricmc.loom.configuration.CompileConfiguration.lambda$run$1(CompileConfiguration.java:152)
-	at net.fabricmc.loom.configuration.CompileConfiguration.lambda$afterEvaluationWithService$0(CompileConfiguration.java:617)
-	at net.fabricmc.loom.util.gradle.GradleUtils.lambda$afterSuccessfulEvaluation$0(GradleUtils.java:51)
-	at org.gradle.internal.code.DefaultUserCodeApplicationContext$CurrentApplication$1.execute(DefaultUserCodeApplicationContext.java:124)
-	at org.gradle.configuration.internal.DefaultListenerBuildOperationDecorator$BuildOperationEmittingAction$1.run(DefaultListenerBuildOperationDecorator.java:173)
-	at org.gradle.internal.operations.DefaultBuildOperationRunner$1.execute(DefaultBuildOperationRunner.java:30)
-	at org.gradle.internal.operations.DefaultBuildOperationRunner$1.execute(DefaultBuildOperationRunner.java:27)
 	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:67)
 	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:60)
 	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:167)
@@ -53,12 +53,19 @@ A problem occurred configuring project ':fabric-26.1.2'.
 	at org.gradle.api.internal.project.DefaultProject.stepEvaluationListener(DefaultProject.java:1525)
 	at org.gradle.configuration.project.LifecycleProjectEvaluator$NotifyAfterEvaluate.run(LifecycleProjectEvaluator.java:253)
 	... 164 more
-Caused by: java.lang.IllegalArgumentException: Configuration 'mappings' has no dependencies
-	at net.fabricmc.loom.configuration.DependencyInfo.create(DependencyInfo.java:55)
-	at net.fabricmc.loom.configuration.DependencyInfo.create(DependencyInfo.java:48)
-	at net.fabricmc.loom.configuration.CompileConfiguration.setupMinecraft(CompileConfiguration.java:256)
+Caused by: java.lang.NullPointerException: Cannot invoke "String.equals(Object)" because "srcNamespace" is null
+	at net.fabricmc.mappingio.adapter.MappingSourceNsSwitch.visitNamespaces(MappingSourceNsSwitch.java:99)
+	at net.fabricmc.mappingio.adapter.ForwardingMappingVisitor.visitNamespaces(ForwardingMappingVisitor.java:59)
+	at net.fabricmc.loom.configuration.providers.mappings.utils.AddConstructorMappingVisitor.visitNamespaces(AddConstructorMappingVisitor.java:50)
+	at net.fabricmc.mappingio.tree.MemoryMappingTree.accept(MemoryMappingTree.java:358)
+	at net.fabricmc.mappingio.tree.MappingTreeView.accept(MappingTreeView.java:136)
+	at net.fabricmc.loom.configuration.providers.mappings.LayeredMappingsFactory.writeMapping(LayeredMappingsFactory.java:129)
+	at net.fabricmc.loom.configuration.providers.mappings.LayeredMappingsFactory.resolve(LayeredMappingsFactory.java:104)
+	at net.fabricmc.loom.configuration.providers.mappings.LayeredMappingsFactory.evaluate(LayeredMappingsFactory.java:84)
+	at net.fabricmc.loom.configuration.providers.mappings.LayeredMappingsFactory.afterEvaluate(LayeredMappingsFactory.java:72)
+	at net.fabricmc.loom.configuration.CompileConfiguration.setupMinecraft(CompileConfiguration.java:249)
 	at net.fabricmc.loom.configuration.CompileConfiguration.lambda$run$1(CompileConfiguration.java:144)
 	... 193 more
 
 
-BUILD FAILED in 48s
+BUILD FAILED in 46s

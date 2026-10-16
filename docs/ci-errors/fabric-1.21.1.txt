@@ -1,6 +1,10 @@
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/entity/ai/FleeDangerGoal.java:31: error: incompatible types: Player cannot be converted to PathfinderMob
-        threat = mob.level().getNearestPlayer(mob, 8.0D);
-                                             ^
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/entity/ai/ThrottledGoal.java:24: error: cannot find symbol
+        return AiThrottle.shouldThink(mob.getId(), mob.unseenLevel().getGameTime())
+                                                      ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/entity/ai/WanderTradeGoal.java:54: error: cannot find symbol
+        if (customer != null && tradeCooldown == 390 && !mob.unseenLevel().isClientSide) {
+                                                            ^
 ---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/entity/boss/VoidSerpentEntity.java:144: error: cannot find symbol
                 net.minecraft.world.phys.AABB box = new AABB(segmentX(i) - 2.0D, segmentY(i) - 2.0D, segmentZ(i) - 2.0D,
@@ -234,53 +238,49 @@ public class UnseenToolTier implements Tier {
             return MobEffects.REGENERATION;
                              ^
 ---
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/item/UnseenTonicItem.java:56: error: incompatible types: Holder<MobEffect> cannot be converted to MobEffect
-            return MobEffects.INVISIBILITY;
-                             ^
----
 === STACKTRACE ===
 Caused by: org.gradle.api.internal.tasks.compile.CompilationFailedException: Compilation failed; see the compiler output below.
 === WHAT WENT WRONG ===
 * What went wrong:
 Execution failed for task ':fabric-1.21.1:compileJava' (registered by plugin class 'org.gradle.api.plugins.JavaBasePlugin').
 > Compilation failed; see the compiler output below.
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/entity/ai/FleeDangerGoal.java:31: error: incompatible types: Player cannot be converted to PathfinderMob
-          threat = mob.level().getNearestPlayer(mob, 8.0D);
-                                               ^
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/entity/boss/HeartOfTheForestEntity.java:94: error: incompatible types: Reference<SoundEvent> cannot be converted to SoundEvent
-          playSound(SoundEvents.RAID_HORN, 2.0F, 0.8F);
-                               ^
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/item/UnseenArmorMaterial.java:41: error: incompatible types: Holder<SoundEvent> cannot be converted to SoundEvent
-                  BuiltInRegistries.SOUND_EVENT.wrapAsHolder(SoundEvents.ARMOR_EQUIP_IRON),
-                                                                        ^
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/item/UnseenTonicItem.java:35: error: incompatible types: MobEffect cannot be converted to Holder<MobEffect>
-          player.addEffect(new MobEffectInstance(effectFor(ore), 20 * 60, 0));
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/entity/ai/ThrottledGoal.java:24: error: cannot find symbol
+          return AiThrottle.shouldThink(mob.getId(), mob.unseenLevel().getGameTime())
+                                                        ^
+    symbol:   method unseenLevel()
+    location: variable mob of type PathfinderMob
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/entity/ai/WanderTradeGoal.java:54: error: cannot find symbol
+          if (customer != null && tradeCooldown == 390 && !mob.unseenLevel().isClientSide) {
+                                                              ^
+    symbol:   method unseenLevel()
+    location: variable mob of type PathfinderMob
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/entity/boss/HeartOfTheForestEntity.java:125: error: cannot find symbol
+              for (Player player : unseenLevel().getNearestPlayers(this, 10.0D, 10.0D)) {
+                                                ^
+    symbol:   method getNearestPlayers(HeartOfTheForestEntity,double,double)
+    location: class Level
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/entity/boss/VoidSerpentEntity.java:144: error: cannot find symbol
+                  net.minecraft.world.phys.AABB box = new AABB(segmentX(i) - 2.0D, segmentY(i) - 2.0D, segmentZ(i) - 2.0D,
                                                           ^
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/item/UnseenTonicItem.java:44: error: incompatible types: Holder<MobEffect> cannot be converted to MobEffect
-              return MobEffects.FIRE_RESISTANCE;
-                               ^
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/item/UnseenTonicItem.java:47: error: incompatible types: Holder<MobEffect> cannot be converted to MobEffect
-              return MobEffects.MOVEMENT_SPEED;
-                               ^
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/item/UnseenTonicItem.java:50: error: incompatible types: Holder<MobEffect> cannot be converted to MobEffect
-              return MobEffects.DAMAGE_BOOST;
-                               ^
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/item/UnseenTonicItem.java:53: error: incompatible types: Holder<MobEffect> cannot be converted to MobEffect
-              return MobEffects.REGENERATION;
-                               ^
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/item/UnseenTonicItem.java:56: error: incompatible types: Holder<MobEffect> cannot be converted to MobEffect
-              return MobEffects.INVISIBILITY;
-                               ^
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/item/UnseenTonicItem.java:59: error: incompatible types: Holder<MobEffect> cannot be converted to MobEffect
-              return MobEffects.NIGHT_VISION;
-                               ^
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/item/UnseenTonicItem.java:62: error: incompatible types: Holder<MobEffect> cannot be converted to MobEffect
-              return MobEffects.WATER_BREATHING;
-                               ^
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/item/UnseenTonicItem.java:65: error: incompatible types: Holder<MobEffect> cannot be converted to MobEffect
-              return MobEffects.POISON;
-                               ^
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/item/UnseenTonicItem.java:68: error: incompatible types: Holder<MobEffect> cannot be converted to MobEffect
+    symbol:   class AABB
+    location: class VoidSerpentEntity
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/registry/ModEntities.java:65: error: cannot find symbol
+          Lumox = ENTITIES.register("lumox", () -> EntityType.Builder.of(LumoxEntity::new, MobCategory.CREATURE)
+                  ^
+    symbol:   variable ENTITIES
+    location: class ModEntities
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/registry/ModEntities.java:68: error: cannot find symbol
+          Brambleback = ENTITIES.register("brambleback", () -> EntityType.Builder.of(BramblebackEntity::new, MobCategory.CREATURE)
+                        ^
+    symbol:   variable ENTITIES
+    location: class ModEntities
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/registry/ModEntities.java:71: error: cannot find symbol
+          Siltstrider = ENTITIES.register("siltstrider", () -> EntityType.Builder.of(SiltstriderEntity::new, MobCategory.CREATURE)
+                        ^
+    symbol:   variable ENTITIES
+    location: class ModEntities
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/registry/ModEntities.java:74: error: cannot find symbol
+          Glimmermoth = ENTITIES.register("glimmermoth", () -> EntityType.Builder.of(GlimmermothEntity::new, MobCategory.CREATURE)
 === LAST 40 ===
 	at org.gradle.internal.execution.steps.MutableStep.execute(MutableStep.java:26)
 	at org.gradle.internal.execution.steps.ValidateStep$Mutable.executeDelegate(ValidateStep.java:79)
@@ -320,5 +320,5 @@ Execution failed for task ':fabric-1.21.1:compileJava' (registered by plugin cla
 	... 25 more
 
 
-BUILD FAILED in 1m 25s
+BUILD FAILED in 1m 23s
 1 actionable task: 1 executed
