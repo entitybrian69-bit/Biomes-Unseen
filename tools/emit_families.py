@@ -18,6 +18,10 @@ PKG = "com/biomesunseen"
 # net.minecraft.world.item.ToolMaterial instead.
 TOOL_MATERIAL_LINES = ("1.21.2", "1.21.4", "1.21.5", "1.21.9", "26")
 
+# 1.20.5 turned ArmorMaterial into a final record and ArmorItem into
+# ArmorItem(Holder<ArmorMaterial>, ArmorItem$Type, Item$Properties).
+ARMOR_RECORD_LINES = ("1.20.5", "1.21", "1.21.2", "1.21.4", "1.21.5", "1.21.9", "26")
+
 # 1.21.5 removed SwordItem and PickaxeItem outright (probe: "class not found:
 # net.minecraft.world.item.SwordItem" / ".PickaxeItem" on 1.21.5 and 1.21.9),
 # while AxeItem/ShovelItem/HoeItem remain with the (ToolMaterial, float, float,
@@ -1002,14 +1006,21 @@ public class UnseenToolTier implements IItemTier {
 }
 '''
     elif line_key in TOOL_MATERIAL_LINES:
-        # 1.21.2 dropped net.minecraft.world.item.Tier/.Tiers entirely; the
-        # probe of the real jars shows every tool item taking
-        # net.minecraft.world.item.ToolMaterial instead (verified:
-        # SwordItem/PickaxeItem/AxeItem/ShovelItem/HoeItem all have the ctor
-        # (ToolMaterial, float, float, Item$Properties) on 1.21.2 and 1.21.4).
+        # 1.21.2 dropped net.minecraft.world.item.Tier/.Tiers.  The probe of the
+        # real 1.21.5 jar shows the replacement is a FINAL RECORD, not an
+        # interface:
+        #   public final class net.minecraft.world.item.ToolMaterial
+        #           extends java.lang.Record
+        #   public ToolMaterial(TagKey<Block> incorrectBlocksForDrops,
+        #           int durability, float speed, float attackDamageBonus,
+        #           int enchantmentValue, TagKey<Item> repairItems)
+        # so it cannot be implemented - an instance is built instead, and the
+        # tool items (SwordItem/PickaxeItem/AxeItem/ShovelItem/HoeItem all take
+        # ToolMaterial as their first argument) are handed that instance.
         tier_body = '''package com.biomesunseen.item;
 
-import net.minecraft.tags.BlockTags;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.ToolMaterial;
 import net.minecraft.world.item.crafting.Ingredient;
@@ -1020,55 +1031,63 @@ import com.biomesunseen.core.OreDef;
 import java.util.function.Supplier;
 
 /**
- * Tool material derived from an ore definition: durability, mining speed,
- * attack bonus and enchantability all come straight from the ore catalog.
+ * Tool material derived from an ore definition.  From 1.21.2 the vanilla
+ * ToolMaterial is a final record, so this builds one from the ore catalog
+ * instead of implementing an interface.
  */
-public class UnseenToolTier implements ToolMaterial {
+public final class UnseenToolTier {
 
     private final OreDef ore;
     private final Supplier<Ingredient> repairIngredient;
+    private final ToolMaterial material;
 
     public UnseenToolTier(OreDef ore, Supplier<Ingredient> repairIngredient) {
         this.ore = ore;
         this.repairIngredient = repairIngredient;
+        this.material = new ToolMaterial(
+                TagKey.create(Registries.BLOCK,
+                        ResourceLocation.fromNamespaceAndPath(
+                                "biomesunseen", "incorrect_for_" + ore.id)),
+                ore.toolDurability,
+                (float) ore.toolSpeed,
+                (float) ore.toolAttackDamage,
+                ore.toolEnchantability,
+                TagKey.create(Registries.ITEM,
+                        ResourceLocation.fromNamespaceAndPath(
+                                "c", "ores/" + ore.id)));
     }
 
-    @Override
-    public int getUses() {
-        return ore.toolDurability;
-    }
-
-    @Override
-    public float getSpeed() {
-        return (float) ore.toolSpeed;
-    }
-
-    @Override
-    public float getAttackDamageBonus() {
-        return (float) ore.toolAttackDamage;
-    }
-
-    @Override
-    public TagKey<Block> getIncorrectBlocksForDrops() {
-        return BlockTags.INCORRECT_FOR_NETHERITE_TOOL;
-    }
-
-    @Override
-    public int getEnchantmentValue() {
-        return ore.toolEnchantability;
-    }
-
-    @Override
-    public Ingredient getRepairIngredient() {
-        return repairIngredient.get();
+    /** @return the vanilla record the tool items are constructed from. */
+    public ToolMaterial material() {
+        return material;
     }
 
     public OreDef ore() {
         return ore;
     }
 
+    public int getUses() {
+        return ore.toolDurability;
+    }
+
+    public float getSpeed() {
+        return (float) ore.toolSpeed;
+    }
+
+    public float getAttackDamageBonus() {
+        return (float) ore.toolAttackDamage;
+    }
+
+    public int getEnchantmentValue() {
+        return ore.toolEnchantability;
+    }
+
     public int getLevel() {
         return ore.toolMiningLevel;
+    }
+
+    public Ingredient getRepairIngredient() {
+        return repairIngredient.get();
     }
 }
 '''
@@ -1205,6 +1224,103 @@ public class UnseenArmorMaterial implements IArmorMaterial {
 
     public OreDef ore() {
         return ore;
+    }
+}
+'''
+    elif line_key in ARMOR_RECORD_LINES:
+        # From 1.20.5 the vanilla ArmorMaterial is a final record, so it cannot
+        # be implemented.  The probe of the real 1.20.5 jar gives the exact
+        # shape:
+        #   public final class net.minecraft.world.item.ArmorMaterial
+        #           extends java.lang.Record
+        #   public ArmorMaterial(Map<ArmorItem$Type,Integer> defense,
+        #           int enchantmentValue, Holder<SoundEvent> equipSound,
+        #           Supplier<Ingredient> repairIngredient,
+        #           List<ArmorMaterial$Layer> layers, float toughness,
+        #           float knockbackResistance)
+        # and ArmorItem takes Holder<ArmorMaterial>.
+        rl_ctor = ("ResourceLocation.fromNamespaceAndPath(\"biomesunseen\", ore.id)"
+                   if line_key in TOOL_MATERIAL_LINES
+                   else "new ResourceLocation(\"biomesunseen\", ore.id)")
+        armor_body = '''package com.biomesunseen.item;
+
+import net.minecraft.core.Holder;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.world.item.ArmorItem;
+import net.minecraft.world.item.ArmorMaterial;
+import net.minecraft.world.item.crafting.Ingredient;
+
+import com.biomesunseen.core.OreDef;
+
+import java.util.EnumMap;
+import java.util.List;
+import java.util.Map;
+import java.util.function.Supplier;
+
+/**
+ * Armor material derived from an ore definition.  From 1.20.5 the vanilla
+ * ArmorMaterial is a final record, so this class builds one and hands the
+ * armor items a holder of it.
+ */
+public final class UnseenArmorMaterial {
+
+    private final OreDef ore;
+    private final Supplier<Ingredient> repairIngredient;
+    private final ArmorMaterial material;
+    private final Holder<ArmorMaterial> holder;
+
+    public UnseenArmorMaterial(OreDef ore, Supplier<Ingredient> repairIngredient) {
+        this.ore = ore;
+        this.repairIngredient = repairIngredient;
+        Map<ArmorItem.Type, Integer> defense = new EnumMap<>(ArmorItem.Type.class);
+        defense.put(ArmorItem.Type.HELMET, ore.toolMiningLevel + 2);
+        defense.put(ArmorItem.Type.CHESTPLATE, ore.toolMiningLevel + 5);
+        defense.put(ArmorItem.Type.LEGGINGS, ore.toolMiningLevel + 4);
+        defense.put(ArmorItem.Type.BOOTS, ore.toolMiningLevel + 2);
+        this.material = new ArmorMaterial(
+                defense,
+                ore.toolEnchantability,
+                BuiltInRegistries.SOUND_EVENT.wrapAsHolder(SoundEvents.ARMOR_EQUIP_IRON),
+                repairIngredient,
+                List.of(new ArmorMaterial.Layer(''' + rl_ctor + ''')),
+                ore.toolMiningLevel * 0.5F,
+                ore.toolMiningLevel >= 4 ? 0.1F : 0.0F);
+        this.holder = Holder.direct(this.material);
+    }
+
+    /** @return the holder the ArmorItem constructor needs. */
+    public Holder<ArmorMaterial> holder() {
+        return holder;
+    }
+
+    public ArmorMaterial material() {
+        return material;
+    }
+
+    public OreDef ore() {
+        return ore;
+    }
+
+    public int getDefenseForType(ArmorItem.Type type) {
+        return material.getDefense(type);
+    }
+
+    public int getEnchantmentValue() {
+        return ore.toolEnchantability;
+    }
+
+    public Ingredient getRepairIngredient() {
+        return repairIngredient.get();
+    }
+
+    public float getToughness() {
+        return ore.toolMiningLevel * 0.5F;
+    }
+
+    public float getKnockbackResistance() {
+        return ore.toolMiningLevel >= 4 ? 0.1F : 0.0F;
     }
 }
 '''
@@ -1459,6 +1575,12 @@ import com.biomesunseen.core.OreDef;
             sword_ret = "SwordItem"
         if line_key in NO_SWORD_PICKAXE_LINES:
             pass
+        elif line_key in TOOL_MATERIAL_LINES and F.get("tool_new"):
+            pickaxe_ctor = "super(tier.material(), (float) ore.toolAttackDamage - 1.0F, (float) (ore.toolSpeed / 2.5) - 2.4F, properties)"
+            sword_ctor = "super(tier.material(), (float) ore.toolAttackDamage, (float) (ore.toolSpeed / 2.5), properties)"
+        elif line_key in TOOL_MATERIAL_LINES:
+            pickaxe_ctor = "super(tier.material(), (int) ore.toolAttackDamage - 1, (float) (ore.toolSpeed / 2.5) - 2.4F, properties)"
+            sword_ctor = "super(tier.material(), (int) ore.toolAttackDamage, (float) (ore.toolSpeed / 2.5), properties)"
         elif F.get("tool_new"):
             pickaxe_ctor = "super(tier, (float) ore.toolAttackDamage - 1.0F, (float) (ore.toolSpeed / 2.5) - 2.4F, properties)"
             sword_ctor = "super(tier, (float) ore.toolAttackDamage, (float) (ore.toolSpeed / 2.5), properties)"
@@ -1489,7 +1611,9 @@ import com.biomesunseen.core.OreDef;
         return new UnseenArmorItem(ore, material, ArmorItem.Type.BOOTS, properties);
     }
 '''
-        armor_ctor = "super(material, slot, properties)"
+        armor_ctor = ("super(material.holder(), slot, properties)"
+                      if line_key in ARMOR_RECORD_LINES
+                      else "super(material, slot, properties)")
         armor_inner_slot = (
             "EquipmentSlot slot"
             if line_key in ("1.16.5", "1.17.1", "1.18", "1.18.1", "1.19", "1.19.1",

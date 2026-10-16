@@ -1,6 +1,7 @@
 package com.biomesunseen.item;
 
-import net.minecraft.tags.BlockTags;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.ToolMaterial;
 import net.minecraft.world.item.crafting.Ingredient;
@@ -11,54 +12,62 @@ import com.biomesunseen.core.OreDef;
 import java.util.function.Supplier;
 
 /**
- * Tool material derived from an ore definition: durability, mining speed,
- * attack bonus and enchantability all come straight from the ore catalog.
+ * Tool material derived from an ore definition.  From 1.21.2 the vanilla
+ * ToolMaterial is a final record, so this builds one from the ore catalog
+ * instead of implementing an interface.
  */
-public class UnseenToolTier implements ToolMaterial {
+public final class UnseenToolTier {
 
     private final OreDef ore;
     private final Supplier<Ingredient> repairIngredient;
+    private final ToolMaterial material;
 
     public UnseenToolTier(OreDef ore, Supplier<Ingredient> repairIngredient) {
         this.ore = ore;
         this.repairIngredient = repairIngredient;
+        this.material = new ToolMaterial(
+                TagKey.create(Registries.BLOCK,
+                        ResourceLocation.fromNamespaceAndPath(
+                                "biomesunseen", "incorrect_for_" + ore.id)),
+                ore.toolDurability,
+                (float) ore.toolSpeed,
+                (float) ore.toolAttackDamage,
+                ore.toolEnchantability,
+                TagKey.create(Registries.ITEM,
+                        ResourceLocation.fromNamespaceAndPath(
+                                "c", "ores/" + ore.id)));
     }
 
-    @Override
-    public int getUses() {
-        return ore.toolDurability;
-    }
-
-    @Override
-    public float getSpeed() {
-        return (float) ore.toolSpeed;
-    }
-
-    @Override
-    public float getAttackDamageBonus() {
-        return (float) ore.toolAttackDamage;
-    }
-
-    @Override
-    public TagKey<Block> getIncorrectBlocksForDrops() {
-        return BlockTags.INCORRECT_FOR_NETHERITE_TOOL;
-    }
-
-    @Override
-    public int getEnchantmentValue() {
-        return ore.toolEnchantability;
-    }
-
-    @Override
-    public Ingredient getRepairIngredient() {
-        return repairIngredient.get();
+    /** @return the vanilla record the tool items are constructed from. */
+    public ToolMaterial material() {
+        return material;
     }
 
     public OreDef ore() {
         return ore;
     }
 
+    public int getUses() {
+        return ore.toolDurability;
+    }
+
+    public float getSpeed() {
+        return (float) ore.toolSpeed;
+    }
+
+    public float getAttackDamageBonus() {
+        return (float) ore.toolAttackDamage;
+    }
+
+    public int getEnchantmentValue() {
+        return ore.toolEnchantability;
+    }
+
     public int getLevel() {
         return ore.toolMiningLevel;
+    }
+
+    public Ingredient getRepairIngredient() {
+        return repairIngredient.get();
     }
 }

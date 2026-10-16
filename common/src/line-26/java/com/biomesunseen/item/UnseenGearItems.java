@@ -73,7 +73,7 @@ public final class UnseenGearItems {
         private final OreDef ore;
 
         UnseenArmorItem(OreDef ore, UnseenArmorMaterial material, ArmorItem.Type slot, Item.Properties properties) {
-            super(material, slot, properties);
+            super(material.holder(), slot, properties);
             this.ore = ore;
         }
 
