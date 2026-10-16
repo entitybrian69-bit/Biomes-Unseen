@@ -2,7 +2,7 @@
 A problem occurred configuring project ':neoforge-26.1'.
 > Failed to setup Minecraft, java.lang.RuntimeException: Failed to provide net.neoforged:neoforge:26.1.+ : java.lang.RuntimeException: Could not resolve Forge userdev
 ---
-BUILD FAILED in 47s
+BUILD FAILED in 44s
 ---
 === STACKTRACE ===
 Caused by: java.lang.RuntimeException: Failed to setup Minecraft, java.lang.RuntimeException: Failed to provide net.neoforged:neoforge:26.1.+ : java.lang.RuntimeException: Could not resolve Forge userdev
@@ -65,4 +65,4 @@ Caused by: java.lang.RuntimeException: Could not resolve Forge userdev
 	... 196 more
 
 
-BUILD FAILED in 47s
+BUILD FAILED in 44s

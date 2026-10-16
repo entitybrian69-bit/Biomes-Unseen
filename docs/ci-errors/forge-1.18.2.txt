@@ -1,11 +1,3 @@
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/forge-1.18.2/src/main/java/com/biomesunseen/platform/PlatformExpectImpl.java:38: error: package net.minecraft.core.registries.BuiltInRegistries does not exist
-        net.minecraft.core.registries.BuiltInRegistries.ENTITY_TYPE
-                                                       ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/entity/boss/VoidSerpentEntity.java:144: error: package net.minecraft.world.phys.net.minecraft.world.phys does not exist
-                net.minecraft.world.phys.net.minecraft.world.phys.AABB box = new net.minecraft.world.phys.AABB(segmentX(i) - 2.0D, segmentY(i) - 2.0D, segmentZ(i) - 2.0D,
-                                                                 ^
----
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/registry/ModEntities.java:147: error: incompatible types: RegistrySupplier<EntityType<LumoxEntity>> cannot be converted to Supplier<EntityType<? extends LivingEntity>>
         EntityAttributeRegistry.register(Lumox, () -> Mob.createMobAttributes()
                                          ^
@@ -238,16 +230,24 @@
         EntityRendererRegistry.register(ModEntities.AshCrawler, context -> new UnseenLegacyRenderer<>(context, "ash_crawler"));
                               ^
 ---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/client/ClientSetup.java:48: error: method register in class EntityRendererRegistry cannot be applied to given types;
+        EntityRendererRegistry.register(ModEntities.StarWhale, context -> new UnseenLegacyRenderer<>(context, "star_whale"));
+                              ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/client/ClientSetup.java:49: error: method register in class EntityRendererRegistry cannot be applied to given types;
+        EntityRendererRegistry.register(ModEntities.PetalWing, context -> new UnseenLegacyRenderer<>(context, "petal_wing"));
+                              ^
+---
 === STACKTRACE ===
 Caused by: org.gradle.api.internal.tasks.compile.CompilationFailedException: Compilation failed; see the compiler output below.
 === WHAT WENT WRONG ===
 * What went wrong:
 Execution failed for task ':forge-1.18.2:compileJava' (registered by plugin class 'org.gradle.api.plugins.JavaBasePlugin').
 > Compilation failed; see the compiler output below.
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/forge-1.18.2/src/main/java/com/biomesunseen/platform/PlatformExpectImpl.java:38: error: package net.minecraft.core.registries.BuiltInRegistries does not exist
-          net.minecraft.core.registries.BuiltInRegistries.ENTITY_TYPE
-                                                         ^
-  73 errors
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/registry/ModEntities.java:147: error: incompatible types: RegistrySupplier<EntityType<LumoxEntity>> cannot be converted to Supplier<EntityType<? extends LivingEntity>>
+          EntityAttributeRegistry.register(Lumox, () -> Mob.createMobAttributes()
+                                           ^
+  63 errors
 
 * Try:
 === LAST 40 ===
@@ -261,7 +261,7 @@ Note: Recompile with -Xlint:deprecation for details.
 Note: Some input files use unchecked or unsafe operations.
 Note: Recompile with -Xlint:unchecked for details.
 Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
-73 errors
+63 errors
 	at org.gradle.api.internal.tasks.compile.JdkJavaCompiler.execute(JdkJavaCompiler.java:88)
 	at org.gradle.api.internal.tasks.compile.JdkJavaCompiler.execute(JdkJavaCompiler.java:49)
 	at org.gradle.api.internal.tasks.compile.daemon.CompilerWorkAction.execute(CompilerWorkAction.java:52)
@@ -289,5 +289,5 @@ Note: Some messages have been simplified; recompile with -Xdiags:verbose to get 
 	at org.gradle.internal.concurrent.AbstractManagedExecutor$1.run(AbstractManagedExecutor.java:47)
 
 
-BUILD FAILED in 2m 14s
+BUILD FAILED in 2m 43s
 1 actionable task: 1 executed

@@ -10,10 +10,6 @@ import net.minecraft.world.item.ArmorMaterial;
             moveTo(target.getX() + getRandom().nextInt(7) - 3, target.getY() + 2.0D,
             ^
 ---
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/entity/boss/VoidSerpentEntity.java:144: error: package net.minecraft.world.phys.net.minecraft.world.phys does not exist
-                net.minecraft.world.phys.net.minecraft.world.phys.AABB box = new net.minecraft.world.phys.AABB(segmentX(i) - 2.0D, segmentY(i) - 2.0D, segmentZ(i) - 2.0D,
-                                                                 ^
----
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/entity/boss/HeartOfTheForestEntity.java:138: error: cannot find symbol
             minion.moveTo(blockPosition().getX() + getRandom().nextInt(7) - 3, getY(),
                   ^
@@ -187,7 +183,7 @@ public class UnseenLegacyModel<T extends BiomesUnseenMob> extends EntityModel<T>
     ^
 ---
 > Task :fabric-1.21.8:compileJava FAILED
-gradle/actions: Writing build results to /home/runner/work/_temp/.gradle-actions/build-results/__run_2-1792163305245.json
+gradle/actions: Writing build results to /home/runner/work/_temp/.gradle-actions/build-results/__run_2-1792164333736.json
 
 ---
 * What went wrong:
@@ -237,6 +233,10 @@ Execution failed for task ':fabric-1.21.8:compileJava' (registered by plugin cla
   /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/entity/boss/HeartOfTheForestEntity.java:138: error: cannot find symbol
               minion.moveTo(blockPosition().getX() + getRandom().nextInt(7) - 3, getY(),
                     ^
+---
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/item/UnseenArmorMaterial.java:63: error: cannot find symbol
+          return material.getDefense(type);
+                         ^
 ---
 === STACKTRACE ===
 Caused by: org.gradle.api.internal.tasks.compile.CompilationFailedException: Compilation failed; see the compiler output below.
@@ -320,5 +320,5 @@ Execution failed for task ':fabric-1.21.8:compileJava' (registered by plugin cla
 	... 25 more
 
 
-BUILD FAILED in 1m 18s
+BUILD FAILED in 1m 2s
 1 actionable task: 1 executed

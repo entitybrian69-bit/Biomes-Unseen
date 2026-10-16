@@ -18,17 +18,9 @@ public class UnseenParticle extends TextureSheetParticle {
         if (FMLEnvironment.dist == Dist.CLIENT) {
                           ^
 ---
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/neoforge-1.21.9/src/main/java/com/biomesunseen/platform/PlatformExpectImpl.java:42: error: cannot find symbol
-                        net.minecraft.world.entity.SpawnPlacements.Type.ON_GROUND,
-                                                                  ^
----
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/entity/boss/VoidSerpentEntity.java:138: error: cannot find symbol
             moveTo(target.getX() + getRandom().nextInt(7) - 3, target.getY() + 2.0D,
             ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/entity/boss/VoidSerpentEntity.java:144: error: package net.minecraft.world.phys.net.minecraft.world.phys does not exist
-                net.minecraft.world.phys.net.minecraft.world.phys.AABB box = new net.minecraft.world.phys.AABB(segmentX(i) - 2.0D, segmentY(i) - 2.0D, segmentZ(i) - 2.0D,
-                                                                 ^
 ---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/entity/boss/HeartOfTheForestEntity.java:138: error: cannot find symbol
             minion.moveTo(blockPosition().getX() + getRandom().nextInt(7) - 3, getY(),
@@ -238,6 +230,14 @@ public class UnseenLegacyModel<T extends BiomesUnseenMob> extends EntityModel<T>
         super.tick();
         ^
 ---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/client/particle/UnseenParticle.java:35: error: cannot find symbol
+        this.setSpriteFromAge(this.sprites);
+            ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/client/particle/UnseenParticle.java:36: error: cannot find symbol
+        this.alpha = 1.0F - (float) this.age / (float) this.lifetime;
+            ^
+---
 === STACKTRACE ===
 Caused by: org.gradle.api.internal.tasks.compile.CompilationFailedException: Compilation failed; see the compiler output below.
 === WHAT WENT WRONG ===
@@ -259,11 +259,6 @@ Execution failed for task ':neoforge-1.21.9:compileJava' (registered by plugin c
                             ^
     symbol:   variable dist
     location: class FMLEnvironment
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/neoforge-1.21.9/src/main/java/com/biomesunseen/platform/PlatformExpectImpl.java:42: error: cannot find symbol
-                          net.minecraft.world.entity.SpawnPlacements.Type.ON_GROUND,
-                                                                    ^
-    symbol:   variable Type
-    location: class SpawnPlacements
   /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/item/UnseenArmorMaterial.java:43: error: cannot find symbol
                   List.of(new ArmorMaterial.Layer(ResourceLocation.fromNamespaceAndPath("biomesunseen", ore.id))),
                                            ^
@@ -281,6 +276,11 @@ Execution failed for task ':neoforge-1.21.9:compileJava' (registered by plugin c
     location: class MobEffects
   /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/item/UnseenTonicItem.java:68: error: cannot find symbol
               return MobEffects.MOVEMENT_SLOWDOWN;
+                               ^
+    symbol:   variable MOVEMENT_SLOWDOWN
+    location: class MobEffects
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/item/UnseenTonicItem.java:71: error: cannot find symbol
+              return MobEffects.DIG_SPEED;
 === LAST 40 ===
 	at org.gradle.internal.execution.steps.MutableStep.execute(MutableStep.java:26)
 	at org.gradle.internal.execution.steps.ValidateStep$Mutable.executeDelegate(ValidateStep.java:79)
@@ -320,5 +320,5 @@ Execution failed for task ':neoforge-1.21.9:compileJava' (registered by plugin c
 	... 25 more
 
 
-BUILD FAILED in 1m 39s
+BUILD FAILED in 1m 45s
 1 actionable task: 1 executed
