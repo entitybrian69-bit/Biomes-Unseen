@@ -50,15 +50,7 @@ import net.minecraft.resources.ResourceLocation;
         if (FMLEnvironment.dist == Dist.CLIENT) {
                           ^
 ---
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/neoforge-26.1.2/src/main/java/com/biomesunseen/platform/PlatformExpectImpl.java:38: error: cannot find symbol
-                .getOptional(net.minecraft.resources.ResourceLocation.fromNamespaceAndPath("biomesunseen", mobId))
-                                                    ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/neoforge-26.1.2/src/main/java/com/biomesunseen/platform/PlatformExpectImpl.java:42: error: cannot find symbol
-                        net.minecraft.world.entity.SpawnPlacements.Type.ON_GROUND,
-                                                                  ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/neoforge-26.1.2/src/main/java/com/biomesunseen/platform/PlatformExpectImpl.java:66: error: cannot find symbol
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/neoforge-26.1.2/src/main/java/com/biomesunseen/platform/PlatformExpectImpl.java:59: error: cannot find symbol
             player.playNotifySound(sound, net.minecraft.sounds.SoundSource.MUSIC, 1.0F, 1.0F);
                   ^
 ---
@@ -69,10 +61,6 @@ import net.minecraft.resources.ResourceLocation;
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/VoidSerpentEntity.java:138: error: cannot find symbol
             moveTo(target.getX() + getRandom().nextInt(7) - 3, target.getY() + 2.0D,
             ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/VoidSerpentEntity.java:144: error: package net.minecraft.world.phys.net.minecraft.world.phys does not exist
-                net.minecraft.world.phys.net.minecraft.world.phys.AABB box = new net.minecraft.world.phys.AABB(segmentX(i) - 2.0D, segmentY(i) - 2.0D, segmentZ(i) - 2.0D,
-                                                                 ^
 ---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/HeartOfTheForestEntity.java:138: error: cannot find symbol
             minion.moveTo(blockPosition().getX() + getRandom().nextInt(7) - 3, getY(),
@@ -238,6 +226,18 @@ import net.minecraft.resources.ResourceLocation;
     public static final TagKey<Item> ITEM_INGOTS = TagKey.create(Registries.ITEM, net.minecraft.resources.ResourceLocation.fromNamespaceAndPath("c", "ingots"));
                                                                                                          ^
 ---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/registry/ModTags.java:30: error: cannot find symbol
+    public static final TagKey<Item> UNSEEN_ITEM_ORES = TagKey.create(Registries.ITEM, net.minecraft.resources.ResourceLocation.fromNamespaceAndPath("biomesunseen", "ores"));
+                                                                                                              ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/registry/ModTags.java:32: error: cannot find symbol
+    public static final TagKey<EntityType<?>> UNSEEN_MOBS = TagKey.create(Registries.ENTITY_TYPE, net.minecraft.resources.ResourceLocation.fromNamespaceAndPath("biomesunseen", "mobs"));
+                                                                                                                         ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/registry/ModTags.java:33: error: cannot find symbol
+    public static final TagKey<EntityType<?>> UNSEEN_BOSSES = TagKey.create(Registries.ENTITY_TYPE, net.minecraft.resources.ResourceLocation.fromNamespaceAndPath("biomesunseen", "bosses"));
+                                                                                                                           ^
+---
 === STACKTRACE ===
 Caused by: org.gradle.api.internal.tasks.compile.CompilationFailedException: Compilation failed; see the compiler output below.
 === WHAT WENT WRONG ===
@@ -320,5 +320,5 @@ Execution failed for task ':neoforge-26.1.2:compileJava' (registered by plugin c
 	... 25 more
 
 
-BUILD FAILED in 1m 56s
+BUILD FAILED in 1m 15s
 1 actionable task: 1 executed

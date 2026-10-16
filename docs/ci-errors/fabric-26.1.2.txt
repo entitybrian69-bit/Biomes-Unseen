@@ -58,10 +58,6 @@ import net.minecraft.resources.ResourceLocation;
             moveTo(target.getX() + getRandom().nextInt(7) - 3, target.getY() + 2.0D,
             ^
 ---
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/VoidSerpentEntity.java:144: error: package net.minecraft.world.phys.net.minecraft.world.phys does not exist
-                net.minecraft.world.phys.net.minecraft.world.phys.AABB box = new net.minecraft.world.phys.AABB(segmentX(i) - 2.0D, segmentY(i) - 2.0D, segmentZ(i) - 2.0D,
-                                                                 ^
----
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/HeartOfTheForestEntity.java:138: error: cannot find symbol
             minion.moveTo(blockPosition().getX() + getRandom().nextInt(7) - 3, getY(),
                   ^
@@ -238,6 +234,10 @@ import net.minecraft.resources.ResourceLocation;
     public static final TagKey<EntityType<?>> UNSEEN_BOSSES = TagKey.create(Registries.ENTITY_TYPE, net.minecraft.resources.ResourceLocation.fromNamespaceAndPath("biomesunseen", "bosses"));
                                                                                                                            ^
 ---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/registry/ModTags.java:34: error: cannot find symbol
+    public static final TagKey<EntityType<?>> TAMEABLE = TagKey.create(Registries.ENTITY_TYPE, net.minecraft.resources.ResourceLocation.fromNamespaceAndPath("biomesunseen", "tameable"));
+                                                                                                                      ^
+---
 === STACKTRACE ===
 Caused by: org.gradle.api.internal.tasks.compile.CompilationFailedException: Compilation failed; see the compiler output below.
 === WHAT WENT WRONG ===
@@ -320,5 +320,5 @@ Execution failed for task ':fabric-26.1.2:compileJava' (registered by plugin cla
 	... 25 more
 
 
-BUILD FAILED in 1m 6s
+BUILD FAILED in 45s
 1 actionable task: 1 executed

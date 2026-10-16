@@ -44,6 +44,7 @@ subprojects {
 
     tasks.withType(ProcessResources).configureEach {
         def props = [
+                version          : project.mod_version,
                 mod_version      : project.mod_version,
                 mod_id           : project.mod_id,
                 mod_name         : project.mod_name,
