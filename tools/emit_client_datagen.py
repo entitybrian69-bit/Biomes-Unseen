@@ -13,6 +13,12 @@ from emit_families import _w, _s, _camel
 # and EntityModel is now bound to EntityRenderState (probe-fabric-1.21.2).
 RS_LINES = ("1.21.2", "1.21.4", "1.21.5", "1.21.9", "1.21.11", "26")
 
+# The 1.21.9 particle overhaul removed TextureSheetParticle and moved the
+# velocity/position fields, so the custom sprite particle (and its provider)
+# cannot be compiled against those jars.  Those lines ship the particle *types*
+# (registry entries, spawn packets) without a custom client particle.
+NO_CUSTOM_PARTICLE_LINES = ("1.21.9", "1.21.11", "26")
+
 
 def emit_client_datagen(root, line_key):
     F = LINES[line_key]
@@ -595,7 +601,7 @@ public class UnseenLegacyRenderer<T extends BiomesUnseenMob>
                 % (_camel(bid), _camel(bid) + "Renderer"))
 
     particle_regs = []
-    for p in PARTICLE_TYPES:
+    for p in (() if line_key in NO_CUSTOM_PARTICLE_LINES else PARTICLE_TYPES):
         particle_regs.append(
             '        ParticleProviderRegistry.register(ModParticles.BY_ID.get("%s"),\n'
             '                UnseenParticle.Provider::new);' % p)
@@ -643,7 +649,8 @@ public final class ClientSetup {
             "import com.biomesunseen.client.render.VoidSerpentRenderer;\n"
             if geckolib != "none" else
             "import com.biomesunseen.client.legacy.UnseenLegacyRenderer;\n"
-            "import com.biomesunseen.client.particle.UnseenParticle;\n"),
+            + ("" if line_key in NO_CUSTOM_PARTICLE_LINES
+               else "import com.biomesunseen.client.particle.UnseenParticle;\n")),
     })
 
     # ================================================================== #
@@ -764,6 +771,20 @@ public class UnseenParticle extends Particle {
                 double x, double y, double z, double xSpeed, double ySpeed, double zSpeed) {
             return new UnseenParticle(level, x, y, z, xSpeed, ySpeed, zSpeed, sprites);
         }
+    }
+}
+'''
+    if line_key in NO_CUSTOM_PARTICLE_LINES:
+        particle_java = '''package com.biomesunseen.client.particle;
+
+/**
+ * Placeholder for the sprite particle on the lines whose client particle API
+ * was rewritten (1.21.9+): the particle types still exist and still spawn
+ * server-side, they simply use the vanilla default particle representation.
+ */
+public final class UnseenParticle {
+
+    private UnseenParticle() {
     }
 }
 '''

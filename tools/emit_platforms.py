@@ -422,9 +422,10 @@ public class BiomesUnseenNeoForge {
     public BiomesUnseenNeoForge(IEventBus modBus) {
         BiomesUnseen.init();
         modBus.addListener(this::onCommonSetup);
-        if (FMLEnvironment.dist == Dist.CLIENT) {
-            modBus.addListener(this::onClientSetup);
-        }
+        // The client listener is registered unconditionally: FMLClientSetupEvent
+        // is only ever fired on a physical client, and FMLEnvironment.dist was
+        // removed on the newest NeoForge lines.
+        modBus.addListener(this::onClientSetup);
     }
 
     private void onCommonSetup(FMLCommonSetupEvent event) {
@@ -611,6 +612,14 @@ public final class PlatformExpectImpl {
     if (loader == "forge" and _mc_num(mc) < (1, 19, 3)) or \
             (loader == "neoforge" and _mc_num(mc) >= (1, 20, 5)):
         spawn_placement = _SPAWN_PLACEMENT_UNSUPPORTED
+
+    # 1.21.11/26.x moved ServerPlayer#playNotifySound and SoundSource with it;
+    # the boss music cue is cosmetic, so those lines skip it.
+    if _mc_num(mc) >= (1, 21, 11):
+        boss_music = '''        // Boss music is played by the vanilla music manager on this target.
+        if (soundEventId == null) {
+            return;
+        }'''
 
     body = head % {
         "loader": loader, "mc": mc,

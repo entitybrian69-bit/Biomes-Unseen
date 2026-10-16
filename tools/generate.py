@@ -263,6 +263,11 @@ _INVULN_TWO_ARG = """    public boolean isInvulnerableTo(net.minecraft.server.le
 # net.minecraft.resources.Identifier replaced ResourceLocation in 1.21.11.
 IDENTIFIER_LINES = ("1.21.11", "26")
 
+# probe-fabric-1.21.5: Entity#moveTo was renamed to snapTo (all five overloads).
+MOVE_TO_SNAP_FROM = "1.21.5"
+# probe-fabric-1.21.9: BlockBehaviour$Properties#noCollission -> noCollision.
+NO_COLLISION_FROM = "1.21.9"
+
 TIER_INCORRECT_FROM = "1.20.5"
 
 _TIER_LEVEL_IMPL = """    @Override
@@ -443,6 +448,17 @@ def apply_api_drift(text, line_key):
             r'protected void checkAndPerformAttack(\1 \2, double distance) {', text)
         text = _RE_CHECK_ATTACK_SUPER.sub(
             r'super.checkAndPerformAttack(\1, distance);', text)
+
+    # -- 1.21.5+: Entity.moveTo is called snapTo.
+    if rank >= LINE_RANK[MOVE_TO_SNAP_FROM]:
+        # Entity#moveTo -> snapTo.  Navigation#moveTo is a different method and
+        # keeps its name, so those call sites are left alone.
+        text = re.sub(r'(?<!getNavigation\(\))\.moveTo\(', '.snapTo(', text)
+        text = re.sub(r'(?<![.\w])moveTo\(', 'snapTo(', text)
+
+    # -- 1.21.9+: noCollission() is spelled noCollision().
+    if rank >= LINE_RANK[NO_COLLISION_FROM]:
+        text = text.replace("noCollission()", "noCollision()")
 
     # -- 1.21.5+: spawnAtLocation takes the ServerLevel first.
     if rank >= LINE_RANK[SPAWN_AT_LOCATION_NEEDS_LEVEL_FROM]:

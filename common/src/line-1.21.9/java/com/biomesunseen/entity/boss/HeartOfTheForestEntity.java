@@ -135,7 +135,7 @@ public class HeartOfTheForestEntity extends BiomesUnseenMob {
         for (int i = 0; i < 2 + phase; i++) {
             BramblebackEntity minion = new BramblebackEntity(
                     com.biomesunseen.registry.ModEntities.Brambleback.get(), unseenLevel());
-            minion.moveTo(blockPosition().getX() + getRandom().nextInt(7) - 3, getY(),
+            minion.snapTo(blockPosition().getX() + getRandom().nextInt(7) - 3, getY(),
                     blockPosition().getZ() + getRandom().nextInt(7) - 3, 0.0F, 0.0F);
             unseenLevel().addFreshEntity(minion);
         }

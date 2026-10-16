@@ -18,9 +18,10 @@ public class BiomesUnseenNeoForge {
     public BiomesUnseenNeoForge(IEventBus modBus) {
         BiomesUnseen.init();
         modBus.addListener(this::onCommonSetup);
-        if (FMLEnvironment.dist == Dist.CLIENT) {
-            modBus.addListener(this::onClientSetup);
-        }
+        // The client listener is registered unconditionally: FMLClientSetupEvent
+        // is only ever fired on a physical client, and FMLEnvironment.dist was
+        // removed on the newest NeoForge lines.
+        modBus.addListener(this::onClientSetup);
     }
 
     private void onCommonSetup(FMLCommonSetupEvent event) {

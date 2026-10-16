@@ -135,7 +135,7 @@ public class VoidSerpentEntity extends BiomesUnseenMob {
             // phase_shift: blink behind the target, invulnerable during
             triggerAnim("phase_shift");
             phaseShiftTicks = 25;
-            moveTo(target.getX() + getRandom().nextInt(7) - 3, target.getY() + 2.0D,
+            snapTo(target.getX() + getRandom().nextInt(7) - 3, target.getY() + 2.0D,
                     target.getZ() + getRandom().nextInt(7) - 3, 0.0F, 0.0F);
         } else if (choice == 2) {
             // tail_sweep: AoE around body segments

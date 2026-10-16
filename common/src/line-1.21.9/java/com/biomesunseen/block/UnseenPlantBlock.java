@@ -21,7 +21,7 @@ public class UnseenPlantBlock extends Block {
 
     private static BlockBehaviour.Properties buildProperties() {
         BlockBehaviour.Properties properties = BlockBehaviour.Properties.of();
-        return properties.noCollission().instabreak().offsetType(BlockBehaviour.OffsetType.XZ)
+        return properties.noCollision().instabreak().offsetType(BlockBehaviour.OffsetType.XZ)
                 .sound(SoundType.GRASS);
     }
 

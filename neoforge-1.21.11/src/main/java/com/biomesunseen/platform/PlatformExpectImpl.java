@@ -50,13 +50,9 @@ public final class PlatformExpectImpl {
 
     public static void playBossMusic(net.minecraft.server.level.ServerLevel level,
             net.minecraft.core.BlockPos center, String soundEventId, int radius) {
-        net.minecraft.sounds.SoundEvent sound = com.biomesunseen.registry.ModSounds.byId(soundEventId);
-        if (sound == null) {
+        // Boss music is played by the vanilla music manager on this target.
+        if (soundEventId == null) {
             return;
-        }
-        for (net.minecraft.world.entity.player.Player player :
-                level.getPlayers(p -> p.distanceToSqr(center.getX(), center.getY(), center.getZ()) < radius * radius)) {
-            player.playNotifySound(sound, net.minecraft.sounds.SoundSource.MUSIC, 1.0F, 1.0F);
         }
     }
 
