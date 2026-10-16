@@ -25,7 +25,9 @@ TOOL_MATERIAL_LINES = ("1.21.2", "1.21.4", "1.21.5", "1.21.9", "1.21.11", "26")
 
 # 1.20.5 turned ArmorMaterial into a final record and ArmorItem into
 # ArmorItem(Holder<ArmorMaterial>, ArmorItem$Type, Item$Properties).
-ARMOR_RECORD_LINES = ("1.20.5", "1.21", "1.21.2", "1.21.4", "1.21.5", "1.21.9", "1.21.11", "26")
+ARMOR_RECORD_LINES = ("1.20.5", "1.21")
+# 1.21.2 replaced the Layer list with an EquipmentAsset ResourceKey.
+ARMOR_ASSET_LINES = ("1.21.2", "1.21.4", "1.21.5", "1.21.9", "1.21.11", "26")
 
 # 1.21.5 removed ArmorItem alongside SwordItem/PickaxeItem, so the armor pieces
 # are plain Items on those lines.
@@ -1248,6 +1250,99 @@ public class UnseenArmorMaterial implements IArmorMaterial {
     }
 }
 '''
+    elif line_key in ARMOR_ASSET_LINES:
+        # 1.21.2 reshaped the record again (mappings.dev/1.21.4
+        # net.minecraft.world.item.equipment.ArmorMaterial):
+        #   ArmorMaterial(int durability, Map<ArmorType,Integer> defense,
+        #           int enchantmentValue, Holder<SoundEvent> equipSound,
+        #           float toughness, float knockbackResistance,
+        #           TagKey<Item> repairIngredient,
+        #           ResourceKey<EquipmentAsset> assetId)
+        # Layer and getDefense() are gone, and ArmorItem takes the material.
+        armor_body = '''package com.biomesunseen.item;
+
+import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.tags.TagKey;
+import net.minecraft.world.item.Item;
+%(armor_item_import)s%(armor_type_import)simport net.minecraft.world.item.equipment.ArmorMaterial;
+
+import com.biomesunseen.core.OreDef;
+
+import java.util.EnumMap;
+import java.util.Map;
+import java.util.function.Supplier;
+
+/**
+ * Armor material derived from an ore definition.  From 1.21.2 the vanilla
+ * ArmorMaterial is a record keyed on an equipment asset, so this class builds
+ * one from the ore catalog.
+ */
+public final class UnseenArmorMaterial {
+
+    private final OreDef ore;
+    private final Supplier<net.minecraft.world.item.crafting.Ingredient> repairIngredient;
+    private final ArmorMaterial material;
+
+    public UnseenArmorMaterial(OreDef ore,
+            Supplier<net.minecraft.world.item.crafting.Ingredient> repairIngredient) {
+        this.ore = ore;
+        this.repairIngredient = repairIngredient;
+        Map<ArmorType, Integer> defense = new EnumMap<>(ArmorType.class);
+        defense.put(ArmorType.HELMET, ore.toolMiningLevel + 2);
+        defense.put(ArmorType.CHESTPLATE, ore.toolMiningLevel + 5);
+        defense.put(ArmorType.LEGGINGS, ore.toolMiningLevel + 4);
+        defense.put(ArmorType.BOOTS, ore.toolMiningLevel + 2);
+        this.material = new ArmorMaterial(
+                Math.max(1, ore.toolDurability / 33) * 13,
+                defense,
+                ore.toolEnchantability,
+                SoundEvents.ARMOR_EQUIP_IRON,
+                ore.toolMiningLevel * 0.5F,
+                ore.toolMiningLevel >= 4 ? 0.1F : 0.0F,
+                TagKey.create(Registries.ITEM,
+                        ResourceLocation.fromNamespaceAndPath("biomesunseen", "repairs_armor")),
+                ResourceKey.create(Registries.EQUIPMENT_ASSET,
+                        ResourceLocation.fromNamespaceAndPath("minecraft", "iron")));
+    }
+
+    /** @return the record the armor item constructor needs. */
+    public ArmorMaterial material() {
+        return material;
+    }
+
+    public OreDef ore() {
+        return ore;
+    }
+
+    public int getDefenseForType(ArmorType type) {
+        Integer value = material.defense().get(type);
+        return value == null ? 0 : value;
+    }
+
+    public int getEnchantmentValue() {
+        return ore.toolEnchantability;
+    }
+
+    public net.minecraft.world.item.crafting.Ingredient getRepairIngredient() {
+        return repairIngredient.get();
+    }
+
+    public float getToughness() {
+        return ore.toolMiningLevel * 0.5F;
+    }
+
+    public float getKnockbackResistance() {
+        return ore.toolMiningLevel >= 4 ? 0.1F : 0.0F;
+    }
+}
+'''
+        _w(root, base + "/item/UnseenArmorMaterial.java", armor_body.replace(
+            "%(armor_item_import)s", armor_item_import).replace(
+            "%(armor_type_import)s", armor_type_import))
+
     elif line_key in ARMOR_RECORD_LINES:
         # From 1.20.5 the vanilla ArmorMaterial is a final record, so it cannot
         # be implemented.  The probe of the real 1.20.5 jar gives the exact
@@ -1684,8 +1779,10 @@ import com.biomesunseen.core.OreDef;
 '''
         armor_ctor = ("super(properties)"
                       if line_key in NO_ARMOR_ITEM_LINES
-                      else ("super(material.holder(), slot, properties)"
-                            if line_key in ARMOR_RECORD_LINES
+                      else ("super(material.material(), slot, properties)"
+                            if line_key in ARMOR_ASSET_LINES
+                            else "super(material.holder(), slot, properties)"
+                            if line_key in ARMOR_RECORD_LINES or line_key in ARMOR_ASSET_LINES
                             else "super(material, slot, properties)"))
         armor_inner_slot = (
             "EquipmentSlot slot"

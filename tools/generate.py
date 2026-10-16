@@ -263,6 +263,18 @@ _INVULN_TWO_ARG = """    public boolean isInvulnerableTo(net.minecraft.server.le
 # net.minecraft.resources.Identifier replaced ResourceLocation in 1.21.11.
 IDENTIFIER_LINES = ("1.21.11", "26")
 
+# probe-fabric-1.21.5: several MobEffects constants were renamed (the field
+# set changed from DAMAGE_BOOST/MOVEMENT_SPEED/... to STRENGTH/SPEED/...).
+MOB_EFFECT_RENAMES_FROM = "1.21.5"
+MOB_EFFECT_RENAMES = (
+    ("MOVEMENT_SPEED", "SPEED"),
+    ("MOVEMENT_SLOWDOWN", "SLOWNESS"),
+    ("DAMAGE_BOOST", "STRENGTH"),
+    ("DAMAGE_RESISTANCE", "RESISTANCE"),
+    ("DIG_SPEED", "HASTE"),
+    ("CONFUSION", "NAUSEA"),
+)
+
 # probe-fabric-1.21.5: Entity#moveTo was renamed to snapTo (all five overloads).
 MOVE_TO_SNAP_FROM = "1.21.5"
 # probe-fabric-1.21.9: BlockBehaviour$Properties#noCollission -> noCollision.
@@ -448,6 +460,11 @@ def apply_api_drift(text, line_key):
             r'protected void checkAndPerformAttack(\1 \2, double distance) {', text)
         text = _RE_CHECK_ATTACK_SUPER.sub(
             r'super.checkAndPerformAttack(\1, distance);', text)
+
+    # -- 1.21.5+: MobEffects constant renames.
+    if rank >= LINE_RANK[MOB_EFFECT_RENAMES_FROM]:
+        for old_name, new_name in MOB_EFFECT_RENAMES:
+            text = text.replace("MobEffects." + old_name, "MobEffects." + new_name)
 
     # -- 1.21.5+: Entity.moveTo is called snapTo.
     if rank >= LINE_RANK[MOVE_TO_SNAP_FROM]:

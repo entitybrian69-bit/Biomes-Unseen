@@ -1,33 +1,33 @@
 package com.biomesunseen.item;
 
-import net.minecraft.core.Holder;
-import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvents;
+import net.minecraft.tags.TagKey;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.equipment.ArmorMaterial;
 import net.minecraft.world.item.equipment.ArmorType;
-import net.minecraft.world.item.crafting.Ingredient;
 
 import com.biomesunseen.core.OreDef;
 
 import java.util.EnumMap;
-import java.util.List;
 import java.util.Map;
 import java.util.function.Supplier;
 
 /**
- * Armor material derived from an ore definition.  From 1.20.5 the vanilla
- * ArmorMaterial is a final record, so this class builds one and hands the
- * armor items a holder of it.
+ * Armor material derived from an ore definition.  From 1.21.2 the vanilla
+ * ArmorMaterial is a record keyed on an equipment asset, so this class builds
+ * one from the ore catalog.
  */
 public final class UnseenArmorMaterial {
 
     private final OreDef ore;
-    private final Supplier<Ingredient> repairIngredient;
+    private final Supplier<net.minecraft.world.item.crafting.Ingredient> repairIngredient;
     private final ArmorMaterial material;
-    private final Holder<ArmorMaterial> holder;
 
-    public UnseenArmorMaterial(OreDef ore, Supplier<Ingredient> repairIngredient) {
+    public UnseenArmorMaterial(OreDef ore,
+            Supplier<net.minecraft.world.item.crafting.Ingredient> repairIngredient) {
         this.ore = ore;
         this.repairIngredient = repairIngredient;
         Map<ArmorType, Integer> defense = new EnumMap<>(ArmorType.class);
@@ -36,21 +36,19 @@ public final class UnseenArmorMaterial {
         defense.put(ArmorType.LEGGINGS, ore.toolMiningLevel + 4);
         defense.put(ArmorType.BOOTS, ore.toolMiningLevel + 2);
         this.material = new ArmorMaterial(
+                Math.max(1, ore.toolDurability / 33) * 13,
                 defense,
                 ore.toolEnchantability,
                 SoundEvents.ARMOR_EQUIP_IRON,
-                repairIngredient,
-                List.of(new ArmorMaterial.Layer(ResourceLocation.fromNamespaceAndPath("biomesunseen", ore.id))),
                 ore.toolMiningLevel * 0.5F,
-                ore.toolMiningLevel >= 4 ? 0.1F : 0.0F);
-        this.holder = Holder.direct(this.material);
+                ore.toolMiningLevel >= 4 ? 0.1F : 0.0F,
+                TagKey.create(Registries.ITEM,
+                        ResourceLocation.fromNamespaceAndPath("biomesunseen", "repairs_armor")),
+                ResourceKey.create(Registries.EQUIPMENT_ASSET,
+                        ResourceLocation.fromNamespaceAndPath("minecraft", "iron")));
     }
 
-    /** @return the holder the ArmorItem constructor needs. */
-    public Holder<ArmorMaterial> holder() {
-        return holder;
-    }
-
+    /** @return the record the armor item constructor needs. */
     public ArmorMaterial material() {
         return material;
     }
@@ -60,14 +58,15 @@ public final class UnseenArmorMaterial {
     }
 
     public int getDefenseForType(ArmorType type) {
-        return material.getDefense(type);
+        Integer value = material.defense().get(type);
+        return value == null ? 0 : value;
     }
 
     public int getEnchantmentValue() {
         return ore.toolEnchantability;
     }
 
-    public Ingredient getRepairIngredient() {
+    public net.minecraft.world.item.crafting.Ingredient getRepairIngredient() {
         return repairIngredient.get();
     }
 

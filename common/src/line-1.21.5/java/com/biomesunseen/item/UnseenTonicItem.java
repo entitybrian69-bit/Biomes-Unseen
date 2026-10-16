@@ -44,10 +44,10 @@ public class UnseenTonicItem extends Item {
             return MobEffects.FIRE_RESISTANCE;
         }
         if ("swiftness".equals(ore.potionEffect)) {
-            return MobEffects.MOVEMENT_SPEED;
+            return MobEffects.SPEED;
         }
         if ("strength".equals(ore.potionEffect)) {
-            return MobEffects.DAMAGE_BOOST;
+            return MobEffects.STRENGTH;
         }
         if ("regeneration".equals(ore.potionEffect)) {
             return MobEffects.REGENERATION;
@@ -65,10 +65,10 @@ public class UnseenTonicItem extends Item {
             return MobEffects.POISON;
         }
         if ("slowness".equals(ore.potionEffect)) {
-            return MobEffects.MOVEMENT_SLOWDOWN;
+            return MobEffects.SLOWNESS;
         }
         if ("haste".equals(ore.potionEffect)) {
-            return MobEffects.DIG_SPEED;
+            return MobEffects.HASTE;
         }
         if ("levitation".equals(ore.potionEffect)) {
             return MobEffects.LEVITATION;
@@ -76,7 +76,7 @@ public class UnseenTonicItem extends Item {
         if ("absorption".equals(ore.potionEffect)) {
             return MobEffects.ABSORPTION;
         }
-        return MobEffects.DAMAGE_RESISTANCE;
+        return MobEffects.RESISTANCE;
     }
 
 }
