@@ -21,7 +21,7 @@ public abstract class ThrottledGoal extends Goal {
 
     @Override
     public boolean canUse() {
-        return AiThrottle.shouldThink(mob.getId(), mob.unseenLevel().getGameTime())
+        return AiThrottle.shouldThink(mob.getId(), com.biomesunseen.util.EntityLevels.of(mob).getGameTime())
                 && throttledCanUse();
     }
 

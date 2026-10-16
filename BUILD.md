@@ -46,49 +46,49 @@ Output jar: `<module>/build/libs/biomesunseen-<mc>-<loader>-1.0.0.jar`
 | `fabric-1.20.1` | 1.20.1 | 17 | Fabric | Fabric Loader 0.16.9 |
 | `forge-1.20.1` | 1.20.1 | 17 | Forge | Forge 1.20.1-47.3.12 |
 | `fabric-1.20.2` | 1.20.2 | 17 | Fabric | Fabric Loader 0.16.9 |
-| `neoforge-1.20.2` | 1.20.2 | 17 | Neoforge | NeoForge 20.2.+ |
+| `neoforge-1.20.2` | 1.20.2 | 17 | Neoforge | NeoForge 20.2.88 |
 | `fabric-1.20.3` | 1.20.3 | 17 | Fabric | Fabric Loader 0.16.9 |
-| `neoforge-1.20.3` | 1.20.3 | 17 | Neoforge | NeoForge 20.3.+ |
+| `neoforge-1.20.3` | 1.20.3 | 17 | Neoforge | NeoForge 20.3.113 |
 | `fabric-1.20.4` | 1.20.4 | 17 | Fabric | Fabric Loader 0.16.9 |
-| `neoforge-1.20.4` | 1.20.4 | 17 | Neoforge | NeoForge 20.4.+ |
+| `neoforge-1.20.4` | 1.20.4 | 17 | Neoforge | NeoForge 20.4.237 |
 | `fabric-1.20.5` | 1.20.5 | 21 | Fabric | Fabric Loader 0.16.9 |
-| `neoforge-1.20.5` | 1.20.5 | 21 | Neoforge | NeoForge 20.5.+ |
+| `neoforge-1.20.5` | 1.20.5 | 21 | Neoforge | NeoForge 20.5.27 |
 | `fabric-1.20.6` | 1.20.6 | 21 | Fabric | Fabric Loader 0.16.9 |
-| `neoforge-1.20.6` | 1.20.6 | 21 | Neoforge | NeoForge 20.6.+ |
+| `neoforge-1.20.6` | 1.20.6 | 21 | Neoforge | NeoForge 20.6.119 |
 | `fabric-1.21` | 1.21 | 21 | Fabric | Fabric Loader 0.16.9 |
-| `neoforge-1.21` | 1.21 | 21 | Neoforge | NeoForge 21.0.+ |
+| `neoforge-1.21` | 1.21 | 21 | Neoforge | NeoForge 21.0.167 |
 | `fabric-1.21.1` | 1.21.1 | 21 | Fabric | Fabric Loader 0.16.9 |
-| `neoforge-1.21.1` | 1.21.1 | 21 | Neoforge | NeoForge 21.1.+ |
+| `neoforge-1.21.1` | 1.21.1 | 21 | Neoforge | NeoForge 21.1.172 |
 | `fabric-1.21.2` | 1.21.2 | 21 | Fabric | Fabric Loader 0.16.9 |
-| `neoforge-1.21.2` | 1.21.2 | 21 | Neoforge | NeoForge 21.2.+ |
+| `neoforge-1.21.2` | 1.21.2 | 21 | Neoforge | NeoForge 21.2.91 |
 | `fabric-1.21.3` | 1.21.3 | 21 | Fabric | Fabric Loader 0.16.9 |
-| `neoforge-1.21.3` | 1.21.3 | 21 | Neoforge | NeoForge 21.3.+ |
+| `neoforge-1.21.3` | 1.21.3 | 21 | Neoforge | NeoForge 21.3.63 |
 | `fabric-1.21.4` | 1.21.4 | 21 | Fabric | Fabric Loader 0.16.9 |
-| `neoforge-1.21.4` | 1.21.4 | 21 | Neoforge | NeoForge 21.4.+ |
+| `neoforge-1.21.4` | 1.21.4 | 21 | Neoforge | NeoForge 21.4.135 |
 | `fabric-1.21.5` | 1.21.5 | 21 | Fabric | Fabric Loader 0.16.9 |
-| `neoforge-1.21.5` | 1.21.5 | 21 | Neoforge | NeoForge 21.5.+ |
+| `neoforge-1.21.5` | 1.21.5 | 21 | Neoforge | NeoForge 21.5.75 |
 | `fabric-1.21.6` | 1.21.6 | 21 | Fabric | Fabric Loader 0.16.9 |
-| `neoforge-1.21.6` | 1.21.6 | 21 | Neoforge | NeoForge 21.6.+ |
+| `neoforge-1.21.6` | 1.21.6 | 21 | Neoforge | NeoForge 21.6.28 |
 | `fabric-1.21.7` | 1.21.7 | 21 | Fabric | Fabric Loader 0.16.9 |
-| `neoforge-1.21.7` | 1.21.7 | 21 | Neoforge | NeoForge 21.7.+ |
+| `neoforge-1.21.7` | 1.21.7 | 21 | Neoforge | NeoForge 21.7.28 |
 | `fabric-1.21.8` | 1.21.8 | 21 | Fabric | Fabric Loader 0.16.9 |
-| `neoforge-1.21.8` | 1.21.8 | 21 | Neoforge | NeoForge 21.8.+ |
+| `neoforge-1.21.8` | 1.21.8 | 21 | Neoforge | NeoForge 21.8.31 |
 | `fabric-1.21.9` | 1.21.9 | 21 | Fabric | Fabric Loader 0.16.9 |
-| `neoforge-1.21.9` | 1.21.9 | 21 | Neoforge | NeoForge 21.9.+ |
+| `neoforge-1.21.9` | 1.21.9 | 21 | Neoforge | NeoForge 21.9.33 |
 | `fabric-1.21.10` | 1.21.10 | 21 | Fabric | Fabric Loader 0.16.9 |
-| `neoforge-1.21.10` | 1.21.10 | 21 | Neoforge | NeoForge 21.10.+ |
+| `neoforge-1.21.10` | 1.21.10 | 21 | Neoforge | NeoForge 21.10.31 |
 | `fabric-1.21.11` | 1.21.11 | 21 | Fabric | Fabric Loader 0.16.9 |
-| `neoforge-1.21.11` | 1.21.11 | 21 | Neoforge | NeoForge 21.11.+ |
+| `neoforge-1.21.11` | 1.21.11 | 21 | Neoforge | NeoForge 21.11.1 |
 | `fabric-26.1` | 26.1 | 25 | Fabric | Fabric Loader 0.16.9 |
-| `neoforge-26.1` | 26.1 | 25 | Neoforge | NeoForge 26.1.+ |
+| `neoforge-26.1` | 26.1 | 25 | Neoforge | NeoForge 26.1.3 |
 | `fabric-26.1.1` | 26.1.1 | 25 | Fabric | Fabric Loader 0.16.9 |
 | `neoforge-26.1.1` | 26.1.1 | 25 | Neoforge | NeoForge 26.1.1.3 |
 | `fabric-26.1.2` | 26.1.2 | 25 | Fabric | Fabric Loader 0.16.9 |
 | `neoforge-26.1.2` | 26.1.2 | 25 | Neoforge | NeoForge 26.1.2.3 |
 | `fabric-26.2` | 26.2 | 25 | Fabric | Fabric Loader 0.16.9 |
-| `neoforge-26.2` | 26.2 | 25 | Neoforge | NeoForge 26.2.+ |
+| `neoforge-26.2` | 26.2 | 25 | Neoforge | NeoForge 26.2.1 |
 | `fabric-26.3` | 26.3 | 25 | Fabric | Fabric Loader 0.16.9 |
-| `neoforge-26.3` | 26.3 | 25 | Neoforge | NeoForge 26.3.+ |
+| `neoforge-26.3` | 26.3 | 25 | Neoforge | NeoForge 26.3.1 |
 
 ## 3. Where jars land
 
