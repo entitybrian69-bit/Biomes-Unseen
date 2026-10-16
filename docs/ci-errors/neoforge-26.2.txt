@@ -2,7 +2,7 @@
 A problem occurred evaluating project ':neoforge-26.2'.
 > Could not find method modImplementation() for arguments [dev.architectury:architectury-neoforge:21.0.7] on object of type org.gradle.api.internal.artifacts.dsl.dependencies.DefaultDependencyHandler.
 ---
-BUILD FAILED in 38s
+BUILD FAILED in 37s
 ---
 === STACKTRACE ===
 Caused by: org.gradle.internal.metaobject.AbstractDynamicObject$CustomMessageMissingMethodException: Could not find method modImplementation() for arguments [dev.architectury:architectury-neoforge:21.0.7] on object of type org.gradle.api.internal.artifacts.dsl.dependencies.DefaultDependencyHandler.
@@ -52,4 +52,4 @@ Caused by: org.gradle.internal.metaobject.AbstractDynamicObject$CustomMessageMis
 	... 179 more
 
 
-BUILD FAILED in 38s
+BUILD FAILED in 37s

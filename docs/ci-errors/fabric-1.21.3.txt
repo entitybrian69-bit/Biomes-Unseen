@@ -1,14 +1,26 @@
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.2/java/com/biomesunseen/item/UnseenToolTier.java:17: error: interface expected here
-public class UnseenToolTier implements ToolMaterial {
-                                       ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.2/java/com/biomesunseen/item/UnseenArmorMaterial.java:5: error: cannot find symbol
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.2/java/com/biomesunseen/item/UnseenArmorMaterial.java:8: error: cannot find symbol
 import net.minecraft.world.item.ArmorMaterial;
                                ^
 ---
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.2/java/com/biomesunseen/item/UnseenArmorMaterial.java:18: error: cannot find symbol
-public class UnseenArmorMaterial implements ArmorMaterial {
-                                            ^
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.2/java/com/biomesunseen/item/UnseenArmorMaterial.java:27: error: cannot find symbol
+    private final ArmorMaterial material;
+                  ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.2/java/com/biomesunseen/item/UnseenArmorMaterial.java:28: error: cannot find symbol
+    private final Holder<ArmorMaterial> holder;
+                         ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.2/java/com/biomesunseen/item/UnseenArmorMaterial.java:50: error: cannot find symbol
+    public Holder<ArmorMaterial> holder() {
+                  ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.2/java/com/biomesunseen/item/UnseenArmorMaterial.java:54: error: cannot find symbol
+    public ArmorMaterial material() {
+           ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.2/java/com/biomesunseen/item/UnseenArmorMaterial.java:62: error: cannot find symbol
+    public int getDefenseForType(ArmorItem.Type type) {
+                                          ^
 ---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.2/java/com/biomesunseen/item/LoreBookItem.java:9: error: cannot find symbol
 import net.minecraft.world.InteractionResultHolder;
@@ -226,32 +238,42 @@ import net.minecraft.world.item.ArmorMaterial;
                 .build("mosshorn"));
                        ^
 ---
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.2/java/com/biomesunseen/registry/ModEntities.java:101: error: cannot find symbol
-        CinderPup = ENTITIES.register("cinder_pup", () -> EntityType.Builder.of(CinderPupEntity::new, MobCategory.CREATURE)
-                    ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.2/java/com/biomesunseen/registry/ModEntities.java:103: error: incompatible types: String cannot be converted to ResourceKey<EntityType<?>>
-                .build("cinder_pup"));
-                       ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.2/java/com/biomesunseen/registry/ModEntities.java:104: error: cannot find symbol
-        EchoHowler = ENTITIES.register("echo_howler", () -> EntityType.Builder.of(EchoHowlerEntity::new, MobCategory.MONSTER)
-                     ^
----
 === STACKTRACE ===
 Caused by: org.gradle.api.internal.tasks.compile.CompilationFailedException: Compilation failed; see the compiler output below.
 === WHAT WENT WRONG ===
 * What went wrong:
 Execution failed for task ':fabric-1.21.3:compileJava' (registered by plugin class 'org.gradle.api.plugins.JavaBasePlugin').
 > Compilation failed; see the compiler output below.
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.2/java/com/biomesunseen/item/UnseenToolTier.java:17: error: interface expected here
-  public class UnseenToolTier implements ToolMaterial {
-                                         ^
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.2/java/com/biomesunseen/item/UnseenArmorMaterial.java:5: error: cannot find symbol
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.2/java/com/biomesunseen/item/UnseenArmorMaterial.java:8: error: cannot find symbol
   import net.minecraft.world.item.ArmorMaterial;
                                  ^
     symbol:   class ArmorMaterial
     location: package net.minecraft.world.item
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.2/java/com/biomesunseen/item/UnseenArmorMaterial.java:27: error: cannot find symbol
+      private final ArmorMaterial material;
+                    ^
+    symbol:   class ArmorMaterial
+    location: class UnseenArmorMaterial
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.2/java/com/biomesunseen/item/UnseenArmorMaterial.java:28: error: cannot find symbol
+      private final Holder<ArmorMaterial> holder;
+                           ^
+    symbol:   class ArmorMaterial
+    location: class UnseenArmorMaterial
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.2/java/com/biomesunseen/item/UnseenArmorMaterial.java:50: error: cannot find symbol
+      public Holder<ArmorMaterial> holder() {
+                    ^
+    symbol:   class ArmorMaterial
+    location: class UnseenArmorMaterial
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.2/java/com/biomesunseen/item/UnseenArmorMaterial.java:54: error: cannot find symbol
+      public ArmorMaterial material() {
+             ^
+    symbol:   class ArmorMaterial
+    location: class UnseenArmorMaterial
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.2/java/com/biomesunseen/item/UnseenArmorMaterial.java:62: error: cannot find symbol
+      public int getDefenseForType(ArmorItem.Type type) {
+                                            ^
+    symbol:   class Type
+    location: class ArmorItem
   /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.2/java/com/biomesunseen/item/LoreBookItem.java:9: error: cannot find symbol
   import net.minecraft.world.InteractionResultHolder;
                             ^
@@ -259,28 +281,6 @@ Execution failed for task ':fabric-1.21.3:compileJava' (registered by plugin cla
     location: package net.minecraft.world
   /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.2/java/com/biomesunseen/item/LoreBookItem.java:31: error: cannot find symbol
       public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
-             ^
-    symbol:   class InteractionResultHolder
-    location: class LoreBookItem
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.2/java/com/biomesunseen/item/UnseenTonicItem.java:9: error: cannot find symbol
-  import net.minecraft.world.InteractionResultHolder;
-                            ^
-    symbol:   class InteractionResultHolder
-    location: package net.minecraft.world
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.2/java/com/biomesunseen/item/UnseenTonicItem.java:33: error: cannot find symbol
-      public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
-             ^
-    symbol:   class InteractionResultHolder
-    location: class UnseenTonicItem
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.2/java/com/biomesunseen/item/UnseenGearItems.java:4: error: cannot find symbol
-  import net.minecraft.world.item.ArmorMaterial;
-                                 ^
-    symbol:   class ArmorMaterial
-    location: package net.minecraft.world.item
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.2/java/com/biomesunseen/item/UnseenGearItems.java:77: error: cannot find symbol
-          UnseenArmorItem(OreDef ore, UnseenArmorMaterial material, ArmorItem.Type slot, Item.Properties properties) {
-                                                                             ^
-    symbol:   class Type
 === LAST 40 ===
 	at org.gradle.internal.execution.steps.MutableStep.execute(MutableStep.java:26)
 	at org.gradle.internal.execution.steps.ValidateStep$Mutable.executeDelegate(ValidateStep.java:79)
@@ -317,8 +317,8 @@ Execution failed for task ':fabric-1.21.3:compileJava' (registered by plugin cla
 	at org.gradle.internal.execution.steps.IdentifyStep.execute(IdentifyStep.java:38)
 	at org.gradle.internal.execution.impl.DefaultExecutionEngine$1.execute(DefaultExecutionEngine.java:68)
 	at org.gradle.api.internal.tasks.execution.DefaultTaskNodeExecutor.doExecute(DefaultTaskNodeExecutor.java:364)
-	... 55 more
+	... 25 more
 
 
-BUILD FAILED in 1m 27s
+BUILD FAILED in 1m 7s
 1 actionable task: 1 executed

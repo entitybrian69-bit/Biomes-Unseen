@@ -143,7 +143,7 @@ public class UnseenParticle extends Particle {
             ^
 ---
 > Task :neoforge-1.20.4:compileJava FAILED
-gradle/actions: Writing build results to /home/runner/work/_temp/.gradle-actions/build-results/__run-1792152240546.json
+gradle/actions: Writing build results to /home/runner/work/_temp/.gradle-actions/build-results/__run-1792153403126.json
 
 ---
 * What went wrong:
@@ -291,5 +291,5 @@ Note: Some messages have been simplified; recompile with -Xdiags:verbose to get 
 	at org.gradle.internal.concurrent.AbstractManagedExecutor$1.run(AbstractManagedExecutor.java:47)
 
 
-BUILD FAILED in 2m 26s
+BUILD FAILED in 2m 18s
 1 actionable task: 1 executed

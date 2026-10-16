@@ -1,7 +1,3 @@
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.20.5/java/com/biomesunseen/item/UnseenArmorMaterial.java:18: error: interface expected here
-public class UnseenArmorMaterial implements ArmorMaterial {
-                                            ^
----
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/neoforge-1.20.6/src/main/java/com/biomesunseen/platform/PlatformExpectImpl.java:36: error: cannot find symbol
         net.neoforged.neoforge.event.entity.EntitySpawnPlacementRegistryEvent.class.getName();
                                            ^
@@ -238,15 +234,16 @@ public class UnseenArmorMaterial implements ArmorMaterial {
         threat = mob.level().getNearestPlayer(mob, 8.0D);
                                              ^
 ---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.20.5/java/com/biomesunseen/entity/boss/VoidSerpentEntity.java:144: error: cannot find symbol
+                net.minecraft.world.phys.AABB box = new AABB(segmentX(i) - 2.0D, segmentY(i) - 2.0D, segmentZ(i) - 2.0D,
+                                                        ^
+---
 === STACKTRACE ===
 Caused by: org.gradle.api.internal.tasks.compile.CompilationFailedException: Compilation failed; see the compiler output below.
 === WHAT WENT WRONG ===
 * What went wrong:
 Execution failed for task ':neoforge-1.20.6:compileJava' (registered by plugin class 'org.gradle.api.plugins.JavaBasePlugin').
 > Compilation failed; see the compiler output below.
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.20.5/java/com/biomesunseen/item/UnseenArmorMaterial.java:18: error: interface expected here
-  public class UnseenArmorMaterial implements ArmorMaterial {
-                                              ^
   /home/runner/work/Biomes-Unseen/Biomes-Unseen/neoforge-1.20.6/src/main/java/com/biomesunseen/platform/PlatformExpectImpl.java:36: error: cannot find symbol
           net.neoforged.neoforge.event.entity.EntitySpawnPlacementRegistryEvent.class.getName();
                                              ^
@@ -281,6 +278,9 @@ Execution failed for task ':neoforge-1.20.6:compileJava' (registered by plugin c
           Glimmermoth = ENTITIES.register("glimmermoth", () -> EntityType.Builder.of(GlimmermothEntity::new, MobCategory.CREATURE)
                         ^
     symbol:   variable ENTITIES
+    location: class ModEntities
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.20.5/java/com/biomesunseen/registry/ModEntities.java:77: error: cannot find symbol
+          PeatHopper = ENTITIES.register("peat_hopper", () -> EntityType.Builder.of(PeatHopperEntity::new, MobCategory.CREATURE)
 === LAST 40 ===
 	at org.gradle.internal.execution.steps.MutableStep.execute(MutableStep.java:26)
 	at org.gradle.internal.execution.steps.ValidateStep$Mutable.executeDelegate(ValidateStep.java:79)
@@ -320,5 +320,5 @@ Execution failed for task ':neoforge-1.20.6:compileJava' (registered by plugin c
 	... 25 more
 
 
-BUILD FAILED in 1m 46s
+BUILD FAILED in 1m 40s
 1 actionable task: 1 executed
