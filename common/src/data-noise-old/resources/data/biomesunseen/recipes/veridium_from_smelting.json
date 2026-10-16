@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "biomesunseen:veridium_ore"
+  },
+  "result": "biomesunseen:veridium",
+  "experience": 0.7,
+  "cookingtime": 200
+}

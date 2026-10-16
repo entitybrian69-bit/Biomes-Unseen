@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "biomesunseen:froststeel_ore"
+  },
+  "result": "biomesunseen:froststeel",
+  "experience": 0.7,
+  "cookingtime": 200
+}

@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "id": "biomesunseen",
+  "version": "${version}",
+  "name": "Biomes Unseen",
+  "description": "A massive world-generation, adventure, biome, structure, ore, mob and boss mod: 80 biomes, 20 ores, 30 structures, 25 mobs and 2 multi-phase bosses.",
+  "authors": ["Biomes Unseen Team"],
+  "license": "MIT",
+  "environment": "*",
+  "entrypoints": {
+    "main": ["com.biomesunseen.fabric.BiomesUnseenFabric"],
+    "client": ["com.biomesunseen.fabric.client.BiomesUnseenFabricClient"]
+  },
+  "mixins": ["biomesunseen.mixins.json"],
+  "depends": {
+    "fabricloader": ">=0.16.0",
+    "minecraft": "~1.21.3",
+    "java": ">=21",
+    "architectury": "*"
+  },
+  "suggests": {
+    "geckolib": "*",
+    "cloth-config": "*"
+  }
+}

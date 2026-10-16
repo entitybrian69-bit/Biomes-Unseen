@@ -1,0 +1,272 @@
+{
+  "mobs": [
+    {
+      "id": "biomesunseen:lumox",
+      "weight": 12,
+      "categories": [
+        "creature"
+      ],
+      "groups": [
+        "crystal",
+        "verdant"
+      ]
+    },
+    {
+      "id": "biomesunseen:brambleback",
+      "weight": 9,
+      "categories": [
+        "creature"
+      ],
+      "groups": [
+        "verdant",
+        "mire"
+      ]
+    },
+    {
+      "id": "biomesunseen:siltstrider",
+      "weight": 10,
+      "categories": [
+        "creature"
+      ],
+      "groups": [
+        "mire"
+      ]
+    },
+    {
+      "id": "biomesunseen:glimmermoth",
+      "weight": 14,
+      "categories": [
+        "creature"
+      ],
+      "groups": [
+        "crystal",
+        "verdant"
+      ]
+    },
+    {
+      "id": "biomesunseen:peat_hopper",
+      "weight": 12,
+      "categories": [
+        "creature"
+      ],
+      "groups": [
+        "mire",
+        "verdant"
+      ]
+    },
+    {
+      "id": "biomesunseen:ember_calf",
+      "weight": 10,
+      "categories": [
+        "creature"
+      ],
+      "groups": [
+        "ember"
+      ]
+    },
+    {
+      "id": "biomesunseen:frost_fawn",
+      "weight": 12,
+      "categories": [
+        "creature"
+      ],
+      "groups": [
+        "frost"
+      ]
+    },
+    {
+      "id": "biomesunseen:murkling",
+      "weight": 10,
+      "categories": [
+        "monster"
+      ],
+      "groups": [
+        "mire"
+      ]
+    },
+    {
+      "id": "biomesunseen:spore_sprout",
+      "weight": 9,
+      "categories": [
+        "creature"
+      ],
+      "groups": [
+        "mire",
+        "verdant"
+      ]
+    },
+    {
+      "id": "biomesunseen:skywisp",
+      "weight": 12,
+      "categories": [
+        "creature"
+      ],
+      "groups": [
+        "sky",
+        "storm"
+      ]
+    },
+    {
+      "id": "biomesunseen:thunder_ram",
+      "weight": 8,
+      "categories": [
+        "creature"
+      ],
+      "groups": [
+        "storm",
+        "sky"
+      ]
+    },
+    {
+      "id": "biomesunseen:mosshorn",
+      "weight": 8,
+      "categories": [
+        "creature"
+      ],
+      "groups": [
+        "verdant",
+        "mire",
+        "frost"
+      ]
+    },
+    {
+      "id": "biomesunseen:cinder_pup",
+      "weight": 11,
+      "categories": [
+        "creature"
+      ],
+      "groups": [
+        "ember"
+      ]
+    },
+    {
+      "id": "biomesunseen:echo_howler",
+      "weight": 8,
+      "categories": [
+        "monster"
+      ],
+      "groups": [
+        "void",
+        "storm"
+      ]
+    },
+    {
+      "id": "biomesunseen:dune_skimmer",
+      "weight": 10,
+      "categories": [
+        "creature"
+      ],
+      "groups": [
+        "crystal",
+        "ember"
+      ]
+    },
+    {
+      "id": "biomesunseen:tide_caller",
+      "weight": 7,
+      "categories": [
+        "creature"
+      ],
+      "groups": [
+        "mire",
+        "storm"
+      ]
+    },
+    {
+      "id": "biomesunseen:gloom_stalker",
+      "weight": 9,
+      "categories": [
+        "monster"
+      ],
+      "groups": [
+        "void",
+        "mire"
+      ]
+    },
+    {
+      "id": "biomesunseen:crystal_hermit",
+      "weight": 8,
+      "categories": [
+        "creature"
+      ],
+      "groups": [
+        "crystal"
+      ]
+    },
+    {
+      "id": "biomesunseen:wind_dancer",
+      "weight": 13,
+      "categories": [
+        "creature"
+      ],
+      "groups": [
+        "sky"
+      ]
+    },
+    {
+      "id": "biomesunseen:mire_golem",
+      "weight": 5,
+      "categories": [
+        "creature"
+      ],
+      "groups": [
+        "mire"
+      ]
+    },
+    {
+      "id": "biomesunseen:lantern_fox",
+      "weight": 11,
+      "categories": [
+        "creature"
+      ],
+      "groups": [
+        "verdant",
+        "frost",
+        "sky"
+      ]
+    },
+    {
+      "id": "biomesunseen:reef_grazer",
+      "weight": 9,
+      "categories": [
+        "creature"
+      ],
+      "groups": [
+        "mire",
+        "crystal"
+      ]
+    },
+    {
+      "id": "biomesunseen:ash_crawler",
+      "weight": 11,
+      "categories": [
+        "monster"
+      ],
+      "groups": [
+        "ember"
+      ]
+    },
+    {
+      "id": "biomesunseen:star_whale",
+      "weight": 3,
+      "categories": [
+        "creature"
+      ],
+      "groups": [
+        "sky",
+        "void"
+      ]
+    },
+    {
+      "id": "biomesunseen:petal_wing",
+      "weight": 14,
+      "categories": [
+        "creature"
+      ],
+      "groups": [
+        "verdant",
+        "crystal"
+      ]
+    }
+  ]
+}

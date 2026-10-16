@@ -1,0 +1,37 @@
+{
+  "type": "minecraft:jigsaw",
+  "config": {
+    "start_pool": "biomesunseen:sanctum_start",
+    "size": 3,
+    "start_height": {
+      "type": "minecraft:constant",
+      "height": 0
+    },
+    "project_start_to_heightmap": "WORLD_SURFACE_WG",
+    "max_distance_from_center": 128,
+    "biomes": [
+      "biomesunseen:crystal_spire_reach",
+      "biomesunseen:prismarine_hollows",
+      "biomesunseen:glitterfall_caverns",
+      "biomesunseen:quartz_bloom_flats",
+      "biomesunseen:amethystine_ridge",
+      "biomesunseen:shatterglass_desert",
+      "biomesunseen:luminous_ledge",
+      "biomesunseen:echo_crystal_grove",
+      "biomesunseen:frost_prism_basin",
+      "biomesunseen:stained_glass_mesa",
+      "biomesunseen:verdant_canopy",
+      "biomesunseen:sylvanite_gardens",
+      "biomesunseen:mossbound_hollow",
+      "biomesunseen:ancient_bough_reach",
+      "biomesunseen:petalwind_meadow",
+      "biomesunseen:rootwoven_tangle",
+      "biomesunseen:fernlight_grotto",
+      "biomesunseen:blooming_thicket",
+      "biomesunseen:emerald_cascade",
+      "biomesunseen:whisperleaf_forest"
+    ],
+    "max_depth": 7
+  },
+  "adapt_noise": false
+}

@@ -1,0 +1,230 @@
+{
+  "ambient.biomesunseen.crystal_loop": {
+    "subtitle": "subtitles.biomesunseen.crystal_loop",
+    "sounds": [
+      "biomesunseen:ambient/biomesunseen/crystal_loop"
+    ]
+  },
+  "ambient.biomesunseen.ember_loop": {
+    "subtitle": "subtitles.biomesunseen.ember_loop",
+    "sounds": [
+      "biomesunseen:ambient/biomesunseen/ember_loop"
+    ]
+  },
+  "ambient.biomesunseen.verdant_loop": {
+    "subtitle": "subtitles.biomesunseen.verdant_loop",
+    "sounds": [
+      "biomesunseen:ambient/biomesunseen/verdant_loop"
+    ]
+  },
+  "ambient.biomesunseen.frost_loop": {
+    "subtitle": "subtitles.biomesunseen.frost_loop",
+    "sounds": [
+      "biomesunseen:ambient/biomesunseen/frost_loop"
+    ]
+  },
+  "ambient.biomesunseen.storm_loop": {
+    "subtitle": "subtitles.biomesunseen.storm_loop",
+    "sounds": [
+      "biomesunseen:ambient/biomesunseen/storm_loop"
+    ]
+  },
+  "ambient.biomesunseen.mire_loop": {
+    "subtitle": "subtitles.biomesunseen.mire_loop",
+    "sounds": [
+      "biomesunseen:ambient/biomesunseen/mire_loop"
+    ]
+  },
+  "ambient.biomesunseen.sky_loop": {
+    "subtitle": "subtitles.biomesunseen.sky_loop",
+    "sounds": [
+      "biomesunseen:ambient/biomesunseen/sky_loop"
+    ]
+  },
+  "ambient.biomesunseen.void_loop": {
+    "subtitle": "subtitles.biomesunseen.void_loop",
+    "sounds": [
+      "biomesunseen:ambient/biomesunseen/void_loop"
+    ]
+  },
+  "music.biomesunseen.crystal_theme": {
+    "subtitle": "subtitles.biomesunseen.crystal_theme",
+    "sounds": [
+      {
+        "sound": "biomesunseen:music/biomesunseen/crystal_theme",
+        "stream": true
+      }
+    ]
+  },
+  "music.biomesunseen.ember_theme": {
+    "subtitle": "subtitles.biomesunseen.ember_theme",
+    "sounds": [
+      {
+        "sound": "biomesunseen:music/biomesunseen/ember_theme",
+        "stream": true
+      }
+    ]
+  },
+  "music.biomesunseen.verdant_theme": {
+    "subtitle": "subtitles.biomesunseen.verdant_theme",
+    "sounds": [
+      {
+        "sound": "biomesunseen:music/biomesunseen/verdant_theme",
+        "stream": true
+      }
+    ]
+  },
+  "music.biomesunseen.frost_theme": {
+    "subtitle": "subtitles.biomesunseen.frost_theme",
+    "sounds": [
+      {
+        "sound": "biomesunseen:music/biomesunseen/frost_theme",
+        "stream": true
+      }
+    ]
+  },
+  "music.biomesunseen.storm_theme": {
+    "subtitle": "subtitles.biomesunseen.storm_theme",
+    "sounds": [
+      {
+        "sound": "biomesunseen:music/biomesunseen/storm_theme",
+        "stream": true
+      }
+    ]
+  },
+  "music.biomesunseen.mire_theme": {
+    "subtitle": "subtitles.biomesunseen.mire_theme",
+    "sounds": [
+      {
+        "sound": "biomesunseen:music/biomesunseen/mire_theme",
+        "stream": true
+      }
+    ]
+  },
+  "music.biomesunseen.sky_theme": {
+    "subtitle": "subtitles.biomesunseen.sky_theme",
+    "sounds": [
+      {
+        "sound": "biomesunseen:music/biomesunseen/sky_theme",
+        "stream": true
+      }
+    ]
+  },
+  "music.biomesunseen.void_theme": {
+    "subtitle": "subtitles.biomesunseen.void_theme",
+    "sounds": [
+      {
+        "sound": "biomesunseen:music/biomesunseen/void_theme",
+        "stream": true
+      }
+    ]
+  },
+  "music.biomesunseen.boss_heart": {
+    "subtitle": "subtitles.biomesunseen.boss_heart",
+    "sounds": [
+      {
+        "sound": "biomesunseen:music/biomesunseen/boss_heart",
+        "stream": true
+      }
+    ]
+  },
+  "music.biomesunseen.boss_serpent": {
+    "subtitle": "subtitles.biomesunseen.boss_serpent",
+    "sounds": [
+      {
+        "sound": "biomesunseen:music/biomesunseen/boss_serpent",
+        "stream": true
+      }
+    ]
+  },
+  "subtitles.biomesunseen.heart_roar": {
+    "subtitle": "subtitles.biomesunseen.heart_roar",
+    "sounds": [
+      "biomesunseen:subtitles/biomesunseen/heart_roar"
+    ]
+  },
+  "subtitles.biomesunseen.serpent_hiss": {
+    "subtitle": "subtitles.biomesunseen.serpent_hiss",
+    "sounds": [
+      "biomesunseen:subtitles/biomesunseen/serpent_hiss"
+    ]
+  },
+  "entity.biomesunseen.lumox.ambient": {
+    "subtitle": "subtitles.biomesunseen.ambient",
+    "sounds": [
+      "biomesunseen:entity/biomesunseen/lumox/ambient"
+    ]
+  },
+  "entity.biomesunseen.lumox.hurt": {
+    "subtitle": "subtitles.biomesunseen.hurt",
+    "sounds": [
+      "biomesunseen:entity/biomesunseen/lumox/hurt"
+    ]
+  },
+  "entity.biomesunseen.lumox.death": {
+    "subtitle": "subtitles.biomesunseen.death",
+    "sounds": [
+      "biomesunseen:entity/biomesunseen/lumox/death"
+    ]
+  },
+  "entity.biomesunseen.heart_of_the_forest.ambient": {
+    "subtitle": "subtitles.biomesunseen.ambient",
+    "sounds": [
+      "biomesunseen:entity/biomesunseen/heart_of_the_forest/ambient"
+    ]
+  },
+  "entity.biomesunseen.heart_of_the_forest.hurt": {
+    "subtitle": "subtitles.biomesunseen.hurt",
+    "sounds": [
+      "biomesunseen:entity/biomesunseen/heart_of_the_forest/hurt"
+    ]
+  },
+  "entity.biomesunseen.heart_of_the_forest.death": {
+    "subtitle": "subtitles.biomesunseen.death",
+    "sounds": [
+      "biomesunseen:entity/biomesunseen/heart_of_the_forest/death"
+    ]
+  },
+  "entity.biomesunseen.void_serpent.ambient": {
+    "subtitle": "subtitles.biomesunseen.ambient",
+    "sounds": [
+      "biomesunseen:entity/biomesunseen/void_serpent/ambient"
+    ]
+  },
+  "entity.biomesunseen.void_serpent.hurt": {
+    "subtitle": "subtitles.biomesunseen.hurt",
+    "sounds": [
+      "biomesunseen:entity/biomesunseen/void_serpent/hurt"
+    ]
+  },
+  "entity.biomesunseen.void_serpent.death": {
+    "subtitle": "subtitles.biomesunseen.death",
+    "sounds": [
+      "biomesunseen:entity/biomesunseen/void_serpent/death"
+    ]
+  },
+  "block.biomesunseen.ore_chime": {
+    "subtitle": "subtitles.biomesunseen.ore_chime",
+    "sounds": [
+      "biomesunseen:block/biomesunseen/ore_chime"
+    ]
+  },
+  "block.biomesunseen.crystal_resonate": {
+    "subtitle": "subtitles.biomesunseen.crystal_resonate",
+    "sounds": [
+      "biomesunseen:block/biomesunseen/crystal_resonate"
+    ]
+  },
+  "block.biomesunseen.mire_step": {
+    "subtitle": "subtitles.biomesunseen.mire_step",
+    "sounds": [
+      "biomesunseen:block/biomesunseen/mire_step"
+    ]
+  },
+  "block.biomesunseen.ember_crackle": {
+    "subtitle": "subtitles.biomesunseen.ember_crackle",
+    "sounds": [
+      "biomesunseen:block/biomesunseen/ember_crackle"
+    ]
+  }
+}

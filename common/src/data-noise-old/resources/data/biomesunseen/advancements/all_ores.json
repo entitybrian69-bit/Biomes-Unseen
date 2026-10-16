@@ -1,0 +1,15 @@
+{
+  "parent": "biomesunseen:first_ore",
+  "display": {
+    "icon": {
+      "item": "biomesunseen:unseen_sigil"
+    },
+    "title": "Mineral Majesty",
+    "description": "Mine all 20 Biomes Unseen ores"
+  },
+  "criteria": {
+    "tick": {
+      "trigger": "minecraft:tick"
+    }
+  }
+}

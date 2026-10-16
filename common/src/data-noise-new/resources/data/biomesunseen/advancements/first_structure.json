@@ -1,0 +1,15 @@
+{
+  "parent": "biomesunseen:root",
+  "display": {
+    "icon": {
+      "item": "biomesunseen:unseen_sigil"
+    },
+    "title": "Built by Unseen Hands",
+    "description": "Enter a Biomes Unseen structure"
+  },
+  "criteria": {
+    "tick": {
+      "trigger": "minecraft:tick"
+    }
+  }
+}

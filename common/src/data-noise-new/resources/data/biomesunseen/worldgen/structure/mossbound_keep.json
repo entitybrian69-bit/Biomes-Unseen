@@ -1,0 +1,38 @@
+{
+  "type": "minecraft:jigsaw",
+  "config": {
+    "start_pool": "biomesunseen:keep_start",
+    "size": 3,
+    "max_distance_from_center": 176,
+    "start_height": {
+      "type": "minecraft:constant",
+      "height": 0
+    },
+    "project_start_to_heightmap": "WORLD_SURFACE_WG",
+    "max_depth": 7
+  },
+  "biomes": [
+    "biomesunseen:verdant_canopy",
+    "biomesunseen:sylvanite_gardens",
+    "biomesunseen:mossbound_hollow",
+    "biomesunseen:ancient_bough_reach",
+    "biomesunseen:petalwind_meadow",
+    "biomesunseen:rootwoven_tangle",
+    "biomesunseen:fernlight_grotto",
+    "biomesunseen:blooming_thicket",
+    "biomesunseen:emerald_cascade",
+    "biomesunseen:whisperleaf_forest",
+    "biomesunseen:murkiron_bogs",
+    "biomesunseen:peat_hollow_mire",
+    "biomesunseen:drowned_root_marsh",
+    "biomesunseen:sporechoked_mire",
+    "biomesunseen:blackwillow_bayou",
+    "biomesunseen:siltveil_fens",
+    "biomesunseen:bog_ember_quagmire",
+    "biomesunseen:hollowreed_wetlands",
+    "biomesunseen:mire_glass_pools",
+    "biomesunseen:gloomwater_flats"
+  ],
+  "spawn_overrides": {},
+  "step": "surface_structures"
+}

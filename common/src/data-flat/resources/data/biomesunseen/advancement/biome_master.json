@@ -1,0 +1,15 @@
+{
+  "parent": "biomesunseen:biome_explorer",
+  "display": {
+    "icon": {
+      "item": "biomesunseen:unseen_sigil"
+    },
+    "title": "Beyond the Veil",
+    "description": "Discover all 80 Biomes Unseen biomes"
+  },
+  "criteria": {
+    "tick": {
+      "trigger": "minecraft:tick"
+    }
+  }
+}

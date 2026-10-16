@@ -1,0 +1,25 @@
+{
+  "replace": false,
+  "values": [
+    "biomesunseen:azurethril_ore",
+    "biomesunseen:emberite_ore",
+    "biomesunseen:voidshard_ore",
+    "biomesunseen:glimmer_quartz_ore",
+    "biomesunseen:sylvanite_ore",
+    "biomesunseen:froststeel_ore",
+    "biomesunseen:murkiron_ore",
+    "biomesunseen:sunstone_ore",
+    "biomesunseen:moonshard_ore",
+    "biomesunseen:thunderglass_ore",
+    "biomesunseen:crimsonite_ore",
+    "biomesunseen:veridium_ore",
+    "biomesunseen:petrified_amber_ore",
+    "biomesunseen:stelliferrum_ore",
+    "biomesunseen:skystone_ore",
+    "biomesunseen:ashium_ore",
+    "biomesunseen:tideglass_ore",
+    "biomesunseen:gloomshard_ore",
+    "biomesunseen:prismatic_ore_ore",
+    "biomesunseen:hearthstone_ore"
+  ]
+}

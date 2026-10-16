@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "biomesunseen:item/lore_journal_the_canopy_covenant"
+  }
+}

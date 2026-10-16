@@ -1,0 +1,191 @@
+{
+  "format_version": "1.12.0",
+  "minecraft:geometry": [
+    {
+      "description": {
+        "identifier": "geometry.heart_of_the_forest",
+        "texture_width": 64,
+        "texture_height": 64,
+        "visible_bounds_width": 8,
+        "visible_bounds_height": 10,
+        "visible_bounds_offset": [
+          0,
+          3,
+          0
+        ]
+      },
+      "bones": [
+        {
+          "name": "root",
+          "pivot": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "trunk",
+          "parent": "root",
+          "pivot": [
+            0,
+            20,
+            0
+          ],
+          "cubes": [
+            {
+              "origin": [
+                -10,
+                0,
+                -10
+              ],
+              "size": [
+                20,
+                34,
+                20
+              ],
+              "uv": [
+                0,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "name": "heart",
+          "parent": "trunk",
+          "pivot": [
+            0,
+            26,
+            -11
+          ],
+          "cubes": [
+            {
+              "origin": [
+                -5,
+                21,
+                -16
+              ],
+              "size": [
+                10,
+                10,
+                8
+              ],
+              "uv": [
+                0,
+                55
+              ]
+            }
+          ]
+        },
+        {
+          "name": "branch0",
+          "parent": "trunk",
+          "pivot": [
+            -12,
+            30,
+            0
+          ],
+          "cubes": [
+            {
+              "origin": [
+                -34,
+                28,
+                -3
+              ],
+              "size": [
+                24,
+                6,
+                6
+              ],
+              "uv": [
+                20,
+                40
+              ]
+            }
+          ]
+        },
+        {
+          "name": "branch1",
+          "parent": "trunk",
+          "pivot": [
+            12,
+            30,
+            0
+          ],
+          "cubes": [
+            {
+              "origin": [
+                10,
+                28,
+                -3
+              ],
+              "size": [
+                24,
+                6,
+                6
+              ],
+              "uv": [
+                20,
+                40
+              ]
+            }
+          ]
+        },
+        {
+          "name": "roots0",
+          "parent": "root",
+          "pivot": [
+            -12,
+            2,
+            -8
+          ],
+          "cubes": [
+            {
+              "origin": [
+                -26,
+                0,
+                -12
+              ],
+              "size": [
+                18,
+                6,
+                8
+              ],
+              "uv": [
+                30,
+                55
+              ]
+            }
+          ]
+        },
+        {
+          "name": "roots1",
+          "parent": "root",
+          "pivot": [
+            12,
+            2,
+            -8
+          ],
+          "cubes": [
+            {
+              "origin": [
+                8,
+                0,
+                -12
+              ],
+              "size": [
+                18,
+                6,
+                8
+              ],
+              "uv": [
+                30,
+                55
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

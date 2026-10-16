@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "M",
+    "M",
+    "S"
+  ],
+  "key": {
+    "M": {
+      "item": "biomesunseen:crimsonite"
+    },
+    "S": {
+      "item": "minecraft:stick"
+    }
+  },
+  "result": {
+    "item": "biomesunseen:crimsonite_sword"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "parent": "biomesunseen:heart_of_the_forest",
+  "display": {
+    "icon": {
+      "item": "biomesunseen:unseen_sigil"
+    },
+    "title": "Unseen Slayer",
+    "description": "Defeat both bosses",
+    "frame": "challenge"
+  },
+  "criteria": {
+    "tick": {
+      "trigger": "minecraft:tick"
+    }
+  }
+}

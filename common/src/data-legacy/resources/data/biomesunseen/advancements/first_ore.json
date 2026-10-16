@@ -1,0 +1,15 @@
+{
+  "parent": "biomesunseen:root",
+  "display": {
+    "icon": {
+      "item": "biomesunseen:unseen_sigil"
+    },
+    "title": "Hidden Riches",
+    "description": "Mine any Biomes Unseen ore"
+  },
+  "criteria": {
+    "tick": {
+      "trigger": "minecraft:tick"
+    }
+  }
+}

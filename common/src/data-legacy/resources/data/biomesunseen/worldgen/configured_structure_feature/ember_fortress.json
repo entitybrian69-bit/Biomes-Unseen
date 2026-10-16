@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:jigsaw",
+  "config": {
+    "start_pool": "biomesunseen:ember_fortress_start",
+    "size": 3,
+    "start_height": {
+      "type": "minecraft:constant",
+      "height": 0
+    },
+    "project_start_to_heightmap": "WORLD_SURFACE_WG",
+    "max_distance_from_center": 192,
+    "biomes": [
+      "biomesunseen:emberite_basin",
+      "biomesunseen:ashfall_steppe",
+      "biomesunseen:cinder_bloom_fields",
+      "biomesunseen:molten_archipelago",
+      "biomesunseen:sootveil_wastes",
+      "biomesunseen:pyroclast_ridge",
+      "biomesunseen:hearthfire_glade",
+      "biomesunseen:scorched_bramble",
+      "biomesunseen:obsidian_delta",
+      "biomesunseen:magma_vent_garden"
+    ],
+    "max_depth": 7
+  },
+  "adapt_noise": false
+}

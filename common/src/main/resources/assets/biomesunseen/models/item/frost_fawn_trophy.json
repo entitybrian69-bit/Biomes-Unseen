@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "biomesunseen:item/frost_fawn_trophy"
+  }
+}

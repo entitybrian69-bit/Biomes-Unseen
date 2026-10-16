@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "biomesunseen:block/prismatic_ore_ore"
+  }
+}

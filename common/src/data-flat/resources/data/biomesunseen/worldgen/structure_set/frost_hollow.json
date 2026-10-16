@@ -1,0 +1,15 @@
+{
+  "structures": [
+    {
+      "structure": "biomesunseen:frost_hollow",
+      "weight": 6
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "salt": 73258,
+    "spacing": 24,
+    "separation": 10,
+    "spread_type": "linear"
+  }
+}

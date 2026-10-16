@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "biomesunseen:voidshard_ore"
+  },
+  "result": "biomesunseen:voidshard",
+  "experience": 0.7,
+  "cookingtime": 200
+}

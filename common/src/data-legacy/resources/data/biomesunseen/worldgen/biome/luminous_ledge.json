@@ -1,0 +1,89 @@
+{
+  "category": "crystal",
+  "depth": 0.85,
+  "scale": 1.4,
+  "temperature": 0.65,
+  "downfall": 0.5,
+  "precipitation": "none",
+  "surface_builder": "minecraft:default",
+  "effects": {
+    "grass_color": 8382680,
+    "foliage_color": 6542530,
+    "water_color": 4185298,
+    "sky_color": 11072767,
+    "fog_color": 13629951,
+    "mood_sound": {
+      "sound": "ambient.biomesunseen.crystal_loop",
+      "tick_delay": 400,
+      "block_search_extent": 8,
+      "offset": 2.0
+    }
+  },
+  "features": [
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [
+      "biomesunseen:azurethril_ore",
+      "biomesunseen:glimmer_quartz_ore",
+      "biomesunseen:moonshard_ore",
+      "biomesunseen:stelliferrum_ore",
+      "biomesunseen:tideglass_ore",
+      "biomesunseen:prismatic_ore_ore",
+      "biomesunseen:hearthstone_ore"
+    ],
+    [],
+    [],
+    []
+  ],
+  "spawners": {
+    "monster": [],
+    "creature": [
+      {
+        "type": "biomesunseen:lumox",
+        "weight": 12,
+        "minCount": 1,
+        "maxCount": 2
+      },
+      {
+        "type": "biomesunseen:glimmermoth",
+        "weight": 14,
+        "minCount": 1,
+        "maxCount": 4
+      },
+      {
+        "type": "biomesunseen:dune_skimmer",
+        "weight": 10,
+        "minCount": 1,
+        "maxCount": 4
+      },
+      {
+        "type": "biomesunseen:crystal_hermit",
+        "weight": 8,
+        "minCount": 1,
+        "maxCount": 2
+      },
+      {
+        "type": "biomesunseen:reef_grazer",
+        "weight": 9,
+        "minCount": 1,
+        "maxCount": 2
+      },
+      {
+        "type": "biomesunseen:petal_wing",
+        "weight": 14,
+        "minCount": 1,
+        "maxCount": 4
+      }
+    ],
+    "ambient": [],
+    "axolotls": [],
+    "underground_water_creature": [],
+    "water_creature": [],
+    "water_ambient": [],
+    "misc": []
+  }
+}

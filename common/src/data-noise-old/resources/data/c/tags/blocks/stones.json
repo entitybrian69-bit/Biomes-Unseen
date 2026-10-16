@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "biomesunseen:ember_rock",
+    "biomesunseen:storm_shale",
+    "biomesunseen:skystone_bricks",
+    "biomesunseen:void_veined_stone",
+    "biomesunseen:sunstone_bricks"
+  ]
+}

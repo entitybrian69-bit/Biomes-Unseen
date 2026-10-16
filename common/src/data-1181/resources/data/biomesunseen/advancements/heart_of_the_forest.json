@@ -1,0 +1,21 @@
+{
+  "parent": "biomesunseen:first_structure",
+  "display": {
+    "icon": {
+      "item": "biomesunseen:unseen_sigil"
+    },
+    "title": "Heart of the Forest",
+    "description": "Defeat The Heart of the Forest",
+    "frame": "challenge"
+  },
+  "criteria": {
+    "killed": {
+      "trigger": "minecraft:player_killed_entity",
+      "conditions": {
+        "entity": {
+          "type": "biomesunseen:heart_of_the_forest"
+        }
+      }
+    }
+  }
+}

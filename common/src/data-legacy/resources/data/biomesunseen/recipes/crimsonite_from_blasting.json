@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:blasting",
+  "ingredient": {
+    "item": "biomesunseen:crimsonite_ore"
+  },
+  "result": "biomesunseen:crimsonite",
+  "experience": 0.7,
+  "cookingtime": 100
+}

@@ -1,0 +1,43 @@
+plugins {
+    id "architectury-loom" version "${loom_version}"
+    id "java"
+}
+
+base {
+    archivesName = "biomesunseen-1.21.1-fabric"
+}
+
+// Shared content trees: core + this API line.
+sourceSets.main.java.srcDirs += rootProject.file("common/src/main/java")
+sourceSets.main.java.srcDirs += rootProject.file("common/src/line-1.21/java")
+sourceSets.main.resources.srcDirs += rootProject.file("common/src/main/resources")
+sourceSets.main.resources.srcDirs += rootProject.file("common/src/line-1.21/resources")
+sourceSets.main.resources.srcDirs += "src/generated/resources"
+
+loom {
+    accessWidenerPath = null
+}
+
+dependencies {
+    minecraft "com.mojang:minecraft:${minecraft_version}"
+    mappings loom.officialMojangMappings()
+    modImplementation "net.fabricmc:fabric-loader:${fabric_loader_version}"
+    modImplementation "net.fabricmc.fabric-api:fabric-api:${fabric_api_version}"
+    modImplementation "dev.architectury:architectury:${architectury_version}"
+    modImplementation "software.bernie.geckolib:geckolib-fabric-1.21.1:${geckolib_version}"
+    modImplementation "me.shedaniel.cloth:cloth-config-fabric:${cloth_config_version}"
+}
+
+processResources {
+    inputs.property "version", project.version
+    filesMatching("fabric.mod.json") {
+        expand "version": project.version
+    }
+}
+
+tasks.register("runDatagen", JavaExec) {
+    group = "biomesunseen"
+    classpath = sourceSets.main.runtimeClasspath
+    mainClass = "com.biomesunseen.datagen.DataGenerators"
+    args = ["src/generated/resources"]
+}

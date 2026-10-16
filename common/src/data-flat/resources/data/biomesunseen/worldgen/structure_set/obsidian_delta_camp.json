@@ -1,0 +1,15 @@
+{
+  "structures": [
+    {
+      "structure": "biomesunseen:obsidian_delta_camp",
+      "weight": 7
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "salt": 20529,
+    "spacing": 18,
+    "separation": 8,
+    "spread_type": "linear"
+  }
+}

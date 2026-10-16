@@ -1,0 +1,15 @@
+{
+  "display": {
+    "icon": {
+      "item": "biomesunseen:unseen_sigil"
+    },
+    "title": "Biomes Unseen",
+    "description": "Discover a Biomes Unseen biome",
+    "background": "minecraft:textures/block/deepslate_tiles.png"
+  },
+  "criteria": {
+    "entered": {
+      "trigger": "minecraft:location"
+    }
+  }
+}

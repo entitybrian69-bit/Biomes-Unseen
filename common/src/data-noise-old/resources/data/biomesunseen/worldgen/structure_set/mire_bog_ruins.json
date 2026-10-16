@@ -1,0 +1,15 @@
+{
+  "structures": [
+    {
+      "structure": "biomesunseen:mire_bog_ruins",
+      "weight": 7
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "salt": 11456,
+    "spacing": 20,
+    "separation": 8,
+    "spread_type": "linear"
+  }
+}
