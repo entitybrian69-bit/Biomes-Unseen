@@ -22,6 +22,16 @@ IDX="${2:-0}"
 PROPS="$MOD/gradle.properties"
 [ -f "$PROPS" ] || { echo "pin_neoforge: no $PROPS"; exit 1; }
 
+# An exact pin (no '+' range marker) is authoritative: it is the version this
+# line was tested against.  Re-resolving it picks early builds whose binpatches
+# no longer match the shipped Minecraft jar and fails the NeoForm patcher with
+# "Patch expected <class> to have the checksum ...", so leave it alone.
+CURRENT="$(sed -n 's/^neoforge_version=//p' "$PROPS" | head -1)"
+case "$CURRENT" in
+  ""|*+*|*"["*|*"]"*) ;;   # unset or a range - resolve below
+  *) echo "pin_neoforge: $MOD already pinned to exact $CURRENT"; exit 0 ;;
+esac
+
 MC="$(sed -n 's/^minecraft_version=//p' "$PROPS" | head -1)"
 [ -n "$MC" ] || { echo "pin_neoforge: no minecraft_version in $PROPS"; exit 1; }
 
