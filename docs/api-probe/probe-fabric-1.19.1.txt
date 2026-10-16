@@ -1,5 +1,5 @@
 MODULE=fabric-1.19.1
-MCJAR=/home/runner/work/Biomes-Unseen/Biomes-Unseen/.gradle/loom-cache/minecraftMaven/net/minecraft/minecraft-merged-6c515e69b7/1.19.1-loom.mappings.1_19_1.layered+hash.40545-v2/minecraft-merged-6c515e69b7-1.19.1-loom.mappings.1_19_1.layered+hash.40545-v2.jar
+MCJAR=/home/runner/work/Biomes-Unseen/Biomes-Unseen/.gradle/loom-cache/minecraftMaven/net/minecraft/minecraft-merged-063e63f14d/1.19.1-loom.mappings.1_19_1.layered+hash.40545-v2/minecraft-merged-063e63f14d-1.19.1-loom.mappings.1_19_1.layered+hash.40545-v2.jar
 ### net.minecraft.world.entity.Entity
     Compiled from "Entity.java"
     public abstract class net.minecraft.world.entity.Entity implements net.minecraft.world.Nameable,net.minecraft.world.level.entity.EntityAccess,net.minecraft.commands.CommandSource {
@@ -2689,7 +2689,7 @@ MCJAR=/home/runner/work/Biomes-Unseen/Biomes-Unseen/.gradle/loom-cache/minecraft
     }
 ### net.minecraft.world.item.Item
     Compiled from "Item.java"
-    public class net.minecraft.world.item.Item implements net.minecraft.world.level.ItemLike,net.fabricmc.fabric.api.item.v1.FabricItem {
+    public class net.minecraft.world.item.Item implements net.minecraft.world.level.ItemLike {
       private static final org.slf4j.Logger LOGGER;
       public static final java.util.Map<net.minecraft.world.level.block.Block, net.minecraft.world.item.Item> BY_BLOCK;
       protected static final java.util.UUID BASE_ATTACK_DAMAGE_UUID;
@@ -6454,13 +6454,13 @@ MCJAR=/home/runner/work/Biomes-Unseen/Biomes-Unseen/.gradle/loom-cache/minecraft
 ### net.minecraft.world.level.storage.loot.LootPool
     Compiled from "LootPool.java"
     public class net.minecraft.world.level.storage.loot.LootPool {
-      public final net.minecraft.world.level.storage.loot.entries.LootPoolEntryContainer[] entries;
-      public final net.minecraft.world.level.storage.loot.predicates.LootItemCondition[] conditions;
+      final net.minecraft.world.level.storage.loot.entries.LootPoolEntryContainer[] entries;
+      final net.minecraft.world.level.storage.loot.predicates.LootItemCondition[] conditions;
       private final java.util.function.Predicate<net.minecraft.world.level.storage.loot.LootContext> compositeCondition;
-      public final net.minecraft.world.level.storage.loot.functions.LootItemFunction[] functions;
+      final net.minecraft.world.level.storage.loot.functions.LootItemFunction[] functions;
       private final java.util.function.BiFunction<net.minecraft.world.item.ItemStack, net.minecraft.world.level.storage.loot.LootContext, net.minecraft.world.item.ItemStack> compositeFunction;
-      public final net.minecraft.world.level.storage.loot.providers.number.NumberProvider rolls;
-      public final net.minecraft.world.level.storage.loot.providers.number.NumberProvider bonusRolls;
+      final net.minecraft.world.level.storage.loot.providers.number.NumberProvider rolls;
+      final net.minecraft.world.level.storage.loot.providers.number.NumberProvider bonusRolls;
       net.minecraft.world.level.storage.loot.LootPool(net.minecraft.world.level.storage.loot.entries.LootPoolEntryContainer[], net.minecraft.world.level.storage.loot.predicates.LootItemCondition[], net.minecraft.world.level.storage.loot.functions.LootItemFunction[], net.minecraft.world.level.storage.loot.providers.number.NumberProvider, net.minecraft.world.level.storage.loot.providers.number.NumberProvider);
       private void addRandomItem(java.util.function.Consumer<net.minecraft.world.item.ItemStack>, net.minecraft.world.level.storage.loot.LootContext);
       public void addRandomItems(java.util.function.Consumer<net.minecraft.world.item.ItemStack>, net.minecraft.world.level.storage.loot.LootContext);
@@ -6475,8 +6475,8 @@ MCJAR=/home/runner/work/Biomes-Unseen/Biomes-Unseen/.gradle/loom-cache/minecraft
       public static final net.minecraft.world.level.storage.loot.LootTable EMPTY;
       public static final net.minecraft.world.level.storage.loot.parameters.LootContextParamSet DEFAULT_PARAM_SET;
       final net.minecraft.world.level.storage.loot.parameters.LootContextParamSet paramSet;
-      public final net.minecraft.world.level.storage.loot.LootPool[] pools;
-      public final net.minecraft.world.level.storage.loot.functions.LootItemFunction[] functions;
+      final net.minecraft.world.level.storage.loot.LootPool[] pools;
+      final net.minecraft.world.level.storage.loot.functions.LootItemFunction[] functions;
       private final java.util.function.BiFunction<net.minecraft.world.item.ItemStack, net.minecraft.world.level.storage.loot.LootContext, net.minecraft.world.item.ItemStack> compositeFunction;
       net.minecraft.world.level.storage.loot.LootTable(net.minecraft.world.level.storage.loot.parameters.LootContextParamSet, net.minecraft.world.level.storage.loot.LootPool[], net.minecraft.world.level.storage.loot.functions.LootItemFunction[]);
       public static java.util.function.Consumer<net.minecraft.world.item.ItemStack> createStackSplitter(java.util.function.Consumer<net.minecraft.world.item.ItemStack>);
