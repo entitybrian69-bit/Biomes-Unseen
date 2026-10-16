@@ -1,7 +1,5 @@
 package com.biomesunseen.client.legacy;
 
-import com.mojang.blaze3d.vertex.PoseStack;
-import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.model.geom.ModelPart;
@@ -10,15 +8,13 @@ import net.minecraft.client.model.geom.builders.CubeListBuilder;
 import net.minecraft.client.model.geom.builders.LayerDefinition;
 import net.minecraft.client.model.geom.builders.MeshDefinition;
 import net.minecraft.client.model.geom.builders.PartDefinition;
-import net.minecraft.resources.Identifier;
-
-import com.biomesunseen.entity.BiomesUnseenMob;
 
 /**
- * Box model for the 1.16.5 line: head, body and four limbs, animated from
- * the entity's LegacyAnimDriver (limb swing, head yaw, one-shot poses).
+ * Box model for the legacy line: head, body and four limbs, animated from the
+ * values carried on UnseenLegacyRenderState (limb swing, head yaw, one-shot
+ * poses).
  */
-public class UnseenLegacyModel<T extends BiomesUnseenMob> extends EntityModel<T> {
+public class UnseenLegacyModel<S extends UnseenLegacyRenderState> extends EntityModel<S> {
 
     private final ModelPart head;
     private final ModelPart body;
@@ -28,6 +24,7 @@ public class UnseenLegacyModel<T extends BiomesUnseenMob> extends EntityModel<T>
     private final ModelPart leg3;
 
     public UnseenLegacyModel(ModelPart root) {
+        super(root);
         head = root.getChild("head");
         body = root.getChild("body");
         leg0 = root.getChild("leg0");
@@ -65,22 +62,21 @@ public class UnseenLegacyModel<T extends BiomesUnseenMob> extends EntityModel<T>
     }
 
     @Override
-    public void setupAnim(T entity, float limbSwing, float limbSwingAmount,
-                          float ageInTicks, float netHeadYaw, float headPitch) {
-        head.yRot = netHeadYaw * ((float) Math.PI / 180.0F);
-        head.xRot = headPitch * ((float) Math.PI / 180.0F);
+    public void setupAnim(S state) {
+        float limbSwing = state.bsLimbSwing;
+        float limbSwingAmount = state.bsLimbSwingAmount;
+        head.yRot = state.bsHeadYaw * ((float) Math.PI / 180.0F);
+        head.xRot = state.bsHeadPitch * ((float) Math.PI / 180.0F);
         leg0.xRot = (float) Math.cos(limbSwing * 0.6662F) * 1.4F * limbSwingAmount;
         leg1.xRot = (float) Math.cos(limbSwing * 0.6662F + (float) Math.PI) * 1.4F * limbSwingAmount;
         leg2.xRot = (float) Math.cos(limbSwing * 0.6662F + (float) Math.PI) * 1.4F * limbSwingAmount;
         leg3.xRot = (float) Math.cos(limbSwing * 0.6662F) * 1.4F * limbSwingAmount;
-        if (entity.animDriver().oneShotClip != null) {
-            float phase = entity.animDriver().oneShotPhase;
-            if ("attack".equals(entity.animDriver().oneShotClip)
-                    || "slam".equals(entity.animDriver().oneShotClip)) {
-                body.xRot = (float) Math.sin(phase * (float) Math.PI) * 0.4F;
-            } else if ("graze".equals(entity.animDriver().oneShotClip)) {
-                head.xRot = (float) Math.sin(phase * (float) Math.PI) * 0.9F;
-            } else if ("flee".equals(entity.animDriver().oneShotClip)) {
+        if (state.bsClip != null) {
+            if ("attack".equals(state.bsClip) || "slam".equals(state.bsClip)) {
+                body.xRot = (float) Math.sin(state.bsPhase * (float) Math.PI) * 0.4F;
+            } else if ("graze".equals(state.bsClip)) {
+                head.xRot = (float) Math.sin(state.bsPhase * (float) Math.PI) * 0.9F;
+            } else if ("flee".equals(state.bsClip)) {
                 body.xRot = -0.2F;
             }
         }

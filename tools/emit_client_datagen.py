@@ -9,6 +9,11 @@ from lines import LINES
 from emit_families import _w, _s, _camel
 
 
+# 1.21.2 introduced render states: MobRenderer gained a third type parameter
+# and EntityModel is now bound to EntityRenderState (probe-fabric-1.21.2).
+RS_LINES = ("1.21.2", "1.21.4", "1.21.5", "1.21.9", "1.21.11", "26")
+
+
 def emit_client_datagen(root, line_key):
     F = LINES[line_key]
     legacy = F["pkgs"] == "legacy"
@@ -363,9 +368,201 @@ public class UnseenLegacyRenderer<T extends BiomesUnseenMob>
 ''')
 
     # ================================================================== #
+    # 1.21.2+ render-state rewrite
+    # ================================================================== #
+    # probe-fabric-1.21.2 / -1.21.10:
+    #   MobRenderer<T extends Mob, S extends LivingEntityRenderState,
+    #               M extends EntityModel<? super S>>          (3 params)
+    #   EntityModel<T extends EntityRenderState> extends Model
+    #   EntityRenderer: abstract S createRenderState(),
+    #                   void extractRenderState(T,S,float),
+    #                   abstract ResourceLocation getTextureLocation(S)
+    # The old 2-parameter MobRenderer<T, EntityModel<T>> form is gone, and
+    # EntityModel no longer has a no-arg constructor, so the hand-animated rig
+    # has to be rebuilt around a render state.
+    if geckolib == "none" and line_key in RS_LINES:
+        _w(root, base + "/client/legacy/UnseenLegacyRenderState.java",
+           '''package com.biomesunseen.client.legacy;
+
+/**
+ * Render state for the legacy box model.  Every animation input is copied off
+ * the entity in extractRenderState, so the model itself never touches live
+ * entity state (which is what the 1.21.2 render-state split requires).
+ */
+public class UnseenLegacyRenderState
+        extends net.minecraft.client.renderer.entity.state.LivingEntityRenderState {
+
+    public float bsLimbSwing;
+    public float bsLimbSwingAmount;
+    public float bsAgeInTicks;
+    public float bsHeadYaw;
+    public float bsHeadPitch;
+    public String bsClip;
+    public float bsPhase;
+}
+''')
+
+        _w(root, base + "/client/legacy/UnseenLegacyModel.java",
+           '''package com.biomesunseen.client.legacy;
+
+import net.minecraft.client.model.EntityModel;
+import net.minecraft.client.model.geom.ModelLayerLocation;
+import net.minecraft.client.model.geom.ModelPart;
+import net.minecraft.client.model.geom.PartPose;
+import net.minecraft.client.model.geom.builders.CubeListBuilder;
+import net.minecraft.client.model.geom.builders.LayerDefinition;
+import net.minecraft.client.model.geom.builders.MeshDefinition;
+import net.minecraft.client.model.geom.builders.PartDefinition;
+
+/**
+ * Box model for the legacy line: head, body and four limbs, animated from the
+ * values carried on UnseenLegacyRenderState (limb swing, head yaw, one-shot
+ * poses).
+ */
+public class UnseenLegacyModel<S extends UnseenLegacyRenderState> extends EntityModel<S> {
+
+    private final ModelPart head;
+    private final ModelPart body;
+    private final ModelPart leg0;
+    private final ModelPart leg1;
+    private final ModelPart leg2;
+    private final ModelPart leg3;
+
+    public UnseenLegacyModel(ModelPart root) {
+        super(root);
+        head = root.getChild("head");
+        body = root.getChild("body");
+        leg0 = root.getChild("leg0");
+        leg1 = root.getChild("leg1");
+        leg2 = root.getChild("leg2");
+        leg3 = root.getChild("leg3");
+    }
+
+    /** Shared model layer: every Biomes Unseen mob uses this six-part rig. */
+    public static final ModelLayerLocation LAYER = new ModelLayerLocation(
+            net.minecraft.resources.ResourceLocation.fromNamespaceAndPath("biomesunseen", "legacy_mob"), "main");
+
+    public static LayerDefinition createBodyLayer() {
+        MeshDefinition mesh = new MeshDefinition();
+        PartDefinition root = mesh.getRoot();
+        root.addOrReplaceChild("head", CubeListBuilder.create().texOffs(0, 0)
+                .addBox(-4.0F, -8.0F, -4.0F, 8.0F, 8.0F, 8.0F),
+                PartPose.offset(0.0F, 4.0F, -4.0F));
+        root.addOrReplaceChild("body", CubeListBuilder.create().texOffs(16, 16)
+                .addBox(-5.0F, -10.0F, -7.0F, 10.0F, 16.0F, 8.0F),
+                PartPose.offset(0.0F, 5.0F, 2.0F));
+        root.addOrReplaceChild("leg0", CubeListBuilder.create().texOffs(0, 16)
+                .addBox(-2.0F, 0.0F, -2.0F, 4.0F, 12.0F, 4.0F),
+                PartPose.offset(-3.0F, 12.0F, 7.0F));
+        root.addOrReplaceChild("leg1", CubeListBuilder.create().texOffs(0, 16)
+                .addBox(-2.0F, 0.0F, -2.0F, 4.0F, 12.0F, 4.0F),
+                PartPose.offset(3.0F, 12.0F, 7.0F));
+        root.addOrReplaceChild("leg2", CubeListBuilder.create().texOffs(0, 16)
+                .addBox(-2.0F, 0.0F, -2.0F, 4.0F, 12.0F, 4.0F),
+                PartPose.offset(-3.0F, 12.0F, -5.0F));
+        root.addOrReplaceChild("leg3", CubeListBuilder.create().texOffs(0, 16)
+                .addBox(-2.0F, 0.0F, -2.0F, 4.0F, 12.0F, 4.0F),
+                PartPose.offset(3.0F, 12.0F, -5.0F));
+        return LayerDefinition.create(mesh, 64, 32);
+    }
+
+    @Override
+    public void setupAnim(S state) {
+        float limbSwing = state.bsLimbSwing;
+        float limbSwingAmount = state.bsLimbSwingAmount;
+        head.yRot = state.bsHeadYaw * ((float) Math.PI / 180.0F);
+        head.xRot = state.bsHeadPitch * ((float) Math.PI / 180.0F);
+        leg0.xRot = (float) Math.cos(limbSwing * 0.6662F) * 1.4F * limbSwingAmount;
+        leg1.xRot = (float) Math.cos(limbSwing * 0.6662F + (float) Math.PI) * 1.4F * limbSwingAmount;
+        leg2.xRot = (float) Math.cos(limbSwing * 0.6662F + (float) Math.PI) * 1.4F * limbSwingAmount;
+        leg3.xRot = (float) Math.cos(limbSwing * 0.6662F) * 1.4F * limbSwingAmount;
+        if (state.bsClip != null) {
+            if ("attack".equals(state.bsClip) || "slam".equals(state.bsClip)) {
+                body.xRot = (float) Math.sin(state.bsPhase * (float) Math.PI) * 0.4F;
+            } else if ("graze".equals(state.bsClip)) {
+                head.xRot = (float) Math.sin(state.bsPhase * (float) Math.PI) * 0.9F;
+            } else if ("flee".equals(state.bsClip)) {
+                body.xRot = -0.2F;
+            }
+        }
+    }
+
+    @Override
+    public void renderToBuffer(com.mojang.blaze3d.vertex.PoseStack matrixStack,
+            com.mojang.blaze3d.vertex.VertexConsumer buffer,
+            int packedLight, int packedOverlay, int packedColor) {
+        head.render(matrixStack, buffer, packedLight, packedOverlay, packedColor);
+        body.render(matrixStack, buffer, packedLight, packedOverlay, packedColor);
+        leg0.render(matrixStack, buffer, packedLight, packedOverlay, packedColor);
+        leg1.render(matrixStack, buffer, packedLight, packedOverlay, packedColor);
+        leg2.render(matrixStack, buffer, packedLight, packedOverlay, packedColor);
+        leg3.render(matrixStack, buffer, packedLight, packedOverlay, packedColor);
+    }
+}
+''')
+
+        _w(root, base + "/client/legacy/UnseenLegacyRenderer.java",
+           '''package com.biomesunseen.client.legacy;
+
+import net.minecraft.client.renderer.entity.EntityRendererProvider;
+import net.minecraft.client.renderer.entity.MobRenderer;
+import net.minecraft.resources.ResourceLocation;
+
+import com.biomesunseen.entity.BiomesUnseenMob;
+
+/**
+ * Mob renderer for the hand-animated box rig.  Three type parameters are
+ * mandatory from 1.21.2 (MobRenderer gained the render-state parameter), so the
+ * state and model are fixed here and only the entity type stays generic: that
+ * keeps diamond inference working at the registration site.
+ */
+public class UnseenLegacyRenderer<T extends BiomesUnseenMob>
+        extends MobRenderer<T, UnseenLegacyRenderState, UnseenLegacyModel<UnseenLegacyRenderState>> {
+
+    private final String id;
+
+    public UnseenLegacyRenderer(EntityRendererProvider.Context context, String id) {
+        super(context, new UnseenLegacyModel<UnseenLegacyRenderState>(
+                context.bakeLayer(UnseenLegacyModel.LAYER)), 0.5F);
+        this.id = id;
+    }
+
+    /** Renderer provider factory used by ClientSetup. */
+    public static <E extends BiomesUnseenMob> EntityRendererProvider<E> provider(String id) {
+        return context -> new UnseenLegacyRenderer<E>(context, id);
+    }
+
+    @Override
+    public UnseenLegacyRenderState createRenderState() {
+        return new UnseenLegacyRenderState();
+    }
+
+    @Override
+    public void extractRenderState(T entity, UnseenLegacyRenderState state, float partialTick) {
+        super.extractRenderState(entity, state, partialTick);
+        state.bsLimbSwing = entity.tickCount + partialTick;
+        state.bsLimbSwingAmount = (float) entity.getDeltaMovement().horizontalDistance();
+        state.bsAgeInTicks = entity.tickCount + partialTick;
+        state.bsHeadYaw = entity.getYRot();
+        state.bsHeadPitch = entity.getXRot();
+        state.bsClip = entity.animDriver().oneShotClip;
+        state.bsPhase = entity.animDriver().oneShotPhase;
+    }
+
+    @Override
+    public ResourceLocation getTextureLocation(UnseenLegacyRenderState state) {
+        return ResourceLocation.fromNamespaceAndPath("biomesunseen", "textures/entity/" + id + ".png");
+    }
+}
+''')
+
+    # ================================================================== #
     # client/ClientSetup.java
     # ================================================================== #
-    if geckolib == "none":
+    if geckolib == "none" and line_key in RS_LINES:
+        renderer_new = ("UnseenLegacyRenderer.provider(\"%s\")")
+        renderer_cls = "com.biomesunseen.client.legacy.UnseenLegacyRenderer"
+    elif geckolib == "none":
         renderer_new = ("new UnseenLegacyRenderer<>(context, \"%s\")")
         renderer_cls = "com.biomesunseen.client.legacy.UnseenLegacyRenderer"
     else:
@@ -379,14 +576,18 @@ public class UnseenLegacyRenderer<T extends BiomesUnseenMob>
             " UnseenLegacyModel::createBodyLayer);")
     for (mid, *_r) in MOB_ROWS:
         registrations.append(
-            '        EntityRendererRegistry.register(ModEntities.%s, context -> %s);'
+            ('        EntityRendererRegistry.register(ModEntities.%s, %s);'
+             if line_key in RS_LINES and geckolib == "none" else
+             '        EntityRendererRegistry.register(ModEntities.%s, context -> %s);')
             % (_camel(mid), renderer_new % mid))
     for (bid, *_r) in BOSS_ROWS:
         if geckolib == "none":
             # Bosses share the hand-animated legacy renderer: full keyframe
             # animation without a GeckoLib dependency on any API line.
             registrations.append(
-                '        EntityRendererRegistry.register(ModEntities.%s, context -> %s);'
+                ('        EntityRendererRegistry.register(ModEntities.%s, %s);'
+                 if line_key in RS_LINES else
+                 '        EntityRendererRegistry.register(ModEntities.%s, context -> %s);')
                 % (_camel(bid), renderer_new % bid))
         else:
             registrations.append(
