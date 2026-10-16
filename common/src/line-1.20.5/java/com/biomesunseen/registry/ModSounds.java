@@ -23,7 +23,7 @@ public final class ModSounds {
     static {
         for (int i = 0; i < CoreRegistries.SOUND_EVENT_IDS.size(); i++) {
             String id = CoreRegistries.SOUND_EVENT_IDS.get(i);
-            BY_ID.put(id, SOUNDS.register(id, () -> SoundEvent.createVariableRangeEvent(new ResourceLocation(ModConstants.MOD_ID, id))));
+            BY_ID.put(id, ModRegistries.SOUNDS.register(id, () -> SoundEvent.createVariableRangeEvent(new ResourceLocation(ModConstants.MOD_ID, id))));
         }
     }
 

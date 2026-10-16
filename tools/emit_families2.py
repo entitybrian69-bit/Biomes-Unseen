@@ -265,7 +265,7 @@ public final class ModSounds {
     static {
         for (int i = 0; i < CoreRegistries.SOUND_EVENT_IDS.size(); i++) {
             String id = CoreRegistries.SOUND_EVENT_IDS.get(i);
-            BY_ID.put(id, SOUNDS.register(id, () -> %(expr)s));
+            BY_ID.put(id, ModRegistries.SOUNDS.register(id, () -> %(expr)s));
         }
     }
 
@@ -314,13 +314,29 @@ import java.util.Map;
  */
 public final class ModParticles {
 
-    public static final Map<String, RegistrySupplier<ParticleType<?>>> BY_ID =
-            new LinkedHashMap<String, RegistrySupplier<ParticleType<?>>>();
+    public static final Map<String, RegistrySupplier<ParticleType<%(simple)s>>> BY_ID =
+            new LinkedHashMap<String, RegistrySupplier<ParticleType<%(simple)s>>>();
 
     static {
         for (int i = 0; i < CoreRegistries.PARTICLE_IDS.size(); i++) {
             String id = CoreRegistries.PARTICLE_IDS.get(i);
-            BY_ID.put(id, PARTICLES.register(id, () -> new %(simple)s(true)));
+            BY_ID.put(id, narrow(ModRegistries.PARTICLES.register(id, () -> newSimple())));
+        }
+    }
+
+    /**
+     * The vanilla simple particle type keeps its constructor protected, so the
+     * eight Biomes Unseen types are instantiated reflectively - this keeps the
+     * registration code identical on every API line.
+     */
+    private static %(simple)s newSimple() {
+        try {
+            java.lang.reflect.Constructor<%(simple)s> ctor =
+                    %(simple)s.class.getDeclaredConstructor(boolean.class);
+            ctor.setAccessible(true);
+            return ctor.newInstance(Boolean.TRUE);
+        } catch (ReflectiveOperationException e) {
+            throw new IllegalStateException("Cannot build particle type", e);
         }
     }
 
@@ -331,8 +347,14 @@ public final class ModParticles {
         // Static initializers populate BY_ID.
     }
 
+    /** The particle register is declared with a wildcard; narrow it for typed lookups. */
+    @SuppressWarnings("unchecked")
+    private static RegistrySupplier<ParticleType<%(simple)s>> narrow(RegistrySupplier<?> supplier) {
+        return (RegistrySupplier) supplier;
+    }
+
     public static ParticleType<?> byId(String id) {
-        RegistrySupplier<ParticleType<?>> supplier = BY_ID.get(id);
+        RegistrySupplier<ParticleType<%(simple)s>> supplier = BY_ID.get(id);
         return supplier == null ? null : supplier.get();
     }
 
@@ -469,10 +491,10 @@ public final class ModEntities {
         "attributes": "\n".join(attr_entries).replace("Mob.createMobAttributes",
                                           ("MobEntity" if legacy else "Mob") + ".createMobAttributes"),
         "mob_switch": "\n".join(
-            '        if ("%s".equals(id)) {\n            return %s;\n        }' % (mid, _camel(mid))
+            '        if ("%s".equals(id)) {\n            return (RegistrySupplier) %s;\n        }' % (mid, _camel(mid))
             for (mid, *_r) in MOB_ROWS),
         "boss_switch": "\n".join(
-            '        if ("%s".equals(id)) {\n            return %s;\n        }' % (bid, _camel(bid))
+            '        if ("%s".equals(id)) {\n            return (RegistrySupplier) %s;\n        }' % (bid, _camel(bid))
             for (bid, *_r) in BOSS_ROWS),
     })
 
@@ -505,6 +527,14 @@ public final class ModEntities {
         props_plain = ""
         props_one = ".stacksTo(1)"
 
+    # The creative-mode tab API changed on nearly every Minecraft line, so the
+    # tab is created reflectively by the platform entrypoint instead of here.
+    tab_field = ""
+    tab_setup = ""
+    props16 = ".stacksTo(16)"
+    props_plain = ""
+    props_one = ".stacksTo(1)"
+
     if legacy:
         items_imports = ("import net.minecraft.block.Block;\n"
                          "import net.minecraft.item.Item;\n"
@@ -527,10 +557,8 @@ public final class ModEntities {
                          "import net.minecraft.world.entity.Mob;\n"
                          "import net.minecraft.network.chat.Component;")
 
-    tabs_import = ("    private static final DeferredRegister<ItemGroup> TABS =\n"
-                   "            DeferredRegister.create(MOD_ID, %s);\n\n"
-                   % _reg(F, "CREATIVE_MODE_TAB") if F["tab"] == "new" else "")
-    tabs_register = ("        TABS.register();\n" if F["tab"] == "new" else "")
+    tabs_import = ""
+    tabs_register = ""
 
     _w(root, base + "/registry/ModItems.java", '''package com.biomesunseen.registry;
 

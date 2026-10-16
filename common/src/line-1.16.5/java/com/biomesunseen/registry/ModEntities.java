@@ -321,89 +321,89 @@ public final class ModEntities {
 
     private static RegistrySupplier<EntityType<?>> byMobId(String id) {
         if ("lumox".equals(id)) {
-            return Lumox;
+            return (RegistrySupplier) Lumox;
         }
         if ("brambleback".equals(id)) {
-            return Brambleback;
+            return (RegistrySupplier) Brambleback;
         }
         if ("siltstrider".equals(id)) {
-            return Siltstrider;
+            return (RegistrySupplier) Siltstrider;
         }
         if ("glimmermoth".equals(id)) {
-            return Glimmermoth;
+            return (RegistrySupplier) Glimmermoth;
         }
         if ("peat_hopper".equals(id)) {
-            return PeatHopper;
+            return (RegistrySupplier) PeatHopper;
         }
         if ("ember_calf".equals(id)) {
-            return EmberCalf;
+            return (RegistrySupplier) EmberCalf;
         }
         if ("frost_fawn".equals(id)) {
-            return FrostFawn;
+            return (RegistrySupplier) FrostFawn;
         }
         if ("murkling".equals(id)) {
-            return Murkling;
+            return (RegistrySupplier) Murkling;
         }
         if ("spore_sprout".equals(id)) {
-            return SporeSprout;
+            return (RegistrySupplier) SporeSprout;
         }
         if ("skywisp".equals(id)) {
-            return Skywisp;
+            return (RegistrySupplier) Skywisp;
         }
         if ("thunder_ram".equals(id)) {
-            return ThunderRam;
+            return (RegistrySupplier) ThunderRam;
         }
         if ("mosshorn".equals(id)) {
-            return Mosshorn;
+            return (RegistrySupplier) Mosshorn;
         }
         if ("cinder_pup".equals(id)) {
-            return CinderPup;
+            return (RegistrySupplier) CinderPup;
         }
         if ("echo_howler".equals(id)) {
-            return EchoHowler;
+            return (RegistrySupplier) EchoHowler;
         }
         if ("dune_skimmer".equals(id)) {
-            return DuneSkimmer;
+            return (RegistrySupplier) DuneSkimmer;
         }
         if ("tide_caller".equals(id)) {
-            return TideCaller;
+            return (RegistrySupplier) TideCaller;
         }
         if ("gloom_stalker".equals(id)) {
-            return GloomStalker;
+            return (RegistrySupplier) GloomStalker;
         }
         if ("crystal_hermit".equals(id)) {
-            return CrystalHermit;
+            return (RegistrySupplier) CrystalHermit;
         }
         if ("wind_dancer".equals(id)) {
-            return WindDancer;
+            return (RegistrySupplier) WindDancer;
         }
         if ("mire_golem".equals(id)) {
-            return MireGolem;
+            return (RegistrySupplier) MireGolem;
         }
         if ("lantern_fox".equals(id)) {
-            return LanternFox;
+            return (RegistrySupplier) LanternFox;
         }
         if ("reef_grazer".equals(id)) {
-            return ReefGrazer;
+            return (RegistrySupplier) ReefGrazer;
         }
         if ("ash_crawler".equals(id)) {
-            return AshCrawler;
+            return (RegistrySupplier) AshCrawler;
         }
         if ("star_whale".equals(id)) {
-            return StarWhale;
+            return (RegistrySupplier) StarWhale;
         }
         if ("petal_wing".equals(id)) {
-            return PetalWing;
+            return (RegistrySupplier) PetalWing;
         }
         return null;
     }
 
     private static RegistrySupplier<EntityType<?>> byBossId(String id) {
         if ("heart_of_the_forest".equals(id)) {
-            return HeartOfTheForest;
+            return (RegistrySupplier) HeartOfTheForest;
         }
         if ("void_serpent".equals(id)) {
-            return VoidSerpent;
+            return (RegistrySupplier) VoidSerpent;
         }
         return null;
     }

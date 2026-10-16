@@ -2,10 +2,13 @@ package com.biomesunseen.client;
 
 import dev.architectury.registry.client.level.entity.EntityRendererRegistry;
 import dev.architectury.registry.client.particle.ParticleProviderRegistry;
+import dev.architectury.registry.client.level.entity.EntityModelLayerRegistry;
+import com.biomesunseen.client.legacy.UnseenLegacyModel;
 
 import com.biomesunseen.registry.ModEntities;
 import com.biomesunseen.registry.ModParticles;
 import com.biomesunseen.client.legacy.UnseenLegacyRenderer;
+import com.biomesunseen.client.particle.UnseenParticle;
 
 /**
  * Client bootstrap: registers animated renderers for every mob, both bosses
@@ -18,6 +21,7 @@ public final class ClientSetup {
     }
 
     public static void init() {
+        EntityModelLayerRegistry.register(UnseenLegacyModel.LAYER, UnseenLegacyModel::createBodyLayer);
         EntityRendererRegistry.register(ModEntities.Lumox, context -> new UnseenLegacyRenderer<>(context, "lumox"));
         EntityRendererRegistry.register(ModEntities.Brambleback, context -> new UnseenLegacyRenderer<>(context, "brambleback"));
         EntityRendererRegistry.register(ModEntities.Siltstrider, context -> new UnseenLegacyRenderer<>(context, "siltstrider"));
@@ -43,24 +47,24 @@ public final class ClientSetup {
         EntityRendererRegistry.register(ModEntities.AshCrawler, context -> new UnseenLegacyRenderer<>(context, "ash_crawler"));
         EntityRendererRegistry.register(ModEntities.StarWhale, context -> new UnseenLegacyRenderer<>(context, "star_whale"));
         EntityRendererRegistry.register(ModEntities.PetalWing, context -> new UnseenLegacyRenderer<>(context, "petal_wing"));
-        EntityRendererRegistry.register(ModEntities.HeartOfTheForest, HeartOfTheForestRenderer::new);
-        EntityRendererRegistry.register(ModEntities.VoidSerpent, VoidSerpentRenderer::new);
+        EntityRendererRegistry.register(ModEntities.HeartOfTheForest, context -> new UnseenLegacyRenderer<>(context, "heart_of_the_forest"));
+        EntityRendererRegistry.register(ModEntities.VoidSerpent, context -> new UnseenLegacyRenderer<>(context, "void_serpent"));
 
-        ParticleProviderRegistry.register(ModParticles.BY_ID.get("crystal_spark").get(),
+        ParticleProviderRegistry.register(ModParticles.BY_ID.get("crystal_spark"),
                 UnseenParticle.Provider::new);
-        ParticleProviderRegistry.register(ModParticles.BY_ID.get("ember_flake").get(),
+        ParticleProviderRegistry.register(ModParticles.BY_ID.get("ember_flake"),
                 UnseenParticle.Provider::new);
-        ParticleProviderRegistry.register(ModParticles.BY_ID.get("void_mote").get(),
+        ParticleProviderRegistry.register(ModParticles.BY_ID.get("void_mote"),
                 UnseenParticle.Provider::new);
-        ParticleProviderRegistry.register(ModParticles.BY_ID.get("spore_drift").get(),
+        ParticleProviderRegistry.register(ModParticles.BY_ID.get("spore_drift"),
                 UnseenParticle.Provider::new);
-        ParticleProviderRegistry.register(ModParticles.BY_ID.get("frost_mote").get(),
+        ParticleProviderRegistry.register(ModParticles.BY_ID.get("frost_mote"),
                 UnseenParticle.Provider::new);
-        ParticleProviderRegistry.register(ModParticles.BY_ID.get("storm_arc").get(),
+        ParticleProviderRegistry.register(ModParticles.BY_ID.get("storm_arc"),
                 UnseenParticle.Provider::new);
-        ParticleProviderRegistry.register(ModParticles.BY_ID.get("petal_burst").get(),
+        ParticleProviderRegistry.register(ModParticles.BY_ID.get("petal_burst"),
                 UnseenParticle.Provider::new);
-        ParticleProviderRegistry.register(ModParticles.BY_ID.get("heal_glow").get(),
+        ParticleProviderRegistry.register(ModParticles.BY_ID.get("heal_glow"),
                 UnseenParticle.Provider::new);
     }
 }

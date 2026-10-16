@@ -15,7 +15,7 @@ public class UnseenLegacyRenderer<T extends BiomesUnseenMob>
     private final String id;
 
     public UnseenLegacyRenderer(EntityRendererManager manager, String id) {
-        super(manager, new UnseenLegacyModel<T>(), 0.5F);
+        super(context, new UnseenLegacyModel<T>(context.bakeLayer(UnseenLegacyModel.LAYER)), 0.5F);
         this.id = id;
     }
 

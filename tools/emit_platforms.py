@@ -85,6 +85,14 @@ processResources {
     }
 }
 
+// CI diagnostic: prints the resolved compile classpath so the exact Minecraft
+// jar (and therefore the API surface) each module builds against is verifiable.
+tasks.register("printCompileClasspath") {
+    doLast {
+        configurations.compileClasspath.files.each { f -> println("CP " + f.absolutePath) }
+    }
+}
+
 tasks.register("runDatagen", JavaExec) {
     group = "biomesunseen"
     classpath = sourceSets.main.runtimeClasspath
@@ -126,6 +134,14 @@ processResources {
     }
 }
 
+// CI diagnostic: prints the resolved compile classpath so the exact Minecraft
+// jar (and therefore the API surface) each module builds against is verifiable.
+tasks.register("printCompileClasspath") {
+    doLast {
+        configurations.compileClasspath.files.each { f -> println("CP " + f.absolutePath) }
+    }
+}
+
 tasks.register("runDatagen", JavaExec) {
     group = "biomesunseen"
     classpath = sourceSets.main.runtimeClasspath
@@ -164,6 +180,14 @@ processResources {
     inputs.property "version", project.version
     filesMatching("META-INF/neoforge.mods.toml") {
         expand "version": project.version
+    }
+}
+
+// CI diagnostic: prints the resolved compile classpath so the exact Minecraft
+// jar (and therefore the API surface) each module builds against is verifiable.
+tasks.register("printCompileClasspath") {
+    doLast {
+        configurations.compileClasspath.files.each { f -> println("CP " + f.absolutePath) }
     }
 }
 

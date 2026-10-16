@@ -38,10 +38,7 @@ public final class ModItems {
 
     public static final String MOD_ID = ModConstants.MOD_ID;
 
-    private static final DeferredRegister<CreativeModeTab> TABS =
-            DeferredRegister.create(MOD_ID, Registries.CREATIVE_MODE_TAB);
-
-    public static RegistrySupplier<CreativeModeTab> MAIN;
+    
 
     /** Every registered item, in creative-tab order. */
     public static final List<RegistrySupplier<Item>> ALL_ITEMS =
@@ -86,16 +83,7 @@ public final class ModItems {
     }
 
     public static void registerContent() {
-        TABS.register();
-        MAIN = TABS.register("main", () -> CreativeModeTab.builder()
-                .title(Component.translatable("itemGroup.biomesunseen"))
-                .icon(() -> new ItemStack(UNSEEN_SIGIL.get()))
-                .displayItems((params, output) -> {
-                    for (RegistrySupplier<Item> supplier : ALL_ITEMS) {
-                        output.accept(supplier.get());
-                    }
-                })
-                .build());
+
         UNSEEN_SIGIL = track(ModRegistries.ITEMS.register("unseen_sigil",
                 () -> new Item(new Item.Properties().stacksTo(16))));
 

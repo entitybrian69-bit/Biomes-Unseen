@@ -30,8 +30,8 @@ public class LegacyAnimDriver {
         float targetAmount = speedSq > 1.0E-4F ? 1.0F : 0.0F;
         limbSwingAmount += (targetAmount - limbSwingAmount) * 0.25F;
         limbSwing += limbSwingAmount * 1.4F;
-        headYaw = mob.yHeadRot - mob.yBodyRot;
-        headPitch = mob.xRot;
+        headYaw = mob.getYHeadRot() - mob.getYBodyRot();
+        headPitch = mob.getXRot();
         if (oneShotTicks > 0) {
             oneShotTicks--;
             oneShotPhase = 1.0F - oneShotTicks / 24.0F;

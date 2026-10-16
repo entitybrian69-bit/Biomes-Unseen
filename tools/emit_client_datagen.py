@@ -238,7 +238,14 @@ public class %(cls)s extends %(renderer_base)s<%(entity)s> {
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.minecraft.client.model.EntityModel;
+import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.model.geom.ModelPart;
+import net.minecraft.client.model.geom.PartPose;
+import net.minecraft.client.model.geom.builders.CubeListBuilder;
+import net.minecraft.client.model.geom.builders.LayerDefinition;
+import net.minecraft.client.model.geom.builders.MeshDefinition;
+import net.minecraft.client.model.geom.builders.PartDefinition;
+import net.minecraft.resources.ResourceLocation;
 
 import com.biomesunseen.entity.BiomesUnseenMob;
 
@@ -255,25 +262,41 @@ public class UnseenLegacyModel<T extends BiomesUnseenMob> extends EntityModel<T>
     private final ModelPart leg2;
     private final ModelPart leg3;
 
-    public UnseenLegacyModel() {
-        head = new ModelPart(0, 0);
-        head.addBox(-4.0F, -8.0F, -4.0F, 8.0F, 8.0F, 8.0F, 0.0F);
-        head.setPos(0.0F, 4.0F, -4.0F);
-        body = new ModelPart(16, 16);
-        body.addBox(-5.0F, -10.0F, -7.0F, 10.0F, 16.0F, 8.0F, 0.0F);
-        body.setPos(0.0F, 5.0F, 2.0F);
-        leg0 = new ModelRenderer(this, 0, 16);
-        leg0.addBox(-2.0F, 0.0F, -2.0F, 4.0F, 12.0F, 4.0F, 0.0F);
-        leg0.setPos(-3.0F, 12.0F, 7.0F);
-        leg1 = new ModelRenderer(this, 0, 16);
-        leg1.addBox(-2.0F, 0.0F, -2.0F, 4.0F, 12.0F, 4.0F, 0.0F);
-        leg1.setPos(3.0F, 12.0F, 7.0F);
-        leg2 = new ModelRenderer(this, 0, 16);
-        leg2.addBox(-2.0F, 0.0F, -2.0F, 4.0F, 12.0F, 4.0F, 0.0F);
-        leg2.setPos(-3.0F, 12.0F, -5.0F);
-        leg3 = new ModelRenderer(this, 0, 16);
-        leg3.addBox(-2.0F, 0.0F, -2.0F, 4.0F, 12.0F, 4.0F, 0.0F);
-        leg3.setPos(3.0F, 12.0F, -5.0F);
+    public UnseenLegacyModel(ModelPart root) {
+        head = root.getChild("head");
+        body = root.getChild("body");
+        leg0 = root.getChild("leg0");
+        leg1 = root.getChild("leg1");
+        leg2 = root.getChild("leg2");
+        leg3 = root.getChild("leg3");
+    }
+
+    /** Shared model layer: every Biomes Unseen mob uses this six-part rig. */
+    public static final ModelLayerLocation LAYER = new ModelLayerLocation(
+            new ResourceLocation("biomesunseen", "legacy_mob"), "main");
+
+    public static LayerDefinition createBodyLayer() {
+        MeshDefinition mesh = new MeshDefinition();
+        PartDefinition root = mesh.getRoot();
+        root.addOrReplaceChild("head", CubeListBuilder.create().texOffs(0, 0)
+                .addBox(-4.0F, -8.0F, -4.0F, 8.0F, 8.0F, 8.0F),
+                PartPose.offset(0.0F, 4.0F, -4.0F));
+        root.addOrReplaceChild("body", CubeListBuilder.create().texOffs(16, 16)
+                .addBox(-5.0F, -10.0F, -7.0F, 10.0F, 16.0F, 8.0F),
+                PartPose.offset(0.0F, 5.0F, 2.0F));
+        root.addOrReplaceChild("leg0", CubeListBuilder.create().texOffs(0, 16)
+                .addBox(-2.0F, 0.0F, -2.0F, 4.0F, 12.0F, 4.0F),
+                PartPose.offset(-3.0F, 12.0F, 7.0F));
+        root.addOrReplaceChild("leg1", CubeListBuilder.create().texOffs(0, 16)
+                .addBox(-2.0F, 0.0F, -2.0F, 4.0F, 12.0F, 4.0F),
+                PartPose.offset(3.0F, 12.0F, 7.0F));
+        root.addOrReplaceChild("leg2", CubeListBuilder.create().texOffs(0, 16)
+                .addBox(-2.0F, 0.0F, -2.0F, 4.0F, 12.0F, 4.0F),
+                PartPose.offset(-3.0F, 12.0F, -5.0F));
+        root.addOrReplaceChild("leg3", CubeListBuilder.create().texOffs(0, 16)
+                .addBox(-2.0F, 0.0F, -2.0F, 4.0F, 12.0F, 4.0F),
+                PartPose.offset(3.0F, 12.0F, -5.0F));
+        return LayerDefinition.create(mesh, 64, 32);
     }
 
     @Override
@@ -328,7 +351,7 @@ public class UnseenLegacyRenderer<T extends BiomesUnseenMob>
     private final String id;
 
     public UnseenLegacyRenderer(EntityRendererProvider.Context context, String id) {
-        super(context, new UnseenLegacyModel<T>(), 0.5F);
+        super(context, new UnseenLegacyModel<T>(context.bakeLayer(UnseenLegacyModel.LAYER)), 0.5F);
         this.id = id;
     }
 
@@ -350,26 +373,37 @@ public class UnseenLegacyRenderer<T extends BiomesUnseenMob>
         renderer_cls = "com.biomesunseen.client.render.BiomesUnseenGeoRenderer"
 
     registrations = []
+    if geckolib == "none" and not legacy:
+        registrations.append(
+            "        EntityModelLayerRegistry.register(UnseenLegacyModel.LAYER,"
+            " UnseenLegacyModel::createBodyLayer);")
     for (mid, *_r) in MOB_ROWS:
         registrations.append(
             '        EntityRendererRegistry.register(ModEntities.%s, context -> %s);'
             % (_camel(mid), renderer_new % mid))
     for (bid, *_r) in BOSS_ROWS:
-        registrations.append(
-            '        EntityRendererRegistry.register(ModEntities.%s, %s::new);'
-            % (_camel(bid), _camel(bid) + "Renderer"))
+        if geckolib == "none":
+            # Bosses share the hand-animated legacy renderer: full keyframe
+            # animation without a GeckoLib dependency on any API line.
+            registrations.append(
+                '        EntityRendererRegistry.register(ModEntities.%s, context -> %s);'
+                % (_camel(bid), renderer_new % bid))
+        else:
+            registrations.append(
+                '        EntityRendererRegistry.register(ModEntities.%s, %s::new);'
+                % (_camel(bid), _camel(bid) + "Renderer"))
 
     particle_regs = []
     for p in PARTICLE_TYPES:
         particle_regs.append(
-            '        ParticleProviderRegistry.register(ModParticles.BY_ID.get("%s").get(),\n'
+            '        ParticleProviderRegistry.register(ModParticles.BY_ID.get("%s"),\n'
             '                UnseenParticle.Provider::new);' % p)
 
     _w(root, base + "/client/ClientSetup.java", '''package com.biomesunseen.client;
 
 import %(arch_rr)s.EntityRendererRegistry;
 import %(arch_pr)s.ParticleProviderRegistry;
-
+%(layer_import)s
 import com.biomesunseen.registry.ModEntities;
 import com.biomesunseen.registry.ModParticles;
 %(extra_imports)s
@@ -397,6 +431,9 @@ public final class ClientSetup {
         "arch_pr": ("me.shedaniel.architectury.registry"
                     if F["expect"] == "me.shedaniel"
                     else "dev.architectury.registry.client.particle"),
+        "layer_import": ("" if geckolib != "none" or legacy else
+                         "import dev.architectury.registry.client.level.entity.EntityModelLayerRegistry;\n"
+                         "import com.biomesunseen.client.legacy.UnseenLegacyModel;\n"),
         "registrations": "\n".join(registrations),
         "particles": "\n".join(particle_regs),
         "extra_imports": (
@@ -404,7 +441,8 @@ public final class ClientSetup {
             "import com.biomesunseen.client.render.HeartOfTheForestRenderer;\n"
             "import com.biomesunseen.client.render.VoidSerpentRenderer;\n"
             if geckolib != "none" else
-            "import com.biomesunseen.client.legacy.UnseenLegacyRenderer;\n"),
+            "import com.biomesunseen.client.legacy.UnseenLegacyRenderer;\n"
+            "import com.biomesunseen.client.particle.UnseenParticle;\n"),
     })
 
     # ================================================================== #

@@ -17,13 +17,29 @@ import java.util.Map;
  */
 public final class ModParticles {
 
-    public static final Map<String, RegistrySupplier<ParticleType<?>>> BY_ID =
-            new LinkedHashMap<String, RegistrySupplier<ParticleType<?>>>();
+    public static final Map<String, RegistrySupplier<ParticleType<SimpleParticleType>>> BY_ID =
+            new LinkedHashMap<String, RegistrySupplier<ParticleType<SimpleParticleType>>>();
 
     static {
         for (int i = 0; i < CoreRegistries.PARTICLE_IDS.size(); i++) {
             String id = CoreRegistries.PARTICLE_IDS.get(i);
-            BY_ID.put(id, PARTICLES.register(id, () -> new SimpleParticleType(true)));
+            BY_ID.put(id, narrow(ModRegistries.PARTICLES.register(id, () -> newSimple())));
+        }
+    }
+
+    /**
+     * The vanilla simple particle type keeps its constructor protected, so the
+     * eight Biomes Unseen types are instantiated reflectively - this keeps the
+     * registration code identical on every API line.
+     */
+    private static SimpleParticleType newSimple() {
+        try {
+            java.lang.reflect.Constructor<SimpleParticleType> ctor =
+                    SimpleParticleType.class.getDeclaredConstructor(boolean.class);
+            ctor.setAccessible(true);
+            return ctor.newInstance(Boolean.TRUE);
+        } catch (ReflectiveOperationException e) {
+            throw new IllegalStateException("Cannot build particle type", e);
         }
     }
 
@@ -34,8 +50,14 @@ public final class ModParticles {
         // Static initializers populate BY_ID.
     }
 
+    /** The particle register is declared with a wildcard; narrow it for typed lookups. */
+    @SuppressWarnings("unchecked")
+    private static RegistrySupplier<ParticleType<SimpleParticleType>> narrow(RegistrySupplier<?> supplier) {
+        return (RegistrySupplier) supplier;
+    }
+
     public static ParticleType<?> byId(String id) {
-        RegistrySupplier<ParticleType<?>> supplier = BY_ID.get(id);
+        RegistrySupplier<ParticleType<SimpleParticleType>> supplier = BY_ID.get(id);
         return supplier == null ? null : supplier.get();
     }
 
