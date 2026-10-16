@@ -109,3 +109,41 @@ jobs:
           path: ${{ matrix.module }}/build/libs/*.jar
           if-no-files-found: error
           retention-days: 30
+
+  release:
+    name: Publish jars to GitHub release
+    runs-on: ubuntu-latest
+    needs: build
+    if: always()
+    permissions:
+      contents: write
+    steps:
+      - name: Download all module jars
+        uses: actions/download-artifact@v4
+        with:
+          path: jars
+          merge-multiple: true
+
+      - name: Collect jars
+        run: |
+          mkdir -p out
+          find jars -name '*.jar' ! -name '*-sources.jar' ! -name '*-dev.jar' ! -name '*-javadoc.jar' -exec cp -n {} out/ \;
+          ls -la out || true
+
+      - name: Create or update release v1.0.0
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          shopt -s nullglob
+          files=(out/*.jar)
+          if [ ${#files[@]} -eq 0 ]; then
+            echo "No jars to publish yet"
+            exit 0
+          fi
+          if gh release view v1.0.0 >/dev/null 2>&1; then
+            gh release upload v1.0.0 "${files[@]}" --clobber
+          else
+            gh release create v1.0.0 "${files[@]}" --target "$GITHUB_SHA" \
+              --title "Biomes Unseen 1.0.0" \
+              --notes "Biomes Unseen 1.0.0 - multi-version, multi-loader jars (80 biomes, 20 ores, 30 structures, 25 mobs, 2 bosses, fully animated)."
+          fi
