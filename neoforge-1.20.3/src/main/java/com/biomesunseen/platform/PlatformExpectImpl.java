@@ -5,6 +5,7 @@ import com.biomesunseen.config.ClothConfigScreen;
 import com.biomesunseen.core.ModConstants;
 import com.biomesunseen.worldgen.WorldGenKeys;
 
+
 /**
  * Loader-specific implementation of PlatformExpect for neoforge (Minecraft 1.20.3).
  */
@@ -33,9 +34,14 @@ public final class PlatformExpectImpl {
 
     public static void registerSpawnPlacement(String mobId,
             net.minecraft.world.entity.EntityType<net.minecraft.world.entity.Mob> type) {
-        net.neoforged.neoforge.event.entity.EntitySpawnPlacementRegistryEvent.class.getName();
-        net.minecraft.core.registries.BuiltInRegistries.ENTITY_TYPE.getOptional(
-                new net.minecraft.resources.ResourceLocation("biomesunseen", mobId));
+        net.minecraft.core.registries.BuiltInRegistries.ENTITY_TYPE
+                .getOptional(new net.minecraft.resources.ResourceLocation("biomesunseen", mobId))
+                .ifPresent(type -> net.minecraft.world.entity.SpawnPlacements.register(
+                        type,
+                        net.minecraft.world.entity.SpawnPlacements.Type.ON_GROUND,
+                        net.minecraft.world.level.levelgen.Heightmap.Types
+                                .MOTION_BLOCKING_NO_LEAVES,
+                        net.minecraft.world.entity.Mob::checkMobSpawnRules));
     }
 
     public static void installBiomeInjection() {

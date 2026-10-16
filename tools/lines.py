@@ -82,7 +82,7 @@ LINES = {
     ),
     "1.20.5": dict(
         line="1.20.5", mc="1.20.6", java=21, pkgs="modern", reg="registries",
-        geckolib="none", tab="new", damage="new", synched="old",
+        geckolib="none", tab="new", damage="new", synched="builder",
         text="component", material=False, sound_ctor="factory", data_dirs="plural",
         biome_json="new", worldgen="modern", biome_add="noise_list",
         item_def="model_only", expect="dev", entity_base="modern",
@@ -90,7 +90,7 @@ LINES = {
     ),
     "1.21": dict(
         line="1.21", mc="1.21.1", java=21, pkgs="modern", reg="registries",
-        geckolib="none", tab="new", damage="new", synched="old",
+        geckolib="none", tab="new", damage="new", synched="builder",
         text="component", material=False, sound_ctor="factory", data_dirs="flat",
         biome_json="new", worldgen="modern", biome_add="noise_list",
         item_def="model_only", expect="dev", entity_base="modern",

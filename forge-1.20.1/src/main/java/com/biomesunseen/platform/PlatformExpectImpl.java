@@ -4,6 +4,8 @@ import com.biomesunseen.BiomesUnseen;
 import com.biomesunseen.config.ClothConfigScreen;
 import com.biomesunseen.core.ModConstants;
 import com.biomesunseen.worldgen.WorldGenKeys;
+import net.minecraftforge.common.MinecraftForge;
+
 
 /**
  * Loader-specific implementation of PlatformExpect for forge (Minecraft 1.20.1).

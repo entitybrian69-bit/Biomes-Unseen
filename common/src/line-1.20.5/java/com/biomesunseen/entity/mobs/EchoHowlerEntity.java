@@ -20,8 +20,8 @@ import com.biomesunseen.entity.ai.WanderTradeGoal;
 public class EchoHowlerEntity extends BiomesUnseenMob {
 
     @Override
-    protected void defineSynchedData() {
-        super.defineSynchedData();
+    protected void defineSynchedData(net.minecraft.network.syncher.SynchedEntityData.Builder builder) {
+        super.defineSynchedData(builder);
     }
     public EchoHowlerEntity(EntityType<? extends EchoHowlerEntity> type, Level level) {
         super(type, level, Content.mob("echo_howler"));

@@ -447,7 +447,7 @@ import com.biomesunseen.BiomesUnseen;
 import com.biomesunseen.config.ClothConfigScreen;
 import com.biomesunseen.core.ModConstants;
 import com.biomesunseen.worldgen.WorldGenKeys;
-
+%(forge_bus_import)s
 /**
  * Loader-specific implementation of PlatformExpect for %(loader)s (Minecraft %(mc)s).
  */
@@ -557,9 +557,14 @@ public final class PlatformExpectImpl {
         open_config = '''        net.minecraft.client.Minecraft mc = net.minecraft.client.Minecraft.getInstance();
         Object screen = ClothConfigScreen.build("Biomes Unseen", parentScreen, key -> key);
         mc.setScreen((net.minecraft.client.gui.screens.Screen) screen);'''
-        spawn_placement = '''        net.neoforged.neoforge.event.entity.EntitySpawnPlacementRegistryEvent.class.getName();
-        net.minecraft.core.registries.BuiltInRegistries.ENTITY_TYPE.getOptional(
-                new net.minecraft.resources.ResourceLocation("biomesunseen", mobId));'''
+        spawn_placement = '''        net.minecraft.core.registries.BuiltInRegistries.ENTITY_TYPE
+                .getOptional(new net.minecraft.resources.ResourceLocation("biomesunseen", mobId))
+                .ifPresent(type -> net.minecraft.world.entity.SpawnPlacements.register(
+                        type,
+                        net.minecraft.world.entity.SpawnPlacements.Type.ON_GROUND,
+                        net.minecraft.world.level.levelgen.Heightmap.Types
+                                .MOTION_BLOCKING_NO_LEAVES,
+                        net.minecraft.world.entity.Mob::checkMobSpawnRules));'''
         biome_injection = '''        System.out.println("[Biomes Unseen] biome injection installed for "
                 + WorldGenKeys.allBiomeKeys().size() + " biomes");'''
         biome_mods = '''        // NeoForge biome modifiers ship as data: data/biomesunseen/neoforge/biome_modifier/*.json
@@ -576,6 +581,8 @@ public final class PlatformExpectImpl {
 
     body = head % {
         "loader": loader, "mc": mc,
+        "forge_bus_import": ("import net.minecraftforge.common.MinecraftForge;\n\n"
+                             if loader == "forge" else "\n"),
         "is_fabric": is_fabric, "is_forge": is_forge,
         "config_dir": config_dir,
         "open_config": open_config,
@@ -634,9 +641,7 @@ def emit(root):
                     "arch_legacy": ('' if F["expect"] == "dev" else ""),
                     "mappings": ("" if str(F["line"]) == "26" else
                                  "    mappings loom.officialMojangMappings()"),
-                    "loom_plugin": ("dev.architectury.loom-no-remap"
-                                    if mc.startswith("26")
-                                    else "dev.architectury.loom"),
+                    "loom_plugin": "dev.architectury.loom",
                 }
                 if F["expect"] == "me.shedaniel":
                     build = build.replace(
@@ -661,9 +666,7 @@ def emit(root):
                     "arch_legacy": "",
                     "mappings": ("" if str(F["line"]) == "26" else
                                  "    mappings loom.officialMojangMappings()"),
-                    "loom_plugin": ("dev.architectury.loom-no-remap"
-                                    if mc.startswith("26")
-                                    else "dev.architectury.loom"),
+                    "loom_plugin": "dev.architectury.loom",
                 }
                 if F["expect"] == "me.shedaniel":
                     build = build.replace(
@@ -686,9 +689,7 @@ def emit(root):
                     "mixin_block": "    // no mixin config needed\n",
                     "mappings": ("" if str(F["line"]) == "26" else
                                  "    mappings loom.officialMojangMappings()"),
-                    "loom_plugin": ("dev.architectury.loom-no-remap"
-                                    if mc.startswith("26")
-                                    else "dev.architectury.loom"),
+                    "loom_plugin": "dev.architectury.loom",
                 }
                 _w(root, "%s/build.gradle" % mod_dir, build)
                 neoforge_min = NEOFORGE_VERSIONS[mc].rsplit(".", 1)[0]

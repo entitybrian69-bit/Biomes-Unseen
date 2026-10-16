@@ -22,9 +22,9 @@ public class SporeSproutEntity extends BiomesUnseenMob {
     private static final net.minecraft.network.syncher.EntityDataAccessor<Boolean> TAME =
             net.minecraft.network.syncher.SynchedEntityData.defineId(SporeSproutEntity.class, net.minecraft.network.syncher.EntityDataSerializers.BOOLEAN);
     @Override
-    protected void defineSynchedData() {
-        super.defineSynchedData();
-        entityData.define(TAME, false);
+    protected void defineSynchedData(net.minecraft.network.syncher.SynchedEntityData.Builder builder) {
+        super.defineSynchedData(builder);
+        builder.define(TAME, false);
     }
     public SporeSproutEntity(EntityType<? extends SporeSproutEntity> type, Level level) {
         super(type, level, Content.mob("spore_sprout"));

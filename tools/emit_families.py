@@ -1249,7 +1249,7 @@ import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.item.ArmorItem;
-import net.minecraft.world.item.ArmorMaterial;
+import %(armor_material_import)s;
 import net.minecraft.world.item.crafting.Ingredient;
 
 import com.biomesunseen.core.OreDef;
@@ -1400,6 +1400,10 @@ public class UnseenArmorMaterial implements ArmorMaterial {
     }
 }
 '''
+    armor_material_import = (
+        "net.minecraft.world.item.equipment.ArmorMaterial"
+        if line_key in TOOL_MATERIAL_LINES
+        else "net.minecraft.world.item.ArmorMaterial")
     # ArmorMaterial switched from EquipmentSlot to ArmorItem.Type in 1.19.3 and
     # back to holders in 1.20.5; emit the Type-based form for the lines that
     # were probed against the real jar (1.19.3 - 1.20.4).
@@ -1493,6 +1497,7 @@ public class UnseenArmorMaterial implements ArmorMaterial {
 }
 '''
 
+    armor_body = armor_body.replace("%(armor_material_import)s", armor_material_import)
     _w(root, base + "/item/UnseenArmorMaterial.java", armor_body)
 
     # ================================================================== #
@@ -1551,7 +1556,12 @@ import com.biomesunseen.core.OreDef;
         tool_imports = ("" if line_key in NO_SWORD_PICKAXE_LINES else
                         "import net.minecraft.world.item.PickaxeItem;\n"
                         "import net.minecraft.world.item.SwordItem;\n")
+        slot_import = ("" if line_key in ("1.19.4", "1.20", "1.20.1", "1.20.2",
+                                          "1.20.3", "1.20.4", "1.20.5", "1.21",
+                                          "1.21.2", "1.21.4", "1.21.5", "1.21.9", "26")
+                       else "import net.minecraft.world.entity.EquipmentSlot;\n")
         gear_head = ('package com.biomesunseen.item;\n\n'
+                     + slot_import +
                      'import net.minecraft.world.item.ArmorItem;\n'
                      'import net.minecraft.world.item.ArmorMaterial;\n'
                      'import net.minecraft.world.item.Item;\n'

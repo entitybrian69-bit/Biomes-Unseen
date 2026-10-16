@@ -20,8 +20,8 @@ import com.biomesunseen.entity.ai.WanderTradeGoal;
 public class PetalWingEntity extends BiomesUnseenMob {
 
     @Override
-    protected void defineSynchedData() {
-        super.defineSynchedData();
+    protected void defineSynchedData(net.minecraft.network.syncher.SynchedEntityData.Builder builder) {
+        super.defineSynchedData(builder);
     }
     public PetalWingEntity(EntityType<? extends PetalWingEntity> type, Level level) {
         super(type, level, Content.mob("petal_wing"));
