@@ -33,8 +33,8 @@ public class LoreBookItem extends Item {
         if (level.isClientSide()) {
             return InteractionResultHolder.success(stack);
         }
-        player.sendSystemMessage(new net.minecraft.network.chat.TranslatableComponent(
-                "book.biomesunseen." + theme));
+        player.displayClientMessage(new net.minecraft.network.chat.TranslatableComponent(
+                "book.biomesunseen." + theme), false);
         return InteractionResultHolder.success(stack);
     }
 

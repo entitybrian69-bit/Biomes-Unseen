@@ -682,12 +682,8 @@ def emit(root):
                     "loom_plugin": ("dev.architectury.loom-no-remap"
                                     if str(F["line"]) == "26"
                                     else "dev.architectury.loom"),
-                    # dev.architectury:architectury-forge has no artifact for the
-                    # 1.16.5/1.17.1/1.18.1 Architectury lines, so those three build
-                    # against Forge alone.
-                    "arch_dep": ("" if mc in ("1.16.5", "1.17.1", "1.18.1")
-                                 else '\n    modImplementation "dev.architectury:'
-                                      'architectury-forge:${architectury_version}"'),
+                    "arch_dep": "",
+
                 }
                 if F["expect"] == "me.shedaniel":
                     build = build.replace(
@@ -715,9 +711,13 @@ def emit(root):
                     "loom_plugin": ("dev.architectury.loom-no-remap"
                                     if str(F["line"]) == "26"
                                     else "dev.architectury.loom"),
-                    "arch_dep": ("" if mc in ("1.16.5", "1.17.1", "1.18.1")
-                                 else '\n    modImplementation "dev.architectury:'
-                                      'architectury-forge:${architectury_version}"'),
+                    # Architectury ships a Forge artifact for every line: the
+                    # 1.x generation under me.shedaniel (the group the 1.16.5
+                    # fabric artifact uses), 3.x+ under dev.architectury.
+                    "arch_dep": ('\n    modImplementation "%s:architectury-forge:'
+                                 '${architectury_version}"'
+                                 % ("me.shedaniel" if F["expect"] == "me.shedaniel"
+                                    else "dev.architectury")),
                 }
                 if F["expect"] == "me.shedaniel":
                     build = build.replace(

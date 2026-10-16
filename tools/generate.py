@@ -181,6 +181,10 @@ LEGACY_MOJANG_ID = [
     (r"stack\.is\((Items\.[A-Z_0-9]+)\)", r"stack.getItem() == \1"),
 ]
 
+# Architectury generations whose ParticleProviderRegistry wants a resolved
+# ParticleType instead of the RegistrySupplier.
+PARTICLE_RESOLVED_LINES = ("1.16.5", "1.17.1", "1.18", "1.18.1", "1.19")
+
 # net.minecraft.core.registries.Registries arrived in 1.19.3; older lines use
 # net.minecraft.core.Registry with the *_REGISTRY constants.
 NO_REGISTRIES_LINES = ("1.16.5", "1.17.1", "1.18", "1.18.1", "1.19", "1.19.1", "1.19.2")
@@ -211,7 +215,7 @@ TEXT_REWRITES = [
 # ---------------------------------------------------------------------------
 
 # Oldest -> newest, so "rank >= X" means "this API change has happened".
-_LINE_ORDER = ["1.16.5", "1.17.1", "1.18.1", "1.18", "1.19.3", "1.19.4",
+_LINE_ORDER = ["1.16.5", "1.17.1", "1.18.1", "1.18", "1.19", "1.19.3", "1.19.4",
                "1.20", "1.20.2", "1.20.5", "1.21", "1.21.2", "1.21.4", "1.21.5",
                "1.21.9", "1.21.11", "26"]
 LINE_RANK = {k: i for i, k in enumerate(_LINE_ORDER)}
@@ -308,6 +312,9 @@ IDENTIFIER_LINES = ("1.21.11", "26")
 # 26.x (probe-fabric-26.1), so the rewrite stops at 1.21.11.
 CLIENT_MESSAGE_FROM = "1.21.2"
 CLIENT_MESSAGE_UNTIL = "1.21.11"
+# Player#sendSystemMessage arrived in 1.19; everything up to and including the
+# 1.18 line reports through displayClientMessage instead.
+LEGACY_CLIENT_MESSAGE_UNTIL = "1.18"
 SPAWN_EGG_SIMPLE_FROM = "1.21.4"
 # probe-fabric-1.21.9: SpawnEggItem(Item$Properties) only - the mob travels in
 # Item$Properties#spawnEgg(EntityType), which exists on 1.21.9 through 26.3.
@@ -488,8 +495,6 @@ def apply_legacy_mc_drift(text, rank):
     if rank != LINE_RANK["1.16.5"]:
         return text
     # --- 1.16.5 only ------------------------------------------------------- #
-    # Player#getInventory() arrived in 1.17; 1.16.5 exposes the public field.
-    text = text.replace("customer.getInventory().isEmpty()", "customer.inventory.isEmpty()")
     # Vec3#horizontalDistanceSqr arrived in 1.17; 1.16.5 has multiply(3) +
     # lengthSqr().
     text = text.replace("mob.getDeltaMovement().horizontalDistanceSqr()",
@@ -656,7 +661,12 @@ def apply_api_drift(text, line_key):
     #    (probe-fabric-1.21.4: SpawnEggItem(EntityType<? extends Mob>, Item$Properties)).
     # -- 1.21.4+: Player#sendSystemMessage is gone; displayClientMessage is the
     #    surviving client-message entry point (probe-fabric-1.21.4).
-    if LINE_RANK[CLIENT_MESSAGE_FROM] <= rank <= LINE_RANK[CLIENT_MESSAGE_UNTIL]:
+    if LINE_RANK[CLIENT_MESSAGE_FROM] <= rank <= LINE_RANK[CLIENT_MESSAGE_UNTIL] \
+            or (rank <= LINE_RANK[LEGACY_CLIENT_MESSAGE_UNTIL]
+                and "player.sendSystemMessage(" in text):
+        # displayClientMessage(Component, boolean) exists on every line
+        # (probe-fabric-1.16.5/1.17.1/1.18.1/1.18.2); sendSystemMessage only
+        # arrived in 1.19, which is why the legacy lines use the same call.
         text = text.replace("player.sendSystemMessage(", "player.displayClientMessage(")
         text = text.replace('"book.biomesunseen." + theme));',
                             '"book.biomesunseen." + theme), false);')
@@ -699,12 +709,14 @@ def apply_api_drift(text, line_key):
         text = _RE_PICKAXE_CTOR.sub('super(tier, properties)', text)
         text = _RE_SWORD_CTOR.sub('super(tier, properties)', text)
 
-    # -- 1.18/1.19/1.19.1/1.19.2 (Architectury 4.x/5.x):
-    #    ParticleProviderRegistry.register takes the resolved ParticleType, not
-    #    the RegistrySupplier the other Architectury generations accept.
-    if line_key == "1.18":
+    # -- Architectury 1.x/4.x/5.x: ParticleProviderRegistry.register takes the
+    #    resolved ParticleType, not the RegistrySupplier the 3.x generation
+    #    accepts.  The lookahead keeps the rule idempotent, because the client
+    #    emitter already unwraps the supplier on some of these lines.
+    if line_key in PARTICLE_RESOLVED_LINES:
         text = re.sub(
-            r'ParticleProviderRegistry\.register\(ModParticles\.BY_ID\.get\("([^"]+)"\)',
+            r'ParticleProviderRegistry\.register\(ModParticles\.BY_ID\.get\("([^"]+)"\)'
+            r'(?!\.get\(\))',
             r'ParticleProviderRegistry.register(ModParticles.BY_ID.get("\1").get()',
             text)
 
@@ -756,6 +768,12 @@ def apply_api_drift(text, line_key):
 
     # -- Inventory.items is private; isEmpty() says the same thing publicly.
     text = text.replace(_INVENTORY_ITEMS[0], _INVENTORY_ITEMS[1])
+    if rank <= LINE_RANK["1.16.5"]:
+        # Player#getInventory() arrived in 1.17; 1.16.5 exposes the public
+        # inventory field, and Inventory#isEmpty() exists there (yarn 1.16.5
+        # mapping: method_5442).
+        text = text.replace("customer.getInventory().isEmpty()",
+                            "customer.inventory.isEmpty()")
 
     text = _RE_NEW_AABB.sub('new net.minecraft.world.phys.AABB(', text)
 
