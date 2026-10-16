@@ -40,8 +40,8 @@ fi
 mapfile -t CANDIDATES < <(
   grep -oE '<version>[^<]+</version>' "$META" \
     | sed -e 's#</\?version>##g' \
-    | grep -E "^${SERIES//./\\.}\.[0-9]+(-[A-Za-z0-9.]+)?$" \
-    | sort -t. -k1,1n -k2,2n -k3,3n -r
+    | grep -E "^${SERIES//./\\.}\\.[0-9]+(\\.[0-9]+)?(-[A-Za-z0-9.]+)?$" \
+    | sort -t. -k1,1n -k2,2n -k3,3n -k4,4n -r
 )
 rm -f "$META"
 

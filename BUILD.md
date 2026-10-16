@@ -46,7 +46,7 @@ Output jar: `<module>/build/libs/biomesunseen-<mc>-<loader>-1.0.0.jar`
 | `fabric-1.20.1` | 1.20.1 | 17 | Fabric | Fabric Loader 0.16.9 |
 | `forge-1.20.1` | 1.20.1 | 17 | Forge | Forge 1.20.1-47.3.12 |
 | `fabric-1.20.2` | 1.20.2 | 17 | Fabric | Fabric Loader 0.16.9 |
-| `neoforge-1.20.2` | 1.20.2 | 17 | Neoforge | NeoForge 20.2.+ |
+| `neoforge-1.20.2` | 1.20.2 | 17 | Neoforge | NeoForge 20.2.51-beta |
 | `fabric-1.20.3` | 1.20.3 | 17 | Fabric | Fabric Loader 0.16.9 |
 | `neoforge-1.20.3` | 1.20.3 | 17 | Neoforge | NeoForge 20.3.+ |
 | `fabric-1.20.4` | 1.20.4 | 17 | Fabric | Fabric Loader 0.16.9 |
@@ -80,7 +80,7 @@ Output jar: `<module>/build/libs/biomesunseen-<mc>-<loader>-1.0.0.jar`
 | `fabric-1.21.11` | 1.21.11 | 21 | Fabric | Fabric Loader 0.16.9 |
 | `neoforge-1.21.11` | 1.21.11 | 21 | Neoforge | NeoForge 21.11.+ |
 | `fabric-26.1` | 26.1 | 25 | Fabric | Fabric Loader 0.16.9 |
-| `neoforge-26.1` | 26.1 | 25 | Neoforge | NeoForge 26.1.+ |
+| `neoforge-26.1` | 26.1 | 25 | Neoforge | NeoForge 26.1.2.3 |
 | `fabric-26.1.1` | 26.1.1 | 25 | Fabric | Fabric Loader 0.16.9 |
 | `neoforge-26.1.1` | 26.1.1 | 25 | Neoforge | NeoForge 26.1.1.3 |
 | `fabric-26.1.2` | 26.1.2 | 25 | Fabric | Fabric Loader 0.16.9 |
