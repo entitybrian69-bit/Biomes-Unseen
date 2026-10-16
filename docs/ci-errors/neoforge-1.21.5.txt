@@ -1,16 +1,23 @@
+=== PIN ===
+pin_neoforge: neoforge-1.21.5 neoforge_version 21.5.+ -> 21.5.0-beta
+=== MODULE PROPERTIES ===
+minecraft_version=1.21.5
+architectury_version=16.1.4
+neoforge_version=21.5.0-beta
+=== CONFIG DIAGNOSTICS ===
 === STACKTRACE ===
 === WHAT WENT WRONG ===
 === LAST 40 ===
-[16:57:19] [main/INFO]: Transformer file /tmp/at-conf6594016029657676362.cfg
-[16:57:19] [main/WARN]: Found existing output jar /home/runner/.gradle/caches/fabric-loom/1.21.5/neoforge/21.5.0-beta/minecraft-merged-mojang-at-patched.jar, overwriting
-[16:57:23] [main/INFO]: JAR transformation complete /home/runner/.gradle/caches/fabric-loom/1.21.5/neoforge/21.5.0-beta/minecraft-merged-mojang-at-patched.jar
-:access transformed minecraft in 8s
+[17:29:31] [main/INFO]: Transformer file /tmp/at-conf4397700732681506938.cfg
+[17:29:31] [main/WARN]: Found existing output jar /home/runner/.gradle/caches/fabric-loom/1.21.5/neoforge/21.5.0-beta/minecraft-merged-mojang-at-patched.jar, overwriting
+[17:29:34] [main/INFO]: JAR transformation complete /home/runner/.gradle/caches/fabric-loom/1.21.5/neoforge/21.5.0-beta/minecraft-merged-mojang-at-patched.jar
+:access transformed minecraft in 6s
 :remapping minecraft (TinyRemapper, mojang -> official)
 
 {1}(Ljava/lang/String;)V is not fully qualified.
 
 > Configure project :neoforge-1.21.5
-:remapped 1 mods (mojang -> named) in 1s
+:remapped 1 mods (mojang -> named) in 681ms
 
 > Task :neoforge-1.21.5:compileJava
 Note: Some input files use or override a deprecated API.
@@ -29,7 +36,7 @@ Note: Recompile with -Xlint:unchecked for details.
 > Task :neoforge-1.21.5:remapSourcesJar
 > Task :neoforge-1.21.5:assemble
 > Task :neoforge-1.21.5:build
-gradle/actions: Writing build results to /home/runner/work/_temp/.gradle-actions/build-results/__run_2-1792169750036.json
+gradle/actions: Writing build results to /home/runner/work/_temp/.gradle-actions/build-results/__run-1792171695955.json
 
 [Incubating] Problems report is available at: file:///home/runner/work/Biomes-Unseen/Biomes-Unseen/build/reports/problems/problems-report.html
 
@@ -39,5 +46,5 @@ You can use '--warning-mode all' to show the individual deprecation warnings and
 
 For more on this, please refer to https://docs.gradle.org/9.8.1/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
 
-BUILD SUCCESSFUL in 2m 32s
+BUILD SUCCESSFUL in 2m 4s
 7 actionable tasks: 7 executed

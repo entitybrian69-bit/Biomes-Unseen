@@ -1,16 +1,23 @@
+=== PIN ===
+pin_neoforge: neoforge-1.20.4 neoforge_version 20.4.+ -> 20.4.0-beta
+=== MODULE PROPERTIES ===
+minecraft_version=1.20.4
+architectury_version=11.1.17
+neoforge_version=20.4.0-beta
+=== CONFIG DIAGNOSTICS ===
 === STACKTRACE ===
 === WHAT WENT WRONG ===
 === LAST 40 ===
-    fixable: replaced with method_52296
-  afx METHOD a ((Lui;)V) -> [afx/method_52295, afy/method_52296]
     fixable: replaced with method_52295
-  aga METHOD a ((Lui;)V) -> [aga/method_52295, afy/method_52296]
+  net/neoforged/neoforge/network/custom/payload/SimpleQueryPayload METHOD a ((Lui;)V) -> [net/neoforged/neoforge/network/custom/payload/SimpleQueryPayload/method_52295, afy/method_52296]
     fixable: replaced with method_52296
+  afz METHOD a ((Lui;)V) -> [afy/method_52296, afz/method_52295]
+    fixable: replaced with method_52295
 
 {1}(Ljava/lang/String;)V is not fully qualified.
 
 > Configure project :neoforge-1.20.4
-:remapped 1 mods (mojang -> named) in 562ms
+:remapped 1 mods (mojang -> named) in 602ms
 
 > Task :neoforge-1.20.4:compileJava
 Note: Some input files use or override a deprecated API.
@@ -29,7 +36,7 @@ Note: Recompile with -Xlint:unchecked for details.
 > Task :neoforge-1.20.4:remapSourcesJar
 > Task :neoforge-1.20.4:assemble
 > Task :neoforge-1.20.4:build
-gradle/actions: Writing build results to /home/runner/work/_temp/.gradle-actions/build-results/__run_2-1792169507109.json
+gradle/actions: Writing build results to /home/runner/work/_temp/.gradle-actions/build-results/__run-1792171427697.json
 
 [Incubating] Problems report is available at: file:///home/runner/work/Biomes-Unseen/Biomes-Unseen/build/reports/problems/problems-report.html
 
@@ -39,5 +46,5 @@ You can use '--warning-mode all' to show the individual deprecation warnings and
 
 For more on this, please refer to https://docs.gradle.org/9.8.1/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
 
-BUILD SUCCESSFUL in 1m 56s
+BUILD SUCCESSFUL in 1m 47s
 7 actionable tasks: 7 executed

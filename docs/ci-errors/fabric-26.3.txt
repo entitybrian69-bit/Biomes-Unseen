@@ -1,187 +1,42 @@
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/fabric-26.3/src/main/java/com/biomesunseen/platform/PlatformExpectImpl.java:33: error: cannot find symbol
-        mc.setScreen((net.minecraft.client.gui.screens.Screen) screen);
-          ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/BiomesUnseenMob.java:175: error: cannot find symbol
-            SpawnCaps.onRemoved(unseenLevel().dimension().location().toString());
-                                                         ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/ai/WanderTradeGoal.java:61: error: method drop in class LivingEntity cannot be applied to given types;
-                    customer.drop(gift, false);
-                            ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/registry/ModItems.java:158: error: constructor SpawnEggItem in class SpawnEggItem cannot be applied to given types;
-                    () -> new SpawnEggItem((EntityType<? extends Mob>) (EntityType<?>) ModEntities.MOB_TYPES.get(mobId).get(),
-                          ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/registry/ModItems.java:167: error: constructor SpawnEggItem in class SpawnEggItem cannot be applied to given types;
-                    () -> new SpawnEggItem((EntityType<? extends Mob>) (EntityType<?>) ModEntities.BOSS_TYPES.get(bossId).get(),
-                          ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/item/LoreBookItem.java:36: error: cannot find symbol
-        player.displayClientMessage(net.minecraft.network.chat.Component.translatable(
-              ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/block/UnseenDecorBlock.java:24: error: incompatible types: incompatible parameter types in lambda expression
-            properties = properties.noOcclusion().isViewBlocking((state, getter, pos) -> false);
-                                                                 ^
----
-> Task :fabric-26.3:compileJava FAILED
-gradle/actions: Writing build results to /home/runner/work/_temp/.gradle-actions/build-results/__run_2-1792169925759.json
-
----
-* What went wrong:
-Execution failed for task ':fabric-26.3:compileJava' (registered by plugin class 'org.gradle.api.plugins.JavaBasePlugin').
-> Compilation failed; see the compiler output below.
----
-Execution failed for task ':fabric-26.3:compileJava' (registered by plugin class 'org.gradle.api.plugins.JavaBasePlugin').
-> Compilation failed; see the compiler output below.
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/fabric-26.3/src/main/java/com/biomesunseen/platform/PlatformExpectImpl.java:33: error: cannot find symbol
----
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/fabric-26.3/src/main/java/com/biomesunseen/platform/PlatformExpectImpl.java:33: error: cannot find symbol
-          mc.setScreen((net.minecraft.client.gui.screens.Screen) screen);
-            ^
----
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/BiomesUnseenMob.java:175: error: cannot find symbol
-              SpawnCaps.onRemoved(unseenLevel().dimension().location().toString());
-                                                           ^
----
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/item/LoreBookItem.java:36: error: cannot find symbol
-          player.displayClientMessage(net.minecraft.network.chat.Component.translatable(
-                ^
----
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/ai/WanderTradeGoal.java:61: error: method drop in class LivingEntity cannot be applied to given types;
-                      customer.drop(gift, false);
-                              ^
----
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/registry/ModItems.java:158: error: constructor SpawnEggItem in class SpawnEggItem cannot be applied to given types;
-                      () -> new SpawnEggItem((EntityType<? extends Mob>) (EntityType<?>) ModEntities.MOB_TYPES.get(mobId).get(),
-                            ^
----
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/registry/ModItems.java:167: error: constructor SpawnEggItem in class SpawnEggItem cannot be applied to given types;
-                      () -> new SpawnEggItem((EntityType<? extends Mob>) (EntityType<?>) ModEntities.BOSS_TYPES.get(bossId).get(),
-                            ^
----
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/block/UnseenDecorBlock.java:24: error: incompatible types: incompatible parameter types in lambda expression
-              properties = properties.noOcclusion().isViewBlocking((state, getter, pos) -> false);
-                                                                   ^
----
-org.gradle.api.tasks.TaskExecutionException: Execution failed for task ':fabric-26.3:compileJava' (registered by plugin class 'org.gradle.api.plugins.JavaBasePlugin').
-	at org.gradle.api.internal.tasks.execution.DefaultTaskNodeExecutor.lambda$doExecute$1(DefaultTaskNodeExecutor.java:367)
-	at org.gradle.internal.Try$Failure.ifSuccessfulOrElse(Try.java:288)
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/fabric-26.3/src/main/java/com/biomesunseen/platform/PlatformExpectImpl.java:33: error: cannot find symbol
-        mc.setScreen((net.minecraft.client.gui.screens.Screen) screen);
-          ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/BiomesUnseenMob.java:175: error: cannot find symbol
-            SpawnCaps.onRemoved(unseenLevel().dimension().location().toString());
-                                                         ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/ai/WanderTradeGoal.java:61: error: method drop in class LivingEntity cannot be applied to given types;
-                    customer.drop(gift, false);
-                            ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/registry/ModItems.java:158: error: constructor SpawnEggItem in class SpawnEggItem cannot be applied to given types;
-                    () -> new SpawnEggItem((EntityType<? extends Mob>) (EntityType<?>) ModEntities.MOB_TYPES.get(mobId).get(),
-                          ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/registry/ModItems.java:167: error: constructor SpawnEggItem in class SpawnEggItem cannot be applied to given types;
-                    () -> new SpawnEggItem((EntityType<? extends Mob>) (EntityType<?>) ModEntities.BOSS_TYPES.get(bossId).get(),
-                          ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/item/LoreBookItem.java:36: error: cannot find symbol
-        player.displayClientMessage(net.minecraft.network.chat.Component.translatable(
-              ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/block/UnseenDecorBlock.java:24: error: incompatible types: incompatible parameter types in lambda expression
-            properties = properties.noOcclusion().isViewBlocking((state, getter, pos) -> false);
-                                                                 ^
----
-BUILD FAILED in 1m 5s
-1 actionable task: 1 executed
----
+=== PIN ===
+not a neoforge module, nothing to pin
+=== MODULE PROPERTIES ===
+minecraft_version=26.3
+architectury_version=22.0.5
+=== CONFIG DIAGNOSTICS ===
 === STACKTRACE ===
-Caused by: org.gradle.api.internal.tasks.compile.CompilationFailedException: Compilation failed; see the compiler output below.
 === WHAT WENT WRONG ===
-* What went wrong:
-Execution failed for task ':fabric-26.3:compileJava' (registered by plugin class 'org.gradle.api.plugins.JavaBasePlugin').
-> Compilation failed; see the compiler output below.
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/fabric-26.3/src/main/java/com/biomesunseen/platform/PlatformExpectImpl.java:33: error: cannot find symbol
-          mc.setScreen((net.minecraft.client.gui.screens.Screen) screen);
-            ^
-    symbol:   method setScreen(Screen)
-    location: variable mc of type Minecraft
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/BiomesUnseenMob.java:175: error: cannot find symbol
-              SpawnCaps.onRemoved(unseenLevel().dimension().location().toString());
-                                                           ^
-    symbol:   method location()
-    location: class ResourceKey<Level>
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/item/LoreBookItem.java:36: error: cannot find symbol
-          player.displayClientMessage(net.minecraft.network.chat.Component.translatable(
-                ^
-    symbol:   method displayClientMessage(MutableComponent,boolean)
-    location: variable player of type Player
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/ai/WanderTradeGoal.java:61: error: method drop in class LivingEntity cannot be applied to given types;
-                      customer.drop(gift, false);
-                              ^
-    required: ItemStack,boolean,Prediction
-    found:    ItemStack,boolean
-    reason: actual and formal argument lists differ in length
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/registry/ModItems.java:158: error: constructor SpawnEggItem in class SpawnEggItem cannot be applied to given types;
-                      () -> new SpawnEggItem((EntityType<? extends Mob>) (EntityType<?>) ModEntities.MOB_TYPES.get(mobId).get(),
-                            ^
-    required: Properties
-    found:    EntityType<CAP#1>,Properties
-    reason: actual and formal argument lists differ in length
-    where CAP#1 is a fresh type-variable:
-      CAP#1 extends Mob from capture of ? extends Mob
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/registry/ModItems.java:167: error: constructor SpawnEggItem in class SpawnEggItem cannot be applied to given types;
-                      () -> new SpawnEggItem((EntityType<? extends Mob>) (EntityType<?>) ModEntities.BOSS_TYPES.get(bossId).get(),
-                            ^
-    required: Properties
-    found:    EntityType<CAP#1>,Properties
-    reason: actual and formal argument lists differ in length
-    where CAP#1 is a fresh type-variable:
-      CAP#1 extends Mob from capture of ? extends Mob
 === LAST 40 ===
-	at org.gradle.internal.execution.steps.MutableStep.execute(MutableStep.java:26)
-	at org.gradle.internal.execution.steps.ValidateStep$Mutable.executeDelegate(ValidateStep.java:79)
-	at org.gradle.internal.execution.steps.ValidateStep$Mutable.executeDelegate(ValidateStep.java:65)
-	at org.gradle.internal.execution.steps.ValidateStep.execute(ValidateStep.java:105)
-	at org.gradle.internal.execution.steps.ValidateStep$Mutable.execute(ValidateStep.java:65)
-	at org.gradle.internal.execution.steps.CaptureMutableStateBeforeExecutionStep.executeMutable(CaptureMutableStateBeforeExecutionStep.java:86)
-	at org.gradle.internal.execution.steps.CaptureMutableStateBeforeExecutionStep.execute(CaptureMutableStateBeforeExecutionStep.java:65)
-	at org.gradle.internal.execution.steps.CaptureMutableStateBeforeExecutionStep.execute(CaptureMutableStateBeforeExecutionStep.java:45)
-	at org.gradle.internal.execution.steps.SkipEmptyMutableWorkStep.executeWithNonEmptySources(SkipEmptyMutableWorkStep.java:210)
-	at org.gradle.internal.execution.steps.SkipEmptyMutableWorkStep.executeMutable(SkipEmptyMutableWorkStep.java:90)
-	at org.gradle.internal.execution.steps.SkipEmptyMutableWorkStep.executeMutable(SkipEmptyMutableWorkStep.java:53)
-	at org.gradle.internal.execution.steps.MutableStep.execute(MutableStep.java:26)
-	at org.gradle.internal.execution.steps.legacy.MarkSnapshottingInputsStartedStep.execute(MarkSnapshottingInputsStartedStep.java:38)
-	at org.gradle.internal.execution.steps.LoadPreviousExecutionStateStep.executeMutable(LoadPreviousExecutionStateStep.java:36)
-	at org.gradle.internal.execution.steps.LoadPreviousExecutionStateStep.executeMutable(LoadPreviousExecutionStateStep.java:23)
-	at org.gradle.internal.execution.steps.MutableStep.execute(MutableStep.java:26)
-	at org.gradle.internal.execution.steps.HandleStaleOutputsStep.executeMutable(HandleStaleOutputsStep.java:77)
-	at org.gradle.internal.execution.steps.HandleStaleOutputsStep.executeMutable(HandleStaleOutputsStep.java:43)
-	at org.gradle.internal.execution.steps.MutableStep.execute(MutableStep.java:26)
-	at org.gradle.internal.execution.steps.AssignMutableWorkspaceStep.lambda$executeMutable$0(AssignMutableWorkspaceStep.java:34)
-	at org.gradle.api.internal.tasks.execution.TaskExecution$4.withWorkspace(TaskExecution.java:314)
-	at org.gradle.internal.execution.steps.AssignMutableWorkspaceStep.executeMutable(AssignMutableWorkspaceStep.java:30)
-	at org.gradle.internal.execution.steps.AssignMutableWorkspaceStep.executeMutable(AssignMutableWorkspaceStep.java:21)
-	at org.gradle.internal.execution.steps.MutableStep.execute(MutableStep.java:26)
-	at org.gradle.internal.execution.steps.ChoosePipelineStep.execute(ChoosePipelineStep.java:40)
-	at org.gradle.internal.execution.steps.ChoosePipelineStep.execute(ChoosePipelineStep.java:23)
-	at org.gradle.internal.execution.steps.ExecuteWorkBuildOperationFiringStep.lambda$execute$2(ExecuteWorkBuildOperationFiringStep.java:67)
-	at org.gradle.internal.execution.steps.ExecuteWorkBuildOperationFiringStep.execute(ExecuteWorkBuildOperationFiringStep.java:67)
-	at org.gradle.internal.execution.steps.ExecuteWorkBuildOperationFiringStep.execute(ExecuteWorkBuildOperationFiringStep.java:39)
-	at org.gradle.internal.execution.steps.IdentityCacheStep.execute(IdentityCacheStep.java:46)
-	at org.gradle.internal.execution.steps.IdentityCacheStep.execute(IdentityCacheStep.java:34)
-	at org.gradle.internal.execution.steps.IdentifyStep.execute(IdentifyStep.java:56)
-	at org.gradle.internal.execution.steps.IdentifyStep.execute(IdentifyStep.java:38)
-	at org.gradle.internal.execution.impl.DefaultExecutionEngine$1.execute(DefaultExecutionEngine.java:68)
-	at org.gradle.api.internal.tasks.execution.DefaultTaskNodeExecutor.doExecute(DefaultTaskNodeExecutor.java:364)
-	... 25 more
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/9.8.1/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build 
 
+> Configure project :fabric-26.3
+Architectury Loom: 1.17.493
 
-BUILD FAILED in 1m 5s
-1 actionable task: 1 executed
+> Task :fabric-26.3:compileJava
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: Some input files use unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+
+> Task :fabric-26.3:processResources
+> Task :fabric-26.3:classes
+> Task :fabric-26.3:processIncludeJars
+> Task :fabric-26.3:jar
+> Task :fabric-26.3:sourcesJar
+> Task :fabric-26.3:assemble
+> Task :fabric-26.3:validateAccessWidener NO-SOURCE
+> Task :fabric-26.3:check
+> Task :fabric-26.3:build
+gradle/actions: Writing build results to /home/runner/work/_temp/.gradle-actions/build-results/__run-1792171915666.json
+
+[Incubating] Problems report is available at: file:///home/runner/work/Biomes-Unseen/Biomes-Unseen/build/reports/problems/problems-report.html
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 10.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/9.8.1/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD SUCCESSFUL in 1m 6s
+5 actionable tasks: 5 executed

@@ -7105,6 +7105,1147 @@ MCJAR=/home/runner/work/Biomes-Unseen/Biomes-Unseen/.gradle/loom-cache/minecraft
     Error: class not found: net.minecraft.core.component.DataComponents
 ### net.minecraft.resources.Identifier
     Error: class not found: net.minecraft.resources.Identifier
+### net.minecraft.world.item.alchemy.PotionUtils
+    Compiled from "PotionUtils.java"
+    public class net.minecraft.world.item.alchemy.PotionUtils {
+      public static final java.lang.String TAG_CUSTOM_POTION_EFFECTS;
+      public static final java.lang.String TAG_CUSTOM_POTION_COLOR;
+      public static final java.lang.String TAG_POTION;
+      private static final int EMPTY_COLOR;
+      private static final net.minecraft.network.chat.Component NO_EFFECT;
+      public net.minecraft.world.item.alchemy.PotionUtils();
+      public static java.util.List<net.minecraft.world.effect.MobEffectInstance> getMobEffects(net.minecraft.world.item.ItemStack);
+      public static java.util.List<net.minecraft.world.effect.MobEffectInstance> getAllEffects(net.minecraft.world.item.alchemy.Potion, java.util.Collection<net.minecraft.world.effect.MobEffectInstance>);
+      public static java.util.List<net.minecraft.world.effect.MobEffectInstance> getAllEffects(net.minecraft.nbt.CompoundTag);
+      public static java.util.List<net.minecraft.world.effect.MobEffectInstance> getCustomEffects(net.minecraft.world.item.ItemStack);
+      public static java.util.List<net.minecraft.world.effect.MobEffectInstance> getCustomEffects(net.minecraft.nbt.CompoundTag);
+      public static void getCustomEffects(net.minecraft.nbt.CompoundTag, java.util.List<net.minecraft.world.effect.MobEffectInstance>);
+      public static int getColor(net.minecraft.world.item.ItemStack);
+      public static int getColor(net.minecraft.world.item.alchemy.Potion);
+      public static int getColor(java.util.Collection<net.minecraft.world.effect.MobEffectInstance>);
+      public static net.minecraft.world.item.alchemy.Potion getPotion(net.minecraft.world.item.ItemStack);
+      public static net.minecraft.world.item.alchemy.Potion getPotion(net.minecraft.nbt.CompoundTag);
+      public static net.minecraft.world.item.ItemStack setPotion(net.minecraft.world.item.ItemStack, net.minecraft.world.item.alchemy.Potion);
+      public static net.minecraft.world.item.ItemStack setCustomEffects(net.minecraft.world.item.ItemStack, java.util.Collection<net.minecraft.world.effect.MobEffectInstance>);
+      public static void addPotionTooltip(net.minecraft.world.item.ItemStack, java.util.List<net.minecraft.network.chat.Component>, float);
+      static {};
+    }
+### net.minecraft.util.Prediction
+    Error: class not found: net.minecraft.util.Prediction
+### net.minecraft.world.level.material.MaterialColor
+    Compiled from "MaterialColor.java"
+    public class net.minecraft.world.level.material.MaterialColor {
+      private static final net.minecraft.world.level.material.MaterialColor[] MATERIAL_COLORS;
+      public static final net.minecraft.world.level.material.MaterialColor NONE;
+      public static final net.minecraft.world.level.material.MaterialColor GRASS;
+      public static final net.minecraft.world.level.material.MaterialColor SAND;
+      public static final net.minecraft.world.level.material.MaterialColor WOOL;
+      public static final net.minecraft.world.level.material.MaterialColor FIRE;
+      public static final net.minecraft.world.level.material.MaterialColor ICE;
+      public static final net.minecraft.world.level.material.MaterialColor METAL;
+      public static final net.minecraft.world.level.material.MaterialColor PLANT;
+      public static final net.minecraft.world.level.material.MaterialColor SNOW;
+      public static final net.minecraft.world.level.material.MaterialColor CLAY;
+      public static final net.minecraft.world.level.material.MaterialColor DIRT;
+      public static final net.minecraft.world.level.material.MaterialColor STONE;
+      public static final net.minecraft.world.level.material.MaterialColor WATER;
+      public static final net.minecraft.world.level.material.MaterialColor WOOD;
+      public static final net.minecraft.world.level.material.MaterialColor QUARTZ;
+      public static final net.minecraft.world.level.material.MaterialColor COLOR_ORANGE;
+      public static final net.minecraft.world.level.material.MaterialColor COLOR_MAGENTA;
+      public static final net.minecraft.world.level.material.MaterialColor COLOR_LIGHT_BLUE;
+      public static final net.minecraft.world.level.material.MaterialColor COLOR_YELLOW;
+      public static final net.minecraft.world.level.material.MaterialColor COLOR_LIGHT_GREEN;
+      public static final net.minecraft.world.level.material.MaterialColor COLOR_PINK;
+      public static final net.minecraft.world.level.material.MaterialColor COLOR_GRAY;
+      public static final net.minecraft.world.level.material.MaterialColor COLOR_LIGHT_GRAY;
+      public static final net.minecraft.world.level.material.MaterialColor COLOR_CYAN;
+      public static final net.minecraft.world.level.material.MaterialColor COLOR_PURPLE;
+      public static final net.minecraft.world.level.material.MaterialColor COLOR_BLUE;
+      public static final net.minecraft.world.level.material.MaterialColor COLOR_BROWN;
+      public static final net.minecraft.world.level.material.MaterialColor COLOR_GREEN;
+      public static final net.minecraft.world.level.material.MaterialColor COLOR_RED;
+      public static final net.minecraft.world.level.material.MaterialColor COLOR_BLACK;
+      public static final net.minecraft.world.level.material.MaterialColor GOLD;
+      public static final net.minecraft.world.level.material.MaterialColor DIAMOND;
+      public static final net.minecraft.world.level.material.MaterialColor LAPIS;
+      public static final net.minecraft.world.level.material.MaterialColor EMERALD;
+      public static final net.minecraft.world.level.material.MaterialColor PODZOL;
+      public static final net.minecraft.world.level.material.MaterialColor NETHER;
+      public static final net.minecraft.world.level.material.MaterialColor TERRACOTTA_WHITE;
+      public static final net.minecraft.world.level.material.MaterialColor TERRACOTTA_ORANGE;
+      public static final net.minecraft.world.level.material.MaterialColor TERRACOTTA_MAGENTA;
+      public static final net.minecraft.world.level.material.MaterialColor TERRACOTTA_LIGHT_BLUE;
+      public static final net.minecraft.world.level.material.MaterialColor TERRACOTTA_YELLOW;
+      public static final net.minecraft.world.level.material.MaterialColor TERRACOTTA_LIGHT_GREEN;
+      public static final net.minecraft.world.level.material.MaterialColor TERRACOTTA_PINK;
+      public static final net.minecraft.world.level.material.MaterialColor TERRACOTTA_GRAY;
+      public static final net.minecraft.world.level.material.MaterialColor TERRACOTTA_LIGHT_GRAY;
+      public static final net.minecraft.world.level.material.MaterialColor TERRACOTTA_CYAN;
+      public static final net.minecraft.world.level.material.MaterialColor TERRACOTTA_PURPLE;
+      public static final net.minecraft.world.level.material.MaterialColor TERRACOTTA_BLUE;
+      public static final net.minecraft.world.level.material.MaterialColor TERRACOTTA_BROWN;
+      public static final net.minecraft.world.level.material.MaterialColor TERRACOTTA_GREEN;
+      public static final net.minecraft.world.level.material.MaterialColor TERRACOTTA_RED;
+      public static final net.minecraft.world.level.material.MaterialColor TERRACOTTA_BLACK;
+      public static final net.minecraft.world.level.material.MaterialColor CRIMSON_NYLIUM;
+      public static final net.minecraft.world.level.material.MaterialColor CRIMSON_STEM;
+      public static final net.minecraft.world.level.material.MaterialColor CRIMSON_HYPHAE;
+      public static final net.minecraft.world.level.material.MaterialColor WARPED_NYLIUM;
+      public static final net.minecraft.world.level.material.MaterialColor WARPED_STEM;
+      public static final net.minecraft.world.level.material.MaterialColor WARPED_HYPHAE;
+      public static final net.minecraft.world.level.material.MaterialColor WARPED_WART_BLOCK;
+      public static final net.minecraft.world.level.material.MaterialColor DEEPSLATE;
+      public static final net.minecraft.world.level.material.MaterialColor RAW_IRON;
+      public static final net.minecraft.world.level.material.MaterialColor GLOW_LICHEN;
+      public final int col;
+      public final int id;
+      private net.minecraft.world.level.material.MaterialColor(int, int);
+      public int calculateRGBColor(net.minecraft.world.level.material.MaterialColor$Brightness);
+      public static net.minecraft.world.level.material.MaterialColor byId(int);
+      private static net.minecraft.world.level.material.MaterialColor byIdUnsafe(int);
+      public static int getColorFromPackedId(int);
+      public byte getPackedId(net.minecraft.world.level.material.MaterialColor$Brightness);
+      static {};
+    }
+### net.minecraft.world.level.block.state.BlockBehaviour
+    Compiled from "BlockBehaviour.java"
+    public abstract class net.minecraft.world.level.block.state.BlockBehaviour {
+      protected static final net.minecraft.core.Direction[] UPDATE_SHAPE_ORDER;
+      protected final net.minecraft.world.level.material.Material material;
+      protected final boolean hasCollision;
+      protected final float explosionResistance;
+      protected final boolean isRandomlyTicking;
+      protected final net.minecraft.world.level.block.SoundType soundType;
+      protected final float friction;
+      protected final float speedFactor;
+      protected final float jumpFactor;
+      protected final boolean dynamicShape;
+      protected final net.minecraft.world.level.block.state.BlockBehaviour$Properties properties;
+      protected net.minecraft.resources.ResourceLocation drops;
+      public net.minecraft.world.level.block.state.BlockBehaviour(net.minecraft.world.level.block.state.BlockBehaviour$Properties);
+      public void updateIndirectNeighbourShapes(net.minecraft.world.level.block.state.BlockState, net.minecraft.world.level.LevelAccessor, net.minecraft.core.BlockPos, int, int);
+      public boolean isPathfindable(net.minecraft.world.level.block.state.BlockState, net.minecraft.world.level.BlockGetter, net.minecraft.core.BlockPos, net.minecraft.world.level.pathfinder.PathComputationType);
+      public net.minecraft.world.level.block.state.BlockState updateShape(net.minecraft.world.level.block.state.BlockState, net.minecraft.core.Direction, net.minecraft.world.level.block.state.BlockState, net.minecraft.world.level.LevelAccessor, net.minecraft.core.BlockPos, net.minecraft.core.BlockPos);
+      public boolean skipRendering(net.minecraft.world.level.block.state.BlockState, net.minecraft.world.level.block.state.BlockState, net.minecraft.core.Direction);
+      public void neighborChanged(net.minecraft.world.level.block.state.BlockState, net.minecraft.world.level.Level, net.minecraft.core.BlockPos, net.minecraft.world.level.block.Block, net.minecraft.core.BlockPos, boolean);
+      public void onPlace(net.minecraft.world.level.block.state.BlockState, net.minecraft.world.level.Level, net.minecraft.core.BlockPos, net.minecraft.world.level.block.state.BlockState, boolean);
+      public void onRemove(net.minecraft.world.level.block.state.BlockState, net.minecraft.world.level.Level, net.minecraft.core.BlockPos, net.minecraft.world.level.block.state.BlockState, boolean);
+      public net.minecraft.world.InteractionResult use(net.minecraft.world.level.block.state.BlockState, net.minecraft.world.level.Level, net.minecraft.core.BlockPos, net.minecraft.world.entity.player.Player, net.minecraft.world.InteractionHand, net.minecraft.world.phys.BlockHitResult);
+      public boolean triggerEvent(net.minecraft.world.level.block.state.BlockState, net.minecraft.world.level.Level, net.minecraft.core.BlockPos, int, int);
+      public net.minecraft.world.level.block.RenderShape getRenderShape(net.minecraft.world.level.block.state.BlockState);
+      public boolean useShapeForLightOcclusion(net.minecraft.world.level.block.state.BlockState);
+      public boolean isSignalSource(net.minecraft.world.level.block.state.BlockState);
+      public net.minecraft.world.level.material.PushReaction getPistonPushReaction(net.minecraft.world.level.block.state.BlockState);
+      public net.minecraft.world.level.material.FluidState getFluidState(net.minecraft.world.level.block.state.BlockState);
+      public boolean hasAnalogOutputSignal(net.minecraft.world.level.block.state.BlockState);
+      public float getMaxHorizontalOffset();
+      public float getMaxVerticalOffset();
+      public net.minecraft.world.level.block.state.BlockState rotate(net.minecraft.world.level.block.state.BlockState, net.minecraft.world.level.block.Rotation);
+      public net.minecraft.world.level.block.state.BlockState mirror(net.minecraft.world.level.block.state.BlockState, net.minecraft.world.level.block.Mirror);
+      public boolean canBeReplaced(net.minecraft.world.level.block.state.BlockState, net.minecraft.world.item.context.BlockPlaceContext);
+      public boolean canBeReplaced(net.minecraft.world.level.block.state.BlockState, net.minecraft.world.level.material.Fluid);
+      public java.util.List<net.minecraft.world.item.ItemStack> getDrops(net.minecraft.world.level.block.state.BlockState, net.minecraft.world.level.storage.loot.LootContext$Builder);
+      public long getSeed(net.minecraft.world.level.block.state.BlockState, net.minecraft.core.BlockPos);
+      public net.minecraft.world.phys.shapes.VoxelShape getOcclusionShape(net.minecraft.world.level.block.state.BlockState, net.minecraft.world.level.BlockGetter, net.minecraft.core.BlockPos);
+      public net.minecraft.world.phys.shapes.VoxelShape getBlockSupportShape(net.minecraft.world.level.block.state.BlockState, net.minecraft.world.level.BlockGetter, net.minecraft.core.BlockPos);
+      public net.minecraft.world.phys.shapes.VoxelShape getInteractionShape(net.minecraft.world.level.block.state.BlockState, net.minecraft.world.level.BlockGetter, net.minecraft.core.BlockPos);
+      public int getLightBlock(net.minecraft.world.level.block.state.BlockState, net.minecraft.world.level.BlockGetter, net.minecraft.core.BlockPos);
+      public net.minecraft.world.MenuProvider getMenuProvider(net.minecraft.world.level.block.state.BlockState, net.minecraft.world.level.Level, net.minecraft.core.BlockPos);
+      public boolean canSurvive(net.minecraft.world.level.block.state.BlockState, net.minecraft.world.level.LevelReader, net.minecraft.core.BlockPos);
+      public float getShadeBrightness(net.minecraft.world.level.block.state.BlockState, net.minecraft.world.level.BlockGetter, net.minecraft.core.BlockPos);
+      public int getAnalogOutputSignal(net.minecraft.world.level.block.state.BlockState, net.minecraft.world.level.Level, net.minecraft.core.BlockPos);
+      public net.minecraft.world.phys.shapes.VoxelShape getShape(net.minecraft.world.level.block.state.BlockState, net.minecraft.world.level.BlockGetter, net.minecraft.core.BlockPos, net.minecraft.world.phys.shapes.CollisionContext);
+      public net.minecraft.world.phys.shapes.VoxelShape getCollisionShape(net.minecraft.world.level.block.state.BlockState, net.minecraft.world.level.BlockGetter, net.minecraft.core.BlockPos, net.minecraft.world.phys.shapes.CollisionContext);
+      public boolean isCollisionShapeFullBlock(net.minecraft.world.level.block.state.BlockState, net.minecraft.world.level.BlockGetter, net.minecraft.core.BlockPos);
+      public boolean isOcclusionShapeFullBlock(net.minecraft.world.level.block.state.BlockState, net.minecraft.world.level.BlockGetter, net.minecraft.core.BlockPos);
+      public net.minecraft.world.phys.shapes.VoxelShape getVisualShape(net.minecraft.world.level.block.state.BlockState, net.minecraft.world.level.BlockGetter, net.minecraft.core.BlockPos, net.minecraft.world.phys.shapes.CollisionContext);
+      public void randomTick(net.minecraft.world.level.block.state.BlockState, net.minecraft.server.level.ServerLevel, net.minecraft.core.BlockPos, net.minecraft.util.RandomSource);
+      public void tick(net.minecraft.world.level.block.state.BlockState, net.minecraft.server.level.ServerLevel, net.minecraft.core.BlockPos, net.minecraft.util.RandomSource);
+      public float getDestroyProgress(net.minecraft.world.level.block.state.BlockState, net.minecraft.world.entity.player.Player, net.minecraft.world.level.BlockGetter, net.minecraft.core.BlockPos);
+      public void spawnAfterBreak(net.minecraft.world.level.block.state.BlockState, net.minecraft.server.level.ServerLevel, net.minecraft.core.BlockPos, net.minecraft.world.item.ItemStack, boolean);
+      public void attack(net.minecraft.world.level.block.state.BlockState, net.minecraft.world.level.Level, net.minecraft.core.BlockPos, net.minecraft.world.entity.player.Player);
+      public int getSignal(net.minecraft.world.level.block.state.BlockState, net.minecraft.world.level.BlockGetter, net.minecraft.core.BlockPos, net.minecraft.core.Direction);
+      public void entityInside(net.minecraft.world.level.block.state.BlockState, net.minecraft.world.level.Level, net.minecraft.core.BlockPos, net.minecraft.world.entity.Entity);
+      public int getDirectSignal(net.minecraft.world.level.block.state.BlockState, net.minecraft.world.level.BlockGetter, net.minecraft.core.BlockPos, net.minecraft.core.Direction);
+      public final net.minecraft.resources.ResourceLocation getLootTable();
+      public void onProjectileHit(net.minecraft.world.level.Level, net.minecraft.world.level.block.state.BlockState, net.minecraft.world.phys.BlockHitResult, net.minecraft.world.entity.projectile.Projectile);
+      public abstract net.minecraft.world.item.Item asItem();
+      protected abstract net.minecraft.world.level.block.Block asBlock();
+      public net.minecraft.world.level.material.MaterialColor defaultMaterialColor();
+      public float defaultDestroyTime();
+      static {};
+    }
+### net.minecraft.world.level.block.state.BlockBehaviour$StatePredicate
+    Compiled from "BlockBehaviour.java"
+    public interface net.minecraft.world.level.block.state.BlockBehaviour$StatePredicate {
+      public abstract boolean test(net.minecraft.world.level.block.state.BlockState, net.minecraft.world.level.BlockGetter, net.minecraft.core.BlockPos);
+    }
+### net.minecraft.world.level.block.state.BlockBehaviour$StateArgumentPredicate
+    Compiled from "BlockBehaviour.java"
+    public interface net.minecraft.world.level.block.state.BlockBehaviour$StateArgumentPredicate<A> {
+      public abstract boolean test(net.minecraft.world.level.block.state.BlockState, net.minecraft.world.level.BlockGetter, net.minecraft.core.BlockPos, A);
+    }
+### net.minecraft.world.level.levelgen.feature.StructureFeature
+    Error: class not found: net.minecraft.world.level.levelgen.feature.StructureFeature
+### net.minecraft.world.level.levelgen.feature.configurations.StructureFeatureConfiguration
+    Error: class not found: net.minecraft.world.level.levelgen.feature.configurations.StructureFeatureConfiguration
+### net.minecraft.world.level.levelgen.feature.configurations.OreConfiguration$TargetBlockState
+    Compiled from "OreConfiguration.java"
+    public class net.minecraft.world.level.levelgen.feature.configurations.OreConfiguration$TargetBlockState {
+      public static final com.mojang.serialization.Codec<net.minecraft.world.level.levelgen.feature.configurations.OreConfiguration$TargetBlockState> CODEC;
+      public final net.minecraft.world.level.levelgen.structure.templatesystem.RuleTest target;
+      public final net.minecraft.world.level.block.state.BlockState state;
+      net.minecraft.world.level.levelgen.feature.configurations.OreConfiguration$TargetBlockState(net.minecraft.world.level.levelgen.structure.templatesystem.RuleTest, net.minecraft.world.level.block.state.BlockState);
+      private static com.mojang.datafixers.kinds.App method_33996(com.mojang.serialization.codecs.RecordCodecBuilder$Instance);
+      private static net.minecraft.world.level.block.state.BlockState method_33997(net.minecraft.world.level.levelgen.feature.configurations.OreConfiguration$TargetBlockState);
+      private static net.minecraft.world.level.levelgen.structure.templatesystem.RuleTest method_33998(net.minecraft.world.level.levelgen.feature.configurations.OreConfiguration$TargetBlockState);
+      static {};
+    }
+### net.minecraft.world.level.biome.BiomeSource
+    Compiled from "BiomeSource.java"
+    public abstract class net.minecraft.world.level.biome.BiomeSource implements net.minecraft.world.level.biome.BiomeResolver {
+      public static final com.mojang.serialization.Codec<net.minecraft.world.level.biome.BiomeSource> CODEC;
+      private final java.util.Set<net.minecraft.core.Holder<net.minecraft.world.level.biome.Biome>> possibleBiomes;
+      protected net.minecraft.world.level.biome.BiomeSource(java.util.stream.Stream<net.minecraft.core.Holder<net.minecraft.world.level.biome.Biome>>);
+      protected net.minecraft.world.level.biome.BiomeSource(java.util.List<net.minecraft.core.Holder<net.minecraft.world.level.biome.Biome>>);
+      protected abstract com.mojang.serialization.Codec<? extends net.minecraft.world.level.biome.BiomeSource> codec();
+      public java.util.Set<net.minecraft.core.Holder<net.minecraft.world.level.biome.Biome>> possibleBiomes();
+      public java.util.Set<net.minecraft.core.Holder<net.minecraft.world.level.biome.Biome>> getBiomesWithin(int, int, int, int, net.minecraft.world.level.biome.Climate$Sampler);
+      public com.mojang.datafixers.util.Pair<net.minecraft.core.BlockPos, net.minecraft.core.Holder<net.minecraft.world.level.biome.Biome>> findBiomeHorizontal(int, int, int, int, java.util.function.Predicate<net.minecraft.core.Holder<net.minecraft.world.level.biome.Biome>>, net.minecraft.util.RandomSource, net.minecraft.world.level.biome.Climate$Sampler);
+      public com.mojang.datafixers.util.Pair<net.minecraft.core.BlockPos, net.minecraft.core.Holder<net.minecraft.world.level.biome.Biome>> findClosestBiome3d(net.minecraft.core.BlockPos, int, int, int, java.util.function.Predicate<net.minecraft.core.Holder<net.minecraft.world.level.biome.Biome>>, net.minecraft.world.level.biome.Climate$Sampler, net.minecraft.world.level.LevelReader);
+      public com.mojang.datafixers.util.Pair<net.minecraft.core.BlockPos, net.minecraft.core.Holder<net.minecraft.world.level.biome.Biome>> findBiomeHorizontal(int, int, int, int, int, java.util.function.Predicate<net.minecraft.core.Holder<net.minecraft.world.level.biome.Biome>>, net.minecraft.util.RandomSource, boolean, net.minecraft.world.level.biome.Climate$Sampler);
+      public abstract net.minecraft.core.Holder<net.minecraft.world.level.biome.Biome> getNoiseBiome(int, int, int, net.minecraft.world.level.biome.Climate$Sampler);
+      public void addDebugInfo(java.util.List<java.lang.String>, net.minecraft.core.BlockPos, net.minecraft.world.level.biome.Climate$Sampler);
+      static {};
+    }
+### net.minecraft.world.level.biome.MultiNoiseBiomeSource
+    Compiled from "MultiNoiseBiomeSource.java"
+    public class net.minecraft.world.level.biome.MultiNoiseBiomeSource extends net.minecraft.world.level.biome.BiomeSource {
+      public static final com.mojang.serialization.MapCodec<net.minecraft.world.level.biome.MultiNoiseBiomeSource> DIRECT_CODEC;
+      public static final com.mojang.serialization.Codec<net.minecraft.world.level.biome.MultiNoiseBiomeSource> CODEC;
+      private final net.minecraft.world.level.biome.Climate$ParameterList<net.minecraft.core.Holder<net.minecraft.world.level.biome.Biome>> parameters;
+      private final java.util.Optional<net.minecraft.world.level.biome.MultiNoiseBiomeSource$PresetInstance> preset;
+      private net.minecraft.world.level.biome.MultiNoiseBiomeSource(net.minecraft.world.level.biome.Climate$ParameterList<net.minecraft.core.Holder<net.minecraft.world.level.biome.Biome>>);
+      net.minecraft.world.level.biome.MultiNoiseBiomeSource(net.minecraft.world.level.biome.Climate$ParameterList<net.minecraft.core.Holder<net.minecraft.world.level.biome.Biome>>, java.util.Optional<net.minecraft.world.level.biome.MultiNoiseBiomeSource$PresetInstance>);
+      protected com.mojang.serialization.Codec<? extends net.minecraft.world.level.biome.BiomeSource> codec();
+      private java.util.Optional<net.minecraft.world.level.biome.MultiNoiseBiomeSource$PresetInstance> preset();
+      public boolean stable(net.minecraft.world.level.biome.MultiNoiseBiomeSource$Preset);
+      public net.minecraft.core.Holder<net.minecraft.world.level.biome.Biome> getNoiseBiome(int, int, int, net.minecraft.world.level.biome.Climate$Sampler);
+      public net.minecraft.core.Holder<net.minecraft.world.level.biome.Biome> getNoiseBiome(net.minecraft.world.level.biome.Climate$TargetPoint);
+      public void addDebugInfo(java.util.List<java.lang.String>, net.minecraft.core.BlockPos, net.minecraft.world.level.biome.Climate$Sampler);
+      private static com.mojang.datafixers.util.Either method_28457(net.minecraft.world.level.biome.MultiNoiseBiomeSource);
+      private static com.mojang.datafixers.util.Either method_38171(net.minecraft.world.level.biome.MultiNoiseBiomeSource);
+      private static net.minecraft.world.level.biome.MultiNoiseBiomeSource method_28459(com.mojang.datafixers.util.Either);
+      private static com.mojang.datafixers.kinds.App method_38170(com.mojang.serialization.codecs.RecordCodecBuilder$Instance);
+      private static net.minecraft.world.level.biome.Climate$ParameterList method_38173(net.minecraft.world.level.biome.MultiNoiseBiomeSource);
+      private static com.mojang.datafixers.kinds.App method_38172(com.mojang.serialization.codecs.RecordCodecBuilder$Instance);
+      static {};
+    }
+### net.minecraft.world.entity.item.ItemEntity
+    Compiled from "ItemEntity.java"
+    public class net.minecraft.world.entity.item.ItemEntity extends net.minecraft.world.entity.Entity {
+      private static final net.minecraft.network.syncher.EntityDataAccessor<net.minecraft.world.item.ItemStack> DATA_ITEM;
+      private static final int LIFETIME;
+      private static final int INFINITE_PICKUP_DELAY;
+      private static final int INFINITE_LIFETIME;
+      private int age;
+      private int pickupDelay;
+      private int health;
+      private java.util.UUID thrower;
+      private java.util.UUID owner;
+      public final float bobOffs;
+      public net.minecraft.world.entity.item.ItemEntity(net.minecraft.world.entity.EntityType<? extends net.minecraft.world.entity.item.ItemEntity>, net.minecraft.world.level.Level);
+      public net.minecraft.world.entity.item.ItemEntity(net.minecraft.world.level.Level, double, double, double, net.minecraft.world.item.ItemStack);
+      public net.minecraft.world.entity.item.ItemEntity(net.minecraft.world.level.Level, double, double, double, net.minecraft.world.item.ItemStack, double, double, double);
+      private net.minecraft.world.entity.item.ItemEntity(net.minecraft.world.entity.item.ItemEntity);
+      public boolean dampensVibrations();
+      public net.minecraft.world.entity.Entity getThrowingEntity();
+      protected net.minecraft.world.entity.Entity$MovementEmission getMovementEmission();
+      protected void defineSynchedData();
+      public void tick();
+      private void setUnderwaterMovement();
+      private void setUnderLavaMovement();
+      private void mergeWithNeighbours();
+      private boolean isMergable();
+      private void tryToMerge(net.minecraft.world.entity.item.ItemEntity);
+      public static boolean areMergable(net.minecraft.world.item.ItemStack, net.minecraft.world.item.ItemStack);
+      public static net.minecraft.world.item.ItemStack merge(net.minecraft.world.item.ItemStack, net.minecraft.world.item.ItemStack, int);
+      private static void merge(net.minecraft.world.entity.item.ItemEntity, net.minecraft.world.item.ItemStack, net.minecraft.world.item.ItemStack);
+      private static void merge(net.minecraft.world.entity.item.ItemEntity, net.minecraft.world.item.ItemStack, net.minecraft.world.entity.item.ItemEntity, net.minecraft.world.item.ItemStack);
+      public boolean fireImmune();
+      public boolean hurt(net.minecraft.world.damagesource.DamageSource, float);
+      public void addAdditionalSaveData(net.minecraft.nbt.CompoundTag);
+      public void readAdditionalSaveData(net.minecraft.nbt.CompoundTag);
+      public void playerTouch(net.minecraft.world.entity.player.Player);
+      public net.minecraft.network.chat.Component getName();
+      public boolean isAttackable();
+      public net.minecraft.world.entity.Entity changeDimension(net.minecraft.server.level.ServerLevel);
+      public net.minecraft.world.item.ItemStack getItem();
+      public void setItem(net.minecraft.world.item.ItemStack);
+      public void onSyncedDataUpdated(net.minecraft.network.syncher.EntityDataAccessor<?>);
+      public java.util.UUID getOwner();
+      public void setOwner(java.util.UUID);
+      public java.util.UUID getThrower();
+      public void setThrower(java.util.UUID);
+      public int getAge();
+      public void setDefaultPickUpDelay();
+      public void setNoPickUpDelay();
+      public void setNeverPickUp();
+      public void setPickUpDelay(int);
+      public boolean hasPickUpDelay();
+      public void setUnlimitedLifetime();
+      public void setExtendedLifetime();
+      public void makeFakeItem();
+      public float getSpin(float);
+      public net.minecraft.network.protocol.Packet<?> getAddEntityPacket();
+      public net.minecraft.world.entity.item.ItemEntity copy();
+      public net.minecraft.sounds.SoundSource getSoundSource();
+      public float getVisualRotationYInDegrees();
+      private boolean method_20396(net.minecraft.world.entity.item.ItemEntity);
+      static {};
+    }
+### net.minecraft.world.entity.item.ItemEntity$Prediction
+    Error: class not found: net.minecraft.world.entity.item.ItemEntity$Prediction
+### net.minecraft.client.Minecraft
+    Compiled from "Minecraft.java"
+    public class net.minecraft.client.Minecraft extends net.minecraft.util.thread.ReentrantBlockableEventLoop<java.lang.Runnable> implements com.mojang.blaze3d.platform.WindowEventHandler {
+      static net.minecraft.client.Minecraft instance;
+      private static final org.slf4j.Logger LOGGER;
+      public static final boolean ON_OSX;
+      private static final int MAX_TICKS_PER_UPDATE;
+      public static final net.minecraft.resources.ResourceLocation DEFAULT_FONT;
+      public static final net.minecraft.resources.ResourceLocation UNIFORM_FONT;
+      public static final net.minecraft.resources.ResourceLocation ALT_FONT;
+      private static final net.minecraft.resources.ResourceLocation REGIONAL_COMPLIANCIES;
+      private static final java.util.concurrent.CompletableFuture<net.minecraft.util.Unit> RESOURCE_RELOAD_INITIAL_TASK;
+      private static final net.minecraft.network.chat.Component SOCIAL_INTERACTIONS_NOT_AVAILABLE;
+      public static final java.lang.String UPDATE_DRIVERS_ADVICE;
+      private final java.io.File resourcePackDirectory;
+      private final com.mojang.authlib.properties.PropertyMap profileProperties;
+      private final net.minecraft.client.renderer.texture.TextureManager textureManager;
+      private final com.mojang.datafixers.DataFixer fixerUpper;
+      private final net.minecraft.client.renderer.VirtualScreen virtualScreen;
+      private final com.mojang.blaze3d.platform.Window window;
+      private final net.minecraft.client.Timer timer;
+      private final net.minecraft.client.renderer.RenderBuffers renderBuffers;
+      public final net.minecraft.client.renderer.LevelRenderer levelRenderer;
+      private final net.minecraft.client.renderer.entity.EntityRenderDispatcher entityRenderDispatcher;
+      private final net.minecraft.client.renderer.entity.ItemRenderer itemRenderer;
+      public final net.minecraft.client.particle.ParticleEngine particleEngine;
+      private final net.minecraft.client.searchtree.SearchRegistry searchRegistry;
+      private final net.minecraft.client.User user;
+      public final net.minecraft.client.gui.Font font;
+      public final net.minecraft.client.gui.Font fontFilterFishy;
+      public final net.minecraft.client.renderer.GameRenderer gameRenderer;
+      public final net.minecraft.client.renderer.debug.DebugRenderer debugRenderer;
+      private final java.util.concurrent.atomic.AtomicReference<net.minecraft.server.level.progress.StoringChunkProgressListener> progressListener;
+      public final net.minecraft.client.gui.Gui gui;
+      public final net.minecraft.client.Options options;
+      private final net.minecraft.client.HotbarManager hotbarManager;
+      public final net.minecraft.client.MouseHandler mouseHandler;
+      public final net.minecraft.client.KeyboardHandler keyboardHandler;
+      public final java.io.File gameDirectory;
+      private final java.lang.String launchedVersion;
+      private final java.lang.String versionType;
+      private final java.net.Proxy proxy;
+      private final net.minecraft.world.level.storage.LevelStorageSource levelSource;
+      public final net.minecraft.util.FrameTimer frameTimer;
+      private final boolean is64bit;
+      private final boolean demo;
+      private final boolean allowsMultiplayer;
+      private final boolean allowsChat;
+      private final net.minecraft.server.packs.resources.ReloadableResourceManager resourceManager;
+      private final net.minecraft.client.resources.ClientPackSource clientPackSource;
+      private final net.minecraft.server.packs.repository.PackRepository resourcePackRepository;
+      private final net.minecraft.client.resources.language.LanguageManager languageManager;
+      private final net.minecraft.client.color.block.BlockColors blockColors;
+      private final net.minecraft.client.color.item.ItemColors itemColors;
+      private final com.mojang.blaze3d.pipeline.RenderTarget mainRenderTarget;
+      private final net.minecraft.client.sounds.SoundManager soundManager;
+      private final net.minecraft.client.sounds.MusicManager musicManager;
+      private final net.minecraft.client.gui.font.FontManager fontManager;
+      private final net.minecraft.client.resources.SplashManager splashManager;
+      private final net.minecraft.client.renderer.GpuWarnlistManager gpuWarnlistManager;
+      private final net.minecraft.client.PeriodicNotificationManager regionalCompliancies;
+      private final com.mojang.authlib.yggdrasil.YggdrasilAuthenticationService authenticationService;
+      private final com.mojang.authlib.minecraft.MinecraftSessionService minecraftSessionService;
+      private final net.minecraft.util.SignatureValidator serviceSignatureValidator;
+      private final com.mojang.authlib.minecraft.UserApiService userApiService;
+      private final net.minecraft.client.resources.SkinManager skinManager;
+      private final net.minecraft.client.resources.model.ModelManager modelManager;
+      private final net.minecraft.client.renderer.block.BlockRenderDispatcher blockRenderer;
+      private final net.minecraft.client.resources.PaintingTextureManager paintingTextures;
+      private final net.minecraft.client.resources.MobEffectTextureManager mobEffectTextures;
+      private final net.minecraft.client.gui.components.toasts.ToastComponent toast;
+      private final net.minecraft.client.Game game;
+      private final net.minecraft.client.tutorial.Tutorial tutorial;
+      private final net.minecraft.client.gui.screens.social.PlayerSocialManager playerSocialManager;
+      private final net.minecraft.client.model.geom.EntityModelSet entityModels;
+      private final net.minecraft.client.renderer.blockentity.BlockEntityRenderDispatcher blockEntityRenderDispatcher;
+      private final java.util.UUID deviceSessionId;
+      private final net.minecraft.client.multiplayer.ProfileKeyPairManager profileKeyPairManager;
+      private final com.mojang.realmsclient.gui.RealmsDataFetcher realmsDataFetcher;
+      public net.minecraft.client.multiplayer.MultiPlayerGameMode gameMode;
+      public net.minecraft.client.multiplayer.ClientLevel level;
+      public net.minecraft.client.player.LocalPlayer player;
+      private net.minecraft.client.server.IntegratedServer singleplayerServer;
+      private net.minecraft.client.multiplayer.ServerData currentServer;
+      private net.minecraft.network.Connection pendingConnection;
+      private boolean isLocalServer;
+      public net.minecraft.world.entity.Entity cameraEntity;
+      public net.minecraft.world.entity.Entity crosshairPickEntity;
+      public net.minecraft.world.phys.HitResult hitResult;
+      private int rightClickDelay;
+      protected int missTime;
+      private volatile boolean pause;
+      private float pausePartialTick;
+      private long lastNanoTime;
+      private long lastTime;
+      private int frames;
+      public boolean noRender;
+      public net.minecraft.client.gui.screens.Screen screen;
+      private net.minecraft.client.gui.screens.Overlay overlay;
+      private boolean connectedToRealms;
+      private java.lang.Thread gameThread;
+      private volatile boolean running;
+      private java.util.function.Supplier<net.minecraft.CrashReport> delayedCrash;
+      private static int fps;
+      public java.lang.String fpsString;
+      public boolean wireframe;
+      public boolean chunkPath;
+      public boolean chunkVisibility;
+      public boolean smartCull;
+      private boolean windowActive;
+      private final java.util.Queue<java.lang.Runnable> progressTasks;
+      private java.util.concurrent.CompletableFuture<java.lang.Void> pendingReload;
+      private net.minecraft.client.gui.components.toasts.TutorialToast socialInteractionsToast;
+      private net.minecraft.util.profiling.ProfilerFiller profiler;
+      private int fpsPieRenderTicks;
+      private final net.minecraft.util.profiling.ContinuousProfiler fpsPieProfiler;
+      private net.minecraft.util.profiling.ProfileResults fpsPieResults;
+      private net.minecraft.util.profiling.metrics.profiling.MetricsRecorder metricsRecorder;
+      private final net.minecraft.client.ResourceLoadStateTracker reloadStateTracker;
+      private long savedCpuDuration;
+      private double gpuUtilization;
+      private com.mojang.blaze3d.systems.TimerQuery$FrameProfile currentFrameProfile;
+      private final net.minecraft.client.Realms32BitWarningStatus realms32BitWarningStatus;
+      private final net.minecraft.client.GameNarrator narrator;
+      private final net.minecraft.client.multiplayer.chat.ChatListener chatListener;
+      private net.minecraft.client.multiplayer.chat.report.ReportingContext reportingContext;
+      private java.lang.String debugPath;
+      public net.minecraft.client.Minecraft(net.minecraft.client.main.GameConfig);
+      private static boolean countryEqualsISO3(java.lang.Object);
+      public void updateTitle();
+      private java.lang.String createTitle();
+      private com.mojang.authlib.minecraft.UserApiService createUserApiService(com.mojang.authlib.yggdrasil.YggdrasilAuthenticationService, net.minecraft.client.main.GameConfig);
+      public static net.minecraft.util.ModCheck checkModStatus();
+      private void rollbackResourcePacks(java.lang.Throwable);
+      public void clearResourcePacksOnError(java.lang.Throwable, net.minecraft.network.chat.Component);
+      public void run();
+      void selectMainFont(boolean);
+      private void createSearchTrees();
+      private void onFullscreenError(int, long);
+      private static boolean checkIs64Bit();
+      public com.mojang.blaze3d.pipeline.RenderTarget getMainRenderTarget();
+      public java.lang.String getLaunchedVersion();
+      public java.lang.String getVersionType();
+      public void delayCrash(net.minecraft.CrashReport);
+      public void delayCrashRaw(net.minecraft.CrashReport);
+      public static void crash(net.minecraft.CrashReport);
+      public boolean isEnforceUnicode();
+      public java.util.concurrent.CompletableFuture<java.lang.Void> reloadResourcePacks();
+      private java.util.concurrent.CompletableFuture<java.lang.Void> reloadResourcePacks(boolean);
+      private void selfTest();
+      public net.minecraft.world.level.storage.LevelStorageSource getLevelSource();
+      private void openChatScreen(java.lang.String);
+      public void setScreen(net.minecraft.client.gui.screens.Screen);
+      public void setOverlay(net.minecraft.client.gui.screens.Overlay);
+      public void destroy();
+      public void close();
+      private void runTick(boolean);
+      private boolean shouldRenderFpsPie();
+      private net.minecraft.util.profiling.ProfilerFiller constructProfiler(boolean, net.minecraft.util.profiling.SingleTickProfiler);
+      private void finishProfilers(boolean, net.minecraft.util.profiling.SingleTickProfiler);
+      public void resizeDisplay();
+      public void cursorEntered();
+      private int getFramerateLimit();
+      public void emergencySave();
+      public boolean debugClientMetricsStart(java.util.function.Consumer<net.minecraft.network.chat.Component>);
+      private void debugClientMetricsStop();
+      private void debugClientMetricsCancel();
+      private java.nio.file.Path archiveProfilingReport(net.minecraft.SystemReport, java.util.List<java.nio.file.Path>);
+      public void debugFpsMeterKeyPress(int);
+      private void renderFpsMeter(com.mojang.blaze3d.vertex.PoseStack, net.minecraft.util.profiling.ProfileResults);
+      public void stop();
+      public boolean isRunning();
+      public void pauseGame(boolean);
+      private void continueAttack(boolean);
+      private boolean startAttack();
+      private void startUseItem();
+      public net.minecraft.client.sounds.MusicManager getMusicManager();
+      public void tick();
+      private boolean isMultiplayerServer();
+      private void handleKeybinds();
+      public net.minecraft.client.ClientTelemetryManager createTelemetryManager();
+      public double getGpuUtilization();
+      public net.minecraft.client.multiplayer.ProfileKeyPairManager getProfileKeyPairManager();
+      public net.minecraft.client.gui.screens.worldselection.WorldOpenFlows createWorldOpenFlows();
+      public void doWorldLoad(java.lang.String, net.minecraft.world.level.storage.LevelStorageSource$LevelStorageAccess, net.minecraft.server.packs.repository.PackRepository, net.minecraft.server.WorldStem);
+      public void setLevel(net.minecraft.client.multiplayer.ClientLevel);
+      public void clearLevel();
+      public void clearLevel(net.minecraft.client.gui.screens.Screen);
+      private void updateScreenAndTick(net.minecraft.client.gui.screens.Screen);
+      public void forceSetScreen(net.minecraft.client.gui.screens.Screen);
+      private void updateLevelInEngines(net.minecraft.client.multiplayer.ClientLevel);
+      public boolean allowsMultiplayer();
+      public boolean allowsRealms();
+      public boolean shouldShowBanNotice();
+      public com.mojang.authlib.minecraft.BanDetails multiplayerBan();
+      public boolean isBlocked(java.util.UUID);
+      public net.minecraft.client.Minecraft$ChatStatus getChatStatus();
+      public final boolean isDemo();
+      public net.minecraft.client.multiplayer.ClientPacketListener getConnection();
+      public static boolean renderNames();
+      public static boolean useFancyGraphics();
+      public static boolean useShaderTransparency();
+      public static boolean useAmbientOcclusion();
+      private void pickBlock();
+      private net.minecraft.world.item.ItemStack addCustomNbtData(net.minecraft.world.item.ItemStack, net.minecraft.world.level.block.entity.BlockEntity);
+      public net.minecraft.CrashReport fillReport(net.minecraft.CrashReport);
+      public static void fillReport(net.minecraft.client.Minecraft, net.minecraft.client.resources.language.LanguageManager, java.lang.String, net.minecraft.client.Options, net.minecraft.CrashReport);
+      private static net.minecraft.SystemReport fillSystemReport(net.minecraft.SystemReport, net.minecraft.client.Minecraft, net.minecraft.client.resources.language.LanguageManager, java.lang.String, net.minecraft.client.Options);
+      public static net.minecraft.client.Minecraft getInstance();
+      public java.util.concurrent.CompletableFuture<java.lang.Void> delayTextureReload();
+      public void setCurrentServer(net.minecraft.client.multiplayer.ServerData);
+      public void setCurrentServer(com.mojang.realmsclient.dto.RealmsServer, java.lang.String);
+      private void updateReportEnvironment(net.minecraft.client.multiplayer.chat.report.ReportEnvironment);
+      public net.minecraft.client.multiplayer.ServerData getCurrentServer();
+      public boolean isLocalServer();
+      public boolean hasSingleplayerServer();
+      public net.minecraft.client.server.IntegratedServer getSingleplayerServer();
+      public net.minecraft.client.User getUser();
+      public com.mojang.authlib.properties.PropertyMap getProfileProperties();
+      public java.net.Proxy getProxy();
+      public net.minecraft.client.renderer.texture.TextureManager getTextureManager();
+      public net.minecraft.server.packs.resources.ResourceManager getResourceManager();
+      public net.minecraft.server.packs.repository.PackRepository getResourcePackRepository();
+      public net.minecraft.client.resources.ClientPackSource getClientPackSource();
+      public java.io.File getResourcePackDirectory();
+      public net.minecraft.client.resources.language.LanguageManager getLanguageManager();
+      public java.util.function.Function<net.minecraft.resources.ResourceLocation, net.minecraft.client.renderer.texture.TextureAtlasSprite> getTextureAtlas(net.minecraft.resources.ResourceLocation);
+      public boolean is64Bit();
+      public boolean isPaused();
+      public net.minecraft.client.renderer.GpuWarnlistManager getGpuWarnlistManager();
+      public net.minecraft.client.sounds.SoundManager getSoundManager();
+      public net.minecraft.sounds.Music getSituationalMusic();
+      public com.mojang.authlib.minecraft.MinecraftSessionService getMinecraftSessionService();
+      public net.minecraft.client.resources.SkinManager getSkinManager();
+      public net.minecraft.world.entity.Entity getCameraEntity();
+      public void setCameraEntity(net.minecraft.world.entity.Entity);
+      public boolean shouldEntityAppearGlowing(net.minecraft.world.entity.Entity);
+      protected java.lang.Thread getRunningThread();
+      protected java.lang.Runnable wrapRunnable(java.lang.Runnable);
+      protected boolean shouldRun(java.lang.Runnable);
+      public net.minecraft.client.renderer.block.BlockRenderDispatcher getBlockRenderer();
+      public net.minecraft.client.renderer.entity.EntityRenderDispatcher getEntityRenderDispatcher();
+      public net.minecraft.client.renderer.blockentity.BlockEntityRenderDispatcher getBlockEntityRenderDispatcher();
+      public net.minecraft.client.renderer.entity.ItemRenderer getItemRenderer();
+      public <T> net.minecraft.client.searchtree.SearchTree<T> getSearchTree(net.minecraft.client.searchtree.SearchRegistry$Key<T>);
+      public <T> void populateSearchTree(net.minecraft.client.searchtree.SearchRegistry$Key<T>, java.util.List<T>);
+      public net.minecraft.util.FrameTimer getFrameTimer();
+      public boolean isConnectedToRealms();
+      public void setConnectedToRealms(boolean);
+      public com.mojang.datafixers.DataFixer getFixerUpper();
+      public float getFrameTime();
+      public float getDeltaFrameTime();
+      public net.minecraft.client.color.block.BlockColors getBlockColors();
+      public boolean showOnlyReducedInfo();
+      public net.minecraft.client.gui.components.toasts.ToastComponent getToasts();
+      public net.minecraft.client.tutorial.Tutorial getTutorial();
+      public boolean isWindowActive();
+      public net.minecraft.client.HotbarManager getHotbarManager();
+      public net.minecraft.client.resources.model.ModelManager getModelManager();
+      public net.minecraft.client.resources.PaintingTextureManager getPaintingTextures();
+      public net.minecraft.client.resources.MobEffectTextureManager getMobEffectTextures();
+      public void setWindowActive(boolean);
+      public net.minecraft.network.chat.Component grabPanoramixScreenshot(java.io.File, int, int);
+      private net.minecraft.network.chat.Component grabHugeScreenshot(java.io.File, int, int, int, int);
+      public net.minecraft.util.profiling.ProfilerFiller getProfiler();
+      public net.minecraft.client.Game getGame();
+      public net.minecraft.server.level.progress.StoringChunkProgressListener getProgressListener();
+      public net.minecraft.client.resources.SplashManager getSplashManager();
+      public net.minecraft.client.gui.screens.Overlay getOverlay();
+      public net.minecraft.client.gui.screens.social.PlayerSocialManager getPlayerSocialManager();
+      public boolean renderOnThread();
+      public com.mojang.blaze3d.platform.Window getWindow();
+      public net.minecraft.client.renderer.RenderBuffers renderBuffers();
+      private static net.minecraft.server.packs.repository.Pack createClientPackAdapter(java.lang.String, net.minecraft.network.chat.Component, boolean, java.util.function.Supplier<net.minecraft.server.packs.PackResources>, net.minecraft.server.packs.metadata.pack.PackMetadataSection, net.minecraft.server.packs.repository.Pack$Position, net.minecraft.server.packs.repository.PackSource);
+      private static java.util.function.Supplier<net.minecraft.server.packs.PackResources> adaptV3(java.util.function.Supplier<net.minecraft.server.packs.PackResources>);
+      private static java.util.function.Supplier<net.minecraft.server.packs.PackResources> adaptV4(java.util.function.Supplier<net.minecraft.server.packs.PackResources>);
+      public void updateMaxMipLevel(int);
+      public net.minecraft.client.model.geom.EntityModelSet getEntityModels();
+      public boolean isTextFilteringEnabled();
+      public void prepareForMultiplayer();
+      public net.minecraft.client.Realms32BitWarningStatus getRealms32BitWarningStatus();
+      public net.minecraft.util.SignatureValidator getServiceSignatureValidator();
+      public net.minecraft.client.GameNarrator getNarrator();
+      public net.minecraft.client.multiplayer.chat.ChatListener getChatListener();
+      public net.minecraft.client.multiplayer.chat.report.ReportingContext getReportingContext();
+      public com.mojang.realmsclient.gui.RealmsDataFetcher realmsDataFetcher();
+      private static net.minecraft.server.packs.PackResources method_24044(java.util.function.Supplier);
+      private static net.minecraft.server.packs.PackResources method_1528(java.util.function.Supplier);
+      private static net.minecraft.network.chat.Style method_35700(java.io.File, net.minecraft.network.chat.Style);
+      private static net.minecraft.network.chat.Style method_35704(java.io.File, net.minecraft.network.chat.Style);
+      private static void method_35701(net.minecraft.network.chat.Component);
+      private static java.util.concurrent.CompletionStage method_18507(java.util.concurrent.CompletableFuture);
+      private static java.lang.String method_37280(net.minecraft.client.resources.language.LanguageManager);
+      private static java.lang.String method_37279(net.minecraft.client.Options);
+      private static java.lang.String method_37287();
+      private static java.lang.String method_37288();
+      private static java.lang.String method_37289();
+      private static java.lang.String method_37278(net.minecraft.client.Minecraft);
+      private static java.lang.String method_37292(java.lang.String);
+      private static void method_1510(net.minecraft.network.chat.Component);
+      private static java.lang.String method_41732(net.minecraft.server.WorldStem) throws java.lang.Exception;
+      private net.minecraft.client.server.IntegratedServer method_29603(net.minecraft.world.level.storage.LevelStorageSource$LevelStorageAccess, net.minecraft.server.packs.repository.PackRepository, net.minecraft.server.WorldStem, net.minecraft.server.Services, java.lang.Thread);
+      private net.minecraft.server.level.progress.ChunkProgressListener method_17533(int);
+      private static boolean method_1491();
+      private void method_1572();
+      private void method_34746(java.util.function.Consumer, net.minecraft.util.profiling.ProfileResults);
+      private static void method_37277(net.minecraft.util.profiling.ProfileResults);
+      private static void method_37284(java.util.function.Consumer, java.util.concurrent.CompletableFuture, java.util.concurrent.CompletableFuture);
+      private static void method_37283(java.util.function.Consumer, java.nio.file.Path);
+      private void method_37276(net.minecraft.SystemReport, java.util.function.Consumer, java.util.List);
+      private void method_37291(java.util.function.Consumer, java.nio.file.Path);
+      private static void method_37285(java.util.function.Consumer, net.minecraft.network.chat.Component);
+      private static net.minecraft.network.chat.Style method_37281(java.nio.file.Path, net.minecraft.network.chat.Style);
+      private void method_37290(java.util.function.Consumer, net.minecraft.util.profiling.ProfileResults);
+      private static void method_37282(java.util.function.Consumer, double, int);
+      private void method_41731(com.mojang.blaze3d.systems.TimerQuery);
+      private static void method_18508(java.util.concurrent.CompletableFuture);
+      private void method_44352(boolean);
+      private void method_24228(java.util.concurrent.CompletableFuture, java.util.Optional);
+      private void method_29339(java.util.concurrent.CompletableFuture);
+      private static net.minecraft.CrashReport method_43588(net.minecraft.CrashReport);
+      private net.minecraft.CrashReport method_43589(net.minecraft.CrashReport);
+      private static net.minecraft.client.searchtree.RefreshableSearchTree method_43760(java.util.List);
+      private static java.util.stream.Stream method_43758(net.minecraft.client.gui.screens.recipebook.RecipeCollection);
+      private static net.minecraft.resources.ResourceLocation method_1556(net.minecraft.world.item.crafting.Recipe);
+      private static java.util.stream.Stream method_43761(net.minecraft.client.gui.screens.recipebook.RecipeCollection);
+      private static boolean method_43763(java.lang.String);
+      private static java.lang.String method_43765(net.minecraft.network.chat.Component);
+      private static java.util.stream.Stream method_1591(net.minecraft.world.item.crafting.Recipe);
+      private static net.minecraft.client.searchtree.RefreshableSearchTree method_43762(java.util.List);
+      private static java.util.stream.Stream method_1525(net.minecraft.world.item.ItemStack);
+      private static net.minecraft.client.searchtree.RefreshableSearchTree method_43764(java.util.List);
+      private static java.util.stream.Stream method_1502(net.minecraft.world.item.ItemStack);
+      private static java.util.stream.Stream method_1485(net.minecraft.world.item.ItemStack);
+      private static boolean method_1579(java.lang.String);
+      private static java.lang.String method_1581(net.minecraft.network.chat.Component);
+      private void method_24229(net.minecraft.network.chat.Component);
+      private void method_44648(boolean);
+      private void method_45026(java.lang.String, int);
+      private void method_24040(java.util.Optional);
+      private void method_29338();
+      private int method_16010();
+      static {};
+    }
+### net.minecraft.client.gui.screens.Screen
+    Compiled from "Screen.java"
+    public abstract class net.minecraft.client.gui.screens.Screen extends net.minecraft.client.gui.components.events.AbstractContainerEventHandler implements net.minecraft.client.gui.components.Widget {
+      private static final org.slf4j.Logger LOGGER;
+      private static final java.util.Set<java.lang.String> ALLOWED_PROTOCOLS;
+      private static final int EXTRA_SPACE_AFTER_FIRST_TOOLTIP_LINE;
+      private static final net.minecraft.network.chat.Component USAGE_NARRATION;
+      protected final net.minecraft.network.chat.Component title;
+      private final java.util.List<net.minecraft.client.gui.components.events.GuiEventListener> children;
+      private final java.util.List<net.minecraft.client.gui.narration.NarratableEntry> narratables;
+      protected net.minecraft.client.Minecraft minecraft;
+      protected net.minecraft.client.renderer.entity.ItemRenderer itemRenderer;
+      public int width;
+      public int height;
+      private final java.util.List<net.minecraft.client.gui.components.Widget> renderables;
+      public boolean passEvents;
+      protected net.minecraft.client.gui.Font font;
+      private java.net.URI clickedLink;
+      private static final long NARRATE_SUPPRESS_AFTER_INIT_TIME;
+      private static final long NARRATE_DELAY_NARRATOR_ENABLED;
+      private static final long NARRATE_DELAY_MOUSE_MOVE;
+      private static final long NARRATE_DELAY_MOUSE_ACTION;
+      private static final long NARRATE_DELAY_KEYBOARD_ACTION;
+      private final net.minecraft.client.gui.narration.ScreenNarrationCollector narrationState;
+      private long narrationSuppressTime;
+      private long nextNarrationTime;
+      private net.minecraft.client.gui.narration.NarratableEntry lastNarratable;
+      protected net.minecraft.client.gui.screens.Screen(net.minecraft.network.chat.Component);
+      public net.minecraft.network.chat.Component getTitle();
+      public net.minecraft.network.chat.Component getNarrationMessage();
+      public void render(com.mojang.blaze3d.vertex.PoseStack, int, int, float);
+      public boolean keyPressed(int, int, int);
+      public boolean shouldCloseOnEsc();
+      public void onClose();
+      protected <T extends net.minecraft.client.gui.components.events.GuiEventListener & net.minecraft.client.gui.components.Widget & net.minecraft.client.gui.narration.NarratableEntry> T addRenderableWidget(T);
+      protected <T extends net.minecraft.client.gui.components.Widget> T addRenderableOnly(T);
+      protected <T extends net.minecraft.client.gui.components.events.GuiEventListener & net.minecraft.client.gui.narration.NarratableEntry> T addWidget(T);
+      protected void removeWidget(net.minecraft.client.gui.components.events.GuiEventListener);
+      protected void clearWidgets();
+      protected void renderTooltip(com.mojang.blaze3d.vertex.PoseStack, net.minecraft.world.item.ItemStack, int, int);
+      public void renderTooltip(com.mojang.blaze3d.vertex.PoseStack, java.util.List<net.minecraft.network.chat.Component>, java.util.Optional<net.minecraft.world.inventory.tooltip.TooltipComponent>, int, int);
+      public java.util.List<net.minecraft.network.chat.Component> getTooltipFromItem(net.minecraft.world.item.ItemStack);
+      public void renderTooltip(com.mojang.blaze3d.vertex.PoseStack, net.minecraft.network.chat.Component, int, int);
+      public void renderComponentTooltip(com.mojang.blaze3d.vertex.PoseStack, java.util.List<net.minecraft.network.chat.Component>, int, int);
+      public void renderTooltip(com.mojang.blaze3d.vertex.PoseStack, java.util.List<? extends net.minecraft.util.FormattedCharSequence>, int, int);
+      private void renderTooltipInternal(com.mojang.blaze3d.vertex.PoseStack, java.util.List<net.minecraft.client.gui.screens.inventory.tooltip.ClientTooltipComponent>, int, int);
+      protected void renderComponentHoverEffect(com.mojang.blaze3d.vertex.PoseStack, net.minecraft.network.chat.Style, int, int);
+      protected void insertText(java.lang.String, boolean);
+      public boolean handleComponentClicked(net.minecraft.network.chat.Style);
+      public final void init(net.minecraft.client.Minecraft, int, int);
+      protected void rebuildWidgets();
+      public java.util.List<? extends net.minecraft.client.gui.components.events.GuiEventListener> children();
+      protected void init();
+      public void tick();
+      public void removed();
+      public void renderBackground(com.mojang.blaze3d.vertex.PoseStack);
+      public void renderBackground(com.mojang.blaze3d.vertex.PoseStack, int);
+      public void renderDirtBackground(int);
+      public boolean isPauseScreen();
+      private void confirmLink(boolean);
+      private void openLink(java.net.URI);
+      public static boolean hasControlDown();
+      public static boolean hasShiftDown();
+      public static boolean hasAltDown();
+      public static boolean isCut(int);
+      public static boolean isPaste(int);
+      public static boolean isCopy(int);
+      public static boolean isSelectAll(int);
+      public void resize(net.minecraft.client.Minecraft, int, int);
+      public static void wrapScreenError(java.lang.Runnable, java.lang.String, java.lang.String);
+      protected boolean isValidCharacterForName(java.lang.String, char, int);
+      public boolean isMouseOver(double, double);
+      public void onFilesDrop(java.util.List<java.nio.file.Path>);
+      private void scheduleNarration(long, boolean);
+      private void suppressNarration(long);
+      public void afterMouseMove();
+      public void afterMouseAction();
+      public void afterKeyboardAction();
+      private boolean shouldRunNarration();
+      public void handleDelayedNarration();
+      public void triggerImmediateNarration(boolean);
+      private void runNarration(boolean);
+      protected void updateNarrationState(net.minecraft.client.gui.narration.NarrationElementOutput);
+      protected void updateNarratedWidget(net.minecraft.client.gui.narration.NarrationElementOutput);
+      public static net.minecraft.client.gui.screens.Screen$NarratableSearchResult findNarratableWidget(java.util.List<? extends net.minecraft.client.gui.narration.NarratableEntry>, net.minecraft.client.gui.narration.NarratableEntry);
+      public void narrationEnabled();
+      protected static void hideWidgets(net.minecraft.client.gui.components.AbstractWidget...);
+      private static java.lang.String method_25413(java.lang.String) throws java.lang.Exception;
+      private static void method_32635(java.util.List, net.minecraft.world.inventory.tooltip.TooltipComponent);
+      static {};
+    }
+### net.minecraft.client.model.QuadrupedModel
+    Compiled from "QuadrupedModel.java"
+    public class net.minecraft.client.model.QuadrupedModel<T extends net.minecraft.world.entity.Entity> extends net.minecraft.client.model.AgeableListModel<T> {
+      protected final net.minecraft.client.model.geom.ModelPart head;
+      protected final net.minecraft.client.model.geom.ModelPart body;
+      protected final net.minecraft.client.model.geom.ModelPart rightHindLeg;
+      protected final net.minecraft.client.model.geom.ModelPart leftHindLeg;
+      protected final net.minecraft.client.model.geom.ModelPart rightFrontLeg;
+      protected final net.minecraft.client.model.geom.ModelPart leftFrontLeg;
+      protected net.minecraft.client.model.QuadrupedModel(net.minecraft.client.model.geom.ModelPart, boolean, float, float, float, float, int);
+      public static net.minecraft.client.model.geom.builders.MeshDefinition createBodyMesh(int, net.minecraft.client.model.geom.builders.CubeDeformation);
+      protected java.lang.Iterable<net.minecraft.client.model.geom.ModelPart> headParts();
+      protected java.lang.Iterable<net.minecraft.client.model.geom.ModelPart> bodyParts();
+      public void setupAnim(T, float, float, float, float, float);
+    }
+### net.minecraft.client.model.geom.EntityModelSet
+    Compiled from "EntityModelSet.java"
+    public class net.minecraft.client.model.geom.EntityModelSet implements net.minecraft.server.packs.resources.ResourceManagerReloadListener {
+      private java.util.Map<net.minecraft.client.model.geom.ModelLayerLocation, net.minecraft.client.model.geom.builders.LayerDefinition> roots;
+      public net.minecraft.client.model.geom.EntityModelSet();
+      public net.minecraft.client.model.geom.ModelPart bakeLayer(net.minecraft.client.model.geom.ModelLayerLocation);
+      public void onResourceManagerReload(net.minecraft.server.packs.resources.ResourceManager);
+    }
+### net.minecraft.client.model.geom.ModelPart$Cube
+    Compiled from "ModelPart.java"
+    public class net.minecraft.client.model.geom.ModelPart$Cube {
+      private final net.minecraft.client.model.geom.ModelPart$Polygon[] polygons;
+      public final float minX;
+      public final float minY;
+      public final float minZ;
+      public final float maxX;
+      public final float maxY;
+      public final float maxZ;
+      public net.minecraft.client.model.geom.ModelPart$Cube(int, int, float, float, float, float, float, float, float, float, float, boolean, float, float);
+      public void compile(com.mojang.blaze3d.vertex.PoseStack$Pose, com.mojang.blaze3d.vertex.VertexConsumer, int, int, float, float, float, float);
+    }
+### net.minecraft.client.particle.TextureSheetParticle
+    Compiled from "TextureSheetParticle.java"
+    public abstract class net.minecraft.client.particle.TextureSheetParticle extends net.minecraft.client.particle.SingleQuadParticle {
+      protected net.minecraft.client.renderer.texture.TextureAtlasSprite sprite;
+      protected net.minecraft.client.particle.TextureSheetParticle(net.minecraft.client.multiplayer.ClientLevel, double, double, double);
+      protected net.minecraft.client.particle.TextureSheetParticle(net.minecraft.client.multiplayer.ClientLevel, double, double, double, double, double, double);
+      protected void setSprite(net.minecraft.client.renderer.texture.TextureAtlasSprite);
+      protected float getU0();
+      protected float getU1();
+      protected float getV0();
+      protected float getV1();
+      public void pickSprite(net.minecraft.client.particle.SpriteSet);
+      public void setSpriteFromAge(net.minecraft.client.particle.SpriteSet);
+    }
+### net.minecraft.client.renderer.entity.EntityRenderDispatcher
+    Compiled from "EntityRenderDispatcher.java"
+    public class net.minecraft.client.renderer.entity.EntityRenderDispatcher implements net.minecraft.server.packs.resources.ResourceManagerReloadListener {
+      private static final net.minecraft.client.renderer.RenderType SHADOW_RENDER_TYPE;
+      private java.util.Map<net.minecraft.world.entity.EntityType<?>, net.minecraft.client.renderer.entity.EntityRenderer<?>> renderers;
+      private java.util.Map<java.lang.String, net.minecraft.client.renderer.entity.EntityRenderer<? extends net.minecraft.world.entity.player.Player>> playerRenderers;
+      public final net.minecraft.client.renderer.texture.TextureManager textureManager;
+      private net.minecraft.world.level.Level level;
+      public net.minecraft.client.Camera camera;
+      private com.mojang.math.Quaternion cameraOrientation;
+      public net.minecraft.world.entity.Entity crosshairPickEntity;
+      private final net.minecraft.client.renderer.entity.ItemRenderer itemRenderer;
+      private final net.minecraft.client.renderer.block.BlockRenderDispatcher blockRenderDispatcher;
+      private final net.minecraft.client.renderer.ItemInHandRenderer itemInHandRenderer;
+      private final net.minecraft.client.gui.Font font;
+      public final net.minecraft.client.Options options;
+      private final net.minecraft.client.model.geom.EntityModelSet entityModels;
+      private boolean shouldRenderShadow;
+      private boolean renderHitBoxes;
+      public <E extends net.minecraft.world.entity.Entity> int getPackedLightCoords(E, float);
+      public net.minecraft.client.renderer.entity.EntityRenderDispatcher(net.minecraft.client.Minecraft, net.minecraft.client.renderer.texture.TextureManager, net.minecraft.client.renderer.entity.ItemRenderer, net.minecraft.client.renderer.block.BlockRenderDispatcher, net.minecraft.client.gui.Font, net.minecraft.client.Options, net.minecraft.client.model.geom.EntityModelSet);
+      public <T extends net.minecraft.world.entity.Entity> net.minecraft.client.renderer.entity.EntityRenderer<? super T> getRenderer(T);
+      public void prepare(net.minecraft.world.level.Level, net.minecraft.client.Camera, net.minecraft.world.entity.Entity);
+      public void overrideCameraOrientation(com.mojang.math.Quaternion);
+      public void setRenderShadow(boolean);
+      public void setRenderHitBoxes(boolean);
+      public boolean shouldRenderHitBoxes();
+      public <E extends net.minecraft.world.entity.Entity> boolean shouldRender(E, net.minecraft.client.renderer.culling.Frustum, double, double, double);
+      public <E extends net.minecraft.world.entity.Entity> void render(E, double, double, double, float, float, com.mojang.blaze3d.vertex.PoseStack, net.minecraft.client.renderer.MultiBufferSource, int);
+      private static void renderHitbox(com.mojang.blaze3d.vertex.PoseStack, com.mojang.blaze3d.vertex.VertexConsumer, net.minecraft.world.entity.Entity, float);
+      private void renderFlame(com.mojang.blaze3d.vertex.PoseStack, net.minecraft.client.renderer.MultiBufferSource, net.minecraft.world.entity.Entity);
+      private static void fireVertex(com.mojang.blaze3d.vertex.PoseStack$Pose, com.mojang.blaze3d.vertex.VertexConsumer, float, float, float, float, float);
+      private static void renderShadow(com.mojang.blaze3d.vertex.PoseStack, net.minecraft.client.renderer.MultiBufferSource, net.minecraft.world.entity.Entity, float, float, net.minecraft.world.level.LevelReader, float);
+      private static void renderBlockShadow(com.mojang.blaze3d.vertex.PoseStack$Pose, com.mojang.blaze3d.vertex.VertexConsumer, net.minecraft.world.level.LevelReader, net.minecraft.core.BlockPos, double, double, double, float, float);
+      private static void shadowVertex(com.mojang.blaze3d.vertex.PoseStack$Pose, com.mojang.blaze3d.vertex.VertexConsumer, float, float, float, float, float, float);
+      public void setLevel(net.minecraft.world.level.Level);
+      public double distanceToSqr(net.minecraft.world.entity.Entity);
+      public double distanceToSqr(double, double, double);
+      public com.mojang.math.Quaternion cameraOrientation();
+      public net.minecraft.client.renderer.ItemInHandRenderer getItemInHandRenderer();
+      public void onResourceManagerReload(net.minecraft.server.packs.resources.ResourceManager);
+      static {};
+    }
+### net.minecraft.world.entity.projectile.Projectile
+    Compiled from "Projectile.java"
+    public abstract class net.minecraft.world.entity.projectile.Projectile extends net.minecraft.world.entity.Entity {
+      private java.util.UUID ownerUUID;
+      private net.minecraft.world.entity.Entity cachedOwner;
+      private boolean leftOwner;
+      private boolean hasBeenShot;
+      net.minecraft.world.entity.projectile.Projectile(net.minecraft.world.entity.EntityType<? extends net.minecraft.world.entity.projectile.Projectile>, net.minecraft.world.level.Level);
+      public void setOwner(net.minecraft.world.entity.Entity);
+      public net.minecraft.world.entity.Entity getOwner();
+      public net.minecraft.world.entity.Entity getEffectSource();
+      protected void addAdditionalSaveData(net.minecraft.nbt.CompoundTag);
+      protected boolean ownedBy(net.minecraft.world.entity.Entity);
+      protected void readAdditionalSaveData(net.minecraft.nbt.CompoundTag);
+      public void tick();
+      private boolean checkLeftOwner();
+      public void shoot(double, double, double, float, float);
+      public void shootFromRotation(net.minecraft.world.entity.Entity, float, float, float, float, float);
+      protected void onHit(net.minecraft.world.phys.HitResult);
+      protected void onHitEntity(net.minecraft.world.phys.EntityHitResult);
+      protected void onHitBlock(net.minecraft.world.phys.BlockHitResult);
+      public void lerpMotion(double, double, double);
+      protected boolean canHitEntity(net.minecraft.world.entity.Entity);
+      protected void updateRotation();
+      protected static float lerpRotation(float, float);
+      public net.minecraft.network.protocol.Packet<?> getAddEntityPacket();
+      public void recreateFromPacket(net.minecraft.network.protocol.game.ClientboundAddEntityPacket);
+      public boolean mayInteract(net.minecraft.world.level.Level, net.minecraft.core.BlockPos);
+      private static boolean method_26959(net.minecraft.world.entity.Entity);
+    }
+### net.minecraft.world.entity.vehicle.Boat
+    Compiled from "Boat.java"
+    public class net.minecraft.world.entity.vehicle.Boat extends net.minecraft.world.entity.Entity {
+      private static final net.minecraft.network.syncher.EntityDataAccessor<java.lang.Integer> DATA_ID_HURT;
+      private static final net.minecraft.network.syncher.EntityDataAccessor<java.lang.Integer> DATA_ID_HURTDIR;
+      private static final net.minecraft.network.syncher.EntityDataAccessor<java.lang.Float> DATA_ID_DAMAGE;
+      private static final net.minecraft.network.syncher.EntityDataAccessor<java.lang.Integer> DATA_ID_TYPE;
+      private static final net.minecraft.network.syncher.EntityDataAccessor<java.lang.Boolean> DATA_ID_PADDLE_LEFT;
+      private static final net.minecraft.network.syncher.EntityDataAccessor<java.lang.Boolean> DATA_ID_PADDLE_RIGHT;
+      private static final net.minecraft.network.syncher.EntityDataAccessor<java.lang.Integer> DATA_ID_BUBBLE_TIME;
+      public static final int PADDLE_LEFT;
+      public static final int PADDLE_RIGHT;
+      private static final int TIME_TO_EJECT;
+      private static final float PADDLE_SPEED;
+      public static final double PADDLE_SOUND_TIME;
+      public static final int BUBBLE_TIME;
+      private final float[] paddlePositions;
+      private float invFriction;
+      private float outOfControlTicks;
+      private float deltaRotation;
+      private int lerpSteps;
+      private double lerpX;
+      private double lerpY;
+      private double lerpZ;
+      private double lerpYRot;
+      private double lerpXRot;
+      private boolean inputLeft;
+      private boolean inputRight;
+      private boolean inputUp;
+      private boolean inputDown;
+      private double waterLevel;
+      private float landFriction;
+      private net.minecraft.world.entity.vehicle.Boat$Status status;
+      private net.minecraft.world.entity.vehicle.Boat$Status oldStatus;
+      private double lastYd;
+      private boolean isAboveBubbleColumn;
+      private boolean bubbleColumnDirectionIsDown;
+      private float bubbleMultiplier;
+      private float bubbleAngle;
+      private float bubbleAngleO;
+      public net.minecraft.world.entity.vehicle.Boat(net.minecraft.world.entity.EntityType<? extends net.minecraft.world.entity.vehicle.Boat>, net.minecraft.world.level.Level);
+      public net.minecraft.world.entity.vehicle.Boat(net.minecraft.world.level.Level, double, double, double);
+      protected float getEyeHeight(net.minecraft.world.entity.Pose, net.minecraft.world.entity.EntityDimensions);
+      protected net.minecraft.world.entity.Entity$MovementEmission getMovementEmission();
+      protected void defineSynchedData();
+      public boolean canCollideWith(net.minecraft.world.entity.Entity);
+      public static boolean canVehicleCollide(net.minecraft.world.entity.Entity, net.minecraft.world.entity.Entity);
+      public boolean canBeCollidedWith();
+      public boolean isPushable();
+      protected net.minecraft.world.phys.Vec3 getRelativePortalPosition(net.minecraft.core.Direction$Axis, net.minecraft.BlockUtil$FoundRectangle);
+      public double getPassengersRidingOffset();
+      public boolean hurt(net.minecraft.world.damagesource.DamageSource, float);
+      protected void destroy(net.minecraft.world.damagesource.DamageSource);
+      public void onAboveBubbleCol(boolean);
+      public void push(net.minecraft.world.entity.Entity);
+      public net.minecraft.world.item.Item getDropItem();
+      public void animateHurt();
+      public boolean isPickable();
+      public void lerpTo(double, double, double, float, float, int, boolean);
+      public net.minecraft.core.Direction getMotionDirection();
+      public void tick();
+      private void tickBubbleColumn();
+      protected net.minecraft.sounds.SoundEvent getPaddleSound();
+      private void tickLerp();
+      public void setPaddleState(boolean, boolean);
+      public float getRowingTime(int, float);
+      private net.minecraft.world.entity.vehicle.Boat$Status getStatus();
+      public float getWaterLevelAbove();
+      public float getGroundFriction();
+      private boolean checkInWater();
+      private net.minecraft.world.entity.vehicle.Boat$Status isUnderwater();
+      private void floatBoat();
+      private void controlBoat();
+      protected float getSinglePassengerXOffset();
+      public void positionRider(net.minecraft.world.entity.Entity);
+      public net.minecraft.world.phys.Vec3 getDismountLocationForPassenger(net.minecraft.world.entity.LivingEntity);
+      protected void clampRotation(net.minecraft.world.entity.Entity);
+      public void onPassengerTurned(net.minecraft.world.entity.Entity);
+      protected void addAdditionalSaveData(net.minecraft.nbt.CompoundTag);
+      protected void readAdditionalSaveData(net.minecraft.nbt.CompoundTag);
+      public net.minecraft.world.InteractionResult interact(net.minecraft.world.entity.player.Player, net.minecraft.world.InteractionHand);
+      protected void checkFallDamage(double, boolean, net.minecraft.world.level.block.state.BlockState, net.minecraft.core.BlockPos);
+      public boolean getPaddleState(int);
+      public void setDamage(float);
+      public float getDamage();
+      public void setHurtTime(int);
+      public int getHurtTime();
+      private void setBubbleTime(int);
+      private int getBubbleTime();
+      public float getBubbleAngle(float);
+      public void setHurtDir(int);
+      public int getHurtDir();
+      public void setType(net.minecraft.world.entity.vehicle.Boat$Type);
+      public net.minecraft.world.entity.vehicle.Boat$Type getBoatType();
+      protected boolean canAddPassenger(net.minecraft.world.entity.Entity);
+      protected int getMaxPassengers();
+      public net.minecraft.world.entity.Entity getControllingPassenger();
+      public void setInput(boolean, boolean, boolean, boolean);
+      public net.minecraft.network.protocol.Packet<?> getAddEntityPacket();
+      public boolean isUnderWater();
+      public net.minecraft.world.item.ItemStack getPickResult();
+      private static boolean method_31552(net.minecraft.world.entity.Entity);
+      static {};
+    }
+### net.minecraft.world.entity.ai.goal.LookRandomlyGoal
+    Error: class not found: net.minecraft.world.entity.ai.goal.LookRandomlyGoal
+### net.minecraft.world.entity.ai.goal.LookAtGoal
+    Error: class not found: net.minecraft.world.entity.ai.goal.LookAtGoal
+### CLASSPATH
+/home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains/annotations/26.0.2/c7ce3cdeda3d18909368dfe5977332dfad326c6d/annotations-26.0.2.jar
+/home/runner/.gradle/caches/modules-2/files-2.1/org.ow2.asm/asm/9.7.1/f0ed132a49244b042cd0e15702ab9f2ce3cc8436/asm-9.7.1.jar
+/home/runner/.gradle/caches/modules-2/files-2.1/org.ow2.asm/asm-analysis/9.7.1/f97a3b319f0ed6a8cd944dc79060d3912a28985f/asm-analysis-9.7.1.jar
+/home/runner/.gradle/caches/modules-2/files-2.1/org.ow2.asm/asm-commons/9.7.1/406c6a2225cfe1819f102a161e54cc16a5c24f75/asm-commons-9.7.1.jar
+/home/runner/.gradle/caches/modules-2/files-2.1/org.ow2.asm/asm-tree/9.7.1/3a53139787663b139de76b627fca0084ab60d32c/asm-tree-9.7.1.jar
+/home/runner/.gradle/caches/modules-2/files-2.1/org.ow2.asm/asm-util/9.7.1/9e23359b598ec6b74b23e53110dd5c577adf2243/asm-util-9.7.1.jar
+/home/runner/.gradle/caches/modules-2/files-2.1/net.fabricmc/sponge-mixin/0.15.4+mixin.0.8.7/6a12aacc794f1078458433116e9ed42c1cc98096/sponge-mixin-0.15.4+mixin.0.8.7.jar
+/home/runner/.gradle/caches/modules-2/files-2.1/io.github.llamalad7/mixinextras-fabric/0.4.1/8d1a9e96afb990367fa1f904d17580d164da72e3/mixinextras-fabric-0.4.1.jar
+/home/runner/.gradle/caches/modules-2/files-2.1/com.mojang/logging/1.0.0/f6ca3b2eee0b80b384e8ed93d368faecb82dfb9b/logging-1.0.0.jar
+/home/runner/.gradle/caches/modules-2/files-2.1/com.mojang/blocklist/1.0.10/5c685c5ffa94c4cd39496c7184c1d122e515ecef/blocklist-1.0.10.jar
+/home/runner/.gradle/caches/modules-2/files-2.1/com.mojang/patchy/2.2.10/da05971b07cbb379d002cf7eaec6a2048211fefc/patchy-2.2.10.jar
+/home/runner/.gradle/caches/modules-2/files-2.1/com.github.oshi/oshi-core/5.8.5/1d0ec654d820741327f5a9229d513732a4b7ce50/oshi-core-5.8.5.jar
+/home/runner/.gradle/caches/modules-2/files-2.1/net.java.dev.jna/jna/5.10.0/7cf4c87dd802db50721db66947aa237d7ad09418/jna-5.10.0.jar
+/home/runner/.gradle/caches/modules-2/files-2.1/net.java.dev.jna/jna-platform/5.10.0/fbed7d9669dba47714ad0d4f4454290a997aee69/jna-platform-5.10.0.jar
+/home/runner/.gradle/caches/modules-2/files-2.1/org.slf4j/slf4j-api/1.8.0-beta4/83b0359d847ee053d745be7ec0d8e9e8a44304b4/slf4j-api-1.8.0-beta4.jar
+/home/runner/.gradle/caches/modules-2/files-2.1/org.apache.logging.log4j/log4j-slf4j18-impl/2.17.0/bd7f6c0b9224dd214afb4e684957e2349b529a8d/log4j-slf4j18-impl-2.17.0.jar
+/home/runner/.gradle/caches/modules-2/files-2.1/com.ibm.icu/icu4j/70.1/dfa3a1fbc55bf5db8c6e79fc0935ac7ab1202950/icu4j-70.1.jar
+/home/runner/.gradle/caches/modules-2/files-2.1/com.mojang/javabridge/1.2.24/c876796229b2ef5120f186eab5acc870699d3b9/javabridge-1.2.24.jar
+/home/runner/.gradle/caches/modules-2/files-2.1/net.sf.jopt-simple/jopt-simple/5.0.4/4fdac2fbe92dfad86aa6e9301736f6b4342a3f5c/jopt-simple-5.0.4.jar
+/home/runner/.gradle/caches/modules-2/files-2.1/io.netty/netty-common/4.1.77.Final/ea0fc20f4e6178966b9d62017b7fcb83dfe0e713/netty-common-4.1.77.Final.jar
+/home/runner/.gradle/caches/modules-2/files-2.1/io.netty/netty-buffer/4.1.77.Final/d97571f99e5e739d86824d0df99f35d295276b5f/netty-buffer-4.1.77.Final.jar
+/home/runner/.gradle/caches/modules-2/files-2.1/io.netty/netty-codec/4.1.77.Final/4efc5f59335301d6ba0d7cd31dd10651119b03c8/netty-codec-4.1.77.Final.jar
+/home/runner/.gradle/caches/modules-2/files-2.1/io.netty/netty-handler/4.1.77.Final/47a81089de03635a27f509f3e4e13386ae1db275/netty-handler-4.1.77.Final.jar
+/home/runner/.gradle/caches/modules-2/files-2.1/io.netty/netty-resolver/4.1.77.Final/4a239dbf8d8bb5f98aa51462c35011c0516395fd/netty-resolver-4.1.77.Final.jar
+/home/runner/.gradle/caches/modules-2/files-2.1/io.netty/netty-transport/4.1.77.Final/2a3373bbd20d520c821f210bd5ee886788512043/netty-transport-4.1.77.Final.jar
+/home/runner/.gradle/caches/modules-2/files-2.1/io.netty/netty-transport-native-unix-common/4.1.77.Final/c95d53486414b3270d08057957c5da8e0c37e4eb/netty-transport-native-unix-common-4.1.77.Final.jar
+/home/runner/.gradle/caches/modules-2/files-2.1/io.netty/netty-transport-classes-epoll/4.1.77.Final/dd70dbccbcf98382223a59044f3c08d8e9920cad/netty-transport-classes-epoll-4.1.77.Final.jar
+/home/runner/.gradle/caches/modules-2/files-2.1/io.netty/netty-transport-native-epoll/4.1.77.Final/8d10e9e138dac52172dd83229bdc89197100c723/netty-transport-native-epoll-4.1.77.Final-linux-x86_64.jar
+/home/runner/.gradle/caches/modules-2/files-2.1/io.netty/netty-transport-native-epoll/4.1.77.Final/5f051599ced83e119ddeda891f471c0613721e5c/netty-transport-native-epoll-4.1.77.Final-linux-aarch_64.jar
+/home/runner/.gradle/caches/modules-2/files-2.1/com.google.guava/failureaccess/1.0.1/1dcf1de382a0bf95a3d8b0849546c88bac1292c9/failureaccess-1.0.1.jar
+/home/runner/.gradle/caches/modules-2/files-2.1/com.google.guava/guava/31.0.1-jre/119ea2b2bc205b138974d351777b20f02b92704b/guava-31.0.1-jre.jar
+/home/runner/.gradle/caches/modules-2/files-2.1/org.apache.commons/commons-lang3/3.12.0/c6842c86792ff03b9f1d1fe2aab8dc23aa6c6f0e/commons-lang3-3.12.0.jar
+/home/runner/.gradle/caches/modules-2/files-2.1/commons-io/commons-io/2.11.0/a2503f302b11ebde7ebc3df41daebe0e4eea3689/commons-io-2.11.0.jar
+/home/runner/.gradle/caches/modules-2/files-2.1/commons-codec/commons-codec/1.15/49d94806b6e3dc933dacbd8acb0fdbab8ebd1e5d/commons-codec-1.15.jar
+/home/runner/.gradle/caches/modules-2/files-2.1/com.mojang/brigadier/1.0.18/c1ef1234282716483c92183f49bef47b1a89bfa9/brigadier-1.0.18.jar
+/home/runner/.gradle/caches/modules-2/files-2.1/com.mojang/datafixerupper/5.0.28/e2157e236e529aff80a5fc3ccb506e56d46b130b/datafixerupper-5.0.28.jar
+/home/runner/.gradle/caches/modules-2/files-2.1/com.google.code.gson/gson/2.8.9/8a432c1d6825781e21a02db2e2c33c5fde2833b9/gson-2.8.9.jar
+/home/runner/.gradle/caches/modules-2/files-2.1/com.mojang/authlib/3.11.50/d26e165f536bed17538fd1e6bd0668e8b2ce131a/authlib-3.11.50.jar
+/home/runner/.gradle/caches/modules-2/files-2.1/org.apache.commons/commons-compress/1.21/4ec95b60d4e86b5c95a0e919cb172a0af98011ef/commons-compress-1.21.jar
+/home/runner/.gradle/caches/modules-2/files-2.1/org.apache.httpcomponents/httpclient/4.5.13/e5f6cae5ca7ecaac1ec2827a9e2d65ae2869cada/httpclient-4.5.13.jar
+/home/runner/.gradle/caches/modules-2/files-2.1/commons-logging/commons-logging/1.2/4bfc12adfe4842bf07b657f0369c4cb522955686/commons-logging-1.2.jar
+/home/runner/.gradle/caches/modules-2/files-2.1/org.apache.httpcomponents/httpcore/4.4.14/9dd1a631c082d92ecd4bd8fd4cf55026c720a8c1/httpcore-4.4.14.jar
+/home/runner/.gradle/caches/modules-2/files-2.1/it.unimi.dsi/fastutil/8.5.6/76f95700418a68fbc4ac050525261f05dc681ca1/fastutil-8.5.6.jar
+/home/runner/.gradle/caches/modules-2/files-2.1/org.apache.logging.log4j/log4j-api/2.17.0/bbd791e9c8c9421e45337c4fe0a10851c086e36c/log4j-api-2.17.0.jar
+/home/runner/.gradle/caches/modules-2/files-2.1/org.apache.logging.log4j/log4j-core/2.17.0/fe6e7a32c1228884b9691a744f953a55d0dd8ead/log4j-core-2.17.0.jar
+/home/runner/.gradle/caches/modules-2/files-2.1/org.lwjgl/lwjgl/3.3.1/ae58664f88e18a9bb2c77b063833ca7aaec484cb/lwjgl-3.3.1.jar
+/home/runner/.gradle/caches/modules-2/files-2.1/org.lwjgl/lwjgl-jemalloc/3.3.1/a817bcf213db49f710603677457567c37d53e103/lwjgl-jemalloc-3.3.1.jar
+/home/runner/.gradle/caches/modules-2/files-2.1/org.lwjgl/lwjgl-openal/3.3.1/2623a6b8ae1dfcd880738656a9f0243d2e6840bd/lwjgl-openal-3.3.1.jar
+/home/runner/.gradle/caches/modules-2/files-2.1/org.lwjgl/lwjgl-opengl/3.3.1/831a5533a21a5f4f81bbc51bb13e9899319b5411/lwjgl-opengl-3.3.1.jar
+/home/runner/.gradle/caches/modules-2/files-2.1/org.lwjgl/lwjgl-glfw/3.3.1/cbac1b8d30cb4795149c1ef540f912671a8616d0/lwjgl-glfw-3.3.1.jar
+/home/runner/.gradle/caches/modules-2/files-2.1/org.lwjgl/lwjgl-stb/3.3.1/b119297cf8ed01f247abe8685857f8e7fcf5980f/lwjgl-stb-3.3.1.jar
+/home/runner/.gradle/caches/modules-2/files-2.1/org.lwjgl/lwjgl-tinyfd/3.3.1/ff1914111ef2e3e0110ef2dabc8d8cdaad82347/lwjgl-tinyfd-3.3.1.jar
+/home/runner/.gradle/caches/modules-2/files-2.1/com.mojang/text2speech/1.16.7/ee4095669061d1fe4bce5fea23d69d1520bc2d58/text2speech-1.16.7.jar
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/.gradle/loom-cache/minecraftMaven/net/minecraft/minecraft-merged-063e63f14d/1.19.1-loom.mappings.1_19_1.layered+hash.40545-v2/minecraft-merged-063e63f14d-1.19.1-loom.mappings.1_19_1.layered+hash.40545-v2.jar
+/home/runner/.gradle/caches/modules-2/files-2.1/net.fabricmc/fabric-loader/0.16.9/7eaa23079ac1569963e488054db124c7eb984f05/fabric-loader-0.16.9.jar
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/.gradle/loom-cache/remapped_mods/remapped/dev/architectury/architectury-8dc44767/4.5.76/architectury-8dc44767-4.5.76.jar
+### MOD-JARS
+JAR /home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains/annotations/26.0.2/c7ce3cdeda3d18909368dfe5977332dfad326c6d/annotations-26.0.2.jar
+JAR /home/runner/.gradle/caches/modules-2/files-2.1/org.ow2.asm/asm/9.7.1/f0ed132a49244b042cd0e15702ab9f2ce3cc8436/asm-9.7.1.jar
+JAR /home/runner/.gradle/caches/modules-2/files-2.1/org.ow2.asm/asm-analysis/9.7.1/f97a3b319f0ed6a8cd944dc79060d3912a28985f/asm-analysis-9.7.1.jar
+JAR /home/runner/.gradle/caches/modules-2/files-2.1/org.ow2.asm/asm-commons/9.7.1/406c6a2225cfe1819f102a161e54cc16a5c24f75/asm-commons-9.7.1.jar
+JAR /home/runner/.gradle/caches/modules-2/files-2.1/org.ow2.asm/asm-tree/9.7.1/3a53139787663b139de76b627fca0084ab60d32c/asm-tree-9.7.1.jar
+JAR /home/runner/.gradle/caches/modules-2/files-2.1/org.ow2.asm/asm-util/9.7.1/9e23359b598ec6b74b23e53110dd5c577adf2243/asm-util-9.7.1.jar
+JAR /home/runner/.gradle/caches/modules-2/files-2.1/net.fabricmc/sponge-mixin/0.15.4+mixin.0.8.7/6a12aacc794f1078458433116e9ed42c1cc98096/sponge-mixin-0.15.4+mixin.0.8.7.jar
+JAR /home/runner/.gradle/caches/modules-2/files-2.1/io.github.llamalad7/mixinextras-fabric/0.4.1/8d1a9e96afb990367fa1f904d17580d164da72e3/mixinextras-fabric-0.4.1.jar
+JAR /home/runner/.gradle/caches/modules-2/files-2.1/com.mojang/logging/1.0.0/f6ca3b2eee0b80b384e8ed93d368faecb82dfb9b/logging-1.0.0.jar
+JAR /home/runner/.gradle/caches/modules-2/files-2.1/com.mojang/blocklist/1.0.10/5c685c5ffa94c4cd39496c7184c1d122e515ecef/blocklist-1.0.10.jar
+JAR /home/runner/.gradle/caches/modules-2/files-2.1/com.mojang/patchy/2.2.10/da05971b07cbb379d002cf7eaec6a2048211fefc/patchy-2.2.10.jar
+JAR /home/runner/.gradle/caches/modules-2/files-2.1/com.github.oshi/oshi-core/5.8.5/1d0ec654d820741327f5a9229d513732a4b7ce50/oshi-core-5.8.5.jar
+JAR /home/runner/.gradle/caches/modules-2/files-2.1/net.java.dev.jna/jna/5.10.0/7cf4c87dd802db50721db66947aa237d7ad09418/jna-5.10.0.jar
+JAR /home/runner/.gradle/caches/modules-2/files-2.1/net.java.dev.jna/jna-platform/5.10.0/fbed7d9669dba47714ad0d4f4454290a997aee69/jna-platform-5.10.0.jar
+JAR /home/runner/.gradle/caches/modules-2/files-2.1/org.slf4j/slf4j-api/1.8.0-beta4/83b0359d847ee053d745be7ec0d8e9e8a44304b4/slf4j-api-1.8.0-beta4.jar
+JAR /home/runner/.gradle/caches/modules-2/files-2.1/org.apache.logging.log4j/log4j-slf4j18-impl/2.17.0/bd7f6c0b9224dd214afb4e684957e2349b529a8d/log4j-slf4j18-impl-2.17.0.jar
+JAR /home/runner/.gradle/caches/modules-2/files-2.1/com.ibm.icu/icu4j/70.1/dfa3a1fbc55bf5db8c6e79fc0935ac7ab1202950/icu4j-70.1.jar
+JAR /home/runner/.gradle/caches/modules-2/files-2.1/com.mojang/javabridge/1.2.24/c876796229b2ef5120f186eab5acc870699d3b9/javabridge-1.2.24.jar
+JAR /home/runner/.gradle/caches/modules-2/files-2.1/net.sf.jopt-simple/jopt-simple/5.0.4/4fdac2fbe92dfad86aa6e9301736f6b4342a3f5c/jopt-simple-5.0.4.jar
+JAR /home/runner/.gradle/caches/modules-2/files-2.1/io.netty/netty-common/4.1.77.Final/ea0fc20f4e6178966b9d62017b7fcb83dfe0e713/netty-common-4.1.77.Final.jar
+JAR /home/runner/.gradle/caches/modules-2/files-2.1/io.netty/netty-buffer/4.1.77.Final/d97571f99e5e739d86824d0df99f35d295276b5f/netty-buffer-4.1.77.Final.jar
+JAR /home/runner/.gradle/caches/modules-2/files-2.1/io.netty/netty-codec/4.1.77.Final/4efc5f59335301d6ba0d7cd31dd10651119b03c8/netty-codec-4.1.77.Final.jar
+JAR /home/runner/.gradle/caches/modules-2/files-2.1/io.netty/netty-handler/4.1.77.Final/47a81089de03635a27f509f3e4e13386ae1db275/netty-handler-4.1.77.Final.jar
+JAR /home/runner/.gradle/caches/modules-2/files-2.1/io.netty/netty-resolver/4.1.77.Final/4a239dbf8d8bb5f98aa51462c35011c0516395fd/netty-resolver-4.1.77.Final.jar
+JAR /home/runner/.gradle/caches/modules-2/files-2.1/io.netty/netty-transport/4.1.77.Final/2a3373bbd20d520c821f210bd5ee886788512043/netty-transport-4.1.77.Final.jar
+JAR /home/runner/.gradle/caches/modules-2/files-2.1/io.netty/netty-transport-native-unix-common/4.1.77.Final/c95d53486414b3270d08057957c5da8e0c37e4eb/netty-transport-native-unix-common-4.1.77.Final.jar
+JAR /home/runner/.gradle/caches/modules-2/files-2.1/io.netty/netty-transport-classes-epoll/4.1.77.Final/dd70dbccbcf98382223a59044f3c08d8e9920cad/netty-transport-classes-epoll-4.1.77.Final.jar
+JAR /home/runner/.gradle/caches/modules-2/files-2.1/io.netty/netty-transport-native-epoll/4.1.77.Final/8d10e9e138dac52172dd83229bdc89197100c723/netty-transport-native-epoll-4.1.77.Final-linux-x86_64.jar
+JAR /home/runner/.gradle/caches/modules-2/files-2.1/io.netty/netty-transport-native-epoll/4.1.77.Final/5f051599ced83e119ddeda891f471c0613721e5c/netty-transport-native-epoll-4.1.77.Final-linux-aarch_64.jar
+JAR /home/runner/.gradle/caches/modules-2/files-2.1/com.google.guava/failureaccess/1.0.1/1dcf1de382a0bf95a3d8b0849546c88bac1292c9/failureaccess-1.0.1.jar
+JAR /home/runner/.gradle/caches/modules-2/files-2.1/com.google.guava/guava/31.0.1-jre/119ea2b2bc205b138974d351777b20f02b92704b/guava-31.0.1-jre.jar
+JAR /home/runner/.gradle/caches/modules-2/files-2.1/org.apache.commons/commons-lang3/3.12.0/c6842c86792ff03b9f1d1fe2aab8dc23aa6c6f0e/commons-lang3-3.12.0.jar
+JAR /home/runner/.gradle/caches/modules-2/files-2.1/commons-io/commons-io/2.11.0/a2503f302b11ebde7ebc3df41daebe0e4eea3689/commons-io-2.11.0.jar
+JAR /home/runner/.gradle/caches/modules-2/files-2.1/commons-codec/commons-codec/1.15/49d94806b6e3dc933dacbd8acb0fdbab8ebd1e5d/commons-codec-1.15.jar
+JAR /home/runner/.gradle/caches/modules-2/files-2.1/com.mojang/brigadier/1.0.18/c1ef1234282716483c92183f49bef47b1a89bfa9/brigadier-1.0.18.jar
+JAR /home/runner/.gradle/caches/modules-2/files-2.1/com.mojang/datafixerupper/5.0.28/e2157e236e529aff80a5fc3ccb506e56d46b130b/datafixerupper-5.0.28.jar
+JAR /home/runner/.gradle/caches/modules-2/files-2.1/com.google.code.gson/gson/2.8.9/8a432c1d6825781e21a02db2e2c33c5fde2833b9/gson-2.8.9.jar
+JAR /home/runner/.gradle/caches/modules-2/files-2.1/com.mojang/authlib/3.11.50/d26e165f536bed17538fd1e6bd0668e8b2ce131a/authlib-3.11.50.jar
+JAR /home/runner/.gradle/caches/modules-2/files-2.1/org.apache.commons/commons-compress/1.21/4ec95b60d4e86b5c95a0e919cb172a0af98011ef/commons-compress-1.21.jar
+JAR /home/runner/.gradle/caches/modules-2/files-2.1/org.apache.httpcomponents/httpclient/4.5.13/e5f6cae5ca7ecaac1ec2827a9e2d65ae2869cada/httpclient-4.5.13.jar
+JAR /home/runner/.gradle/caches/modules-2/files-2.1/commons-logging/commons-logging/1.2/4bfc12adfe4842bf07b657f0369c4cb522955686/commons-logging-1.2.jar
+JAR /home/runner/.gradle/caches/modules-2/files-2.1/org.apache.httpcomponents/httpcore/4.4.14/9dd1a631c082d92ecd4bd8fd4cf55026c720a8c1/httpcore-4.4.14.jar
+JAR /home/runner/.gradle/caches/modules-2/files-2.1/it.unimi.dsi/fastutil/8.5.6/76f95700418a68fbc4ac050525261f05dc681ca1/fastutil-8.5.6.jar
+JAR /home/runner/.gradle/caches/modules-2/files-2.1/org.apache.logging.log4j/log4j-api/2.17.0/bbd791e9c8c9421e45337c4fe0a10851c086e36c/log4j-api-2.17.0.jar
+JAR /home/runner/.gradle/caches/modules-2/files-2.1/org.apache.logging.log4j/log4j-core/2.17.0/fe6e7a32c1228884b9691a744f953a55d0dd8ead/log4j-core-2.17.0.jar
+JAR /home/runner/.gradle/caches/modules-2/files-2.1/org.lwjgl/lwjgl/3.3.1/ae58664f88e18a9bb2c77b063833ca7aaec484cb/lwjgl-3.3.1.jar
+JAR /home/runner/.gradle/caches/modules-2/files-2.1/org.lwjgl/lwjgl-jemalloc/3.3.1/a817bcf213db49f710603677457567c37d53e103/lwjgl-jemalloc-3.3.1.jar
+JAR /home/runner/.gradle/caches/modules-2/files-2.1/org.lwjgl/lwjgl-openal/3.3.1/2623a6b8ae1dfcd880738656a9f0243d2e6840bd/lwjgl-openal-3.3.1.jar
+JAR /home/runner/.gradle/caches/modules-2/files-2.1/org.lwjgl/lwjgl-opengl/3.3.1/831a5533a21a5f4f81bbc51bb13e9899319b5411/lwjgl-opengl-3.3.1.jar
+JAR /home/runner/.gradle/caches/modules-2/files-2.1/org.lwjgl/lwjgl-glfw/3.3.1/cbac1b8d30cb4795149c1ef540f912671a8616d0/lwjgl-glfw-3.3.1.jar
+JAR /home/runner/.gradle/caches/modules-2/files-2.1/org.lwjgl/lwjgl-stb/3.3.1/b119297cf8ed01f247abe8685857f8e7fcf5980f/lwjgl-stb-3.3.1.jar
+JAR /home/runner/.gradle/caches/modules-2/files-2.1/org.lwjgl/lwjgl-tinyfd/3.3.1/ff1914111ef2e3e0110ef2dabc8d8cdaad82347/lwjgl-tinyfd-3.3.1.jar
+JAR /home/runner/.gradle/caches/modules-2/files-2.1/com.mojang/text2speech/1.16.7/ee4095669061d1fe4bce5fea23d69d1520bc2d58/text2speech-1.16.7.jar
+JAR /home/runner/.gradle/caches/modules-2/files-2.1/net.fabricmc/fabric-loader/0.16.9/7eaa23079ac1569963e488054db124c7eb984f05/fabric-loader-0.16.9.jar
+JAR /home/runner/work/Biomes-Unseen/Biomes-Unseen/.gradle/loom-cache/remapped_mods/remapped/dev/architectury/architectury-8dc44767/4.5.76/architectury-8dc44767-4.5.76.jar
+dev.architectury.utils.Env
+dev.architectury.event.EventResult
+dev.architectury.registry.menu.MenuRegistry$1
+dev.architectury.event.events.common.PlayerEvent$DropItem
+dev.architectury.utils.value.FloatValue
+dev.architectury.hooks.level.biome.ClimateProperties$Mutable
+dev.architectury.networking.transformers.PacketTransformer$1
+dev.architectury.registry.registries.RegistrarBuilder
+dev.architectury.networking.simple.SimpleNetworkManager
+dev.architectury.event.events.client.ClientLifecycleEvent$ClientLevelState
+dev.architectury.hooks.item.food.FoodPropertiesHooks
+dev.architectury.hooks.level.biome.BiomeHooks$ClimateWrapped
+dev.architectury.event.events.common.PlayerEvent$CraftItem
+dev.architectury.hooks.level.biome.BiomeHooks$SpawnSettingsWrapped
+dev.architectury.hooks.level.biome.ClimateProperties
+dev.architectury.event.events.client.ClientChatEvent$Process
+dev.architectury.utils.value.DoubleValue
+dev.architectury.event.events.client.ClientGuiEvent$ScreenRenderPost
+dev.architectury.networking.transformers.SplitPacketTransformer$PartData
+dev.architectury.event.Event
+dev.architectury.registry.client.level.entity.EntityRendererRegistry
+dev.architectury.hooks.client.screen.ScreenHooks
+dev.architectury.hooks.level.biome.EffectsProperties$Mutable
+dev.architectury.core.fluid.ArchitecturyFlowingFluid$Source
+dev.architectury.event.events.common.TickEvent$LevelTick
+dev.architectury.hooks.level.biome.BiomeHooks$MutableBiomeWrapped
+dev.architectury.hooks.level.biome.EffectsProperties
+dev.architectury.event.events.common.PlayerEvent$PickupItem
+dev.architectury.event.events.common.TickEvent$Player
+dev.architectury.utils.PlatformExpectedError
+dev.architectury.event.events.common.InteractionEvent$FarmlandTrample
+dev.architectury.event.events.common.PlayerEvent$FillBucket
+dev.architectury.event.events.client.ClientPlayerEvent$ClientPlayerQuit
+dev.architectury.event.events.common.TickEvent$ServerLevelTick
+dev.architectury.event.events.client.ClientScreenInputEvent$MouseScrolled
+dev.architectury.event.events.common.EntityEvent
+dev.architectury.event.events.common.PlayerEvent$PlayerAdvancement
+dev.architectury.hooks.level.entity.PlayerHooks
+dev.architectury.utils.value.BooleanValue
+dev.architectury.event.events.common.ChunkEvent$SaveData
+dev.architectury.registry.fuel.FuelRegistry
+dev.architectury.event.events.client.ClientScreenInputEvent$KeyPressed
+dev.architectury.registry.registries.DeferredRegister$Entry
+dev.architectury.networking.simple.BaseC2SMessage
+dev.architectury.platform.Platform
+dev.architectury.hooks.level.biome.SpawnProperties
+dev.architectury.networking.NetworkManager
+dev.architectury.event.events.common.ExplosionEvent$Detonate
+dev.architectury.networking.transformers.PacketTransformer$2
+dev.architectury.event.events.common.ExplosionEvent$Pre
+dev.architectury.hooks.fluid.FluidStackHooks
+dev.architectury.event.events.client.ClientGuiEvent$ScreenRenderPre
+dev.architectury.event.events.common.PlayerEvent$OpenMenu
+dev.architectury.event.events.client.ClientGuiEvent$ScreenInitPost
+dev.architectury.registry.menu.MenuRegistry$ExtendedMenuTypeFactory
+dev.architectury.registry.level.entity.EntityAttributeRegistry
+dev.architectury.registry.registries.options.StandardRegistrarOption
+dev.architectury.networking.transformers.PacketCollector
+dev.architectury.registry.menu.MenuRegistry
+dev.architectury.core.block.ArchitecturyLiquidBlock
 ### CLASS-INDEX
 ABSENT  net.minecraft.entity.EntityType
 ABSENT  net.minecraft.entity.MobEntity
@@ -7181,3 +8322,85 @@ ABSENT  net.minecraft.world.item.ToolMaterials
 ABSENT  net.minecraft.world.item.equipment.ToolTier
 PRESENT net.minecraft.world.item.DiggerItem
 ABSENT  net.minecraft.resources.Identifier
+PRESENT net.minecraft.world.entity.Entity$RemovalReason
+PRESENT net.minecraft.world.entity.item.ItemEntity
+ABSENT  net.minecraft.world.entity.item.ItemEntity$Prediction
+ABSENT  net.minecraft.util.Prediction
+PRESENT net.minecraft.world.item.Tier
+PRESENT net.minecraft.world.item.Tiers
+PRESENT net.minecraft.world.item.ArmorMaterials
+PRESENT net.minecraft.world.effect.MobEffect
+PRESENT net.minecraft.world.effect.MobEffectInstance
+PRESENT net.minecraft.world.item.alchemy.PotionUtils
+PRESENT net.minecraft.core.particles.ParticleOptions
+PRESENT net.minecraft.core.particles.ParticleType
+PRESENT net.minecraft.core.RegistryAccess
+PRESENT net.minecraft.world.level.material.Material
+PRESENT net.minecraft.world.level.material.MaterialColor
+PRESENT net.minecraft.world.level.block.state.BlockBehaviour
+ABSENT  net.minecraft.world.level.levelgen.feature.StructureFeature
+ABSENT  net.minecraft.world.level.levelgen.feature.configurations.StructureFeatureConfiguration
+ABSENT  net.minecraft.world.level.levelgen.feature.configurations.StructureSettings
+ABSENT  net.minecraft.world.level.levelgen.settings.StructureSeparationSettings
+PRESENT net.minecraft.world.level.levelgen.feature.configurations.OreConfiguration$TargetBlockState
+PRESENT net.minecraft.world.level.levelgen.placement.PlacedFeature
+PRESENT net.minecraft.world.level.levelgen.placement.PlacementModifier
+PRESENT net.minecraft.world.level.levelgen.feature.Feature
+PRESENT net.minecraft.world.level.biome.BiomeSource
+PRESENT net.minecraft.world.level.biome.MultiNoiseBiomeSource
+PRESENT net.minecraft.world.level.biome.BiomeGenerationSettings
+PRESENT net.minecraft.world.level.biome.BiomeSpecialEffects
+PRESENT net.minecraft.world.level.chunk.ChunkGenerator
+PRESENT net.minecraft.server.level.ServerLevel
+PRESENT net.minecraft.client.Minecraft
+PRESENT net.minecraft.client.gui.screens.Screen
+ABSENT  net.minecraft.client.gui.screen.Screen
+PRESENT net.minecraft.client.renderer.entity.EntityRendererProvider
+PRESENT net.minecraft.client.renderer.entity.EntityRenderers
+PRESENT net.minecraft.client.model.EntityModel
+PRESENT net.minecraft.client.model.HumanoidModel
+PRESENT net.minecraft.client.model.QuadrupedModel
+PRESENT net.minecraft.client.model.geom.ModelLayerLocation
+PRESENT net.minecraft.client.model.geom.builders.LayerDefinition
+PRESENT net.minecraft.client.model.geom.builders.MeshDefinition
+PRESENT net.minecraft.client.model.geom.builders.PartDefinition
+PRESENT net.minecraft.client.model.geom.builders.CubeListBuilder
+ABSENT  net.minecraft.client.model.geom.builders.PartPose
+PRESENT net.minecraft.client.particle.TextureSheetParticle
+ABSENT  net.minecraft.client.particle.SpriteTexturedParticle
+PRESENT net.minecraft.client.multiplayer.ClientLevel
+ABSENT  net.minecraft.client.world.ClientWorld
+ABSENT  net.minecraft.network.chat.TextComponent
+ABSENT  net.minecraft.network.chat.TranslatableComponent
+PRESENT net.minecraft.tags.TagKey
+ABSENT  net.minecraft.tags.Tag
+ABSENT  net.minecraft.util.math.BlockPos
+PRESENT net.minecraft.core.BlockPos
+PRESENT net.minecraft.world.entity.ai.goal.LookAtPlayerGoal
+ABSENT  net.minecraft.world.entity.ai.goal.LookAtGoal
+ABSENT  net.minecraft.world.entity.ai.goal.LookRandomlyGoal
+PRESENT net.minecraft.world.entity.ai.goal.RandomLookAroundGoal
+PRESENT net.minecraft.world.entity.ai.goal.WaterAvoidingRandomStrollGoal
+ABSENT  net.minecraft.world.entity.ai.goal.WaterAvoidingRandomWalkingGoal
+PRESENT net.minecraft.world.item.crafting.Ingredient
+PRESENT net.minecraft.world.item.ItemStack
+PRESENT net.minecraft.world.entity.player.Player
+PRESENT net.minecraft.world.entity.Entity
+PRESENT net.minecraft.sounds.SoundSource
+ABSENT  net.minecraft.util.SoundCategory
+PRESENT net.minecraft.client.particle.ParticleProvider
+PRESENT net.minecraft.client.particle.ParticleEngine
+PRESENT net.minecraft.world.item.BlockItem
+PRESENT net.minecraft.world.level.ItemLike
+PRESENT net.minecraft.world.entity.Mob
+PRESENT net.minecraft.world.entity.LivingEntity
+PRESENT net.minecraft.world.entity.TamableAnimal
+PRESENT net.minecraft.world.entity.animal.Animal
+PRESENT net.minecraft.world.entity.PathfinderMob
+PRESENT net.minecraft.world.entity.ai.navigation.PathNavigation
+PRESENT net.minecraft.world.entity.SpawnPlacements
+PRESENT net.minecraft.world.entity.SpawnPlacements$Type
+PRESENT net.minecraft.world.entity.MobSpawnType
+PRESENT net.minecraft.world.entity.MobCategory
+PRESENT net.minecraft.world.entity.EntityType
+PRESENT net.minecraft.world.entity.EntityType$Builder

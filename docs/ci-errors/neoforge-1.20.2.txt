@@ -1,28 +1,33 @@
+=== PIN ===
+pin_neoforge: neoforge-1.20.2 neoforge_version 20.2.51-beta -> 20.2.3-beta
+=== configuration failure; retrying with NeoForge candidate 1 ===
+pin_neoforge: neoforge-1.20.2 neoforge_version 20.2.3-beta -> 20.2.4-beta
+=== MODULE PROPERTIES ===
+minecraft_version=1.20.2
+architectury_version=10.0.18
+neoforge_version=20.2.4-beta
 * What went wrong:
 A problem occurred configuring project ':neoforge-1.20.2'.
 > Failed to setup Minecraft, org.gradle.process.ProcessExecutionException: Process 'command '/usr/lib/jvm/temurin-17-jdk-amd64/bin/java'' finished with non-zero exit value 1
+
+* Try:
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights from a Build Scan (powered by Develocity).
 ---
-BUILD FAILED in 1m 10s
+BUILD FAILED in 35s
 ---
+=== CONFIG DIAGNOSTICS ===
+38:Exception in thread "main" java.io.IOException: Patch expected ekb(com/mojang/blaze3d/pipeline/RenderTarget) to have the checksum cd6ed4ec but it was 1add13bb
+39:	at net.minecraftforge.binarypatcher.Patcher.patch(Patcher.java:197)
+40:	at net.minecraftforge.binarypatcher.Patcher.process(Patcher.java:149)
+41:	at net.minecraftforge.binarypatcher.ConsoleTool.main(ConsoleTool.java:161)
+47:A problem occurred configuring project ':neoforge-1.20.2'.
+48:> Failed to setup Minecraft, org.gradle.process.ProcessExecutionException: Process 'command '/usr/lib/jvm/temurin-17-jdk-amd64/bin/java'' finished with non-zero exit value 1
+56:org.gradle.api.ProjectConfigurationException: A problem occurred configuring project ':neoforge-1.20.2'.
+225:Caused by: java.lang.RuntimeException: Failed to setup Minecraft, org.gradle.process.ProcessExecutionException: Process 'command '/usr/lib/jvm/temurin-17-jdk-amd64/bin/java'' finished with non-zero exit value 1
 === STACKTRACE ===
-	at net.minecraftforge.binarypatcher.Patcher.patch(Patcher.java:197)
-	at net.minecraftforge.binarypatcher.Patcher.process(Patcher.java:149)
-	at net.minecraftforge.binarypatcher.ConsoleTool.main(ConsoleTool.java:161)
 Caused by: java.lang.RuntimeException: Failed to setup Minecraft, org.gradle.process.ProcessExecutionException: Process 'command '/usr/lib/jvm/temurin-17-jdk-amd64/bin/java'' finished with non-zero exit value 1
-	at net.fabricmc.loom.util.ExceptionUtil.createDescriptiveWrapper(ExceptionUtil.java:59)
-	at net.fabricmc.loom.configuration.CompileConfiguration.lambda$run$1(CompileConfiguration.java:152)
-	at net.fabricmc.loom.configuration.CompileConfiguration.lambda$afterEvaluationWithService$0(CompileConfiguration.java:617)
-	at net.fabricmc.loom.util.gradle.GradleUtils.lambda$afterSuccessfulEvaluation$0(GradleUtils.java:51)
 Caused by: org.gradle.process.ProcessExecutionException: Process 'command '/usr/lib/jvm/temurin-17-jdk-amd64/bin/java'' finished with non-zero exit value 1
-	at dev.architectury.loom.forge.tool.ForgeToolExecutor.exec(ForgeToolExecutor.java:59)
-	at dev.architectury.loom.forge.tool.ForgeToolValueSource.obtain(ForgeToolValueSource.java:39)
-	at dev.architectury.loom.forge.tool.ForgeToolValueSource.obtain(ForgeToolValueSource.java:15)
-	at dev.architectury.loom.forge.tool.ForgeToolValueSource.exec(ForgeToolValueSource.java:34)
-	at dev.architectury.loom.forge.minecraft.MinecraftPatchedProvider.patchJars(MinecraftPatchedProvider.java:596)
-	at dev.architectury.loom.forge.minecraft.MinecraftPatchedProvider.patchJars(MinecraftPatchedProvider.java:583)
-	at dev.architectury.loom.forge.minecraft.MinecraftPatchedProvider.provide(MinecraftPatchedProvider.java:225)
-	at net.fabricmc.loom.configuration.CompileConfiguration.setupMinecraft(CompileConfiguration.java:262)
-	at net.fabricmc.loom.configuration.CompileConfiguration.lambda$run$1(CompileConfiguration.java:144)
 === WHAT WENT WRONG ===
 * What went wrong:
 A problem occurred configuring project ':neoforge-1.20.2'.
@@ -35,7 +40,7 @@ A problem occurred configuring project ':neoforge-1.20.2'.
 	at org.gradle.internal.event.ListenerBroadcast.dispatch(ListenerBroadcast.java:160)
 	at org.gradle.internal.event.ListenerBroadcast.dispatch(ListenerBroadcast.java:37)
 	at org.gradle.internal.dispatch.ProxyDispatchAdapter$DispatchingInvocationHandler.invoke(ProxyDispatchAdapter.java:88)
-	at jdk.proxy1/jdk.proxy1.$Proxy73.afterEvaluate(Unknown Source)
+	at jdk.proxy1/jdk.proxy1.$Proxy70.afterEvaluate(Unknown Source)
 	at org.gradle.configuration.project.LifecycleProjectEvaluator$NotifyAfterEvaluate$1.execute(LifecycleProjectEvaluator.java:247)
 	at org.gradle.configuration.project.LifecycleProjectEvaluator$NotifyAfterEvaluate$1.execute(LifecycleProjectEvaluator.java:244)
 	at org.gradle.api.internal.project.DefaultProject.stepEvaluationListener(DefaultProject.java:1525)
@@ -69,4 +74,4 @@ Caused by: org.gradle.process.ProcessExecutionException: Process 'command '/usr/
 	... 193 more
 
 
-BUILD FAILED in 1m 10s
+BUILD FAILED in 35s
