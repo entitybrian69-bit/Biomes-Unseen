@@ -12,7 +12,7 @@ A problem occurred configuring project ':forge-1.18.1'.
        - https://libraries.minecraft.net/dev/architectury/architectury-forge/3.6.18/architectury-forge-3.6.18.pom
        - https://libraries.minecraft.net/dev/architectury/architectury-forge/3.6.18/architectury-forge-3.6.18.jar
 ---
-BUILD FAILED in 1m 47s
+BUILD FAILED in 2m 19s
 ---
 === CONFIG DIAGNOSTICS ===
 54:A problem occurred configuring project ':forge-1.18.1'.
@@ -89,4 +89,4 @@ Required by:
     project ':forge-1.18.1'
 
 
-BUILD FAILED in 1m 47s
+BUILD FAILED in 2m 19s

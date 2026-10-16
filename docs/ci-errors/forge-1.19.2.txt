@@ -8,16 +8,16 @@ forge_version=1.19.2-43.4.2
 === STACKTRACE ===
 === WHAT WENT WRONG ===
 === LAST 40 ===
-[18:30:06] [main/INFO]: Access Transformer processor running version 8.0.5+67+master.d58c7dfe
-[18:30:06] [main/INFO]: Command line arguments [--inJar, /home/runner/.gradle/caches/fabric-loom/1.19.2/forge/1.19.2-43.4.2/minecraft-merged-srg-patched.jar, --outJar, /home/runner/.gradle/caches/fabric-loom/1.19.2/forge/1.19.2-43.4.2/minecraft-merged-srg-at-patched.jar, --atFile, /tmp/at-conf11078423026338147924.cfg]
-[18:30:06] [main/INFO]: Reading from /home/runner/.gradle/caches/fabric-loom/1.19.2/forge/1.19.2-43.4.2/minecraft-merged-srg-patched.jar
-[18:30:06] [main/INFO]: Writing to /home/runner/.gradle/caches/fabric-loom/1.19.2/forge/1.19.2-43.4.2/minecraft-merged-srg-at-patched.jar
-[18:30:06] [main/INFO]: Transformer file /tmp/at-conf11078423026338147924.cfg
-[18:30:06] [main/WARN]: Found existing output jar /home/runner/.gradle/caches/fabric-loom/1.19.2/forge/1.19.2-43.4.2/minecraft-merged-srg-at-patched.jar, overwriting
-[18:30:08] [main/INFO]: JAR transformation complete /home/runner/.gradle/caches/fabric-loom/1.19.2/forge/1.19.2-43.4.2/minecraft-merged-srg-at-patched.jar
-:access transformed minecraft in 5s
+[18:46:17] [main/INFO]: Access Transformer processor running version 8.0.5+67+master.d58c7dfe
+[18:46:17] [main/INFO]: Command line arguments [--inJar, /home/runner/.gradle/caches/fabric-loom/1.19.2/forge/1.19.2-43.4.2/minecraft-merged-srg-patched.jar, --outJar, /home/runner/.gradle/caches/fabric-loom/1.19.2/forge/1.19.2-43.4.2/minecraft-merged-srg-at-patched.jar, --atFile, /tmp/at-conf8132320372647055610.cfg]
+[18:46:17] [main/INFO]: Reading from /home/runner/.gradle/caches/fabric-loom/1.19.2/forge/1.19.2-43.4.2/minecraft-merged-srg-patched.jar
+[18:46:17] [main/INFO]: Writing to /home/runner/.gradle/caches/fabric-loom/1.19.2/forge/1.19.2-43.4.2/minecraft-merged-srg-at-patched.jar
+[18:46:17] [main/INFO]: Transformer file /tmp/at-conf8132320372647055610.cfg
+[18:46:17] [main/WARN]: Found existing output jar /home/runner/.gradle/caches/fabric-loom/1.19.2/forge/1.19.2-43.4.2/minecraft-merged-srg-at-patched.jar, overwriting
+[18:46:21] [main/INFO]: JAR transformation complete /home/runner/.gradle/caches/fabric-loom/1.19.2/forge/1.19.2-43.4.2/minecraft-merged-srg-at-patched.jar
+:access transformed minecraft in 6s
 :remapping minecraft (TinyRemapper, srg -> official)
-:remapped 1 mods (srg -> named) in 723ms
+:remapped 1 mods (srg -> named) in 621ms
 
 > Task :forge-1.19.2:compileJava
 Note: Some input files use or override a deprecated API.
@@ -36,7 +36,7 @@ Note: Recompile with -Xlint:unchecked for details.
 > Task :forge-1.19.2:remapSourcesJar
 > Task :forge-1.19.2:assemble
 > Task :forge-1.19.2:build
-gradle/actions: Writing build results to /home/runner/work/_temp/.gradle-actions/build-results/__run-1792175313761.json
+gradle/actions: Writing build results to /home/runner/work/_temp/.gradle-actions/build-results/__run-1792176234058.json
 
 [Incubating] Problems report is available at: file:///home/runner/work/Biomes-Unseen/Biomes-Unseen/build/reports/problems/problems-report.html
 
@@ -46,5 +46,5 @@ You can use '--warning-mode all' to show the individual deprecation warnings and
 
 For more on this, please refer to https://docs.gradle.org/9.8.1/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
 
-BUILD SUCCESSFUL in 2m 22s
+BUILD SUCCESSFUL in 3m 17s
 7 actionable tasks: 7 executed
