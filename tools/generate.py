@@ -187,8 +187,12 @@ def _rewrite_text(text, F, T, line_key):
     if line_key in NO_REGISTRIES_LINES:
         text = text.replace("import net.minecraft.core.registries.Registries;",
                             "import net.minecraft.core.Registry;")
+        text = text.replace("BuiltInRegistryX", "BuiltInRegistries")
         for name in ("BLOCK", "ITEM", "ENTITY_TYPE", "FLUID"):
             text = text.replace("Registries." + name, "Registry." + name + "_REGISTRY")
+        text = text.replace("net.minecraft.core.registries.BuiltInRegistry.",
+                            "net.minecraft.core.Registry.")
+        text = text.replace("BuiltInRegistry.", "net.minecraft.core.Registry.")
     return text
 
 
@@ -271,19 +275,27 @@ def postprocess(root, line_key):
                 text = text.replace(a, b)
             for pat, rep in LEGACY_MOJANG_ID:
                 text = re.sub(pat, rep, text)
-        if line_key in ("1.21.5", "1.21.9", "26"):
+        if line_key in ("1.21.2", "1.21.4", "1.21.5", "1.21.9", "26"):
             # 1.21.5 removed net.minecraft.world.item.ArmorItem alongside
             # SwordItem/PickaxeItem, and ArmorItem$Type became
             # net.minecraft.world.item.equipment.ArmorType from 1.21.2.
-            text = text.replace("import net.minecraft.world.item.ArmorItem;\n", "")
-            text = text.replace("extends ArmorItem {", "extends Item {")
+            if line_key in ("1.21.5", "1.21.9", "26"):
+                text = text.replace("import net.minecraft.world.item.ArmorItem;\n", "")
+                text = text.replace("extends ArmorItem {", "extends Item {")
+                text = text.replace("material.holder(), slot, properties", "properties")
             text = text.replace("ArmorItem.Type", "ArmorType")
-            text = text.replace("material.holder(), slot, properties", "properties")
             if "import net.minecraft.world.item.equipment.ArmorType;" not in text \
                     and "ArmorType" in text:
                 text = text.replace("import net.minecraft.world.item.equipment.ArmorMaterial;",
                                     "import net.minecraft.world.item.equipment.ArmorMaterial;\n"
                                     "import net.minecraft.world.item.equipment.ArmorType;", 1)
+        if line_key in ("1.21", "1.21.2", "1.21.4", "1.21.5", "1.21.9", "26"):
+            text = re.sub(r'new (?:net\.minecraft\.resources\.)?ResourceLocation\("([^"]+)", ([^)]+)\)',
+                          r'ResourceLocation.fromNamespaceAndPath("\1", \2)', text)
+        if "new AABB(" in text and "import net.minecraft.world.phys.AABB;" not in text:
+            text = text.replace("\nimport net.minecraft.world.level.Level;",
+                                "\nimport net.minecraft.world.level.Level;\n"
+                                "import net.minecraft.world.phys.AABB;", 1)
         if line_key in NO_REGISTRIES_LINES:
             text = text.replace("import net.minecraft.core.registries.Registries;",
                                 "import net.minecraft.core.Registry;")

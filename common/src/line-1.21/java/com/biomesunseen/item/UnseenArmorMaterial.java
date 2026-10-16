@@ -40,7 +40,7 @@ public final class UnseenArmorMaterial {
                 ore.toolEnchantability,
                 BuiltInRegistries.SOUND_EVENT.wrapAsHolder(SoundEvents.ARMOR_EQUIP_IRON),
                 repairIngredient,
-                List.of(new ArmorMaterial.Layer(new ResourceLocation("biomesunseen", ore.id))),
+                List.of(new ArmorMaterial.Layer(ResourceLocation.fromNamespaceAndPath("biomesunseen", ore.id))),
                 ore.toolMiningLevel * 0.5F,
                 ore.toolMiningLevel >= 4 ? 0.1F : 0.0F);
         this.holder = Holder.direct(this.material);

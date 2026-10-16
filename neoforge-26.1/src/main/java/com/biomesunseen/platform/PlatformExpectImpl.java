@@ -41,7 +41,10 @@ public final class PlatformExpectImpl {
                         net.minecraft.world.entity.SpawnPlacements.Type.ON_GROUND,
                         net.minecraft.world.level.levelgen.Heightmap.Types
                                 .MOTION_BLOCKING_NO_LEAVES,
-                        net.minecraft.world.entity.Mob::checkMobSpawnRules));
+                        (entityType, level, spawnType, pos, random) ->
+                                net.minecraft.world.entity.Mob.checkMobSpawnRules(
+                                        entityType, level, spawnType, pos,
+                                        random)));
     }
 
     public static void installBiomeInjection() {

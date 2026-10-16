@@ -598,8 +598,8 @@ public class PackAttackGoal extends MeleeAttackGoal {
     }
 
     @Override
-    protected void checkAndPerformAttack(LivingEntity target) {
-        super.checkAndPerformAttack(target);
+    protected void checkAndPerformAttack(LivingEntity target, double distance) {
+        super.checkAndPerformAttack(target, distance);
         if (target != null && mob.distanceTo(target) < 3.0D) {
             double angle = Math.atan2(target.getZ() - mob.getZ(), target.getX() - mob.getX())
                     + circleDirection * 0.6D;

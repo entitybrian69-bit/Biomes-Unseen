@@ -38,7 +38,7 @@ public class UnseenLegacyModel<T extends BiomesUnseenMob> extends EntityModel<T>
 
     /** Shared model layer: every Biomes Unseen mob uses this six-part rig. */
     public static final ModelLayerLocation LAYER = new ModelLayerLocation(
-            new ResourceLocation("biomesunseen", "legacy_mob"), "main");
+            ResourceLocation.fromNamespaceAndPath("biomesunseen", "legacy_mob"), "main");
 
     public static LayerDefinition createBodyLayer() {
         MeshDefinition mesh = new MeshDefinition();

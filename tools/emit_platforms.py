@@ -551,7 +551,10 @@ public final class PlatformExpectImpl {
                         net.minecraft.world.entity.SpawnPlacements.Type.ON_GROUND,
                         net.minecraft.world.level.levelgen.Heightmap.Types
                                 .MOTION_BLOCKING_NO_LEAVES,
-                        net.minecraft.world.entity.Mob::checkMobSpawnRules));'''
+                        (entityType, level, spawnType, pos, random) ->
+                                net.minecraft.world.entity.Mob.checkMobSpawnRules(
+                                        entityType, level, spawnType, pos,
+                                        random)));'''
         biome_injection = '''        System.out.println("[Biomes Unseen] biome injection installed for "
                 + WorldGenKeys.allBiomeKeys().size() + " biomes");'''
         biome_mods = '''        MinecraftForge.EVENT_BUS.addListener(PlatformExpectImpl::onBiomeLoading);'''
@@ -577,7 +580,10 @@ public final class PlatformExpectImpl {
                         net.minecraft.world.entity.SpawnPlacements.Type.ON_GROUND,
                         net.minecraft.world.level.levelgen.Heightmap.Types
                                 .MOTION_BLOCKING_NO_LEAVES,
-                        net.minecraft.world.entity.Mob::checkMobSpawnRules));'''
+                        (entityType, level, spawnType, pos, random) ->
+                                net.minecraft.world.entity.Mob.checkMobSpawnRules(
+                                        entityType, level, spawnType, pos,
+                                        random)));'''
         biome_injection = '''        System.out.println("[Biomes Unseen] biome injection installed for "
                 + WorldGenKeys.allBiomeKeys().size() + " biomes");'''
         biome_mods = '''        // NeoForge biome modifiers ship as data: data/biomesunseen/neoforge/biome_modifier/*.json
