@@ -311,19 +311,23 @@ public final class ModConfig {
 
 import com.biomesunseen.BiomesUnseen;
 
-import me.shedaniel.clothconfig2.api.ConfigBuilder;
-import me.shedaniel.clothconfig2.api.ConfigCategory;
-import me.shedaniel.clothconfig2.api.ConfigEntryBuilder;
+import net.minecraft.network.chat.Component;
 
-import java.util.LinkedHashMap;
-import java.util.Map;
+import java.lang.reflect.Method;
 import java.util.function.Consumer;
+import java.util.function.UnaryOperator;
 
 /**
  * Cloth Config screen factory.  Every ModConfig field is editable, grouped
  * into gameplay categories, and persisted through ModConfig.save on close.
  * The platform layer supplies the parent screen and translation text so this
  * class stays free of version-specific client calls.
+ *
+ * <p>Cloth Config is accessed reflectively and is an optional runtime
+ * dependency: when Cloth Config is installed the full editable screen is
+ * built; when it is absent this factory returns the parent screen unchanged.
+ * Reflection keeps every Minecraft-version module compilable without a
+ * version-specific Cloth Config artifact on the classpath.</p>
  */
 public final class ClothConfigScreen {
 
@@ -336,110 +340,156 @@ public final class ClothConfigScreen {
      * @param title display title of the screen
      * @param parent the screen to return to
      * @param translator translation lookup used for labels
-     * @return the finished screen
+     * @return the finished screen, or the parent screen when Cloth Config is absent
      */
-    public static Object build(String title, Object parent, java.util.function.UnaryOperator<String> translator) {
-        ConfigBuilder builder = ConfigBuilder.create()
-                .setTitle(net.minecraft.network.chat.Component.literal(title))
-                .setSavingRunnable(() -> BiomesUnseen.setConfig(BiomesUnseen.config()));
-        builder.setParentScreen((net.minecraft.client.gui.screens.Screen) parent);
-        ConfigEntryBuilder entryBuilder = builder.entryBuilder();
-        ModConfig cfg = BiomesUnseen.config();
+    public static Object build(String title, Object parent, UnaryOperator<String> translator) {
+        Class<?> builderType;
+        try {
+            builderType = Class.forName("me.shedaniel.clothconfig2.api.ConfigBuilder");
+        } catch (ClassNotFoundException missing) {
+            // Cloth Config is optional; without it there is no screen to open.
+            return parent;
+        }
+        try {
+            Object builder = callStatic(builderType, "create");
+            call(builder, "setTitle", Component.literal(title));
+            call(builder, "setSavingRunnable",
+                    (Runnable) () -> BiomesUnseen.setConfig(BiomesUnseen.config()));
+            if (parent != null) {
+                call(builder, "setParentScreen", parent);
+            }
+            Object entryBuilder = call(builder, "entryBuilder");
+            ModConfig cfg = BiomesUnseen.config();
 
-        ConfigCategory general = builder.getOrCreateCategory(net.minecraft.network.chat.Component.literal("General"));
-        general.addEntry(entryBuilder.startBooleanField(
-                        net.minecraft.network.chat.Component.literal(translator.apply("enableAllBiomes")), cfg.enableAllBiomes)
-                .setDefaultValue(true)
-                .setSaveConsumer(v -> cfg.enableAllBiomes = v)
-                .build());
-        general.addEntry(entryBuilder.startBooleanField(
-                        net.minecraft.network.chat.Component.literal(translator.apply("enableAllOres")), cfg.enableAllOres)
-                .setDefaultValue(true)
-                .setSaveConsumer(v -> cfg.enableAllOres = v)
-                .build());
-        general.addEntry(entryBuilder.startBooleanField(
-                        net.minecraft.network.chat.Component.literal(translator.apply("enableAllStructures")), cfg.enableAllStructures)
-                .setDefaultValue(true)
-                .setSaveConsumer(v -> cfg.enableAllStructures = v)
-                .build());
-        general.addEntry(entryBuilder.startBooleanField(
-                        net.minecraft.network.chat.Component.literal(translator.apply("enableAllMobs")), cfg.enableAllMobs)
-                .setDefaultValue(true)
-                .setSaveConsumer(v -> cfg.enableAllMobs = v)
-                .build());
-        general.addEntry(entryBuilder.startBooleanField(
-                        net.minecraft.network.chat.Component.literal(translator.apply("enableBosses")), cfg.enableBosses)
-                .setDefaultValue(true)
-                .setSaveConsumer(v -> cfg.enableBosses = v)
-                .build());
-        general.addEntry(entryBuilder.startBooleanField(
-                        net.minecraft.network.chat.Component.literal(translator.apply("enableLoreBooks")), cfg.enableLoreBooks)
-                .setDefaultValue(true)
-                .setSaveConsumer(v -> cfg.enableLoreBooks = v)
-                .build());
-        general.addEntry(entryBuilder.startBooleanField(
-                        net.minecraft.network.chat.Component.literal(translator.apply("enableStructureLoot")), cfg.enableStructureLoot)
-                .setDefaultValue(true)
-                .setSaveConsumer(v -> cfg.enableStructureLoot = v)
-                .build());
+            Object general = call(builder, "getOrCreateCategory", Component.literal("General"));
+            addBool(general, entryBuilder, translator.apply("enableAllBiomes"), cfg.enableAllBiomes, true, v -> cfg.enableAllBiomes = v);
+            addBool(general, entryBuilder, translator.apply("enableAllOres"), cfg.enableAllOres, true, v -> cfg.enableAllOres = v);
+            addBool(general, entryBuilder, translator.apply("enableAllStructures"), cfg.enableAllStructures, true, v -> cfg.enableAllStructures = v);
+            addBool(general, entryBuilder, translator.apply("enableAllMobs"), cfg.enableAllMobs, true, v -> cfg.enableAllMobs = v);
+            addBool(general, entryBuilder, translator.apply("enableBosses"), cfg.enableBosses, true, v -> cfg.enableBosses = v);
+            addBool(general, entryBuilder, translator.apply("enableLoreBooks"), cfg.enableLoreBooks, true, v -> cfg.enableLoreBooks = v);
+            addBool(general, entryBuilder, translator.apply("enableStructureLoot"), cfg.enableStructureLoot, true, v -> cfg.enableStructureLoot = v);
 
-        ConfigCategory world = builder.getOrCreateCategory(net.minecraft.network.chat.Component.literal("World"));
-        world.addEntry(entryBuilder.startDoubleField(
-                        net.minecraft.network.chat.Component.literal(translator.apply("biomeRarityMultiplier")), cfg.biomeRarityMultiplier)
-                .setDefaultValue(1.0).setMin(0.0).setMax(10.0)
-                .setSaveConsumer(v -> cfg.biomeRarityMultiplier = v).build());
-        world.addEntry(entryBuilder.startDoubleField(
-                        net.minecraft.network.chat.Component.literal(translator.apply("biomeTerraformingStrength")), cfg.biomeTerraformingStrength)
-                .setDefaultValue(1.0).setMin(0.0).setMax(3.0)
-                .setSaveConsumer(v -> cfg.biomeTerraformingStrength = v).build());
-        world.addEntry(entryBuilder.startDoubleField(
-                        net.minecraft.network.chat.Component.literal(translator.apply("oreRateMultiplier")), cfg.oreRateMultiplier)
-                .setDefaultValue(1.0).setMin(0.0).setMax(10.0)
-                .setSaveConsumer(v -> cfg.oreRateMultiplier = v).build());
-        world.addEntry(entryBuilder.startDoubleField(
-                        net.minecraft.network.chat.Component.literal(translator.apply("structureSpacingMultiplier")), cfg.structureSpacingMultiplier)
-                .setDefaultValue(1.0).setMin(0.1).setMax(10.0)
-                .setSaveConsumer(v -> cfg.structureSpacingMultiplier = v).build());
-        world.addEntry(entryBuilder.startDoubleField(
-                        net.minecraft.network.chat.Component.literal(translator.apply("weatherIntensity")), cfg.weatherIntensity)
-                .setDefaultValue(1.0).setMin(0.0).setMax(3.0)
-                .setSaveConsumer(v -> cfg.weatherIntensity = v).build());
-        world.addEntry(entryBuilder.startIntField(
-                        net.minecraft.network.chat.Component.literal(translator.apply("structureLodDistance")), cfg.structureLodDistance)
-                .setDefaultValue(128).setMin(16).setMax(1024)
-                .setSaveConsumer(v -> cfg.structureLodDistance = v).build());
+            Object world = call(builder, "getOrCreateCategory", Component.literal("World"));
+            addDouble(world, entryBuilder, translator.apply("biomeRarityMultiplier"), cfg.biomeRarityMultiplier, 1.0D, 0.0D, 10.0D, v -> cfg.biomeRarityMultiplier = v);
+            addDouble(world, entryBuilder, translator.apply("biomeTerraformingStrength"), cfg.biomeTerraformingStrength, 1.0D, 0.0D, 3.0D, v -> cfg.biomeTerraformingStrength = v);
+            addDouble(world, entryBuilder, translator.apply("oreRateMultiplier"), cfg.oreRateMultiplier, 1.0D, 0.0D, 10.0D, v -> cfg.oreRateMultiplier = v);
+            addDouble(world, entryBuilder, translator.apply("structureSpacingMultiplier"), cfg.structureSpacingMultiplier, 1.0D, 0.1D, 10.0D, v -> cfg.structureSpacingMultiplier = v);
+            addDouble(world, entryBuilder, translator.apply("weatherIntensity"), cfg.weatherIntensity, 1.0D, 0.0D, 3.0D, v -> cfg.weatherIntensity = v);
+            addInt(world, entryBuilder, translator.apply("structureLodDistance"), cfg.structureLodDistance, 128, 16, 1024, v -> cfg.structureLodDistance = v);
 
-        ConfigCategory mobs = builder.getOrCreateCategory(net.minecraft.network.chat.Component.literal("Mobs & Performance"));
-        mobs.addEntry(entryBuilder.startDoubleField(
-                        net.minecraft.network.chat.Component.literal(translator.apply("mobSpawnMultiplier")), cfg.mobSpawnMultiplier)
-                .setDefaultValue(1.0).setMin(0.0).setMax(10.0)
-                .setSaveConsumer(v -> cfg.mobSpawnMultiplier = v).build());
-        mobs.addEntry(entryBuilder.startIntField(
-                        net.minecraft.network.chat.Component.literal(translator.apply("mobGlobalCap")), cfg.mobGlobalCap)
-                .setDefaultValue(180).setMin(0).setMax(2000)
-                .setSaveConsumer(v -> cfg.mobGlobalCap = v).build());
-        mobs.addEntry(entryBuilder.startIntField(
-                        net.minecraft.network.chat.Component.literal(translator.apply("entityAiThrottle")), cfg.entityAiThrottle)
-                .setDefaultValue(2).setMin(1).setMax(20)
-                .setSaveConsumer(v -> cfg.entityAiThrottle = v).build());
-        mobs.addEntry(entryBuilder.startDoubleField(
-                        net.minecraft.network.chat.Component.literal(translator.apply("ambientParticleDensity")), cfg.ambientParticleDensity)
-                .setDefaultValue(1.0).setMin(0.0).setMax(3.0)
-                .setSaveConsumer(v -> cfg.ambientParticleDensity = v).build());
-        mobs.addEntry(entryBuilder.startDoubleField(
-                        net.minecraft.network.chat.Component.literal(translator.apply("musicFrequencyMultiplier")), cfg.musicFrequencyMultiplier)
-                .setDefaultValue(1.0).setMin(0.1).setMax(10.0)
-                .setSaveConsumer(v -> cfg.musicFrequencyMultiplier = v).build());
-        mobs.addEntry(entryBuilder.startBooleanField(
-                        net.minecraft.network.chat.Component.literal(translator.apply("enableAdaptiveMobs")), cfg.enableAdaptiveMobs)
-                .setDefaultValue(true)
-                .setSaveConsumer(v -> cfg.enableAdaptiveMobs = v).build());
-        mobs.addEntry(entryBuilder.startBooleanField(
-                        net.minecraft.network.chat.Component.literal(translator.apply("enablePackTactics")), cfg.enablePackTactics)
-                .setDefaultValue(true)
-                .setSaveConsumer(v -> cfg.enablePackTactics = v).build());
+            Object mobs = call(builder, "getOrCreateCategory", Component.literal("Mobs & Performance"));
+            addDouble(mobs, entryBuilder, translator.apply("mobSpawnMultiplier"), cfg.mobSpawnMultiplier, 1.0D, 0.0D, 10.0D, v -> cfg.mobSpawnMultiplier = v);
+            addInt(mobs, entryBuilder, translator.apply("mobGlobalCap"), cfg.mobGlobalCap, 180, 0, 2000, v -> cfg.mobGlobalCap = v);
+            addInt(mobs, entryBuilder, translator.apply("entityAiThrottle"), cfg.entityAiThrottle, 2, 1, 20, v -> cfg.entityAiThrottle = v);
+            addDouble(mobs, entryBuilder, translator.apply("ambientParticleDensity"), cfg.ambientParticleDensity, 1.0D, 0.0D, 3.0D, v -> cfg.ambientParticleDensity = v);
+            addDouble(mobs, entryBuilder, translator.apply("musicFrequencyMultiplier"), cfg.musicFrequencyMultiplier, 1.0D, 0.1D, 10.0D, v -> cfg.musicFrequencyMultiplier = v);
+            addBool(mobs, entryBuilder, translator.apply("enableAdaptiveMobs"), cfg.enableAdaptiveMobs, true, v -> cfg.enableAdaptiveMobs = v);
+            addBool(mobs, entryBuilder, translator.apply("enablePackTactics"), cfg.enablePackTactics, true, v -> cfg.enablePackTactics = v);
 
-        return builder.build();
+            return call(builder, "build");
+        } catch (ReflectiveOperationException e) {
+            throw new IllegalStateException("Cloth Config API could not be accessed", e);
+        }
+    }
+
+    /** Add one boolean entry to a category. */
+    private static void addBool(Object category, Object entryBuilder, String label,
+                                boolean value, boolean defaultValue, Consumer<Boolean> save)
+            throws ReflectiveOperationException {
+        Object entry = call(entryBuilder, "startBooleanField", Component.literal(label), Boolean.valueOf(value));
+        entry = call(entry, "setDefaultValue", Boolean.valueOf(defaultValue));
+        entry = call(entry, "setSaveConsumer", save);
+        call(category, "addEntry", call(entry, "build"));
+    }
+
+    /** Add one double entry with slider bounds to a category. */
+    private static void addDouble(Object category, Object entryBuilder, String label,
+                                  double value, double defaultValue, double min, double max,
+                                  Consumer<Double> save)
+            throws ReflectiveOperationException {
+        Object entry = call(entryBuilder, "startDoubleField", Component.literal(label), Double.valueOf(value));
+        entry = call(entry, "setDefaultValue", Double.valueOf(defaultValue));
+        entry = call(entry, "setMin", Double.valueOf(min));
+        entry = call(entry, "setMax", Double.valueOf(max));
+        entry = call(entry, "setSaveConsumer", save);
+        call(category, "addEntry", call(entry, "build"));
+    }
+
+    /** Add one integer entry with bounds to a category. */
+    private static void addInt(Object category, Object entryBuilder, String label,
+                               int value, int defaultValue, int min, int max,
+                               Consumer<Integer> save)
+            throws ReflectiveOperationException {
+        Object entry = call(entryBuilder, "startIntField", Component.literal(label), Integer.valueOf(value));
+        entry = call(entry, "setDefaultValue", Integer.valueOf(defaultValue));
+        entry = call(entry, "setMin", Integer.valueOf(min));
+        entry = call(entry, "setMax", Integer.valueOf(max));
+        entry = call(entry, "setSaveConsumer", save);
+        call(category, "addEntry", call(entry, "build"));
+    }
+
+    /** Invoke the named instance method whose parameters accept the given arguments. */
+    private static Object call(Object target, String name, Object... args)
+            throws ReflectiveOperationException {
+        Method method = find(target.getClass(), name, args);
+        return method.invoke(target, args);
+    }
+
+    /** Invoke the named static method whose parameters accept the given arguments. */
+    private static Object callStatic(Class<?> type, String name, Object... args)
+            throws ReflectiveOperationException {
+        Method method = find(type, name, args);
+        return method.invoke(null, args);
+    }
+
+    /** Find the uniquely matching method by name, arity and boxed argument types. */
+    private static Method find(Class<?> type, String name, Object[] args) {
+        Method match = null;
+        for (Method method : type.getMethods()) {
+            if (!method.getName().equals(name)
+                    || method.getParameterCount() != args.length) {
+                continue;
+            }
+            Class<?>[] params = method.getParameterTypes();
+            boolean ok = true;
+            for (int i = 0; i < params.length; i++) {
+                if (args[i] == null) {
+                    if (params[i].isPrimitive()) {
+                        ok = false;
+                        break;
+                    }
+                } else if (!wrap(params[i]).isInstance(args[i])) {
+                    ok = false;
+                    break;
+                }
+            }
+            if (ok) {
+                match = method;
+                break;
+            }
+        }
+        if (match == null) {
+            throw new IllegalStateException(
+                    "No method " + type.getName() + "#" + name + " accepts the given arguments");
+        }
+        return match;
+    }
+
+    /** Box primitive parameter types so isInstance checks work for both. */
+    private static Class<?> wrap(Class<?> type) {
+        if (!type.isPrimitive()) {
+            return type;
+        }
+        if (type == boolean.class) return Boolean.class;
+        if (type == byte.class) return Byte.class;
+        if (type == short.class) return Short.class;
+        if (type == char.class) return Character.class;
+        if (type == int.class) return Integer.class;
+        if (type == long.class) return Long.class;
+        if (type == float.class) return Float.class;
+        if (type == double.class) return Double.class;
+        return type;
     }
 }
 ''')

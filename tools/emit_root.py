@@ -77,7 +77,14 @@ subprojects {
 
     tasks.withType(JavaCompile).configureEach {
         options.encoding = "UTF-8"
-        options.release = Integer.parseInt(project.target_java)
+        def target = Integer.parseInt(project.target_java)
+        if (target >= 9) {
+            options.release = target
+        } else {
+            // javac 8 has no --release flag; classic source/target instead.
+            sourceCompatibility = "1." + project.target_java
+            targetCompatibility = "1." + project.target_java
+        }
     }
 
     tasks.withType(ProcessResources).configureEach {

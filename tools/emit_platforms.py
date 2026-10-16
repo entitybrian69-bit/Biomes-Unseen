@@ -76,8 +76,7 @@ dependencies {
     modImplementation "net.fabricmc:fabric-loader:${fabric_loader_version}"
     modImplementation "net.fabricmc.fabric-api:fabric-api:${fabric_api_version}"
     modImplementation "dev.architectury:architectury:${architectury_version}"%(arch_legacy)s
-%(geckolib)s    modImplementation "me.shedaniel.cloth:cloth-config-fabric:${cloth_config_version}"
-}
+%(geckolib)s}
 
 processResources {
     inputs.property "version", project.version
@@ -118,8 +117,7 @@ dependencies {
     mappings loom.officialMojangMappings()
     forge "net.minecraftforge:forge:${forge_version}"
     modImplementation "dev.architectury:architectury:${architectury_version}"%(arch_legacy)s
-%(geckolib)s    modImplementation "me.shedaniel.cloth:cloth-config-forge:${cloth_config_version}"
-}
+%(geckolib)s}
 
 processResources {
     inputs.property "version", project.version
@@ -160,8 +158,7 @@ dependencies {
     mappings loom.officialMojangMappings()
     neoForge "net.neoforged:neoforge:${neoforge_version}"
     modImplementation "dev.architectury:architectury:${architectury_version}"
-%(geckolib)s    modImplementation "me.shedaniel.cloth:cloth-config-neoforge:${cloth_config_version}"
-}
+%(geckolib)s}
 
 processResources {
     inputs.property "version", project.version

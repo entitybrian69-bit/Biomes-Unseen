@@ -25,7 +25,6 @@ dependencies {
     mappings loom.officialMojangMappings()
     forge "net.minecraftforge:forge:${forge_version}"
     modImplementation "me.shedaniel:architectury:${architectury_version}"
-    modImplementation "me.shedaniel.cloth:cloth-config-forge:${cloth_config_version}"
 }
 
 processResources {

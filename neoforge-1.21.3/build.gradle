@@ -24,7 +24,6 @@ dependencies {
     neoForge "net.neoforged:neoforge:${neoforge_version}"
     modImplementation "dev.architectury:architectury:${architectury_version}"
     modImplementation "software.bernie.geckolib:geckolib-neoforge-1.21.1:4.7.5"
-    modImplementation "me.shedaniel.cloth:cloth-config-neoforge:${cloth_config_version}"
 }
 
 processResources {
