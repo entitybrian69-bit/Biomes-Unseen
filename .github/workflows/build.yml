@@ -431,9 +431,13 @@ jobs:
     permissions:
       contents: write
     steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
       - name: Download all module jars
         uses: actions/download-artifact@v4
         with:
+          pattern: jars-*
           path: jars
           merge-multiple: true
 
@@ -443,26 +447,45 @@ jobs:
           find jars -name '*.jar' ! -name '*-sources.jar' ! -name '*-dev.jar' ! -name '*-javadoc.jar' -exec cp -n {} out/ \; || true
           echo "collected $(ls out | wc -l) jar(s)"
           ls -la out || true
+          { echo "run=${GITHUB_RUN_ID} sha=${GITHUB_SHA}"
+            echo "--- module jars ---"; find jars -type f -name '*.jar' | sort | head -200
+            echo "--- out ---"; ls -la out 2>/dev/null || echo "(no out)"
+          } > docs/release-diag.txt; mkdir -p docs; mv docs/release-diag.txt docs/release-diag.txt 2>/dev/null || true
 
       - name: Create or update release v1.0.0
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
+          set -x
           shopt -s nullglob
           files=(out/*.jar)
+          echo "jar count: ${#files[@]}" | tee -a docs/release-diag.txt
           if [ ${#files[@]} -eq 0 ]; then
-            echo "No jars to publish yet"
+            echo "No jars to publish yet" | tee -a docs/release-diag.txt
             exit 0
           fi
-          if gh release view v1.0.0 >/dev/null 2>&1; then
-            gh release upload v1.0.0 "${files[@]}" --clobber
+          if gh release view v1.0.0 --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1; then
+            gh release upload v1.0.0 "${files[@]}" --clobber --repo "$GITHUB_REPOSITORY" 2>&1 | tee -a docs/release-diag.txt
           else
-            gh release create v1.0.0 "${files[@]}" --target "$GITHUB_SHA" \
+            gh release create v1.0.0 "${files[@]}" --repo "$GITHUB_REPOSITORY" \
+              --target "$GITHUB_SHA" \
               --title "Biomes Unseen 1.0.0" \
-              --notes "Biomes Unseen 1.0.0 - multi-version, multi-loader jars (80 biomes, 20 ores, 30 structures, 25 mobs, 2 bosses, fully animated)."
+              --notes "Biomes Unseen 1.0.0 - multi-version, multi-loader jars (80 biomes, 20 ores, 30 structures, 25 mobs, 2 bosses, fully animated)." 2>&1 | tee -a docs/release-diag.txt
           fi
           echo "=== release assets ==="
-          gh release view v1.0.0 --json assets --jq '.assets[].name'
+          gh release view v1.0.0 --repo "$GITHUB_REPOSITORY" --json assets --jq '.assets[].name' 2>&1 | tee -a docs/release-diag.txt
+
+      - name: Publish release diagnostics
+        if: always()
+        run: |
+          mkdir -p docs
+          touch docs/release-diag.txt
+          git config user.name "arena-agent"
+          git config user.email "arena-agent@users.noreply.github.com"
+          git add -f docs/release-diag.txt
+          git commit -m "ci: release diagnostics [skip ci]" || true
+          git pull --rebase --autostash origin "${GITHUB_REF_NAME}" || true
+          git push origin "HEAD:${GITHUB_REF_NAME}" || true
 
   collect:
     name: collect-probe-and-error-reports
