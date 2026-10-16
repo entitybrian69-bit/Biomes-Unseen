@@ -660,6 +660,13 @@ public final class PlatformExpectImpl {
     return body
 
 
+# MC version -> architectury version whose *Forge* artifact exists.
+FORGE_ARCHITECTURY_VERSIONS = {
+    "1.17.1": "3.9.66",
+    "1.18.1": "3.9.66",
+}
+
+
 def emit(root):
     for mc, java, loaders, _family in TARGETS:
         line_key = MC_TO_LINE[mc]
@@ -667,6 +674,12 @@ def emit(root):
         for loader in loaders:
             mod_dir = "%s-%s" % (loader, mc)
             arch = ARCHITECTURY_API_VERSIONS[mc]
+            # Architectury's Forge artifact does not exist for every line the
+            # Fabric one does: the 1.17.1 line (2.10.x) never published a
+            # -forge jar, and the 1.18.1 line only has one in the 3.9.x
+            # generation (the same generation forge-1.18.2 builds against).
+            if loader == "forge":
+                arch = FORGE_ARCHITECTURY_VERSIONS.get(mc, arch)
             geckolib_v = (geckolib_coord(loader, mc).rsplit(":", 1)[1]
                       if F["geckolib"] != "none" else None)
             cloth = CLOTH_CONFIG_VERSIONS[mc]
