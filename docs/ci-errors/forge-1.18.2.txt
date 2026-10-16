@@ -289,5 +289,5 @@ Note: Some messages have been simplified; recompile with -Xdiags:verbose to get 
 	at org.gradle.internal.concurrent.AbstractManagedExecutor$1.run(AbstractManagedExecutor.java:47)
 
 
-BUILD FAILED in 2m 20s
+BUILD FAILED in 2m 5s
 1 actionable task: 1 executed

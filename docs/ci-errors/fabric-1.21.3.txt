@@ -19,7 +19,7 @@
                 ^
 ---
 > Task :fabric-1.21.3:compileJava FAILED
-gradle/actions: Writing build results to /home/runner/work/_temp/.gradle-actions/build-results/__run_2-1792166293790.json
+gradle/actions: Writing build results to /home/runner/work/_temp/.gradle-actions/build-results/__run_2-1792167228836.json
 
 ---
 * What went wrong:
@@ -74,7 +74,7 @@ org.gradle.api.tasks.TaskExecutionException: Execution failed for task ':fabric-
     public void renderToBuffer(com.mojang.blaze3d.vertex.PoseStack matrixStack,
                 ^
 ---
-BUILD FAILED in 1m 21s
+BUILD FAILED in 1m 14s
 1 actionable task: 1 executed
 ---
 === STACKTRACE ===
@@ -152,5 +152,5 @@ Execution failed for task ':fabric-1.21.3:compileJava' (registered by plugin cla
 	... 25 more
 
 
-BUILD FAILED in 1m 21s
+BUILD FAILED in 1m 14s
 1 actionable task: 1 executed
