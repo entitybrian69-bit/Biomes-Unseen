@@ -9,7 +9,7 @@ import com.biomesunseen.entity.boss.HeartOfTheForestEntity;
 import com.biomesunseen.entity.boss.VoidSerpentEntity;
 import com.biomesunseen.entity.mobs.*;
 
-import dev.architectury.registry.entity.EntityAttributeRegistry;
+import dev.architectury.registry.level.entity.EntityAttributeRegistry;
 import dev.architectury.registry.registries.RegistrySupplier;
 
 import java.util.Collections;

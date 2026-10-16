@@ -57,6 +57,13 @@ public abstract class BiomesUnseenMob  {
         return "idle";
     }
 
+    private final com.biomesunseen.entity.legacy.LegacyAnimDriver animDriver =
+            new com.biomesunseen.entity.legacy.LegacyAnimDriver(this);
+
+    /** Shared procedural animation driver: pose data for the custom renderer. */
+    public com.biomesunseen.entity.legacy.LegacyAnimDriver animDriver() {
+        return animDriver;
+    }
     protected BiomesUnseenMob(EntityType<? extends CreatureEntity> type, World level, MobDef mobDef) {
         super(type, level);
         this.mobDef = mobDef;
@@ -69,6 +76,7 @@ public abstract class BiomesUnseenMob  {
     @Override
     public void aiStep() {
         super.aiStep();
+        animDriver.tick();
         if (animOneShotTicks > 0) {
             animOneShotTicks--;
         }

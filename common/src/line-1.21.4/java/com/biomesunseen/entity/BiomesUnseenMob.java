@@ -57,6 +57,13 @@ public abstract class BiomesUnseenMob  {
         return "idle";
     }
 
+    private final com.biomesunseen.entity.legacy.LegacyAnimDriver animDriver =
+            new com.biomesunseen.entity.legacy.LegacyAnimDriver(this);
+
+    /** Shared procedural animation driver: pose data for the custom renderer. */
+    public com.biomesunseen.entity.legacy.LegacyAnimDriver animDriver() {
+        return animDriver;
+    }
     protected BiomesUnseenMob(EntityType<? extends PathfinderMob> type, Level level, MobDef mobDef) {
         super(type, level);
         this.mobDef = mobDef;
@@ -69,6 +76,7 @@ public abstract class BiomesUnseenMob  {
     @Override
     public void aiStep() {
         super.aiStep();
+        animDriver.tick();
         if (animOneShotTicks > 0) {
             animOneShotTicks--;
         }
@@ -132,7 +140,7 @@ public abstract class BiomesUnseenMob  {
     }
 
     @Override
-    public void remove(RemovalReason reason) {
+    public void remove(net.minecraft.world.entity.Entity.RemovalReason reason) {
         super.remove(reason);
         if (!level().isClientSide) {
             SpawnCaps.onRemoved(level().dimension().location().toString());

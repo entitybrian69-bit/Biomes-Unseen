@@ -188,6 +188,7 @@ public abstract class BiomesUnseenMob %(gecko_iface)s {
 
 %(register_sig)s
 %(anim_helpers)s
+%(driver_field)s
     protected BiomesUnseenMob(EntityType<? extends %(base_class)s> type, %(world_t)s level, MobDef mobDef) {
         super(type, level);
         this.mobDef = mobDef;
@@ -200,6 +201,7 @@ public abstract class BiomesUnseenMob %(gecko_iface)s {
     @Override
     public void aiStep() {
         super.aiStep();
+        %(driver_tick)s
         if (animOneShotTicks > 0) {
             animOneShotTicks--;
         }
@@ -322,6 +324,14 @@ public abstract class BiomesUnseenMob %(gecko_iface)s {
         "world_t": world_t,
         "player_t": player_t,
         "gecko_cache": "",
+        "driver_field": ("""    private final com.biomesunseen.entity.legacy.LegacyAnimDriver animDriver =
+            new com.biomesunseen.entity.legacy.LegacyAnimDriver(this);
+
+    /** Shared procedural animation driver: pose data for the custom renderer. */
+    public com.biomesunseen.entity.legacy.LegacyAnimDriver animDriver() {
+        return animDriver;
+    }""" if geckolib == "none" else ""),
+        "driver_tick": "animDriver.tick();" if geckolib == "none" else "",
     }
 
     # The anim predicate needs the concrete mob id; give BiomesUnseenMob a
@@ -1139,23 +1149,8 @@ import software.bernie.geckolib3.util.GeckoLibUtil;
 """ % {"mid": mid}
             mob_imports = mob_imports + "\nimport software.bernie.geckolib3.core.IAnimatable;\n"
         else:
-            mob_imports = """
-import com.biomesunseen.entity.legacy.LegacyAnimDriver;
-"""
-            mob_gecko_methods = """
-    private final LegacyAnimDriver animDriver = new LegacyAnimDriver(this);
-
-    @Override
-    public void aiStep() {
-        super.aiStep();
-        animDriver.tick();
-    }
-
-    /** Legacy animation driver (no GeckoLib on 1.16.5): exposes pose data. */
-    public LegacyAnimDriver animDriver() {
-        return animDriver;
-    }
-"""
+            mob_imports = ""
+            mob_gecko_methods = ""
 
         ctor_super = ("super(type, level, com.biomesunseen.core.Content.mob(\"%s\"));" % mid)
 
@@ -1219,16 +1214,16 @@ public class %(cls)s extends BiomesUnseenMob {
     if geckolib == "none":
         _w(root, base + "/entity/legacy/LegacyAnimDriver.java", '''package com.biomesunseen.entity.legacy;
 
-import net.minecraft.entity.MobEntity;
+import net.minecraft.world.entity.Mob;
 
 /**
- * Procedural animation driver for the 1.16.5 line where GeckoLib is
- * unavailable.  Produces limb-swing, head-yaw and one-shot pose phases that
- * the legacy renderer reads, so every mob is still fully animated.
+ * Procedural animation driver used on every line: produces limb-swing,
+ * head-yaw and one-shot pose phases that the custom renderer reads, so
+ * every mob is fully animated without external animation libraries.
  */
 public class LegacyAnimDriver {
 
-    private final MobEntity mob;
+    private final Mob mob;
 
     public float limbSwing;
     public float limbSwingAmount;
@@ -1239,7 +1234,7 @@ public class LegacyAnimDriver {
     public String oneShotClip;
     private int oneShotTicks;
 
-    public LegacyAnimDriver(MobEntity mob) {
+    public LegacyAnimDriver(Mob mob) {
         this.mob = mob;
     }
 
@@ -1549,20 +1544,7 @@ public class HeartOfTheForestEntity extends BiomesUnseenMob {
     }
 '''
     else:
-        gecko_methods_heart = '''
-    private final com.biomesunseen.entity.legacy.LegacyAnimDriver animDriver =
-            new com.biomesunseen.entity.legacy.LegacyAnimDriver(this);
-
-    @Override
-    public void aiStep() {
-        super.aiStep();
-        animDriver.tick();
-    }
-
-    public com.biomesunseen.entity.legacy.LegacyAnimDriver animDriver() {
-        return animDriver;
-    }
-'''
+        gecko_methods_heart = ''
 
     heart = heart % {
         "boss_imports": boss_imports,
@@ -1851,20 +1833,7 @@ public class VoidSerpentEntity extends BiomesUnseenMob {
     }
 '''
     else:
-        gecko_methods_serpent = '''
-    private final com.biomesunseen.entity.legacy.LegacyAnimDriver animDriver =
-            new com.biomesunseen.entity.legacy.LegacyAnimDriver(this);
-
-    @Override
-    public void aiStep() {
-        super.aiStep();
-        animDriver.tick();
-    }
-
-    public com.biomesunseen.entity.legacy.LegacyAnimDriver animDriver() {
-        return animDriver;
-    }
-'''
+        gecko_methods_serpent = ''
 
     serpent = serpent % {
         "boss_imports": boss_imports,

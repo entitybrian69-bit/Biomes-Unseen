@@ -2,8 +2,6 @@ package com.biomesunseen.entity.mobs;
 
 import net.minecraft.entity.EntityType;
 import net.minecraft.world.World;
-import com.biomesunseen.entity.legacy.LegacyAnimDriver;
-
 
 import com.biomesunseen.core.Content;
 import com.biomesunseen.entity.BiomesUnseenMob;
@@ -74,18 +72,5 @@ public class EmberCalfEntity extends BiomesUnseenMob {
     }
 
     private net.minecraft.network.datasync.DataParameter<Boolean> TAME;
-
-    private final LegacyAnimDriver animDriver = new LegacyAnimDriver(this);
-
-    @Override
-    public void aiStep() {
-        super.aiStep();
-        animDriver.tick();
-    }
-
-    /** Legacy animation driver (no GeckoLib on 1.16.5): exposes pose data. */
-    public LegacyAnimDriver animDriver() {
-        return animDriver;
-    }
 
 }

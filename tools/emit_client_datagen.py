@@ -366,8 +366,8 @@ public class UnseenLegacyRenderer<T extends BiomesUnseenMob>
 
     _w(root, base + "/client/ClientSetup.java", '''package com.biomesunseen.client;
 
-import %(arch)s.registry.EntityRendererRegistry;
-import %(arch)s.registry.ParticleProviderRegistry;
+import %(arch_rr)s.EntityRendererRegistry;
+import %(arch_pr)s.ParticleProviderRegistry;
 
 import com.biomesunseen.registry.ModEntities;
 import com.biomesunseen.registry.ModParticles;
@@ -390,6 +390,12 @@ public final class ClientSetup {
 }
 ''' % {
         "arch": arch_pkg,
+        "arch_rr": ("me.shedaniel.architectury.registry"
+                    if F["expect"] == "me.shedaniel"
+                    else "dev.architectury.registry.client.level.entity"),
+        "arch_pr": ("me.shedaniel.architectury.registry"
+                    if F["expect"] == "me.shedaniel"
+                    else "dev.architectury.registry.client.particle"),
         "registrations": "\n".join(registrations),
         "particles": "\n".join(particle_regs),
         "extra_imports": (

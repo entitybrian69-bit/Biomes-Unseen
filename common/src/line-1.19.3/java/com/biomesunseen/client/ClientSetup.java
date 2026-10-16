@@ -1,7 +1,7 @@
 package com.biomesunseen.client;
 
-import dev.architectury.registry.EntityRendererRegistry;
-import dev.architectury.registry.ParticleProviderRegistry;
+import dev.architectury.registry.client.level.entity.EntityRendererRegistry;
+import dev.architectury.registry.client.particle.ParticleProviderRegistry;
 
 import com.biomesunseen.registry.ModEntities;
 import com.biomesunseen.registry.ModParticles;

@@ -202,17 +202,4 @@ public class VoidSerpentEntity extends BiomesUnseenMob {
     }
 
 
-    private final com.biomesunseen.entity.legacy.LegacyAnimDriver animDriver =
-            new com.biomesunseen.entity.legacy.LegacyAnimDriver(this);
-
-    @Override
-    public void aiStep() {
-        super.aiStep();
-        animDriver.tick();
-    }
-
-    public com.biomesunseen.entity.legacy.LegacyAnimDriver animDriver() {
-        return animDriver;
-    }
-
 }

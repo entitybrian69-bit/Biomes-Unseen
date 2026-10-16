@@ -166,11 +166,20 @@ def postprocess(root, line_key):
                 "dev.architectury.registry.registries.RegistrySupplier")
             text = text.replace(
                 "me.shedaniel.architectury.registry.EntityAttributeRegistry",
-                "dev.architectury.registry.entity.EntityAttributeRegistry")
+                "dev.architectury.registry.level.entity.EntityAttributeRegistry")
+            text = text.replace(
+                "me.shedaniel.architectury.registry.EntityRendererRegistry",
+                "dev.architectury.registry.client.level.entity.EntityRendererRegistry")
+            text = text.replace(
+                "me.shedaniel.architectury.registry.ParticleProviderRegistry",
+                "dev.architectury.registry.client.particle.ParticleProviderRegistry")
             text = text.replace(ARCH_PKG_OLD, ARCH_PKG_NEW)
         if F["text"] != "component":
             for a, b in TEXT_REWRITES:
                 text = text.replace(a, b)
+        if F["pkgs"] != "legacy":
+            text = text.replace("RemovalReason",
+                                "net.minecraft.world.entity.Entity.RemovalReason")
         if F["pkgs"] == "legacy":
             for a, b in LEGACY_REWRITES:
                 text = text.replace(a, b)
@@ -188,6 +197,20 @@ def main():
         os.path.dirname(os.path.abspath(__file__)), "..")
     root = os.path.abspath(root)
     print("Generating Biomes Unseen into", root)
+
+    # Remove previously generated trees so renamed/deleted files never linger.
+    import shutil
+    generated = ["common", "build.gradle", "settings.gradle", "gradle.properties",
+                 "gradlew", "gradlew.bat", "gradle", "README.md", "BUILD.md"]
+    for name in os.listdir(root):
+        if name.startswith(("fabric-", "forge-", "neoforge-", "data-")):
+            generated.append(name)
+    for name in generated:
+        path = os.path.join(root, name)
+        if os.path.isdir(path):
+            shutil.rmtree(path)
+        elif os.path.isfile(path):
+            os.remove(path)
 
     print("  root build files ...")
     emit_root.emit(root)

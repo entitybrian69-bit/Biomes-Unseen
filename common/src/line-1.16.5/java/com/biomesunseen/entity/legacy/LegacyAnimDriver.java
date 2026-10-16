@@ -3,9 +3,9 @@ package com.biomesunseen.entity.legacy;
 import net.minecraft.entity.MobEntity;
 
 /**
- * Procedural animation driver for the 1.16.5 line where GeckoLib is
- * unavailable.  Produces limb-swing, head-yaw and one-shot pose phases that
- * the legacy renderer reads, so every mob is still fully animated.
+ * Procedural animation driver used on every line: produces limb-swing,
+ * head-yaw and one-shot pose phases that the custom renderer reads, so
+ * every mob is fully animated without external animation libraries.
  */
 public class LegacyAnimDriver {
 
