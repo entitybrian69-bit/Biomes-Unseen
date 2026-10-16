@@ -1,25 +1,13 @@
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.2/java/com/biomesunseen/item/UnseenArmorMaterial.java:45: error: cannot find symbol
-                List.of(new ArmorMaterial.Layer(ResourceLocation.fromNamespaceAndPath("biomesunseen", ore.id))),
-                                         ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.2/java/com/biomesunseen/item/UnseenArmorMaterial.java:65: error: cannot find symbol
-        return material.getDefense(type);
-                       ^
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.2/java/com/biomesunseen/item/UnseenArmorMaterial.java:49: error: cannot find symbol
+                ResourceKey.create(Registries.EQUIPMENT_ASSET,
+                                             ^
 ---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.2/java/com/biomesunseen/item/LoreBookItem.java:36: error: cannot find symbol
         player.sendSystemMessage(net.minecraft.network.chat.Component.translatable(
               ^
 ---
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.2/java/com/biomesunseen/item/UnseenGearItems.java:80: error: incompatible types: Holder<ArmorMaterial> cannot be converted to ArmorMaterial
-            super(material.holder(), slot, properties);
-                                 ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.2/java/com/biomesunseen/client/legacy/UnseenLegacyModel.java:86: error: renderToBuffer(PoseStack,VertexConsumer,int,int) in UnseenLegacyModel cannot override renderToBuffer(PoseStack,VertexConsumer,int,int) in Model
-    public void renderToBuffer(com.mojang.blaze3d.vertex.PoseStack matrixStack,
-                ^
----
 > Task :neoforge-1.21.3:compileJava FAILED
-gradle/actions: Writing build results to /home/runner/work/_temp/.gradle-actions/build-results/__run_2-1792167271688.json
+gradle/actions: Writing build results to /home/runner/work/_temp/.gradle-actions/build-results/__run_2-1792168556962.json
 
 ---
 * What went wrong:
@@ -28,53 +16,29 @@ Execution failed for task ':neoforge-1.21.3:compileJava' (registered by plugin c
 ---
 Execution failed for task ':neoforge-1.21.3:compileJava' (registered by plugin class 'org.gradle.api.plugins.JavaBasePlugin').
 > Compilation failed; see the compiler output below.
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.2/java/com/biomesunseen/item/UnseenArmorMaterial.java:45: error: cannot find symbol
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.2/java/com/biomesunseen/item/UnseenArmorMaterial.java:49: error: cannot find symbol
 ---
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.2/java/com/biomesunseen/item/UnseenArmorMaterial.java:45: error: cannot find symbol
-                  List.of(new ArmorMaterial.Layer(ResourceLocation.fromNamespaceAndPath("biomesunseen", ore.id))),
-                                           ^
----
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.2/java/com/biomesunseen/item/UnseenArmorMaterial.java:65: error: cannot find symbol
-          return material.getDefense(type);
-                         ^
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.2/java/com/biomesunseen/item/UnseenArmorMaterial.java:49: error: cannot find symbol
+                  ResourceKey.create(Registries.EQUIPMENT_ASSET,
+                                               ^
 ---
   /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.2/java/com/biomesunseen/item/LoreBookItem.java:36: error: cannot find symbol
           player.sendSystemMessage(net.minecraft.network.chat.Component.translatable(
                 ^
 ---
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.2/java/com/biomesunseen/item/UnseenGearItems.java:80: error: incompatible types: Holder<ArmorMaterial> cannot be converted to ArmorMaterial
-              super(material.holder(), slot, properties);
-                                   ^
----
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.2/java/com/biomesunseen/client/legacy/UnseenLegacyModel.java:86: error: renderToBuffer(PoseStack,VertexConsumer,int,int) in UnseenLegacyModel cannot override renderToBuffer(PoseStack,VertexConsumer,int,int) in Model
-      public void renderToBuffer(com.mojang.blaze3d.vertex.PoseStack matrixStack,
-                  ^
----
 org.gradle.api.tasks.TaskExecutionException: Execution failed for task ':neoforge-1.21.3:compileJava' (registered by plugin class 'org.gradle.api.plugins.JavaBasePlugin').
 	at org.gradle.api.internal.tasks.execution.DefaultTaskNodeExecutor.lambda$doExecute$1(DefaultTaskNodeExecutor.java:367)
 	at org.gradle.internal.Try$Failure.ifSuccessfulOrElse(Try.java:288)
 ---
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.2/java/com/biomesunseen/item/UnseenArmorMaterial.java:45: error: cannot find symbol
-                List.of(new ArmorMaterial.Layer(ResourceLocation.fromNamespaceAndPath("biomesunseen", ore.id))),
-                                         ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.2/java/com/biomesunseen/item/UnseenArmorMaterial.java:65: error: cannot find symbol
-        return material.getDefense(type);
-                       ^
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.2/java/com/biomesunseen/item/UnseenArmorMaterial.java:49: error: cannot find symbol
+                ResourceKey.create(Registries.EQUIPMENT_ASSET,
+                                             ^
 ---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.2/java/com/biomesunseen/item/LoreBookItem.java:36: error: cannot find symbol
         player.sendSystemMessage(net.minecraft.network.chat.Component.translatable(
               ^
 ---
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.2/java/com/biomesunseen/item/UnseenGearItems.java:80: error: incompatible types: Holder<ArmorMaterial> cannot be converted to ArmorMaterial
-            super(material.holder(), slot, properties);
-                                 ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.2/java/com/biomesunseen/client/legacy/UnseenLegacyModel.java:86: error: renderToBuffer(PoseStack,VertexConsumer,int,int) in UnseenLegacyModel cannot override renderToBuffer(PoseStack,VertexConsumer,int,int) in Model
-    public void renderToBuffer(com.mojang.blaze3d.vertex.PoseStack matrixStack,
-                ^
----
-BUILD FAILED in 2m 23s
+BUILD FAILED in 1m 36s
 1 actionable task: 1 executed
 ---
 === STACKTRACE ===
@@ -83,34 +47,21 @@ Caused by: org.gradle.api.internal.tasks.compile.CompilationFailedException: Com
 * What went wrong:
 Execution failed for task ':neoforge-1.21.3:compileJava' (registered by plugin class 'org.gradle.api.plugins.JavaBasePlugin').
 > Compilation failed; see the compiler output below.
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.2/java/com/biomesunseen/item/UnseenArmorMaterial.java:45: error: cannot find symbol
-                  List.of(new ArmorMaterial.Layer(ResourceLocation.fromNamespaceAndPath("biomesunseen", ore.id))),
-                                           ^
-    symbol:   class Layer
-    location: class ArmorMaterial
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.2/java/com/biomesunseen/item/UnseenArmorMaterial.java:65: error: cannot find symbol
-          return material.getDefense(type);
-                         ^
-    symbol:   method getDefense(ArmorType)
-    location: variable material of type ArmorMaterial
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.2/java/com/biomesunseen/item/UnseenArmorMaterial.java:49: error: cannot find symbol
+                  ResourceKey.create(Registries.EQUIPMENT_ASSET,
+                                               ^
+    symbol:   variable EQUIPMENT_ASSET
+    location: class Registries
   /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.2/java/com/biomesunseen/item/LoreBookItem.java:36: error: cannot find symbol
           player.sendSystemMessage(net.minecraft.network.chat.Component.translatable(
                 ^
     symbol:   method sendSystemMessage(MutableComponent)
     location: variable player of type Player
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.2/java/com/biomesunseen/item/UnseenGearItems.java:80: error: incompatible types: Holder<ArmorMaterial> cannot be converted to ArmorMaterial
-              super(material.holder(), slot, properties);
-                                   ^
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.2/java/com/biomesunseen/client/legacy/UnseenLegacyModel.java:86: error: renderToBuffer(PoseStack,VertexConsumer,int,int) in UnseenLegacyModel cannot override renderToBuffer(PoseStack,VertexConsumer,int,int) in Model
-      public void renderToBuffer(com.mojang.blaze3d.vertex.PoseStack matrixStack,
-                  ^
-    overridden method is final
   Note: Some input files use or override a deprecated API.
   Note: Recompile with -Xlint:deprecation for details.
   Note: Some input files use unchecked or unsafe operations.
   Note: Recompile with -Xlint:unchecked for details.
-  Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
-  5 errors
+  2 errors
 
 * Try:
 === LAST 40 ===
@@ -152,5 +103,5 @@ Execution failed for task ':neoforge-1.21.3:compileJava' (registered by plugin c
 	... 25 more
 
 
-BUILD FAILED in 2m 23s
+BUILD FAILED in 1m 36s
 1 actionable task: 1 executed
