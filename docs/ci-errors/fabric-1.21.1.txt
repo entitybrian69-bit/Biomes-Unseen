@@ -1,25 +1,9 @@
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/entity/boss/HeartOfTheForestEntity.java:125: error: cannot find symbol
-            for (Player player : unseenLevel().getNearestPlayers(this, 10.0D, 10.0D)) {
-                                              ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/item/UnseenToolTier.java:14: error: UnseenToolTier is not abstract and does not override abstract method getIncorrectBlocksForDrops() in Tier
-public class UnseenToolTier implements Tier {
-       ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/item/UnseenToolTier.java:39: error: method does not override or implement a method from a supertype
-    @Override
-    ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/item/UnseenGearItems.java:50: error: constructor PickaxeItem in class PickaxeItem cannot be applied to given types;
-            super(tier, (int) ore.toolAttackDamage - 1, (float) (ore.toolSpeed / 2.5) - 2.4F, properties);
-            ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/item/UnseenGearItems.java:64: error: constructor SwordItem in class SwordItem cannot be applied to given types;
-            super(tier, (int) ore.toolAttackDamage, (float) (ore.toolSpeed / 2.5), properties);
-            ^
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/entity/boss/VoidSerpentEntity.java:144: error: package net.minecraft.world.phys.net.minecraft.world.phys does not exist
+                net.minecraft.world.phys.net.minecraft.world.phys.AABB box = new net.minecraft.world.phys.AABB(segmentX(i) - 2.0D, segmentY(i) - 2.0D, segmentZ(i) - 2.0D,
+                                                                 ^
 ---
 > Task :fabric-1.21.1:compileJava FAILED
-gradle/actions: Writing build results to /home/runner/work/_temp/.gradle-actions/build-results/__run_2-1792159990789.json
+gradle/actions: Writing build results to /home/runner/work/_temp/.gradle-actions/build-results/__run_2-1792163066219.json
 
 ---
 * What went wrong:
@@ -28,53 +12,21 @@ Execution failed for task ':fabric-1.21.1:compileJava' (registered by plugin cla
 ---
 Execution failed for task ':fabric-1.21.1:compileJava' (registered by plugin class 'org.gradle.api.plugins.JavaBasePlugin').
 > Compilation failed; see the compiler output below.
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/entity/boss/HeartOfTheForestEntity.java:125: error: cannot find symbol
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/entity/boss/VoidSerpentEntity.java:144: error: package net.minecraft.world.phys.net.minecraft.world.phys does not exist
 ---
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/entity/boss/HeartOfTheForestEntity.java:125: error: cannot find symbol
-              for (Player player : unseenLevel().getNearestPlayers(this, 10.0D, 10.0D)) {
-                                                ^
----
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/item/UnseenToolTier.java:14: error: UnseenToolTier is not abstract and does not override abstract method getIncorrectBlocksForDrops() in Tier
-  public class UnseenToolTier implements Tier {
-         ^
----
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/item/UnseenToolTier.java:39: error: method does not override or implement a method from a supertype
-      @Override
-      ^
----
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/item/UnseenGearItems.java:50: error: constructor PickaxeItem in class PickaxeItem cannot be applied to given types;
-              super(tier, (int) ore.toolAttackDamage - 1, (float) (ore.toolSpeed / 2.5) - 2.4F, properties);
-              ^
----
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/item/UnseenGearItems.java:64: error: constructor SwordItem in class SwordItem cannot be applied to given types;
-              super(tier, (int) ore.toolAttackDamage, (float) (ore.toolSpeed / 2.5), properties);
-              ^
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/entity/boss/VoidSerpentEntity.java:144: error: package net.minecraft.world.phys.net.minecraft.world.phys does not exist
+                  net.minecraft.world.phys.net.minecraft.world.phys.AABB box = new net.minecraft.world.phys.AABB(segmentX(i) - 2.0D, segmentY(i) - 2.0D, segmentZ(i) - 2.0D,
+                                                                   ^
 ---
 org.gradle.api.tasks.TaskExecutionException: Execution failed for task ':fabric-1.21.1:compileJava' (registered by plugin class 'org.gradle.api.plugins.JavaBasePlugin').
 	at org.gradle.api.internal.tasks.execution.DefaultTaskNodeExecutor.lambda$doExecute$1(DefaultTaskNodeExecutor.java:367)
 	at org.gradle.internal.Try$Failure.ifSuccessfulOrElse(Try.java:288)
 ---
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/entity/boss/HeartOfTheForestEntity.java:125: error: cannot find symbol
-            for (Player player : unseenLevel().getNearestPlayers(this, 10.0D, 10.0D)) {
-                                              ^
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/entity/boss/VoidSerpentEntity.java:144: error: package net.minecraft.world.phys.net.minecraft.world.phys does not exist
+                net.minecraft.world.phys.net.minecraft.world.phys.AABB box = new net.minecraft.world.phys.AABB(segmentX(i) - 2.0D, segmentY(i) - 2.0D, segmentZ(i) - 2.0D,
+                                                                 ^
 ---
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/item/UnseenToolTier.java:14: error: UnseenToolTier is not abstract and does not override abstract method getIncorrectBlocksForDrops() in Tier
-public class UnseenToolTier implements Tier {
-       ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/item/UnseenToolTier.java:39: error: method does not override or implement a method from a supertype
-    @Override
-    ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/item/UnseenGearItems.java:50: error: constructor PickaxeItem in class PickaxeItem cannot be applied to given types;
-            super(tier, (int) ore.toolAttackDamage - 1, (float) (ore.toolSpeed / 2.5) - 2.4F, properties);
-            ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/item/UnseenGearItems.java:64: error: constructor SwordItem in class SwordItem cannot be applied to given types;
-            super(tier, (int) ore.toolAttackDamage, (float) (ore.toolSpeed / 2.5), properties);
-            ^
----
-BUILD FAILED in 1m 32s
+BUILD FAILED in 1m 10s
 1 actionable task: 1 executed
 ---
 === STACKTRACE ===
@@ -83,32 +35,12 @@ Caused by: org.gradle.api.internal.tasks.compile.CompilationFailedException: Com
 * What went wrong:
 Execution failed for task ':fabric-1.21.1:compileJava' (registered by plugin class 'org.gradle.api.plugins.JavaBasePlugin').
 > Compilation failed; see the compiler output below.
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/entity/boss/HeartOfTheForestEntity.java:125: error: cannot find symbol
-              for (Player player : unseenLevel().getNearestPlayers(this, 10.0D, 10.0D)) {
-                                                ^
-    symbol:   method getNearestPlayers(HeartOfTheForestEntity,double,double)
-    location: class Level
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/item/UnseenToolTier.java:14: error: UnseenToolTier is not abstract and does not override abstract method getIncorrectBlocksForDrops() in Tier
-  public class UnseenToolTier implements Tier {
-         ^
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/item/UnseenToolTier.java:39: error: method does not override or implement a method from a supertype
-      @Override
-      ^
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/item/UnseenGearItems.java:50: error: constructor PickaxeItem in class PickaxeItem cannot be applied to given types;
-              super(tier, (int) ore.toolAttackDamage - 1, (float) (ore.toolSpeed / 2.5) - 2.4F, properties);
-              ^
-    required: Tier,Properties
-    found:    UnseenToolTier,int,float,Properties
-    reason: actual and formal argument lists differ in length
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/item/UnseenGearItems.java:64: error: constructor SwordItem in class SwordItem cannot be applied to given types;
-              super(tier, (int) ore.toolAttackDamage, (float) (ore.toolSpeed / 2.5), properties);
-              ^
-    required: Tier,Properties
-    found:    UnseenToolTier,int,float,Properties
-    reason: actual and formal argument lists differ in length
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/entity/boss/VoidSerpentEntity.java:144: error: package net.minecraft.world.phys.net.minecraft.world.phys does not exist
+                  net.minecraft.world.phys.net.minecraft.world.phys.AABB box = new net.minecraft.world.phys.AABB(segmentX(i) - 2.0D, segmentY(i) - 2.0D, segmentZ(i) - 2.0D,
+                                                                   ^
   Note: Some input files use unchecked or unsafe operations.
   Note: Recompile with -Xlint:unchecked for details.
-  5 errors
+  1 error
 
 * Try:
 === LAST 40 ===
@@ -150,5 +82,5 @@ Execution failed for task ':fabric-1.21.1:compileJava' (registered by plugin cla
 	... 25 more
 
 
-BUILD FAILED in 1m 32s
+BUILD FAILED in 1m 10s
 1 actionable task: 1 executed

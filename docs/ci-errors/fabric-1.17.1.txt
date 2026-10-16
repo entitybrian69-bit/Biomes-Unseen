@@ -10,17 +10,9 @@ import net.minecraft.world.level.levelgen.StructureSeparationSettings;
     @Override
     ^
 ---
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/entity/boss/VoidSerpentEntity.java:144: error: cannot find symbol
-                AABB box = new net.minecraft.world.phys.AABB(segmentX(i) - 2.0D, segmentY(i) - 2.0D, segmentZ(i) - 2.0D,
-                ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/entity/boss/VoidSerpentEntity.java:158: error: cannot find symbol
-                unseenLevel().broadcastDamageEvent(target, DamageSource.mobAttack(this));
-                             ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/entity/boss/HeartOfTheForestEntity.java:125: error: cannot find symbol
-            for (Player player : unseenLevel().getNearestPlayers(this, 10.0D, 10.0D)) {
-                                              ^
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/entity/boss/VoidSerpentEntity.java:144: error: package net.minecraft.world.phys.net.minecraft.world.phys does not exist
+                net.minecraft.world.phys.net.minecraft.world.phys.AABB box = new net.minecraft.world.phys.AABB(segmentX(i) - 2.0D, segmentY(i) - 2.0D, segmentZ(i) - 2.0D,
+                                                                 ^
 ---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModEntities.java:147: error: incompatible types: RegistrySupplier<EntityType<LumoxEntity>> cannot be converted to Supplier<EntityType<? extends LivingEntity>>
         EntityAttributeRegistry.register(Lumox, () -> Mob.createMobAttributes()
@@ -130,26 +122,6 @@ import net.minecraft.world.level.levelgen.StructureSeparationSettings;
         EntityAttributeRegistry.register(VoidSerpent, () -> Mob.createMobAttributes()
                                          ^
 ---
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModRegistries.java:20: error: method create in class DeferredRegister<T#2> cannot be applied to given types;
-            DeferredRegister.create(MOD_ID, Registry.BLOCK);
-                            ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModRegistries.java:22: error: method create in class DeferredRegister<T#2> cannot be applied to given types;
-            DeferredRegister.create(MOD_ID, Registry.ITEM);
-                            ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModRegistries.java:24: error: method create in class DeferredRegister<T#2> cannot be applied to given types;
-            DeferredRegister.create(MOD_ID, Registry.ENTITY_TYPE);
-                            ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModRegistries.java:26: error: method create in class DeferredRegister<T#2> cannot be applied to given types;
-            DeferredRegister.create(MOD_ID, Registry.SOUND_EVENT);
-                            ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModRegistries.java:28: error: method create in class DeferredRegister<T#2> cannot be applied to given types;
-            DeferredRegister.create(MOD_ID, Registry.PARTICLE_TYPE);
-                            ^
----
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/item/LoreBookItem.java:36: error: cannot find symbol
         player.sendSystemMessage(new net.minecraft.network.chat.TranslatableComponent(
               ^
@@ -238,6 +210,34 @@ import net.minecraft.world.level.levelgen.StructureSeparationSettings;
         EntityRendererRegistry.register(ModEntities.EchoHowler, context -> new UnseenLegacyRenderer<>(context, "echo_howler"));
                               ^
 ---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/client/ClientSetup.java:39: error: method register in class EntityRendererRegistry cannot be applied to given types;
+        EntityRendererRegistry.register(ModEntities.DuneSkimmer, context -> new UnseenLegacyRenderer<>(context, "dune_skimmer"));
+                              ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/client/ClientSetup.java:40: error: method register in class EntityRendererRegistry cannot be applied to given types;
+        EntityRendererRegistry.register(ModEntities.TideCaller, context -> new UnseenLegacyRenderer<>(context, "tide_caller"));
+                              ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/client/ClientSetup.java:41: error: method register in class EntityRendererRegistry cannot be applied to given types;
+        EntityRendererRegistry.register(ModEntities.GloomStalker, context -> new UnseenLegacyRenderer<>(context, "gloom_stalker"));
+                              ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/client/ClientSetup.java:42: error: method register in class EntityRendererRegistry cannot be applied to given types;
+        EntityRendererRegistry.register(ModEntities.CrystalHermit, context -> new UnseenLegacyRenderer<>(context, "crystal_hermit"));
+                              ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/client/ClientSetup.java:43: error: method register in class EntityRendererRegistry cannot be applied to given types;
+        EntityRendererRegistry.register(ModEntities.WindDancer, context -> new UnseenLegacyRenderer<>(context, "wind_dancer"));
+                              ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/client/ClientSetup.java:44: error: method register in class EntityRendererRegistry cannot be applied to given types;
+        EntityRendererRegistry.register(ModEntities.MireGolem, context -> new UnseenLegacyRenderer<>(context, "mire_golem"));
+                              ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/client/ClientSetup.java:45: error: method register in class EntityRendererRegistry cannot be applied to given types;
+        EntityRendererRegistry.register(ModEntities.LanternFox, context -> new UnseenLegacyRenderer<>(context, "lantern_fox"));
+                              ^
+---
 === STACKTRACE ===
 Caused by: org.gradle.api.internal.tasks.compile.CompilationFailedException: Compilation failed; see the compiler output below.
 === WHAT WENT WRONG ===
@@ -249,7 +249,7 @@ Execution failed for task ':fabric-1.17.1:compileJava' (registered by plugin cla
                                            ^
     symbol:   class StructureSeparationSettings
     location: package net.minecraft.world.level.levelgen
-  85 errors
+  78 errors
 
 * Try:
 === LAST 40 ===
@@ -263,7 +263,7 @@ Execution failed for task ':fabric-1.17.1:compileJava' (registered by plugin cla
 Note: Some input files use unchecked or unsafe operations.
 Note: Recompile with -Xlint:unchecked for details.
 Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
-85 errors
+78 errors
 	at org.gradle.api.internal.tasks.compile.JdkJavaCompiler.execute(JdkJavaCompiler.java:88)
 	at org.gradle.api.internal.tasks.compile.JdkJavaCompiler.execute(JdkJavaCompiler.java:49)
 	at org.gradle.api.internal.tasks.compile.daemon.CompilerWorkAction.execute(CompilerWorkAction.java:52)
@@ -291,5 +291,5 @@ Note: Some messages have been simplified; recompile with -Xdiags:verbose to get 
 	at org.gradle.internal.concurrent.AbstractManagedExecutor$1.run(AbstractManagedExecutor.java:47)
 
 
-BUILD FAILED in 1m 13s
+BUILD FAILED in 1m 15s
 1 actionable task: 1 executed

@@ -1,21 +1,9 @@
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.19.4/java/com/biomesunseen/entity/boss/HeartOfTheForestEntity.java:125: error: cannot find symbol
-            for (Player player : unseenLevel().getNearestPlayers(this, 10.0D, 10.0D)) {
-                                              ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.19.4/java/com/biomesunseen/block/UnseenDecorBlock.java:21: error: cannot find symbol
-        BlockBehaviour.Properties properties = BlockBehaviour.Properties.of(net.minecraft.world.level.material.Material.STONE).strength(1.5F, 6.0F);
-                                                                                                              ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.19.4/java/com/biomesunseen/block/UnseenOreBlock.java:22: error: cannot find symbol
-        BlockBehaviour.Properties properties = BlockBehaviour.Properties.of(net.minecraft.world.level.material.Material.STONE).strength(3.0F, 3.0F);
-                                                                                                              ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.19.4/java/com/biomesunseen/block/UnseenPlantBlock.java:23: error: cannot find symbol
-        BlockBehaviour.Properties properties = BlockBehaviour.Properties.of(net.minecraft.world.level.material.Material.PLANT);
-                                                                                                              ^
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.20/java/com/biomesunseen/entity/boss/VoidSerpentEntity.java:144: error: package net.minecraft.world.phys.net.minecraft.world.phys does not exist
+                net.minecraft.world.phys.net.minecraft.world.phys.AABB box = new net.minecraft.world.phys.AABB(segmentX(i) - 2.0D, segmentY(i) - 2.0D, segmentZ(i) - 2.0D,
+                                                                 ^
 ---
 > Task :fabric-1.20:compileJava FAILED
-gradle/actions: Writing build results to /home/runner/work/_temp/.gradle-actions/build-results/__run_2-1792159513961.json
+gradle/actions: Writing build results to /home/runner/work/_temp/.gradle-actions/build-results/__run_2-1792162838702.json
 
 ---
 * What went wrong:
@@ -24,33 +12,21 @@ Execution failed for task ':fabric-1.20:compileJava' (registered by plugin class
 ---
 Execution failed for task ':fabric-1.20:compileJava' (registered by plugin class 'org.gradle.api.plugins.JavaBasePlugin').
 > Compilation failed; see the compiler output below.
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.19.4/java/com/biomesunseen/entity/boss/HeartOfTheForestEntity.java:125: error: cannot find symbol
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.20/java/com/biomesunseen/entity/boss/VoidSerpentEntity.java:144: error: package net.minecraft.world.phys.net.minecraft.world.phys does not exist
 ---
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.19.4/java/com/biomesunseen/entity/boss/HeartOfTheForestEntity.java:125: error: cannot find symbol
-              for (Player player : unseenLevel().getNearestPlayers(this, 10.0D, 10.0D)) {
-                                                ^
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.20/java/com/biomesunseen/entity/boss/VoidSerpentEntity.java:144: error: package net.minecraft.world.phys.net.minecraft.world.phys does not exist
+                  net.minecraft.world.phys.net.minecraft.world.phys.AABB box = new net.minecraft.world.phys.AABB(segmentX(i) - 2.0D, segmentY(i) - 2.0D, segmentZ(i) - 2.0D,
+                                                                   ^
 ---
 org.gradle.api.tasks.TaskExecutionException: Execution failed for task ':fabric-1.20:compileJava' (registered by plugin class 'org.gradle.api.plugins.JavaBasePlugin').
 	at org.gradle.api.internal.tasks.execution.DefaultTaskNodeExecutor.lambda$doExecute$1(DefaultTaskNodeExecutor.java:367)
 	at org.gradle.internal.Try$Failure.ifSuccessfulOrElse(Try.java:288)
 ---
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.19.4/java/com/biomesunseen/entity/boss/HeartOfTheForestEntity.java:125: error: cannot find symbol
-            for (Player player : unseenLevel().getNearestPlayers(this, 10.0D, 10.0D)) {
-                                              ^
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.20/java/com/biomesunseen/entity/boss/VoidSerpentEntity.java:144: error: package net.minecraft.world.phys.net.minecraft.world.phys does not exist
+                net.minecraft.world.phys.net.minecraft.world.phys.AABB box = new net.minecraft.world.phys.AABB(segmentX(i) - 2.0D, segmentY(i) - 2.0D, segmentZ(i) - 2.0D,
+                                                                 ^
 ---
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.19.4/java/com/biomesunseen/block/UnseenDecorBlock.java:21: error: cannot find symbol
-        BlockBehaviour.Properties properties = BlockBehaviour.Properties.of(net.minecraft.world.level.material.Material.STONE).strength(1.5F, 6.0F);
-                                                                                                              ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.19.4/java/com/biomesunseen/block/UnseenOreBlock.java:22: error: cannot find symbol
-        BlockBehaviour.Properties properties = BlockBehaviour.Properties.of(net.minecraft.world.level.material.Material.STONE).strength(3.0F, 3.0F);
-                                                                                                              ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.19.4/java/com/biomesunseen/block/UnseenPlantBlock.java:23: error: cannot find symbol
-        BlockBehaviour.Properties properties = BlockBehaviour.Properties.of(net.minecraft.world.level.material.Material.PLANT);
-                                                                                                              ^
----
-BUILD FAILED in 1m 15s
+BUILD FAILED in 1m 25s
 1 actionable task: 1 executed
 ---
 === STACKTRACE ===
@@ -59,26 +35,24 @@ Caused by: org.gradle.api.internal.tasks.compile.CompilationFailedException: Com
 * What went wrong:
 Execution failed for task ':fabric-1.20:compileJava' (registered by plugin class 'org.gradle.api.plugins.JavaBasePlugin').
 > Compilation failed; see the compiler output below.
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.19.4/java/com/biomesunseen/entity/boss/HeartOfTheForestEntity.java:125: error: cannot find symbol
-              for (Player player : unseenLevel().getNearestPlayers(this, 10.0D, 10.0D)) {
-                                                ^
-    symbol:   method getNearestPlayers(HeartOfTheForestEntity,double,double)
-    location: class Level
-  4 errors
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.20/java/com/biomesunseen/entity/boss/VoidSerpentEntity.java:144: error: package net.minecraft.world.phys.net.minecraft.world.phys does not exist
+                  net.minecraft.world.phys.net.minecraft.world.phys.AABB box = new net.minecraft.world.phys.AABB(segmentX(i) - 2.0D, segmentY(i) - 2.0D, segmentZ(i) - 2.0D,
+                                                                   ^
+  1 error
 
 * Try:
 === LAST 40 ===
-                                                                                                              ^
-  symbol:   class Material
-  location: package net.minecraft.world.level.material
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.19.4/java/com/biomesunseen/block/UnseenPlantBlock.java:23: error: cannot find symbol
-        BlockBehaviour.Properties properties = BlockBehaviour.Properties.of(net.minecraft.world.level.material.Material.PLANT);
-                                                                                                              ^
-  symbol:   class Material
-  location: package net.minecraft.world.level.material
+	at org.gradle.execution.plan.DefaultPlanExecutor$ExecutorWorker.execute(DefaultPlanExecutor.java:475)
+	at org.gradle.execution.plan.DefaultPlanExecutor$ExecutorWorker.run(DefaultPlanExecutor.java:392)
+	at org.gradle.internal.concurrent.ExecutorPolicy$CatchAndRecordFailures.onExecute(ExecutorPolicy.java:65)
+	at org.gradle.internal.concurrent.AbstractManagedExecutor$1.run(AbstractManagedExecutor.java:47)
+Caused by: org.gradle.api.internal.tasks.compile.CompilationFailedException: Compilation failed; see the compiler output below.
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.20/java/com/biomesunseen/entity/boss/VoidSerpentEntity.java:144: error: package net.minecraft.world.phys.net.minecraft.world.phys does not exist
+                net.minecraft.world.phys.net.minecraft.world.phys.AABB box = new net.minecraft.world.phys.AABB(segmentX(i) - 2.0D, segmentY(i) - 2.0D, segmentZ(i) - 2.0D,
+                                                                 ^
 Note: Some input files use unchecked or unsafe operations.
 Note: Recompile with -Xlint:unchecked for details.
-4 errors
+1 error
 	at org.gradle.api.internal.tasks.compile.JdkJavaCompiler.execute(JdkJavaCompiler.java:88)
 	at org.gradle.api.internal.tasks.compile.JdkJavaCompiler.execute(JdkJavaCompiler.java:49)
 	at org.gradle.api.internal.tasks.compile.daemon.CompilerWorkAction.execute(CompilerWorkAction.java:52)
@@ -106,5 +80,5 @@ Note: Recompile with -Xlint:unchecked for details.
 	at org.gradle.internal.concurrent.AbstractManagedExecutor$1.run(AbstractManagedExecutor.java:47)
 
 
-BUILD FAILED in 1m 15s
+BUILD FAILED in 1m 25s
 1 actionable task: 1 executed
