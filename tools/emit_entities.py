@@ -443,7 +443,7 @@ public abstract class ThrottledGoal extends Goal {
 
     @Override
     public boolean canUse() {
-        return AiThrottle.shouldThink(mob.getId(), mob.level().getGameTime())
+        return AiThrottle.shouldThink(mob.getId(), mob.unseenLevel().getGameTime())
                 && throttledCanUse();
     }
 
@@ -624,7 +624,7 @@ import com.biomesunseen.entity.BiomesUnseenMob;
 public class FleeDangerGoal extends ThrottledGoal {
 
     private final double speed;
-    private %(creature_t)s threat;
+    private net.minecraft.world.entity.player.Player threat;
     private int fleeTicks;
 
     public FleeDangerGoal(%(creature_t)s mob, double speed) {
@@ -638,7 +638,7 @@ public class FleeDangerGoal extends ThrottledGoal {
         if (mob instanceof BiomesUnseenMob && !((BiomesUnseenMob) mob).mobDef().flees) {
             return false;
         }
-        threat = mob.level().getNearestPlayer(mob, 8.0D);
+        threat = com.biomesunseen.util.EntityLevels.of(mob).getNearestPlayer(mob, 8.0D);
         return threat != null;
     }
 
@@ -710,7 +710,7 @@ public class WanderTradeGoal extends ThrottledGoal {
         if (!(mob instanceof BiomesUnseenMob) || !((BiomesUnseenMob) mob).mobDef().tradable) {
             return false;
         }
-        customer = mob.level().getNearestPlayer(mob, 6.0D);
+        customer = com.biomesunseen.util.EntityLevels.of(mob).getNearestPlayer(mob, 6.0D);
         return customer != null && tradeCooldown <= 0;
     }
 
@@ -730,7 +730,7 @@ public class WanderTradeGoal extends ThrottledGoal {
     @Override
     public void tick() {
         tradeCooldown--;
-        if (customer != null && tradeCooldown == 390 && !mob.level().isClientSide) {
+        if (customer != null && tradeCooldown == 390 && !mob.unseenLevel().isClientSide) {
             // Simple barter: trophy from the mob, mineral to the player.
             java.util.List<me.shedaniel.architectury.registry.RegistrySupplier<net.minecraft.world.item.Item>> minerals =
                     new java.util.ArrayList<>(ModItems.MINERALS.values());
@@ -805,7 +805,7 @@ public class TerrainUseGoal extends ThrottledGoal {
         for (int i = 0; i < 6; i++) {
             net.minecraft.core.BlockPos candidate = mob.blockPosition().offset(
                     mob.getRandom().nextInt(13) - 6, 0, mob.getRandom().nextInt(13) - 6);
-            net.minecraft.core.BlockPos surface = mob.level().getHeightmapPos(
+            net.minecraft.core.BlockPos surface = com.biomesunseen.util.EntityLevels.of(mob).getHeightmapPos(
                     net.minecraft.world.level.levelgen.Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, candidate);
             double score = surface.getY() - mob.getY();
             if (mob.getHealth() < mob.getMaxHealth() * 0.5F) {
@@ -996,7 +996,7 @@ public class GrazeGoal extends ThrottledGoal {
                 }
                 stack.shrink(1);
             }
-            return net.minecraft.world.InteractionResult.sidedSuccess(level().isClientSide);
+            return net.minecraft.world.InteractionResult.sidedSuccess(unseenLevel().isClientSide);
         }
         return super.mobInteract(player, hand);
     }
@@ -1394,7 +1394,7 @@ public class HeartOfTheForestEntity extends BiomesUnseenMob {
     @Override
     public void aiStep() {
         super.aiStep();
-        if (level().isClientSide) {
+        if (unseenLevel().isClientSide) {
             return;
         }
         float fraction = getHealth() / getMaxHealth();
@@ -1678,7 +1678,7 @@ public class VoidSerpentEntity extends BiomesUnseenMob {
             py = segmentY[i];
             pz = segmentZ[i];
         }
-        if (level().isClientSide) {
+        if (unseenLevel().isClientSide) {
             return;
         }
         if (phaseShiftTicks > 0) {

@@ -1,6 +1,5 @@
 package com.biomesunseen.item;
 
-import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ToolMaterial;
@@ -24,20 +23,20 @@ public final class UnseenGearItems {
         return new UnseenSwordItem(ore, tier, properties);
     }
 
-    public static ArmorItem helmet(OreDef ore, UnseenArmorMaterial material, Item.Properties properties) {
-        return new UnseenArmorItem(ore, material, ArmorItem.Type.HELMET, properties);
+    public static Item helmet(OreDef ore, UnseenArmorMaterial material, Item.Properties properties) {
+        return new UnseenArmorItem(ore, material, ArmorType.HELMET, properties);
     }
 
-    public static ArmorItem chestplate(OreDef ore, UnseenArmorMaterial material, Item.Properties properties) {
-        return new UnseenArmorItem(ore, material, ArmorItem.Type.CHESTPLATE, properties);
+    public static Item chestplate(OreDef ore, UnseenArmorMaterial material, Item.Properties properties) {
+        return new UnseenArmorItem(ore, material, ArmorType.CHESTPLATE, properties);
     }
 
-    public static ArmorItem leggings(OreDef ore, UnseenArmorMaterial material, Item.Properties properties) {
-        return new UnseenArmorItem(ore, material, ArmorItem.Type.LEGGINGS, properties);
+    public static Item leggings(OreDef ore, UnseenArmorMaterial material, Item.Properties properties) {
+        return new UnseenArmorItem(ore, material, ArmorType.LEGGINGS, properties);
     }
 
-    public static ArmorItem boots(OreDef ore, UnseenArmorMaterial material, Item.Properties properties) {
-        return new UnseenArmorItem(ore, material, ArmorItem.Type.BOOTS, properties);
+    public static Item boots(OreDef ore, UnseenArmorMaterial material, Item.Properties properties) {
+        return new UnseenArmorItem(ore, material, ArmorType.BOOTS, properties);
     }
 
     /** Concrete pickaxe bound to its ore. */
@@ -69,11 +68,11 @@ public final class UnseenGearItems {
     }
 
     /** Concrete armor piece bound to its ore. */
-    public static final class UnseenArmorItem extends ArmorItem {
+    public static final class UnseenArmorItem extends Item {
         private final OreDef ore;
 
-        UnseenArmorItem(OreDef ore, UnseenArmorMaterial material, ArmorItem.Type slot, Item.Properties properties) {
-            super(material.holder(), slot, properties);
+        UnseenArmorItem(OreDef ore, UnseenArmorMaterial material, ArmorType slot, Item.Properties properties) {
+            super(properties);
             this.ore = ore;
         }
 

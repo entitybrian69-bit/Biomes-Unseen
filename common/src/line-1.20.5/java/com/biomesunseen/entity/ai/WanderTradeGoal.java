@@ -31,7 +31,7 @@ public class WanderTradeGoal extends ThrottledGoal {
         if (!(mob instanceof BiomesUnseenMob) || !((BiomesUnseenMob) mob).mobDef().tradable) {
             return false;
         }
-        customer = mob.level().getNearestPlayer(mob, 6.0D);
+        customer = com.biomesunseen.util.EntityLevels.of(mob).getNearestPlayer(mob, 6.0D);
         return customer != null && tradeCooldown <= 0;
     }
 
@@ -51,7 +51,7 @@ public class WanderTradeGoal extends ThrottledGoal {
     @Override
     public void tick() {
         tradeCooldown--;
-        if (customer != null && tradeCooldown == 390 && !mob.level().isClientSide) {
+        if (customer != null && tradeCooldown == 390 && !mob.unseenLevel().isClientSide) {
             // Simple barter: trophy from the mob, mineral to the player.
             java.util.List<dev.architectury.registry.registries.RegistrySupplier<net.minecraft.world.item.Item>> minerals =
                     new java.util.ArrayList<>(ModItems.MINERALS.values());

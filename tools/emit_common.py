@@ -1,3 +1,6 @@
+ENTITY_LEVELS = open(__import__('os').path.join(__import__('os').path.dirname(__import__('os').path.abspath(__file__)), '..', 'common', 'src', 'main', 'java', 'com', 'biomesunseen', 'util', 'EntityLevels.java')).read()
+
+
 # -*- coding: utf-8 -*-
 """Emits common/src/main/java - pure-Java core compiled into every module.
 
@@ -32,6 +35,7 @@ def _f(v):
 
 
 def emit(root):
+    _w(root, "common/src/main/java/com/biomesunseen/util/EntityLevels.java", ENTITY_LEVELS)
     # ------------------------------------------------------------------ #
     _w(root, JAVA_CORE + "/ModConstants.java", '''package com.biomesunseen.core;
 

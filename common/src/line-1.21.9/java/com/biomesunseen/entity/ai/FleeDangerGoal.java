@@ -14,7 +14,7 @@ import com.biomesunseen.entity.BiomesUnseenMob;
 public class FleeDangerGoal extends ThrottledGoal {
 
     private final double speed;
-    private PathfinderMob threat;
+    private net.minecraft.world.entity.player.Player threat;
     private int fleeTicks;
 
     public FleeDangerGoal(PathfinderMob mob, double speed) {
@@ -28,7 +28,7 @@ public class FleeDangerGoal extends ThrottledGoal {
         if (mob instanceof BiomesUnseenMob && !((BiomesUnseenMob) mob).mobDef().flees) {
             return false;
         }
-        threat = mob.level().getNearestPlayer(mob, 8.0D);
+        threat = com.biomesunseen.util.EntityLevels.of(mob).getNearestPlayer(mob, 8.0D);
         return threat != null;
     }
 

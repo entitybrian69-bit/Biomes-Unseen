@@ -110,6 +110,9 @@ LEGACY_MOJANG_FQN = [
     ("net.minecraft.entity.ai.attributes.AttributeModifierMap",
      "net.minecraft.world.entity.ai.attributes.AttributeSupplier"),
     ("net.minecraft.network.chat.contents.LiteralContents", "net.minecraft.network.chat.TextComponent"),
+    ("public void remove(RemovalReason reason)",
+     "public void remove(net.minecraft.world.entity.Entity.RemovalReason reason)"),
+    ("super.remove(reason);", "super.remove(reason);"),
     ("Component.literal(", "new net.minecraft.network.chat.TextComponent("),
     ("Component.translatable(", "new net.minecraft.network.chat.TranslatableComponent("),
 ]
@@ -146,6 +149,10 @@ LEGACY_MOJANG_ID = [
 # net.minecraft.core.registries.Registries arrived in 1.19.3; older lines use
 # net.minecraft.core.Registry with the *_REGISTRY constants.
 NO_REGISTRIES_LINES = ("1.16.5", "1.17.1", "1.18", "1.18.1", "1.19", "1.19.1", "1.19.2")
+
+# The jigsaw Structure class and StructureSeparationSettings arrived in 1.19;
+# on 1.17.1/1.18.1 the legacy registrar works off StructureFeature instead.
+NO_STRUCTURE_CLASS_LINES = ("1.17.1", "1.18.1")
 
 # Text components: Component.literal/translatable statics appeared in 1.18.2.
 TEXT_REWRITES = [
@@ -264,6 +271,19 @@ def postprocess(root, line_key):
                 text = text.replace(a, b)
             for pat, rep in LEGACY_MOJANG_ID:
                 text = re.sub(pat, rep, text)
+        if line_key in ("1.21.5", "1.21.9", "26"):
+            # 1.21.5 removed net.minecraft.world.item.ArmorItem alongside
+            # SwordItem/PickaxeItem, and ArmorItem$Type became
+            # net.minecraft.world.item.equipment.ArmorType from 1.21.2.
+            text = text.replace("import net.minecraft.world.item.ArmorItem;\n", "")
+            text = text.replace("extends ArmorItem {", "extends Item {")
+            text = text.replace("ArmorItem.Type", "ArmorType")
+            text = text.replace("material.holder(), slot, properties", "properties")
+            if "import net.minecraft.world.item.equipment.ArmorType;" not in text \
+                    and "ArmorType" in text:
+                text = text.replace("import net.minecraft.world.item.equipment.ArmorMaterial;",
+                                    "import net.minecraft.world.item.equipment.ArmorMaterial;\n"
+                                    "import net.minecraft.world.item.equipment.ArmorType;", 1)
         if line_key in NO_REGISTRIES_LINES:
             text = text.replace("import net.minecraft.core.registries.Registries;",
                                 "import net.minecraft.core.Registry;")

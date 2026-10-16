@@ -35,9 +35,14 @@ public final class PlatformExpectImpl {
 
     public static void registerSpawnPlacement(String mobId,
             net.minecraft.world.entity.EntityType<net.minecraft.world.entity.Mob> type) {
-        net.minecraftforge.event.entity.EntityAttributeCreationEvent.class.getName();
-        net.minecraftforge.registries.ForgeRegistry.ENTITY_TYPE_REGISTRYS.getValue(
-                new net.minecraft.resources.ResourceLocation("biomesunseen", mobId));
+        net.minecraft.core.registries.BuiltInRegistry.ENTITY_TYPE_REGISTRY
+                .getOptional(new net.minecraft.resources.ResourceLocation("biomesunseen", mobId))
+                .ifPresent(resolved -> net.minecraft.world.entity.SpawnPlacements.register(
+                        resolved,
+                        net.minecraft.world.entity.SpawnPlacements.Type.ON_GROUND,
+                        net.minecraft.world.level.levelgen.Heightmap.Types
+                                .MOTION_BLOCKING_NO_LEAVES,
+                        net.minecraft.world.entity.Mob::checkMobSpawnRules));
     }
 
     public static void installBiomeInjection() {

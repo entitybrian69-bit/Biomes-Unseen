@@ -169,7 +169,7 @@ public abstract class BiomesUnseenMob extends PathfinderMob  {
     }
 
     @Override
-    public void remove(RemovalReason reason) {
+    public void remove(net.minecraft.world.entity.Entity.RemovalReason reason) {
         super.remove(reason);
         if (!unseenLevel().isClientSide) {
             SpawnCaps.onRemoved(unseenLevel().dimension().location().toString());

@@ -48,7 +48,7 @@ public class TerrainUseGoal extends ThrottledGoal {
         for (int i = 0; i < 6; i++) {
             net.minecraft.core.BlockPos candidate = mob.blockPosition().offset(
                     mob.getRandom().nextInt(13) - 6, 0, mob.getRandom().nextInt(13) - 6);
-            net.minecraft.core.BlockPos surface = mob.level().getHeightmapPos(
+            net.minecraft.core.BlockPos surface = com.biomesunseen.util.EntityLevels.of(mob).getHeightmapPos(
                     net.minecraft.world.level.levelgen.Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, candidate);
             double score = surface.getY() - mob.getY();
             if (mob.getHealth() < mob.getMaxHealth() * 0.5F) {

@@ -520,8 +520,8 @@ public final class LegacyStructureRegistrar {
 
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.level.levelgen.structure.Structure;
-import net.minecraft.world.level.levelgen.structure.StructureSeparationSettings;
+import net.minecraft.world.level.levelgen.StructureSeparationSettings;
+import net.minecraft.world.level.levelgen.feature.StructureFeature;
 
 import com.biomesunseen.BiomesUnseen;
 import com.biomesunseen.core.Content;
@@ -545,7 +545,7 @@ public final class LegacyStructureRegistrar {
                 continue;
             }
             ResourceLocation key = new ResourceLocation("biomesunseen", def.id);
-            Structure<?> structure = Registry.STRUCTURE.get(key);
+            StructureFeature<?, ?> structure = Registry.STRUCTURE_FEATURE.get(key);
             if (structure == null) {
                 continue;
             }
