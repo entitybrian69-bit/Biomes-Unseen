@@ -8,7 +8,7 @@ import com.biomesunseen.core.OreDef;
 import com.biomesunseen.core.StructureDef;
 import com.biomesunseen.platform.PlatformExpect;
 
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 
 /**
  * Worldgen orchestration for Minecraft 26.3.  Biomes, features and

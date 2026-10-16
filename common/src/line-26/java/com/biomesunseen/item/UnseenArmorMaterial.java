@@ -2,7 +2,7 @@ package com.biomesunseen.item;
 
 import net.minecraft.core.Holder;
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.item.equipment.ArmorMaterial;
 import net.minecraft.world.item.equipment.ArmorType;
@@ -40,7 +40,7 @@ public final class UnseenArmorMaterial {
                 ore.toolEnchantability,
                 SoundEvents.ARMOR_EQUIP_IRON,
                 repairIngredient,
-                List.of(new ArmorMaterial.Layer(ResourceLocation.fromNamespaceAndPath("biomesunseen", ore.id))),
+                List.of(new ArmorMaterial.Layer(Identifier.fromNamespaceAndPath("biomesunseen", ore.id))),
                 ore.toolMiningLevel * 0.5F,
                 ore.toolMiningLevel >= 4 ? 0.1F : 0.0F);
         this.holder = Holder.direct(this.material);

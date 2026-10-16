@@ -1,7 +1,7 @@
 package com.biomesunseen.item;
 
 import net.minecraft.core.registries.Registries;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.ToolMaterial;
 import net.minecraft.world.item.crafting.Ingredient;
@@ -27,14 +27,14 @@ public final class UnseenToolTier {
         this.repairIngredient = repairIngredient;
         this.material = new ToolMaterial(
                 TagKey.create(Registries.BLOCK,
-                        ResourceLocation.fromNamespaceAndPath(
+                        Identifier.fromNamespaceAndPath(
                                 "biomesunseen", "incorrect_for_" + ore.id)),
                 ore.toolDurability,
                 (float) ore.toolSpeed,
                 (float) ore.toolAttackDamage,
                 ore.toolEnchantability,
                 TagKey.create(Registries.ITEM,
-                        ResourceLocation.fromNamespaceAndPath(
+                        Identifier.fromNamespaceAndPath(
                                 "c", "ores/" + ore.id)));
     }
 

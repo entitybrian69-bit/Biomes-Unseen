@@ -2,7 +2,7 @@ package com.biomesunseen.client.legacy;
 
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.MobRenderer;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 
 import com.biomesunseen.entity.BiomesUnseenMob;
 
@@ -20,7 +20,7 @@ public class UnseenLegacyRenderer<T extends BiomesUnseenMob>
     }
 
     @Override
-    public ResourceLocation getTextureLocation(T entity) {
-        return net.minecraft.resources.ResourceLocation.fromNamespaceAndPath("biomesunseen", "textures/entity/" + id + ".png");
+    public Identifier getTextureLocation(T entity) {
+        return net.minecraft.resources.Identifier.fromNamespaceAndPath("biomesunseen", "textures/entity/" + id + ".png");
     }
 }

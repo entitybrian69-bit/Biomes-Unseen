@@ -175,7 +175,7 @@ TEXT_REWRITES = [
 # Oldest -> newest, so "rank >= X" means "this API change has happened".
 _LINE_ORDER = ["1.16.5", "1.17.1", "1.18.1", "1.18", "1.19.3", "1.19.4",
                "1.20", "1.20.2", "1.20.5", "1.21", "1.21.2", "1.21.4", "1.21.5",
-               "1.21.9", "26"]
+               "1.21.9", "1.21.11", "26"]
 LINE_RANK = {k: i for i, k in enumerate(_LINE_ORDER)}
 
 # probe-fabric-1.21+: ResourceLocation(String,String) is private; the public
@@ -260,6 +260,9 @@ _INVULN_TWO_ARG = """    public boolean isInvulnerableTo(net.minecraft.server.le
 
 # 1.20.5+: Tier#getLevel() was replaced by getIncorrectBlocksForDrops() and
 # PickaxeItem/SwordItem lost their attack-damage/attack-speed arguments.
+# net.minecraft.resources.Identifier replaced ResourceLocation in 1.21.11.
+IDENTIFIER_LINES = ("1.21.11", "26")
+
 TIER_INCORRECT_FROM = "1.20.5"
 
 _TIER_LEVEL_IMPL = """    @Override
@@ -465,6 +468,14 @@ def apply_api_drift(text, line_key):
             r'ParticleProviderRegistry\.register\(ModParticles\.BY_ID\.get\("([^"]+)"\)',
             r'ParticleProviderRegistry.register(ModParticles.BY_ID.get("\1").get()',
             text)
+
+    # -- 1.21.11+ renamed net.minecraft.resources.ResourceLocation to
+    #    net.minecraft.resources.Identifier (same fromNamespaceAndPath/parse
+    #    factories, confirmed in docs/api-probe/probe-fabric-1.21.11.txt).
+    if line_key in IDENTIFIER_LINES:
+        text = text.replace("net.minecraft.resources.ResourceLocation",
+                            "net.minecraft.resources.Identifier")
+        text = text.replace("ResourceLocation", "Identifier")
 
     # -- Inventory.items is private; isEmpty() says the same thing publicly.
     text = text.replace(_INVENTORY_ITEMS[0], _INVENTORY_ITEMS[1])

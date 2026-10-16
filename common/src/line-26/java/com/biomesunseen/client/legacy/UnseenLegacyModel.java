@@ -10,7 +10,7 @@ import net.minecraft.client.model.geom.builders.CubeListBuilder;
 import net.minecraft.client.model.geom.builders.LayerDefinition;
 import net.minecraft.client.model.geom.builders.MeshDefinition;
 import net.minecraft.client.model.geom.builders.PartDefinition;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 
 import com.biomesunseen.entity.BiomesUnseenMob;
 
@@ -38,7 +38,7 @@ public class UnseenLegacyModel<T extends BiomesUnseenMob> extends EntityModel<T>
 
     /** Shared model layer: every Biomes Unseen mob uses this six-part rig. */
     public static final ModelLayerLocation LAYER = new ModelLayerLocation(
-            net.minecraft.resources.ResourceLocation.fromNamespaceAndPath("biomesunseen", "legacy_mob"), "main");
+            net.minecraft.resources.Identifier.fromNamespaceAndPath("biomesunseen", "legacy_mob"), "main");
 
     public static LayerDefinition createBodyLayer() {
         MeshDefinition mesh = new MeshDefinition();

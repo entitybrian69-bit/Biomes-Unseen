@@ -136,6 +136,14 @@ LINES = {
         item_def="items_dir", expect="dev", entity_base="modern",
         tagkey=True, features="placed", structures="sets",
     ),
+    "1.21.11": dict(
+        line="1.21.11", mc="1.21.11", java=21, pkgs="modern", reg="registries",
+        geckolib="none", tab="new", damage="new", synched="builder",
+        text="component", material=False, sound_ctor="factory",
+        data_dirs="flat", biome_json="new", worldgen="modern",
+        biome_add="noise_list", item_def="items_dir", expect="dev",
+        entity_base="modern", tagkey=True, features="placed", structures="sets",
+    ),
     "26": dict(
         line="26", mc="26.3", java=25, pkgs="modern", reg="registries",
         geckolib="none", tab="new", damage="new", synched="builder",
@@ -161,7 +169,8 @@ MC_TO_LINE = {
     "1.21.2": "1.21.2", "1.21.3": "1.21.2",
     "1.21.4": "1.21.4",
     "1.21.5": "1.21.5", "1.21.6": "1.21.5", "1.21.7": "1.21.5", "1.21.8": "1.21.5",
-    "1.21.9": "1.21.9", "1.21.10": "1.21.9", "1.21.11": "1.21.9",
+    "1.21.9": "1.21.9", "1.21.10": "1.21.9",
+    "1.21.11": "1.21.11",
     "26.1": "26", "26.1.1": "26", "26.1.2": "26", "26.2": "26", "26.3": "26",
 }
 

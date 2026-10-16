@@ -1,7 +1,7 @@
 package com.biomesunseen.registry;
 
 import net.minecraft.sounds.SoundEvent;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 
 import com.biomesunseen.core.CoreRegistries;
 import com.biomesunseen.core.ModConstants;
@@ -23,7 +23,7 @@ public final class ModSounds {
     static {
         for (int i = 0; i < CoreRegistries.SOUND_EVENT_IDS.size(); i++) {
             String id = CoreRegistries.SOUND_EVENT_IDS.get(i);
-            BY_ID.put(id, ModRegistries.SOUNDS.register(id, () -> SoundEvent.createVariableRangeEvent(net.minecraft.resources.ResourceLocation.fromNamespaceAndPath(ModConstants.MOD_ID, id))));
+            BY_ID.put(id, ModRegistries.SOUNDS.register(id, () -> SoundEvent.createVariableRangeEvent(net.minecraft.resources.Identifier.fromNamespaceAndPath(ModConstants.MOD_ID, id))));
         }
     }
 
