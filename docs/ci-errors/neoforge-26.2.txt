@@ -1,7 +1,3 @@
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/item/UnseenGearItems.java:5: error: cannot find symbol
-import net.minecraft.world.item.ArmorMaterial;
-                               ^
----
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/client/particle/UnseenParticle.java:6: error: cannot find symbol
 import net.minecraft.client.particle.TextureSheetParticle;
                                     ^
@@ -70,9 +66,9 @@ public class UnseenParticle extends TextureSheetParticle {
         return MobEffects.DAMAGE_RESISTANCE;
                          ^
 ---
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/client/legacy/UnseenLegacyModel.java:86: error: renderToBuffer(PoseStack,VertexConsumer,int,int,int) in UnseenLegacyModel cannot override renderToBuffer(PoseStack,VertexConsumer,int,int,int) in Model
-    public void renderToBuffer(com.mojang.blaze3d.vertex.PoseStack matrixStack,
-                ^
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/client/legacy/UnseenLegacyModel.java:85: error: method does not override or implement a method from a supertype
+    @Override
+    ^
 ---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/client/particle/UnseenParticle.java:24: error: cannot find symbol
         this.xd = xSpeed * 0.2D;
@@ -151,7 +147,7 @@ public class UnseenParticle extends TextureSheetParticle {
                          ^
 ---
 > Task :neoforge-26.2:compileJava FAILED
-gradle/actions: Writing build results to /home/runner/work/_temp/.gradle-actions/build-results/__run_2-1792165402024.json
+gradle/actions: Writing build results to /home/runner/work/_temp/.gradle-actions/build-results/__run_2-1792166511019.json
 
 ---
 * What went wrong:
@@ -160,11 +156,7 @@ Execution failed for task ':neoforge-26.2:compileJava' (registered by plugin cla
 ---
 Execution failed for task ':neoforge-26.2:compileJava' (registered by plugin class 'org.gradle.api.plugins.JavaBasePlugin').
 > Compilation failed; see the compiler output below.
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/item/UnseenGearItems.java:5: error: cannot find symbol
----
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/item/UnseenGearItems.java:5: error: cannot find symbol
-  import net.minecraft.world.item.ArmorMaterial;
-                                 ^
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/client/particle/UnseenParticle.java:6: error: cannot find symbol
 ---
   /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/client/particle/UnseenParticle.java:6: error: cannot find symbol
   import net.minecraft.client.particle.TextureSheetParticle;
@@ -238,17 +230,20 @@ Execution failed for task ':neoforge-26.2:compileJava' (registered by plugin cla
           this.alpha = 1.0F - (float) this.age / (float) this.lifetime;
               ^
 ---
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/client/particle/UnseenParticle.java:36: error: cannot find symbol
+          this.alpha = 1.0F - (float) this.age / (float) this.lifetime;
+                                          ^
+---
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/client/particle/UnseenParticle.java:36: error: cannot find symbol
+          this.alpha = 1.0F - (float) this.age / (float) this.lifetime;
+                                                             ^
+---
 === STACKTRACE ===
 Caused by: org.gradle.api.internal.tasks.compile.CompilationFailedException: Compilation failed; see the compiler output below.
 === WHAT WENT WRONG ===
 * What went wrong:
 Execution failed for task ':neoforge-26.2:compileJava' (registered by plugin class 'org.gradle.api.plugins.JavaBasePlugin').
 > Compilation failed; see the compiler output below.
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/item/UnseenGearItems.java:5: error: cannot find symbol
-  import net.minecraft.world.item.ArmorMaterial;
-                                 ^
-    symbol:   class ArmorMaterial
-    location: package net.minecraft.world.item
   /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/client/particle/UnseenParticle.java:6: error: cannot find symbol
   import net.minecraft.client.particle.TextureSheetParticle;
                                       ^
@@ -281,6 +276,11 @@ Execution failed for task ':neoforge-26.2:compileJava' (registered by plugin cla
     location: class MobEffects
   /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/item/UnseenTonicItem.java:71: error: cannot find symbol
               return MobEffects.DIG_SPEED;
+                               ^
+    symbol:   variable DIG_SPEED
+    location: class MobEffects
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/item/UnseenTonicItem.java:79: error: cannot find symbol
+          return MobEffects.DAMAGE_RESISTANCE;
 === LAST 40 ===
 	at org.gradle.internal.execution.steps.MutableStep.execute(MutableStep.java:26)
 	at org.gradle.internal.execution.steps.ValidateStep$Mutable.executeDelegate(ValidateStep.java:79)
@@ -320,5 +320,5 @@ Execution failed for task ':neoforge-26.2:compileJava' (registered by plugin cla
 	... 25 more
 
 
-BUILD FAILED in 1m 38s
+BUILD FAILED in 1m 47s
 1 actionable task: 1 executed

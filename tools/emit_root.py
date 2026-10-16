@@ -99,10 +99,16 @@ subprojects {
         }
     }
 
-    tasks.withType(ProcessResources).configureEach {
-        // pack.mcmeta (and the mod metadata files) can appear in more than one
-        // of the configured resource roots; keep the first (module-local) copy.
+    // pack.mcmeta and the mod metadata files can appear in more than one of
+    // the configured resource roots (module-local, common, generated).  Every
+    // copy task must therefore say what to do about duplicates: Gradle 9 fails
+    // the build outright otherwise.  EXCLUDE keeps the first (module-local)
+    // entry, which is the loader-specific one.
+    tasks.withType(AbstractCopyTask).configureEach {
         duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+    }
+
+    tasks.withType(ProcessResources).configureEach {
         def props = [
                 version          : project.mod_version,
                 mod_version      : project.mod_version,
