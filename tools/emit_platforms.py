@@ -6,7 +6,7 @@ import os
 
 from content import (MOD_ID, MOD_VERSION, TARGETS, FABRIC_API_VERSIONS,
                      YARN_VERSIONS, FORGE_VERSIONS, NEOFORGE_VERSIONS,
-                     ARCHITECTURY_API_VERSIONS, GECKOLIB_VERSIONS,
+                     ARCHITECTURY_API_VERSIONS, GECKOLIB_VERSIONS, geckolib_coord,
                      CLOTH_CONFIG_VERSIONS, FABRIC_LOADER_VERSION, LOOM_VERSION,
                      LOOM_VERSION_MID, LOOM_VERSION_NEW)
 
@@ -34,6 +34,7 @@ def _gradle_props(F, mc, java, loader, arch, geckolib, cloth, loader_ver,
         "minecraft_version=%s" % mc,
         "target_java=%d" % java,
         "loader=%s" % loader,
+        "loom.platform=%s" % loader,
         "loom_version=%s" % loom_ver,
         "architectury_version=%s" % arch,
     ]
@@ -596,7 +597,8 @@ def emit(root):
         for loader in loaders:
             mod_dir = "%s-%s" % (loader, mc)
             arch = ARCHITECTURY_API_VERSIONS[mc]
-            geckolib_v = GECKOLIB_VERSIONS.get(mc) if F["geckolib"] != "none" else None
+            geckolib_v = (geckolib_coord(loader, mc).rsplit(":", 1)[1]
+                      if F["geckolib"] != "none" else None)
             cloth = CLOTH_CONFIG_VERSIONS[mc]
             if loader == "fabric":
                 loader_ver = FABRIC_LOADER_VERSION
@@ -605,8 +607,8 @@ def emit(root):
                     "mc": mc,
                     "loom_ver": _loom_for(mc),
                     "line": line_key,
-                    "geckolib": ('    modImplementation "software.bernie.geckolib:geckolib-fabric-%s:${geckolib_version}"\n'
-                                 % mc) if geckolib_v else "",
+                    "geckolib": ('    modImplementation "%s"\n'
+                                 % geckolib_coord("fabric", mc)) if geckolib_v else "",
                     "arch_legacy": ('' if F["expect"] == "dev" else ""),
                 }
                 if F["expect"] == "me.shedaniel":
@@ -625,8 +627,8 @@ def emit(root):
                     "mc": mc,
                     "loom_ver": _loom_for(mc),
                     "line": line_key,
-                    "geckolib": ('    modImplementation "software.bernie.geckolib:geckolib-forge-%s:${geckolib_version}"\n'
-                                 % mc) if geckolib_v else "",
+                    "geckolib": ('    modImplementation "%s"\n'
+                                 % geckolib_coord("forge", mc)) if geckolib_v else "",
                     "mixin_block": ('    forge {\n        mixinConfig "biomesunseen.mixins.json"\n    }\n'
                                     if F["biome_add"] == "mixin_legacy" else "    // no mixin config needed\n"),
                     "arch_legacy": "",
@@ -647,8 +649,8 @@ def emit(root):
                     "mc": mc,
                     "loom_ver": _loom_for(mc),
                     "line": line_key,
-                    "geckolib": ('    modImplementation "software.bernie.geckolib:geckolib-neoforge-%s:${geckolib_version}"\n'
-                                 % mc) if geckolib_v else "",
+                    "geckolib": ('    modImplementation "%s"\n'
+                                 % geckolib_coord("neoforge", mc)) if geckolib_v else "",
                     "mixin_block": "    // no mixin config needed\n",
                 }
                 _w(root, "%s/build.gradle" % mod_dir, build)

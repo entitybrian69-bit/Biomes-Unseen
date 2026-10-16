@@ -5,23 +5,24 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.Level;
 
-import software.bernie.geckolib3.core.IAnimatable;
-import software.bernie.geckolib3.core.PlayState;
-import software.bernie.geckolib3.core.builder.AnimationBuilder;
-import software.bernie.geckolib3.core.controller.AnimationController;
-import software.bernie.geckolib3.core.event.predicate.AnimationState;
-import software.bernie.geckolib3.core.manager.AnimationData;
-import software.bernie.geckolib3.core.manager.AnimationFactory;
+import software.bernie.geckolib.animatable.GeoBlock;
+import software.bernie.geckolib.animatable.instance.AnimatableInstanceCache;
+import software.bernie.geckolib.animatable.manager.AnimatableManager;
+import software.bernie.geckolib.animation.AnimatableManager.ControllerRegistrar;
+import software.bernie.geckolib.animation.AnimationController;
+import software.bernie.geckolib.animation.PlayState;
+import software.bernie.geckolib.animation.RawAnimation;
+import software.bernie.geckolib.util.GeckoLibUtil;
 
 /**
  * Animated decorative block: the crystal shard block, glowcap and nullglass
  * all pulse/glow through their own GeckoLib animation clips so the world
  * feels alive even in stillness.
  */
-public class UnseenAnimatedBlock extends Block implements IAnimatable {
+public class UnseenAnimatedBlock extends Block implements GeoBlock {
 
     private final String animId;
-    private final AnimationFactory factory = new AnimationFactory(this);
+    private final AnimatableInstanceCache cache = GeckoLibUtil.createInstanceCache(this);
 
     public UnseenAnimatedBlock(String animId, Block.Properties properties) {
         super(properties);
@@ -29,17 +30,22 @@ public class UnseenAnimatedBlock extends Block implements IAnimatable {
     }
 
     @Override
-    public void registerControllers(AnimationData data) {
-        data.addAnimationController(new AnimationController<>(this, "pulse", 0, state -> {
-            state.getController().setAnimation(new AnimationBuilder()
-                    .addAnimation("animation." + animId + ".pulse", true));
+    public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
+        controllers.addAnimationController(new AnimationController<>(this, "pulse", 0, state -> {
+            state.getController().setAnimation(RawAnimation.begin()
+                    .thenLoop("animation." + animId + ".pulse"));
             return PlayState.CONTINUE;
         }));
     }
 
     @Override
-    public AnimationFactory getFactory() {
-        return factory;
+    public AnimatableInstanceCache getAnimatableInstanceCache() {
+        return cache;
+    }
+
+    @Override
+    public double getTick(Object object) {
+        return 0;
     }
 
     @Override

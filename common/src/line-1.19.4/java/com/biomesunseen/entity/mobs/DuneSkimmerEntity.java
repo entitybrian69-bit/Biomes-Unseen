@@ -2,15 +2,15 @@ package com.biomesunseen.entity.mobs;
 
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.level.Level;
-import software.bernie.geckolib3.core.PlayState;
-import software.bernie.geckolib3.core.builder.AnimationBuilder;
-import software.bernie.geckolib3.core.controller.AnimationController;
-import software.bernie.geckolib3.core.event.predicate.AnimationState;
-import software.bernie.geckolib3.core.manager.AnimationData;
-import software.bernie.geckolib3.core.manager.AnimationFactory;
-import software.bernie.geckolib3.util.GeckoLibUtil;
-
-import software.bernie.geckolib3.core.IAnimatable;
+import software.bernie.geckolib.animatable.GeoAnimatable;
+import software.bernie.geckolib.animatable.instance.AnimatableInstanceCache;
+import software.bernie.geckolib.animatable.manager.AnimatableManager;
+import software.bernie.geckolib.animation.AnimatableManager.ControllerRegistrar;
+import software.bernie.geckolib.animation.AnimationController;
+import software.bernie.geckolib.animation.PlayState;
+import software.bernie.geckolib.animation.RawAnimation;
+import software.bernie.geckolib.animation.AnimationState;
+import software.bernie.geckolib.util.GeckoLibUtil;
 
 
 import com.biomesunseen.core.Content;
@@ -53,28 +53,35 @@ public class DuneSkimmerEntity extends BiomesUnseenMob {
     }
 
     @Override
-    public void registerControllers(AnimationData data) {
-        data.addAnimationController(new AnimationController<>(this, "movement", 0, this::animPredicate));
+    public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
+        controllers.addAnimationController(new AnimationController<>(this, "movement", 0, this::animPredicate));
     }
 
-    private <E extends IAnimatable> PlayState animPredicate(software.bernie.geckolib3.core.event.predicate.AnimationState<E> event) {
-        AnimationBuilder builder = new AnimationBuilder();
+    private <E extends GeoAnimatable> PlayState animPredicate(AnimationState<E> event) {
         if (getAnimOneShotTicks() > 0 && getAnimOneShot() != null) {
-            builder.addAnimation("animation.dune_skimmer." + getAnimOneShot(), false);
-        } else if (event.isMoving() || isMovingEntity()) {
-            builder.addAnimation(isSprintingEntity() ? "animation.dune_skimmer.run" : "animation.dune_skimmer.walk", true);
-        } else {
-            builder.addAnimation("animation.dune_skimmer.idle", true);
+            event.getController().setAnimation(RawAnimation.begin()
+                    .thenPlay("animation.dune_skimmer." + getAnimOneShot()));
+            return PlayState.CONTINUE;
         }
-        event.getController().setAnimation(builder);
+        if (event.isMoving() || isMovingEntity()) {
+            event.getController().setAnimation(RawAnimation.begin().thenLoop(
+                    isSprintingEntity() ? "animation.dune_skimmer.run" : "animation.dune_skimmer.walk"));
+            return PlayState.CONTINUE;
+        }
+        event.getController().setAnimation(RawAnimation.begin().thenLoop("animation.dune_skimmer.idle"));
         return PlayState.CONTINUE;
     }
 
-    private AnimationFactory geoCache = new AnimationFactory(this);
+    private AnimatableInstanceCache geoCache = GeckoLibUtil.createInstanceCache(this);
 
     @Override
-    public AnimationFactory getFactory() {
+    public AnimatableInstanceCache getAnimatableInstanceCache() {
         return geoCache;
+    }
+
+    @Override
+    public double getTick(Object object) {
+        return tickCount;
     }
 
 }

@@ -23,7 +23,7 @@ dependencies {
     mappings loom.officialMojangMappings()
     forge "net.minecraftforge:forge:${forge_version}"
     modImplementation "dev.architectury:architectury:${architectury_version}"
-    modImplementation "software.bernie.geckolib:geckolib-forge-1.20.1:${geckolib_version}"
+    modImplementation "software.bernie.geckolib:geckolib-forge-1.20.1:4.4.9"
     modImplementation "me.shedaniel.cloth:cloth-config-forge:${cloth_config_version}"
 }
 

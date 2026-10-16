@@ -7,13 +7,14 @@ import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.level.Level;
 
-import software.bernie.geckolib3.core.IAnimatable;
-import software.bernie.geckolib3.core.PlayState;
-import software.bernie.geckolib3.core.builder.AnimationBuilder;
-import software.bernie.geckolib3.core.controller.AnimationController;
-import software.bernie.geckolib3.core.event.predicate.AnimationState;
-import software.bernie.geckolib3.core.manager.AnimationData;
-import software.bernie.geckolib3.core.manager.AnimationFactory;
+import software.bernie.geckolib.animatable.GeoAnimatable;
+import software.bernie.geckolib.animatable.instance.AnimatableInstanceCache;
+import software.bernie.geckolib.animatable.manager.AnimatableManager;
+import software.bernie.geckolib.animation.AnimationController;
+import software.bernie.geckolib.animation.PlayState;
+import software.bernie.geckolib.animation.RawAnimation;
+import software.bernie.geckolib.animation.AnimationState;
+import software.bernie.geckolib.util.GeckoLibUtil;
 
 
 import com.biomesunseen.core.BossDef;
@@ -178,27 +179,35 @@ public class HeartOfTheForestEntity extends BiomesUnseenMob {
 
 
     @Override
-    public void registerControllers(AnimationData data) {
-        data.addAnimationController(new AnimationController<>(this, "movement", 0, event -> {
-            AnimationBuilder builder = new AnimationBuilder();
+    public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
+        controllers.addAnimationController(new AnimationController<>(this, "movement", 0, event -> {
             if (getAnimOneShotTicks() > 0 && getAnimOneShot() != null) {
-                builder.addAnimation("animation.heart_of_the_forest." + getAnimOneShot(), false);
-            } else if (event.isMoving()) {
-                builder.addAnimation("animation.heart_of_the_forest.walk", true);
-            } else {
-                builder.addAnimation(phase >= 2 ? "animation.heart_of_the_forest.wrath_idle"
-                        : "animation.heart_of_the_forest.idle", true);
+                event.getController().setAnimation(RawAnimation.begin()
+                        .thenPlay("animation.heart_of_the_forest." + getAnimOneShot()));
+                return PlayState.CONTINUE;
             }
-            event.getController().setAnimation(builder);
+            if (event.isMoving()) {
+                event.getController().setAnimation(RawAnimation.begin()
+                        .thenLoop("animation.heart_of_the_forest.walk"));
+                return PlayState.CONTINUE;
+            }
+            event.getController().setAnimation(RawAnimation.begin()
+                    .thenLoop(phase >= 2 ? "animation.heart_of_the_forest.wrath_idle"
+                            : "animation.heart_of_the_forest.idle"));
             return PlayState.CONTINUE;
         }));
     }
 
-    private AnimationFactory geoCache = new AnimationFactory(this);
+    private AnimatableInstanceCache geoCache = GeckoLibUtil.createInstanceCache(this);
 
     @Override
-    public AnimationFactory getFactory() {
+    public AnimatableInstanceCache getAnimatableInstanceCache() {
         return geoCache;
+    }
+
+    @Override
+    public double getTick(Object object) {
+        return tickCount;
     }
 
 }

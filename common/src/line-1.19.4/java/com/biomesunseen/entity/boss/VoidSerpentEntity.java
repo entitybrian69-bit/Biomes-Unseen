@@ -7,13 +7,14 @@ import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.level.Level;
 
-import software.bernie.geckolib3.core.IAnimatable;
-import software.bernie.geckolib3.core.PlayState;
-import software.bernie.geckolib3.core.builder.AnimationBuilder;
-import software.bernie.geckolib3.core.controller.AnimationController;
-import software.bernie.geckolib3.core.event.predicate.AnimationState;
-import software.bernie.geckolib3.core.manager.AnimationData;
-import software.bernie.geckolib3.core.manager.AnimationFactory;
+import software.bernie.geckolib.animatable.GeoAnimatable;
+import software.bernie.geckolib.animatable.instance.AnimatableInstanceCache;
+import software.bernie.geckolib.animatable.manager.AnimatableManager;
+import software.bernie.geckolib.animation.AnimationController;
+import software.bernie.geckolib.animation.PlayState;
+import software.bernie.geckolib.animation.RawAnimation;
+import software.bernie.geckolib.animation.AnimationState;
+import software.bernie.geckolib.util.GeckoLibUtil;
 
 
 import com.biomesunseen.core.BossDef;
@@ -211,29 +212,40 @@ public class VoidSerpentEntity extends BiomesUnseenMob {
 
 
     @Override
-    public void registerControllers(AnimationData data) {
-        data.addAnimationController(new AnimationController<>(this, "movement", 0, event -> {
-            AnimationBuilder builder = new AnimationBuilder();
+    public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
+        controllers.addAnimationController(new AnimationController<>(this, "movement", 0, event -> {
             if (getAnimOneShotTicks() > 0 && getAnimOneShot() != null) {
-                builder.addAnimation("animation.void_serpent." + getAnimOneShot(), false);
-            } else if (phaseShiftTicks > 0) {
-                builder.addAnimation("animation.void_serpent.phase_shift", false);
-            } else if (event.isMoving()) {
-                builder.addAnimation(phase >= 2 ? "animation.void_serpent.frenzy_swim"
-                        : "animation.void_serpent.swim", true);
-            } else {
-                builder.addAnimation("animation.void_serpent.idle", true);
+                event.getController().setAnimation(RawAnimation.begin()
+                        .thenPlay("animation.void_serpent." + getAnimOneShot()));
+                return PlayState.CONTINUE;
             }
-            event.getController().setAnimation(builder);
+            if (phaseShiftTicks > 0) {
+                event.getController().setAnimation(RawAnimation.begin()
+                        .thenPlay("animation.void_serpent.phase_shift"));
+                return PlayState.CONTINUE;
+            }
+            if (event.isMoving()) {
+                event.getController().setAnimation(RawAnimation.begin()
+                        .thenLoop(phase >= 2 ? "animation.void_serpent.frenzy_swim"
+                                : "animation.void_serpent.swim"));
+                return PlayState.CONTINUE;
+            }
+            event.getController().setAnimation(RawAnimation.begin()
+                    .thenLoop("animation.void_serpent.idle"));
             return PlayState.CONTINUE;
         }));
     }
 
-    private AnimationFactory geoCache = new AnimationFactory(this);
+    private AnimatableInstanceCache geoCache = GeckoLibUtil.createInstanceCache(this);
 
     @Override
-    public AnimationFactory getFactory() {
+    public AnimatableInstanceCache getAnimatableInstanceCache() {
         return geoCache;
+    }
+
+    @Override
+    public double getTick(Object object) {
+        return tickCount;
     }
 
 }

@@ -2,7 +2,7 @@ package com.biomesunseen.client.render;
 
 import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
 
-import software.bernie.geckolib3.renderers.geo.GeoBlockRenderer;
+import software.bernie.geckolib.renderer.GeoBlockRenderer;
 
 import com.biomesunseen.block.UnseenAnimatedBlock;
 

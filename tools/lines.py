@@ -66,7 +66,7 @@ LINES = {
     ),
     "1.19.4": dict(
         line="1.19.4", mc="1.19.4", java=17, pkgs="modern", reg="registries",
-        geckolib="g3", tab="new", damage="new", synched="old",
+        geckolib="g4", tab="new", damage="new", synched="old",
         text="component", material=False, sound_ctor="factory", data_dirs="plural",
         biome_json="new", worldgen="modern", biome_add="noise_list",
         item_def="model_only", expect="dev", entity_base="modern",

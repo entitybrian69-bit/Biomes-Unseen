@@ -22,7 +22,7 @@ SETTINGS_GRADLE = '''pluginManagement {
         maven { url = "https://maven.architectury.dev/" }
         maven { url = "https://maven.minecraftforge.net/" }
         maven { url = "https://maven.neoforged.net/releases" }
-        maven { url = "https://maven.geckolib.com/" }
+        maven { url = "https://dl.cloudsmith.io/public/geckolib3/geckolib/maven/" }
         maven { url = "https://maven.shedaniel.me/" }
         gradlePluginPortal()
         mavenCentral()
@@ -58,7 +58,7 @@ allprojects {
         maven { url = "https://maven.architectury.dev/" }
         maven { url = "https://maven.minecraftforge.net/" }
         maven { url = "https://maven.neoforged.net/releases" }
-        maven { url = "https://maven.geckolib.com/" }
+        maven { url = "https://dl.cloudsmith.io/public/geckolib3/geckolib/maven/" }
         maven { url = "https://maven.shedaniel.me/" }
         maven { url = "https://maven.terraformersmc.com/releases" }
         maven { url = "https://oss.sonatype.org/content/repositories/snapshots/" }
