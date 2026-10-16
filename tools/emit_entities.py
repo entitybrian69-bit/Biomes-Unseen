@@ -182,7 +182,7 @@ import com.biomesunseen.util.SpawnCaps;
  *  - pack/herd helpers used by the generated AI goals
  *  - the GeckoLib animation state machine hooks every mob overrides
  */
-public abstract class BiomesUnseenMob %(gecko_iface)s {
+public abstract class BiomesUnseenMob extends %(base_class)s %(gecko_iface)s {
 
     protected final MobDef mobDef;
 
