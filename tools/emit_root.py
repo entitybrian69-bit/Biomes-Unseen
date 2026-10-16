@@ -27,6 +27,13 @@ SETTINGS_GRADLE = '''pluginManagement {
         gradlePluginPortal()
         mavenCentral()
     }
+    plugins {
+        id "org.gradle.toolchains.foojay-resolver-convention" version "0.8.0"
+    }
+}
+
+plugins {
+    id "org.gradle.toolchains.foojay-resolver-convention"
 }
 
 rootProject.name = "biomes-unseen"
@@ -108,6 +115,7 @@ org.gradle.daemon=true
 org.gradle.parallel=true
 org.gradle.caching=true
 org.gradle.configuration-cache=false
+org.gradle.configureondemand=true
 
 # Architectury Loom plugin version used by every subproject
 loom_version=%(loom)s

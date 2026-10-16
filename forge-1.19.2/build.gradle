@@ -1,5 +1,5 @@
 plugins {
-    id "architectury-loom" version "${loom_version}"
+    id "dev.architectury.loom" version "1.10.455"
     id "java"
 }
 
