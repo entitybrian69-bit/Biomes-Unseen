@@ -1,1 +1,6 @@
 * What went wrong:
+A problem occurred configuring project ':forge-1.20'.
+> Failed to setup Minecraft, java.lang.NullPointerException: Cannot get SrgMinecraftProvider before it has been setup
+---
+BUILD FAILED in 1m 45s
+---

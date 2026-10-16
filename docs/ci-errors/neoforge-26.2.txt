@@ -1,1 +1,6 @@
 * What went wrong:
+A problem occurred configuring project ':neoforge-26.2'.
+> Failed to notify project evaluation listener.
+---
+BUILD FAILED in 44s
+---

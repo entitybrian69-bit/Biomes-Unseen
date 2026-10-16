@@ -6,7 +6,7 @@ FAILURE: Build failed with an exception.
 
 * What went wrong:
 A problem occurred configuring project ':fabric-26.2'.
-> Failed to setup Minecraft, java.lang.IllegalStateException: Minecraft 26.2 requires Java 25 but Gradle is using 21
+> Failed to setup Minecraft, java.lang.RuntimeException: Failed to find official mojang mappings for 26.2
 
 * Try:
 > Run with --stacktrace option to get the stack trace.

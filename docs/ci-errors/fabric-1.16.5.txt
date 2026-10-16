@@ -1,104 +1,160 @@
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/fabric-1.16.5/src/main/java/com/biomesunseen/platform/PlatformExpectImpl.java:36: error: package net.minecraft.entity does not exist
+            net.minecraft.entity.EntityType<net.minecraft.entity.MobEntity> type) {
+                                ^
+---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/fabric-1.16.5/src/main/java/com/biomesunseen/platform/PlatformExpectImpl.java:36: error: package net.minecraft.entity does not exist
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/fabric-1.16.5/src/main/java/com/biomesunseen/platform/PlatformExpectImpl.java:58: error: package net.minecraft.world.server does not exist
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/fabric-1.16.5/src/main/java/com/biomesunseen/platform/PlatformExpectImpl.java:59: error: package net.minecraft.util.math does not exist
+            net.minecraft.entity.EntityType<net.minecraft.entity.MobEntity> type) {
+                                                                ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/fabric-1.16.5/src/main/java/com/biomesunseen/platform/PlatformExpectImpl.java:62: error: package net.minecraft.world.server does not exist
+    public static void playBossMusic(net.minecraft.world.server.ServerWorld level,
+                                                               ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/fabric-1.16.5/src/main/java/com/biomesunseen/platform/PlatformExpectImpl.java:63: error: package net.minecraft.util.math does not exist
+            net.minecraft.util.math.BlockPos center, String soundEventId, int radius) {
+                                   ^
+---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.16.5/java/com/biomesunseen/entity/mobs/SiltstriderEntity.java:3: error: package net.minecraft.entity does not exist
+import net.minecraft.entity.EntityType;
+                           ^
+---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.16.5/java/com/biomesunseen/entity/mobs/SiltstriderEntity.java:4: error: cannot find symbol
+import net.minecraft.world.World;
+                          ^
+---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.16.5/java/com/biomesunseen/entity/BiomesUnseenMob.java:3: error: package net.minecraft.entity does not exist
+import net.minecraft.entity.CreatureEntity;
+                           ^
+---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.16.5/java/com/biomesunseen/entity/BiomesUnseenMob.java:4: error: package net.minecraft.entity does not exist
+import net.minecraft.entity.EntityType;
+                           ^
+---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.16.5/java/com/biomesunseen/entity/BiomesUnseenMob.java:5: error: package net.minecraft.entity.ai.attributes does not exist
+import net.minecraft.entity.ai.attributes.AttributeModifierMap;
+                                         ^
+---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.16.5/java/com/biomesunseen/entity/BiomesUnseenMob.java:6: error: package net.minecraft.entity.ai.attributes does not exist
+import net.minecraft.entity.ai.attributes.Attributes;
+                                         ^
+---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.16.5/java/com/biomesunseen/entity/BiomesUnseenMob.java:7: error: package net.minecraft.entity.player does not exist
+import net.minecraft.entity.player.PlayerEntity;
+                                  ^
+---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.16.5/java/com/biomesunseen/entity/BiomesUnseenMob.java:8: error: cannot find symbol
+import net.minecraft.util.DamageSource;
+                         ^
+---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.16.5/java/com/biomesunseen/entity/BiomesUnseenMob.java:9: error: cannot find symbol
+import net.minecraft.world.World;
+                          ^
+---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.16.5/java/com/biomesunseen/entity/BiomesUnseenMob.java:26: error: cannot find symbol
+public abstract class BiomesUnseenMob extends CreatureEntity  {
+                                              ^
+---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.16.5/java/com/biomesunseen/entity/mobs/SiltstriderEntity.java:26: error: cannot find symbol
+    public SiltstriderEntity(EntityType<? extends SiltstriderEntity> type, World level) {
+                             ^
+---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.16.5/java/com/biomesunseen/entity/mobs/SiltstriderEntity.java:26: error: cannot find symbol
+    public SiltstriderEntity(EntityType<? extends SiltstriderEntity> type, World level) {
+                                                                           ^
+---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.16.5/java/com/biomesunseen/entity/legacy/LegacyAnimDriver.java:3: error: package net.minecraft.entity does not exist
+import net.minecraft.entity.MobEntity;
+                           ^
+---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.16.5/java/com/biomesunseen/entity/BiomesUnseenMob.java:67: error: cannot find symbol
+    protected BiomesUnseenMob(EntityType<? extends CreatureEntity> type, World level, MobDef mobDef) {
+                              ^
+---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.16.5/java/com/biomesunseen/entity/BiomesUnseenMob.java:67: error: cannot find symbol
+    protected BiomesUnseenMob(EntityType<? extends CreatureEntity> type, World level, MobDef mobDef) {
+                                                   ^
+---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.16.5/java/com/biomesunseen/entity/BiomesUnseenMob.java:67: error: cannot find symbol
+    protected BiomesUnseenMob(EntityType<? extends CreatureEntity> type, World level, MobDef mobDef) {
+                                                                         ^
+---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.16.5/java/com/biomesunseen/entity/BiomesUnseenMob.java:151: error: cannot find symbol
+    public boolean hurt(DamageSource source, float amount) {
+                        ^
+---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.16.5/java/com/biomesunseen/entity/BiomesUnseenMob.java:174: error: cannot find symbol
+    public boolean onTamedInteraction(PlayerEntity player) {
+                                      ^
+---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.16.5/java/com/biomesunseen/entity/legacy/LegacyAnimDriver.java:12: error: cannot find symbol
+    private final MobEntity mob;
+                  ^
+---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.16.5/java/com/biomesunseen/entity/legacy/LegacyAnimDriver.java:23: error: cannot find symbol
+    public LegacyAnimDriver(MobEntity mob) {
+                            ^
+---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.16.5/java/com/biomesunseen/entity/mobs/CinderPupEntity.java:3: error: package net.minecraft.entity does not exist
+import net.minecraft.entity.EntityType;
+                           ^
+---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.16.5/java/com/biomesunseen/entity/mobs/CinderPupEntity.java:4: error: cannot find symbol
+import net.minecraft.world.World;
+                          ^
+---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.16.5/java/com/biomesunseen/entity/mobs/CinderPupEntity.java:28: error: cannot find symbol
+    public CinderPupEntity(EntityType<? extends CinderPupEntity> type, World level) {
+                           ^
+---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.16.5/java/com/biomesunseen/entity/mobs/CinderPupEntity.java:28: error: cannot find symbol
+    public CinderPupEntity(EntityType<? extends CinderPupEntity> type, World level) {
+                                                                       ^
+---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.16.5/java/com/biomesunseen/entity/mobs/CinderPupEntity.java:52: error: cannot find symbol
+    public net.minecraft.util.ActionResultType mobInteract(PlayerEntity player, net.minecraft.util.Hand hand) {
+                                                           ^
+---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.16.5/java/com/biomesunseen/entity/mobs/CinderPupEntity.java:52: error: cannot find symbol
+    public net.minecraft.util.ActionResultType mobInteract(PlayerEntity player, net.minecraft.util.Hand hand) {
+                                                                                                  ^
+---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.16.5/java/com/biomesunseen/entity/mobs/CinderPupEntity.java:52: error: cannot find symbol
+    public net.minecraft.util.ActionResultType mobInteract(PlayerEntity player, net.minecraft.util.Hand hand) {
+                             ^
+---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.16.5/java/com/biomesunseen/entity/mobs/CinderPupEntity.java:77: error: package net.minecraft.network.datasync does not exist
+    private net.minecraft.network.datasync.DataParameter<Boolean> TAME;
+                                          ^
+---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.16.5/java/com/biomesunseen/entity/mobs/DuneSkimmerEntity.java:3: error: package net.minecraft.entity does not exist
+import net.minecraft.entity.EntityType;
+                           ^
+---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.16.5/java/com/biomesunseen/entity/mobs/DuneSkimmerEntity.java:4: error: cannot find symbol
+import net.minecraft.world.World;
+                          ^
+---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.16.5/java/com/biomesunseen/entity/mobs/DuneSkimmerEntity.java:26: error: cannot find symbol
+    public DuneSkimmerEntity(EntityType<? extends DuneSkimmerEntity> type, World level) {
+                             ^
+---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.16.5/java/com/biomesunseen/entity/mobs/DuneSkimmerEntity.java:26: error: cannot find symbol
+    public DuneSkimmerEntity(EntityType<? extends DuneSkimmerEntity> type, World level) {
+                                                                           ^
+---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.16.5/java/com/biomesunseen/entity/mobs/WindDancerEntity.java:3: error: package net.minecraft.entity does not exist
+import net.minecraft.entity.EntityType;
+                           ^
+---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.16.5/java/com/biomesunseen/entity/mobs/WindDancerEntity.java:4: error: cannot find symbol
+import net.minecraft.world.World;
+                          ^
+---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.16.5/java/com/biomesunseen/entity/mobs/WindDancerEntity.java:26: error: cannot find symbol
+    public WindDancerEntity(EntityType<? extends WindDancerEntity> type, World level) {
+                            ^
+---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.16.5/java/com/biomesunseen/entity/mobs/WindDancerEntity.java:26: error: cannot find symbol
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.16.5/java/com/biomesunseen/entity/mobs/LanternFoxEntity.java:3: error: package net.minecraft.entity does not exist
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.16.5/java/com/biomesunseen/entity/mobs/LanternFoxEntity.java:4: error: cannot find symbol
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.16.5/java/com/biomesunseen/entity/mobs/LanternFoxEntity.java:28: error: cannot find symbol
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.16.5/java/com/biomesunseen/entity/mobs/LanternFoxEntity.java:28: error: cannot find symbol
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.16.5/java/com/biomesunseen/entity/mobs/LanternFoxEntity.java:48: error: cannot find symbol
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.16.5/java/com/biomesunseen/entity/mobs/LanternFoxEntity.java:48: error: cannot find symbol
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.16.5/java/com/biomesunseen/entity/mobs/LanternFoxEntity.java:48: error: cannot find symbol
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.16.5/java/com/biomesunseen/entity/mobs/LanternFoxEntity.java:73: error: package net.minecraft.network.datasync does not exist
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.16.5/java/com/biomesunseen/entity/mobs/FrostFawnEntity.java:3: error: package net.minecraft.entity does not exist
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.16.5/java/com/biomesunseen/entity/mobs/FrostFawnEntity.java:4: error: cannot find symbol
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.16.5/java/com/biomesunseen/entity/mobs/FrostFawnEntity.java:28: error: cannot find symbol
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.16.5/java/com/biomesunseen/entity/mobs/FrostFawnEntity.java:28: error: cannot find symbol
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.16.5/java/com/biomesunseen/entity/mobs/FrostFawnEntity.java:50: error: cannot find symbol
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.16.5/java/com/biomesunseen/entity/mobs/FrostFawnEntity.java:50: error: cannot find symbol
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.16.5/java/com/biomesunseen/entity/mobs/FrostFawnEntity.java:50: error: cannot find symbol
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.16.5/java/com/biomesunseen/entity/mobs/FrostFawnEntity.java:75: error: package net.minecraft.network.datasync does not exist
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.16.5/java/com/biomesunseen/entity/mobs/StarWhaleEntity.java:3: error: package net.minecraft.entity does not exist
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.16.5/java/com/biomesunseen/entity/mobs/StarWhaleEntity.java:4: error: cannot find symbol
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.16.5/java/com/biomesunseen/entity/mobs/StarWhaleEntity.java:26: error: cannot find symbol
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.16.5/java/com/biomesunseen/entity/mobs/StarWhaleEntity.java:26: error: cannot find symbol
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.16.5/java/com/biomesunseen/entity/mobs/PetalWingEntity.java:3: error: package net.minecraft.entity does not exist
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.16.5/java/com/biomesunseen/entity/mobs/PetalWingEntity.java:4: error: cannot find symbol
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.16.5/java/com/biomesunseen/entity/mobs/PetalWingEntity.java:26: error: cannot find symbol
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.16.5/java/com/biomesunseen/entity/mobs/PetalWingEntity.java:26: error: cannot find symbol
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.16.5/java/com/biomesunseen/entity/mobs/MireGolemEntity.java:3: error: package net.minecraft.entity does not exist
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.16.5/java/com/biomesunseen/entity/mobs/MireGolemEntity.java:4: error: cannot find symbol
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.16.5/java/com/biomesunseen/entity/mobs/MireGolemEntity.java:26: error: cannot find symbol
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.16.5/java/com/biomesunseen/entity/mobs/MireGolemEntity.java:26: error: cannot find symbol
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.16.5/java/com/biomesunseen/entity/mobs/LumoxEntity.java:3: error: package net.minecraft.entity does not exist
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.16.5/java/com/biomesunseen/entity/mobs/LumoxEntity.java:4: error: cannot find symbol
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.16.5/java/com/biomesunseen/entity/mobs/LumoxEntity.java:28: error: cannot find symbol
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.16.5/java/com/biomesunseen/entity/mobs/LumoxEntity.java:28: error: cannot find symbol
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.16.5/java/com/biomesunseen/entity/mobs/LumoxEntity.java:50: error: cannot find symbol
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.16.5/java/com/biomesunseen/entity/mobs/LumoxEntity.java:50: error: cannot find symbol
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.16.5/java/com/biomesunseen/entity/mobs/LumoxEntity.java:50: error: cannot find symbol
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.16.5/java/com/biomesunseen/entity/mobs/LumoxEntity.java:75: error: package net.minecraft.network.datasync does not exist
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.16.5/java/com/biomesunseen/entity/mobs/EmberCalfEntity.java:3: error: package net.minecraft.entity does not exist
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.16.5/java/com/biomesunseen/entity/mobs/EmberCalfEntity.java:4: error: cannot find symbol
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.16.5/java/com/biomesunseen/entity/mobs/EmberCalfEntity.java:28: error: cannot find symbol
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.16.5/java/com/biomesunseen/entity/mobs/EmberCalfEntity.java:28: error: cannot find symbol
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.16.5/java/com/biomesunseen/entity/mobs/EmberCalfEntity.java:49: error: cannot find symbol
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.16.5/java/com/biomesunseen/entity/mobs/EmberCalfEntity.java:49: error: cannot find symbol
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.16.5/java/com/biomesunseen/entity/mobs/EmberCalfEntity.java:49: error: cannot find symbol
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.16.5/java/com/biomesunseen/entity/mobs/EmberCalfEntity.java:74: error: package net.minecraft.network.datasync does not exist
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.16.5/java/com/biomesunseen/entity/mobs/PeatHopperEntity.java:3: error: package net.minecraft.entity does not exist
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.16.5/java/com/biomesunseen/entity/mobs/PeatHopperEntity.java:4: error: cannot find symbol
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.16.5/java/com/biomesunseen/entity/mobs/PeatHopperEntity.java:26: error: cannot find symbol
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.16.5/java/com/biomesunseen/entity/mobs/PeatHopperEntity.java:26: error: cannot find symbol
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.16.5/java/com/biomesunseen/entity/mobs/SkywispEntity.java:3: error: package net.minecraft.entity does not exist
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.16.5/java/com/biomesunseen/entity/mobs/SkywispEntity.java:4: error: cannot find symbol
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.16.5/java/com/biomesunseen/entity/mobs/SkywispEntity.java:26: error: cannot find symbol
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.16.5/java/com/biomesunseen/entity/mobs/SkywispEntity.java:26: error: cannot find symbol
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.16.5/java/com/biomesunseen/entity/mobs/CrystalHermitEntity.java:3: error: package net.minecraft.entity does not exist
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.16.5/java/com/biomesunseen/entity/mobs/CrystalHermitEntity.java:4: error: cannot find symbol
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.16.5/java/com/biomesunseen/entity/mobs/CrystalHermitEntity.java:26: error: cannot find symbol
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.16.5/java/com/biomesunseen/entity/mobs/CrystalHermitEntity.java:26: error: cannot find symbol
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.16.5/java/com/biomesunseen/entity/mobs/ReefGrazerEntity.java:3: error: package net.minecraft.entity does not exist
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.16.5/java/com/biomesunseen/entity/mobs/ReefGrazerEntity.java:4: error: cannot find symbol
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.16.5/java/com/biomesunseen/entity/mobs/ReefGrazerEntity.java:26: error: cannot find symbol
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.16.5/java/com/biomesunseen/entity/mobs/ReefGrazerEntity.java:26: error: cannot find symbol
-> Task :fabric-1.16.5:compileJava FAILED
-* What went wrong:
-Execution failed for task ':fabric-1.16.5:compileJava' (registered by plugin class 'org.gradle.api.plugins.JavaBasePlugin').
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/fabric-1.16.5/src/main/java/com/biomesunseen/platform/PlatformExpectImpl.java:36: error: package net.minecraft.entity does not exist
+    public WindDancerEntity(EntityType<? extends WindDancerEntity> type, World level) {
+                                                                         ^
+---

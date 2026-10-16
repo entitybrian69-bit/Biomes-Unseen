@@ -1,8 +1,8 @@
 MODULE=fabric-1.21.8
-MCJAR=/home/runner/work/Biomes-Unseen/Biomes-Unseen/.gradle/loom-cache/minecraftMaven/net/minecraft/minecraft-merged-d8222d9082/1.21.8-loom.mappings.1_21_8.layered+hash.40545-v2/minecraft-merged-d8222d9082-1.21.8-loom.mappings.1_21_8.layered+hash.40545-v2.jar
+MCJAR=/home/runner/work/Biomes-Unseen/Biomes-Unseen/.gradle/loom-cache/minecraftMaven/net/minecraft/minecraft-merged-90e1416107/1.21.8-loom.mappings.1_21_8.layered+hash.40545-v2/minecraft-merged-90e1416107-1.21.8-loom.mappings.1_21_8.layered+hash.40545-v2.jar
 ### net.minecraft.world.entity.Entity
     Compiled from "Entity.java"
-    public abstract class net.minecraft.world.entity.Entity implements net.minecraft.network.syncher.SyncedDataHolder,net.minecraft.world.Nameable,net.minecraft.world.level.entity.EntityAccess,net.minecraft.world.scores.ScoreHolder,net.minecraft.core.component.DataComponentGetter,net.fabricmc.fabric.api.attachment.v1.AttachmentTarget {
+    public abstract class net.minecraft.world.entity.Entity implements net.minecraft.network.syncher.SyncedDataHolder,net.minecraft.world.Nameable,net.minecraft.world.level.entity.EntityAccess,net.minecraft.world.scores.ScoreHolder,net.minecraft.core.component.DataComponentGetter {
       private static final org.slf4j.Logger LOGGER;
       public static final java.lang.String TAG_ID;
       public static final java.lang.String TAG_UUID;
@@ -883,8 +883,8 @@ MCJAR=/home/runner/work/Biomes-Unseen/Biomes-Unseen/.gradle/loom-cache/minecraft
       protected void playBlockFallSound();
       public void animateHurt(float);
       public int getArmorValue();
-      public void hurtArmor(net.minecraft.world.damagesource.DamageSource, float);
-      public void hurtHelmet(net.minecraft.world.damagesource.DamageSource, float);
+      protected void hurtArmor(net.minecraft.world.damagesource.DamageSource, float);
+      protected void hurtHelmet(net.minecraft.world.damagesource.DamageSource, float);
       protected void doHurtEquipment(net.minecraft.world.damagesource.DamageSource, float, net.minecraft.world.entity.EquipmentSlot...);
       protected float getDamageAfterArmorAbsorb(net.minecraft.world.damagesource.DamageSource, float);
       protected float getDamageAfterMagicAbsorb(net.minecraft.world.damagesource.DamageSource, float);
@@ -1604,7 +1604,7 @@ MCJAR=/home/runner/work/Biomes-Unseen/Biomes-Unseen/.gradle/loom-cache/minecraft
     }
 ### net.minecraft.world.entity.EntityType$Builder
     Compiled from "EntityType.java"
-    public class net.minecraft.world.entity.EntityType$Builder<T extends net.minecraft.world.entity.Entity> implements net.fabricmc.fabric.api.object.builder.v1.entity.FabricEntityType$Builder<T> {
+    public class net.minecraft.world.entity.EntityType$Builder<T extends net.minecraft.world.entity.Entity> {
       private final net.minecraft.world.entity.EntityType$EntityFactory<T> factory;
       private final net.minecraft.world.entity.MobCategory category;
       private com.google.common.collect.ImmutableSet<net.minecraft.world.level.block.Block> immuneTo;
@@ -1722,7 +1722,7 @@ MCJAR=/home/runner/work/Biomes-Unseen/Biomes-Unseen/.gradle/loom-cache/minecraft
     public class net.minecraft.world.entity.SpawnPlacements {
       private static final java.util.Map<net.minecraft.world.entity.EntityType<?>, net.minecraft.world.entity.SpawnPlacements$Data> DATA_BY_TYPE;
       public net.minecraft.world.entity.SpawnPlacements();
-      public static <T extends net.minecraft.world.entity.Mob> void register(net.minecraft.world.entity.EntityType<T>, net.minecraft.world.entity.SpawnPlacementType, net.minecraft.world.level.levelgen.Heightmap$Types, net.minecraft.world.entity.SpawnPlacements$SpawnPredicate<T>);
+      private static <T extends net.minecraft.world.entity.Mob> void register(net.minecraft.world.entity.EntityType<T>, net.minecraft.world.entity.SpawnPlacementType, net.minecraft.world.level.levelgen.Heightmap$Types, net.minecraft.world.entity.SpawnPlacements$SpawnPredicate<T>);
       public static net.minecraft.world.entity.SpawnPlacementType getPlacementType(net.minecraft.world.entity.EntityType<?>);
       public static boolean isSpawnPositionOk(net.minecraft.world.entity.EntityType<?>, net.minecraft.world.level.LevelReader, net.minecraft.core.BlockPos);
       public static net.minecraft.world.level.levelgen.Heightmap$Types getHeightmapType(net.minecraft.world.entity.EntityType<?>);
@@ -2532,7 +2532,7 @@ MCJAR=/home/runner/work/Biomes-Unseen/Biomes-Unseen/.gradle/loom-cache/minecraft
     }
 ### net.minecraft.world.level.Level
     Compiled from "Level.java"
-    public abstract class net.minecraft.world.level.Level implements net.minecraft.world.level.LevelAccessor, net.minecraft.world.level.entity.UUIDLookup<net.minecraft.world.entity.Entity>, java.lang.AutoCloseable, net.fabricmc.fabric.api.attachment.v1.AttachmentTarget {
+    public abstract class net.minecraft.world.level.Level implements net.minecraft.world.level.LevelAccessor, net.minecraft.world.level.entity.UUIDLookup<net.minecraft.world.entity.Entity>, java.lang.AutoCloseable {
       public static final com.mojang.serialization.Codec<net.minecraft.resources.ResourceKey<net.minecraft.world.level.Level>> RESOURCE_KEY_CODEC;
       public static final net.minecraft.resources.ResourceKey<net.minecraft.world.level.Level> OVERWORLD;
       public static final net.minecraft.resources.ResourceKey<net.minecraft.world.level.Level> NETHER;
@@ -2741,7 +2741,7 @@ MCJAR=/home/runner/work/Biomes-Unseen/Biomes-Unseen/.gradle/loom-cache/minecraft
     }
 ### net.minecraft.world.level.block.Block
     Compiled from "Block.java"
-    public class net.minecraft.world.level.block.Block extends net.minecraft.world.level.block.state.BlockBehaviour implements net.minecraft.world.level.ItemLike,dev.architectury.extensions.injected.InjectedBlockExtension,net.fabricmc.fabric.api.block.v1.FabricBlock {
+    public class net.minecraft.world.level.block.Block extends net.minecraft.world.level.block.state.BlockBehaviour implements net.minecraft.world.level.ItemLike,dev.architectury.extensions.injected.InjectedBlockExtension {
       public static final com.mojang.serialization.MapCodec<net.minecraft.world.level.block.Block> CODEC;
       private static final org.slf4j.Logger LOGGER;
       private final net.minecraft.core.Holder$Reference<net.minecraft.world.level.block.Block> builtInRegistryHolder;
@@ -3169,7 +3169,7 @@ MCJAR=/home/runner/work/Biomes-Unseen/Biomes-Unseen/.gradle/loom-cache/minecraft
     Error: class not found: net.minecraft.world.level.material.Material
 ### net.minecraft.world.item.Item
     Compiled from "Item.java"
-    public class net.minecraft.world.item.Item implements net.minecraft.world.flag.FeatureElement,net.minecraft.world.level.ItemLike,dev.architectury.extensions.injected.InjectedItemExtension,net.fabricmc.fabric.api.item.v1.FabricItem {
+    public class net.minecraft.world.item.Item implements net.minecraft.world.flag.FeatureElement,net.minecraft.world.level.ItemLike,dev.architectury.extensions.injected.InjectedItemExtension {
       public static final com.mojang.serialization.Codec<net.minecraft.core.Holder<net.minecraft.world.item.Item>> CODEC;
       public static final net.minecraft.network.codec.StreamCodec<net.minecraft.network.RegistryFriendlyByteBuf, net.minecraft.core.Holder<net.minecraft.world.item.Item>> STREAM_CODEC;
       private static final org.slf4j.Logger LOGGER;
@@ -3239,7 +3239,7 @@ MCJAR=/home/runner/work/Biomes-Unseen/Biomes-Unseen/.gradle/loom-cache/minecraft
     }
 ### net.minecraft.world.item.Item$Properties
     Compiled from "Item.java"
-    public class net.minecraft.world.item.Item$Properties implements dev.architectury.extensions.injected.InjectedItemPropertiesExtension,net.fabricmc.fabric.api.item.v1.FabricItem$Settings {
+    public class net.minecraft.world.item.Item$Properties implements dev.architectury.extensions.injected.InjectedItemPropertiesExtension {
       private static final net.minecraft.resources.DependantName<net.minecraft.world.item.Item, java.lang.String> BLOCK_DESCRIPTION_ID;
       private static final net.minecraft.resources.DependantName<net.minecraft.world.item.Item, java.lang.String> ITEM_DESCRIPTION_ID;
       private final net.minecraft.core.component.DataComponentMap$Builder components;
@@ -3555,7 +3555,7 @@ MCJAR=/home/runner/work/Biomes-Unseen/Biomes-Unseen/.gradle/loom-cache/minecraft
     }
 ### net.minecraft.world.item.crafting.Ingredient
     Compiled from "Ingredient.java"
-    public final class net.minecraft.world.item.crafting.Ingredient implements net.minecraft.world.entity.player.StackedContents$IngredientInfo<net.minecraft.core.Holder<net.minecraft.world.item.Item>>, java.util.function.Predicate<net.minecraft.world.item.ItemStack>, net.fabricmc.fabric.api.recipe.v1.ingredient.FabricIngredient {
+    public final class net.minecraft.world.item.crafting.Ingredient implements net.minecraft.world.entity.player.StackedContents$IngredientInfo<net.minecraft.core.Holder<net.minecraft.world.item.Item>>, java.util.function.Predicate<net.minecraft.world.item.ItemStack> {
       public static final net.minecraft.network.codec.StreamCodec<net.minecraft.network.RegistryFriendlyByteBuf, net.minecraft.world.item.crafting.Ingredient> CONTENTS_STREAM_CODEC;
       public static final net.minecraft.network.codec.StreamCodec<net.minecraft.network.RegistryFriendlyByteBuf, java.util.Optional<net.minecraft.world.item.crafting.Ingredient>> OPTIONAL_CONTENTS_STREAM_CODEC;
       public static final com.mojang.serialization.Codec<net.minecraft.core.HolderSet<net.minecraft.world.item.Item>> NON_AIR_HOLDER_SET_CODEC;
@@ -3590,7 +3590,7 @@ MCJAR=/home/runner/work/Biomes-Unseen/Biomes-Unseen/.gradle/loom-cache/minecraft
     }
 ### net.minecraft.world.item.ItemStack
     Compiled from "ItemStack.java"
-    public final class net.minecraft.world.item.ItemStack implements net.minecraft.core.component.DataComponentHolder,net.fabricmc.fabric.api.item.v1.FabricItemStack {
+    public final class net.minecraft.world.item.ItemStack implements net.minecraft.core.component.DataComponentHolder {
       private static final java.util.List<net.minecraft.network.chat.Component> OP_NBT_WARNING;
       private static final net.minecraft.network.chat.Component UNBREAKABLE_TOOLTIP;
       public static final com.mojang.serialization.MapCodec<net.minecraft.world.item.ItemStack> MAP_CODEC;
@@ -5720,7 +5720,7 @@ MCJAR=/home/runner/work/Biomes-Unseen/Biomes-Unseen/.gradle/loom-cache/minecraft
     }
 ### net.minecraft.core.Registry
     Compiled from "Registry.java"
-    public interface net.minecraft.core.Registry<T> extends com.mojang.serialization.Keyable, net.minecraft.core.HolderLookup$RegistryLookup<T>, net.minecraft.core.IdMap<T>, net.fabricmc.fabric.api.event.registry.FabricRegistry {
+    public interface net.minecraft.core.Registry<T> extends com.mojang.serialization.Keyable, net.minecraft.core.HolderLookup$RegistryLookup<T>, net.minecraft.core.IdMap<T> {
       public abstract net.minecraft.resources.ResourceKey<? extends net.minecraft.core.Registry<T>> key();
       public default com.mojang.serialization.Codec<T> byNameCodec();
       public default com.mojang.serialization.Codec<net.minecraft.core.Holder<T>> holderByNameCodec();
@@ -6360,7 +6360,7 @@ MCJAR=/home/runner/work/Biomes-Unseen/Biomes-Unseen/.gradle/loom-cache/minecraft
     }
 ### net.minecraft.tags.TagKey
     Compiled from "TagKey.java"
-    public final class net.minecraft.tags.TagKey<T> extends java.lang.Record implements net.fabricmc.fabric.api.tag.FabricTagKey {
+    public final class net.minecraft.tags.TagKey<T> extends java.lang.Record {
       private final net.minecraft.resources.ResourceKey<? extends net.minecraft.core.Registry<T>> registry;
       private final net.minecraft.resources.ResourceLocation location;
       private static final com.google.common.collect.Interner<net.minecraft.tags.TagKey<?>> VALUES;
@@ -7719,13 +7719,13 @@ MCJAR=/home/runner/work/Biomes-Unseen/Biomes-Unseen/.gradle/loom-cache/minecraft
     Compiled from "LootPool.java"
     public class net.minecraft.world.level.storage.loot.LootPool {
       public static final com.mojang.serialization.Codec<net.minecraft.world.level.storage.loot.LootPool> CODEC;
-      public final java.util.List<net.minecraft.world.level.storage.loot.entries.LootPoolEntryContainer> entries;
-      public final java.util.List<net.minecraft.world.level.storage.loot.predicates.LootItemCondition> conditions;
+      private final java.util.List<net.minecraft.world.level.storage.loot.entries.LootPoolEntryContainer> entries;
+      private final java.util.List<net.minecraft.world.level.storage.loot.predicates.LootItemCondition> conditions;
       private final java.util.function.Predicate<net.minecraft.world.level.storage.loot.LootContext> compositeCondition;
-      public final java.util.List<net.minecraft.world.level.storage.loot.functions.LootItemFunction> functions;
+      private final java.util.List<net.minecraft.world.level.storage.loot.functions.LootItemFunction> functions;
       private final java.util.function.BiFunction<net.minecraft.world.item.ItemStack, net.minecraft.world.level.storage.loot.LootContext, net.minecraft.world.item.ItemStack> compositeFunction;
-      public final net.minecraft.world.level.storage.loot.providers.number.NumberProvider rolls;
-      public final net.minecraft.world.level.storage.loot.providers.number.NumberProvider bonusRolls;
+      private final net.minecraft.world.level.storage.loot.providers.number.NumberProvider rolls;
+      private final net.minecraft.world.level.storage.loot.providers.number.NumberProvider bonusRolls;
       net.minecraft.world.level.storage.loot.LootPool(java.util.List<net.minecraft.world.level.storage.loot.entries.LootPoolEntryContainer>, java.util.List<net.minecraft.world.level.storage.loot.predicates.LootItemCondition>, java.util.List<net.minecraft.world.level.storage.loot.functions.LootItemFunction>, net.minecraft.world.level.storage.loot.providers.number.NumberProvider, net.minecraft.world.level.storage.loot.providers.number.NumberProvider);
       private void addRandomItem(java.util.function.Consumer<net.minecraft.world.item.ItemStack>, net.minecraft.world.level.storage.loot.LootContext);
       public void addRandomItems(java.util.function.Consumer<net.minecraft.world.item.ItemStack>, net.minecraft.world.level.storage.loot.LootContext);
@@ -8306,7 +8306,7 @@ MCJAR=/home/runner/work/Biomes-Unseen/Biomes-Unseen/.gradle/loom-cache/minecraft
     Error: class not found: net.minecraft.world.level.levelgen.feature.configurations.NoneDecoratorConfiguration
 ### net.minecraft.world.level.block.entity.BlockEntity
     Compiled from "BlockEntity.java"
-    public abstract class net.minecraft.world.level.block.entity.BlockEntity implements net.fabricmc.fabric.api.blockview.v2.RenderDataBlockEntity,net.fabricmc.fabric.api.attachment.v1.AttachmentTarget {
+    public abstract class net.minecraft.world.level.block.entity.BlockEntity {
       private static final com.mojang.serialization.Codec<net.minecraft.world.level.block.entity.BlockEntityType<?>> TYPE_CODEC;
       private static final org.slf4j.Logger LOGGER;
       private final net.minecraft.world.level.block.entity.BlockEntityType<?> type;
@@ -8367,7 +8367,7 @@ MCJAR=/home/runner/work/Biomes-Unseen/Biomes-Unseen/.gradle/loom-cache/minecraft
     }
 ### net.minecraft.world.level.block.entity.BlockEntityType
     Compiled from "BlockEntityType.java"
-    public class net.minecraft.world.level.block.entity.BlockEntityType<T extends net.minecraft.world.level.block.entity.BlockEntity> implements net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityType {
+    public class net.minecraft.world.level.block.entity.BlockEntityType<T extends net.minecraft.world.level.block.entity.BlockEntity> {
       private static final org.slf4j.Logger LOGGER;
       public static final net.minecraft.world.level.block.entity.BlockEntityType<net.minecraft.world.level.block.entity.FurnaceBlockEntity> FURNACE;
       public static final net.minecraft.world.level.block.entity.BlockEntityType<net.minecraft.world.level.block.entity.ChestBlockEntity> CHEST;

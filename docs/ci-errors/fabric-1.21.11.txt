@@ -1,203 +1,160 @@
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/registry/ModTags.java:4: error: cannot find symbol
+import net.minecraft.resources.ResourceLocation;
+                              ^
+---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/registry/ModSounds.java:4: error: cannot find symbol
+import net.minecraft.resources.ResourceLocation;
+                              ^
+---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/item/UnseenToolTier.java:3: error: cannot find symbol
+import net.minecraft.world.item.Tier;
+                               ^
+---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/item/UnseenToolTier.java:14: error: cannot find symbol
+public class UnseenToolTier implements Tier {
+                                       ^
+---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/item/UnseenArmorMaterial.java:4: error: cannot find symbol
+import net.minecraft.world.item.ArmorItem;
+                               ^
+---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/item/UnseenArmorMaterial.java:5: error: cannot find symbol
+import net.minecraft.world.item.ArmorMaterial;
+                               ^
+---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/item/UnseenArmorMaterial.java:18: error: cannot find symbol
+public class UnseenArmorMaterial implements ArmorMaterial {
+                                            ^
+---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/item/LoreBookItem.java:9: error: cannot find symbol
+import net.minecraft.world.InteractionResultHolder;
+                          ^
+---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/item/LoreBookItem.java:31: error: cannot find symbol
+    public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
+           ^
+---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/item/UnseenTonicItem.java:9: error: cannot find symbol
+import net.minecraft.world.InteractionResultHolder;
+                          ^
+---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/item/UnseenTonicItem.java:33: error: cannot find symbol
+    public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
+           ^
+---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/item/UnseenGearItems.java:3: error: cannot find symbol
+import net.minecraft.world.item.ArmorItem;
+                               ^
+---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/item/UnseenGearItems.java:4: error: cannot find symbol
+import net.minecraft.world.item.ArmorMaterial;
+                               ^
+---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/item/UnseenGearItems.java:6: error: cannot find symbol
+import net.minecraft.world.item.PickaxeItem;
+                               ^
+---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/item/UnseenGearItems.java:7: error: cannot find symbol
+import net.minecraft.world.item.SwordItem;
+                               ^
+---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/item/UnseenGearItems.java:8: error: cannot find symbol
+import net.minecraft.world.item.Tier;
+                               ^
+---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/item/UnseenGearItems.java:21: error: cannot find symbol
+    public static PickaxeItem pickaxe(OreDef ore, UnseenToolTier tier, Item.Properties properties) {
+                  ^
+---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/item/UnseenGearItems.java:25: error: cannot find symbol
+    public static SwordItem sword(OreDef ore, UnseenToolTier tier, Item.Properties properties) {
+                  ^
+---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/item/UnseenGearItems.java:29: error: cannot find symbol
+    public static ArmorItem helmet(OreDef ore, UnseenArmorMaterial material, Item.Properties properties) {
+                  ^
+---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/item/UnseenGearItems.java:33: error: cannot find symbol
+    public static ArmorItem chestplate(OreDef ore, UnseenArmorMaterial material, Item.Properties properties) {
+                  ^
+---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/item/UnseenGearItems.java:37: error: cannot find symbol
+    public static ArmorItem leggings(OreDef ore, UnseenArmorMaterial material, Item.Properties properties) {
+                  ^
+---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/item/UnseenGearItems.java:41: error: cannot find symbol
+    public static ArmorItem boots(OreDef ore, UnseenArmorMaterial material, Item.Properties properties) {
+                  ^
+---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/item/UnseenGearItems.java:46: error: cannot find symbol
+    public static final class UnseenPickaxeItem extends PickaxeItem {
+                                                        ^
+---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/item/UnseenGearItems.java:60: error: cannot find symbol
+    public static final class UnseenSwordItem extends SwordItem {
+                                                      ^
+---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/item/UnseenGearItems.java:74: error: cannot find symbol
+    public static final class UnseenArmorItem extends ArmorItem {
+                                                      ^
+---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/item/UnseenGearItems.java:77: error: package ArmorItem does not exist
+        UnseenArmorItem(OreDef ore, UnseenArmorMaterial material, ArmorItem.Type slot, Item.Properties properties) {
+                                                                           ^
+---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/client/legacy/UnseenLegacyModel.java:13: error: cannot find symbol
+import net.minecraft.resources.ResourceLocation;
+                              ^
+---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/client/legacy/UnseenLegacyRenderer.java:5: error: cannot find symbol
+import net.minecraft.resources.ResourceLocation;
+                              ^
+---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/client/legacy/UnseenLegacyRenderer.java:13: error: wrong number of type arguments; required 3
+        extends MobRenderer<T, UnseenLegacyModel<T>> {
+                           ^
+---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/client/legacy/UnseenLegacyRenderer.java:23: error: cannot find symbol
+    public ResourceLocation getTextureLocation(T entity) {
+           ^
+---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/worldgen/ModWorldGen.java:11: error: cannot find symbol
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/fabric-1.21.11/src/main/java/com/biomesunseen/platform/PlatformExpectImpl.java:66: error: cannot find symbol
+import net.minecraft.resources.ResourceLocation;
+                              ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/fabric-1.21.11/src/main/java/com/biomesunseen/platform/PlatformExpectImpl.java:70: error: cannot find symbol
+            player.playNotifySound(sound, net.minecraft.sounds.SoundSource.MUSIC, 1.0F, 1.0F);
+                  ^
+---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/entity/BiomesUnseenMob.java:83: error: isClientSide has private access in Level
+        if (!level().isClientSide && tickCount % 20 == 0) {
+                    ^
+---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/entity/BiomesUnseenMob.java:92: error: isClientSide has private access in Level
+        } else if (!level().isClientSide) {
+                           ^
+---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/entity/BiomesUnseenMob.java:145: error: isClientSide has private access in Level
+        if (!level().isClientSide) {
+                    ^
+---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/entity/BiomesUnseenMob.java:146: error: cannot find symbol
+            SpawnCaps.onRemoved(level().dimension().location().toString());
+                                                   ^
+---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/entity/BiomesUnseenMob.java:151: error: hurt(DamageSource,float) in BiomesUnseenMob cannot override hurt(DamageSource,float) in Entity
+    public boolean hurt(DamageSource source, float amount) {
+                   ^
+---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/entity/BiomesUnseenMob.java:150: error: method does not override or implement a method from a supertype
+    @Override
+    ^
+---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/entity/BiomesUnseenMob.java:152: error: incompatible types: void cannot be converted to boolean
+        boolean hurt = super.hurt(source, amount);
+                                 ^
+---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/entity/legacy/LegacyAnimDriver.java:33: error: cannot find symbol
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/entity/mobs/CinderPupEntity.java:58: error: isClientSide has private access in Level
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/entity/mobs/CinderPupEntity.java:68: error: isClientSide has private access in Level
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/entity/mobs/CinderPupEntity.java:68: error: cannot find symbol
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/entity/mobs/LanternFoxEntity.java:54: error: isClientSide has private access in Level
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/entity/mobs/LanternFoxEntity.java:64: error: isClientSide has private access in Level
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/entity/mobs/LanternFoxEntity.java:64: error: cannot find symbol
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/entity/mobs/FrostFawnEntity.java:56: error: isClientSide has private access in Level
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/entity/mobs/FrostFawnEntity.java:66: error: isClientSide has private access in Level
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/entity/mobs/FrostFawnEntity.java:66: error: cannot find symbol
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/entity/mobs/LumoxEntity.java:56: error: isClientSide has private access in Level
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/entity/mobs/LumoxEntity.java:66: error: isClientSide has private access in Level
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/entity/mobs/LumoxEntity.java:66: error: cannot find symbol
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/entity/mobs/EmberCalfEntity.java:55: error: isClientSide has private access in Level
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/entity/mobs/EmberCalfEntity.java:65: error: isClientSide has private access in Level
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/entity/mobs/EmberCalfEntity.java:65: error: cannot find symbol
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/entity/mobs/SporeSproutEntity.java:54: error: isClientSide has private access in Level
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/entity/mobs/SporeSproutEntity.java:64: error: isClientSide has private access in Level
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/entity/mobs/SporeSproutEntity.java:64: error: cannot find symbol
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/entity/ai/FleeDangerGoal.java:31: error: incompatible types: Player cannot be converted to PathfinderMob
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/entity/ai/WanderTradeGoal.java:54: error: isClientSide has private access in Level
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/entity/ai/WanderTradeGoal.java:63: error: items has private access in Inventory
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/entity/boss/VoidSerpentEntity.java:91: error: isClientSide has private access in Level
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/entity/boss/VoidSerpentEntity.java:138: error: cannot find symbol
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/entity/boss/VoidSerpentEntity.java:144: error: cannot find symbol
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/entity/boss/VoidSerpentEntity.java:172: error: method does not override or implement a method from a supertype
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/entity/boss/VoidSerpentEntity.java:174: error: method isInvulnerableTo in class LivingEntity cannot be applied to given types;
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/entity/boss/VoidSerpentEntity.java:180: error: isClientSide has private access in Level
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/entity/boss/VoidSerpentEntity.java:181: error: no suitable method found for spawnAtLocation(ItemStack)
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/entity/boss/VoidSerpentEntity.java:185: error: no suitable method found for spawnAtLocation(ItemStack)
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/entity/boss/VoidSerpentEntity.java:187: error: no suitable method found for spawnAtLocation(ItemStack)
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/entity/boss/VoidSerpentEntity.java:189: error: no suitable method found for spawnAtLocation(ItemStack)
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/entity/boss/HeartOfTheForestEntity.java:56: error: isClientSide has private access in Level
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/entity/boss/HeartOfTheForestEntity.java:94: error: incompatible types: Reference<SoundEvent> cannot be converted to SoundEvent
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/entity/boss/HeartOfTheForestEntity.java:125: error: cannot find symbol
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/entity/boss/HeartOfTheForestEntity.java:137: error: cannot find symbol
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/entity/boss/HeartOfTheForestEntity.java:146: error: isClientSide has private access in Level
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/entity/boss/HeartOfTheForestEntity.java:148: error: no suitable method found for spawnAtLocation(ItemStack)
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/entity/boss/HeartOfTheForestEntity.java:152: error: no suitable method found for spawnAtLocation(ItemStack)
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/entity/boss/HeartOfTheForestEntity.java:154: error: no suitable method found for spawnAtLocation(ItemStack)
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/entity/boss/HeartOfTheForestEntity.java:156: error: no suitable method found for spawnAtLocation(ItemStack)
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/registry/ModEntities.java:65: error: cannot find symbol
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/registry/ModEntities.java:67: error: incompatible types: String cannot be converted to ResourceKey<EntityType<?>>
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/registry/ModEntities.java:68: error: cannot find symbol
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/registry/ModEntities.java:70: error: incompatible types: String cannot be converted to ResourceKey<EntityType<?>>
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/registry/ModEntities.java:71: error: cannot find symbol
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/registry/ModEntities.java:73: error: incompatible types: String cannot be converted to ResourceKey<EntityType<?>>
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/registry/ModEntities.java:74: error: cannot find symbol
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/registry/ModEntities.java:76: error: incompatible types: String cannot be converted to ResourceKey<EntityType<?>>
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/registry/ModEntities.java:77: error: cannot find symbol
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/registry/ModEntities.java:79: error: incompatible types: String cannot be converted to ResourceKey<EntityType<?>>
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/registry/ModEntities.java:80: error: cannot find symbol
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/registry/ModEntities.java:82: error: incompatible types: String cannot be converted to ResourceKey<EntityType<?>>
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/registry/ModEntities.java:83: error: cannot find symbol
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/registry/ModEntities.java:85: error: incompatible types: String cannot be converted to ResourceKey<EntityType<?>>
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/registry/ModEntities.java:86: error: cannot find symbol
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/registry/ModEntities.java:88: error: incompatible types: String cannot be converted to ResourceKey<EntityType<?>>
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/registry/ModEntities.java:89: error: cannot find symbol
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/registry/ModEntities.java:91: error: incompatible types: String cannot be converted to ResourceKey<EntityType<?>>
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/registry/ModEntities.java:92: error: cannot find symbol
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/registry/ModEntities.java:94: error: incompatible types: String cannot be converted to ResourceKey<EntityType<?>>
-> Task :fabric-1.21.11:compileJava FAILED
-* What went wrong:
-Execution failed for task ':fabric-1.21.11:compileJava' (registered by plugin class 'org.gradle.api.plugins.JavaBasePlugin').
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/registry/ModTags.java:4: error: cannot find symbol
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/registry/ModSounds.java:4: error: cannot find symbol
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/item/UnseenToolTier.java:3: error: cannot find symbol
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/item/UnseenArmorMaterial.java:4: error: cannot find symbol
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/item/UnseenArmorMaterial.java:5: error: cannot find symbol
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/item/LoreBookItem.java:9: error: cannot find symbol
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/item/LoreBookItem.java:31: error: cannot find symbol
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/item/UnseenTonicItem.java:9: error: cannot find symbol
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/item/UnseenTonicItem.java:33: error: cannot find symbol
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/item/UnseenGearItems.java:3: error: cannot find symbol
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/item/UnseenGearItems.java:4: error: cannot find symbol
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/item/UnseenGearItems.java:6: error: cannot find symbol
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/item/UnseenGearItems.java:7: error: cannot find symbol
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/item/UnseenGearItems.java:8: error: cannot find symbol
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/item/UnseenGearItems.java:21: error: cannot find symbol
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/item/UnseenGearItems.java:25: error: cannot find symbol
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/item/UnseenGearItems.java:29: error: cannot find symbol
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/item/UnseenGearItems.java:33: error: cannot find symbol
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/item/UnseenGearItems.java:37: error: cannot find symbol
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/item/UnseenGearItems.java:41: error: cannot find symbol
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/item/UnseenGearItems.java:46: error: cannot find symbol
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/item/UnseenGearItems.java:60: error: cannot find symbol
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/item/UnseenGearItems.java:74: error: cannot find symbol
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/client/legacy/UnseenLegacyModel.java:13: error: cannot find symbol
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/client/legacy/UnseenLegacyRenderer.java:5: error: cannot find symbol
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/client/legacy/UnseenLegacyRenderer.java:23: error: cannot find symbol
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/worldgen/ModWorldGen.java:11: error: cannot find symbol
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/entity/boss/VoidSerpentEntity.java:144: error: cannot find symbol
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/registry/ModEntities.java:65: error: cannot find symbol
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/registry/ModEntities.java:68: error: cannot find symbol
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/registry/ModEntities.java:71: error: cannot find symbol
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/registry/ModEntities.java:74: error: cannot find symbol
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/registry/ModEntities.java:77: error: cannot find symbol
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/registry/ModEntities.java:80: error: cannot find symbol
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/registry/ModEntities.java:83: error: cannot find symbol
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/registry/ModEntities.java:86: error: cannot find symbol
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/registry/ModEntities.java:89: error: cannot find symbol
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/registry/ModEntities.java:92: error: cannot find symbol
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/item/UnseenToolTier.java:14: error: cannot find symbol
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/item/UnseenArmorMaterial.java:18: error: cannot find symbol
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/item/UnseenGearItems.java:77: error: package ArmorItem does not exist
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/client/legacy/UnseenLegacyRenderer.java:13: error: wrong number of type arguments; required 3
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/fabric-1.21.11/src/main/java/com/biomesunseen/platform/PlatformExpectImpl.java:66: error: cannot find symbol
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/entity/BiomesUnseenMob.java:146: error: cannot find symbol
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/entity/legacy/LegacyAnimDriver.java:33: error: cannot find symbol
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/entity/mobs/CinderPupEntity.java:68: error: cannot find symbol
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/entity/mobs/LanternFoxEntity.java:64: error: cannot find symbol
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/entity/mobs/FrostFawnEntity.java:66: error: cannot find symbol
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/entity/mobs/LumoxEntity.java:66: error: cannot find symbol
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/entity/mobs/EmberCalfEntity.java:65: error: cannot find symbol
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/entity/mobs/SporeSproutEntity.java:64: error: cannot find symbol
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/entity/boss/VoidSerpentEntity.java:138: error: cannot find symbol
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/entity/boss/HeartOfTheForestEntity.java:125: error: cannot find symbol
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/entity/boss/HeartOfTheForestEntity.java:137: error: cannot find symbol
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/entity/BiomesUnseenMob.java:83: error: isClientSide has private access in Level
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/entity/BiomesUnseenMob.java:92: error: isClientSide has private access in Level
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/entity/BiomesUnseenMob.java:145: error: isClientSide has private access in Level
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/entity/mobs/CinderPupEntity.java:58: error: isClientSide has private access in Level
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/entity/mobs/CinderPupEntity.java:68: error: isClientSide has private access in Level
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/entity/mobs/LanternFoxEntity.java:54: error: isClientSide has private access in Level
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/entity/mobs/LanternFoxEntity.java:64: error: isClientSide has private access in Level
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/entity/mobs/FrostFawnEntity.java:56: error: isClientSide has private access in Level
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/entity/mobs/FrostFawnEntity.java:66: error: isClientSide has private access in Level
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/entity/mobs/LumoxEntity.java:56: error: isClientSide has private access in Level
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/entity/mobs/LumoxEntity.java:66: error: isClientSide has private access in Level
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/entity/mobs/EmberCalfEntity.java:55: error: isClientSide has private access in Level
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/entity/mobs/EmberCalfEntity.java:65: error: isClientSide has private access in Level
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/entity/mobs/SporeSproutEntity.java:54: error: isClientSide has private access in Level
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/entity/mobs/SporeSproutEntity.java:64: error: isClientSide has private access in Level
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/entity/ai/WanderTradeGoal.java:54: error: isClientSide has private access in Level
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/entity/ai/WanderTradeGoal.java:63: error: items has private access in Inventory
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/entity/boss/VoidSerpentEntity.java:91: error: isClientSide has private access in Level
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/entity/boss/VoidSerpentEntity.java:180: error: isClientSide has private access in Level
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/entity/boss/HeartOfTheForestEntity.java:56: error: isClientSide has private access in Level
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/entity/boss/HeartOfTheForestEntity.java:146: error: isClientSide has private access in Level
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/entity/BiomesUnseenMob.java:151: error: hurt(DamageSource,float) in BiomesUnseenMob cannot override hurt(DamageSource,float) in Entity
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/entity/BiomesUnseenMob.java:150: error: method does not override or implement a method from a supertype
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/entity/boss/VoidSerpentEntity.java:172: error: method does not override or implement a method from a supertype
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/entity/BiomesUnseenMob.java:152: error: incompatible types: void cannot be converted to boolean
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/entity/ai/FleeDangerGoal.java:31: error: incompatible types: Player cannot be converted to PathfinderMob
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/entity/boss/HeartOfTheForestEntity.java:94: error: incompatible types: Reference<SoundEvent> cannot be converted to SoundEvent
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/registry/ModEntities.java:67: error: incompatible types: String cannot be converted to ResourceKey<EntityType<?>>
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/registry/ModEntities.java:70: error: incompatible types: String cannot be converted to ResourceKey<EntityType<?>>
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/registry/ModEntities.java:73: error: incompatible types: String cannot be converted to ResourceKey<EntityType<?>>
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/registry/ModEntities.java:76: error: incompatible types: String cannot be converted to ResourceKey<EntityType<?>>
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/registry/ModEntities.java:79: error: incompatible types: String cannot be converted to ResourceKey<EntityType<?>>
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/registry/ModEntities.java:82: error: incompatible types: String cannot be converted to ResourceKey<EntityType<?>>
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/registry/ModEntities.java:85: error: incompatible types: String cannot be converted to ResourceKey<EntityType<?>>
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/registry/ModEntities.java:88: error: incompatible types: String cannot be converted to ResourceKey<EntityType<?>>
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/registry/ModEntities.java:91: error: incompatible types: String cannot be converted to ResourceKey<EntityType<?>>
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/registry/ModEntities.java:94: error: incompatible types: String cannot be converted to ResourceKey<EntityType<?>>
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/entity/boss/VoidSerpentEntity.java:174: error: method isInvulnerableTo in class LivingEntity cannot be applied to given types;
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/entity/boss/VoidSerpentEntity.java:181: error: no suitable method found for spawnAtLocation(ItemStack)
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/entity/boss/VoidSerpentEntity.java:185: error: no suitable method found for spawnAtLocation(ItemStack)
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/entity/boss/VoidSerpentEntity.java:187: error: no suitable method found for spawnAtLocation(ItemStack)
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/entity/boss/VoidSerpentEntity.java:189: error: no suitable method found for spawnAtLocation(ItemStack)
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/entity/boss/HeartOfTheForestEntity.java:148: error: no suitable method found for spawnAtLocation(ItemStack)
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/entity/boss/HeartOfTheForestEntity.java:152: error: no suitable method found for spawnAtLocation(ItemStack)
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/entity/boss/HeartOfTheForestEntity.java:154: error: no suitable method found for spawnAtLocation(ItemStack)
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/entity/boss/HeartOfTheForestEntity.java:156: error: no suitable method found for spawnAtLocation(ItemStack)
+        headYaw = mob.getYHeadRot() - mob.getYBodyRot();
+                                         ^
+---

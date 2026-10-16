@@ -1,1 +1,6 @@
 * What went wrong:
+A problem occurred configuring project ':neoforge-1.20.2'.
+> Failed to setup Minecraft, java.lang.NullPointerException: Cannot get MojangMappedMinecraftProvider before it has been setup
+---
+BUILD FAILED in 1m 31s
+---

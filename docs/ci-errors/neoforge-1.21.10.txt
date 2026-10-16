@@ -1,1 +1,6 @@
 * What went wrong:
+A problem occurred configuring project ':neoforge-1.21.10'.
+> Could not resolve all dependencies for configuration ':neoforge-1.21.10:neoForge'.
+---
+BUILD FAILED in 52s
+---
