@@ -12,6 +12,18 @@ from lines import LINES, MC_TO_LINE
 import nbt
 
 
+def _stable_salt(sid):
+    """Deterministic structure-set salt.
+
+    Python's hash() is salted per process, so using it here rewrote every
+    structure_set JSON on each run.  A stable digest keeps the generated tree
+    byte-identical between builds.
+    """
+    import hashlib
+    digest = hashlib.sha256(("biomesunseen:" + sid).encode("utf-8")).hexdigest()
+    return int(digest[:8], 16) % 100000
+
+
 def _w(root, rel, text):
     path = os.path.join(root, rel)
     os.makedirs(os.path.dirname(path), exist_ok=True)
@@ -376,7 +388,7 @@ def emit_tree(root, style_name, style):
                                     "weight": max(1, int(round(rarity * 10)))}],
                     "placement": {
                         "type": "minecraft:random_spread",
-                        "salt": abs(hash(sid)) % 100000,
+                        "salt": _stable_salt(sid),
                         "spacing": spacing,
                         "separation": sep,
                         "spread_type": "linear",

@@ -35,8 +35,8 @@ public class SporeSproutEntity extends BiomesUnseenMob {
         this.goalSelector.addGoal(1, new FleeDangerGoal(this, 1.3D));
         // Tameable: sit/follow wiring handled in mobInteract/onTamedInteraction.
         this.goalSelector.addGoal(5, new net.minecraft.world.entity.ai.goal.WaterAvoidingRandomStrollGoal(this, 1.0D));
-        this.goalSelector.addGoal(6, new net.minecraft.world.entity.ai.goal.LookAtGoal(this, net.minecraft.world.entity.player.Player.class, 8.0F));
-        this.goalSelector.addGoal(7, new net.minecraft.world.entity.ai.goal.LookRandomlyGoal(this));
+        this.goalSelector.addGoal(6, new net.minecraft.world.entity.ai.goal.LookAtPlayerGoal(this, net.minecraft.world.entity.player.Player.class, 8.0F));
+        this.goalSelector.addGoal(7, new net.minecraft.world.entity.ai.goal.RandomLookAroundGoal(this));
     }
 
     @Override
@@ -47,7 +47,7 @@ public class SporeSproutEntity extends BiomesUnseenMob {
     @Override
     public net.minecraft.world.InteractionResult mobInteract(Player player, net.minecraft.world.InteractionHand hand) {
         net.minecraft.world.item.ItemStack stack = player.getItemInHand(hand);
-        if (!isTame() && !stack.isEmpty() && stack.is(net.minecraft.world.item.Items.EMERALD)) {
+        if (!isTame() && !stack.isEmpty() && stack.getItem() == net.minecraft.world.item.Items.EMERALD) {
             if (!unseenLevel().isClientSide()) {
                 if (getRandom().nextInt(3) == 0) {
                     setTame(true);

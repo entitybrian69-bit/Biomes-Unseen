@@ -1,7 +1,7 @@
 package com.biomesunseen.registry;
 
 import net.minecraft.core.particles.SimpleParticleType;
-import net.minecraft.particles.ParticleType;
+import net.minecraft.core.particles.ParticleType;
 
 import com.biomesunseen.core.CoreRegistries;
 import com.biomesunseen.core.ModConstants;

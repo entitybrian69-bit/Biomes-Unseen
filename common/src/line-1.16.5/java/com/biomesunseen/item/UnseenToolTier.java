@@ -1,6 +1,6 @@
 package com.biomesunseen.item;
 
-import net.minecraft.world.item.IItemTier;
+import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.crafting.Ingredient;
 
 import com.biomesunseen.core.OreDef;
@@ -11,7 +11,7 @@ import java.util.function.Supplier;
  * Tool tier derived from an ore definition: durability, mining level, speed
  * and enchantability all come straight from the ore catalog.
  */
-public class UnseenToolTier implements IItemTier {
+public class UnseenToolTier implements Tier {
 
     private final OreDef ore;
     private final Supplier<Ingredient> repairIngredient;
@@ -22,12 +22,12 @@ public class UnseenToolTier implements IItemTier {
     }
 
     @Override
-    public int getMaxUses() {
+    public int getUses() {
         return ore.toolDurability;
     }
 
     @Override
-    public float getEfficiency() {
+    public float getSpeed() {
         return (float) ore.toolSpeed;
     }
 
@@ -37,7 +37,7 @@ public class UnseenToolTier implements IItemTier {
     }
 
     @Override
-    public int getHarvestLevel() {
+    public int getLevel() {
         return ore.toolMiningLevel;
     }
 

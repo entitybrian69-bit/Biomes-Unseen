@@ -58,7 +58,12 @@ public class WanderTradeGoal extends ThrottledGoal {
             if (!minerals.isEmpty()) {
                 ItemStack gift = new ItemStack(minerals.get(mob.getRandom().nextInt(minerals.size())).get());
                 if (!customer.addItem(gift)) {
-                    customer.drop(gift, false);
+                    net.minecraft.world.level.Level dropLevel =
+                            com.biomesunseen.util.EntityLevels.of(customer);
+                    if (dropLevel instanceof net.minecraft.server.level.ServerLevel) {
+                        customer.spawnAtLocation(
+                                (net.minecraft.server.level.ServerLevel) dropLevel, gift);
+                    }
                 }
                 if (customer.getInventory().isEmpty()) {
                     // No payment expected: this is ambient life, not a villager UI.

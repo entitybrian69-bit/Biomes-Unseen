@@ -30,7 +30,7 @@ public final class PlatformExpectImpl {
     public static void openConfigScreen(Object parentScreen) {
         net.minecraft.client.Minecraft mc = net.minecraft.client.Minecraft.getInstance();
         Object screen = ClothConfigScreen.build("Biomes Unseen", parentScreen, key -> key);
-        mc.setScreen((net.minecraft.client.gui.screen.Screen) screen);
+        mc.setScreen((net.minecraft.client.gui.screens.Screen) screen);
     }
 
     public static void registerSpawnPlacement(String mobId,
@@ -56,7 +56,7 @@ public final class PlatformExpectImpl {
         }
         for (net.minecraft.world.entity.player.Player player :
                 level.getPlayers(p -> p.distanceToSqr(center.getX(), center.getY(), center.getZ()) < radius * radius)) {
-            player.playNotifySound(sound, net.minecraft.util.SoundCategory.MUSIC, 1.0F, 1.0F);
+            player.playNotifySound(sound, net.minecraft.sounds.SoundSource.MUSIC, 1.0F, 1.0F);
         }
     }
 

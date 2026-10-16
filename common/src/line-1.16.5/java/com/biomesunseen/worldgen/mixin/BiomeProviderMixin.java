@@ -1,8 +1,8 @@
 package com.biomesunseen.worldgen.mixin;
 
 import net.minecraft.core.BlockPos;
-import net.minecraft.world.biome.Biome;
-import net.minecraft.world.biome.provider.BiomeProvider;
+import net.minecraft.world.level.biome.Biome;
+import net.minecraft.world.level.biome.BiomeProvider;
 
 import com.biomesunseen.worldgen.UnseenBiomeSelector;
 

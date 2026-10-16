@@ -372,40 +372,10 @@ jobs:
         with:
           gradle-version: "9.8.1"
 
-      - name: Pin NeoForge to a build that publishes userdev
-        run: |
-          case "${{ matrix.module }}" in
-            neoforge-*) bash tools/pin_neoforge.sh "${{ matrix.module }}" ;;
-            *) echo "not a neoforge module, nothing to pin" ;;
-          esac
-
       - name: Build ${{ matrix.module }}
         env:
           BIOMESUNSEEN_MODULE: ${{ matrix.module }}
-        run: |
-          set +e
-          gradle :${{ matrix.module }}:build -x test --no-daemon --stacktrace 2>&1 | tee build.log
-          code=${PIPESTATUS[0]}
-          mkdir -p ci-errors
-          out="ci-errors/${{ matrix.module }}.txt"
-          : > "$out"
-          grep -n -E "error:|Execution failed|What went wrong|FAILED" build.log > hits.txt
-          cut -d: -f1 hits.txt | head -60 | while read -r ln; do
-            sed -n "$((ln)),$((ln+2))p" build.log >> "$out"
-            echo "---" >> "$out"
-          done
-          # Configuration failures (Loom/provider bugs) only reveal their cause
-          # through the stack trace, so keep the first frames of every trace.
-          {
-            echo "=== STACKTRACE ==="
-            grep -E "Caused by:|^	at (net\.fabricmc|dev\.architectury|net\.neoforged|net\.minecraftforge)\." build.log | head -60
-            echo "=== WHAT WENT WRONG ==="
-            sed -n "/\* What went wrong:/,/^\* Try:/p" build.log | head -40
-            echo "=== LAST 40 ==="
-            tail -40 build.log
-          } >> "$out"
-          echo "captured $(wc -l < $out) lines (exit $code)"
-          exit $code
+        run: bash tools/build_module.sh "${{ matrix.module }}"
 
       - name: Upload compiler errors
         if: always()

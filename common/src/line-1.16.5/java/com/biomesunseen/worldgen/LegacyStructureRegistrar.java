@@ -1,8 +1,8 @@
 package com.biomesunseen.worldgen;
 
-import net.minecraft.world.gen.feature.structure.Structure;
-import net.minecraft.world.gen.feature.structure.StructureSeparationSettings;
-import net.minecraft.world.gen.settings.DimensionStructuresSettings;
+import net.minecraft.world.level.levelgen.feature.Structure;
+import net.minecraft.world.level.levelgen.feature.StructureSeparationSettings;
+import net.minecraft.world.level.levelgen.settings.DimensionStructuresSettings;
 
 import com.biomesunseen.BiomesUnseen;
 import com.biomesunseen.core.Content;

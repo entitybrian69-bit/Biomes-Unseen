@@ -21,7 +21,7 @@ public class UnseenDecorBlock extends Block {
         BlockBehaviour.Properties properties = BlockBehaviour.Properties.of().strength(1.5F, 6.0F);
         properties = properties.strength("stone".equals(decor.material) ? 1.5F : 1.0F, 6.0F);
         if (decor.isTransparent()) {
-            properties = properties.noOcclusion().isViewBlocking((state, getter, pos) -> false);
+            properties = properties.noOcclusion();
         }
         if (decor.lightLevel() > 0) {
             properties = properties.lightLevel(state -> decor.lightLevel());

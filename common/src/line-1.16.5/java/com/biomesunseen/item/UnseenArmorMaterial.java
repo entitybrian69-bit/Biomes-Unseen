@@ -1,7 +1,7 @@
 package com.biomesunseen.item;
 
 import net.minecraft.world.entity.EquipmentSlot;
-import net.minecraft.world.item.IArmorMaterial;
+import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
@@ -14,7 +14,7 @@ import java.util.function.Supplier;
  * Armor material derived from an ore definition.  Defense values scale with
  * the ore's tool tier so stronger ores make stronger armor.
  */
-public class UnseenArmorMaterial implements IArmorMaterial {
+public class UnseenArmorMaterial implements ArmorMaterial {
 
     private static final int[] BASE_DURABILITY = new int[]{13, 15, 16, 11};
     private static final int[] BASE_DEFENSE = new int[]{2, 5, 6, 2};

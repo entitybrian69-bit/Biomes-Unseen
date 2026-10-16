@@ -2,8 +2,8 @@ package com.biomesunseen.item;
 
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.ArmorItem;
-import net.minecraft.world.item.IArmorMaterial;
-import net.minecraft.world.item.IItemTier;
+import net.minecraft.world.item.ArmorMaterial;
+import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.PickaxeItem;
 import net.minecraft.world.item.SwordItem;

@@ -155,8 +155,7 @@ public final class ModItems {
             final int accent = com.biomesunseen.core.ColorUtil.shade(color, 0.55D);
             SPAWN_EGGS.put(mobId, track(ModRegistries.ITEMS.register(
                     mobId + "_spawn_egg",
-                    () -> new SpawnEggItem((EntityType<? extends Mob>) (EntityType<?>) ModEntities.MOB_TYPES.get(mobId).get(),
-                            new Item.Properties()))));
+                    () -> new SpawnEggItem(new Item.Properties().spawnEgg((EntityType<? extends Mob>) (EntityType<?>) ModEntities.MOB_TYPES.get(mobId).get())))));
         }
         for (int i = 0; i < Content.BOSSES.size(); i++) {
             final String bossId = Content.BOSSES.get(i).id;
@@ -164,8 +163,7 @@ public final class ModItems {
             final int accent = com.biomesunseen.core.ColorUtil.shade(color, 0.5D);
             SPAWN_EGGS.put(bossId, track(ModRegistries.ITEMS.register(
                     bossId + "_spawn_egg",
-                    () -> new SpawnEggItem((EntityType<? extends Mob>) (EntityType<?>) ModEntities.BOSS_TYPES.get(bossId).get(),
-                            new Item.Properties()))));
+                    () -> new SpawnEggItem(new Item.Properties().spawnEgg((EntityType<? extends Mob>) (EntityType<?>) ModEntities.BOSS_TYPES.get(bossId).get())))));
         }
 
         // Lore journals: one per structure lore theme.

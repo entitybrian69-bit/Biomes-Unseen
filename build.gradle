@@ -32,6 +32,10 @@ subprojects {
 
     tasks.withType(JavaCompile).configureEach {
         options.encoding = "UTF-8"
+        // javac stops at 100 errors per compilation; the CI reports are the
+        // only compiler output visible for a failing module, so ask for the
+        // whole error list instead of the first screenful.
+        options.compilerArgs += ["-Xmaxerrs", "2000"]
         def target = Integer.parseInt(project.target_java)
         if (target >= 9) {
             options.release = target

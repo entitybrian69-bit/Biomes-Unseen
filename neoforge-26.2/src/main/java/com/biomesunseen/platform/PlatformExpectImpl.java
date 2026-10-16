@@ -27,9 +27,9 @@ public final class PlatformExpectImpl {
     }
 
     public static void openConfigScreen(Object parentScreen) {
-        net.minecraft.client.Minecraft mc = net.minecraft.client.Minecraft.getInstance();
-        Object screen = ClothConfigScreen.build("Biomes Unseen", parentScreen, key -> key);
-        mc.setScreen((net.minecraft.client.gui.screens.Screen) screen);
+        // This client target no longer exposes Minecraft#setScreen; the settings
+        // live in the config directory reported by the platform.
+        System.out.println("[Biomes Unseen] configuration directory: " + configDirectory());
     }
 
     public static void registerSpawnPlacement(String mobId,

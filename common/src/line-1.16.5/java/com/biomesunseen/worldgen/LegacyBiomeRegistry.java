@@ -1,7 +1,7 @@
 package com.biomesunseen.worldgen;
 
 import net.minecraft.core.Registry;
-import net.minecraft.world.biome.Biome;
+import net.minecraft.world.level.biome.Biome;
 
 /**
  * Access to the server's biome registry (legacy line).

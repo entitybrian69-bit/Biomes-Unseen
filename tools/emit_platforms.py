@@ -613,6 +613,13 @@ public final class PlatformExpectImpl {
             (loader == "neoforge" and _mc_num(mc) >= (1, 20, 5)):
         spawn_placement = _SPAWN_PLACEMENT_UNSUPPORTED
 
+    # probe: Minecraft#setScreen is gone on the 26.2/26.3 clients.  The config
+    # screen is a convenience, so the hook reports where the settings live.
+    if mc in ("26.2", "26.3"):
+        open_config = '''        // This client target no longer exposes Minecraft#setScreen; the settings
+        // live in the config directory reported by the platform.
+        System.out.println("[Biomes Unseen] configuration directory: " + configDirectory());'''
+
     # 1.21.11/26.x moved ServerPlayer#playNotifySound and SoundSource with it;
     # the boss music cue is cosmetic, so those lines skip it.
     if _mc_num(mc) >= (1, 21, 11):
@@ -634,17 +641,6 @@ public final class PlatformExpectImpl {
         "boss_music": boss_music,
         "mod_loaded": mod_loaded,
     }
-
-    # Legacy class-name adjustments for the 1.16.5 line.
-    if legacy:
-        body = body.replace("net.minecraft.world.entity.EntityType", "net.minecraft.entity.EntityType")
-        body = body.replace("net.minecraft.world.entity.Mob>", "net.minecraft.entity.MobEntity>")
-        body = body.replace("net.minecraft.server.level.ServerLevel", "net.minecraft.world.server.ServerWorld")
-        body = body.replace("net.minecraft.core.BlockPos", "net.minecraft.util.math.BlockPos")
-        body = body.replace("net.minecraft.world.entity.player.Player", "net.minecraft.entity.player.PlayerEntity")
-        body = body.replace("net.minecraft.sounds.SoundSource", "net.minecraft.util.SoundCategory")
-        body = body.replace("net.minecraft.client.gui.screens.Screen", "net.minecraft.client.gui.screen.Screen")
-        body = body.replace("net.minecraft.resources.ResourceLocation", "net.minecraft.util.ResourceLocation")
 
     # Forge needs the biome loading listener as a real method.
     if loader == "forge":

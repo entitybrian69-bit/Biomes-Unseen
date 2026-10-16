@@ -2,7 +2,7 @@ package com.biomesunseen.worldgen;
 
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.core.Registry;
-import net.minecraft.world.biome.Biome;
+import net.minecraft.world.level.biome.Biome;
 import net.minecraft.resources.ResourceLocation;
 
 import com.biomesunseen.BiomesUnseen;

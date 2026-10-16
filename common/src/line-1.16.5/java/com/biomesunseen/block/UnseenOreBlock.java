@@ -1,7 +1,7 @@
 package com.biomesunseen.block;
 
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.AbstractBlock;
+import net.minecraft.world.level.block.state.BlockBehaviour;
 
 import com.biomesunseen.core.OreDef;
 

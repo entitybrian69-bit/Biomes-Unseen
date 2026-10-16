@@ -78,6 +78,27 @@ LEGACY_MOJANG_FQN = [
     ("net.minecraft.network.datasync.", "net.minecraft.network.syncher."),
     ("net.minecraft.particles.BasicParticleType",
      "net.minecraft.core.particles.SimpleParticleType"),
+    ("net.minecraft.particles.IParticleData", "net.minecraft.core.particles.ParticleOptions"),
+    ("net.minecraft.particles.ParticleOptions", "net.minecraft.core.particles.ParticleOptions"),
+    ("net.minecraft.particles.", "net.minecraft.core.particles."),
+    ("net.minecraft.potion.EffectInstance", "net.minecraft.world.effect.MobEffectInstance"),
+    ("net.minecraft.potion.PotionUtils", "net.minecraft.world.item.alchemy.PotionUtils"),
+    ("net.minecraft.potion.Potion", "net.minecraft.world.item.alchemy.Potion"),
+    ("net.minecraft.potion.Effect", "net.minecraft.world.effect.MobEffect"),
+    ("net.minecraft.potion.", "net.minecraft.world.effect."),
+    ("net.minecraft.world.biome.provider.", "net.minecraft.world.level.biome."),
+    ("net.minecraft.world.biome.", "net.minecraft.world.level.biome."),
+    ("net.minecraft.world.gen.feature.structure.", "net.minecraft.world.level.levelgen.feature."),
+    ("net.minecraft.world.gen.feature.", "net.minecraft.world.level.levelgen.feature."),
+    ("net.minecraft.world.gen.placement.", "net.minecraft.world.level.levelgen.placement."),
+    ("net.minecraft.world.gen.", "net.minecraft.world.level.levelgen."),
+    ("net.minecraft.client.world.ClientWorld", "net.minecraft.client.multiplayer.ClientLevel"),
+    ("net.minecraft.client.world.", "net.minecraft.client.multiplayer."),
+    ("net.minecraft.client.gui.screen.", "net.minecraft.client.gui.screens."),
+    ("net.minecraft.block.AbstractBlock", "net.minecraft.world.level.block.state.BlockBehaviour"),
+    ("net.minecraft.world.level.material.MapColor", "net.minecraft.world.level.material.MaterialColor"),
+    ("net.minecraft.world.item.IItemTier", "net.minecraft.world.item.Tier"),
+    ("net.minecraft.world.item.IArmorMaterial", "net.minecraft.world.item.ArmorMaterial"),
     ("net.minecraft.item.ItemGroup", "net.minecraft.world.item.CreativeModeTab"),
     ("net.minecraft.item.", "net.minecraft.world.item."),
     ("net.minecraft.block.", "net.minecraft.world.level.block."),
@@ -125,6 +146,13 @@ LEGACY_MOJANG_ID = [
     (r"\bDataParameter\b", "EntityDataAccessor"),
     (r"\bBasicParticleType\b", "SimpleParticleType"),
     (r"\bItemGroup\b", "CreativeModeTab"),
+    (r"\bIItemTier\b", "Tier"),
+    (r"\bIArmorMaterial\b", "ArmorMaterial"),
+    (r"\bgetMaxUses\(\)", "getUses()"),
+    (r"\bgetEfficiency\(\)", "getSpeed()"),
+    (r"\bgetHarvestLevel\(\)", "getLevel()"),
+    (r"\bgetDamage\(\)", "getAttackDamageBonus()"),
+    (r"\bgetToughness\(\)", "getToughness()"),
     (r"\bEquipmentSlotType\b", "EquipmentSlot"),
     (r"\bEntityAttributes\b", "Attributes"),
     (r"\bSwimGoal\b", "FloatGoal"),
@@ -144,6 +172,13 @@ LEGACY_MOJANG_ID = [
     (r"\bServerWorld\b", "ServerLevel"),
     (r"\bAttributeModifierMap\.MutableAttribute\b", "AttributeSupplier.Builder"),
     (r"\bAttributeModifierMap\b", "AttributeSupplier"),
+    # probe-fabric-1.16.5: these goals only exist under their Mojang names.
+    (r"\bLookAtGoal\b", "LookAtPlayerGoal"),
+    (r"\bLookRandomlyGoal\b", "RandomLookAroundGoal"),
+    # probe-fabric-1.16.5: ItemStack has no is(Item) - the 1.16 spelling is a
+    # reference comparison against the Item constant.
+    (r"stack\.is\((net\.minecraft\.world\.item\.Items\.[A-Z_0-9]+)\)", r"stack.getItem() == \1"),
+    (r"stack\.is\((Items\.[A-Z_0-9]+)\)", r"stack.getItem() == \1"),
 ]
 
 # net.minecraft.core.registries.Registries arrived in 1.19.3; older lines use
@@ -265,7 +300,15 @@ IDENTIFIER_LINES = ("1.21.11", "26")
 
 # probe-fabric-1.21.5: several MobEffects constants were renamed (the field
 # set changed from DAMAGE_BOOST/MOVEMENT_SPEED/... to STRENGTH/SPEED/...).
+# 1.21.2..1.21.11: Player#sendSystemMessage is gone; displayClientMessage is the
+# surviving entry point (probe-fabric-1.21.2).  sendSystemMessage came back in
+# 26.x (probe-fabric-26.1), so the rewrite stops at 1.21.11.
+CLIENT_MESSAGE_FROM = "1.21.2"
+CLIENT_MESSAGE_UNTIL = "1.21.11"
 SPAWN_EGG_SIMPLE_FROM = "1.21.4"
+# probe-fabric-1.21.9: SpawnEggItem(Item$Properties) only - the mob travels in
+# Item$Properties#spawnEgg(EntityType), which exists on 1.21.9 through 26.3.
+SPAWN_EGG_NO_TYPE_FROM = "1.21.9"
 MOB_EFFECT_RENAMES_FROM = "1.21.5"
 MOB_EFFECT_RENAMES = (
     ("MOVEMENT_SPEED", "SPEED"),
@@ -282,6 +325,14 @@ MOVE_TO_SNAP_FROM = "1.21.5"
 NO_COLLISION_FROM = "1.21.9"
 
 TIER_INCORRECT_FROM = "1.20.5"
+
+# new SpawnEggItem((EntityType<? extends Mob>) (EntityType<?>) X.get("id").get(),
+#         new Item.Properties())   ->  new SpawnEggItem(new Item.Properties().spawnEgg(<same cast>))
+_RE_SPAWN_EGG_NO_TYPE = re.compile(
+    r'new SpawnEggItem\((\('
+    r'EntityType<\? extends Mob>\) \(EntityType<\?>\) '
+    r'ModEntities\.(?:MOB_TYPES|BOSS_TYPES)\.get\([^)]+\)\.get\(\)),\s*\n\s*'
+    r'new Item\.Properties\(\)\)')
 
 _TIER_LEVEL_IMPL = """    @Override
     public int getLevel() {
@@ -466,12 +517,16 @@ def apply_api_drift(text, line_key):
     #    (probe-fabric-1.21.4: SpawnEggItem(EntityType<? extends Mob>, Item$Properties)).
     # -- 1.21.4+: Player#sendSystemMessage is gone; displayClientMessage is the
     #    surviving client-message entry point (probe-fabric-1.21.4).
-    if rank >= LINE_RANK[SPAWN_EGG_SIMPLE_FROM]:
+    if LINE_RANK[CLIENT_MESSAGE_FROM] <= rank <= LINE_RANK[CLIENT_MESSAGE_UNTIL]:
         text = text.replace("player.sendSystemMessage(", "player.displayClientMessage(")
         text = text.replace('"book.biomesunseen." + theme));',
                             '"book.biomesunseen." + theme), false);')
+    if rank >= LINE_RANK[SPAWN_EGG_SIMPLE_FROM]:
         text = text.replace("color, accent, new Item.Properties()",
                             "new Item.Properties()")
+    if rank >= LINE_RANK[SPAWN_EGG_NO_TYPE_FROM]:
+        text = _RE_SPAWN_EGG_NO_TYPE.sub(
+            r'new SpawnEggItem(new Item.Properties().spawnEgg(\1))', text)
 
     # -- 1.21.5+: MobEffects constant renames.
     if rank >= LINE_RANK[MOB_EFFECT_RENAMES_FROM]:
@@ -521,6 +576,44 @@ def apply_api_drift(text, line_key):
         text = text.replace("net.minecraft.resources.ResourceLocation",
                             "net.minecraft.resources.Identifier")
         text = text.replace("ResourceLocation", "Identifier")
+        # probe-fabric-1.21.11: ResourceKey#location() was renamed identifier().
+        text = text.replace(".dimension().location()", ".dimension().identifier()")
+
+    # -- 1.21.2/1.21.3 ArmorMaterial still takes a bare ResourceLocation asset
+    #    (probe build: "ResourceKey<T#1> conforms to ResourceLocation"); the
+    #    ResourceKey<EquipmentAsset> form arrived in 1.21.4.
+    if line_key == "1.21.2":
+        text = text.replace(
+            "ResourceKey.create(\n"
+            "                        ResourceKey.createRegistryKey(\n"
+            "                                ResourceLocation.fromNamespaceAndPath(\"minecraft\", \"equipment_asset\")),\n"
+            "                        ResourceLocation.fromNamespaceAndPath(\"minecraft\", \"iron\")))",
+            "ResourceLocation.fromNamespaceAndPath(\"minecraft\", \"iron\"))")
+
+    # -- The 26 line spans 26.1 - 26.3, and 26.3 reshaped two APIs, so the line
+    #    has to use spellings that compile on all three:
+    #    * Player#drop(ItemStack, boolean, Prediction) replaced the two-argument
+    #      form (probe-fabric-26.3), so drop through spawnAtLocation(ServerLevel,
+    #      ItemStack), which exists on every 26.x build.
+    #    * BlockBehaviour#isViewBlocking takes a StatePredicate up to 26.2 and a
+    #      StateArgumentPredicate<AABB> from 26.3, so the call is left out and the
+    #      vanilla default is used instead.
+    if line_key == "26":
+        text = text.replace(
+            "                if (!customer.addItem(gift)) {\n"
+            "                    customer.drop(gift, false);\n"
+            "                }",
+            "                if (!customer.addItem(gift)) {\n"
+            "                    net.minecraft.world.level.Level dropLevel =\n"
+            "                            com.biomesunseen.util.EntityLevels.of(customer);\n"
+            "                    if (dropLevel instanceof net.minecraft.server.level.ServerLevel) {\n"
+            "                        customer.spawnAtLocation(\n"
+            "                                (net.minecraft.server.level.ServerLevel) dropLevel, gift);\n"
+            "                    }\n"
+            "                }")
+        text = text.replace(
+            "properties.noOcclusion().isViewBlocking((state, getter, pos) -> false)",
+            "properties.noOcclusion()")
 
     # -- Inventory.items is private; isEmpty() says the same thing publicly.
     text = text.replace(_INVENTORY_ITEMS[0], _INVENTORY_ITEMS[1])
@@ -656,6 +749,13 @@ def postprocess(root, line_key):
                 text = text.replace(a, b)
             for pat, rep in LEGACY_MOJANG_ID:
                 text = re.sub(pat, rep, text)
+            # probe-fabric-1.16.5: Entity$RemovalReason arrived in 1.17; on
+            # 1.16.5 removal is the no-argument Entity#remove().
+            text = text.replace(
+                "    public void remove(net.minecraft.world.entity.Entity.RemovalReason reason) {\n"
+                "        super.remove(reason);\n",
+                "    public void remove() {\n"
+                "        super.remove();\n")
         if line_key in ("1.21.5", "1.21.9", "1.21.11", "26"):
             # 1.21.5 removed net.minecraft.world.item.ArmorItem alongside
             # SwordItem/PickaxeItem, and ArmorItem$Type became

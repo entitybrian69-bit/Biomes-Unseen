@@ -15,7 +15,10 @@
 # only if no usable version can be found, so the build still reports something.
 set -uo pipefail
 
-MOD="${1:?usage: pin_neoforge.sh <module-dir>}"
+MOD="${1:?usage: pin_neoforge.sh <module-dir> [candidate-index]}"
+# 0 (default) picks the newest usable build; higher indexes walk back through
+# the candidate list so a build can retry when one build cannot be patched.
+IDX="${2:-0}"
 PROPS="$MOD/gradle.properties"
 [ -f "$PROPS" ] || { echo "pin_neoforge: no $PROPS"; exit 1; }
 
@@ -51,7 +54,7 @@ if [ "${#CANDIDATES[@]}" -eq 0 ]; then
 fi
 
 PICK=""
-for v in "${CANDIDATES[@]}"; do
+for v in "${CANDIDATES[@]:$IDX}"; do
   # Prefer a build that really publishes the userdev jar Loom asks for.
   if curl -sfI --max-time 30 "$BASE/$v/neoforge-$v-userdev.jar" >/dev/null 2>&1; then
     PICK="$v"; break
@@ -60,7 +63,7 @@ done
 
 if [ -z "$PICK" ]; then
   # Nothing publishes userdev under a HEAD probe; fall back to the newest listed.
-  PICK="${CANDIDATES[0]}"
+  PICK="${CANDIDATES[$IDX]:-${CANDIDATES[0]}}"
   echo "pin_neoforge: no userdev jar confirmed for ${SERIES}.x; falling back to $PICK"
 fi
 

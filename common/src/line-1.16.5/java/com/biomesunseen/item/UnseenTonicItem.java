@@ -3,8 +3,8 @@ package com.biomesunseen.item;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.potion.EffectInstance;
-import net.minecraft.potion.Effects;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.level.Level;
@@ -38,7 +38,7 @@ public class UnseenTonicItem extends Item {
         return InteractionResult.SUCCESS;
     }
 
-    private static net.minecraft.potion.Effect effectFor(OreDef ore) {
+    private static net.minecraft.world.effect.MobEffect effectFor(OreDef ore) {
         if ("fire_resistance".equals(ore.potionEffect)) {
             return Effects.FIRE_RESISTANCE;
         }
