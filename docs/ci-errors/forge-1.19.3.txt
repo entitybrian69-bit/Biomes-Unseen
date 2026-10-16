@@ -1,6 +1,68 @@
 * What went wrong:
 A problem occurred configuring project ':forge-1.19.3'.
-> Failed to setup Minecraft, java.lang.NullPointerException: Cannot get SrgMinecraftProvider before it has been setup
+> Failed to setup Minecraft, net.fabricmc.loom.util.download.DownloadException: Failed to download
 ---
-BUILD FAILED in 1m 49s
+BUILD FAILED in 44s
 ---
+=== STACKTRACE ===
+Caused by: java.lang.RuntimeException: Failed to setup Minecraft, net.fabricmc.loom.util.download.DownloadException: Failed to download
+	at net.fabricmc.loom.util.ExceptionUtil.createDescriptiveWrapper(ExceptionUtil.java:59)
+	at net.fabricmc.loom.configuration.CompileConfiguration.lambda$run$1(CompileConfiguration.java:152)
+	at net.fabricmc.loom.configuration.CompileConfiguration.lambda$afterEvaluationWithService$0(CompileConfiguration.java:617)
+	at net.fabricmc.loom.util.gradle.GradleUtils.lambda$afterSuccessfulEvaluation$0(GradleUtils.java:51)
+Caused by: net.fabricmc.loom.util.download.DownloadException: Failed to download
+	at net.fabricmc.loom.util.download.DownloadExecutor.close(DownloadExecutor.java:71)
+	at net.fabricmc.loom.configuration.providers.minecraft.MinecraftProvider.downloadJars(MinecraftProvider.java:196)
+	at net.fabricmc.loom.configuration.providers.minecraft.MinecraftProvider.provide(MinecraftProvider.java:91)
+	at net.fabricmc.loom.configuration.providers.minecraft.MergedMinecraftProvider.provide(MergedMinecraftProvider.java:70)
+	at net.fabricmc.loom.configuration.CompileConfiguration.setupMinecraft(CompileConfiguration.java:242)
+	at net.fabricmc.loom.configuration.CompileConfiguration.lambda$run$1(CompileConfiguration.java:144)
+	Caused by: net.fabricmc.loom.util.download.DownloadException: Failed to download file from (https://piston-data.mojang.com/v1/objects/c9df48efed58511cdd0213c56b9013a7b5c9ac1f/server.jar) to (/home/runner/.gradle/caches/fabric-loom/1.19.3/minecraft-server.jar)
+	Caused by: java.lang.IllegalStateException: This operation (Download Minecraft jars - Download Minecraft jars) has not been started.
+=== WHAT WENT WRONG ===
+* What went wrong:
+A problem occurred configuring project ':forge-1.19.3'.
+> Failed to setup Minecraft, net.fabricmc.loom.util.download.DownloadException: Failed to download
+
+* Try:
+=== LAST 40 ===
+	at org.gradle.api.internal.project.DefaultProject.stepEvaluationListener(DefaultProject.java:1525)
+	at org.gradle.configuration.project.LifecycleProjectEvaluator$NotifyAfterEvaluate.run(LifecycleProjectEvaluator.java:253)
+	... 164 more
+Caused by: net.fabricmc.loom.util.download.DownloadException: Failed to download
+	at net.fabricmc.loom.util.download.DownloadExecutor.close(DownloadExecutor.java:71)
+	at net.fabricmc.loom.configuration.providers.minecraft.MinecraftProvider.downloadJars(MinecraftProvider.java:196)
+	at net.fabricmc.loom.configuration.providers.minecraft.MinecraftProvider.provide(MinecraftProvider.java:91)
+	at net.fabricmc.loom.configuration.providers.minecraft.MergedMinecraftProvider.provide(MergedMinecraftProvider.java:70)
+	at net.fabricmc.loom.configuration.CompileConfiguration.setupMinecraft(CompileConfiguration.java:242)
+	at net.fabricmc.loom.configuration.CompileConfiguration.lambda$run$1(CompileConfiguration.java:144)
+	... 193 more
+	Suppressed: net.fabricmc.loom.util.download.DownloadException: Failed download after 3 attempts
+		at net.fabricmc.loom.util.download.DownloadBuilder.withRetries(DownloadBuilder.java:167)
+		at net.fabricmc.loom.util.download.DownloadBuilder.downloadPath(DownloadBuilder.java:126)
+		at net.fabricmc.loom.util.download.DownloadBuilder.lambda$downloadPathAsync$0(DownloadBuilder.java:122)
+		at net.fabricmc.loom.util.download.DownloadExecutor.lambda$runAsync$0(DownloadExecutor.java:51)
+		at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1768)
+		at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+		at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+		at java.base/java.lang.Thread.run(Thread.java:1583)
+	Caused by: net.fabricmc.loom.util.download.DownloadException: Failed to download file from (https://piston-data.mojang.com/v1/objects/c9df48efed58511cdd0213c56b9013a7b5c9ac1f/server.jar) to (/home/runner/.gradle/caches/fabric-loom/1.19.3/minecraft-server.jar)
+		at net.fabricmc.loom.util.download.Download.error(Download.java:459)
+		at net.fabricmc.loom.util.download.Download.downloadPath(Download.java:161)
+		at net.fabricmc.loom.util.download.DownloadBuilder.lambda$downloadPath$0(DownloadBuilder.java:126)
+		at net.fabricmc.loom.util.download.DownloadBuilder.withRetries(DownloadBuilder.java:159)
+		... 7 more
+	Caused by: java.lang.IllegalStateException: This operation (Download Minecraft jars - Download Minecraft jars) has not been started.
+		at org.gradle.internal.logging.progress.DefaultProgressLoggerFactory$ProgressLoggerImpl.assertRunning(DefaultProgressLoggerFactory.java:268)
+		at org.gradle.internal.logging.progress.DefaultProgressLoggerFactory$ProgressLoggerImpl.started(DefaultProgressLoggerFactory.java:211)
+		at org.gradle.internal.logging.progress.DefaultProgressLoggerFactory$ProgressLoggerImpl.started(DefaultProgressLoggerFactory.java:189)
+		at org.gradle.internal.logging.progress.DefaultProgressLoggerFactory$ProgressLoggerImpl.start(DefaultProgressLoggerFactory.java:178)
+		at net.fabricmc.loom.util.gradle.ProgressGroup.createProgressLogger(ProgressGroup.java:63)
+		at net.fabricmc.loom.util.download.GradleDownloadProgressListener.onStart(GradleDownloadProgressListener.java:50)
+		at net.fabricmc.loom.util.download.Download.send(Download.java:120)
+		at net.fabricmc.loom.util.download.Download.doDownload(Download.java:188)
+		at net.fabricmc.loom.util.download.Download.downloadPath(Download.java:158)
+		... 9 more
+
+
+BUILD FAILED in 44s

@@ -8444,6 +8444,272 @@ MCJAR=/home/runner/work/Biomes-Unseen/Biomes-Unseen/.gradle/loom-cache/minecraft
     public interface net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider<T extends net.minecraft.world.level.block.entity.BlockEntity> {
       public abstract net.minecraft.client.renderer.blockentity.BlockEntityRenderer<T> create(net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider$Context);
     }
+### net.minecraft.world.item.ToolMaterial
+    Compiled from "ToolMaterial.java"
+    public final class net.minecraft.world.item.ToolMaterial extends java.lang.Record {
+      private final net.minecraft.tags.TagKey<net.minecraft.world.level.block.Block> incorrectBlocksForDrops;
+      private final int durability;
+      private final float speed;
+      private final float attackDamageBonus;
+      private final int enchantmentValue;
+      private final net.minecraft.tags.TagKey<net.minecraft.world.item.Item> repairItems;
+      public static final net.minecraft.world.item.ToolMaterial WOOD;
+      public static final net.minecraft.world.item.ToolMaterial STONE;
+      public static final net.minecraft.world.item.ToolMaterial IRON;
+      public static final net.minecraft.world.item.ToolMaterial DIAMOND;
+      public static final net.minecraft.world.item.ToolMaterial GOLD;
+      public static final net.minecraft.world.item.ToolMaterial NETHERITE;
+      public net.minecraft.world.item.ToolMaterial(net.minecraft.tags.TagKey<net.minecraft.world.level.block.Block>, int, float, float, int, net.minecraft.tags.TagKey<net.minecraft.world.item.Item>);
+      private net.minecraft.world.item.Item$Properties applyCommonProperties(net.minecraft.world.item.Item$Properties);
+      public net.minecraft.world.item.Item$Properties applyToolProperties(net.minecraft.world.item.Item$Properties, net.minecraft.tags.TagKey<net.minecraft.world.level.block.Block>, float, float, float);
+      private net.minecraft.world.item.component.ItemAttributeModifiers createToolAttributes(float, float);
+      public net.minecraft.world.item.Item$Properties applySwordProperties(net.minecraft.world.item.Item$Properties, float, float);
+      private net.minecraft.world.item.component.ItemAttributeModifiers createSwordAttributes(float, float);
+      public final java.lang.String toString();
+      public final int hashCode();
+      public final boolean equals(java.lang.Object);
+      public net.minecraft.tags.TagKey<net.minecraft.world.level.block.Block> incorrectBlocksForDrops();
+      public int durability();
+      public float speed();
+      public float attackDamageBonus();
+      public int enchantmentValue();
+      public net.minecraft.tags.TagKey<net.minecraft.world.item.Item> repairItems();
+      static {};
+    }
+### net.minecraft.world.item.ToolMaterials
+    Error: class not found: net.minecraft.world.item.ToolMaterials
+### net.minecraft.world.item.equipment.ToolTier
+    Error: class not found: net.minecraft.world.item.equipment.ToolTier
+### net.minecraft.world.item.equipment.ToolTiers
+    Error: class not found: net.minecraft.world.item.equipment.ToolTiers
+### net.minecraft.world.item.DiggerItem
+    Error: class not found: net.minecraft.world.item.DiggerItem
+### net.minecraft.world.item.component.Tool
+    Compiled from "Tool.java"
+    public final class net.minecraft.world.item.component.Tool extends java.lang.Record {
+      private final java.util.List<net.minecraft.world.item.component.Tool$Rule> rules;
+      private final float defaultMiningSpeed;
+      private final int damagePerBlock;
+      private final boolean canDestroyBlocksInCreative;
+      public static final com.mojang.serialization.Codec<net.minecraft.world.item.component.Tool> CODEC;
+      public static final net.minecraft.network.codec.StreamCodec<net.minecraft.network.RegistryFriendlyByteBuf, net.minecraft.world.item.component.Tool> STREAM_CODEC;
+      public net.minecraft.world.item.component.Tool(java.util.List<net.minecraft.world.item.component.Tool$Rule>, float, int, boolean);
+      public float getMiningSpeed(net.minecraft.world.level.block.state.BlockState);
+      public boolean isCorrectForDrops(net.minecraft.world.level.block.state.BlockState);
+      public final java.lang.String toString();
+      public final int hashCode();
+      public final boolean equals(java.lang.Object);
+      public java.util.List<net.minecraft.world.item.component.Tool$Rule> rules();
+      public float defaultMiningSpeed();
+      public int damagePerBlock();
+      public boolean canDestroyBlocksInCreative();
+      private static com.mojang.datafixers.kinds.App method_58424(com.mojang.serialization.codecs.RecordCodecBuilder$Instance);
+      static {};
+    }
+### net.minecraft.core.component.DataComponents
+    Compiled from "DataComponents.java"
+    public class net.minecraft.core.component.DataComponents {
+      static final net.minecraft.util.EncoderCache ENCODER_CACHE;
+      public static final net.minecraft.core.component.DataComponentType<net.minecraft.world.item.component.CustomData> CUSTOM_DATA;
+      public static final net.minecraft.core.component.DataComponentType<java.lang.Integer> MAX_STACK_SIZE;
+      public static final net.minecraft.core.component.DataComponentType<java.lang.Integer> MAX_DAMAGE;
+      public static final net.minecraft.core.component.DataComponentType<java.lang.Integer> DAMAGE;
+      public static final net.minecraft.core.component.DataComponentType<net.minecraft.util.Unit> UNBREAKABLE;
+      public static final net.minecraft.core.component.DataComponentType<net.minecraft.network.chat.Component> CUSTOM_NAME;
+      public static final net.minecraft.core.component.DataComponentType<net.minecraft.network.chat.Component> ITEM_NAME;
+      public static final net.minecraft.core.component.DataComponentType<net.minecraft.resources.ResourceLocation> ITEM_MODEL;
+      public static final net.minecraft.core.component.DataComponentType<net.minecraft.world.item.component.ItemLore> LORE;
+      public static final net.minecraft.core.component.DataComponentType<net.minecraft.world.item.Rarity> RARITY;
+      public static final net.minecraft.core.component.DataComponentType<net.minecraft.world.item.enchantment.ItemEnchantments> ENCHANTMENTS;
+      public static final net.minecraft.core.component.DataComponentType<net.minecraft.world.item.AdventureModePredicate> CAN_PLACE_ON;
+      public static final net.minecraft.core.component.DataComponentType<net.minecraft.world.item.AdventureModePredicate> CAN_BREAK;
+      public static final net.minecraft.core.component.DataComponentType<net.minecraft.world.item.component.ItemAttributeModifiers> ATTRIBUTE_MODIFIERS;
+      public static final net.minecraft.core.component.DataComponentType<net.minecraft.world.item.component.CustomModelData> CUSTOM_MODEL_DATA;
+      public static final net.minecraft.core.component.DataComponentType<net.minecraft.world.item.component.TooltipDisplay> TOOLTIP_DISPLAY;
+      public static final net.minecraft.core.component.DataComponentType<java.lang.Integer> REPAIR_COST;
+      public static final net.minecraft.core.component.DataComponentType<net.minecraft.util.Unit> CREATIVE_SLOT_LOCK;
+      public static final net.minecraft.core.component.DataComponentType<java.lang.Boolean> ENCHANTMENT_GLINT_OVERRIDE;
+      public static final net.minecraft.core.component.DataComponentType<net.minecraft.util.Unit> INTANGIBLE_PROJECTILE;
+      public static final net.minecraft.core.component.DataComponentType<net.minecraft.world.food.FoodProperties> FOOD;
+      public static final net.minecraft.core.component.DataComponentType<net.minecraft.world.item.component.Consumable> CONSUMABLE;
+      public static final net.minecraft.core.component.DataComponentType<net.minecraft.world.item.component.UseRemainder> USE_REMAINDER;
+      public static final net.minecraft.core.component.DataComponentType<net.minecraft.world.item.component.UseCooldown> USE_COOLDOWN;
+      public static final net.minecraft.core.component.DataComponentType<net.minecraft.world.item.component.DamageResistant> DAMAGE_RESISTANT;
+      public static final net.minecraft.core.component.DataComponentType<net.minecraft.world.item.component.Tool> TOOL;
+      public static final net.minecraft.core.component.DataComponentType<net.minecraft.world.item.component.Weapon> WEAPON;
+      public static final net.minecraft.core.component.DataComponentType<net.minecraft.world.item.enchantment.Enchantable> ENCHANTABLE;
+      public static final net.minecraft.core.component.DataComponentType<net.minecraft.world.item.equipment.Equippable> EQUIPPABLE;
+      public static final net.minecraft.core.component.DataComponentType<net.minecraft.world.item.enchantment.Repairable> REPAIRABLE;
+      public static final net.minecraft.core.component.DataComponentType<net.minecraft.util.Unit> GLIDER;
+      public static final net.minecraft.core.component.DataComponentType<net.minecraft.resources.ResourceLocation> TOOLTIP_STYLE;
+      public static final net.minecraft.core.component.DataComponentType<net.minecraft.world.item.component.DeathProtection> DEATH_PROTECTION;
+      public static final net.minecraft.core.component.DataComponentType<net.minecraft.world.item.component.BlocksAttacks> BLOCKS_ATTACKS;
+      public static final net.minecraft.core.component.DataComponentType<net.minecraft.world.item.enchantment.ItemEnchantments> STORED_ENCHANTMENTS;
+      public static final net.minecraft.core.component.DataComponentType<net.minecraft.world.item.component.DyedItemColor> DYED_COLOR;
+      public static final net.minecraft.core.component.DataComponentType<net.minecraft.world.item.component.MapItemColor> MAP_COLOR;
+      public static final net.minecraft.core.component.DataComponentType<net.minecraft.world.level.saveddata.maps.MapId> MAP_ID;
+      public static final net.minecraft.core.component.DataComponentType<net.minecraft.world.item.component.MapDecorations> MAP_DECORATIONS;
+      public static final net.minecraft.core.component.DataComponentType<net.minecraft.world.item.component.MapPostProcessing> MAP_POST_PROCESSING;
+      public static final net.minecraft.core.component.DataComponentType<net.minecraft.world.item.component.ChargedProjectiles> CHARGED_PROJECTILES;
+      public static final net.minecraft.core.component.DataComponentType<net.minecraft.world.item.component.BundleContents> BUNDLE_CONTENTS;
+      public static final net.minecraft.core.component.DataComponentType<net.minecraft.world.item.alchemy.PotionContents> POTION_CONTENTS;
+      public static final net.minecraft.core.component.DataComponentType<java.lang.Float> POTION_DURATION_SCALE;
+      public static final net.minecraft.core.component.DataComponentType<net.minecraft.world.item.component.SuspiciousStewEffects> SUSPICIOUS_STEW_EFFECTS;
+      public static final net.minecraft.core.component.DataComponentType<net.minecraft.world.item.component.WritableBookContent> WRITABLE_BOOK_CONTENT;
+      public static final net.minecraft.core.component.DataComponentType<net.minecraft.world.item.component.WrittenBookContent> WRITTEN_BOOK_CONTENT;
+      public static final net.minecraft.core.component.DataComponentType<net.minecraft.world.item.equipment.trim.ArmorTrim> TRIM;
+      public static final net.minecraft.core.component.DataComponentType<net.minecraft.world.item.component.DebugStickState> DEBUG_STICK_STATE;
+      public static final net.minecraft.core.component.DataComponentType<net.minecraft.world.item.component.CustomData> ENTITY_DATA;
+      public static final net.minecraft.core.component.DataComponentType<net.minecraft.world.item.component.CustomData> BUCKET_ENTITY_DATA;
+      public static final net.minecraft.core.component.DataComponentType<net.minecraft.world.item.component.CustomData> BLOCK_ENTITY_DATA;
+      public static final net.minecraft.core.component.DataComponentType<net.minecraft.world.item.component.InstrumentComponent> INSTRUMENT;
+      public static final net.minecraft.core.component.DataComponentType<net.minecraft.world.item.component.ProvidesTrimMaterial> PROVIDES_TRIM_MATERIAL;
+      public static final net.minecraft.core.component.DataComponentType<net.minecraft.world.item.component.OminousBottleAmplifier> OMINOUS_BOTTLE_AMPLIFIER;
+      public static final net.minecraft.core.component.DataComponentType<net.minecraft.world.item.JukeboxPlayable> JUKEBOX_PLAYABLE;
+      public static final net.minecraft.core.component.DataComponentType<net.minecraft.tags.TagKey<net.minecraft.world.level.block.entity.BannerPattern>> PROVIDES_BANNER_PATTERNS;
+      public static final net.minecraft.core.component.DataComponentType<java.util.List<net.minecraft.resources.ResourceKey<net.minecraft.world.item.crafting.Recipe<?>>>> RECIPES;
+      public static final net.minecraft.core.component.DataComponentType<net.minecraft.world.item.component.LodestoneTracker> LODESTONE_TRACKER;
+      public static final net.minecraft.core.component.DataComponentType<net.minecraft.world.item.component.FireworkExplosion> FIREWORK_EXPLOSION;
+      public static final net.minecraft.core.component.DataComponentType<net.minecraft.world.item.component.Fireworks> FIREWORKS;
+      public static final net.minecraft.core.component.DataComponentType<net.minecraft.world.item.component.ResolvableProfile> PROFILE;
+      public static final net.minecraft.core.component.DataComponentType<net.minecraft.resources.ResourceLocation> NOTE_BLOCK_SOUND;
+      public static final net.minecraft.core.component.DataComponentType<net.minecraft.world.level.block.entity.BannerPatternLayers> BANNER_PATTERNS;
+      public static final net.minecraft.core.component.DataComponentType<net.minecraft.world.item.DyeColor> BASE_COLOR;
+      public static final net.minecraft.core.component.DataComponentType<net.minecraft.world.level.block.entity.PotDecorations> POT_DECORATIONS;
+      public static final net.minecraft.core.component.DataComponentType<net.minecraft.world.item.component.ItemContainerContents> CONTAINER;
+      public static final net.minecraft.core.component.DataComponentType<net.minecraft.world.item.component.BlockItemStateProperties> BLOCK_STATE;
+      public static final net.minecraft.core.component.DataComponentType<net.minecraft.world.item.component.Bees> BEES;
+      public static final net.minecraft.core.component.DataComponentType<net.minecraft.world.LockCode> LOCK;
+      public static final net.minecraft.core.component.DataComponentType<net.minecraft.world.item.component.SeededContainerLoot> CONTAINER_LOOT;
+      public static final net.minecraft.core.component.DataComponentType<net.minecraft.core.Holder<net.minecraft.sounds.SoundEvent>> BREAK_SOUND;
+      public static final net.minecraft.core.component.DataComponentType<net.minecraft.core.Holder<net.minecraft.world.entity.npc.VillagerType>> VILLAGER_VARIANT;
+      public static final net.minecraft.core.component.DataComponentType<net.minecraft.core.Holder<net.minecraft.world.entity.animal.wolf.WolfVariant>> WOLF_VARIANT;
+      public static final net.minecraft.core.component.DataComponentType<net.minecraft.core.Holder<net.minecraft.world.entity.animal.wolf.WolfSoundVariant>> WOLF_SOUND_VARIANT;
+      public static final net.minecraft.core.component.DataComponentType<net.minecraft.world.item.DyeColor> WOLF_COLLAR;
+      public static final net.minecraft.core.component.DataComponentType<net.minecraft.world.entity.animal.Fox$Variant> FOX_VARIANT;
+      public static final net.minecraft.core.component.DataComponentType<net.minecraft.world.entity.animal.Salmon$Variant> SALMON_SIZE;
+      public static final net.minecraft.core.component.DataComponentType<net.minecraft.world.entity.animal.Parrot$Variant> PARROT_VARIANT;
+      public static final net.minecraft.core.component.DataComponentType<net.minecraft.world.entity.animal.TropicalFish$Pattern> TROPICAL_FISH_PATTERN;
+      public static final net.minecraft.core.component.DataComponentType<net.minecraft.world.item.DyeColor> TROPICAL_FISH_BASE_COLOR;
+      public static final net.minecraft.core.component.DataComponentType<net.minecraft.world.item.DyeColor> TROPICAL_FISH_PATTERN_COLOR;
+      public static final net.minecraft.core.component.DataComponentType<net.minecraft.world.entity.animal.MushroomCow$Variant> MOOSHROOM_VARIANT;
+      public static final net.minecraft.core.component.DataComponentType<net.minecraft.world.entity.animal.Rabbit$Variant> RABBIT_VARIANT;
+      public static final net.minecraft.core.component.DataComponentType<net.minecraft.core.Holder<net.minecraft.world.entity.animal.PigVariant>> PIG_VARIANT;
+      public static final net.minecraft.core.component.DataComponentType<net.minecraft.core.Holder<net.minecraft.world.entity.animal.CowVariant>> COW_VARIANT;
+      public static final net.minecraft.core.component.DataComponentType<net.minecraft.world.item.EitherHolder<net.minecraft.world.entity.animal.ChickenVariant>> CHICKEN_VARIANT;
+      public static final net.minecraft.core.component.DataComponentType<net.minecraft.core.Holder<net.minecraft.world.entity.animal.frog.FrogVariant>> FROG_VARIANT;
+      public static final net.minecraft.core.component.DataComponentType<net.minecraft.world.entity.animal.horse.Variant> HORSE_VARIANT;
+      public static final net.minecraft.core.component.DataComponentType<net.minecraft.core.Holder<net.minecraft.world.entity.decoration.PaintingVariant>> PAINTING_VARIANT;
+      public static final net.minecraft.core.component.DataComponentType<net.minecraft.world.entity.animal.horse.Llama$Variant> LLAMA_VARIANT;
+      public static final net.minecraft.core.component.DataComponentType<net.minecraft.world.entity.animal.axolotl.Axolotl$Variant> AXOLOTL_VARIANT;
+      public static final net.minecraft.core.component.DataComponentType<net.minecraft.core.Holder<net.minecraft.world.entity.animal.CatVariant>> CAT_VARIANT;
+      public static final net.minecraft.core.component.DataComponentType<net.minecraft.world.item.DyeColor> CAT_COLLAR;
+      public static final net.minecraft.core.component.DataComponentType<net.minecraft.world.item.DyeColor> SHEEP_COLOR;
+      public static final net.minecraft.core.component.DataComponentType<net.minecraft.world.item.DyeColor> SHULKER_COLOR;
+      public static final net.minecraft.core.component.DataComponentMap COMMON_ITEM_COMPONENTS;
+      public net.minecraft.core.component.DataComponents();
+      public static net.minecraft.core.component.DataComponentType<?> bootstrap(net.minecraft.core.Registry<net.minecraft.core.component.DataComponentType<?>>);
+      private static <T> net.minecraft.core.component.DataComponentType<T> register(java.lang.String, java.util.function.UnaryOperator<net.minecraft.core.component.DataComponentType$Builder<T>>);
+      private static net.minecraft.core.component.DataComponentType$Builder method_66878(net.minecraft.core.component.DataComponentType$Builder);
+      private static net.minecraft.core.component.DataComponentType$Builder method_66879(net.minecraft.core.component.DataComponentType$Builder);
+      private static net.minecraft.core.component.DataComponentType$Builder method_66880(net.minecraft.core.component.DataComponentType$Builder);
+      private static net.minecraft.core.component.DataComponentType$Builder method_66881(net.minecraft.core.component.DataComponentType$Builder);
+      private static net.minecraft.core.component.DataComponentType$Builder method_66882(net.minecraft.core.component.DataComponentType$Builder);
+      private static net.minecraft.core.component.DataComponentType$Builder method_66883(net.minecraft.core.component.DataComponentType$Builder);
+      private static net.minecraft.core.component.DataComponentType$Builder method_66884(net.minecraft.core.component.DataComponentType$Builder);
+      private static net.minecraft.core.component.DataComponentType$Builder method_66885(net.minecraft.core.component.DataComponentType$Builder);
+      private static net.minecraft.core.component.DataComponentType$Builder method_66886(net.minecraft.core.component.DataComponentType$Builder);
+      private static net.minecraft.core.component.DataComponentType$Builder method_67554(net.minecraft.core.component.DataComponentType$Builder);
+      private static net.minecraft.core.component.DataComponentType$Builder method_67476(net.minecraft.core.component.DataComponentType$Builder);
+      private static net.minecraft.core.component.DataComponentType$Builder method_66887(net.minecraft.core.component.DataComponentType$Builder);
+      private static net.minecraft.core.component.DataComponentType$Builder method_66888(net.minecraft.core.component.DataComponentType$Builder);
+      private static net.minecraft.core.component.DataComponentType$Builder method_66889(net.minecraft.core.component.DataComponentType$Builder);
+      private static net.minecraft.core.component.DataComponentType$Builder method_66890(net.minecraft.core.component.DataComponentType$Builder);
+      private static net.minecraft.core.component.DataComponentType$Builder method_66891(net.minecraft.core.component.DataComponentType$Builder);
+      private static net.minecraft.core.component.DataComponentType$Builder method_66892(net.minecraft.core.component.DataComponentType$Builder);
+      private static net.minecraft.core.component.DataComponentType$Builder method_66893(net.minecraft.core.component.DataComponentType$Builder);
+      private static net.minecraft.core.component.DataComponentType$Builder method_66894(net.minecraft.core.component.DataComponentType$Builder);
+      private static net.minecraft.core.component.DataComponentType$Builder method_66895(net.minecraft.core.component.DataComponentType$Builder);
+      private static net.minecraft.core.component.DataComponentType$Builder method_66896(net.minecraft.core.component.DataComponentType$Builder);
+      private static net.minecraft.core.component.DataComponentType$Builder method_68171(net.minecraft.core.component.DataComponentType$Builder);
+      private static net.minecraft.core.component.DataComponentType$Builder method_66897(net.minecraft.core.component.DataComponentType$Builder);
+      private static net.minecraft.core.component.DataComponentType$Builder method_66898(net.minecraft.core.component.DataComponentType$Builder);
+      private static net.minecraft.core.component.DataComponentType$Builder method_67299(net.minecraft.core.component.DataComponentType$Builder);
+      private static net.minecraft.core.component.DataComponentType$Builder method_57907(net.minecraft.core.component.DataComponentType$Builder);
+      private static net.minecraft.core.component.DataComponentType$Builder method_57908(net.minecraft.core.component.DataComponentType$Builder);
+      private static net.minecraft.core.component.DataComponentType$Builder method_67300(net.minecraft.core.component.DataComponentType$Builder);
+      private static net.minecraft.core.component.DataComponentType$Builder method_57910(net.minecraft.core.component.DataComponentType$Builder);
+      private static net.minecraft.core.component.DataComponentType$Builder method_57911(net.minecraft.core.component.DataComponentType$Builder);
+      private static net.minecraft.core.component.DataComponentType$Builder method_57912(net.minecraft.core.component.DataComponentType$Builder);
+      private static net.minecraft.core.component.DataComponentType$Builder method_57913(net.minecraft.core.component.DataComponentType$Builder);
+      private static net.minecraft.core.component.DataComponentType$Builder method_57914(net.minecraft.core.component.DataComponentType$Builder);
+      private static net.minecraft.core.component.DataComponentType$Builder method_57915(net.minecraft.core.component.DataComponentType$Builder);
+      private static net.minecraft.core.component.DataComponentType$Builder method_57916(net.minecraft.core.component.DataComponentType$Builder);
+      private static net.minecraft.core.component.DataComponentType$Builder method_57917(net.minecraft.core.component.DataComponentType$Builder);
+      private static net.minecraft.core.component.DataComponentType$Builder method_57918(net.minecraft.core.component.DataComponentType$Builder);
+      private static net.minecraft.core.component.DataComponentType$Builder method_57919(net.minecraft.core.component.DataComponentType$Builder);
+      private static net.minecraft.core.component.DataComponentType$Builder method_57920(net.minecraft.core.component.DataComponentType$Builder);
+      private static net.minecraft.core.component.DataComponentType$Builder method_67295(net.minecraft.core.component.DataComponentType$Builder);
+      private static net.minecraft.core.component.DataComponentType$Builder method_60914(net.minecraft.core.component.DataComponentType$Builder);
+      private static net.minecraft.core.component.DataComponentType$Builder method_62990(net.minecraft.core.component.DataComponentType$Builder);
+      private static net.minecraft.core.component.DataComponentType$Builder method_67296(net.minecraft.core.component.DataComponentType$Builder);
+      private static net.minecraft.core.component.DataComponentType$Builder method_57921(net.minecraft.core.component.DataComponentType$Builder);
+      private static net.minecraft.core.component.DataComponentType$Builder method_57922(net.minecraft.core.component.DataComponentType$Builder);
+      private static net.minecraft.core.component.DataComponentType$Builder method_57923(net.minecraft.core.component.DataComponentType$Builder);
+      private static net.minecraft.core.component.DataComponentType$Builder method_57924(net.minecraft.core.component.DataComponentType$Builder);
+      private static net.minecraft.core.component.DataComponentType$Builder method_57925(net.minecraft.core.component.DataComponentType$Builder);
+      private static net.minecraft.core.component.DataComponentType$Builder method_57926(net.minecraft.core.component.DataComponentType$Builder);
+      private static net.minecraft.core.component.DataComponentType$Builder method_57927(net.minecraft.core.component.DataComponentType$Builder);
+      private static net.minecraft.core.component.DataComponentType$Builder method_57928(net.minecraft.core.component.DataComponentType$Builder);
+      private static net.minecraft.core.component.DataComponentType$Builder method_57929(net.minecraft.core.component.DataComponentType$Builder);
+      private static net.minecraft.core.component.DataComponentType$Builder method_66551(net.minecraft.core.component.DataComponentType$Builder);
+      private static net.minecraft.core.component.DataComponentType$Builder method_57930(net.minecraft.core.component.DataComponentType$Builder);
+      private static net.minecraft.core.component.DataComponentType$Builder method_57931(net.minecraft.core.component.DataComponentType$Builder);
+      private static net.minecraft.core.component.DataComponentType$Builder method_57932(net.minecraft.core.component.DataComponentType$Builder);
+      private static net.minecraft.core.component.DataComponentType$Builder method_57884(net.minecraft.core.component.DataComponentType$Builder);
+      private static net.minecraft.core.component.DataComponentType$Builder method_57885(net.minecraft.core.component.DataComponentType$Builder);
+      private static net.minecraft.core.component.DataComponentType$Builder method_57886(net.minecraft.core.component.DataComponentType$Builder);
+      private static net.minecraft.core.component.DataComponentType$Builder method_57887(net.minecraft.core.component.DataComponentType$Builder);
+      private static net.minecraft.core.component.DataComponentType$Builder method_57888(net.minecraft.core.component.DataComponentType$Builder);
+      private static net.minecraft.core.component.DataComponentType$Builder method_57889(net.minecraft.core.component.DataComponentType$Builder);
+      private static net.minecraft.core.component.DataComponentType$Builder method_67297(net.minecraft.core.component.DataComponentType$Builder);
+      private static net.minecraft.core.component.DataComponentType$Builder method_64260(net.minecraft.core.component.DataComponentType$Builder);
+      private static net.minecraft.core.component.DataComponentType$Builder method_64098(net.minecraft.core.component.DataComponentType$Builder);
+      private static net.minecraft.core.component.DataComponentType$Builder method_64099(net.minecraft.core.component.DataComponentType$Builder);
+      private static net.minecraft.core.component.DataComponentType$Builder method_62712(net.minecraft.core.component.DataComponentType$Builder);
+      private static net.minecraft.core.component.DataComponentType$Builder method_64100(net.minecraft.core.component.DataComponentType$Builder);
+      private static net.minecraft.core.component.DataComponentType$Builder method_62713(net.minecraft.core.component.DataComponentType$Builder);
+      private static net.minecraft.core.component.DataComponentType$Builder method_66550(net.minecraft.core.component.DataComponentType$Builder);
+      private static net.minecraft.core.component.DataComponentType$Builder method_58564(net.minecraft.core.component.DataComponentType$Builder);
+      private static net.minecraft.core.component.DataComponentType$Builder method_58565(net.minecraft.core.component.DataComponentType$Builder);
+      private static net.minecraft.core.component.DataComponentType$Builder method_62987(net.minecraft.core.component.DataComponentType$Builder);
+      private static net.minecraft.core.component.DataComponentType$Builder method_62988(net.minecraft.core.component.DataComponentType$Builder);
+      private static net.minecraft.core.component.DataComponentType$Builder method_62989(net.minecraft.core.component.DataComponentType$Builder);
+      private static net.minecraft.core.component.DataComponentType$Builder method_58566(net.minecraft.core.component.DataComponentType$Builder);
+      private static net.minecraft.core.component.DataComponentType$Builder method_57890(net.minecraft.core.component.DataComponentType$Builder);
+      private static net.minecraft.core.component.DataComponentType$Builder method_57891(net.minecraft.core.component.DataComponentType$Builder);
+      private static net.minecraft.core.component.DataComponentType$Builder method_57892(net.minecraft.core.component.DataComponentType$Builder);
+      private static net.minecraft.core.component.DataComponentType$Builder method_57893(net.minecraft.core.component.DataComponentType$Builder);
+      private static net.minecraft.core.component.DataComponentType$Builder method_67298(net.minecraft.core.component.DataComponentType$Builder);
+      private static net.minecraft.core.component.DataComponentType$Builder method_57895(net.minecraft.core.component.DataComponentType$Builder);
+      private static net.minecraft.core.component.DataComponentType$Builder method_57896(net.minecraft.core.component.DataComponentType$Builder);
+      private static net.minecraft.core.component.DataComponentType$Builder method_57897(net.minecraft.core.component.DataComponentType$Builder);
+      private static net.minecraft.core.component.DataComponentType$Builder method_57898(net.minecraft.core.component.DataComponentType$Builder);
+      private static net.minecraft.core.component.DataComponentType$Builder method_57899(net.minecraft.core.component.DataComponentType$Builder);
+      private static net.minecraft.core.component.DataComponentType$Builder method_58568(net.minecraft.core.component.DataComponentType$Builder);
+      private static net.minecraft.core.component.DataComponentType$Builder method_57900(net.minecraft.core.component.DataComponentType$Builder);
+      private static net.minecraft.core.component.DataComponentType$Builder method_64101(net.minecraft.core.component.DataComponentType$Builder);
+      private static net.minecraft.core.component.DataComponentType$Builder method_58763(net.minecraft.core.component.DataComponentType$Builder);
+      private static net.minecraft.core.component.DataComponentType$Builder method_57901(net.minecraft.core.component.DataComponentType$Builder);
+      private static net.minecraft.core.component.DataComponentType$Builder method_57902(net.minecraft.core.component.DataComponentType$Builder);
+      private static net.minecraft.core.component.DataComponentType$Builder method_57903(net.minecraft.core.component.DataComponentType$Builder);
+      private static net.minecraft.core.component.DataComponentType$Builder method_58569(net.minecraft.core.component.DataComponentType$Builder);
+      private static net.minecraft.core.component.DataComponentType$Builder method_58570(net.minecraft.core.component.DataComponentType$Builder);
+      private static net.minecraft.core.component.DataComponentType$Builder method_57904(net.minecraft.core.component.DataComponentType$Builder);
+      static {};
+    }
+### net.minecraft.resources.Identifier
+    Error: class not found: net.minecraft.resources.Identifier
 ### CLASS-INDEX
 ABSENT  net.minecraft.entity.EntityType
 ABSENT  net.minecraft.entity.MobEntity
@@ -8515,3 +8781,8 @@ ABSENT  net.minecraft.entity.attribute.EntityAttribute
 PRESENT net.minecraft.world.entity.ai.attributes.Attribute
 ABSENT  net.minecraft.entity.attribute.DefaultAttributeContainer
 PRESENT net.minecraft.world.entity.ai.attributes.AttributeSupplier
+PRESENT net.minecraft.world.item.ToolMaterial
+ABSENT  net.minecraft.world.item.ToolMaterials
+ABSENT  net.minecraft.world.item.equipment.ToolTier
+ABSENT  net.minecraft.world.item.DiggerItem
+ABSENT  net.minecraft.resources.Identifier

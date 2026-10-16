@@ -6475,6 +6475,37 @@ MCJAR=/home/runner/work/Biomes-Unseen/Biomes-Unseen/.gradle/loom-cache/minecraft
     public interface net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider<T extends net.minecraft.world.level.block.entity.BlockEntity> {
       public abstract net.minecraft.client.renderer.blockentity.BlockEntityRenderer<T> create(net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider$Context);
     }
+### net.minecraft.world.item.ToolMaterial
+    Error: class not found: net.minecraft.world.item.ToolMaterial
+### net.minecraft.world.item.ToolMaterials
+    Error: class not found: net.minecraft.world.item.ToolMaterials
+### net.minecraft.world.item.equipment.ToolTier
+    Error: class not found: net.minecraft.world.item.equipment.ToolTier
+### net.minecraft.world.item.equipment.ToolTiers
+    Error: class not found: net.minecraft.world.item.equipment.ToolTiers
+### net.minecraft.world.item.DiggerItem
+    Compiled from "DiggerItem.java"
+    public class net.minecraft.world.item.DiggerItem extends net.minecraft.world.item.TieredItem implements net.minecraft.world.item.Vanishable {
+      private final net.minecraft.tags.Tag<net.minecraft.world.level.block.Block> blocks;
+      protected final float speed;
+      private final float attackDamageBaseline;
+      private final com.google.common.collect.Multimap<net.minecraft.world.entity.ai.attributes.Attribute, net.minecraft.world.entity.ai.attributes.AttributeModifier> defaultModifiers;
+      protected net.minecraft.world.item.DiggerItem(float, float, net.minecraft.world.item.Tier, net.minecraft.tags.Tag<net.minecraft.world.level.block.Block>, net.minecraft.world.item.Item$Properties);
+      public float getDestroySpeed(net.minecraft.world.item.ItemStack, net.minecraft.world.level.block.state.BlockState);
+      public boolean hurtEnemy(net.minecraft.world.item.ItemStack, net.minecraft.world.entity.LivingEntity, net.minecraft.world.entity.LivingEntity);
+      public boolean mineBlock(net.minecraft.world.item.ItemStack, net.minecraft.world.level.Level, net.minecraft.world.level.block.state.BlockState, net.minecraft.core.BlockPos, net.minecraft.world.entity.LivingEntity);
+      public com.google.common.collect.Multimap<net.minecraft.world.entity.ai.attributes.Attribute, net.minecraft.world.entity.ai.attributes.AttributeModifier> getDefaultAttributeModifiers(net.minecraft.world.entity.EquipmentSlot);
+      public float getAttackDamage();
+      public boolean isCorrectToolForDrops(net.minecraft.world.level.block.state.BlockState);
+      private static void method_20273(net.minecraft.world.entity.LivingEntity);
+      private static void method_20274(net.minecraft.world.entity.LivingEntity);
+    }
+### net.minecraft.world.item.component.Tool
+    Error: class not found: net.minecraft.world.item.component.Tool
+### net.minecraft.core.component.DataComponents
+    Error: class not found: net.minecraft.core.component.DataComponents
+### net.minecraft.resources.Identifier
+    Error: class not found: net.minecraft.resources.Identifier
 ### CLASS-INDEX
 ABSENT  net.minecraft.entity.EntityType
 ABSENT  net.minecraft.entity.MobEntity
@@ -6546,3 +6577,8 @@ ABSENT  net.minecraft.entity.attribute.EntityAttribute
 PRESENT net.minecraft.world.entity.ai.attributes.Attribute
 ABSENT  net.minecraft.entity.attribute.DefaultAttributeContainer
 PRESENT net.minecraft.world.entity.ai.attributes.AttributeSupplier
+ABSENT  net.minecraft.world.item.ToolMaterial
+ABSENT  net.minecraft.world.item.ToolMaterials
+ABSENT  net.minecraft.world.item.equipment.ToolTier
+PRESENT net.minecraft.world.item.DiggerItem
+ABSENT  net.minecraft.resources.Identifier

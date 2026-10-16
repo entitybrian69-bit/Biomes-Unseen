@@ -2,5 +2,87 @@
 A problem occurred configuring project ':neoforge-1.21.7'.
 > Could not resolve all dependencies for configuration ':neoforge-1.21.7:neoForge'.
 ---
-BUILD FAILED in 57s
+BUILD FAILED in 42s
 ---
+=== STACKTRACE ===
+Caused by: java.lang.RuntimeException: Failed to setup Minecraft, java.lang.RuntimeException: Failed to provide net.neoforged:neoforge:21.7.28 : org.gradle.api.internal.artifacts.ivyservice.TypedResolveException: Could not resolve all dependencies for configuration ':neoforge-1.21.7:neoForge'.
+	at net.fabricmc.loom.util.ExceptionUtil.createDescriptiveWrapper(ExceptionUtil.java:59)
+	at net.fabricmc.loom.configuration.CompileConfiguration.lambda$run$1(CompileConfiguration.java:152)
+	at net.fabricmc.loom.configuration.CompileConfiguration.lambda$afterEvaluationWithService$0(CompileConfiguration.java:617)
+	at net.fabricmc.loom.util.gradle.GradleUtils.lambda$afterSuccessfulEvaluation$0(GradleUtils.java:51)
+Caused by: java.lang.RuntimeException: Failed to provide net.neoforged:neoforge:21.7.28 : org.gradle.api.internal.artifacts.ivyservice.TypedResolveException: Could not resolve all dependencies for configuration ':neoforge-1.21.7:neoForge'.
+	at dev.architectury.loom.forge.dependency.DependencyProviders.handleDependencies(DependencyProviders.java:111)
+	at net.fabricmc.loom.configuration.CompileConfiguration.setupDependencyProviders(CompileConfiguration.java:611)
+	at net.fabricmc.loom.configuration.CompileConfiguration.setupMinecraft(CompileConfiguration.java:253)
+	at net.fabricmc.loom.configuration.CompileConfiguration.lambda$run$1(CompileConfiguration.java:144)
+Caused by: org.gradle.api.internal.artifacts.ivyservice.TypedResolveException: Could not resolve all dependencies for configuration ':neoforge-1.21.7:neoForge'.
+	at net.fabricmc.loom.configuration.DependencyInfo.getResolvedVersion(DependencyInfo.java:88)
+	at dev.architectury.loom.forge.dependency.ForgeProvider.provide(ForgeProvider.java:50)
+	at dev.architectury.loom.forge.dependency.DependencyProviders.handleDependencies(DependencyProviders.java:109)
+Caused by: org.gradle.internal.resolve.ModuleVersionNotFoundException: Could not find net.neoforged:neoforge:21.7.28.
+=== WHAT WENT WRONG ===
+* What went wrong:
+A problem occurred configuring project ':neoforge-1.21.7'.
+> Could not resolve all dependencies for configuration ':neoforge-1.21.7:neoForge'.
+   > Could not find net.neoforged:neoforge:21.7.28.
+     Searched in the following locations:
+       - https://libraries.minecraft.net/net/neoforged/neoforge/21.7.28/neoforge-21.7.28.pom
+       - https://libraries.minecraft.net/net/neoforged/neoforge/21.7.28/neoforge-21.7.28.jar
+       - https://repo.maven.apache.org/maven2/net/neoforged/neoforge/21.7.28/neoforge-21.7.28.pom
+       - https://maven.fabricmc.net/net/neoforged/neoforge/21.7.28/neoforge-21.7.28.pom
+       - https://maven.architectury.dev/net/neoforged/neoforge/21.7.28/neoforge-21.7.28.pom
+       - https://maven.minecraftforge.net/net/neoforged/neoforge/21.7.28/neoforge-21.7.28.pom
+       - https://maven.neoforged.net/releases/net/neoforged/neoforge/21.7.28/neoforge-21.7.28.pom
+       - https://dl.cloudsmith.io/public/geckolib3/geckolib/maven/net/neoforged/neoforge/21.7.28/neoforge-21.7.28.pom
+       - https://maven.shedaniel.me/net/neoforged/neoforge/21.7.28/neoforge-21.7.28.pom
+       - https://maven.terraformersmc.com/releases/net/neoforged/neoforge/21.7.28/neoforge-21.7.28.pom
+       - https://oss.sonatype.org/content/repositories/snapshots/net/neoforged/neoforge/21.7.28/neoforge-21.7.28.pom
+       - file:/home/runner/work/Biomes-Unseen/Biomes-Unseen/.gradle/loom-cache/remapped_mods/net/neoforged/neoforge/21.7.28/neoforge-21.7.28.pom
+       - file:/home/runner/.gradle/caches/fabric-loom/minecraftMaven/net/neoforged/neoforge/21.7.28/neoforge-21.7.28.pom
+       - file:/home/runner/work/Biomes-Unseen/Biomes-Unseen/.gradle/loom-cache/minecraftMaven/net/neoforged/neoforge/21.7.28/neoforge-21.7.28.pom
+       - file:/home/runner/.gradle/caches/fabric-loom/forge/transformed-dependencies-v1/net/neoforged/neoforge/21.7.28/neoforge-21.7.28.pom
+     Required by:
+         project ':neoforge-1.21.7'
+
+* Try:
+=== LAST 40 ===
+	... 164 more
+Caused by: java.lang.RuntimeException: Failed to provide net.neoforged:neoforge:21.7.28 : org.gradle.api.internal.artifacts.ivyservice.TypedResolveException: Could not resolve all dependencies for configuration ':neoforge-1.21.7:neoForge'.
+	at dev.architectury.loom.forge.dependency.DependencyProviders.handleDependencies(DependencyProviders.java:111)
+	at net.fabricmc.loom.configuration.CompileConfiguration.setupDependencyProviders(CompileConfiguration.java:611)
+	at net.fabricmc.loom.configuration.CompileConfiguration.setupMinecraft(CompileConfiguration.java:253)
+	at net.fabricmc.loom.configuration.CompileConfiguration.lambda$run$1(CompileConfiguration.java:144)
+	... 193 more
+Caused by: org.gradle.api.internal.artifacts.ivyservice.TypedResolveException: Could not resolve all dependencies for configuration ':neoforge-1.21.7:neoForge'.
+	at org.gradle.api.internal.artifacts.ResolveExceptionMapper.mapFailure(ResolveExceptionMapper.java:74)
+	at org.gradle.api.internal.artifacts.ResolveExceptionMapper.mapFailures(ResolveExceptionMapper.java:66)
+	at org.gradle.api.internal.artifacts.configurations.DefaultConfiguration$DefaultResolutionHost.consolidateFailures(DefaultConfiguration.java:1815)
+	at org.gradle.api.internal.artifacts.configurations.ResolutionHost.rethrowFailuresAndReportProblems(ResolutionHost.java:75)
+	at org.gradle.api.internal.artifacts.ivyservice.DefaultResolvedConfiguration.rethrowFailure(DefaultResolvedConfiguration.java:63)
+	at org.gradle.api.internal.artifacts.ivyservice.DefaultResolvedConfiguration.getFirstLevelModuleDependencies(DefaultResolvedConfiguration.java:73)
+	at net.fabricmc.loom.configuration.DependencyInfo.getResolvedVersion(DependencyInfo.java:88)
+	at dev.architectury.loom.forge.dependency.ForgeProvider.provide(ForgeProvider.java:50)
+	at dev.architectury.loom.forge.dependency.DependencyProviders.handleDependencies(DependencyProviders.java:109)
+	... 196 more
+Caused by: org.gradle.internal.resolve.ModuleVersionNotFoundException: Could not find net.neoforged:neoforge:21.7.28.
+Searched in the following locations:
+  - https://libraries.minecraft.net/net/neoforged/neoforge/21.7.28/neoforge-21.7.28.pom
+  - https://libraries.minecraft.net/net/neoforged/neoforge/21.7.28/neoforge-21.7.28.jar
+  - https://repo.maven.apache.org/maven2/net/neoforged/neoforge/21.7.28/neoforge-21.7.28.pom
+  - https://maven.fabricmc.net/net/neoforged/neoforge/21.7.28/neoforge-21.7.28.pom
+  - https://maven.architectury.dev/net/neoforged/neoforge/21.7.28/neoforge-21.7.28.pom
+  - https://maven.minecraftforge.net/net/neoforged/neoforge/21.7.28/neoforge-21.7.28.pom
+  - https://maven.neoforged.net/releases/net/neoforged/neoforge/21.7.28/neoforge-21.7.28.pom
+  - https://dl.cloudsmith.io/public/geckolib3/geckolib/maven/net/neoforged/neoforge/21.7.28/neoforge-21.7.28.pom
+  - https://maven.shedaniel.me/net/neoforged/neoforge/21.7.28/neoforge-21.7.28.pom
+  - https://maven.terraformersmc.com/releases/net/neoforged/neoforge/21.7.28/neoforge-21.7.28.pom
+  - https://oss.sonatype.org/content/repositories/snapshots/net/neoforged/neoforge/21.7.28/neoforge-21.7.28.pom
+  - file:/home/runner/work/Biomes-Unseen/Biomes-Unseen/.gradle/loom-cache/remapped_mods/net/neoforged/neoforge/21.7.28/neoforge-21.7.28.pom
+  - file:/home/runner/.gradle/caches/fabric-loom/minecraftMaven/net/neoforged/neoforge/21.7.28/neoforge-21.7.28.pom
+  - file:/home/runner/work/Biomes-Unseen/Biomes-Unseen/.gradle/loom-cache/minecraftMaven/net/neoforged/neoforge/21.7.28/neoforge-21.7.28.pom
+  - file:/home/runner/.gradle/caches/fabric-loom/forge/transformed-dependencies-v1/net/neoforged/neoforge/21.7.28/neoforge-21.7.28.pom
+Required by:
+    project ':neoforge-1.21.7'
+
+
+BUILD FAILED in 42s
