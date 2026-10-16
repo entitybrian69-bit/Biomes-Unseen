@@ -1,147 +1,43 @@
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.4/java/com/biomesunseen/registry/ModItems.java:158: error: constructor SpawnEggItem in class SpawnEggItem cannot be applied to given types;
-                    () -> new SpawnEggItem((EntityType<? extends Mob>) (EntityType<?>) ModEntities.MOB_TYPES.get(mobId).get(),
-                          ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.4/java/com/biomesunseen/registry/ModItems.java:167: error: constructor SpawnEggItem in class SpawnEggItem cannot be applied to given types;
-                    () -> new SpawnEggItem((EntityType<? extends Mob>) (EntityType<?>) ModEntities.BOSS_TYPES.get(bossId).get(),
-                          ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.4/java/com/biomesunseen/item/UnseenArmorMaterial.java:49: error: cannot find symbol
-                ResourceKey.create(Registries.EQUIPMENT_ASSET,
-                                             ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.4/java/com/biomesunseen/item/LoreBookItem.java:36: error: cannot find symbol
-        player.sendSystemMessage(net.minecraft.network.chat.Component.translatable(
-              ^
----
-> Task :neoforge-1.21.4:compileJava FAILED
-gradle/actions: Writing build results to /home/runner/work/_temp/.gradle-actions/build-results/__run_2-1792168581897.json
-
----
-* What went wrong:
-Execution failed for task ':neoforge-1.21.4:compileJava' (registered by plugin class 'org.gradle.api.plugins.JavaBasePlugin').
-> Compilation failed; see the compiler output below.
----
-Execution failed for task ':neoforge-1.21.4:compileJava' (registered by plugin class 'org.gradle.api.plugins.JavaBasePlugin').
-> Compilation failed; see the compiler output below.
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.4/java/com/biomesunseen/registry/ModItems.java:158: error: constructor SpawnEggItem in class SpawnEggItem cannot be applied to given types;
----
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.4/java/com/biomesunseen/registry/ModItems.java:158: error: constructor SpawnEggItem in class SpawnEggItem cannot be applied to given types;
-                      () -> new SpawnEggItem((EntityType<? extends Mob>) (EntityType<?>) ModEntities.MOB_TYPES.get(mobId).get(),
-                            ^
----
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.4/java/com/biomesunseen/registry/ModItems.java:167: error: constructor SpawnEggItem in class SpawnEggItem cannot be applied to given types;
-                      () -> new SpawnEggItem((EntityType<? extends Mob>) (EntityType<?>) ModEntities.BOSS_TYPES.get(bossId).get(),
-                            ^
----
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.4/java/com/biomesunseen/item/UnseenArmorMaterial.java:49: error: cannot find symbol
-                  ResourceKey.create(Registries.EQUIPMENT_ASSET,
-                                               ^
----
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.4/java/com/biomesunseen/item/LoreBookItem.java:36: error: cannot find symbol
-          player.sendSystemMessage(net.minecraft.network.chat.Component.translatable(
-                ^
----
-org.gradle.api.tasks.TaskExecutionException: Execution failed for task ':neoforge-1.21.4:compileJava' (registered by plugin class 'org.gradle.api.plugins.JavaBasePlugin').
-	at org.gradle.api.internal.tasks.execution.DefaultTaskNodeExecutor.lambda$doExecute$1(DefaultTaskNodeExecutor.java:367)
-	at org.gradle.internal.Try$Failure.ifSuccessfulOrElse(Try.java:288)
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.4/java/com/biomesunseen/registry/ModItems.java:158: error: constructor SpawnEggItem in class SpawnEggItem cannot be applied to given types;
-                    () -> new SpawnEggItem((EntityType<? extends Mob>) (EntityType<?>) ModEntities.MOB_TYPES.get(mobId).get(),
-                          ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.4/java/com/biomesunseen/registry/ModItems.java:167: error: constructor SpawnEggItem in class SpawnEggItem cannot be applied to given types;
-                    () -> new SpawnEggItem((EntityType<? extends Mob>) (EntityType<?>) ModEntities.BOSS_TYPES.get(bossId).get(),
-                          ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.4/java/com/biomesunseen/item/UnseenArmorMaterial.java:49: error: cannot find symbol
-                ResourceKey.create(Registries.EQUIPMENT_ASSET,
-                                             ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.4/java/com/biomesunseen/item/LoreBookItem.java:36: error: cannot find symbol
-        player.sendSystemMessage(net.minecraft.network.chat.Component.translatable(
-              ^
----
-BUILD FAILED in 1m 43s
-1 actionable task: 1 executed
----
 === STACKTRACE ===
-Caused by: org.gradle.api.internal.tasks.compile.CompilationFailedException: Compilation failed; see the compiler output below.
 === WHAT WENT WRONG ===
-* What went wrong:
-Execution failed for task ':neoforge-1.21.4:compileJava' (registered by plugin class 'org.gradle.api.plugins.JavaBasePlugin').
-> Compilation failed; see the compiler output below.
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.4/java/com/biomesunseen/registry/ModItems.java:158: error: constructor SpawnEggItem in class SpawnEggItem cannot be applied to given types;
-                      () -> new SpawnEggItem((EntityType<? extends Mob>) (EntityType<?>) ModEntities.MOB_TYPES.get(mobId).get(),
-                            ^
-    required: EntityType<? extends Mob>,Properties
-    found:    EntityType<CAP#1>,int,int,Properties
-    reason: actual and formal argument lists differ in length
-    where CAP#1 is a fresh type-variable:
-      CAP#1 extends Mob from capture of ? extends Mob
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.4/java/com/biomesunseen/registry/ModItems.java:167: error: constructor SpawnEggItem in class SpawnEggItem cannot be applied to given types;
-                      () -> new SpawnEggItem((EntityType<? extends Mob>) (EntityType<?>) ModEntities.BOSS_TYPES.get(bossId).get(),
-                            ^
-    required: EntityType<? extends Mob>,Properties
-    found:    EntityType<CAP#1>,int,int,Properties
-    reason: actual and formal argument lists differ in length
-    where CAP#1 is a fresh type-variable:
-      CAP#1 extends Mob from capture of ? extends Mob
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.4/java/com/biomesunseen/item/UnseenArmorMaterial.java:49: error: cannot find symbol
-                  ResourceKey.create(Registries.EQUIPMENT_ASSET,
-                                               ^
-    symbol:   variable EQUIPMENT_ASSET
-    location: class Registries
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.4/java/com/biomesunseen/item/LoreBookItem.java:36: error: cannot find symbol
-          player.sendSystemMessage(net.minecraft.network.chat.Component.translatable(
-                ^
-    symbol:   method sendSystemMessage(MutableComponent)
-    location: variable player of type Player
-  Note: Some input files use or override a deprecated API.
-  Note: Recompile with -Xlint:deprecation for details.
-  Note: Some input files use unchecked or unsafe operations.
-  Note: Recompile with -Xlint:unchecked for details.
-  4 errors
-
-* Try:
 === LAST 40 ===
-	at org.gradle.internal.execution.steps.MutableStep.execute(MutableStep.java:26)
-	at org.gradle.internal.execution.steps.ValidateStep$Mutable.executeDelegate(ValidateStep.java:79)
-	at org.gradle.internal.execution.steps.ValidateStep$Mutable.executeDelegate(ValidateStep.java:65)
-	at org.gradle.internal.execution.steps.ValidateStep.execute(ValidateStep.java:105)
-	at org.gradle.internal.execution.steps.ValidateStep$Mutable.execute(ValidateStep.java:65)
-	at org.gradle.internal.execution.steps.CaptureMutableStateBeforeExecutionStep.executeMutable(CaptureMutableStateBeforeExecutionStep.java:86)
-	at org.gradle.internal.execution.steps.CaptureMutableStateBeforeExecutionStep.execute(CaptureMutableStateBeforeExecutionStep.java:65)
-	at org.gradle.internal.execution.steps.CaptureMutableStateBeforeExecutionStep.execute(CaptureMutableStateBeforeExecutionStep.java:45)
-	at org.gradle.internal.execution.steps.SkipEmptyMutableWorkStep.executeWithNonEmptySources(SkipEmptyMutableWorkStep.java:210)
-	at org.gradle.internal.execution.steps.SkipEmptyMutableWorkStep.executeMutable(SkipEmptyMutableWorkStep.java:90)
-	at org.gradle.internal.execution.steps.SkipEmptyMutableWorkStep.executeMutable(SkipEmptyMutableWorkStep.java:53)
-	at org.gradle.internal.execution.steps.MutableStep.execute(MutableStep.java:26)
-	at org.gradle.internal.execution.steps.legacy.MarkSnapshottingInputsStartedStep.execute(MarkSnapshottingInputsStartedStep.java:38)
-	at org.gradle.internal.execution.steps.LoadPreviousExecutionStateStep.executeMutable(LoadPreviousExecutionStateStep.java:36)
-	at org.gradle.internal.execution.steps.LoadPreviousExecutionStateStep.executeMutable(LoadPreviousExecutionStateStep.java:23)
-	at org.gradle.internal.execution.steps.MutableStep.execute(MutableStep.java:26)
-	at org.gradle.internal.execution.steps.HandleStaleOutputsStep.executeMutable(HandleStaleOutputsStep.java:77)
-	at org.gradle.internal.execution.steps.HandleStaleOutputsStep.executeMutable(HandleStaleOutputsStep.java:43)
-	at org.gradle.internal.execution.steps.MutableStep.execute(MutableStep.java:26)
-	at org.gradle.internal.execution.steps.AssignMutableWorkspaceStep.lambda$executeMutable$0(AssignMutableWorkspaceStep.java:34)
-	at org.gradle.api.internal.tasks.execution.TaskExecution$4.withWorkspace(TaskExecution.java:314)
-	at org.gradle.internal.execution.steps.AssignMutableWorkspaceStep.executeMutable(AssignMutableWorkspaceStep.java:30)
-	at org.gradle.internal.execution.steps.AssignMutableWorkspaceStep.executeMutable(AssignMutableWorkspaceStep.java:21)
-	at org.gradle.internal.execution.steps.MutableStep.execute(MutableStep.java:26)
-	at org.gradle.internal.execution.steps.ChoosePipelineStep.execute(ChoosePipelineStep.java:40)
-	at org.gradle.internal.execution.steps.ChoosePipelineStep.execute(ChoosePipelineStep.java:23)
-	at org.gradle.internal.execution.steps.ExecuteWorkBuildOperationFiringStep.lambda$execute$2(ExecuteWorkBuildOperationFiringStep.java:67)
-	at org.gradle.internal.execution.steps.ExecuteWorkBuildOperationFiringStep.execute(ExecuteWorkBuildOperationFiringStep.java:67)
-	at org.gradle.internal.execution.steps.ExecuteWorkBuildOperationFiringStep.execute(ExecuteWorkBuildOperationFiringStep.java:39)
-	at org.gradle.internal.execution.steps.IdentityCacheStep.execute(IdentityCacheStep.java:46)
-	at org.gradle.internal.execution.steps.IdentityCacheStep.execute(IdentityCacheStep.java:34)
-	at org.gradle.internal.execution.steps.IdentifyStep.execute(IdentifyStep.java:56)
-	at org.gradle.internal.execution.steps.IdentifyStep.execute(IdentifyStep.java:38)
-	at org.gradle.internal.execution.impl.DefaultExecutionEngine$1.execute(DefaultExecutionEngine.java:68)
-	at org.gradle.api.internal.tasks.execution.DefaultTaskNodeExecutor.doExecute(DefaultTaskNodeExecutor.java:364)
-	... 25 more
+  are METHOD F (()I) -> [are/requestedViewDistance, bvi/getCurrentSwingDuration]
+    fixable: replaced with requestedViewDistance
+  bvi METHOD F (()I) -> [bvi/requestedViewDistance, bvi/getCurrentSwingDuration]
+    fixable: replaced with getCurrentSwingDuration
 
+{1}(Ljava/lang/String;)V is not fully qualified.
+Cannot remap method_43375 because it does not exist in any of the targets [net/minecraft/server/level/ChunkMap]
 
-BUILD FAILED in 1m 43s
-1 actionable task: 1 executed
+> Configure project :neoforge-1.21.4
+:remapped 1 mods (mojang -> named) in 810ms
+
+> Task :neoforge-1.21.4:compileJava
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: Some input files use unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+
+> Task :neoforge-1.21.4:processResources
+> Task :neoforge-1.21.4:classes
+> Task :neoforge-1.21.4:jar
+> Task :neoforge-1.21.4:processIncludeJars
+> Task :neoforge-1.21.4:sourcesJar
+> Task :neoforge-1.21.4:validateAccessWidener NO-SOURCE
+> Task :neoforge-1.21.4:check
+> Task :neoforge-1.21.4:remapJar
+> Task :neoforge-1.21.4:remapSourcesJar
+> Task :neoforge-1.21.4:assemble
+> Task :neoforge-1.21.4:build
+gradle/actions: Writing build results to /home/runner/work/_temp/.gradle-actions/build-results/__run_2-1792169715065.json
+
+[Incubating] Problems report is available at: file:///home/runner/work/Biomes-Unseen/Biomes-Unseen/build/reports/problems/problems-report.html
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 10.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/9.8.1/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD SUCCESSFUL in 2m 43s
+7 actionable tasks: 7 executed

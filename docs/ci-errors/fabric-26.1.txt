@@ -10,12 +10,12 @@
                     () -> new SpawnEggItem((EntityType<? extends Mob>) (EntityType<?>) ModEntities.BOSS_TYPES.get(bossId).get(),
                           ^
 ---
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/item/UnseenArmorMaterial.java:47: error: cannot find symbol
-                ResourceKey.create(Registries.EQUIPMENT_ASSET,
-                                             ^
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/item/LoreBookItem.java:36: error: cannot find symbol
+        player.displayClientMessage(net.minecraft.network.chat.Component.translatable(
+              ^
 ---
 > Task :fabric-26.1:compileJava FAILED
-gradle/actions: Writing build results to /home/runner/work/_temp/.gradle-actions/build-results/__run_2-1792168740152.json
+gradle/actions: Writing build results to /home/runner/work/_temp/.gradle-actions/build-results/__run_2-1792169857728.json
 
 ---
 * What went wrong:
@@ -30,6 +30,10 @@ Execution failed for task ':fabric-26.1:compileJava' (registered by plugin class
               SpawnCaps.onRemoved(unseenLevel().dimension().location().toString());
                                                            ^
 ---
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/item/LoreBookItem.java:36: error: cannot find symbol
+          player.displayClientMessage(net.minecraft.network.chat.Component.translatable(
+                ^
+---
   /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/registry/ModItems.java:158: error: constructor SpawnEggItem in class SpawnEggItem cannot be applied to given types;
                       () -> new SpawnEggItem((EntityType<? extends Mob>) (EntityType<?>) ModEntities.MOB_TYPES.get(mobId).get(),
                             ^
@@ -37,10 +41,6 @@ Execution failed for task ':fabric-26.1:compileJava' (registered by plugin class
   /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/registry/ModItems.java:167: error: constructor SpawnEggItem in class SpawnEggItem cannot be applied to given types;
                       () -> new SpawnEggItem((EntityType<? extends Mob>) (EntityType<?>) ModEntities.BOSS_TYPES.get(bossId).get(),
                             ^
----
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/item/UnseenArmorMaterial.java:47: error: cannot find symbol
-                  ResourceKey.create(Registries.EQUIPMENT_ASSET,
-                                               ^
 ---
 org.gradle.api.tasks.TaskExecutionException: Execution failed for task ':fabric-26.1:compileJava' (registered by plugin class 'org.gradle.api.plugins.JavaBasePlugin').
 	at org.gradle.api.internal.tasks.execution.DefaultTaskNodeExecutor.lambda$doExecute$1(DefaultTaskNodeExecutor.java:367)
@@ -58,11 +58,11 @@ org.gradle.api.tasks.TaskExecutionException: Execution failed for task ':fabric-
                     () -> new SpawnEggItem((EntityType<? extends Mob>) (EntityType<?>) ModEntities.BOSS_TYPES.get(bossId).get(),
                           ^
 ---
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/item/UnseenArmorMaterial.java:47: error: cannot find symbol
-                ResourceKey.create(Registries.EQUIPMENT_ASSET,
-                                             ^
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/item/LoreBookItem.java:36: error: cannot find symbol
+        player.displayClientMessage(net.minecraft.network.chat.Component.translatable(
+              ^
 ---
-BUILD FAILED in 1m 3s
+BUILD FAILED in 1m 7s
 1 actionable task: 1 executed
 ---
 === STACKTRACE ===
@@ -76,11 +76,16 @@ Execution failed for task ':fabric-26.1:compileJava' (registered by plugin class
                                                            ^
     symbol:   method location()
     location: class ResourceKey<Level>
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/item/LoreBookItem.java:36: error: cannot find symbol
+          player.displayClientMessage(net.minecraft.network.chat.Component.translatable(
+                ^
+    symbol:   method displayClientMessage(MutableComponent,boolean)
+    location: variable player of type Player
   /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/registry/ModItems.java:158: error: constructor SpawnEggItem in class SpawnEggItem cannot be applied to given types;
                       () -> new SpawnEggItem((EntityType<? extends Mob>) (EntityType<?>) ModEntities.MOB_TYPES.get(mobId).get(),
                             ^
     required: Properties
-    found:    EntityType<CAP#1>,int,int,Properties
+    found:    EntityType<CAP#1>,Properties
     reason: actual and formal argument lists differ in length
     where CAP#1 is a fresh type-variable:
       CAP#1 extends Mob from capture of ? extends Mob
@@ -88,15 +93,10 @@ Execution failed for task ':fabric-26.1:compileJava' (registered by plugin class
                       () -> new SpawnEggItem((EntityType<? extends Mob>) (EntityType<?>) ModEntities.BOSS_TYPES.get(bossId).get(),
                             ^
     required: Properties
-    found:    EntityType<CAP#1>,int,int,Properties
+    found:    EntityType<CAP#1>,Properties
     reason: actual and formal argument lists differ in length
     where CAP#1 is a fresh type-variable:
       CAP#1 extends Mob from capture of ? extends Mob
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/item/UnseenArmorMaterial.java:47: error: cannot find symbol
-                  ResourceKey.create(Registries.EQUIPMENT_ASSET,
-                                               ^
-    symbol:   variable EQUIPMENT_ASSET
-    location: class Registries
   Note: Some input files use or override a deprecated API.
   Note: Recompile with -Xlint:deprecation for details.
   Note: Some input files use unchecked or unsafe operations.
@@ -143,5 +143,5 @@ Execution failed for task ':fabric-26.1:compileJava' (registered by plugin class
 	... 25 more
 
 
-BUILD FAILED in 1m 3s
+BUILD FAILED in 1m 7s
 1 actionable task: 1 executed

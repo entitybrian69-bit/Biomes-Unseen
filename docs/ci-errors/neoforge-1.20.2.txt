@@ -2,7 +2,7 @@
 A problem occurred configuring project ':neoforge-1.20.2'.
 > Failed to setup Minecraft, org.gradle.process.ProcessExecutionException: Process 'command '/usr/lib/jvm/temurin-17-jdk-amd64/bin/java'' finished with non-zero exit value 1
 ---
-BUILD FAILED in 1m 26s
+BUILD FAILED in 1m 10s
 ---
 === STACKTRACE ===
 	at net.minecraftforge.binarypatcher.Patcher.patch(Patcher.java:197)
@@ -69,4 +69,4 @@ Caused by: org.gradle.process.ProcessExecutionException: Process 'command '/usr/
 	... 193 more
 
 
-BUILD FAILED in 1m 26s
+BUILD FAILED in 1m 10s

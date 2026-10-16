@@ -1,13 +1,13 @@
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.2/java/com/biomesunseen/item/UnseenArmorMaterial.java:49: error: cannot find symbol
-                ResourceKey.create(Registries.EQUIPMENT_ASSET,
-                                             ^
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.2/java/com/biomesunseen/item/UnseenArmorMaterial.java:40: error: incompatible types: no instance(s) of type variable(s) T#1,T#2 exist so that ResourceKey<T#1> conforms to ResourceLocation
+        this.material = new ArmorMaterial(
+                        ^
 ---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.2/java/com/biomesunseen/item/LoreBookItem.java:36: error: cannot find symbol
         player.sendSystemMessage(net.minecraft.network.chat.Component.translatable(
               ^
 ---
 > Task :fabric-1.21.3:compileJava FAILED
-gradle/actions: Writing build results to /home/runner/work/_temp/.gradle-actions/build-results/__run_2-1792168543354.json
+gradle/actions: Writing build results to /home/runner/work/_temp/.gradle-actions/build-results/__run_2-1792169679411.json
 
 ---
 * What went wrong:
@@ -16,11 +16,11 @@ Execution failed for task ':fabric-1.21.3:compileJava' (registered by plugin cla
 ---
 Execution failed for task ':fabric-1.21.3:compileJava' (registered by plugin class 'org.gradle.api.plugins.JavaBasePlugin').
 > Compilation failed; see the compiler output below.
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.2/java/com/biomesunseen/item/UnseenArmorMaterial.java:49: error: cannot find symbol
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.2/java/com/biomesunseen/item/UnseenArmorMaterial.java:40: error: incompatible types: no instance(s) of type variable(s) T#1,T#2 exist so that ResourceKey<T#1> conforms to ResourceLocation
 ---
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.2/java/com/biomesunseen/item/UnseenArmorMaterial.java:49: error: cannot find symbol
-                  ResourceKey.create(Registries.EQUIPMENT_ASSET,
-                                               ^
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.2/java/com/biomesunseen/item/UnseenArmorMaterial.java:40: error: incompatible types: no instance(s) of type variable(s) T#1,T#2 exist so that ResourceKey<T#1> conforms to ResourceLocation
+          this.material = new ArmorMaterial(
+                          ^
 ---
   /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.2/java/com/biomesunseen/item/LoreBookItem.java:36: error: cannot find symbol
           player.sendSystemMessage(net.minecraft.network.chat.Component.translatable(
@@ -30,15 +30,15 @@ org.gradle.api.tasks.TaskExecutionException: Execution failed for task ':fabric-
 	at org.gradle.api.internal.tasks.execution.DefaultTaskNodeExecutor.lambda$doExecute$1(DefaultTaskNodeExecutor.java:367)
 	at org.gradle.internal.Try$Failure.ifSuccessfulOrElse(Try.java:288)
 ---
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.2/java/com/biomesunseen/item/UnseenArmorMaterial.java:49: error: cannot find symbol
-                ResourceKey.create(Registries.EQUIPMENT_ASSET,
-                                             ^
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.2/java/com/biomesunseen/item/UnseenArmorMaterial.java:40: error: incompatible types: no instance(s) of type variable(s) T#1,T#2 exist so that ResourceKey<T#1> conforms to ResourceLocation
+        this.material = new ArmorMaterial(
+                        ^
 ---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.2/java/com/biomesunseen/item/LoreBookItem.java:36: error: cannot find symbol
         player.sendSystemMessage(net.minecraft.network.chat.Component.translatable(
               ^
 ---
-BUILD FAILED in 1m 3s
+BUILD FAILED in 53s
 1 actionable task: 1 executed
 ---
 === STACKTRACE ===
@@ -47,11 +47,12 @@ Caused by: org.gradle.api.internal.tasks.compile.CompilationFailedException: Com
 * What went wrong:
 Execution failed for task ':fabric-1.21.3:compileJava' (registered by plugin class 'org.gradle.api.plugins.JavaBasePlugin').
 > Compilation failed; see the compiler output below.
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.2/java/com/biomesunseen/item/UnseenArmorMaterial.java:49: error: cannot find symbol
-                  ResourceKey.create(Registries.EQUIPMENT_ASSET,
-                                               ^
-    symbol:   variable EQUIPMENT_ASSET
-    location: class Registries
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.2/java/com/biomesunseen/item/UnseenArmorMaterial.java:40: error: incompatible types: no instance(s) of type variable(s) T#1,T#2 exist so that ResourceKey<T#1> conforms to ResourceLocation
+          this.material = new ArmorMaterial(
+                          ^
+    where T#1,T#2 are type-variables:
+      T#1 extends Object declared in method <T#1>create(ResourceKey<? extends Registry<T#1>>,ResourceLocation)
+      T#2 extends Object declared in method <T#2>createRegistryKey(ResourceLocation)
   /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.2/java/com/biomesunseen/item/LoreBookItem.java:36: error: cannot find symbol
           player.sendSystemMessage(net.minecraft.network.chat.Component.translatable(
                 ^
@@ -61,6 +62,7 @@ Execution failed for task ':fabric-1.21.3:compileJava' (registered by plugin cla
   Note: Recompile with -Xlint:deprecation for details.
   Note: Some input files use unchecked or unsafe operations.
   Note: Recompile with -Xlint:unchecked for details.
+  Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
   2 errors
 
 * Try:
@@ -103,5 +105,5 @@ Execution failed for task ':fabric-1.21.3:compileJava' (registered by plugin cla
 	... 25 more
 
 
-BUILD FAILED in 1m 3s
+BUILD FAILED in 53s
 1 actionable task: 1 executed
