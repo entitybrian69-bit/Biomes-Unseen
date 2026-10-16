@@ -19,7 +19,7 @@
                 ^
 ---
 > Task :neoforge-1.21.3:compileJava FAILED
-gradle/actions: Writing build results to /home/runner/work/_temp/.gradle-actions/build-results/__run_2-1792166296688.json
+gradle/actions: Writing build results to /home/runner/work/_temp/.gradle-actions/build-results/__run_2-1792167271688.json
 
 ---
 * What went wrong:
@@ -74,7 +74,7 @@ org.gradle.api.tasks.TaskExecutionException: Execution failed for task ':neoforg
     public void renderToBuffer(com.mojang.blaze3d.vertex.PoseStack matrixStack,
                 ^
 ---
-BUILD FAILED in 1m 55s
+BUILD FAILED in 2m 23s
 1 actionable task: 1 executed
 ---
 === STACKTRACE ===
@@ -152,5 +152,5 @@ Execution failed for task ':neoforge-1.21.3:compileJava' (registered by plugin c
 	... 25 more
 
 
-BUILD FAILED in 1m 55s
+BUILD FAILED in 2m 23s
 1 actionable task: 1 executed
