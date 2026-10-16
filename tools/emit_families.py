@@ -1522,6 +1522,29 @@ public class UnseenArmorMaterial implements ArmorMaterial {
                   .replace("%(armor_item_import)s", armor_item_import)
                   .replace("%(armor_type_import)s", armor_type_import)
                   .replace("ArmorItem.Type", armor_type_ref))
+    if line_key == "1.19.3":
+        # 1.19.3 is the one line where ArmorMaterial still exposes
+        # getDurabilityForSlot/getDefenseForSlot(EquipmentSlot): ArmorItem.Type
+        # only lands in 1.19.4.  javac proved it —
+        # "UnseenArmorMaterial is not abstract and does not override abstract
+        #  method getDefenseForSlot(EquipmentSlot) in ArmorMaterial".
+        armor_body = (armor_body
+                      .replace("private static int indexOf(ArmorItem.Type type) {",
+                               "private static int indexOf(net.minecraft.world.entity.EquipmentSlot slot) {")
+                      .replace("        switch (type) {\n            case BOOTS:\n                return 0;\n"
+                               "            case LEGGINGS:\n                return 1;\n"
+                               "            case CHESTPLATE:\n                return 2;\n"
+                               "            default:\n                return 3;",
+                               "        switch (slot) {\n            case FEET:\n                return 0;\n"
+                               "            case LEGS:\n                return 1;\n"
+                               "            case CHEST:\n                return 2;\n"
+                               "            default:\n                return 3;")
+                      .replace("public int getDurabilityForType(ArmorItem.Type type) {",
+                               "public int getDurabilityForSlot(net.minecraft.world.entity.EquipmentSlot slot) {")
+                      .replace("public int getDefenseForType(ArmorItem.Type type) {",
+                               "public int getDefenseForSlot(net.minecraft.world.entity.EquipmentSlot slot) {")
+                      .replace("indexOf(type)", "indexOf(slot)")
+                      .replace("import net.minecraft.world.item.ArmorItem;\n", ""))
     _w(root, base + "/item/UnseenArmorMaterial.java", armor_body)
 
     # ================================================================== #

@@ -1,6 +1,5 @@
 package com.biomesunseen.item;
 
-import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.sounds.SoundEvent;
@@ -28,13 +27,13 @@ public class UnseenArmorMaterial implements ArmorMaterial {
     }
 
     /** Boots, leggings, chestplate, helmet -> index into the stat tables. */
-    private static int indexOf(ArmorItem.Type type) {
-        switch (type) {
-            case BOOTS:
+    private static int indexOf(net.minecraft.world.entity.EquipmentSlot slot) {
+        switch (slot) {
+            case FEET:
                 return 0;
-            case LEGGINGS:
+            case LEGS:
                 return 1;
-            case CHESTPLATE:
+            case CHEST:
                 return 2;
             default:
                 return 3;
@@ -42,13 +41,13 @@ public class UnseenArmorMaterial implements ArmorMaterial {
     }
 
     @Override
-    public int getDurabilityForType(ArmorItem.Type type) {
-        return BASE_DURABILITY[indexOf(type)] * (ore.toolDurability / 33);
+    public int getDurabilityForSlot(net.minecraft.world.entity.EquipmentSlot slot) {
+        return BASE_DURABILITY[indexOf(slot)] * (ore.toolDurability / 33);
     }
 
     @Override
-    public int getDefenseForType(ArmorItem.Type type) {
-        return BASE_DEFENSE[indexOf(type)] + ore.toolMiningLevel;
+    public int getDefenseForSlot(net.minecraft.world.entity.EquipmentSlot slot) {
+        return BASE_DEFENSE[indexOf(slot)] + ore.toolMiningLevel;
     }
 
     @Override

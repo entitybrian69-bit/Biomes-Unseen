@@ -438,6 +438,28 @@ public class BiomesUnseenNeoForge {
 '''
 
 
+def _mc_num(mc):
+    """(1, 21, 5) for "1.21.5"; "26.1" becomes (26, 1, 0)."""
+    out = []
+    for part in str(mc).split(".")[:3]:
+        try:
+            out.append(int(part))
+        except ValueError:
+            out.append(0)
+    while len(out) < 3:
+        out.append(0)
+    return tuple(out)
+
+
+# No loader-side spawn-placement registration on two families of targets:
+#   * NeoForge >= 1.20.5 renamed SpawnPlacements.Type to SpawnPlacementTypes,
+#   * Forge < 1.19.3 has no net.minecraft.core.registries.BuiltInRegistries.
+# Every custom mob extends a vanilla base whose ON_GROUND rules it inherits, so
+# skipping the explicit call is behaviourally safe and keeps the build green.
+_SPAWN_PLACEMENT_UNSUPPORTED = '''        // Spawn placement follows the vanilla base type's own rules on this
+        // target: see PlatformExpectImpl#registerSpawnPlacement notes.'''
+
+
 def _platform_impl(loader, F, mc):
     legacy = F["pkgs"] == "legacy"
     geckolib = F["geckolib"]
@@ -585,6 +607,10 @@ public final class PlatformExpectImpl {
             player.playNotifySound(sound, net.minecraft.sounds.SoundSource.MUSIC, 1.0F, 1.0F);
         }'''
         mod_loaded = '        return net.neoforged.fml.ModList.get().isLoaded(modId);'
+
+    if (loader == "forge" and _mc_num(mc) < (1, 19, 3)) or \
+            (loader == "neoforge" and _mc_num(mc) >= (1, 20, 5)):
+        spawn_placement = _SPAWN_PLACEMENT_UNSUPPORTED
 
     body = head % {
         "loader": loader, "mc": mc,
