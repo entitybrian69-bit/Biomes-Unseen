@@ -1,7 +1,7 @@
 package com.biomesunseen.registry;
 
-import net.minecraft.util.SoundEvent;
-import net.minecraft.util.ResourceLocation;
+import net.minecraft.sounds.SoundEvent;
+import net.minecraft.resources.ResourceLocation;
 
 import com.biomesunseen.core.CoreRegistries;
 import com.biomesunseen.core.ModConstants;

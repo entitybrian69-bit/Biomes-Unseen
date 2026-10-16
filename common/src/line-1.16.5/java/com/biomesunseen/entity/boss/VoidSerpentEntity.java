@@ -1,11 +1,11 @@
 package com.biomesunseen.entity.boss;
 
-import net.minecraft.entity.EntityType;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.util.DamageSource;
-import net.minecraft.util.SoundEvents;
-import net.minecraft.world.World;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.world.level.Level;
 
 
 import com.biomesunseen.core.BossDef;
@@ -14,7 +14,7 @@ import com.biomesunseen.entity.BiomesUnseenMob;
 import com.biomesunseen.platform.PlatformExpect;
 import com.biomesunseen.registry.ModItems;
 
-import net.minecraft.item.ItemStack;
+import net.minecraft.world.item.ItemStack;
 
 /**
  * The Void Serpent - reality-phasing serpent in an unstable arena.
@@ -37,7 +37,7 @@ public class VoidSerpentEntity extends BiomesUnseenMob {
     private final double[] segmentY = new double[8];
     private final double[] segmentZ = new double[8];
 
-    public VoidSerpentEntity(EntityType<? extends VoidSerpentEntity> type, World level) {
+    public VoidSerpentEntity(EntityType<? extends VoidSerpentEntity> type, Level level) {
         super(type, level, bossMobDef(DEF));
         setNoGravity(true);
     }
@@ -88,7 +88,7 @@ public class VoidSerpentEntity extends BiomesUnseenMob {
             py = segmentY[i];
             pz = segmentZ[i];
         }
-        if (level.isClientSide) {
+        if (level().isClientSide) {
             return;
         }
         if (phaseShiftTicks > 0) {
@@ -104,7 +104,7 @@ public class VoidSerpentEntity extends BiomesUnseenMob {
         }
         if (--musicCooldown <= 0) {
             musicCooldown = 600;
-            PlatformExpect.playBossMusic((net.minecraft.world.server.ServerWorld) level,
+            PlatformExpect.playBossMusic((net.minecraft.server.level.ServerLevel) unseenLevel(),
                     blockPosition(), DEF.musicSoundEvent, 48);
         }
         LivingEntity target = getTarget();
@@ -141,9 +141,9 @@ public class VoidSerpentEntity extends BiomesUnseenMob {
             // tail_sweep: AoE around body segments
             triggerAnim("tail_sweep");
             for (int i = 0; i < bodySegments; i += 2) {
-                net.minecraft.util.math.AxisAlignedBB box = new AxisAlignedBB(segmentX(i) - 2.0D, segmentY(i) - 2.0D, segmentZ(i) - 2.0D,
+                net.minecraft.world.phys.AABB box = new AABB(segmentX(i) - 2.0D, segmentY(i) - 2.0D, segmentZ(i) - 2.0D,
                         segmentX(i) + 2.0D, segmentY(i) + 2.0D, segmentZ(i) + 2.0D);
-                for (LivingEntity entity : level.getEntitiesOfClass(LivingEntity.class, box,
+                for (LivingEntity entity : unseenLevel().getEntitiesOfClass(LivingEntity.class, box,
                         e -> e != this)) {
                     entity.hurt(DamageSource.causeMobDamage(this), 4.0F + phase * 2.0F);
                 }
@@ -155,7 +155,7 @@ public class VoidSerpentEntity extends BiomesUnseenMob {
                 double sx = getX() + getRandom().nextGaussian() * 4.0D;
                 double sy = getY() + getRandom().nextGaussian() * 2.0D;
                 double sz = getZ() + getRandom().nextGaussian() * 4.0D;
-                level.broadcastDamageEvent(target, DamageSource.causeMobDamage(this));
+                unseenLevel().broadcastDamageEvent(target, DamageSource.causeMobDamage(this));
                 target.hurt(DamageSource.causeMobDamage(this), 2.0F + phase);
             }
         } else {
@@ -177,9 +177,9 @@ public class VoidSerpentEntity extends BiomesUnseenMob {
     @Override
     public void die(DamageSource source) {
         super.die(source);
-        if (!level.isClientSide) {
+        if (!unseenLevel().isClientSide) {
             spawnAtLocation(new ItemStack(ModItems.UNSEEN_SIGIL.get()));
-            java.util.List<me.shedaniel.architectury.registry.RegistrySupplier<net.minecraft.item.Item>> minerals =
+            java.util.List<me.shedaniel.architectury.registry.RegistrySupplier<net.minecraft.world.item.Item>> minerals =
                     new java.util.ArrayList<>(ModItems.MINERALS.values());
             for (int i = 0; i < 5 && !minerals.isEmpty(); i++) {
                 spawnAtLocation(new ItemStack(minerals.get(getRandom().nextInt(minerals.size())).get(), 3 + getRandom().nextInt(4)));

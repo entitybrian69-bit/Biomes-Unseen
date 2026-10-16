@@ -1,6 +1,6 @@
 package com.biomesunseen.worldgen.mixin;
 
-import net.minecraft.util.math.BlockPos;
+import net.minecraft.core.BlockPos;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.provider.BiomeProvider;
 
@@ -26,7 +26,7 @@ public abstract class BiomeProviderMixin {
         if (vanilla == null) {
             return;
         }
-        double temperature = vanilla.getTemperature(new net.minecraft.util.math.BlockPos(x << 2, 0, z << 2));
+        double temperature = vanilla.getBaseTemperature();
         Object replacement = UnseenBiomeSelector.select(x << 2, z << 2, temperature);
         if (replacement instanceof Biome) {
             cir.setReturnValue((Biome) replacement);

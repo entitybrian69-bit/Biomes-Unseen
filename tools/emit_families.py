@@ -1383,7 +1383,11 @@ import com.biomesunseen.core.OreDef;
     }
 '''
         armor_ctor = "super(material, slot, properties)"
-        armor_inner_slot = "ArmorItem.Type slot"
+        armor_inner_slot = (
+            "EquipmentSlot slot"
+            if line_key in ("1.16.5", "1.17.1", "1.18", "1.18.1", "1.19", "1.19.1",
+                            "1.19.2", "1.19.3")
+            else "ArmorItem.Type slot")
 
     gear_body = gear_head + '''
 /**

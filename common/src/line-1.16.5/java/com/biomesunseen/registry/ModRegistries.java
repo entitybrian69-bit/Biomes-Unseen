@@ -1,11 +1,11 @@
 package com.biomesunseen.registry;
 
-import net.minecraft.block.Block;
-import net.minecraft.entity.EntityType;
-import net.minecraft.item.Item;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.item.Item;
 import net.minecraft.particles.ParticleType;
-import net.minecraft.util.SoundEvent;
-import net.minecraft.util.registry.Registry;
+import net.minecraft.sounds.SoundEvent;
+import net.minecraft.core.Registry;
 
 import com.biomesunseen.core.ModConstants;
 

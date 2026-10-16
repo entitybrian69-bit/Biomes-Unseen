@@ -74,7 +74,7 @@ public final class UnseenGearItems {
     public static final class UnseenArmorItem extends ArmorItem {
         private final OreDef ore;
 
-        UnseenArmorItem(OreDef ore, UnseenArmorMaterial material, ArmorItem.Type slot, Item.Properties properties) {
+        UnseenArmorItem(OreDef ore, UnseenArmorMaterial material, EquipmentSlot slot, Item.Properties properties) {
             super(material, slot, properties);
             this.ore = ore;
         }

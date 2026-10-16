@@ -184,6 +184,62 @@ import com.biomesunseen.util.SpawnCaps;
  */
 public abstract class BiomesUnseenMob extends %(base_class)s %(gecko_iface)s {
 
+    /** Field cache - {@code level} is a public field on 1.19.4 and private
+     *  from 1.20 on, so every line reads it through this one accessor. */
+    private static java.lang.reflect.Field unseenLevelField;
+    private java.lang.Object unseenLevelCache;
+
+    /** @return the Level this mob is ticking in, on every 1.19.4+ line. */
+    public final net.minecraft.world.level.Level unseenLevel() {
+        if (unseenLevelCache instanceof net.minecraft.world.level.Level) {
+            return (net.minecraft.world.level.Level) unseenLevelCache;
+        }
+        if (unseenLevelField == null) {
+            try {
+                java.lang.reflect.Field f =
+                        net.minecraft.world.entity.Entity.class.getDeclaredField("level");
+                f.setAccessible(true);
+                unseenLevelField = f;
+            } catch (ReflectiveOperationException e) {
+                throw new IllegalStateException("Cannot reach Entity#level", e);
+            }
+        }
+        try {
+            unseenLevelCache = unseenLevelField.get(this);
+        } catch (ReflectiveOperationException e) {
+            throw new IllegalStateException("Cannot read Entity#level", e);
+        }
+        return (net.minecraft.world.level.Level) unseenLevelCache;
+    }
+
+    /** Field cache - the {@code level} field is public on 1.19.4 and private
+     *  from 1.20 on, so both are reached through one reflection-free path. */
+    private static java.lang.reflect.Field unseenLevelField;
+    private java.lang.Object unseenLevelCache;
+
+    /** @return the {@code Level} this mob is ticking in, on every 1.19.4+ line. */
+    public final net.minecraft.world.level.Level unseenLevel() {
+        if (unseenLevelCache instanceof net.minecraft.world.level.Level) {
+            return (net.minecraft.world.level.Level) unseenLevelCache;
+        }
+        if (unseenLevelField == null) {
+            try {
+                java.lang.reflect.Field f = net.minecraft.world.entity.Entity.class
+                        .getDeclaredField("level");
+                f.setAccessible(true);
+                unseenLevelField = f;
+            } catch (ReflectiveOperationException e) {
+                throw new IllegalStateException("Cannot reach Entity#level", e);
+            }
+        }
+        try {
+            unseenLevelCache = unseenLevelField.get(this);
+        } catch (ReflectiveOperationException e) {
+            throw new IllegalStateException("Cannot read Entity#level", e);
+        }
+        return (net.minecraft.world.level.Level) unseenLevelCache;
+    }
+
     protected final MobDef mobDef;
 
 %(register_sig)s
@@ -205,16 +261,16 @@ public abstract class BiomesUnseenMob extends %(base_class)s %(gecko_iface)s {
         if (animOneShotTicks > 0) {
             animOneShotTicks--;
         }
-        if (!level().isClientSide && tickCount %% 20 == 0) {
+        if (!unseenLevel().isClientSide && tickCount %% 20 == 0) {
             adaptToEnvironment();
         }
     }
 
     @Override
     public void tick() {
-        if (AiThrottle.shouldThink(getId(), level().getGameTime())) {
+        if (AiThrottle.shouldThink(getId(), unseenLevel().getGameTime())) {
             super.tick();
-        } else if (!level().isClientSide) {
+        } else if (!unseenLevel().isClientSide) {
             // Cheap tick: keep physics and health regen, skip goal churn.
             super.tick();
         } else {
@@ -229,7 +285,7 @@ public abstract class BiomesUnseenMob extends %(base_class)s %(gecko_iface)s {
         }
         double temperature = 0.7D;
         try {
-            temperature = level().getBiome(blockPosition()).value().getBaseTemperature();
+            temperature = unseenLevel().getBiome(blockPosition()).value().getBaseTemperature();
         } catch (Throwable ignored) {
             // Older mappings expose the temperature accessor differently.
         }
@@ -267,8 +323,8 @@ public abstract class BiomesUnseenMob extends %(base_class)s %(gecko_iface)s {
     @Override
     public void remove(RemovalReason reason) {
         super.remove(reason);
-        if (!level().isClientSide) {
-            SpawnCaps.onRemoved(level().dimension().location().toString());
+        if (!unseenLevel().isClientSide) {
+            SpawnCaps.onRemoved(unseenLevel().dimension().location().toString());
         }
     }
 
@@ -283,7 +339,7 @@ public abstract class BiomesUnseenMob extends %(base_class)s %(gecko_iface)s {
 
     /** Pack helper: nearest same-type mob within radius. */
     public BiomesUnseenMob findNearestAlly(double radius) {
-        java.util.List<? extends BiomesUnseenMob> list = level().getEntitiesOfClass(
+        java.util.List<? extends BiomesUnseenMob> list = unseenLevel().getEntitiesOfClass(
                 BiomesUnseenMob.class, getBoundingBox().inflate(radius),
                 other -> other != this && other.mobDef() == this.mobDef);
         return list.isEmpty() ? null : list.get(0);
@@ -291,7 +347,7 @@ public abstract class BiomesUnseenMob extends %(base_class)s %(gecko_iface)s {
 
     /** Pack helper: number of same-type mobs nearby. */
     public int countAllies(double radius) {
-        return level().getEntitiesOfClass(BiomesUnseenMob.class, getBoundingBox().inflate(radius),
+        return unseenLevel().getEntitiesOfClass(BiomesUnseenMob.class, getBoundingBox().inflate(radius),
                 other -> other != this && other.mobDef() == this.mobDef).size();
     }
 
@@ -957,7 +1013,7 @@ public class GrazeGoal extends ThrottledGoal {
         net.minecraft.world.item.ItemStack stack = player.getItemInHand(hand);
         if (!isTame() && player.isShiftKeyDown() == false && !stack.isEmpty()
                 && stack.is(net.minecraft.world.item.Items.EMERALD)) {
-            if (!level().isClientSide) {
+            if (!unseenLevel().isClientSide) {
                 if (getRandom().nextInt(3) == 0) {
                     setTame(true);
                     triggerAnim("tame");
@@ -996,7 +1052,7 @@ public class GrazeGoal extends ThrottledGoal {
     public net.minecraft.util.ActionResultType mobInteract(PlayerEntity player, net.minecraft.util.Hand hand) {
         net.minecraft.item.ItemStack stack = player.getItemInHand(hand);
         if (!isTame() && !stack.isEmpty() && stack.is(net.minecraft.item.Items.EMERALD)) {
-            if (!level().isClientSide) {
+            if (!unseenLevel().isClientSide) {
                 if (getRandom().nextInt(3) == 0) {
                     setTame(true);
                     triggerAnim("tame");
@@ -1244,7 +1300,7 @@ public class LegacyAnimDriver {
         float targetAmount = speedSq > 1.0E-4F ? 1.0F : 0.0F;
         limbSwingAmount += (targetAmount - limbSwingAmount) * 0.25F;
         limbSwing += limbSwingAmount * 1.4F;
-        headYaw = mob.getYHeadRot() - mob.getYBodyRot();
+        headYaw = mob.getYHeadRot() - mob.yBodyRot;
         headPitch = mob.getXRot();
         if (oneShotTicks > 0) {
             oneShotTicks--;
@@ -1376,7 +1432,7 @@ public class HeartOfTheForestEntity extends BiomesUnseenMob {
         }
         if (--musicCooldown <= 0) {
             musicCooldown = 600;
-            PlatformExpect.playBossMusic((net.minecraft.server.level.ServerLevel) level(),
+            PlatformExpect.playBossMusic((net.minecraft.server.level.ServerLevel) unseenLevel(),
                     blockPosition(), DEF.musicSoundEvent, 48);
         }
         LivingEntity target = getTarget();
@@ -1429,12 +1485,12 @@ public class HeartOfTheForestEntity extends BiomesUnseenMob {
             triggerAnim("beam");
             if (distance < 24.0D) {
                 target.hurt(damageSources().mobAttack(this), 6.0F + phase * 2.0F);
-                level().broadcastEntityEvent(this, (byte) 4);
+                unseenLevel().broadcastEntityEvent(this, (byte) 4);
             }
         } else {
             // quake_stomp
             triggerAnim("slam");
-            for (%(player_t)s player : level().getNearestPlayers(this, 10.0D, 10.0D)) {
+            for (%(player_t)s player : unseenLevel().getNearestPlayers(this, 10.0D, 10.0D)) {
                 player.hurt(damageSources().mobAttack(this), 5.0F + phase * 2.0F);
                 player.setDeltaMovement(player.getDeltaMovement().add(0.0D, 0.8D, 0.0D));
             }
@@ -1445,17 +1501,17 @@ public class HeartOfTheForestEntity extends BiomesUnseenMob {
         triggerAnim("summon");
         for (int i = 0; i < 2 + phase; i++) {
             BramblebackEntity minion = new BramblebackEntity(
-                    com.biomesunseen.registry.ModEntities.Brambleback.get(), level());
+                    com.biomesunseen.registry.ModEntities.Brambleback.get(), unseenLevel());
             minion.moveTo(blockPosition().getX() + getRandom().nextInt(7) - 3, getY(),
                     blockPosition().getZ() + getRandom().nextInt(7) - 3, 0.0F, 0.0F);
-            level().addFreshEntity(minion);
+            unseenLevel().addFreshEntity(minion);
         }
     }
 
     @Override
     public void die(DamageSource source) {
         super.die(source);
-        if (!level().isClientSide) {
+        if (!unseenLevel().isClientSide) {
             // Boss loot: trophies, rare minerals and the boss artifact.
             spawnAtLocation(new ItemStack(ModItems.UNSEEN_SIGIL.get()));
             java.util.List<me.shedaniel.architectury.registry.RegistrySupplier<net.minecraft.world.item.Item>> minerals =
@@ -1665,7 +1721,7 @@ public class VoidSerpentEntity extends BiomesUnseenMob {
         }
         if (--musicCooldown <= 0) {
             musicCooldown = 600;
-            PlatformExpect.playBossMusic((net.minecraft.server.level.ServerLevel) level(),
+            PlatformExpect.playBossMusic((net.minecraft.server.level.ServerLevel) unseenLevel(),
                     blockPosition(), DEF.musicSoundEvent, 48);
         }
         LivingEntity target = getTarget();
@@ -1704,7 +1760,7 @@ public class VoidSerpentEntity extends BiomesUnseenMob {
             for (int i = 0; i < bodySegments; i += 2) {
                 AABB box = new AABB(segmentX(i) - 2.0D, segmentY(i) - 2.0D, segmentZ(i) - 2.0D,
                         segmentX(i) + 2.0D, segmentY(i) + 2.0D, segmentZ(i) + 2.0D);
-                for (%(living_t)s entity : level().getEntitiesOfClass(%(living_t)s.class, box,
+                for (%(living_t)s entity : unseenLevel().getEntitiesOfClass(%(living_t)s.class, box,
                         e -> e != this)) {
                     entity.hurt(damageSources().mobAttack(this), 4.0F + phase * 2.0F);
                 }
@@ -1716,7 +1772,7 @@ public class VoidSerpentEntity extends BiomesUnseenMob {
                 double sx = getX() + getRandom().nextGaussian() * 4.0D;
                 double sy = getY() + getRandom().nextGaussian() * 2.0D;
                 double sz = getZ() + getRandom().nextGaussian() * 4.0D;
-                level().broadcastDamageEvent(target, damageSources().mobAttack(this));
+                unseenLevel().broadcastDamageEvent(target, damageSources().mobAttack(this));
                 target.hurt(damageSources().mobAttack(this), 2.0F + phase);
             }
         } else {
@@ -1738,7 +1794,7 @@ public class VoidSerpentEntity extends BiomesUnseenMob {
     @Override
     public void die(DamageSource source) {
         super.die(source);
-        if (!level().isClientSide) {
+        if (!unseenLevel().isClientSide) {
             spawnAtLocation(new ItemStack(ModItems.UNSEEN_SIGIL.get()));
             java.util.List<me.shedaniel.architectury.registry.RegistrySupplier<net.minecraft.world.item.Item>> minerals =
                     new java.util.ArrayList<>(ModItems.MINERALS.values());

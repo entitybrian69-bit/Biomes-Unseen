@@ -1,9 +1,9 @@
 package com.biomesunseen.registry;
 
-import net.minecraft.entity.EntityType;
-import net.minecraft.entity.EntityClassification;
-import net.minecraft.entity.ai.attributes.Attributes;
-import net.minecraft.entity.MobEntity;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.EntityClassification;
+import net.minecraft.world.entity.ai.attributes.Attributes;
+import net.minecraft.world.entity.Mob;
 
 import com.biomesunseen.entity.boss.HeartOfTheForestEntity;
 import com.biomesunseen.entity.boss.VoidSerpentEntity;
@@ -144,164 +144,164 @@ public final class ModEntities {
                 .sized(1.8F, 1.8F).clientTrackingRange(12).updateInterval(2)
                 .fireImmune().build("void_serpent"));
 
-        EntityAttributeRegistry.register(Lumox, () -> MobEntity.createMobAttributes()
+        EntityAttributeRegistry.register(Lumox, () -> Mob.createMobAttributes()
                 .add(Attributes.MAX_HEALTH, 14.0D)
                 .add(Attributes.MOVEMENT_SPEED, 0.28D)
                 .add(Attributes.ATTACK_DAMAGE, 2.0D)
                 .add(Attributes.ARMOR, 1.0D)
                 .add(Attributes.FOLLOW_RANGE, 48D));
-        EntityAttributeRegistry.register(Brambleback, () -> MobEntity.createMobAttributes()
+        EntityAttributeRegistry.register(Brambleback, () -> Mob.createMobAttributes()
                 .add(Attributes.MAX_HEALTH, 28.0D)
                 .add(Attributes.MOVEMENT_SPEED, 0.24D)
                 .add(Attributes.ATTACK_DAMAGE, 5.0D)
                 .add(Attributes.ARMOR, 4.0D)
                 .add(Attributes.FOLLOW_RANGE, 48D));
-        EntityAttributeRegistry.register(Siltstrider, () -> MobEntity.createMobAttributes()
+        EntityAttributeRegistry.register(Siltstrider, () -> Mob.createMobAttributes()
                 .add(Attributes.MAX_HEALTH, 12.0D)
                 .add(Attributes.MOVEMENT_SPEED, 0.32D)
                 .add(Attributes.ATTACK_DAMAGE, 1.5D)
                 .add(Attributes.ARMOR, 0.5D)
                 .add(Attributes.FOLLOW_RANGE, 48D));
-        EntityAttributeRegistry.register(Glimmermoth, () -> MobEntity.createMobAttributes()
+        EntityAttributeRegistry.register(Glimmermoth, () -> Mob.createMobAttributes()
                 .add(Attributes.MAX_HEALTH, 6.0D)
                 .add(Attributes.MOVEMENT_SPEED, 0.3D)
                 .add(Attributes.ATTACK_DAMAGE, 0.5D)
                 .add(Attributes.ARMOR, 0.0D)
                 .add(Attributes.FOLLOW_RANGE, 48D));
-        EntityAttributeRegistry.register(PeatHopper, () -> MobEntity.createMobAttributes()
+        EntityAttributeRegistry.register(PeatHopper, () -> Mob.createMobAttributes()
                 .add(Attributes.MAX_HEALTH, 8.0D)
                 .add(Attributes.MOVEMENT_SPEED, 0.33D)
                 .add(Attributes.ATTACK_DAMAGE, 1.0D)
                 .add(Attributes.ARMOR, 0.5D)
                 .add(Attributes.FOLLOW_RANGE, 48D));
-        EntityAttributeRegistry.register(EmberCalf, () -> MobEntity.createMobAttributes()
+        EntityAttributeRegistry.register(EmberCalf, () -> Mob.createMobAttributes()
                 .add(Attributes.MAX_HEALTH, 20.0D)
                 .add(Attributes.MOVEMENT_SPEED, 0.26D)
                 .add(Attributes.ATTACK_DAMAGE, 3.0D)
                 .add(Attributes.ARMOR, 1.5D)
                 .add(Attributes.FOLLOW_RANGE, 48D));
-        EntityAttributeRegistry.register(FrostFawn, () -> MobEntity.createMobAttributes()
+        EntityAttributeRegistry.register(FrostFawn, () -> Mob.createMobAttributes()
                 .add(Attributes.MAX_HEALTH, 12.0D)
                 .add(Attributes.MOVEMENT_SPEED, 0.34D)
                 .add(Attributes.ATTACK_DAMAGE, 1.5D)
                 .add(Attributes.ARMOR, 0.5D)
                 .add(Attributes.FOLLOW_RANGE, 48D));
-        EntityAttributeRegistry.register(Murkling, () -> MobEntity.createMobAttributes()
+        EntityAttributeRegistry.register(Murkling, () -> Mob.createMobAttributes()
                 .add(Attributes.MAX_HEALTH, 16.0D)
                 .add(Attributes.MOVEMENT_SPEED, 0.3D)
                 .add(Attributes.ATTACK_DAMAGE, 4.0D)
                 .add(Attributes.ARMOR, 1.0D)
                 .add(Attributes.FOLLOW_RANGE, 48D));
-        EntityAttributeRegistry.register(SporeSprout, () -> MobEntity.createMobAttributes()
+        EntityAttributeRegistry.register(SporeSprout, () -> Mob.createMobAttributes()
                 .add(Attributes.MAX_HEALTH, 10.0D)
                 .add(Attributes.MOVEMENT_SPEED, 0.22D)
                 .add(Attributes.ATTACK_DAMAGE, 0.5D)
                 .add(Attributes.ARMOR, 0.5D)
                 .add(Attributes.FOLLOW_RANGE, 48D));
-        EntityAttributeRegistry.register(Skywisp, () -> MobEntity.createMobAttributes()
+        EntityAttributeRegistry.register(Skywisp, () -> Mob.createMobAttributes()
                 .add(Attributes.MAX_HEALTH, 8.0D)
                 .add(Attributes.MOVEMENT_SPEED, 0.35D)
                 .add(Attributes.ATTACK_DAMAGE, 0.5D)
                 .add(Attributes.ARMOR, 0.0D)
                 .add(Attributes.FOLLOW_RANGE, 48D));
-        EntityAttributeRegistry.register(ThunderRam, () -> MobEntity.createMobAttributes()
+        EntityAttributeRegistry.register(ThunderRam, () -> Mob.createMobAttributes()
                 .add(Attributes.MAX_HEALTH, 26.0D)
                 .add(Attributes.MOVEMENT_SPEED, 0.3D)
                 .add(Attributes.ATTACK_DAMAGE, 6.0D)
                 .add(Attributes.ARMOR, 3.0D)
                 .add(Attributes.FOLLOW_RANGE, 48D));
-        EntityAttributeRegistry.register(Mosshorn, () -> MobEntity.createMobAttributes()
+        EntityAttributeRegistry.register(Mosshorn, () -> Mob.createMobAttributes()
                 .add(Attributes.MAX_HEALTH, 22.0D)
                 .add(Attributes.MOVEMENT_SPEED, 0.25D)
                 .add(Attributes.ATTACK_DAMAGE, 3.0D)
                 .add(Attributes.ARMOR, 2.0D)
                 .add(Attributes.FOLLOW_RANGE, 48D));
-        EntityAttributeRegistry.register(CinderPup, () -> MobEntity.createMobAttributes()
+        EntityAttributeRegistry.register(CinderPup, () -> Mob.createMobAttributes()
                 .add(Attributes.MAX_HEALTH, 14.0D)
                 .add(Attributes.MOVEMENT_SPEED, 0.36D)
                 .add(Attributes.ATTACK_DAMAGE, 4.0D)
                 .add(Attributes.ARMOR, 1.0D)
                 .add(Attributes.FOLLOW_RANGE, 48D));
-        EntityAttributeRegistry.register(EchoHowler, () -> MobEntity.createMobAttributes()
+        EntityAttributeRegistry.register(EchoHowler, () -> Mob.createMobAttributes()
                 .add(Attributes.MAX_HEALTH, 24.0D)
                 .add(Attributes.MOVEMENT_SPEED, 0.28D)
                 .add(Attributes.ATTACK_DAMAGE, 5.0D)
                 .add(Attributes.ARMOR, 2.0D)
                 .add(Attributes.FOLLOW_RANGE, 48D));
-        EntityAttributeRegistry.register(DuneSkimmer, () -> MobEntity.createMobAttributes()
+        EntityAttributeRegistry.register(DuneSkimmer, () -> Mob.createMobAttributes()
                 .add(Attributes.MAX_HEALTH, 10.0D)
                 .add(Attributes.MOVEMENT_SPEED, 0.4D)
                 .add(Attributes.ATTACK_DAMAGE, 1.5D)
                 .add(Attributes.ARMOR, 0.5D)
                 .add(Attributes.FOLLOW_RANGE, 48D));
-        EntityAttributeRegistry.register(TideCaller, () -> MobEntity.createMobAttributes()
+        EntityAttributeRegistry.register(TideCaller, () -> Mob.createMobAttributes()
                 .add(Attributes.MAX_HEALTH, 18.0D)
                 .add(Attributes.MOVEMENT_SPEED, 0.27D)
                 .add(Attributes.ATTACK_DAMAGE, 2.0D)
                 .add(Attributes.ARMOR, 1.5D)
                 .add(Attributes.FOLLOW_RANGE, 48D));
-        EntityAttributeRegistry.register(GloomStalker, () -> MobEntity.createMobAttributes()
+        EntityAttributeRegistry.register(GloomStalker, () -> Mob.createMobAttributes()
                 .add(Attributes.MAX_HEALTH, 20.0D)
                 .add(Attributes.MOVEMENT_SPEED, 0.33D)
                 .add(Attributes.ATTACK_DAMAGE, 6.0D)
                 .add(Attributes.ARMOR, 1.5D)
                 .add(Attributes.FOLLOW_RANGE, 48D));
-        EntityAttributeRegistry.register(CrystalHermit, () -> MobEntity.createMobAttributes()
+        EntityAttributeRegistry.register(CrystalHermit, () -> Mob.createMobAttributes()
                 .add(Attributes.MAX_HEALTH, 16.0D)
                 .add(Attributes.MOVEMENT_SPEED, 0.2D)
                 .add(Attributes.ATTACK_DAMAGE, 2.0D)
                 .add(Attributes.ARMOR, 5.0D)
                 .add(Attributes.FOLLOW_RANGE, 48D));
-        EntityAttributeRegistry.register(WindDancer, () -> MobEntity.createMobAttributes()
+        EntityAttributeRegistry.register(WindDancer, () -> Mob.createMobAttributes()
                 .add(Attributes.MAX_HEALTH, 7.0D)
                 .add(Attributes.MOVEMENT_SPEED, 0.38D)
                 .add(Attributes.ATTACK_DAMAGE, 0.5D)
                 .add(Attributes.ARMOR, 0.0D)
                 .add(Attributes.FOLLOW_RANGE, 48D));
-        EntityAttributeRegistry.register(MireGolem, () -> MobEntity.createMobAttributes()
+        EntityAttributeRegistry.register(MireGolem, () -> Mob.createMobAttributes()
                 .add(Attributes.MAX_HEALTH, 40.0D)
                 .add(Attributes.MOVEMENT_SPEED, 0.18D)
                 .add(Attributes.ATTACK_DAMAGE, 7.0D)
                 .add(Attributes.ARMOR, 6.0D)
                 .add(Attributes.FOLLOW_RANGE, 48D));
-        EntityAttributeRegistry.register(LanternFox, () -> MobEntity.createMobAttributes()
+        EntityAttributeRegistry.register(LanternFox, () -> Mob.createMobAttributes()
                 .add(Attributes.MAX_HEALTH, 12.0D)
                 .add(Attributes.MOVEMENT_SPEED, 0.37D)
                 .add(Attributes.ATTACK_DAMAGE, 3.0D)
                 .add(Attributes.ARMOR, 0.5D)
                 .add(Attributes.FOLLOW_RANGE, 48D));
-        EntityAttributeRegistry.register(ReefGrazer, () -> MobEntity.createMobAttributes()
+        EntityAttributeRegistry.register(ReefGrazer, () -> Mob.createMobAttributes()
                 .add(Attributes.MAX_HEALTH, 18.0D)
                 .add(Attributes.MOVEMENT_SPEED, 0.24D)
                 .add(Attributes.ATTACK_DAMAGE, 1.5D)
                 .add(Attributes.ARMOR, 2.0D)
                 .add(Attributes.FOLLOW_RANGE, 48D));
-        EntityAttributeRegistry.register(AshCrawler, () -> MobEntity.createMobAttributes()
+        EntityAttributeRegistry.register(AshCrawler, () -> Mob.createMobAttributes()
                 .add(Attributes.MAX_HEALTH, 9.0D)
                 .add(Attributes.MOVEMENT_SPEED, 0.31D)
                 .add(Attributes.ATTACK_DAMAGE, 3.0D)
                 .add(Attributes.ARMOR, 1.0D)
                 .add(Attributes.FOLLOW_RANGE, 48D));
-        EntityAttributeRegistry.register(StarWhale, () -> MobEntity.createMobAttributes()
+        EntityAttributeRegistry.register(StarWhale, () -> Mob.createMobAttributes()
                 .add(Attributes.MAX_HEALTH, 60.0D)
                 .add(Attributes.MOVEMENT_SPEED, 0.16D)
                 .add(Attributes.ATTACK_DAMAGE, 2.0D)
                 .add(Attributes.ARMOR, 8.0D)
                 .add(Attributes.FOLLOW_RANGE, 48D));
-        EntityAttributeRegistry.register(PetalWing, () -> MobEntity.createMobAttributes()
+        EntityAttributeRegistry.register(PetalWing, () -> Mob.createMobAttributes()
                 .add(Attributes.MAX_HEALTH, 5.0D)
                 .add(Attributes.MOVEMENT_SPEED, 0.34D)
                 .add(Attributes.ATTACK_DAMAGE, 0.5D)
                 .add(Attributes.ARMOR, 0.0D)
                 .add(Attributes.FOLLOW_RANGE, 48D));
-        EntityAttributeRegistry.register(HeartOfTheForest, () -> MobEntity.createMobAttributes()
+        EntityAttributeRegistry.register(HeartOfTheForest, () -> Mob.createMobAttributes()
                 .add(Attributes.MAX_HEALTH, 480.0D)
                 .add(Attributes.MOVEMENT_SPEED, 0.24D)
                 .add(Attributes.ATTACK_DAMAGE, 12.0D)
                 .add(Attributes.ARMOR, 8D)
                 .add(Attributes.FOLLOW_RANGE, 96D)
                 .add(Attributes.KNOCKBACK_RESISTANCE, 1.0D));
-        EntityAttributeRegistry.register(VoidSerpent, () -> MobEntity.createMobAttributes()
+        EntityAttributeRegistry.register(VoidSerpent, () -> Mob.createMobAttributes()
                 .add(Attributes.MAX_HEALTH, 520.0D)
                 .add(Attributes.MOVEMENT_SPEED, 0.36D)
                 .add(Attributes.ATTACK_DAMAGE, 14.0D)

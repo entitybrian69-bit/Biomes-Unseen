@@ -1,12 +1,12 @@
 package com.biomesunseen.item;
 
-import net.minecraft.inventory.EquipmentSlotType;
-import net.minecraft.item.ArmorItem;
-import net.minecraft.item.IArmorMaterial;
-import net.minecraft.item.IItemTier;
-import net.minecraft.item.Item;
-import net.minecraft.item.PickaxeItem;
-import net.minecraft.item.SwordItem;
+import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.item.ArmorItem;
+import net.minecraft.world.item.IArmorMaterial;
+import net.minecraft.world.item.IItemTier;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.PickaxeItem;
+import net.minecraft.world.item.SwordItem;
 
 import com.biomesunseen.core.OreDef;
 
@@ -28,19 +28,19 @@ public final class UnseenGearItems {
     }
 
     public static ArmorItem helmet(OreDef ore, UnseenArmorMaterial material, Item.Properties properties) {
-        return new UnseenArmorItem(ore, material, EquipmentSlotType.HEAD, properties);
+        return new UnseenArmorItem(ore, material, EquipmentSlot.HEAD, properties);
     }
 
     public static ArmorItem chestplate(OreDef ore, UnseenArmorMaterial material, Item.Properties properties) {
-        return new UnseenArmorItem(ore, material, EquipmentSlotType.CHEST, properties);
+        return new UnseenArmorItem(ore, material, EquipmentSlot.CHEST, properties);
     }
 
     public static ArmorItem leggings(OreDef ore, UnseenArmorMaterial material, Item.Properties properties) {
-        return new UnseenArmorItem(ore, material, EquipmentSlotType.LEGS, properties);
+        return new UnseenArmorItem(ore, material, EquipmentSlot.LEGS, properties);
     }
 
     public static ArmorItem boots(OreDef ore, UnseenArmorMaterial material, Item.Properties properties) {
-        return new UnseenArmorItem(ore, material, EquipmentSlotType.FEET, properties);
+        return new UnseenArmorItem(ore, material, EquipmentSlot.FEET, properties);
     }
 
     /** Concrete pickaxe bound to its ore. */
@@ -75,7 +75,7 @@ public final class UnseenGearItems {
     public static final class UnseenArmorItem extends ArmorItem {
         private final OreDef ore;
 
-        UnseenArmorItem(OreDef ore, UnseenArmorMaterial material, EquipmentSlotType slot, Item.Properties properties) {
+        UnseenArmorItem(OreDef ore, UnseenArmorMaterial material, EquipmentSlot slot, Item.Properties properties) {
             super(material, slot, properties);
             this.ore = ore;
         }

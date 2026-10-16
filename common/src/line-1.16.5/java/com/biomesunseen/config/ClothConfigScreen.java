@@ -43,7 +43,7 @@ public final class ClothConfigScreen {
         }
         try {
             Object builder = callStatic(builderType, "create");
-            call(builder, "setTitle", new net.minecraft.util.text.StringTextComponent(title));
+            call(builder, "setTitle", new net.minecraft.network.chat.TextComponent(title));
             call(builder, "setSavingRunnable",
                     (Runnable) () -> BiomesUnseen.setConfig(BiomesUnseen.config()));
             if (parent != null) {
@@ -52,7 +52,7 @@ public final class ClothConfigScreen {
             Object entryBuilder = call(builder, "entryBuilder");
             ModConfig cfg = BiomesUnseen.config();
 
-            Object general = call(builder, "getOrCreateCategory", new net.minecraft.util.text.StringTextComponent("General"));
+            Object general = call(builder, "getOrCreateCategory", new net.minecraft.network.chat.TextComponent("General"));
             addBool(general, entryBuilder, translator.apply("enableAllBiomes"), cfg.enableAllBiomes, true, v -> cfg.enableAllBiomes = v);
             addBool(general, entryBuilder, translator.apply("enableAllOres"), cfg.enableAllOres, true, v -> cfg.enableAllOres = v);
             addBool(general, entryBuilder, translator.apply("enableAllStructures"), cfg.enableAllStructures, true, v -> cfg.enableAllStructures = v);
@@ -61,7 +61,7 @@ public final class ClothConfigScreen {
             addBool(general, entryBuilder, translator.apply("enableLoreBooks"), cfg.enableLoreBooks, true, v -> cfg.enableLoreBooks = v);
             addBool(general, entryBuilder, translator.apply("enableStructureLoot"), cfg.enableStructureLoot, true, v -> cfg.enableStructureLoot = v);
 
-            Object world = call(builder, "getOrCreateCategory", new net.minecraft.util.text.StringTextComponent("World"));
+            Object world = call(builder, "getOrCreateCategory", new net.minecraft.network.chat.TextComponent("Level"));
             addDouble(world, entryBuilder, translator.apply("biomeRarityMultiplier"), cfg.biomeRarityMultiplier, 1.0D, 0.0D, 10.0D, v -> cfg.biomeRarityMultiplier = v);
             addDouble(world, entryBuilder, translator.apply("biomeTerraformingStrength"), cfg.biomeTerraformingStrength, 1.0D, 0.0D, 3.0D, v -> cfg.biomeTerraformingStrength = v);
             addDouble(world, entryBuilder, translator.apply("oreRateMultiplier"), cfg.oreRateMultiplier, 1.0D, 0.0D, 10.0D, v -> cfg.oreRateMultiplier = v);
@@ -69,7 +69,7 @@ public final class ClothConfigScreen {
             addDouble(world, entryBuilder, translator.apply("weatherIntensity"), cfg.weatherIntensity, 1.0D, 0.0D, 3.0D, v -> cfg.weatherIntensity = v);
             addInt(world, entryBuilder, translator.apply("structureLodDistance"), cfg.structureLodDistance, 128, 16, 1024, v -> cfg.structureLodDistance = v);
 
-            Object mobs = call(builder, "getOrCreateCategory", new net.minecraft.util.text.StringTextComponent("Mobs & Performance"));
+            Object mobs = call(builder, "getOrCreateCategory", new net.minecraft.network.chat.TextComponent("Mobs & Performance"));
             addDouble(mobs, entryBuilder, translator.apply("mobSpawnMultiplier"), cfg.mobSpawnMultiplier, 1.0D, 0.0D, 10.0D, v -> cfg.mobSpawnMultiplier = v);
             addInt(mobs, entryBuilder, translator.apply("mobGlobalCap"), cfg.mobGlobalCap, 180, 0, 2000, v -> cfg.mobGlobalCap = v);
             addInt(mobs, entryBuilder, translator.apply("entityAiThrottle"), cfg.entityAiThrottle, 2, 1, 20, v -> cfg.entityAiThrottle = v);
@@ -88,7 +88,7 @@ public final class ClothConfigScreen {
     private static void addBool(Object category, Object entryBuilder, String label,
                                 boolean value, boolean defaultValue, Consumer<Boolean> save)
             throws ReflectiveOperationException {
-        Object entry = call(entryBuilder, "startBooleanField", new net.minecraft.util.text.StringTextComponent(label), Boolean.valueOf(value));
+        Object entry = call(entryBuilder, "startBooleanField", new net.minecraft.network.chat.TextComponent(label), Boolean.valueOf(value));
         entry = call(entry, "setDefaultValue", Boolean.valueOf(defaultValue));
         entry = call(entry, "setSaveConsumer", save);
         call(category, "addEntry", call(entry, "build"));
@@ -99,7 +99,7 @@ public final class ClothConfigScreen {
                                   double value, double defaultValue, double min, double max,
                                   Consumer<Double> save)
             throws ReflectiveOperationException {
-        Object entry = call(entryBuilder, "startDoubleField", new net.minecraft.util.text.StringTextComponent(label), Double.valueOf(value));
+        Object entry = call(entryBuilder, "startDoubleField", new net.minecraft.network.chat.TextComponent(label), Double.valueOf(value));
         entry = call(entry, "setDefaultValue", Double.valueOf(defaultValue));
         entry = call(entry, "setMin", Double.valueOf(min));
         entry = call(entry, "setMax", Double.valueOf(max));
@@ -112,7 +112,7 @@ public final class ClothConfigScreen {
                                int value, int defaultValue, int min, int max,
                                Consumer<Integer> save)
             throws ReflectiveOperationException {
-        Object entry = call(entryBuilder, "startIntField", new net.minecraft.util.text.StringTextComponent(label), Integer.valueOf(value));
+        Object entry = call(entryBuilder, "startIntField", new net.minecraft.network.chat.TextComponent(label), Integer.valueOf(value));
         entry = call(entry, "setDefaultValue", Integer.valueOf(defaultValue));
         entry = call(entry, "setMin", Integer.valueOf(min));
         entry = call(entry, "setMax", Integer.valueOf(max));

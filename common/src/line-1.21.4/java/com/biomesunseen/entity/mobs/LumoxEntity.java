@@ -53,7 +53,7 @@ public class LumoxEntity extends BiomesUnseenMob {
         net.minecraft.world.item.ItemStack stack = player.getItemInHand(hand);
         if (!isTame() && player.isShiftKeyDown() == false && !stack.isEmpty()
                 && stack.is(net.minecraft.world.item.Items.EMERALD)) {
-            if (!level().isClientSide) {
+            if (!unseenLevel().isClientSide) {
                 if (getRandom().nextInt(3) == 0) {
                     setTame(true);
                     triggerAnim("tame");

@@ -36,17 +36,17 @@ public final class ModBlocks {
     static {
         for (int i = 0; i < Content.ORES.size(); i++) {
             OreDef ore = Content.ORES.get(i);
-            ORES.put(ore.id, ModRegistries.BLOCKS.register(ore.id + "_ore",
+            ORES.put(ore.id, ModRegistry.BLOCK_REGISTRYS.register(ore.id + "_ore",
                     () -> new UnseenOreBlock(ore)));
         }
         for (int i = 0; i < Content.DECOR.size(); i++) {
             DecorDef decor = Content.DECOR.get(i);
-            DECOR.put(decor.id, ModRegistries.BLOCKS.register(decor.id,
+            DECOR.put(decor.id, ModRegistry.BLOCK_REGISTRYS.register(decor.id,
                     () -> new UnseenDecorBlock(decor)));
         }
         for (int i = 0; i < Content.PLANTS.size(); i++) {
             PlantDef plant = Content.PLANTS.get(i);
-            PLANTS.put(plant.id, ModRegistries.BLOCKS.register(plant.id,
+            PLANTS.put(plant.id, ModRegistry.BLOCK_REGISTRYS.register(plant.id,
                     () -> new UnseenPlantBlock(plant)));
         }
     }

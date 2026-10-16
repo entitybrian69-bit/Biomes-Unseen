@@ -1,13 +1,13 @@
 package com.biomesunseen.item;
 
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.potion.EffectInstance;
 import net.minecraft.potion.Effects;
-import net.minecraft.util.ActionResultType;
-import net.minecraft.util.Hand;
-import net.minecraft.world.World;
+import net.minecraft.world.InteractionResult;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.level.Level;
 
 import com.biomesunseen.core.OreDef;
 
@@ -29,13 +29,13 @@ public class UnseenTonicItem extends Item {
     }
 
     @Override
-    public ActionResultType use(World world, PlayerEntity player, Hand hand) {
+    public InteractionResult use(Level world, Player player, InteractionHand hand) {
         ItemStack stack = player.getItemInHand(hand);
         player.addEffect(new EffectInstance(effectFor(ore), 20 * 60, 0));
         if (!player.abilities.instabuild) {
             stack.shrink(1);
         }
-        return ActionResultType.SUCCESS;
+        return InteractionResult.SUCCESS;
     }
 
     private static net.minecraft.potion.Effect effectFor(OreDef ore) {

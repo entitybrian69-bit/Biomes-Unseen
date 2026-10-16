@@ -1,14 +1,14 @@
 package com.biomesunseen.entity.ai;
 
-import net.minecraft.entity.CreatureEntity;
-import net.minecraft.entity.ai.goal.Goal;
-import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.world.entity.PathfinderMob;
+import net.minecraft.world.entity.ai.goal.Goal;
+import net.minecraft.world.entity.player.Player;
 
 
 import com.biomesunseen.entity.BiomesUnseenMob;
 import com.biomesunseen.registry.ModItems;
 
-import net.minecraft.item.ItemStack;
+import net.minecraft.world.item.ItemStack;
 
 /**
  * Wandering barter: periodically offers a small trade to nearby players
@@ -18,9 +18,9 @@ public class WanderTradeGoal extends ThrottledGoal {
 
     private final double speed;
     private int tradeCooldown = 200;
-    private PlayerEntity customer;
+    private Player customer;
 
-    public WanderTradeGoal(CreatureEntity mob, double speed) {
+    public WanderTradeGoal(PathfinderMob mob, double speed) {
         super(mob);
         this.speed = speed;
         this.setFlags(java.util.EnumSet.of(Flag.MOVE, Flag.LOOK));
@@ -31,7 +31,7 @@ public class WanderTradeGoal extends ThrottledGoal {
         if (!(mob instanceof BiomesUnseenMob) || !((BiomesUnseenMob) mob).mobDef().tradable) {
             return false;
         }
-        customer = mob.level.getNearestPlayer(mob, 6.0D);
+        customer = mob.level().getNearestPlayer(mob, 6.0D);
         return customer != null && tradeCooldown <= 0;
     }
 
@@ -51,16 +51,16 @@ public class WanderTradeGoal extends ThrottledGoal {
     @Override
     public void tick() {
         tradeCooldown--;
-        if (customer != null && tradeCooldown == 390 && !mob.level.isClientSide) {
+        if (customer != null && tradeCooldown == 390 && !mob.level().isClientSide) {
             // Simple barter: trophy from the mob, mineral to the player.
-            java.util.List<me.shedaniel.architectury.registry.RegistrySupplier<net.minecraft.item.Item>> minerals =
+            java.util.List<me.shedaniel.architectury.registry.RegistrySupplier<net.minecraft.world.item.Item>> minerals =
                     new java.util.ArrayList<>(ModItems.MINERALS.values());
             if (!minerals.isEmpty()) {
                 ItemStack gift = new ItemStack(minerals.get(mob.getRandom().nextInt(minerals.size())).get());
                 if (!customer.addItem(gift)) {
                     customer.drop(gift, false);
                 }
-                if (!customer.inventory.items.stream().anyMatch(s -> !s.isEmpty())) {
+                if (!customer.getInventory().items.stream().anyMatch(s -> !s.isEmpty())) {
                     // No payment expected: this is ambient life, not a villager UI.
                 }
             }

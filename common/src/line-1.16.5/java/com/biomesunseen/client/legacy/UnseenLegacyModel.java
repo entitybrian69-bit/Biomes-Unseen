@@ -1,16 +1,16 @@
 package com.biomesunseen.client.legacy;
 
-import com.mojang.blaze3d.matrix.MatrixStack;
-import net.minecraft.client.renderer.vertex.IVertexBuilder;
+import com.mojang.blaze3d.vertex.PoseStack;
+import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.model.geom.ModelLayerLocation;
-import net.minecraft.client.model.ModelRenderer;
+import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.CubeListBuilder;
 import net.minecraft.client.model.geom.builders.LayerDefinition;
 import net.minecraft.client.model.geom.builders.MeshDefinition;
 import net.minecraft.client.model.geom.builders.PartDefinition;
-import net.minecraft.util.ResourceLocation;
+import net.minecraft.resources.ResourceLocation;
 
 import com.biomesunseen.entity.BiomesUnseenMob;
 
@@ -87,8 +87,8 @@ public class UnseenLegacyModel<T extends BiomesUnseenMob> extends EntityModel<T>
     }
 
     @Override
-    public void render(com.mojang.blaze3d.matrix.MatrixStack matrixStack,
-            net.minecraft.client.renderer.vertex.IVertexBuilder buffer,
+    public void renderToBuffer(com.mojang.blaze3d.vertex.PoseStack matrixStack,
+            com.mojang.blaze3d.vertex.VertexConsumer buffer,
             int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
         head.render(matrixStack, buffer, packedLight, packedOverlay, red, green, blue, alpha);
         body.render(matrixStack, buffer, packedLight, packedOverlay, red, green, blue, alpha);

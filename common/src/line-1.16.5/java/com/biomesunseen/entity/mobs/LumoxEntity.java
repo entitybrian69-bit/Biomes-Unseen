@@ -1,7 +1,7 @@
 package com.biomesunseen.entity.mobs;
 
-import net.minecraft.entity.EntityType;
-import net.minecraft.world.World;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.level.Level;
 
 import com.biomesunseen.core.Content;
 import com.biomesunseen.entity.BiomesUnseenMob;
@@ -22,23 +22,23 @@ public class LumoxEntity extends BiomesUnseenMob {
     @Override
     protected void defineSynchedData() {
         super.defineSynchedData();
-        TAME = net.minecraft.network.datasync.EntityDataManager.defineId(LumoxEntity.class, net.minecraft.network.datasync.DataSerializers.BOOLEAN);
+        TAME = net.minecraft.network.syncher.SynchedEntityData.defineId(LumoxEntity.class, net.minecraft.network.syncher.EntityDataSerializers.BOOLEAN);
         entityData.define(TAME, false);
     }
-    public LumoxEntity(EntityType<? extends LumoxEntity> type, World level) {
+    public LumoxEntity(EntityType<? extends LumoxEntity> type, Level level) {
         super(type, level, Content.mob("lumox"));
     }
 
     @Override
     protected void registerGoals() {
-        this.goalSelector.addGoal(0, new net.minecraft.entity.ai.goal.SwimGoal(this));
+        this.goalSelector.addGoal(0, new net.minecraft.world.entity.ai.goal.FloatGoal(this));
         this.goalSelector.addGoal(1, new FleeDangerGoal(this, 1.3D));
         this.goalSelector.addGoal(3, new GrazeGoal(this));
         this.goalSelector.addGoal(3, new HerdFollowGoal(this, 1.1D));
         // Tameable: sit/follow wiring handled in mobInteract/onTamedInteraction.
-        this.goalSelector.addGoal(5, new net.minecraft.entity.ai.goal.WaterAvoidingRandomWalkingGoal(this, 1.0D));
-        this.goalSelector.addGoal(6, new net.minecraft.entity.ai.goal.LookAtGoal(this, net.minecraft.entity.player.PlayerEntity.class, 8.0F));
-        this.goalSelector.addGoal(7, new net.minecraft.entity.ai.goal.LookRandomlyGoal(this));
+        this.goalSelector.addGoal(5, new net.minecraft.world.entity.ai.goal.WaterAvoidingRandomStrollGoal(this, 1.0D));
+        this.goalSelector.addGoal(6, new net.minecraft.world.entity.ai.goal.LookAtGoal(this, net.minecraft.world.entity.player.Player.class, 8.0F));
+        this.goalSelector.addGoal(7, new net.minecraft.world.entity.ai.goal.LookRandomlyGoal(this));
     }
 
     @Override
@@ -47,10 +47,10 @@ public class LumoxEntity extends BiomesUnseenMob {
     }
 
     @Override
-    public net.minecraft.util.ActionResultType mobInteract(PlayerEntity player, net.minecraft.util.Hand hand) {
-        net.minecraft.item.ItemStack stack = player.getItemInHand(hand);
-        if (!isTame() && !stack.isEmpty() && stack.is(net.minecraft.item.Items.EMERALD)) {
-            if (!level.isClientSide) {
+    public net.minecraft.world.InteractionResult mobInteract(Player player, net.minecraft.world.InteractionHand hand) {
+        net.minecraft.world.item.ItemStack stack = player.getItemInHand(hand);
+        if (!isTame() && !stack.isEmpty() && stack.is(net.minecraft.world.item.Items.EMERALD)) {
+            if (!unseenLevel().isClientSide) {
                 if (getRandom().nextInt(3) == 0) {
                     setTame(true);
                     triggerAnim("tame");
@@ -59,7 +59,7 @@ public class LumoxEntity extends BiomesUnseenMob {
                 }
                 stack.shrink(1);
             }
-            return net.minecraft.util.ActionResultType.SUCCESS;
+            return net.minecraft.world.InteractionResult.SUCCESS;
         }
         return super.mobInteract(player, hand);
     }
@@ -72,6 +72,6 @@ public class LumoxEntity extends BiomesUnseenMob {
         entityData.set(TAME, tame);
     }
 
-    private net.minecraft.network.datasync.DataParameter<Boolean> TAME;
+    private net.minecraft.network.syncher.EntityDataAccessor<Boolean> TAME;
 
 }

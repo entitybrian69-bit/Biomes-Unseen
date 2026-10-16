@@ -1,8 +1,8 @@
 package com.biomesunseen.block;
 
-import net.minecraft.block.Block;
-import net.minecraft.block.AbstractBlock;
-import net.minecraft.block.SoundType;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.AbstractBlock;
+import net.minecraft.world.level.block.SoundType;
 
 import com.biomesunseen.core.PlantDef;
 
@@ -20,7 +20,7 @@ public class UnseenPlantBlock extends Block {
     }
 
     private static AbstractBlock.Properties buildProperties() {
-        AbstractBlock.Properties properties = AbstractBlock.Properties.of(net.minecraft.block.material.Material.PLANT);
+        AbstractBlock.Properties properties = AbstractBlock.Properties.of(net.minecraft.world.level.block.material.Material.PLANT);
         return properties.noCollission().instabreak().offsetType(AbstractBlock.OffsetType.XZ)
                 .sound(SoundType.GRASS);
     }

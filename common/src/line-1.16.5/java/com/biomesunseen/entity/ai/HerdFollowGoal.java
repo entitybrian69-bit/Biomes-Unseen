@@ -1,8 +1,8 @@
 package com.biomesunseen.entity.ai;
 
-import net.minecraft.entity.CreatureEntity;
-import net.minecraft.entity.ai.goal.Goal;
-import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.world.entity.PathfinderMob;
+import net.minecraft.world.entity.ai.goal.Goal;
+import net.minecraft.world.entity.player.Player;
 
 
 import com.biomesunseen.entity.BiomesUnseenMob;
@@ -14,10 +14,10 @@ import com.biomesunseen.entity.BiomesUnseenMob;
 public class HerdFollowGoal extends ThrottledGoal {
 
     private final double speed;
-    private CreatureEntity leader;
+    private PathfinderMob leader;
     private int repathCooldown;
 
-    public HerdFollowGoal(CreatureEntity mob, double speed) {
+    public HerdFollowGoal(PathfinderMob mob, double speed) {
         super(mob);
         this.speed = speed;
         this.setFlags(java.util.EnumSet.of(Flag.MOVE));

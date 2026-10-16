@@ -1,12 +1,12 @@
 package com.biomesunseen.entity;
 
-import net.minecraft.entity.CreatureEntity;
-import net.minecraft.entity.EntityType;
-import net.minecraft.entity.ai.attributes.AttributeModifierMap;
-import net.minecraft.entity.ai.attributes.Attributes;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.util.DamageSource;
-import net.minecraft.world.World;
+import net.minecraft.world.entity.PathfinderMob;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.ai.attributes.AttributeModifierMap;
+import net.minecraft.world.entity.ai.attributes.Attributes;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.level.Level;
 
 
 import com.biomesunseen.BiomesUnseen;
@@ -23,7 +23,63 @@ import com.biomesunseen.util.SpawnCaps;
  *  - pack/herd helpers used by the generated AI goals
  *  - the GeckoLib animation state machine hooks every mob overrides
  */
-public abstract class BiomesUnseenMob extends CreatureEntity  {
+public abstract class BiomesUnseenMob extends PathfinderMob  {
+
+    /** Field cache - {@code level} is a public field on 1.19.4 and private
+     *  from 1.20 on, so every line reads it through this one accessor. */
+    private static java.lang.reflect.Field unseenLevelField;
+    private java.lang.Object unseenLevelCache;
+
+    /** @return the Level this mob is ticking in, on every 1.19.4+ line. */
+    public final net.minecraft.world.level.Level unseenLevel() {
+        if (unseenLevelCache instanceof net.minecraft.world.level.Level) {
+            return (net.minecraft.world.level.Level) unseenLevelCache;
+        }
+        if (unseenLevelField == null) {
+            try {
+                java.lang.reflect.Field f =
+                        net.minecraft.world.entity.Entity.class.getDeclaredField("level");
+                f.setAccessible(true);
+                unseenLevelField = f;
+            } catch (ReflectiveOperationException e) {
+                throw new IllegalStateException("Cannot reach Entity#level", e);
+            }
+        }
+        try {
+            unseenLevelCache = unseenLevelField.get(this);
+        } catch (ReflectiveOperationException e) {
+            throw new IllegalStateException("Cannot read Entity#level", e);
+        }
+        return (net.minecraft.world.level.Level) unseenLevelCache;
+    }
+
+    /** Field cache - the {@code level} field is public on 1.19.4 and private
+     *  from 1.20 on, so both are reached through one reflection-free path. */
+    private static java.lang.reflect.Field unseenLevelField;
+    private java.lang.Object unseenLevelCache;
+
+    /** @return the {@code Level} this mob is ticking in, on every 1.19.4+ line. */
+    public final net.minecraft.world.level.Level unseenLevel() {
+        if (unseenLevelCache instanceof net.minecraft.world.level.Level) {
+            return (net.minecraft.world.level.Level) unseenLevelCache;
+        }
+        if (unseenLevelField == null) {
+            try {
+                java.lang.reflect.Field f = net.minecraft.world.entity.Entity.class
+                        .getDeclaredField("level");
+                f.setAccessible(true);
+                unseenLevelField = f;
+            } catch (ReflectiveOperationException e) {
+                throw new IllegalStateException("Cannot reach Entity#level", e);
+            }
+        }
+        try {
+            unseenLevelCache = unseenLevelField.get(this);
+        } catch (ReflectiveOperationException e) {
+            throw new IllegalStateException("Cannot read Entity#level", e);
+        }
+        return (net.minecraft.world.level.Level) unseenLevelCache;
+    }
 
     protected final MobDef mobDef;
 
@@ -64,7 +120,7 @@ public abstract class BiomesUnseenMob extends CreatureEntity  {
     public com.biomesunseen.entity.legacy.LegacyAnimDriver animDriver() {
         return animDriver;
     }
-    protected BiomesUnseenMob(EntityType<? extends CreatureEntity> type, World level, MobDef mobDef) {
+    protected BiomesUnseenMob(EntityType<? extends PathfinderMob> type, Level level, MobDef mobDef) {
         super(type, level);
         this.mobDef = mobDef;
     }
@@ -80,16 +136,16 @@ public abstract class BiomesUnseenMob extends CreatureEntity  {
         if (animOneShotTicks > 0) {
             animOneShotTicks--;
         }
-        if (!level.isClientSide && tickCount % 20 == 0) {
+        if (!unseenLevel().isClientSide && tickCount % 20 == 0) {
             adaptToEnvironment();
         }
     }
 
     @Override
     public void tick() {
-        if (AiThrottle.shouldThink(getId(), level.getGameTime())) {
+        if (AiThrottle.shouldThink(getId(), unseenLevel().getGameTime())) {
             super.tick();
-        } else if (!level.isClientSide) {
+        } else if (!unseenLevel().isClientSide) {
             // Cheap tick: keep physics and health regen, skip goal churn.
             super.tick();
         } else {
@@ -104,7 +160,7 @@ public abstract class BiomesUnseenMob extends CreatureEntity  {
         }
         double temperature = 0.7D;
         try {
-            temperature = level.getBiome(blockPosition()).getTemperature(blockPosition());
+            temperature = unseenLevel().getBiome(blockPosition()).value().getBaseTemperature();
         } catch (Throwable ignored) {
             // Older mappings expose the temperature accessor differently.
         }
@@ -140,10 +196,10 @@ public abstract class BiomesUnseenMob extends CreatureEntity  {
     }
 
     @Override
-    public void remove() {
-        super.remove();
-        if (!level.isClientSide) {
-            SpawnCaps.onRemoved(level.dimension().location().toString());
+    public void remove(RemovalReason reason) {
+        super.remove(reason);
+        if (!unseenLevel().isClientSide) {
+            SpawnCaps.onRemoved(unseenLevel().dimension().location().toString());
         }
     }
 
@@ -158,7 +214,7 @@ public abstract class BiomesUnseenMob extends CreatureEntity  {
 
     /** Pack helper: nearest same-type mob within radius. */
     public BiomesUnseenMob findNearestAlly(double radius) {
-        java.util.List<? extends BiomesUnseenMob> list = level.getEntitiesOfClass(
+        java.util.List<? extends BiomesUnseenMob> list = unseenLevel().getEntitiesOfClass(
                 BiomesUnseenMob.class, getBoundingBox().inflate(radius),
                 other -> other != this && other.mobDef() == this.mobDef);
         return list.isEmpty() ? null : list.get(0);
@@ -166,12 +222,12 @@ public abstract class BiomesUnseenMob extends CreatureEntity  {
 
     /** Pack helper: number of same-type mobs nearby. */
     public int countAllies(double radius) {
-        return level.getEntitiesOfClass(BiomesUnseenMob.class, getBoundingBox().inflate(radius),
+        return unseenLevel().getEntitiesOfClass(BiomesUnseenMob.class, getBoundingBox().inflate(radius),
                 other -> other != this && other.mobDef() == this.mobDef).size();
     }
 
     /** Tameable interaction hook (used by tameable mobs). */
-    public boolean onTamedInteraction(PlayerEntity player) {
+    public boolean onTamedInteraction(Player player) {
         return false;
     }
 

@@ -1,9 +1,9 @@
 package com.biomesunseen.worldgen;
 
-import net.minecraft.util.RegistryKey;
-import net.minecraft.util.registry.Registry;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.core.Registry;
 import net.minecraft.world.biome.Biome;
-import net.minecraft.util.ResourceLocation;
+import net.minecraft.resources.ResourceLocation;
 
 import com.biomesunseen.BiomesUnseen;
 import com.biomesunseen.core.BiomeDef;

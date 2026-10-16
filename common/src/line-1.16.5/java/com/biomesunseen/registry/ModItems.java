@@ -1,14 +1,14 @@
 package com.biomesunseen.registry;
 
-import net.minecraft.block.Block;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.BlockItem;
-import net.minecraft.item.ItemGroup;
-import net.minecraft.item.SpawnEggItem;
-import net.minecraft.item.crafting.Ingredient;
-import net.minecraft.entity.EntityType;
-import net.minecraft.entity.MobEntity;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.SpawnEggItem;
+import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.Mob;
 
 import com.biomesunseen.core.Content;
 import com.biomesunseen.core.ModConstants;
@@ -83,58 +83,58 @@ public final class ModItems {
 
     public static void registerContent() {
 
-        UNSEEN_SIGIL = track(ModRegistries.ITEMS.register("unseen_sigil",
+        UNSEEN_SIGIL = track(ModRegistry.ITEM_REGISTRYS.register("unseen_sigil",
                 () -> new Item(new Item.Properties().stacksTo(16))));
 
         // Block items for every registered block.
         for (RegistrySupplier<Block> block : ModBlocks.allOres().values()) {
-            track(ModRegistries.ITEMS.register(block.getId().getPath(),
+            track(ModRegistry.ITEM_REGISTRYS.register(block.getId().getPath(),
                     () -> new BlockItem(block.get(), new Item.Properties())));
         }
         for (RegistrySupplier<Block> block : ModBlocks.allDecor().values()) {
-            track(ModRegistries.ITEMS.register(block.getId().getPath(),
+            track(ModRegistry.ITEM_REGISTRYS.register(block.getId().getPath(),
                     () -> new BlockItem(block.get(), new Item.Properties())));
         }
         for (RegistrySupplier<Block> block : ModBlocks.allPlants().values()) {
-            track(ModRegistries.ITEMS.register(block.getId().getPath(),
+            track(ModRegistry.ITEM_REGISTRYS.register(block.getId().getPath(),
                     () -> new BlockItem(block.get(), new Item.Properties())));
         }
 
         // Ore minerals, tool tiers, armor materials, gear and tonics.
         for (int i = 0; i < Content.ORES.size(); i++) {
             final OreDef ore = Content.ORES.get(i);
-            RegistrySupplier<Item> mineral = track(ModRegistries.ITEMS.register(ore.id,
+            RegistrySupplier<Item> mineral = track(ModRegistry.ITEM_REGISTRYS.register(ore.id,
                     () -> new Item(new Item.Properties())));
             MINERALS.put(ore.id, mineral);
             TOOL_TIERS.put(ore.id, new UnseenToolTier(ore,
                     () -> Ingredient.of(mineral.get())));
             ARMOR_MATERIALS.put(ore.id, new UnseenArmorMaterial(ore,
                     () -> Ingredient.of(mineral.get())));
-            GEAR.put(ore.id + "_pickaxe", track(ModRegistries.ITEMS.register(
+            GEAR.put(ore.id + "_pickaxe", track(ModRegistry.ITEM_REGISTRYS.register(
                     ore.id + "_pickaxe",
                     () -> UnseenGearItems.pickaxe(ore, TOOL_TIERS.get(ore.id),
                             new Item.Properties()))));
-            GEAR.put(ore.id + "_sword", track(ModRegistries.ITEMS.register(
+            GEAR.put(ore.id + "_sword", track(ModRegistry.ITEM_REGISTRYS.register(
                     ore.id + "_sword",
                     () -> UnseenGearItems.sword(ore, TOOL_TIERS.get(ore.id),
                             new Item.Properties()))));
-            GEAR.put(ore.id + "_helmet", track(ModRegistries.ITEMS.register(
+            GEAR.put(ore.id + "_helmet", track(ModRegistry.ITEM_REGISTRYS.register(
                     ore.id + "_helmet",
                     () -> UnseenGearItems.helmet(ore, ARMOR_MATERIALS.get(ore.id),
                             new Item.Properties()))));
-            GEAR.put(ore.id + "_chestplate", track(ModRegistries.ITEMS.register(
+            GEAR.put(ore.id + "_chestplate", track(ModRegistry.ITEM_REGISTRYS.register(
                     ore.id + "_chestplate",
                     () -> UnseenGearItems.chestplate(ore, ARMOR_MATERIALS.get(ore.id),
                             new Item.Properties()))));
-            GEAR.put(ore.id + "_leggings", track(ModRegistries.ITEMS.register(
+            GEAR.put(ore.id + "_leggings", track(ModRegistry.ITEM_REGISTRYS.register(
                     ore.id + "_leggings",
                     () -> UnseenGearItems.leggings(ore, ARMOR_MATERIALS.get(ore.id),
                             new Item.Properties()))));
-            GEAR.put(ore.id + "_boots", track(ModRegistries.ITEMS.register(
+            GEAR.put(ore.id + "_boots", track(ModRegistry.ITEM_REGISTRYS.register(
                     ore.id + "_boots",
                     () -> UnseenGearItems.boots(ore, ARMOR_MATERIALS.get(ore.id),
                             new Item.Properties()))));
-            TONICS.put(ore.id, track(ModRegistries.ITEMS.register(
+            TONICS.put(ore.id, track(ModRegistry.ITEM_REGISTRYS.register(
                     ore.id + "_tonic",
                     () -> new com.biomesunseen.item.UnseenTonicItem(ore,
                             new Item.Properties().stacksTo(16)))));
@@ -142,7 +142,7 @@ public final class ModItems {
 
         // Machine cores, one per machine tier used by the ore catalog.
         for (int tier = 1; tier <= 4; tier++) {
-            MACHINE_CORES.put(tier, track(ModRegistries.ITEMS.register(
+            MACHINE_CORES.put(tier, track(ModRegistry.ITEM_REGISTRYS.register(
                     "machine_core_t" + tier,
                     () -> new Item(new Item.Properties().stacksTo(16)))));
         }
@@ -152,18 +152,18 @@ public final class ModItems {
             final String mobId = Content.MOBS.get(i).id;
             final int color = Content.MOBS.get(i).baseColor;
             final int accent = com.biomesunseen.core.ColorUtil.shade(color, 0.55D);
-            SPAWN_EGGS.put(mobId, track(ModRegistries.ITEMS.register(
+            SPAWN_EGGS.put(mobId, track(ModRegistry.ITEM_REGISTRYS.register(
                     mobId + "_spawn_egg",
-                    () -> new SpawnEggItem((EntityType<? extends MobEntity>) (EntityType<?>) ModEntities.MOB_TYPES.get(mobId).get(),
+                    () -> new SpawnEggItem((EntityType<? extends Mob>) (EntityType<?>) ModEntities.MOB_TYPES.get(mobId).get(),
                             color, accent, new Item.Properties()))));
         }
         for (int i = 0; i < Content.BOSSES.size(); i++) {
             final String bossId = Content.BOSSES.get(i).id;
             final int color = Content.BOSSES.get(i).color;
             final int accent = com.biomesunseen.core.ColorUtil.shade(color, 0.5D);
-            SPAWN_EGGS.put(bossId, track(ModRegistries.ITEMS.register(
+            SPAWN_EGGS.put(bossId, track(ModRegistry.ITEM_REGISTRYS.register(
                     bossId + "_spawn_egg",
-                    () -> new SpawnEggItem((EntityType<? extends MobEntity>) (EntityType<?>) ModEntities.BOSS_TYPES.get(bossId).get(),
+                    () -> new SpawnEggItem((EntityType<? extends Mob>) (EntityType<?>) ModEntities.BOSS_TYPES.get(bossId).get(),
                             color, accent, new Item.Properties()))));
         }
 
@@ -173,16 +173,16 @@ public final class ModItems {
             themes.add(Content.STRUCTURES.get(i).loreTheme);
         }
         for (final String theme : themes) {
-            LORE_BOOKS.put(theme, track(ModRegistries.ITEMS.register(
+            LORE_BOOKS.put(theme, track(ModRegistry.ITEM_REGISTRYS.register(
                     "lore_journal_" + theme,
                     () -> new com.biomesunseen.item.LoreBookItem(theme,
                             new Item.Properties().stacksTo(1)))));
         }
 
-        // MobEntity trophies used in crafting and structure decor.
+        // Mob trophies used in crafting and structure decor.
         for (int i = 0; i < Content.MOBS.size(); i++) {
             final String mobId = Content.MOBS.get(i).id;
-            TROPHIES.put(mobId, track(ModRegistries.ITEMS.register(
+            TROPHIES.put(mobId, track(ModRegistry.ITEM_REGISTRYS.register(
                     mobId + "_trophy",
                     () -> new Item(new Item.Properties()))));
         }

@@ -1,6 +1,6 @@
 package com.biomesunseen.registry;
 
-import net.minecraft.particles.BasicParticleType;
+import net.minecraft.core.particles.SimpleParticleType;
 import net.minecraft.particles.ParticleType;
 
 import com.biomesunseen.core.CoreRegistries;
@@ -17,8 +17,8 @@ import java.util.Map;
  */
 public final class ModParticles {
 
-    public static final Map<String, RegistrySupplier<ParticleType<BasicParticleType>>> BY_ID =
-            new LinkedHashMap<String, RegistrySupplier<ParticleType<BasicParticleType>>>();
+    public static final Map<String, RegistrySupplier<ParticleType<SimpleParticleType>>> BY_ID =
+            new LinkedHashMap<String, RegistrySupplier<ParticleType<SimpleParticleType>>>();
 
     static {
         for (int i = 0; i < CoreRegistries.PARTICLE_IDS.size(); i++) {
@@ -32,10 +32,10 @@ public final class ModParticles {
      * eight Biomes Unseen types are instantiated reflectively - this keeps the
      * registration code identical on every API line.
      */
-    private static BasicParticleType newSimple() {
+    private static SimpleParticleType newSimple() {
         try {
-            java.lang.reflect.Constructor<BasicParticleType> ctor =
-                    BasicParticleType.class.getDeclaredConstructor(boolean.class);
+            java.lang.reflect.Constructor<SimpleParticleType> ctor =
+                    SimpleParticleType.class.getDeclaredConstructor(boolean.class);
             ctor.setAccessible(true);
             return ctor.newInstance(Boolean.TRUE);
         } catch (ReflectiveOperationException e) {
@@ -52,12 +52,12 @@ public final class ModParticles {
 
     /** The particle register is declared with a wildcard; narrow it for typed lookups. */
     @SuppressWarnings("unchecked")
-    private static RegistrySupplier<ParticleType<BasicParticleType>> narrow(RegistrySupplier<?> supplier) {
+    private static RegistrySupplier<ParticleType<SimpleParticleType>> narrow(RegistrySupplier<?> supplier) {
         return (RegistrySupplier) supplier;
     }
 
     public static ParticleType<?> byId(String id) {
-        RegistrySupplier<ParticleType<BasicParticleType>> supplier = BY_ID.get(id);
+        RegistrySupplier<ParticleType<SimpleParticleType>> supplier = BY_ID.get(id);
         return supplier == null ? null : supplier.get();
     }
 

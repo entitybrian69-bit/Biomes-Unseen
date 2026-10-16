@@ -1,9 +1,9 @@
 package com.biomesunseen.entity.ai;
 
-import net.minecraft.entity.CreatureEntity;
-import net.minecraft.entity.ai.goal.Goal;
-import net.minecraft.entity.ai.goal.MeleeAttackGoal;
-import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.world.entity.PathfinderMob;
+import net.minecraft.world.entity.ai.goal.Goal;
+import net.minecraft.world.entity.ai.goal.MeleeAttackGoal;
+import net.minecraft.world.entity.player.Player;
 
 import com.biomesunseen.BiomesUnseen;
 import com.biomesunseen.entity.BiomesUnseenMob;
@@ -14,10 +14,10 @@ import com.biomesunseen.entity.BiomesUnseenMob;
  */
 public class PackAttackGoal extends MeleeAttackGoal {
 
-    private final CreatureEntity mob;
+    private final PathfinderMob mob;
     private int circleDirection;
 
-    public PackAttackGoal(CreatureEntity mob, double speed, boolean followTargetEvenIfNotSeen) {
+    public PackAttackGoal(PathfinderMob mob, double speed, boolean followTargetEvenIfNotSeen) {
         super(mob, speed, followTargetEvenIfNotSeen);
         this.mob = mob;
         this.circleDirection = mob.getRandom().nextBoolean() ? 1 : -1;
@@ -38,7 +38,7 @@ public class PackAttackGoal extends MeleeAttackGoal {
     }
 
     @Override
-    protected void checkAndPerformAttack(net.minecraft.entity.LivingEntity target) {
+    protected void checkAndPerformAttack(net.minecraft.world.entity.LivingEntity target) {
         super.checkAndPerformAttack(target);
         if (target != null && mob.distanceTo(target) < 3.0D) {
             // Circle-strafe around the target for pack flanking.

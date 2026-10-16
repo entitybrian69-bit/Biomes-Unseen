@@ -1,13 +1,13 @@
 package com.biomesunseen.item;
 
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.potion.EffectInstance;
 import net.minecraft.potion.Effects;
-import net.minecraft.util.ActionResultType;
-import net.minecraft.util.Hand;
-import net.minecraft.world.World;
+import net.minecraft.world.InteractionResult;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.level.Level;
 
 /**
  * Lore journal found in structures.  Reading it surfaces the theme's journal
@@ -27,14 +27,14 @@ public class LoreBookItem extends Item {
     }
 
     @Override
-    public ActionResultType use(World world, PlayerEntity player, Hand hand) {
+    public InteractionResult use(Level world, Player player, InteractionHand hand) {
         ItemStack stack = player.getItemInHand(hand);
         if (world.isClientSide) {
-            return ActionResultType.SUCCESS;
+            return InteractionResult.SUCCESS;
         }
-        player.sendMessage(new net.minecraft.util.text.TranslationTextComponent(
+        player.sendMessage(new net.minecraft.network.chat.TranslatableComponent(
                 "book.biomesunseen." + theme), player.getUUID());
-        return ActionResultType.SUCCESS;
+        return InteractionResult.SUCCESS;
     }
 
 }

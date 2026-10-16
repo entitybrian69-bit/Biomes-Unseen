@@ -1,11 +1,11 @@
 package com.biomesunseen.entity.boss;
 
-import net.minecraft.entity.EntityType;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.util.DamageSource;
-import net.minecraft.util.SoundEvents;
-import net.minecraft.world.World;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.world.level.Level;
 
 
 import com.biomesunseen.core.BossDef;
@@ -16,7 +16,7 @@ import com.biomesunseen.platform.PlatformExpect;
 import com.biomesunseen.registry.ModItems;
 import com.biomesunseen.registry.ModParticles;
 
-import net.minecraft.item.ItemStack;
+import net.minecraft.world.item.ItemStack;
 
 /**
  * The Heart of the Forest - multi-phase ancient tree-beast.
@@ -37,7 +37,7 @@ public class HeartOfTheForestEntity extends BiomesUnseenMob {
     private int summonCooldown;
     private int regenerateTicks;
 
-    public HeartOfTheForestEntity(EntityType<? extends HeartOfTheForestEntity> type, World level) {
+    public HeartOfTheForestEntity(EntityType<? extends HeartOfTheForestEntity> type, Level level) {
         super(type, level, bossMobDef(DEF));
     }
 
@@ -53,7 +53,7 @@ public class HeartOfTheForestEntity extends BiomesUnseenMob {
     @Override
     public void aiStep() {
         super.aiStep();
-        if (level.isClientSide) {
+        if (level().isClientSide) {
             return;
         }
         float fraction = getHealth() / getMaxHealth();
@@ -64,7 +64,7 @@ public class HeartOfTheForestEntity extends BiomesUnseenMob {
         }
         if (--musicCooldown <= 0) {
             musicCooldown = 600;
-            PlatformExpect.playBossMusic((net.minecraft.world.server.ServerWorld) level,
+            PlatformExpect.playBossMusic((net.minecraft.server.level.ServerLevel) unseenLevel(),
                     blockPosition(), DEF.musicSoundEvent, 48);
         }
         LivingEntity target = getTarget();
@@ -109,20 +109,20 @@ public class HeartOfTheForestEntity extends BiomesUnseenMob {
             triggerAnim("spore_cloud");
             if (distance < 12.0D) {
                 target.hurt(DamageSource.causeMobDamage(this), 4.0F + phase * 2.0F);
-                target.addEffect(new net.minecraft.potion.EffectInstance(
-                        net.minecraft.potion.Effects.POISON, 80, 0));
+                target.addEffect(new net.minecraft.world.effect.MobEffectInstance(
+                        net.minecraft.world.effect.MobEffects.POISON, 80, 0));
             }
         } else if (choice == 2) {
             // verdant_beam: ranged
             triggerAnim("beam");
             if (distance < 24.0D) {
                 target.hurt(DamageSource.causeMobDamage(this), 6.0F + phase * 2.0F);
-                level.broadcastEntityEvent(this, (byte) 4);
+                unseenLevel().broadcastEntityEvent(this, (byte) 4);
             }
         } else {
             // quake_stomp
             triggerAnim("slam");
-            for (PlayerEntity player : level.getNearestPlayers(this, 10.0D, 10.0D)) {
+            for (Player player : unseenLevel().getNearestPlayers(this, 10.0D, 10.0D)) {
                 player.hurt(DamageSource.causeMobDamage(this), 5.0F + phase * 2.0F);
                 player.setDeltaMovement(player.getDeltaMovement().add(0.0D, 0.8D, 0.0D));
             }
@@ -133,20 +133,20 @@ public class HeartOfTheForestEntity extends BiomesUnseenMob {
         triggerAnim("summon");
         for (int i = 0; i < 2 + phase; i++) {
             BramblebackEntity minion = new BramblebackEntity(
-                    com.biomesunseen.registry.ModEntities.Brambleback.get(), level);
+                    com.biomesunseen.registry.ModEntities.Brambleback.get(), unseenLevel());
             minion.moveTo(blockPosition().getX() + getRandom().nextInt(7) - 3, getY(),
                     blockPosition().getZ() + getRandom().nextInt(7) - 3, 0.0F, 0.0F);
-            level.addFreshEntity(minion);
+            unseenLevel().addFreshEntity(minion);
         }
     }
 
     @Override
     public void die(DamageSource source) {
         super.die(source);
-        if (!level.isClientSide) {
+        if (!unseenLevel().isClientSide) {
             // Boss loot: trophies, rare minerals and the boss artifact.
             spawnAtLocation(new ItemStack(ModItems.UNSEEN_SIGIL.get()));
-            java.util.List<me.shedaniel.architectury.registry.RegistrySupplier<net.minecraft.item.Item>> minerals =
+            java.util.List<me.shedaniel.architectury.registry.RegistrySupplier<net.minecraft.world.item.Item>> minerals =
                     new java.util.ArrayList<>(ModItems.MINERALS.values());
             for (int i = 0; i < 4 && !minerals.isEmpty(); i++) {
                 spawnAtLocation(new ItemStack(minerals.get(getRandom().nextInt(minerals.size())).get(), 2 + getRandom().nextInt(3)));

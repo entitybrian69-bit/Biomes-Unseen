@@ -5,7 +5,7 @@ import net.minecraft.client.particle.ParticleProvider;
 import net.minecraft.client.particle.ParticleRenderType;
 import net.minecraft.client.particle.SpriteSet;
 import net.minecraft.client.world.ClientWorld;
-import net.minecraft.particles.BasicParticleType;
+import net.minecraft.core.particles.SimpleParticleType;
 
 /**
  * Generic animated particle used by all 8 particle types: sprite-animated,
@@ -41,7 +41,7 @@ public class UnseenParticle extends Particle {
     }
 
     /** Factory registered for every Biomes Unseen particle type. */
-    public static class Provider implements ParticleProvider<BasicParticleType> {
+    public static class Provider implements ParticleProvider<SimpleParticleType> {
         private final SpriteSet sprites;
 
         public Provider(SpriteSet sprites) {
@@ -49,7 +49,7 @@ public class UnseenParticle extends Particle {
         }
 
         @Override
-        public Particle createParticle(BasicParticleType type, ClientWorld level,
+        public Particle createParticle(SimpleParticleType type, ClientWorld level,
                 double x, double y, double z, double xSpeed, double ySpeed, double zSpeed) {
             return new UnseenParticle(level, x, y, z, xSpeed, ySpeed, zSpeed, sprites);
         }

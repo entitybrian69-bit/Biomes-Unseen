@@ -1,6 +1,6 @@
 package com.biomesunseen.worldgen;
 
-import net.minecraft.util.registry.Registry;
+import net.minecraft.core.Registry;
 import net.minecraft.world.biome.Biome;
 
 /**

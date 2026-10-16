@@ -62,7 +62,7 @@ public final class PlatformExpect {
      * handled by the platform entity spawn API).
      */
     public static void registerSpawnPlacement(String mobId,
-            net.minecraft.entity.EntityType<net.minecraft.entity.MobEntity> type) {
+            net.minecraft.world.entity.EntityType<net.minecraft.world.entity.Mob> type) {
         call("registerSpawnPlacement", mobId, type);
     }
 
@@ -77,8 +77,8 @@ public final class PlatformExpect {
     }
 
     /** Play a global music disc-style track inside a boss arena. */
-    public static void playBossMusic(net.minecraft.world.server.ServerWorld level,
-            net.minecraft.util.math.BlockPos center, String soundEventId, int radius) {
+    public static void playBossMusic(net.minecraft.server.level.ServerLevel level,
+            net.minecraft.core.BlockPos center, String soundEventId, int radius) {
         call("playBossMusic", level, center, soundEventId, radius);
     }
 

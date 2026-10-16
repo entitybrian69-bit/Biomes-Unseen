@@ -104,7 +104,7 @@ public class VoidSerpentEntity extends BiomesUnseenMob {
         }
         if (--musicCooldown <= 0) {
             musicCooldown = 600;
-            PlatformExpect.playBossMusic((net.minecraft.server.level.ServerLevel) level(),
+            PlatformExpect.playBossMusic((net.minecraft.server.level.ServerLevel) unseenLevel(),
                     blockPosition(), DEF.musicSoundEvent, 48);
         }
         LivingEntity target = getTarget();
@@ -143,7 +143,7 @@ public class VoidSerpentEntity extends BiomesUnseenMob {
             for (int i = 0; i < bodySegments; i += 2) {
                 net.minecraft.world.phys.AABB box = new AABB(segmentX(i) - 2.0D, segmentY(i) - 2.0D, segmentZ(i) - 2.0D,
                         segmentX(i) + 2.0D, segmentY(i) + 2.0D, segmentZ(i) + 2.0D);
-                for (LivingEntity entity : level().getEntitiesOfClass(LivingEntity.class, box,
+                for (LivingEntity entity : unseenLevel().getEntitiesOfClass(LivingEntity.class, box,
                         e -> e != this)) {
                     entity.hurt(level().damageSources().mobAttack(this), 4.0F + phase * 2.0F);
                 }
@@ -155,7 +155,7 @@ public class VoidSerpentEntity extends BiomesUnseenMob {
                 double sx = getX() + getRandom().nextGaussian() * 4.0D;
                 double sy = getY() + getRandom().nextGaussian() * 2.0D;
                 double sz = getZ() + getRandom().nextGaussian() * 4.0D;
-                level().broadcastDamageEvent(target, level().damageSources().mobAttack(this));
+                unseenLevel().broadcastDamageEvent(target, level().damageSources().mobAttack(this));
                 target.hurt(level().damageSources().mobAttack(this), 2.0F + phase);
             }
         } else {
@@ -177,7 +177,7 @@ public class VoidSerpentEntity extends BiomesUnseenMob {
     @Override
     public void die(DamageSource source) {
         super.die(source);
-        if (!level().isClientSide) {
+        if (!unseenLevel().isClientSide) {
             spawnAtLocation(new ItemStack(ModItems.UNSEEN_SIGIL.get()));
             java.util.List<dev.architectury.registry.registries.RegistrySupplier<net.minecraft.world.item.Item>> minerals =
                     new java.util.ArrayList<>(ModItems.MINERALS.values());

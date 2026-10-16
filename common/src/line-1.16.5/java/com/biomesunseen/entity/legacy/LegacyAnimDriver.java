@@ -1,6 +1,6 @@
 package com.biomesunseen.entity.legacy;
 
-import net.minecraft.entity.MobEntity;
+import net.minecraft.world.entity.Mob;
 
 /**
  * Procedural animation driver used on every line: produces limb-swing,
@@ -9,7 +9,7 @@ import net.minecraft.entity.MobEntity;
  */
 public class LegacyAnimDriver {
 
-    private final MobEntity mob;
+    private final Mob mob;
 
     public float limbSwing;
     public float limbSwingAmount;
@@ -20,7 +20,7 @@ public class LegacyAnimDriver {
     public String oneShotClip;
     private int oneShotTicks;
 
-    public LegacyAnimDriver(MobEntity mob) {
+    public LegacyAnimDriver(Mob mob) {
         this.mob = mob;
     }
 
@@ -30,7 +30,7 @@ public class LegacyAnimDriver {
         float targetAmount = speedSq > 1.0E-4F ? 1.0F : 0.0F;
         limbSwingAmount += (targetAmount - limbSwingAmount) * 0.25F;
         limbSwing += limbSwingAmount * 1.4F;
-        headYaw = mob.getYHeadRot() - mob.getYBodyRot();
+        headYaw = mob.getYHeadRot() - mob.yBodyRot;
         headPitch = mob.getXRot();
         if (oneShotTicks > 0) {
             oneShotTicks--;

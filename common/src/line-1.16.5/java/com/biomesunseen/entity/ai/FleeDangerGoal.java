@@ -1,8 +1,8 @@
 package com.biomesunseen.entity.ai;
 
-import net.minecraft.entity.CreatureEntity;
-import net.minecraft.entity.ai.goal.Goal;
-import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.world.entity.PathfinderMob;
+import net.minecraft.world.entity.ai.goal.Goal;
+import net.minecraft.world.entity.player.Player;
 
 
 import com.biomesunseen.entity.BiomesUnseenMob;
@@ -14,10 +14,10 @@ import com.biomesunseen.entity.BiomesUnseenMob;
 public class FleeDangerGoal extends ThrottledGoal {
 
     private final double speed;
-    private CreatureEntity threat;
+    private PathfinderMob threat;
     private int fleeTicks;
 
-    public FleeDangerGoal(CreatureEntity mob, double speed) {
+    public FleeDangerGoal(PathfinderMob mob, double speed) {
         super(mob);
         this.speed = speed;
         this.setFlags(java.util.EnumSet.of(Flag.MOVE));
@@ -28,7 +28,7 @@ public class FleeDangerGoal extends ThrottledGoal {
         if (mob instanceof BiomesUnseenMob && !((BiomesUnseenMob) mob).mobDef().flees) {
             return false;
         }
-        threat = mob.level.getNearestPlayer(mob, 8.0D);
+        threat = mob.level().getNearestPlayer(mob, 8.0D);
         return threat != null;
     }
 

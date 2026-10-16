@@ -1,8 +1,8 @@
 package com.biomesunseen.entity.ai;
 
-import net.minecraft.entity.CreatureEntity;
-import net.minecraft.entity.ai.goal.Goal;
-import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.world.entity.PathfinderMob;
+import net.minecraft.world.entity.ai.goal.Goal;
+import net.minecraft.world.entity.player.Player;
 
 
 import com.biomesunseen.entity.BiomesUnseenMob;
@@ -16,7 +16,7 @@ public class FlockGoal extends ThrottledGoal {
     private final double speed;
     private int repathCooldown;
 
-    public FlockGoal(CreatureEntity mob, double speed) {
+    public FlockGoal(PathfinderMob mob, double speed) {
         super(mob);
         this.speed = speed;
         this.setFlags(java.util.EnumSet.of(Flag.MOVE));

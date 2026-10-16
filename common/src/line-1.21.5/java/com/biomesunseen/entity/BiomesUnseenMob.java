@@ -25,6 +25,62 @@ import com.biomesunseen.util.SpawnCaps;
  */
 public abstract class BiomesUnseenMob extends PathfinderMob  {
 
+    /** Field cache - {@code level} is a public field on 1.19.4 and private
+     *  from 1.20 on, so every line reads it through this one accessor. */
+    private static java.lang.reflect.Field unseenLevelField;
+    private java.lang.Object unseenLevelCache;
+
+    /** @return the Level this mob is ticking in, on every 1.19.4+ line. */
+    public final net.minecraft.world.level.Level unseenLevel() {
+        if (unseenLevelCache instanceof net.minecraft.world.level.Level) {
+            return (net.minecraft.world.level.Level) unseenLevelCache;
+        }
+        if (unseenLevelField == null) {
+            try {
+                java.lang.reflect.Field f =
+                        net.minecraft.world.entity.Entity.class.getDeclaredField("level");
+                f.setAccessible(true);
+                unseenLevelField = f;
+            } catch (ReflectiveOperationException e) {
+                throw new IllegalStateException("Cannot reach Entity#level", e);
+            }
+        }
+        try {
+            unseenLevelCache = unseenLevelField.get(this);
+        } catch (ReflectiveOperationException e) {
+            throw new IllegalStateException("Cannot read Entity#level", e);
+        }
+        return (net.minecraft.world.level.Level) unseenLevelCache;
+    }
+
+    /** Field cache - the {@code level} field is public on 1.19.4 and private
+     *  from 1.20 on, so both are reached through one reflection-free path. */
+    private static java.lang.reflect.Field unseenLevelField;
+    private java.lang.Object unseenLevelCache;
+
+    /** @return the {@code Level} this mob is ticking in, on every 1.19.4+ line. */
+    public final net.minecraft.world.level.Level unseenLevel() {
+        if (unseenLevelCache instanceof net.minecraft.world.level.Level) {
+            return (net.minecraft.world.level.Level) unseenLevelCache;
+        }
+        if (unseenLevelField == null) {
+            try {
+                java.lang.reflect.Field f = net.minecraft.world.entity.Entity.class
+                        .getDeclaredField("level");
+                f.setAccessible(true);
+                unseenLevelField = f;
+            } catch (ReflectiveOperationException e) {
+                throw new IllegalStateException("Cannot reach Entity#level", e);
+            }
+        }
+        try {
+            unseenLevelCache = unseenLevelField.get(this);
+        } catch (ReflectiveOperationException e) {
+            throw new IllegalStateException("Cannot read Entity#level", e);
+        }
+        return (net.minecraft.world.level.Level) unseenLevelCache;
+    }
+
     protected final MobDef mobDef;
 
 
@@ -80,16 +136,16 @@ public abstract class BiomesUnseenMob extends PathfinderMob  {
         if (animOneShotTicks > 0) {
             animOneShotTicks--;
         }
-        if (!level().isClientSide && tickCount % 20 == 0) {
+        if (!unseenLevel().isClientSide && tickCount % 20 == 0) {
             adaptToEnvironment();
         }
     }
 
     @Override
     public void tick() {
-        if (AiThrottle.shouldThink(getId(), level().getGameTime())) {
+        if (AiThrottle.shouldThink(getId(), unseenLevel().getGameTime())) {
             super.tick();
-        } else if (!level().isClientSide) {
+        } else if (!unseenLevel().isClientSide) {
             // Cheap tick: keep physics and health regen, skip goal churn.
             super.tick();
         } else {
@@ -104,7 +160,7 @@ public abstract class BiomesUnseenMob extends PathfinderMob  {
         }
         double temperature = 0.7D;
         try {
-            temperature = level().getBiome(blockPosition()).value().getBaseTemperature();
+            temperature = unseenLevel().getBiome(blockPosition()).value().getBaseTemperature();
         } catch (Throwable ignored) {
             // Older mappings expose the temperature accessor differently.
         }
@@ -142,8 +198,8 @@ public abstract class BiomesUnseenMob extends PathfinderMob  {
     @Override
     public void remove(net.minecraft.world.entity.Entity.RemovalReason reason) {
         super.remove(reason);
-        if (!level().isClientSide) {
-            SpawnCaps.onRemoved(level().dimension().location().toString());
+        if (!unseenLevel().isClientSide) {
+            SpawnCaps.onRemoved(unseenLevel().dimension().location().toString());
         }
     }
 
@@ -158,7 +214,7 @@ public abstract class BiomesUnseenMob extends PathfinderMob  {
 
     /** Pack helper: nearest same-type mob within radius. */
     public BiomesUnseenMob findNearestAlly(double radius) {
-        java.util.List<? extends BiomesUnseenMob> list = level().getEntitiesOfClass(
+        java.util.List<? extends BiomesUnseenMob> list = unseenLevel().getEntitiesOfClass(
                 BiomesUnseenMob.class, getBoundingBox().inflate(radius),
                 other -> other != this && other.mobDef() == this.mobDef);
         return list.isEmpty() ? null : list.get(0);
@@ -166,7 +222,7 @@ public abstract class BiomesUnseenMob extends PathfinderMob  {
 
     /** Pack helper: number of same-type mobs nearby. */
     public int countAllies(double radius) {
-        return level().getEntitiesOfClass(BiomesUnseenMob.class, getBoundingBox().inflate(radius),
+        return unseenLevel().getEntitiesOfClass(BiomesUnseenMob.class, getBoundingBox().inflate(radius),
                 other -> other != this && other.mobDef() == this.mobDef).size();
     }
 

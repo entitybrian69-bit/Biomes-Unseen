@@ -64,7 +64,7 @@ public class HeartOfTheForestEntity extends BiomesUnseenMob {
         }
         if (--musicCooldown <= 0) {
             musicCooldown = 600;
-            PlatformExpect.playBossMusic((net.minecraft.server.level.ServerLevel) level(),
+            PlatformExpect.playBossMusic((net.minecraft.server.level.ServerLevel) unseenLevel(),
                     blockPosition(), DEF.musicSoundEvent, 48);
         }
         LivingEntity target = getTarget();
@@ -117,12 +117,12 @@ public class HeartOfTheForestEntity extends BiomesUnseenMob {
             triggerAnim("beam");
             if (distance < 24.0D) {
                 target.hurt(DamageSource.mobAttack(this), 6.0F + phase * 2.0F);
-                level().broadcastEntityEvent(this, (byte) 4);
+                unseenLevel().broadcastEntityEvent(this, (byte) 4);
             }
         } else {
             // quake_stomp
             triggerAnim("slam");
-            for (Player player : level().getNearestPlayers(this, 10.0D, 10.0D)) {
+            for (Player player : unseenLevel().getNearestPlayers(this, 10.0D, 10.0D)) {
                 player.hurt(DamageSource.mobAttack(this), 5.0F + phase * 2.0F);
                 player.setDeltaMovement(player.getDeltaMovement().add(0.0D, 0.8D, 0.0D));
             }
@@ -133,17 +133,17 @@ public class HeartOfTheForestEntity extends BiomesUnseenMob {
         triggerAnim("summon");
         for (int i = 0; i < 2 + phase; i++) {
             BramblebackEntity minion = new BramblebackEntity(
-                    com.biomesunseen.registry.ModEntities.Brambleback.get(), level());
+                    com.biomesunseen.registry.ModEntities.Brambleback.get(), unseenLevel());
             minion.moveTo(blockPosition().getX() + getRandom().nextInt(7) - 3, getY(),
                     blockPosition().getZ() + getRandom().nextInt(7) - 3, 0.0F, 0.0F);
-            level().addFreshEntity(minion);
+            unseenLevel().addFreshEntity(minion);
         }
     }
 
     @Override
     public void die(DamageSource source) {
         super.die(source);
-        if (!level().isClientSide) {
+        if (!unseenLevel().isClientSide) {
             // Boss loot: trophies, rare minerals and the boss artifact.
             spawnAtLocation(new ItemStack(ModItems.UNSEEN_SIGIL.get()));
             java.util.List<dev.architectury.registry.registries.RegistrySupplier<net.minecraft.world.item.Item>> minerals =

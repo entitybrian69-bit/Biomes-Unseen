@@ -1,7 +1,7 @@
 package com.biomesunseen.item;
 
-import net.minecraft.item.IItemTier;
-import net.minecraft.item.crafting.Ingredient;
+import net.minecraft.world.item.IItemTier;
+import net.minecraft.world.item.crafting.Ingredient;
 
 import com.biomesunseen.core.OreDef;
 

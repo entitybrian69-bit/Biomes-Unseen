@@ -1,7 +1,7 @@
 package com.biomesunseen.entity.mobs;
 
-import net.minecraft.entity.EntityType;
-import net.minecraft.world.World;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.level.Level;
 
 import com.biomesunseen.core.Content;
 import com.biomesunseen.entity.BiomesUnseenMob;
@@ -23,17 +23,17 @@ public class MireGolemEntity extends BiomesUnseenMob {
     protected void defineSynchedData() {
         super.defineSynchedData();
     }
-    public MireGolemEntity(EntityType<? extends MireGolemEntity> type, World level) {
+    public MireGolemEntity(EntityType<? extends MireGolemEntity> type, Level level) {
         super(type, level, Content.mob("mire_golem"));
     }
 
     @Override
     protected void registerGoals() {
-        this.goalSelector.addGoal(0, new net.minecraft.entity.ai.goal.SwimGoal(this));
+        this.goalSelector.addGoal(0, new net.minecraft.world.entity.ai.goal.FloatGoal(this));
         this.goalSelector.addGoal(4, new TerrainUseGoal(this, 1.0D));
-        this.goalSelector.addGoal(5, new net.minecraft.entity.ai.goal.WaterAvoidingRandomWalkingGoal(this, 1.0D));
-        this.goalSelector.addGoal(6, new net.minecraft.entity.ai.goal.LookAtGoal(this, net.minecraft.entity.player.PlayerEntity.class, 8.0F));
-        this.goalSelector.addGoal(7, new net.minecraft.entity.ai.goal.LookRandomlyGoal(this));
+        this.goalSelector.addGoal(5, new net.minecraft.world.entity.ai.goal.WaterAvoidingRandomStrollGoal(this, 1.0D));
+        this.goalSelector.addGoal(6, new net.minecraft.world.entity.ai.goal.LookAtGoal(this, net.minecraft.world.entity.player.Player.class, 8.0F));
+        this.goalSelector.addGoal(7, new net.minecraft.world.entity.ai.goal.LookRandomlyGoal(this));
     }
 
     @Override
