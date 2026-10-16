@@ -72,7 +72,7 @@ sourceSets.main.resources.srcDirs += "src/generated/resources"
 
 dependencies {
     minecraft "com.mojang:minecraft:${minecraft_version}"
-    mappings loom.officialMojangMappings()
+%(mappings)s
     modImplementation "net.fabricmc:fabric-loader:${fabric_loader_version}"
     modImplementation "dev.architectury:architectury:${architectury_version}"%(arch_legacy)s
 %(geckolib)s}
@@ -121,7 +121,7 @@ loom {
 
 dependencies {
     minecraft "com.mojang:minecraft:${minecraft_version}"
-    mappings loom.officialMojangMappings()
+%(mappings)s
     forge "net.minecraftforge:forge:${forge_version}"
     modImplementation "dev.architectury:architectury:${architectury_version}"%(arch_legacy)s
 %(geckolib)s}
@@ -170,7 +170,7 @@ loom {
 
 dependencies {
     minecraft "com.mojang:minecraft:${minecraft_version}"
-    mappings loom.officialMojangMappings()
+%(mappings)s
     neoForge "net.neoforged:neoforge:${neoforge_version}"
     modImplementation "dev.architectury:architectury:${architectury_version}"
 %(geckolib)s}
@@ -632,6 +632,8 @@ def emit(root):
                     "geckolib": ('    modImplementation "%s"\n'
                                  % geckolib_coord("fabric", mc)) if geckolib_v else "",
                     "arch_legacy": ('' if F["expect"] == "dev" else ""),
+                    "mappings": ("" if str(F["line"]) == "26" else
+                                 "    mappings loom.officialMojangMappings()"),
                 }
                 if F["expect"] == "me.shedaniel":
                     build = build.replace(
@@ -654,6 +656,8 @@ def emit(root):
                     "mixin_block": ('    forge {\n        mixinConfig "biomesunseen.mixins.json"\n    }\n'
                                     if F["biome_add"] == "mixin_legacy" else "    // no mixin config needed\n"),
                     "arch_legacy": "",
+                    "mappings": ("" if str(F["line"]) == "26" else
+                                 "    mappings loom.officialMojangMappings()"),
                 }
                 if F["expect"] == "me.shedaniel":
                     build = build.replace(
@@ -674,6 +678,8 @@ def emit(root):
                     "geckolib": ('    modImplementation "%s"\n'
                                  % geckolib_coord("neoforge", mc)) if geckolib_v else "",
                     "mixin_block": "    // no mixin config needed\n",
+                    "mappings": ("" if str(F["line"]) == "26" else
+                                 "    mappings loom.officialMojangMappings()"),
                 }
                 _w(root, "%s/build.gradle" % mod_dir, build)
                 neoforge_min = NEOFORGE_VERSIONS[mc].rsplit(".", 1)[0]

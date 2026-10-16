@@ -20,7 +20,7 @@ loom {
 
 dependencies {
     minecraft "com.mojang:minecraft:${minecraft_version}"
-    mappings loom.officialMojangMappings()
+
     neoForge "net.neoforged:neoforge:${neoforge_version}"
     modImplementation "dev.architectury:architectury:${architectury_version}"
 }
