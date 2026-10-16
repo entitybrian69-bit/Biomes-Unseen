@@ -2,5 +2,5 @@
 A problem occurred configuring project ':forge-1.19.3'.
 > Failed to setup Minecraft, java.lang.NullPointerException: Cannot get SrgMinecraftProvider before it has been setup
 ---
-BUILD FAILED in 2m 7s
+BUILD FAILED in 1m 39s
 ---

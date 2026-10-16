@@ -1,6 +1,14 @@
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.20.2/java/com/biomesunseen/entity/legacy/LegacyAnimDriver.java:33: error: cannot find symbol
-        headYaw = mob.getYHeadRot() - mob.getYBodyRot();
-                                         ^
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.20.2/java/com/biomesunseen/entity/BiomesUnseenMob.java:58: error: variable unseenLevelField is already defined in class BiomesUnseenMob
+    private static java.lang.reflect.Field unseenLevelField;
+                                           ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.20.2/java/com/biomesunseen/entity/BiomesUnseenMob.java:59: error: variable unseenLevelCache is already defined in class BiomesUnseenMob
+    private java.lang.Object unseenLevelCache;
+                             ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.20.2/java/com/biomesunseen/entity/BiomesUnseenMob.java:62: error: method unseenLevel() is already defined in class BiomesUnseenMob
+    public final net.minecraft.world.level.Level unseenLevel() {
+                                                 ^
 ---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.20.2/java/com/biomesunseen/entity/ai/FleeDangerGoal.java:31: error: incompatible types: Player cannot be converted to PathfinderMob
         threat = mob.level().getNearestPlayer(mob, 8.0D);
@@ -15,8 +23,8 @@
                              ^
 ---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.20.2/java/com/biomesunseen/entity/boss/HeartOfTheForestEntity.java:125: error: cannot find symbol
-            for (Player player : level().getNearestPlayers(this, 10.0D, 10.0D)) {
-                                        ^
+            for (Player player : unseenLevel().getNearestPlayers(this, 10.0D, 10.0D)) {
+                                              ^
 ---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.20.2/java/com/biomesunseen/registry/ModEntities.java:65: error: cannot find symbol
         Lumox = ENTITIES.register("lumox", () -> EntityType.Builder.of(LumoxEntity::new, MobCategory.CREATURE)
@@ -139,7 +147,7 @@ public class UnseenParticle extends Particle {
             ^
 ---
 > Task :fabric-1.20.2:compileJava FAILED
-gradle/actions: Writing build results to /home/runner/work/_temp/.gradle-actions/build-results/__run-1792147497052.json
+gradle/actions: Writing build results to /home/runner/work/_temp/.gradle-actions/build-results/__run-1792149164176.json
 
 ---
 * What went wrong:
@@ -148,12 +156,5 @@ Execution failed for task ':fabric-1.20.2:compileJava' (registered by plugin cla
 ---
 Execution failed for task ':fabric-1.20.2:compileJava' (registered by plugin class 'org.gradle.api.plugins.JavaBasePlugin').
 > Compilation failed; see the compiler output below.
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.20.2/java/com/biomesunseen/entity/legacy/LegacyAnimDriver.java:33: error: cannot find symbol
----
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.20.2/java/com/biomesunseen/entity/legacy/LegacyAnimDriver.java:33: error: cannot find symbol
-          headYaw = mob.getYHeadRot() - mob.getYBodyRot();
-                                           ^
----
-BUILD FAILED in 1m 15s
-1 actionable task: 1 executed
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.20.2/java/com/biomesunseen/entity/BiomesUnseenMob.java:58: error: variable unseenLevelField is already defined in class BiomesUnseenMob
 ---

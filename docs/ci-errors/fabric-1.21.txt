@@ -1,3 +1,15 @@
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/entity/BiomesUnseenMob.java:58: error: variable unseenLevelField is already defined in class BiomesUnseenMob
+    private static java.lang.reflect.Field unseenLevelField;
+                                           ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/entity/BiomesUnseenMob.java:59: error: variable unseenLevelCache is already defined in class BiomesUnseenMob
+    private java.lang.Object unseenLevelCache;
+                             ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/entity/BiomesUnseenMob.java:62: error: method unseenLevel() is already defined in class BiomesUnseenMob
+    public final net.minecraft.world.level.Level unseenLevel() {
+                                                 ^
+---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/item/UnseenArmorMaterial.java:18: error: interface expected here
 public class UnseenArmorMaterial implements ArmorMaterial {
                                             ^
@@ -9,10 +21,6 @@ public class UnseenArmorMaterial implements ArmorMaterial {
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/entity/mobs/SiltstriderEntity.java:24: error: method defineSynchedData in class Mob cannot be applied to given types;
         super.defineSynchedData();
              ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/entity/legacy/LegacyAnimDriver.java:33: error: cannot find symbol
-        headYaw = mob.getYHeadRot() - mob.getYBodyRot();
-                                         ^
 ---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/entity/mobs/CinderPupEntity.java:24: error: method does not override or implement a method from a supertype
     @Override
@@ -147,14 +155,6 @@ public class UnseenArmorMaterial implements ArmorMaterial {
              ^
 ---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/entity/mobs/AshCrawlerEntity.java:22: error: method does not override or implement a method from a supertype
-    @Override
-    ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/entity/mobs/AshCrawlerEntity.java:24: error: method defineSynchedData in class Mob cannot be applied to given types;
-        super.defineSynchedData();
-             ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/entity/mobs/MosshornEntity.java:22: error: method does not override or implement a method from a supertype
     @Override
     ^
 ---

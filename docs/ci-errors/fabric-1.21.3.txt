@@ -1,3 +1,15 @@
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.2/java/com/biomesunseen/entity/BiomesUnseenMob.java:58: error: variable unseenLevelField is already defined in class BiomesUnseenMob
+    private static java.lang.reflect.Field unseenLevelField;
+                                           ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.2/java/com/biomesunseen/entity/BiomesUnseenMob.java:59: error: variable unseenLevelCache is already defined in class BiomesUnseenMob
+    private java.lang.Object unseenLevelCache;
+                             ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.2/java/com/biomesunseen/entity/BiomesUnseenMob.java:62: error: method unseenLevel() is already defined in class BiomesUnseenMob
+    public final net.minecraft.world.level.Level unseenLevel() {
+                                                 ^
+---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.2/java/com/biomesunseen/item/UnseenToolTier.java:3: error: cannot find symbol
 import net.minecraft.world.item.Tier;
                                ^
@@ -46,21 +58,17 @@ import net.minecraft.world.item.Tier;
         extends MobRenderer<T, UnseenLegacyModel<T>> {
                            ^
 ---
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.2/java/com/biomesunseen/entity/BiomesUnseenMob.java:151: error: hurt(DamageSource,float) in BiomesUnseenMob cannot override hurt(DamageSource,float) in Entity
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.2/java/com/biomesunseen/entity/BiomesUnseenMob.java:207: error: hurt(DamageSource,float) in BiomesUnseenMob cannot override hurt(DamageSource,float) in Entity
     public boolean hurt(DamageSource source, float amount) {
                    ^
 ---
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.2/java/com/biomesunseen/entity/BiomesUnseenMob.java:150: error: method does not override or implement a method from a supertype
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.2/java/com/biomesunseen/entity/BiomesUnseenMob.java:206: error: method does not override or implement a method from a supertype
     @Override
     ^
 ---
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.2/java/com/biomesunseen/entity/BiomesUnseenMob.java:152: error: incompatible types: void cannot be converted to boolean
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.2/java/com/biomesunseen/entity/BiomesUnseenMob.java:208: error: incompatible types: void cannot be converted to boolean
         boolean hurt = super.hurt(source, amount);
                                  ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.2/java/com/biomesunseen/entity/legacy/LegacyAnimDriver.java:33: error: cannot find symbol
-        headYaw = mob.getYHeadRot() - mob.getYBodyRot();
-                                         ^
 ---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.2/java/com/biomesunseen/entity/mobs/CinderPupEntity.java:68: error: cannot find symbol
             return net.minecraft.world.InteractionResult.sidedSuccess(level().isClientSide);
@@ -123,8 +131,8 @@ import net.minecraft.world.item.Tier;
                              ^
 ---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.2/java/com/biomesunseen/entity/boss/HeartOfTheForestEntity.java:125: error: cannot find symbol
-            for (Player player : level().getNearestPlayers(this, 10.0D, 10.0D)) {
-                                        ^
+            for (Player player : unseenLevel().getNearestPlayers(this, 10.0D, 10.0D)) {
+                                              ^
 ---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.2/java/com/biomesunseen/entity/boss/HeartOfTheForestEntity.java:148: error: no suitable method found for spawnAtLocation(ItemStack)
             spawnAtLocation(new ItemStack(ModItems.UNSEEN_SIGIL.get()));
@@ -148,13 +156,5 @@ import net.minecraft.world.item.Tier;
 ---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.2/java/com/biomesunseen/registry/ModEntities.java:67: error: incompatible types: String cannot be converted to ResourceKey<EntityType<?>>
                 .build("lumox"));
-                       ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.2/java/com/biomesunseen/registry/ModEntities.java:68: error: cannot find symbol
-        Brambleback = ENTITIES.register("brambleback", () -> EntityType.Builder.of(BramblebackEntity::new, MobCategory.CREATURE)
-                      ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.2/java/com/biomesunseen/registry/ModEntities.java:70: error: incompatible types: String cannot be converted to ResourceKey<EntityType<?>>
-                .build("brambleback"));
                        ^
 ---

@@ -1,3 +1,15 @@
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/entity/BiomesUnseenMob.java:58: error: variable unseenLevelField is already defined in class BiomesUnseenMob
+    private static java.lang.reflect.Field unseenLevelField;
+                                           ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/entity/BiomesUnseenMob.java:59: error: variable unseenLevelCache is already defined in class BiomesUnseenMob
+    private java.lang.Object unseenLevelCache;
+                             ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/entity/BiomesUnseenMob.java:62: error: method unseenLevel() is already defined in class BiomesUnseenMob
+    public final net.minecraft.world.level.Level unseenLevel() {
+                                                 ^
+---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/registry/ModTags.java:4: error: cannot find symbol
 import net.minecraft.resources.ResourceLocation;
                               ^
@@ -126,35 +138,23 @@ import net.minecraft.resources.ResourceLocation;
             player.playNotifySound(sound, net.minecraft.sounds.SoundSource.MUSIC, 1.0F, 1.0F);
                   ^
 ---
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/entity/BiomesUnseenMob.java:83: error: isClientSide has private access in Level
-        if (!level().isClientSide && tickCount % 20 == 0) {
-                    ^
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/entity/BiomesUnseenMob.java:139: error: isClientSide has private access in Level
+        if (!unseenLevel().isClientSide && tickCount % 20 == 0) {
+                          ^
 ---
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/entity/BiomesUnseenMob.java:92: error: isClientSide has private access in Level
-        } else if (!level().isClientSide) {
-                           ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/entity/BiomesUnseenMob.java:145: error: isClientSide has private access in Level
-        if (!level().isClientSide) {
-                    ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/entity/BiomesUnseenMob.java:146: error: cannot find symbol
-            SpawnCaps.onRemoved(level().dimension().location().toString());
-                                                   ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/entity/BiomesUnseenMob.java:151: error: hurt(DamageSource,float) in BiomesUnseenMob cannot override hurt(DamageSource,float) in Entity
-    public boolean hurt(DamageSource source, float amount) {
-                   ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/entity/BiomesUnseenMob.java:150: error: method does not override or implement a method from a supertype
-    @Override
-    ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/entity/BiomesUnseenMob.java:152: error: incompatible types: void cannot be converted to boolean
-        boolean hurt = super.hurt(source, amount);
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/entity/BiomesUnseenMob.java:148: error: isClientSide has private access in Level
+        } else if (!unseenLevel().isClientSide) {
                                  ^
 ---
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/entity/legacy/LegacyAnimDriver.java:33: error: cannot find symbol
-        headYaw = mob.getYHeadRot() - mob.getYBodyRot();
-                                         ^
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/entity/BiomesUnseenMob.java:201: error: isClientSide has private access in Level
+        if (!unseenLevel().isClientSide) {
+                          ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/entity/BiomesUnseenMob.java:202: error: cannot find symbol
+            SpawnCaps.onRemoved(unseenLevel().dimension().location().toString());
+                                                         ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/entity/BiomesUnseenMob.java:207: error: hurt(DamageSource,float) in BiomesUnseenMob cannot override hurt(DamageSource,float) in Entity
+    public boolean hurt(DamageSource source, float amount) {
+                   ^
 ---

@@ -1,3 +1,15 @@
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/entity/BiomesUnseenMob.java:58: error: variable unseenLevelField is already defined in class BiomesUnseenMob
+    private static java.lang.reflect.Field unseenLevelField;
+                                           ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/entity/BiomesUnseenMob.java:59: error: variable unseenLevelCache is already defined in class BiomesUnseenMob
+    private java.lang.Object unseenLevelCache;
+                             ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/entity/BiomesUnseenMob.java:62: error: method unseenLevel() is already defined in class BiomesUnseenMob
+    public final net.minecraft.world.level.Level unseenLevel() {
+                                                 ^
+---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/item/UnseenToolTier.java:3: error: cannot find symbol
 import net.minecraft.world.item.Tier;
                                ^
@@ -98,21 +110,17 @@ import net.minecraft.world.item.Tier;
         extends MobRenderer<T, UnseenLegacyModel<T>> {
                            ^
 ---
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/entity/BiomesUnseenMob.java:151: error: hurt(DamageSource,float) in BiomesUnseenMob cannot override hurt(DamageSource,float) in Entity
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/entity/BiomesUnseenMob.java:207: error: hurt(DamageSource,float) in BiomesUnseenMob cannot override hurt(DamageSource,float) in Entity
     public boolean hurt(DamageSource source, float amount) {
                    ^
 ---
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/entity/BiomesUnseenMob.java:150: error: method does not override or implement a method from a supertype
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/entity/BiomesUnseenMob.java:206: error: method does not override or implement a method from a supertype
     @Override
     ^
 ---
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/entity/BiomesUnseenMob.java:152: error: incompatible types: void cannot be converted to boolean
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/entity/BiomesUnseenMob.java:208: error: incompatible types: void cannot be converted to boolean
         boolean hurt = super.hurt(source, amount);
                                  ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/entity/legacy/LegacyAnimDriver.java:33: error: cannot find symbol
-        headYaw = mob.getYHeadRot() - mob.getYBodyRot();
-                                         ^
 ---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/entity/mobs/CinderPupEntity.java:68: error: cannot find symbol
             return net.minecraft.world.InteractionResult.sidedSuccess(level().isClientSide);
@@ -149,12 +157,4 @@ import net.minecraft.world.item.Tier;
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/entity/boss/VoidSerpentEntity.java:138: error: cannot find symbol
             moveTo(target.getX() + getRandom().nextInt(7) - 3, target.getY() + 2.0D,
             ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/entity/boss/VoidSerpentEntity.java:144: error: cannot find symbol
-                net.minecraft.world.phys.AABB box = new AABB(segmentX(i) - 2.0D, segmentY(i) - 2.0D, segmentZ(i) - 2.0D,
-                                                        ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/entity/boss/VoidSerpentEntity.java:172: error: method does not override or implement a method from a supertype
-    @Override
-    ^
 ---

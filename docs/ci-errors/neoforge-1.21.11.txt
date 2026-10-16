@@ -2,5 +2,5 @@
 A problem occurred configuring project ':neoforge-1.21.11'.
 > Could not resolve all dependencies for configuration ':neoforge-1.21.11:neoForge'.
 ---
-BUILD FAILED in 40s
+BUILD FAILED in 51s
 ---
