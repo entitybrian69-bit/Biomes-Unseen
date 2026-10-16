@@ -1,7 +1,3 @@
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/forge-1.19.4/src/main/java/com/biomesunseen/platform/PlatformExpectImpl.java:47: error: package MinecraftForge does not exist
-        MinecraftForge.EVENT_BUS.addListener(PlatformExpectImpl::onBiomeLoading);
-                      ^
----
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.19.4/java/com/biomesunseen/entity/mobs/CinderPupEntity.java:68: error: cannot find symbol
             return net.minecraft.world.InteractionResult.sidedSuccess(level().isClientSide);
                                                                       ^
@@ -238,16 +234,22 @@ public class UnseenParticle extends Particle {
         this.setSpriteFromAge(sprites);
             ^
 ---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.19.4/java/com/biomesunseen/client/particle/UnseenParticle.java:34: error: cannot find symbol
+        this.setSpriteFromAge(this.sprites);
+            ^
+---
 === STACKTRACE ===
 Caused by: org.gradle.api.internal.tasks.compile.CompilationFailedException: Compilation failed; see the compiler output below.
 === WHAT WENT WRONG ===
 * What went wrong:
 Execution failed for task ':forge-1.19.4:compileJava' (registered by plugin class 'org.gradle.api.plugins.JavaBasePlugin').
 > Compilation failed; see the compiler output below.
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/forge-1.19.4/src/main/java/com/biomesunseen/platform/PlatformExpectImpl.java:47: error: package MinecraftForge does not exist
-          MinecraftForge.EVENT_BUS.addListener(PlatformExpectImpl::onBiomeLoading);
-                        ^
-  64 errors
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.19.4/java/com/biomesunseen/entity/mobs/CinderPupEntity.java:68: error: cannot find symbol
+              return net.minecraft.world.InteractionResult.sidedSuccess(level().isClientSide);
+                                                                        ^
+    symbol:   method level()
+    location: class CinderPupEntity
+  63 errors
 
 * Try:
 === LAST 40 ===
@@ -261,7 +263,7 @@ Note: Recompile with -Xlint:deprecation for details.
 Note: Some input files use unchecked or unsafe operations.
 Note: Recompile with -Xlint:unchecked for details.
 Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
-64 errors
+63 errors
 	at org.gradle.api.internal.tasks.compile.JdkJavaCompiler.execute(JdkJavaCompiler.java:88)
 	at org.gradle.api.internal.tasks.compile.JdkJavaCompiler.execute(JdkJavaCompiler.java:49)
 	at org.gradle.api.internal.tasks.compile.daemon.CompilerWorkAction.execute(CompilerWorkAction.java:52)
@@ -289,5 +291,5 @@ Note: Some messages have been simplified; recompile with -Xdiags:verbose to get 
 	at org.gradle.internal.concurrent.AbstractManagedExecutor$1.run(AbstractManagedExecutor.java:47)
 
 
-BUILD FAILED in 2m 9s
+BUILD FAILED in 2m 48s
 1 actionable task: 1 executed

@@ -1,14 +1,6 @@
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/item/UnseenGearItems.java:77: error: cannot find symbol
-        UnseenArmorItem(OreDef ore, UnseenArmorMaterial material, EquipmentSlot slot, Item.Properties properties) {
-                                                                  ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/forge-1.19.2/src/main/java/com/biomesunseen/platform/PlatformExpectImpl.java:37: error: cannot find symbol
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/forge-1.19.2/src/main/java/com/biomesunseen/platform/PlatformExpectImpl.java:39: error: cannot find symbol
         net.minecraftforge.registries.ForgeRegistry.ENTITY_TYPE_REGISTRYS.getValue(
                                                    ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/forge-1.19.2/src/main/java/com/biomesunseen/platform/PlatformExpectImpl.java:47: error: package MinecraftForge does not exist
-        MinecraftForge.EVENT_BUS.addListener(PlatformExpectImpl::onBiomeLoading);
-                      ^
 ---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/entity/mobs/CinderPupEntity.java:68: error: cannot find symbol
             return net.minecraft.world.InteractionResult.sidedSuccess(level().isClientSide);
@@ -238,18 +230,26 @@
             track(ModRegistry.ITEM_REGISTRYS.register(block.getId().getPath(),
                              ^
 ---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/registry/ModItems.java:107: error: package ModRegistry does not exist
+            RegistrySupplier<Item> mineral = track(ModRegistry.ITEM_REGISTRYS.register(ore.id,
+                                                              ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/registry/ModItems.java:114: error: package ModRegistry does not exist
+            GEAR.put(ore.id + "_pickaxe", track(ModRegistry.ITEM_REGISTRYS.register(
+                                                           ^
+---
 === STACKTRACE ===
 Caused by: org.gradle.api.internal.tasks.compile.CompilationFailedException: Compilation failed; see the compiler output below.
 === WHAT WENT WRONG ===
 * What went wrong:
 Execution failed for task ':forge-1.19.2:compileJava' (registered by plugin class 'org.gradle.api.plugins.JavaBasePlugin').
 > Compilation failed; see the compiler output below.
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/item/UnseenGearItems.java:77: error: cannot find symbol
-          UnseenArmorItem(OreDef ore, UnseenArmorMaterial material, EquipmentSlot slot, Item.Properties properties) {
-                                                                    ^
-    symbol:   class EquipmentSlot
-    location: class UnseenArmorItem
-  88 errors
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/forge-1.19.2/src/main/java/com/biomesunseen/platform/PlatformExpectImpl.java:39: error: cannot find symbol
+          net.minecraftforge.registries.ForgeRegistry.ENTITY_TYPE_REGISTRYS.getValue(
+                                                     ^
+    symbol:   variable ENTITY_TYPE_REGISTRYS
+    location: class ForgeRegistry
+  86 errors
 
 * Try:
 === LAST 40 ===
@@ -263,7 +263,7 @@ Note: Recompile with -Xlint:deprecation for details.
 Note: Some input files use unchecked or unsafe operations.
 Note: Recompile with -Xlint:unchecked for details.
 Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
-88 errors
+86 errors
 	at org.gradle.api.internal.tasks.compile.JdkJavaCompiler.execute(JdkJavaCompiler.java:88)
 	at org.gradle.api.internal.tasks.compile.JdkJavaCompiler.execute(JdkJavaCompiler.java:49)
 	at org.gradle.api.internal.tasks.compile.daemon.CompilerWorkAction.execute(CompilerWorkAction.java:52)
@@ -291,5 +291,5 @@ Note: Some messages have been simplified; recompile with -Xdiags:verbose to get 
 	at org.gradle.internal.concurrent.AbstractManagedExecutor$1.run(AbstractManagedExecutor.java:47)
 
 
-BUILD FAILED in 2m 38s
+BUILD FAILED in 2m 47s
 1 actionable task: 1 executed

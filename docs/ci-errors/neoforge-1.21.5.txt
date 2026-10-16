@@ -2,26 +2,6 @@
 import net.minecraft.world.item.ArmorItem;
                                ^
 ---
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/item/UnseenArmorMaterial.java:8: error: cannot find symbol
-import net.minecraft.world.item.ArmorMaterial;
-                               ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/item/UnseenArmorMaterial.java:27: error: cannot find symbol
-    private final ArmorMaterial material;
-                  ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/item/UnseenArmorMaterial.java:28: error: cannot find symbol
-    private final Holder<ArmorMaterial> holder;
-                         ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/item/UnseenArmorMaterial.java:50: error: cannot find symbol
-    public Holder<ArmorMaterial> holder() {
-                  ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/item/UnseenArmorMaterial.java:54: error: cannot find symbol
-    public ArmorMaterial material() {
-           ^
----
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/item/UnseenArmorMaterial.java:62: error: package ArmorItem does not exist
     public int getDefenseForType(ArmorItem.Type type) {
                                           ^
@@ -78,15 +58,19 @@ import net.minecraft.world.item.ArmorMaterial;
         extends MobRenderer<T, UnseenLegacyModel<T>> {
                            ^
 ---
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/neoforge-1.21.5/src/main/java/com/biomesunseen/platform/PlatformExpectImpl.java:36: error: cannot find symbol
-        net.neoforged.neoforge.event.entity.EntitySpawnPlacementRegistryEvent.class.getName();
-                                           ^
----
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/neoforge-1.21.5/src/main/java/com/biomesunseen/platform/PlatformExpectImpl.java:38: error: ResourceLocation(String,String) has private access in ResourceLocation
-                new net.minecraft.resources.ResourceLocation("biomesunseen", mobId));
-                ^
+                .getOptional(new net.minecraft.resources.ResourceLocation("biomesunseen", mobId))
+                             ^
 ---
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/neoforge-1.21.5/src/main/java/com/biomesunseen/platform/PlatformExpectImpl.java:64: error: cannot find symbol
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/neoforge-1.21.5/src/main/java/com/biomesunseen/platform/PlatformExpectImpl.java:39: error: variable type is already defined in method registerSpawnPlacement(String,EntityType<Mob>)
+                .ifPresent(type -> net.minecraft.world.entity.SpawnPlacements.register(
+                           ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/neoforge-1.21.5/src/main/java/com/biomesunseen/platform/PlatformExpectImpl.java:41: error: cannot find symbol
+                        net.minecraft.world.entity.SpawnPlacements.Type.ON_GROUND,
+                                                                  ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/neoforge-1.21.5/src/main/java/com/biomesunseen/platform/PlatformExpectImpl.java:70: error: cannot find symbol
         return net.neoforged.neoforgespi.language.ModList.get().isLoaded(modId);
                                                  ^
 ---
@@ -238,6 +222,22 @@ import net.minecraft.world.item.ArmorMaterial;
         EmberCalf = ENTITIES.register("ember_calf", () -> EntityType.Builder.of(EmberCalfEntity::new, MobCategory.CREATURE)
                     ^
 ---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/registry/ModEntities.java:82: error: incompatible types: String cannot be converted to ResourceKey<EntityType<?>>
+                .build("ember_calf"));
+                       ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/registry/ModEntities.java:83: error: cannot find symbol
+        FrostFawn = ENTITIES.register("frost_fawn", () -> EntityType.Builder.of(FrostFawnEntity::new, MobCategory.CREATURE)
+                    ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/registry/ModEntities.java:85: error: incompatible types: String cannot be converted to ResourceKey<EntityType<?>>
+                .build("frost_fawn"));
+                       ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/registry/ModEntities.java:86: error: cannot find symbol
+        Murkling = ENTITIES.register("murkling", () -> EntityType.Builder.of(MurklingEntity::new, MobCategory.MONSTER)
+                   ^
+---
 === STACKTRACE ===
 Caused by: org.gradle.api.internal.tasks.compile.CompilationFailedException: Compilation failed; see the compiler output below.
 === WHAT WENT WRONG ===
@@ -249,31 +249,6 @@ Execution failed for task ':neoforge-1.21.5:compileJava' (registered by plugin c
                                  ^
     symbol:   class ArmorItem
     location: package net.minecraft.world.item
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/item/UnseenArmorMaterial.java:8: error: cannot find symbol
-  import net.minecraft.world.item.ArmorMaterial;
-                                 ^
-    symbol:   class ArmorMaterial
-    location: package net.minecraft.world.item
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/item/UnseenArmorMaterial.java:27: error: cannot find symbol
-      private final ArmorMaterial material;
-                    ^
-    symbol:   class ArmorMaterial
-    location: class UnseenArmorMaterial
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/item/UnseenArmorMaterial.java:28: error: cannot find symbol
-      private final Holder<ArmorMaterial> holder;
-                           ^
-    symbol:   class ArmorMaterial
-    location: class UnseenArmorMaterial
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/item/UnseenArmorMaterial.java:50: error: cannot find symbol
-      public Holder<ArmorMaterial> holder() {
-                    ^
-    symbol:   class ArmorMaterial
-    location: class UnseenArmorMaterial
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/item/UnseenArmorMaterial.java:54: error: cannot find symbol
-      public ArmorMaterial material() {
-             ^
-    symbol:   class ArmorMaterial
-    location: class UnseenArmorMaterial
   /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/item/LoreBookItem.java:9: error: cannot find symbol
   import net.minecraft.world.InteractionResultHolder;
                             ^
@@ -281,6 +256,31 @@ Execution failed for task ':neoforge-1.21.5:compileJava' (registered by plugin c
     location: package net.minecraft.world
   /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/item/LoreBookItem.java:31: error: cannot find symbol
       public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
+             ^
+    symbol:   class InteractionResultHolder
+    location: class LoreBookItem
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/item/UnseenTonicItem.java:9: error: cannot find symbol
+  import net.minecraft.world.InteractionResultHolder;
+                            ^
+    symbol:   class InteractionResultHolder
+    location: package net.minecraft.world
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/item/UnseenTonicItem.java:33: error: cannot find symbol
+      public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
+             ^
+    symbol:   class InteractionResultHolder
+    location: class UnseenTonicItem
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/item/UnseenGearItems.java:3: error: cannot find symbol
+  import net.minecraft.world.item.ArmorItem;
+                                 ^
+    symbol:   class ArmorItem
+    location: package net.minecraft.world.item
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/item/UnseenGearItems.java:4: error: cannot find symbol
+  import net.minecraft.world.item.ArmorMaterial;
+                                 ^
+    symbol:   class ArmorMaterial
+    location: package net.minecraft.world.item
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/item/UnseenGearItems.java:27: error: cannot find symbol
+      public static ArmorItem helmet(OreDef ore, UnseenArmorMaterial material, Item.Properties properties) {
 === LAST 40 ===
 	at org.gradle.internal.execution.steps.MutableStep.execute(MutableStep.java:26)
 	at org.gradle.internal.execution.steps.ValidateStep$Mutable.executeDelegate(ValidateStep.java:79)
@@ -320,5 +320,5 @@ Execution failed for task ':neoforge-1.21.5:compileJava' (registered by plugin c
 	... 55 more
 
 
-BUILD FAILED in 1m 42s
+BUILD FAILED in 2m 1s
 1 actionable task: 1 executed

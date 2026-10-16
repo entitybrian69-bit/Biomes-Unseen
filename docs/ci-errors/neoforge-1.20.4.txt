@@ -1,8 +1,12 @@
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/neoforge-1.20.4/src/main/java/com/biomesunseen/platform/PlatformExpectImpl.java:36: error: cannot find symbol
-        net.neoforged.neoforge.event.entity.EntitySpawnPlacementRegistryEvent.class.getName();
-                                           ^
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/neoforge-1.20.4/src/main/java/com/biomesunseen/platform/PlatformExpectImpl.java:39: error: variable type is already defined in method registerSpawnPlacement(String,EntityType<Mob>)
+                .ifPresent(type -> net.minecraft.world.entity.SpawnPlacements.register(
+                           ^
 ---
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/neoforge-1.20.4/src/main/java/com/biomesunseen/platform/PlatformExpectImpl.java:64: error: cannot find symbol
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/neoforge-1.20.4/src/main/java/com/biomesunseen/platform/PlatformExpectImpl.java:39: error: method register in class SpawnPlacements cannot be applied to given types;
+                .ifPresent(type -> net.minecraft.world.entity.SpawnPlacements.register(
+                                                                             ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/neoforge-1.20.4/src/main/java/com/biomesunseen/platform/PlatformExpectImpl.java:70: error: cannot find symbol
         return net.neoforged.neoforgespi.language.ModList.get().isLoaded(modId);
                                                  ^
 ---
@@ -143,7 +147,7 @@ public class UnseenParticle extends Particle {
             ^
 ---
 > Task :neoforge-1.20.4:compileJava FAILED
-gradle/actions: Writing build results to /home/runner/work/_temp/.gradle-actions/build-results/__run-1792153403126.json
+gradle/actions: Writing build results to /home/runner/work/_temp/.gradle-actions/build-results/__run-1792154688474.json
 
 ---
 * What went wrong:
@@ -152,21 +156,25 @@ Execution failed for task ':neoforge-1.20.4:compileJava' (registered by plugin c
 ---
 Execution failed for task ':neoforge-1.20.4:compileJava' (registered by plugin class 'org.gradle.api.plugins.JavaBasePlugin').
 > Compilation failed; see the compiler output below.
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/neoforge-1.20.4/src/main/java/com/biomesunseen/platform/PlatformExpectImpl.java:36: error: cannot find symbol
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/neoforge-1.20.4/src/main/java/com/biomesunseen/platform/PlatformExpectImpl.java:39: error: variable type is already defined in method registerSpawnPlacement(String,EntityType<Mob>)
 ---
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/neoforge-1.20.4/src/main/java/com/biomesunseen/platform/PlatformExpectImpl.java:36: error: cannot find symbol
-          net.neoforged.neoforge.event.entity.EntitySpawnPlacementRegistryEvent.class.getName();
-                                             ^
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/neoforge-1.20.4/src/main/java/com/biomesunseen/platform/PlatformExpectImpl.java:39: error: variable type is already defined in method registerSpawnPlacement(String,EntityType<Mob>)
+                  .ifPresent(type -> net.minecraft.world.entity.SpawnPlacements.register(
+                             ^
 ---
 org.gradle.api.tasks.TaskExecutionException: Execution failed for task ':neoforge-1.20.4:compileJava' (registered by plugin class 'org.gradle.api.plugins.JavaBasePlugin').
 	at org.gradle.api.internal.tasks.execution.DefaultTaskNodeExecutor.lambda$doExecute$1(DefaultTaskNodeExecutor.java:367)
 	at org.gradle.internal.Try$Failure.ifSuccessfulOrElse(Try.java:288)
 ---
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/neoforge-1.20.4/src/main/java/com/biomesunseen/platform/PlatformExpectImpl.java:36: error: cannot find symbol
-        net.neoforged.neoforge.event.entity.EntitySpawnPlacementRegistryEvent.class.getName();
-                                           ^
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/neoforge-1.20.4/src/main/java/com/biomesunseen/platform/PlatformExpectImpl.java:39: error: variable type is already defined in method registerSpawnPlacement(String,EntityType<Mob>)
+                .ifPresent(type -> net.minecraft.world.entity.SpawnPlacements.register(
+                           ^
 ---
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/neoforge-1.20.4/src/main/java/com/biomesunseen/platform/PlatformExpectImpl.java:64: error: cannot find symbol
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/neoforge-1.20.4/src/main/java/com/biomesunseen/platform/PlatformExpectImpl.java:39: error: method register in class SpawnPlacements cannot be applied to given types;
+                .ifPresent(type -> net.minecraft.world.entity.SpawnPlacements.register(
+                                                                             ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/neoforge-1.20.4/src/main/java/com/biomesunseen/platform/PlatformExpectImpl.java:70: error: cannot find symbol
         return net.neoforged.neoforgespi.language.ModList.get().isLoaded(modId);
                                                  ^
 ---
@@ -230,26 +238,16 @@ org.gradle.api.tasks.TaskExecutionException: Execution failed for task ':neoforg
         ThunderRam = ENTITIES.register("thunder_ram", () -> EntityType.Builder.of(ThunderRamEntity::new, MobCategory.CREATURE)
                      ^
 ---
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.20.2/java/com/biomesunseen/registry/ModEntities.java:98: error: cannot find symbol
-        Mosshorn = ENTITIES.register("mosshorn", () -> EntityType.Builder.of(MosshornEntity::new, MobCategory.CREATURE)
-                   ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.20.2/java/com/biomesunseen/registry/ModEntities.java:101: error: cannot find symbol
-        CinderPup = ENTITIES.register("cinder_pup", () -> EntityType.Builder.of(CinderPupEntity::new, MobCategory.CREATURE)
-                    ^
----
 === STACKTRACE ===
 Caused by: org.gradle.api.internal.tasks.compile.CompilationFailedException: Compilation failed; see the compiler output below.
 === WHAT WENT WRONG ===
 * What went wrong:
 Execution failed for task ':neoforge-1.20.4:compileJava' (registered by plugin class 'org.gradle.api.plugins.JavaBasePlugin').
 > Compilation failed; see the compiler output below.
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/neoforge-1.20.4/src/main/java/com/biomesunseen/platform/PlatformExpectImpl.java:36: error: cannot find symbol
-          net.neoforged.neoforge.event.entity.EntitySpawnPlacementRegistryEvent.class.getName();
-                                             ^
-    symbol:   class EntitySpawnPlacementRegistryEvent
-    location: package net.neoforged.neoforge.event.entity
-  36 errors
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/neoforge-1.20.4/src/main/java/com/biomesunseen/platform/PlatformExpectImpl.java:39: error: variable type is already defined in method registerSpawnPlacement(String,EntityType<Mob>)
+                  .ifPresent(type -> net.minecraft.world.entity.SpawnPlacements.register(
+                             ^
+  37 errors
 
 * Try:
 === LAST 40 ===
@@ -263,7 +261,7 @@ Note: Recompile with -Xlint:deprecation for details.
 Note: Some input files use unchecked or unsafe operations.
 Note: Recompile with -Xlint:unchecked for details.
 Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
-36 errors
+37 errors
 	at org.gradle.api.internal.tasks.compile.JdkJavaCompiler.execute(JdkJavaCompiler.java:88)
 	at org.gradle.api.internal.tasks.compile.JdkJavaCompiler.execute(JdkJavaCompiler.java:49)
 	at org.gradle.api.internal.tasks.compile.daemon.CompilerWorkAction.execute(CompilerWorkAction.java:52)
@@ -291,5 +289,5 @@ Note: Some messages have been simplified; recompile with -Xdiags:verbose to get 
 	at org.gradle.internal.concurrent.AbstractManagedExecutor$1.run(AbstractManagedExecutor.java:47)
 
 
-BUILD FAILED in 2m 18s
+BUILD FAILED in 1m 55s
 1 actionable task: 1 executed

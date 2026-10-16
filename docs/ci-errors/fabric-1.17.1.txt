@@ -1,7 +1,3 @@
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/item/UnseenGearItems.java:77: error: cannot find symbol
-        UnseenArmorItem(OreDef ore, UnseenArmorMaterial material, EquipmentSlot slot, Item.Properties properties) {
-                                                                  ^
----
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/worldgen/LegacyStructureRegistrar.java:5: error: cannot find symbol
 import net.minecraft.world.level.levelgen.structure.Structure;
                                                    ^
@@ -238,28 +234,32 @@ import net.minecraft.world.level.levelgen.structure.StructureSeparationSettings;
         EntityAttributeRegistry.register(Siltstrider, () -> Mob.createMobAttributes()
                                          ^
 ---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModEntities.java:165: error: incompatible types: RegistrySupplier<EntityType<GlimmermothEntity>> cannot be converted to Supplier<EntityType<? extends LivingEntity>>
+        EntityAttributeRegistry.register(Glimmermoth, () -> Mob.createMobAttributes()
+                                         ^
+---
 === STACKTRACE ===
 Caused by: org.gradle.api.internal.tasks.compile.CompilationFailedException: Compilation failed; see the compiler output below.
 === WHAT WENT WRONG ===
 * What went wrong:
 Execution failed for task ':fabric-1.17.1:compileJava' (registered by plugin class 'org.gradle.api.plugins.JavaBasePlugin').
 > Compilation failed; see the compiler output below.
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/item/UnseenGearItems.java:77: error: cannot find symbol
-          UnseenArmorItem(OreDef ore, UnseenArmorMaterial material, EquipmentSlot slot, Item.Properties properties) {
-                                                                    ^
-    symbol:   class EquipmentSlot
-    location: class UnseenArmorItem
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/worldgen/LegacyStructureRegistrar.java:5: error: cannot find symbol
+  import net.minecraft.world.level.levelgen.structure.Structure;
+                                                     ^
+    symbol:   class Structure
+    location: package net.minecraft.world.level.levelgen.structure
   100 errors
 
 * Try:
 === LAST 40 ===
-                                                         ^
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModItems.java:138: error: package ModRegistry does not exist
-            TONICS.put(ore.id, track(ModRegistry.ITEM_REGISTRYS.register(
                                                 ^
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModItems.java:146: error: package ModRegistry does not exist
             MACHINE_CORES.put(tier, track(ModRegistry.ITEM_REGISTRYS.register(
                                                      ^
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModItems.java:156: error: package ModRegistry does not exist
+            SPAWN_EGGS.put(mobId, track(ModRegistry.ITEM_REGISTRYS.register(
+                                                   ^
 Note: Some input files use unchecked or unsafe operations.
 Note: Recompile with -Xlint:unchecked for details.
 Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
@@ -291,5 +291,5 @@ Note: Some messages have been simplified; recompile with -Xdiags:verbose to get 
 	at org.gradle.internal.concurrent.AbstractManagedExecutor$1.run(AbstractManagedExecutor.java:47)
 
 
-BUILD FAILED in 1m 11s
+BUILD FAILED in 1m 24s
 1 actionable task: 1 executed

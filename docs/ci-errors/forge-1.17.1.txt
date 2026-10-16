@@ -2,7 +2,7 @@
 A problem occurred configuring project ':forge-1.17.1'.
 > Could not resolve all files for configuration ':forge-1.17.1:modImplementation'.
 ---
-BUILD FAILED in 1m 58s
+BUILD FAILED in 2m 12s
 ---
 === STACKTRACE ===
 Caused by: java.lang.RuntimeException: Failed to setup Minecraft, org.gradle.api.internal.artifacts.ivyservice.TypedResolveException: Could not resolve all files for configuration ':forge-1.17.1:modImplementation'.
@@ -83,4 +83,4 @@ Required by:
     project ':forge-1.17.1'
 
 
-BUILD FAILED in 1m 58s
+BUILD FAILED in 2m 12s

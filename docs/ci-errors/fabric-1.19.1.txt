@@ -1,7 +1,3 @@
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/item/UnseenGearItems.java:77: error: cannot find symbol
-        UnseenArmorItem(OreDef ore, UnseenArmorMaterial material, EquipmentSlot slot, Item.Properties properties) {
-                                                                  ^
----
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/entity/mobs/CinderPupEntity.java:68: error: cannot find symbol
             return net.minecraft.world.InteractionResult.sidedSuccess(level().isClientSide);
                                                                       ^
@@ -238,18 +234,22 @@
             GEAR.put(ore.id + "_pickaxe", track(ModRegistry.ITEM_REGISTRYS.register(
                                                            ^
 ---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/registry/ModItems.java:118: error: package ModRegistry does not exist
+            GEAR.put(ore.id + "_sword", track(ModRegistry.ITEM_REGISTRYS.register(
+                                                         ^
+---
 === STACKTRACE ===
 Caused by: org.gradle.api.internal.tasks.compile.CompilationFailedException: Compilation failed; see the compiler output below.
 === WHAT WENT WRONG ===
 * What went wrong:
 Execution failed for task ':fabric-1.19.1:compileJava' (registered by plugin class 'org.gradle.api.plugins.JavaBasePlugin').
 > Compilation failed; see the compiler output below.
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/item/UnseenGearItems.java:77: error: cannot find symbol
-          UnseenArmorItem(OreDef ore, UnseenArmorMaterial material, EquipmentSlot slot, Item.Properties properties) {
-                                                                    ^
-    symbol:   class EquipmentSlot
-    location: class UnseenArmorItem
-  94 errors
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/entity/mobs/CinderPupEntity.java:68: error: cannot find symbol
+              return net.minecraft.world.InteractionResult.sidedSuccess(level().isClientSide);
+                                                                        ^
+    symbol:   method level()
+    location: class CinderPupEntity
+  93 errors
 
 * Try:
 === LAST 40 ===
@@ -263,7 +263,7 @@ Execution failed for task ':fabric-1.19.1:compileJava' (registered by plugin cla
 Note: Some input files use unchecked or unsafe operations.
 Note: Recompile with -Xlint:unchecked for details.
 Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
-94 errors
+93 errors
 	at org.gradle.api.internal.tasks.compile.JdkJavaCompiler.execute(JdkJavaCompiler.java:88)
 	at org.gradle.api.internal.tasks.compile.JdkJavaCompiler.execute(JdkJavaCompiler.java:49)
 	at org.gradle.api.internal.tasks.compile.daemon.CompilerWorkAction.execute(CompilerWorkAction.java:52)
@@ -291,5 +291,5 @@ Note: Some messages have been simplified; recompile with -Xdiags:verbose to get 
 	at org.gradle.internal.concurrent.AbstractManagedExecutor$1.run(AbstractManagedExecutor.java:47)
 
 
-BUILD FAILED in 1m 4s
+BUILD FAILED in 1m 7s
 1 actionable task: 1 executed

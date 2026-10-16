@@ -1,7 +1,3 @@
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/item/UnseenGearItems.java:77: error: cannot find symbol
-        UnseenArmorItem(OreDef ore, UnseenArmorMaterial material, EquipmentSlot slot, Item.Properties properties) {
-                                                                  ^
----
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/entity/mobs/CinderPupEntity.java:68: error: cannot find symbol
             return net.minecraft.world.InteractionResult.sidedSuccess(level().isClientSide);
                                                                       ^
@@ -238,25 +234,29 @@
         EntityAttributeRegistry.register(SporeSprout, () -> Mob.createMobAttributes()
                                          ^
 ---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/registry/ModEntities.java:201: error: incompatible types: RegistrySupplier<EntityType<SkywispEntity>> cannot be converted to Supplier<EntityType<? extends LivingEntity>>
+        EntityAttributeRegistry.register(Skywisp, () -> Mob.createMobAttributes()
+                                         ^
+---
 === STACKTRACE ===
 Caused by: org.gradle.api.internal.tasks.compile.CompilationFailedException: Compilation failed; see the compiler output below.
 === WHAT WENT WRONG ===
 * What went wrong:
 Execution failed for task ':fabric-1.18.2:compileJava' (registered by plugin class 'org.gradle.api.plugins.JavaBasePlugin').
 > Compilation failed; see the compiler output below.
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/item/UnseenGearItems.java:77: error: cannot find symbol
-          UnseenArmorItem(OreDef ore, UnseenArmorMaterial material, EquipmentSlot slot, Item.Properties properties) {
-                                                                    ^
-    symbol:   class EquipmentSlot
-    location: class UnseenArmorItem
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/entity/mobs/CinderPupEntity.java:68: error: cannot find symbol
+              return net.minecraft.world.InteractionResult.sidedSuccess(level().isClientSide);
+                                                                        ^
+    symbol:   method level()
+    location: class CinderPupEntity
   100 errors
 
 * Try:
 === LAST 40 ===
   required: String,ResourceKey<Registry<T#1>>
-  found:    String,DefaultedRegistry<Item>
+  found:    String,DefaultedRegistry<EntityType<?>>
   reason: cannot infer type-variable(s) T#1
-    (argument mismatch; DefaultedRegistry<Item> cannot be converted to ResourceKey<Registry<T#1>>)
+    (argument mismatch; DefaultedRegistry<EntityType<?>> cannot be converted to ResourceKey<Registry<T#1>>)
   where T#1,T#2 are type-variables:
     T#1 extends Object declared in method <T#1>create(String,ResourceKey<Registry<T#1>>)
     T#2 extends Object declared in class DeferredRegister
@@ -291,5 +291,5 @@ Note: Some messages have been simplified; recompile with -Xdiags:verbose to get 
 	at org.gradle.internal.concurrent.AbstractManagedExecutor$1.run(AbstractManagedExecutor.java:47)
 
 
-BUILD FAILED in 1m 16s
+BUILD FAILED in 50s
 1 actionable task: 1 executed
