@@ -53,7 +53,7 @@ public class HeartOfTheForestEntity extends BiomesUnseenMob {
     @Override
     public void aiStep() {
         super.aiStep();
-        if (unseenLevel().isClientSide) {
+        if (unseenLevel().isClientSide()) {
             return;
         }
         float fraction = getHealth() / getMaxHealth();
@@ -91,7 +91,7 @@ public class HeartOfTheForestEntity extends BiomesUnseenMob {
         if (newPhase >= 2) {
             regenerateTicks = 100;
         }
-        playSound(SoundEvents.RAID_HORN, 2.0F, 0.8F);
+        playSound(SoundEvents.RAID_HORN.value(), 2.0F, 0.8F);
     }
 
     private void performAttack(LivingEntity target) {
@@ -143,7 +143,7 @@ public class HeartOfTheForestEntity extends BiomesUnseenMob {
     @Override
     public void die(DamageSource source) {
         super.die(source);
-        if (!unseenLevel().isClientSide) {
+        if (!unseenLevel().isClientSide()) {
             // Boss loot: trophies, rare minerals and the boss artifact.
             spawnAtLocation(new ItemStack(ModItems.UNSEEN_SIGIL.get()));
             java.util.List<dev.architectury.registry.registries.RegistrySupplier<net.minecraft.world.item.Item>> minerals =
@@ -151,9 +151,9 @@ public class HeartOfTheForestEntity extends BiomesUnseenMob {
             for (int i = 0; i < 4 && !minerals.isEmpty(); i++) {
                 spawnAtLocation(new ItemStack(minerals.get(getRandom().nextInt(minerals.size())).get(), 2 + getRandom().nextInt(3)));
             }
-            spawnAtLocation(new ItemStack(ModItems.TROPHIES.get("brambleback"), 3));
+            spawnAtLocation(new ItemStack(ModItems.TROPHIES.get("brambleback").get(), 3));
             if (getRandom().nextInt(4) == 0) {
-                spawnAtLocation(new ItemStack(ModItems.GEAR.get("sylvanite_sword")));
+                spawnAtLocation(new ItemStack(ModItems.GEAR.get("sylvanite_sword").get()));
             }
         }
     }

@@ -109,7 +109,7 @@ public abstract class BiomesUnseenMob extends PathfinderMob  {
         if (animOneShotTicks > 0) {
             animOneShotTicks--;
         }
-        if (!unseenLevel().isClientSide && tickCount % 20 == 0) {
+        if (!unseenLevel().isClientSide() && tickCount % 20 == 0) {
             adaptToEnvironment();
         }
     }
@@ -118,7 +118,7 @@ public abstract class BiomesUnseenMob extends PathfinderMob  {
     public void tick() {
         if (AiThrottle.shouldThink(getId(), unseenLevel().getGameTime())) {
             super.tick();
-        } else if (!unseenLevel().isClientSide) {
+        } else if (!unseenLevel().isClientSide()) {
             // Cheap tick: keep physics and health regen, skip goal churn.
             super.tick();
         } else {
@@ -171,7 +171,7 @@ public abstract class BiomesUnseenMob extends PathfinderMob  {
     @Override
     public void remove(net.minecraft.world.entity.Entity.RemovalReason reason) {
         super.remove(reason);
-        if (!unseenLevel().isClientSide) {
+        if (!unseenLevel().isClientSide()) {
             SpawnCaps.onRemoved(unseenLevel().dimension().location().toString());
         }
     }

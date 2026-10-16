@@ -30,7 +30,7 @@ public class LoreBookItem extends Item {
     @Override
     public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
         ItemStack stack = player.getItemInHand(hand);
-        if (level.isClientSide) {
+        if (level.isClientSide()) {
             return InteractionResultHolder.success(stack);
         }
         player.sendSystemMessage(new net.minecraft.network.chat.TranslatableComponent(

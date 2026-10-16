@@ -21,6 +21,6 @@ public class UnseenLegacyRenderer<T extends BiomesUnseenMob>
 
     @Override
     public ResourceLocation getTextureLocation(T entity) {
-        return new ResourceLocation("biomesunseen", "textures/entity/" + id + ".png");
+        return net.minecraft.resources.ResourceLocation.fromNamespaceAndPath("biomesunseen", "textures/entity/" + id + ".png");
     }
 }

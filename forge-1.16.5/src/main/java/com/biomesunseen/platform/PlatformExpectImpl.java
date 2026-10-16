@@ -35,7 +35,7 @@ public final class PlatformExpectImpl {
 
     public static void registerSpawnPlacement(String mobId,
             net.minecraft.world.entity.EntityType<net.minecraft.world.entity.Mob> type) {
-        net.minecraft.core.registries.BuiltInRegistry.ENTITY_TYPE_REGISTRY
+        net.minecraft.core.registries.BuiltInRegistries.ENTITY_TYPE
                 .getOptional(new net.minecraft.resources.ResourceLocation("biomesunseen", mobId))
                 .ifPresent(resolved -> net.minecraft.world.entity.SpawnPlacements.register(
                         resolved,

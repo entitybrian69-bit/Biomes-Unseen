@@ -163,6 +163,108 @@ TEXT_REWRITES = [
 ]
 
 
+# ---------------------------------------------------------------------------
+# API-drift layer
+#
+# Minecraft's Mojang-mapped API moves between releases.  The per-line templates
+# emit one canonical spelling; this layer rewrites it to whatever the line's
+# Minecraft version actually offers.  Every rule is taken from the javap probes
+# committed in docs/api-probe, not from memory.
+# ---------------------------------------------------------------------------
+
+# Oldest -> newest, so "rank >= X" means "this API change has happened".
+_LINE_ORDER = ["1.16.5", "1.17.1", "1.18.1", "1.18", "1.19.3", "1.19.4",
+               "1.20.2", "1.20.5", "1.21", "1.21.2", "1.21.4", "1.21.5",
+               "1.21.9", "26"]
+LINE_RANK = {k: i for i, k in enumerate(_LINE_ORDER)}
+
+# probe-fabric-1.21+: ResourceLocation(String,String) is private; the public
+# entry points are the fromNamespaceAndPath/parse/withDefaultNamespace factories.
+RL_PRIVATE_CTOR_FROM = "1.21"
+# probe-fabric-1.21.2+: EntityType$Builder.build(ResourceKey<EntityType<?>>),
+# ArmorMaterial/ArmorType live in net.minecraft.world.item.equipment, and
+# Item.use returns InteractionResult (InteractionResultHolder was removed).
+EQUIPMENT_FROM = "1.21.2"
+# 1.19.3+: SoundEvents.* are Holder.Reference<SoundEvent>, not SoundEvent.
+SOUND_HOLDER_FROM = "1.19.3"
+
+_MOD_ID = "com.biomesunseen.core.ModConstants.MOD_ID"
+
+# new ItemStack(ModItems.GEAR.get("x"))            -> ...get("x").get()
+# new ItemStack(ModItems.TROPHIES.get("x"), 3)     -> ...get("x").get(), 3)
+_RE_ITEMSTACK_SUPPLIER = re.compile(
+    r'new ItemStack\((ModItems\.[A-Za-z_]+\.get\("[^"]*"\))((?:\s*,[^)]*)?)\)')
+# level.isClientSide -> level.isClientSide()
+_RE_CLIENTSIDE = re.compile(r'(?<=\.)isClientSide(?![\w(])')
+# playSound(SoundEvents.RAID_HORN, ...) -> playSound(SoundEvents.RAID_HORN.value(), ...)
+_RE_SOUND_HOLDER = re.compile(r'playSound\(SoundEvents\.([A-Z_0-9]+)\s*,')
+# new ResourceLocation(ns, path) / new ResourceLocation(single)
+_RE_RL_TWO = re.compile(
+    r'new (?:net\.minecraft\.resources\.)?ResourceLocation\(\s*([^()]*?)\s*,\s*([^()]*?)\s*\)')
+_RE_RL_ONE = re.compile(
+    r'new (?:net\.minecraft\.resources\.)?ResourceLocation\(\s*([^(),]*?)\s*\)')
+# ArmorType used as a bare type name
+_RE_ARMOR_TYPE = re.compile(r'(?<![.\w])ArmorType(?![\w])')
+# EntityType builder: .build("siltstrider")
+_RE_ENTITY_BUILD = re.compile(r'\.build\("([a-z0-9_/]+)"\)')
+# Item.use return type and the InteractionResultHolder factories
+_RE_IRH_TYPE = re.compile(r'InteractionResultHolder<\s*ItemStack\s*>')
+_RE_IRH_FACTORY = re.compile(r'InteractionResultHolder\.(success|consume|pass|fail)\([^()]*\)')
+_RE_PACKAGE_LINE = re.compile(r'^(package [^\n]+\n)', re.M)
+
+
+def _ensure_import(text, fqn):
+    """Insert an import right after the package statement if not already there."""
+    stmt = "import %s;" % fqn
+    if stmt in text:
+        return text
+    return _RE_PACKAGE_LINE.sub(r'\1\n' + stmt + "\n", text, count=1)
+
+
+def apply_api_drift(text, line_key):
+    rank = LINE_RANK[line_key]
+
+    # Level.isClientSide went private in 1.21.9; isClientSide() exists on every
+    # version, so the accessor is always the safe spelling.
+    text = _RE_CLIENTSIDE.sub('isClientSide()', text)
+
+    # RegistrySupplier is not an ItemLike - unwrap it before new ItemStack().
+    text = _RE_ITEMSTACK_SUPPLIER.sub(r'new ItemStack(\1.get()\2)', text)
+
+    if rank >= LINE_RANK[SOUND_HOLDER_FROM]:
+        text = _RE_SOUND_HOLDER.sub(r'playSound(SoundEvents.\1.value(),', text)
+
+    if rank >= LINE_RANK[RL_PRIVATE_CTOR_FROM]:
+        text = _RE_RL_TWO.sub(
+            r'net.minecraft.resources.ResourceLocation.fromNamespaceAndPath(\1, \2)',
+            text)
+        text = _RE_RL_ONE.sub(
+            r'net.minecraft.resources.ResourceLocation.parse(\1)', text)
+
+    if rank >= LINE_RANK[EQUIPMENT_FROM]:
+        # ArmorItem.Type moved out to net.minecraft.world.item.equipment.ArmorType.
+        if "ArmorItem.Type" in text:
+            text = text.replace("ArmorItem.Type", "ArmorType")
+        if _RE_ARMOR_TYPE.search(text):
+            text = _ensure_import(text, "net.minecraft.world.item.equipment.ArmorType")
+
+        # EntityType.Builder.build now wants a ResourceKey, not a String id.
+        text = _RE_ENTITY_BUILD.sub(
+            '.build(net.minecraft.resources.ResourceKey.create('
+            'net.minecraft.core.registries.Registries.ENTITY_TYPE, '
+            'net.minecraft.resources.ResourceLocation.fromNamespaceAndPath('
+            + _MOD_ID + r', "\1")))',
+            text)
+
+        # Item.use returns InteractionResult; InteractionResultHolder is gone.
+        text = text.replace("import net.minecraft.world.InteractionResultHolder;\n", "")
+        text = _RE_IRH_TYPE.sub('InteractionResult', text)
+        text = _RE_IRH_FACTORY.sub(
+            lambda m: "InteractionResult." + m.group(1).upper(), text)
+
+    return text
+
+
 def _walk_java(directory):
     for r, _d, files in os.walk(directory):
         for f in files:
@@ -188,7 +290,13 @@ def _rewrite_text(text, F, T, line_key):
         text = text.replace("import net.minecraft.core.registries.Registries;",
                             "import net.minecraft.core.Registry;")
         for name in ("BLOCK", "ITEM", "ENTITY_TYPE", "FLUID"):
-            text = text.replace("Registries." + name, "Registry." + name + "_REGISTRY")
+            # Word-boundary + lookbehind: a bare "Registries.ITEM" is the vanilla
+            # registry constant, but "ModRegistries.ITEMS" is our own DeferredRegister
+            # holder. The old str.replace() matched inside it and produced
+            # "ModRegistry.ITEM_REGISTRYS" -> "package ModRegistry does not exist".
+            text = re.sub(r"(?<![A-Za-z])Registries\." + name + r"(?![A-Za-z])",
+                          "Registry." + name + "_REGISTRY", text)
+    text = apply_api_drift(text, line_key)
     return text
 
 
@@ -288,11 +396,17 @@ def postprocess(root, line_key):
             text = text.replace("import net.minecraft.core.registries.Registries;",
                                 "import net.minecraft.core.Registry;")
             for name in ("BLOCK", "ITEM", "ENTITY_TYPE", "FLUID"):
-                text = text.replace("Registries." + name, "Registry." + name + "_REGISTRY")
+                # Word-boundary + lookbehind: a bare "Registries.ITEM" is the vanilla
+                # registry constant, but "ModRegistries.ITEMS" is our own DeferredRegister
+                # holder. The old str.replace() matched inside it and produced
+                # "ModRegistry.ITEM_REGISTRYS" -> "package ModRegistry does not exist".
+                text = re.sub(r"(?<![A-Za-z])Registries\." + name + r"(?![A-Za-z])",
+                              "Registry." + name + "_REGISTRY", text)
             text = re.sub(
                 r"player\.sendMessage\(new net\.minecraft\.util\.text\.TranslatableComponent\((.*?)\)\);",
                 r"player.sendMessage(new net.minecraft.util.text.TranslatableComponent(\1), player.getUUID());",
                 text)
+        text = apply_api_drift(text, line_key)
         if text != orig:
             with open(path, "w") as fh:
                 fh.write(text)

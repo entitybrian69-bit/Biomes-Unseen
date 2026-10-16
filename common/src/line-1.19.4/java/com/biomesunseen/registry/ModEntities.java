@@ -62,85 +62,85 @@ public final class ModEntities {
 
     @SuppressWarnings("unchecked")
     public static void registerContent() {
-        Lumox = ENTITIES.register("lumox", () -> EntityType.Builder.of(LumoxEntity::new, MobCategory.CREATURE)
+        Lumox = ModRegistries.ENTITIES.register("lumox", () -> EntityType.Builder.of(LumoxEntity::new, MobCategory.CREATURE)
                 .sized(0.9F, 1.2F).clientTrackingRange(8).updateInterval(3)
                 .build("lumox"));
-        Brambleback = ENTITIES.register("brambleback", () -> EntityType.Builder.of(BramblebackEntity::new, MobCategory.CREATURE)
+        Brambleback = ModRegistries.ENTITIES.register("brambleback", () -> EntityType.Builder.of(BramblebackEntity::new, MobCategory.CREATURE)
                 .sized(1.4F, 1.6F).clientTrackingRange(8).updateInterval(3)
                 .build("brambleback"));
-        Siltstrider = ENTITIES.register("siltstrider", () -> EntityType.Builder.of(SiltstriderEntity::new, MobCategory.CREATURE)
+        Siltstrider = ModRegistries.ENTITIES.register("siltstrider", () -> EntityType.Builder.of(SiltstriderEntity::new, MobCategory.CREATURE)
                 .sized(0.7F, 1.8F).clientTrackingRange(8).updateInterval(3)
                 .build("siltstrider"));
-        Glimmermoth = ENTITIES.register("glimmermoth", () -> EntityType.Builder.of(GlimmermothEntity::new, MobCategory.CREATURE)
+        Glimmermoth = ModRegistries.ENTITIES.register("glimmermoth", () -> EntityType.Builder.of(GlimmermothEntity::new, MobCategory.CREATURE)
                 .sized(0.8F, 0.6F).clientTrackingRange(8).updateInterval(3)
                 .build("glimmermoth"));
-        PeatHopper = ENTITIES.register("peat_hopper", () -> EntityType.Builder.of(PeatHopperEntity::new, MobCategory.CREATURE)
+        PeatHopper = ModRegistries.ENTITIES.register("peat_hopper", () -> EntityType.Builder.of(PeatHopperEntity::new, MobCategory.CREATURE)
                 .sized(0.6F, 0.7F).clientTrackingRange(8).updateInterval(3)
                 .build("peat_hopper"));
-        EmberCalf = ENTITIES.register("ember_calf", () -> EntityType.Builder.of(EmberCalfEntity::new, MobCategory.CREATURE)
+        EmberCalf = ModRegistries.ENTITIES.register("ember_calf", () -> EntityType.Builder.of(EmberCalfEntity::new, MobCategory.CREATURE)
                 .sized(1.0F, 1.3F).clientTrackingRange(8).updateInterval(3)
                 .build("ember_calf"));
-        FrostFawn = ENTITIES.register("frost_fawn", () -> EntityType.Builder.of(FrostFawnEntity::new, MobCategory.CREATURE)
+        FrostFawn = ModRegistries.ENTITIES.register("frost_fawn", () -> EntityType.Builder.of(FrostFawnEntity::new, MobCategory.CREATURE)
                 .sized(0.7F, 1.1F).clientTrackingRange(8).updateInterval(3)
                 .build("frost_fawn"));
-        Murkling = ENTITIES.register("murkling", () -> EntityType.Builder.of(MurklingEntity::new, MobCategory.MONSTER)
+        Murkling = ModRegistries.ENTITIES.register("murkling", () -> EntityType.Builder.of(MurklingEntity::new, MobCategory.MONSTER)
                 .sized(0.8F, 1.0F).clientTrackingRange(8).updateInterval(3)
                 .build("murkling"));
-        SporeSprout = ENTITIES.register("spore_sprout", () -> EntityType.Builder.of(SporeSproutEntity::new, MobCategory.CREATURE)
+        SporeSprout = ModRegistries.ENTITIES.register("spore_sprout", () -> EntityType.Builder.of(SporeSproutEntity::new, MobCategory.CREATURE)
                 .sized(0.7F, 0.9F).clientTrackingRange(8).updateInterval(3)
                 .build("spore_sprout"));
-        Skywisp = ENTITIES.register("skywisp", () -> EntityType.Builder.of(SkywispEntity::new, MobCategory.CREATURE)
+        Skywisp = ModRegistries.ENTITIES.register("skywisp", () -> EntityType.Builder.of(SkywispEntity::new, MobCategory.CREATURE)
                 .sized(0.9F, 0.8F).clientTrackingRange(8).updateInterval(3)
                 .build("skywisp"));
-        ThunderRam = ENTITIES.register("thunder_ram", () -> EntityType.Builder.of(ThunderRamEntity::new, MobCategory.CREATURE)
+        ThunderRam = ModRegistries.ENTITIES.register("thunder_ram", () -> EntityType.Builder.of(ThunderRamEntity::new, MobCategory.CREATURE)
                 .sized(1.1F, 1.4F).clientTrackingRange(8).updateInterval(3)
                 .build("thunder_ram"));
-        Mosshorn = ENTITIES.register("mosshorn", () -> EntityType.Builder.of(MosshornEntity::new, MobCategory.CREATURE)
+        Mosshorn = ModRegistries.ENTITIES.register("mosshorn", () -> EntityType.Builder.of(MosshornEntity::new, MobCategory.CREATURE)
                 .sized(1.2F, 1.5F).clientTrackingRange(8).updateInterval(3)
                 .build("mosshorn"));
-        CinderPup = ENTITIES.register("cinder_pup", () -> EntityType.Builder.of(CinderPupEntity::new, MobCategory.CREATURE)
+        CinderPup = ModRegistries.ENTITIES.register("cinder_pup", () -> EntityType.Builder.of(CinderPupEntity::new, MobCategory.CREATURE)
                 .sized(0.7F, 0.8F).clientTrackingRange(8).updateInterval(3)
                 .build("cinder_pup"));
-        EchoHowler = ENTITIES.register("echo_howler", () -> EntityType.Builder.of(EchoHowlerEntity::new, MobCategory.MONSTER)
+        EchoHowler = ModRegistries.ENTITIES.register("echo_howler", () -> EntityType.Builder.of(EchoHowlerEntity::new, MobCategory.MONSTER)
                 .sized(1.0F, 1.5F).clientTrackingRange(8).updateInterval(3)
                 .build("echo_howler"));
-        DuneSkimmer = ENTITIES.register("dune_skimmer", () -> EntityType.Builder.of(DuneSkimmerEntity::new, MobCategory.CREATURE)
+        DuneSkimmer = ModRegistries.ENTITIES.register("dune_skimmer", () -> EntityType.Builder.of(DuneSkimmerEntity::new, MobCategory.CREATURE)
                 .sized(0.8F, 0.7F).clientTrackingRange(8).updateInterval(3)
                 .build("dune_skimmer"));
-        TideCaller = ENTITIES.register("tide_caller", () -> EntityType.Builder.of(TideCallerEntity::new, MobCategory.CREATURE)
+        TideCaller = ModRegistries.ENTITIES.register("tide_caller", () -> EntityType.Builder.of(TideCallerEntity::new, MobCategory.CREATURE)
                 .sized(0.8F, 1.4F).clientTrackingRange(8).updateInterval(3)
                 .build("tide_caller"));
-        GloomStalker = ENTITIES.register("gloom_stalker", () -> EntityType.Builder.of(GloomStalkerEntity::new, MobCategory.MONSTER)
+        GloomStalker = ModRegistries.ENTITIES.register("gloom_stalker", () -> EntityType.Builder.of(GloomStalkerEntity::new, MobCategory.MONSTER)
                 .sized(0.8F, 1.3F).clientTrackingRange(8).updateInterval(3)
                 .build("gloom_stalker"));
-        CrystalHermit = ENTITIES.register("crystal_hermit", () -> EntityType.Builder.of(CrystalHermitEntity::new, MobCategory.CREATURE)
+        CrystalHermit = ModRegistries.ENTITIES.register("crystal_hermit", () -> EntityType.Builder.of(CrystalHermitEntity::new, MobCategory.CREATURE)
                 .sized(1.0F, 1.1F).clientTrackingRange(8).updateInterval(3)
                 .build("crystal_hermit"));
-        WindDancer = ENTITIES.register("wind_dancer", () -> EntityType.Builder.of(WindDancerEntity::new, MobCategory.CREATURE)
+        WindDancer = ModRegistries.ENTITIES.register("wind_dancer", () -> EntityType.Builder.of(WindDancerEntity::new, MobCategory.CREATURE)
                 .sized(0.9F, 0.7F).clientTrackingRange(8).updateInterval(3)
                 .build("wind_dancer"));
-        MireGolem = ENTITIES.register("mire_golem", () -> EntityType.Builder.of(MireGolemEntity::new, MobCategory.CREATURE)
+        MireGolem = ModRegistries.ENTITIES.register("mire_golem", () -> EntityType.Builder.of(MireGolemEntity::new, MobCategory.CREATURE)
                 .sized(1.6F, 2.2F).clientTrackingRange(8).updateInterval(3)
                 .build("mire_golem"));
-        LanternFox = ENTITIES.register("lantern_fox", () -> EntityType.Builder.of(LanternFoxEntity::new, MobCategory.CREATURE)
+        LanternFox = ModRegistries.ENTITIES.register("lantern_fox", () -> EntityType.Builder.of(LanternFoxEntity::new, MobCategory.CREATURE)
                 .sized(0.6F, 0.7F).clientTrackingRange(8).updateInterval(3)
                 .build("lantern_fox"));
-        ReefGrazer = ENTITIES.register("reef_grazer", () -> EntityType.Builder.of(ReefGrazerEntity::new, MobCategory.CREATURE)
+        ReefGrazer = ModRegistries.ENTITIES.register("reef_grazer", () -> EntityType.Builder.of(ReefGrazerEntity::new, MobCategory.CREATURE)
                 .sized(1.3F, 1.0F).clientTrackingRange(8).updateInterval(3)
                 .build("reef_grazer"));
-        AshCrawler = ENTITIES.register("ash_crawler", () -> EntityType.Builder.of(AshCrawlerEntity::new, MobCategory.MONSTER)
+        AshCrawler = ModRegistries.ENTITIES.register("ash_crawler", () -> EntityType.Builder.of(AshCrawlerEntity::new, MobCategory.MONSTER)
                 .sized(0.6F, 0.5F).clientTrackingRange(8).updateInterval(3)
                 .build("ash_crawler"));
-        StarWhale = ENTITIES.register("star_whale", () -> EntityType.Builder.of(StarWhaleEntity::new, MobCategory.CREATURE)
+        StarWhale = ModRegistries.ENTITIES.register("star_whale", () -> EntityType.Builder.of(StarWhaleEntity::new, MobCategory.CREATURE)
                 .sized(3.5F, 2.8F).clientTrackingRange(8).updateInterval(3)
                 .build("star_whale"));
-        PetalWing = ENTITIES.register("petal_wing", () -> EntityType.Builder.of(PetalWingEntity::new, MobCategory.CREATURE)
+        PetalWing = ModRegistries.ENTITIES.register("petal_wing", () -> EntityType.Builder.of(PetalWingEntity::new, MobCategory.CREATURE)
                 .sized(0.5F, 0.5F).clientTrackingRange(8).updateInterval(3)
                 .build("petal_wing"));
-        HeartOfTheForest = ENTITIES.register("heart_of_the_forest", () -> EntityType.Builder.of(HeartOfTheForestEntity::new, MobCategory.MONSTER)
+        HeartOfTheForest = ModRegistries.ENTITIES.register("heart_of_the_forest", () -> EntityType.Builder.of(HeartOfTheForestEntity::new, MobCategory.MONSTER)
                 .sized(2.6F, 4.2F).clientTrackingRange(12).updateInterval(2)
                 .fireImmune().build("heart_of_the_forest"));
-        VoidSerpent = ENTITIES.register("void_serpent", () -> EntityType.Builder.of(VoidSerpentEntity::new, MobCategory.MONSTER)
+        VoidSerpent = ModRegistries.ENTITIES.register("void_serpent", () -> EntityType.Builder.of(VoidSerpentEntity::new, MobCategory.MONSTER)
                 .sized(1.8F, 1.8F).clientTrackingRange(12).updateInterval(2)
                 .fireImmune().build("void_serpent"));
 

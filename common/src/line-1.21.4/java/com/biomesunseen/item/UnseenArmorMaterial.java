@@ -1,5 +1,7 @@
 package com.biomesunseen.item;
 
+import net.minecraft.world.item.equipment.ArmorType;
+
 import net.minecraft.core.Holder;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
@@ -30,11 +32,11 @@ public final class UnseenArmorMaterial {
     public UnseenArmorMaterial(OreDef ore, Supplier<Ingredient> repairIngredient) {
         this.ore = ore;
         this.repairIngredient = repairIngredient;
-        Map<ArmorItem.Type, Integer> defense = new EnumMap<>(ArmorItem.Type.class);
-        defense.put(ArmorItem.Type.HELMET, ore.toolMiningLevel + 2);
-        defense.put(ArmorItem.Type.CHESTPLATE, ore.toolMiningLevel + 5);
-        defense.put(ArmorItem.Type.LEGGINGS, ore.toolMiningLevel + 4);
-        defense.put(ArmorItem.Type.BOOTS, ore.toolMiningLevel + 2);
+        Map<ArmorType, Integer> defense = new EnumMap<>(ArmorType.class);
+        defense.put(ArmorType.HELMET, ore.toolMiningLevel + 2);
+        defense.put(ArmorType.CHESTPLATE, ore.toolMiningLevel + 5);
+        defense.put(ArmorType.LEGGINGS, ore.toolMiningLevel + 4);
+        defense.put(ArmorType.BOOTS, ore.toolMiningLevel + 2);
         this.material = new ArmorMaterial(
                 defense,
                 ore.toolEnchantability,
@@ -59,7 +61,7 @@ public final class UnseenArmorMaterial {
         return ore;
     }
 
-    public int getDefenseForType(ArmorItem.Type type) {
+    public int getDefenseForType(ArmorType type) {
         return material.getDefense(type);
     }
 

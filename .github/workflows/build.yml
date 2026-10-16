@@ -2,7 +2,7 @@ name: Build all targets
 
 on:
   push:
-    branches: ["arena/be9e6e99-biomes-unseen"]
+    branches: ["arena/721c719c-biomes-unseen", "arena/be9e6e99-biomes-unseen", "main"]
   workflow_dispatch:
 
 jobs:
@@ -366,6 +366,13 @@ jobs:
         with:
           gradle-version: "9.8.1"
 
+      - name: Pin NeoForge to a build that publishes userdev
+        run: |
+          case "${{ matrix.module }}" in
+            neoforge-*) bash tools/pin_neoforge.sh "${{ matrix.module }}" ;;
+            *) echo "not a neoforge module, nothing to pin" ;;
+          esac
+
       - name: Build ${{ matrix.module }}
         env:
           BIOMESUNSEEN_MODULE: ${{ matrix.module }}
@@ -460,7 +467,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: arena/be9e6e99-biomes-unseen
+          ref: ${{ github.ref_name }}
       - uses: actions/download-artifact@v4
         with:
           pattern: probe-*
@@ -493,5 +500,5 @@ jobs:
             echo "no report changes to commit"
           else
             git commit -m "ci: probe + compiler-error reports for all targets [skip ci]"
-            git push origin HEAD:arena/be9e6e99-biomes-unseen
+            git push origin "HEAD:${GITHUB_REF_NAME}"
           fi

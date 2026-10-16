@@ -51,7 +51,7 @@ public class LanternFoxEntity extends BiomesUnseenMob {
         net.minecraft.world.item.ItemStack stack = player.getItemInHand(hand);
         if (!isTame() && player.isShiftKeyDown() == false && !stack.isEmpty()
                 && stack.is(net.minecraft.world.item.Items.EMERALD)) {
-            if (!unseenLevel().isClientSide) {
+            if (!unseenLevel().isClientSide()) {
                 if (getRandom().nextInt(3) == 0) {
                     setTame(true);
                     triggerAnim("tame");
@@ -61,7 +61,7 @@ public class LanternFoxEntity extends BiomesUnseenMob {
                 }
                 stack.shrink(1);
             }
-            return net.minecraft.world.InteractionResult.sidedSuccess(unseenLevel().isClientSide);
+            return net.minecraft.world.InteractionResult.sidedSuccess(unseenLevel().isClientSide());
         }
         return super.mobInteract(player, hand);
     }

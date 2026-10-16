@@ -644,10 +644,11 @@ def emit(root):
                     "geckolib": ('    modImplementation "%s"\n'
                                  % geckolib_coord("fabric", mc)) if geckolib_v else "",
                     "arch_legacy": ('' if F["expect"] == "dev" else ""),
-                    "mappings": ("    mappings loom.layered { }"
-                                 if str(F["line"]) == "26" else
-                                 "    mappings loom.officialMojangMappings()"),
-                    "loom_plugin": "dev.architectury.loom",
+                    "mappings": ("" if str(F["line"]) == "26"
+                                 else "    mappings loom.officialMojangMappings()"),
+                    "loom_plugin": ("dev.architectury.loom-no-remap"
+                                    if str(F["line"]) == "26"
+                                    else "dev.architectury.loom"),
                     # dev.architectury:architectury-forge has no artifact for the
                     # 1.16.5/1.17.1/1.18.1 Architectury lines, so those three build
                     # against Forge alone.
@@ -676,10 +677,11 @@ def emit(root):
                     "mixin_block": ('    forge {\n        mixinConfig "biomesunseen.mixins.json"\n    }\n'
                                     if F["biome_add"] == "mixin_legacy" else "    // no mixin config needed\n"),
                     "arch_legacy": "",
-                    "mappings": ("    mappings loom.layered { }"
-                                 if str(F["line"]) == "26" else
-                                 "    mappings loom.officialMojangMappings()"),
-                    "loom_plugin": "dev.architectury.loom",
+                    "mappings": ("" if str(F["line"]) == "26"
+                                 else "    mappings loom.officialMojangMappings()"),
+                    "loom_plugin": ("dev.architectury.loom-no-remap"
+                                    if str(F["line"]) == "26"
+                                    else "dev.architectury.loom"),
                     "arch_dep": ("" if mc in ("1.16.5", "1.17.1", "1.18.1")
                                  else '\n    modImplementation "dev.architectury:'
                                       'architectury-forge:${architectury_version}"'),
@@ -703,10 +705,11 @@ def emit(root):
                     "geckolib": ('    modImplementation "%s"\n'
                                  % geckolib_coord("neoforge", mc)) if geckolib_v else "",
                     "mixin_block": "    // no mixin config needed\n",
-                    "mappings": ("    mappings loom.layered { }"
-                                 if str(F["line"]) == "26" else
-                                 "    mappings loom.officialMojangMappings()"),
-                    "loom_plugin": "dev.architectury.loom",
+                    "mappings": ("" if str(F["line"]) == "26"
+                                 else "    mappings loom.officialMojangMappings()"),
+                    "loom_plugin": ("dev.architectury.loom-no-remap"
+                                    if str(F["line"]) == "26"
+                                    else "dev.architectury.loom"),
                 }
                 _w(root, "%s/build.gradle" % mod_dir, build)
                 neoforge_min = NEOFORGE_VERSIONS[mc].rsplit(".", 1)[0]
@@ -715,6 +718,11 @@ def emit(root):
                 _w(root, "%s/src/main/resources/pack.mcmeta" % mod_dir, PACK_MCMETA)
                 _w(root, "%s/src/main/java/com/biomesunseen/neoforge/BiomesUnseenNeoForge.java" % mod_dir,
                    _neoforge_main())
+
+            if str(F["line"]) == "26":
+                # Unobfuscated Minecraft: no remapping, so no mod* configurations.
+                build = build.replace("modImplementation", "implementation")
+                _w(root, "%s/build.gradle" % mod_dir, build)
 
             # shared per-module files
             _w(root, "%s/gradle.properties" % mod_dir, _gradle_props(

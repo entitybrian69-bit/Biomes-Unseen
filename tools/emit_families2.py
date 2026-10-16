@@ -381,7 +381,7 @@ public final class ModParticles {
         cls = _camel(mid) + "Entity"
         mob_cat = "MobCategory.CREATURE" if cat == "creature" else "MobCategory.MONSTER"
         reg_entries.append(
-            '        %s = ENTITIES.register("%s", () -> EntityType.Builder.of(%s::new, %s)\n'
+            '        %s = ModRegistries.ENTITIES.register("%s", () -> EntityType.Builder.of(%s::new, %s)\n'
             '                .sized(%sF, %sF).clientTrackingRange(8).updateInterval(3)\n'
             '                .build("%s"));'
             % (_camel(mid).upper() if False else _camel(mid), mid, cls, mob_cat,
@@ -398,7 +398,7 @@ public final class ModParticles {
          grp, color, glow) in BOSS_ROWS:
         cls = _camel(bid) + "Entity"
         reg_entries.append(
-            '        %s = ENTITIES.register("%s", () -> EntityType.Builder.of(%s::new, MobCategory.MONSTER)\n'
+            '        %s = ModRegistries.ENTITIES.register("%s", () -> EntityType.Builder.of(%s::new, MobCategory.MONSTER)\n'
             '                .sized(%sF, %sF).clientTrackingRange(12).updateInterval(2)\n'
             '                .fireImmune().build("%s"));'
             % (_camel(bid), bid, cls, w, h, bid))
