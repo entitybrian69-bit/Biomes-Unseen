@@ -1,7 +1,9 @@
 package com.biomesunseen.client.legacy;
 
-import net.minecraft.client.renderer.entity.model.EntityModel;
-import net.minecraft.client.renderer.model.ModelRenderer;
+import com.mojang.blaze3d.matrix.MatrixStack;
+import net.minecraft.client.renderer.vertex.IVertexBuilder;
+import net.minecraft.client.model.EntityModel;
+import net.minecraft.client.model.ModelRenderer;
 
 import com.biomesunseen.entity.BiomesUnseenMob;
 
@@ -11,12 +13,12 @@ import com.biomesunseen.entity.BiomesUnseenMob;
  */
 public class UnseenLegacyModel<T extends BiomesUnseenMob> extends EntityModel<T> {
 
-    private final ModelRenderer head;
-    private final ModelRenderer body;
-    private final ModelRenderer leg0;
-    private final ModelRenderer leg1;
-    private final ModelRenderer leg2;
-    private final ModelRenderer leg3;
+    private final ModelPart head;
+    private final ModelPart body;
+    private final ModelPart leg0;
+    private final ModelPart leg1;
+    private final ModelPart leg2;
+    private final ModelPart leg3;
 
     public UnseenLegacyModel() {
         head = new ModelRenderer(this, 0, 0);

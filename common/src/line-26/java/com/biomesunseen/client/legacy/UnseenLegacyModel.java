@@ -1,7 +1,9 @@
 package com.biomesunseen.client.legacy;
 
-import net.minecraft.client.renderer.entity.model.EntityModel;
-import net.minecraft.client.renderer.model.ModelRenderer;
+import com.mojang.blaze3d.vertex.PoseStack;
+import com.mojang.blaze3d.vertex.VertexConsumer;
+import net.minecraft.client.model.EntityModel;
+import net.minecraft.client.model.ModelPart;
 
 import com.biomesunseen.entity.BiomesUnseenMob;
 
@@ -11,18 +13,18 @@ import com.biomesunseen.entity.BiomesUnseenMob;
  */
 public class UnseenLegacyModel<T extends BiomesUnseenMob> extends EntityModel<T> {
 
-    private final ModelRenderer head;
-    private final ModelRenderer body;
-    private final ModelRenderer leg0;
-    private final ModelRenderer leg1;
-    private final ModelRenderer leg2;
-    private final ModelRenderer leg3;
+    private final ModelPart head;
+    private final ModelPart body;
+    private final ModelPart leg0;
+    private final ModelPart leg1;
+    private final ModelPart leg2;
+    private final ModelPart leg3;
 
     public UnseenLegacyModel() {
-        head = new ModelRenderer(this, 0, 0);
+        head = new ModelPart(0, 0);
         head.addBox(-4.0F, -8.0F, -4.0F, 8.0F, 8.0F, 8.0F, 0.0F);
         head.setPos(0.0F, 4.0F, -4.0F);
-        body = new ModelRenderer(this, 16, 16);
+        body = new ModelPart(16, 16);
         body.addBox(-5.0F, -10.0F, -7.0F, 10.0F, 16.0F, 8.0F, 0.0F);
         body.setPos(0.0F, 5.0F, 2.0F);
         leg0 = new ModelRenderer(this, 0, 16);
@@ -62,15 +64,14 @@ public class UnseenLegacyModel<T extends BiomesUnseenMob> extends EntityModel<T>
     }
 
     @Override
-    public void renderToBuffer(net.minecraft.client.renderer.RenderTypeBuffer ignored,
-            net.minecraft.client.renderer.MatrixStack matrixStack,
-            net.minecraft.client.renderer.vertex.IVertexBuilder buffer,
-            int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
-        head.render(matrixStack, buffer, packedLight, packedOverlay, red, green, blue, alpha);
-        body.render(matrixStack, buffer, packedLight, packedOverlay, red, green, blue, alpha);
-        leg0.render(matrixStack, buffer, packedLight, packedOverlay, red, green, blue, alpha);
-        leg1.render(matrixStack, buffer, packedLight, packedOverlay, red, green, blue, alpha);
-        leg2.render(matrixStack, buffer, packedLight, packedOverlay, red, green, blue, alpha);
-        leg3.render(matrixStack, buffer, packedLight, packedOverlay, red, green, blue, alpha);
+    public void renderToBuffer(com.mojang.blaze3d.vertex.PoseStack matrixStack,
+            com.mojang.blaze3d.vertex.VertexConsumer buffer,
+            int packedLight, int packedOverlay, int packedColor) {
+        head.render(matrixStack, buffer, packedLight, packedOverlay, packedColor);
+        body.render(matrixStack, buffer, packedLight, packedOverlay, packedColor);
+        leg0.render(matrixStack, buffer, packedLight, packedOverlay, packedColor);
+        leg1.render(matrixStack, buffer, packedLight, packedOverlay, packedColor);
+        leg2.render(matrixStack, buffer, packedLight, packedOverlay, packedColor);
+        leg3.render(matrixStack, buffer, packedLight, packedOverlay, packedColor);
     }
 }

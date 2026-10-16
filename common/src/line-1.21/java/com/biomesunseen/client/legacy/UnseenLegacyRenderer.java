@@ -2,7 +2,7 @@ package com.biomesunseen.client.legacy;
 
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.MobRenderer;
-import net.minecraft.util.ResourceLocation;
+import net.minecraft.resources.ResourceLocation;
 
 import com.biomesunseen.entity.BiomesUnseenMob;
 

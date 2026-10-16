@@ -39,6 +39,18 @@ ARCH_PKG_NEW = "dev.architectury.registry."
 
 # 1.16.5 Mojang-mapping rewrites (packages moved in 1.17).
 LEGACY_REWRITES = [
+    # Model render signature: modern EntityModel#renderToBuffer -> 1.16 render.
+    ("public void renderToBuffer(com.mojang.blaze3d.vertex.PoseStack matrixStack,\n"
+     "            com.mojang.blaze3d.vertex.VertexConsumer buffer,\n"
+     "            int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {",
+     "public void render(com.mojang.blaze3d.matrix.MatrixStack matrixStack,\n"
+     "            net.minecraft.client.renderer.vertex.IVertexBuilder buffer,\n"
+     "            int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {"),
+    ("new ModelPart(", "new ModelRenderer(this, "),
+    ("net.minecraft.client.model.ModelPart", "net.minecraft.client.model.ModelRenderer"),
+    ("com.mojang.blaze3d.vertex.PoseStack", "com.mojang.blaze3d.matrix.MatrixStack"),
+    ("com.mojang.blaze3d.vertex.VertexConsumer", "net.minecraft.client.renderer.vertex.IVertexBuilder"),
+    ("net.minecraft.client.renderer.MultiBufferSource", "net.minecraft.client.renderer.RenderTypeBuffer"),
     ("net.minecraft.world.level.block.state.BlockBehaviour", "net.minecraft.block.AbstractBlock"),
     ("net.minecraft.world.level.block.state.BlockState", "net.minecraft.block.BlockState"),
     ("net.minecraft.world.level.block.Blocks", "net.minecraft.block.Blocks"),
@@ -180,6 +192,13 @@ def postprocess(root, line_key):
         if F["pkgs"] != "legacy":
             text = text.replace("RemovalReason",
                                 "net.minecraft.world.entity.Entity.RemovalReason")
+        if line_key in ("1.21", "1.21.2", "1.21.3", "1.21.4", "1.21.5", "1.21.9", "26"):
+            text = text.replace(
+                "int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {",
+                "int packedLight, int packedOverlay, int packedColor) {")
+            text = text.replace(
+                "matrixStack, buffer, packedLight, packedOverlay, red, green, blue, alpha);",
+                "matrixStack, buffer, packedLight, packedOverlay, packedColor);")
         if F["pkgs"] == "legacy":
             for a, b in LEGACY_REWRITES:
                 text = text.replace(a, b)
