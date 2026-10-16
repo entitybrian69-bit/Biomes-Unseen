@@ -47,7 +47,7 @@ LEGACY_REWRITES = [
      "            net.minecraft.client.renderer.vertex.IVertexBuilder buffer,\n"
      "            int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {"),
     ("new ModelPart(", "new ModelRenderer(this, "),
-    ("net.minecraft.client.model.ModelPart", "net.minecraft.client.model.ModelRenderer"),
+    ("net.minecraft.client.model.geom.ModelPart", "net.minecraft.client.model.ModelRenderer"),
     ("com.mojang.blaze3d.vertex.PoseStack", "com.mojang.blaze3d.matrix.MatrixStack"),
     ("com.mojang.blaze3d.vertex.VertexConsumer", "net.minecraft.client.renderer.vertex.IVertexBuilder"),
     ("net.minecraft.client.renderer.MultiBufferSource", "net.minecraft.client.renderer.RenderTypeBuffer"),

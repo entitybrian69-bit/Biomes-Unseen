@@ -1,72 +1,89 @@
 package com.biomesunseen.platform;
 
-import me.shedaniel.architectury.injectables.annotations.ExpectPlatform;
+import java.lang.reflect.Method;
 
 /**
  * Loader-specific hooks.  Each platform module ships
- * com.biomesunseen.platform.PlatformExpectImpl with the concrete behaviour.
+ * com.biomesunseen.platform.PlatformExpectImpl with the concrete behaviour;
+ * this bridge dispatches to it reflectively so no annotation processor or
+ * extra library is needed at compile time.
  */
 public final class PlatformExpect {
+
+    private static final Class<?> IMPL = loadImpl();
 
     private PlatformExpect() {
     }
 
+    private static Class<?> loadImpl() {
+        try {
+            return Class.forName("com.biomesunseen.platform.PlatformExpectImpl");
+        } catch (ClassNotFoundException e) {
+            throw new IllegalStateException("PlatformExpectImpl is missing", e);
+        }
+    }
+
+    private static Object call(String name, Object... args) {
+        try {
+            for (Method m : IMPL.getMethods()) {
+                if (m.getName().equals(name) && m.getParameterCount() == args.length) {
+                    return m.invoke(null, args);
+                }
+            }
+            throw new IllegalStateException("No PlatformExpectImpl." + name + " with "
+                    + args.length + " arguments");
+        } catch (ReflectiveOperationException e) {
+            throw new IllegalStateException("PlatformExpectImpl." + name + " failed", e);
+        }
+    }
+
     /** True when running on Fabric. */
-    @ExpectPlatform
     public static boolean isFabric() {
-        throw new AssertionError();
+        return Boolean.TRUE.equals(call("isFabric"));
     }
 
     /** True when running on Forge or NeoForge. */
-    @ExpectPlatform
     public static boolean isForgeLike() {
-        throw new AssertionError();
+        return Boolean.TRUE.equals(call("isForgeLike"));
     }
 
     /** Loader config directory (contains biomesunseen.json). */
-    @ExpectPlatform
     public static String configDirectory() {
-        throw new AssertionError();
+        return (String) call("configDirectory");
     }
 
     /** Open the Cloth Config screen for Biomes Unseen. */
-    @ExpectPlatform
     public static void openConfigScreen(Object parentScreen) {
-        throw new AssertionError();
+        call("openConfigScreen", parentScreen);
     }
 
     /**
      * Register spawn placements for one mob id (ground/monster/water rules
      * handled by the platform entity spawn API).
      */
-    @ExpectPlatform
     public static void registerSpawnPlacement(String mobId,
             net.minecraft.entity.EntityType<net.minecraft.entity.MobEntity> type) {
-        throw new AssertionError();
+        call("registerSpawnPlacement", mobId, type);
     }
 
     /** Inject every custom biome into the overworld climate system. */
-    @ExpectPlatform
     public static void installBiomeInjection() {
-        throw new AssertionError();
+        call("installBiomeInjection");
     }
 
     /** Register biome modification hooks (features, spawns, ambience). */
-    @ExpectPlatform
     public static void installBiomeModifications() {
-        throw new AssertionError();
+        call("installBiomeModifications");
     }
 
     /** Play a global music disc-style track inside a boss arena. */
-    @ExpectPlatform
     public static void playBossMusic(net.minecraft.world.server.ServerWorld level,
             net.minecraft.util.math.BlockPos center, String soundEventId, int radius) {
-        throw new AssertionError();
+        call("playBossMusic", level, center, soundEventId, radius);
     }
 
     /** True when the given mod id is loaded (used for optional compat). */
-    @ExpectPlatform
     public static boolean isModLoaded(String modId) {
-        throw new AssertionError();
+        return Boolean.TRUE.equals(call("isModLoaded", modId));
     }
 }

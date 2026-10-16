@@ -3,7 +3,7 @@ package com.biomesunseen.client.legacy;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.minecraft.client.model.EntityModel;
-import net.minecraft.client.model.ModelPart;
+import net.minecraft.client.model.geom.ModelPart;
 
 import com.biomesunseen.entity.BiomesUnseenMob;
 
