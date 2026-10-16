@@ -23,3 +23,7 @@ metals.sbt
 .kotlin/
 *.log
 .DS_Store
+
+# Python bytecode
+tools/__pycache__/
+*.pyc
