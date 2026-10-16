@@ -1,68 +1,68 @@
 * What went wrong:
 A problem occurred configuring project ':neoforge-26.3'.
-> Failed to notify project evaluation listener.
+> Failed to setup Minecraft, java.lang.RuntimeException: Failed to provide net.neoforged:neoforge:26.3.+ : java.lang.RuntimeException: Could not resolve Forge userdev
 ---
-BUILD FAILED in 46s
+BUILD FAILED in 51s
 ---
 === STACKTRACE ===
-Caused by: org.gradle.internal.event.ListenerNotificationException: Failed to notify project evaluation listener.
+Caused by: java.lang.RuntimeException: Failed to setup Minecraft, java.lang.RuntimeException: Failed to provide net.neoforged:neoforge:26.3.+ : java.lang.RuntimeException: Could not resolve Forge userdev
 	at net.fabricmc.loom.util.ExceptionUtil.createDescriptiveWrapper(ExceptionUtil.java:59)
 	at net.fabricmc.loom.configuration.CompileConfiguration.lambda$run$1(CompileConfiguration.java:152)
 	at net.fabricmc.loom.configuration.CompileConfiguration.lambda$afterEvaluationWithService$0(CompileConfiguration.java:617)
 	at net.fabricmc.loom.util.gradle.GradleUtils.lambda$afterSuccessfulEvaluation$0(GradleUtils.java:51)
-Caused by: java.lang.UnsupportedOperationException: Architectury Loom: The Minecraft version '26.3' is unobfuscated (no mappings). Forge / NeoForge support for unobfuscated Minecraft is through the dev.architectury.loom-no-remap plugin instead.
-	at net.fabricmc.loom.configuration.CompileConfiguration.setupMinecraft(CompileConfiguration.java:238)
+Caused by: java.lang.RuntimeException: Failed to provide net.neoforged:neoforge:26.3.+ : java.lang.RuntimeException: Could not resolve Forge userdev
+	at dev.architectury.loom.forge.dependency.DependencyProviders.handleDependencies(DependencyProviders.java:111)
+	at net.fabricmc.loom.configuration.CompileConfiguration.setupDependencyProviders(CompileConfiguration.java:611)
+	at net.fabricmc.loom.configuration.CompileConfiguration.setupMinecraft(CompileConfiguration.java:269)
 	at net.fabricmc.loom.configuration.CompileConfiguration.lambda$run$1(CompileConfiguration.java:144)
-	at net.fabricmc.loom.extension.LoomGradleExtensionImpl.getMinecraftProvider(LoomGradleExtensionImpl.java:184)
-	at net.fabricmc.loom.extension.LoomGradleExtensionImpl_Decorated.getMinecraftProvider(Unknown Source)
-	at net.fabricmc.loom.task.LoomTasks.lambda$run$6(LoomTasks.java:128)
-	at net.fabricmc.loom.util.gradle.GradleUtils.lambda$afterSuccessfulEvaluation$0(GradleUtils.java:51)
+Caused by: java.lang.RuntimeException: Could not resolve Forge userdev
+	at dev.architectury.loom.forge.dependency.ForgeUserdevProvider.lambda$provide$0(ForgeUserdevProvider.java:60)
+	at dev.architectury.loom.forge.dependency.ForgeUserdevProvider.provide(ForgeUserdevProvider.java:60)
+	at dev.architectury.loom.forge.dependency.DependencyProviders.handleDependencies(DependencyProviders.java:109)
 === WHAT WENT WRONG ===
 * What went wrong:
 A problem occurred configuring project ':neoforge-26.3'.
-> Failed to notify project evaluation listener.
-   > Failed to setup Minecraft, java.lang.UnsupportedOperationException: Architectury Loom: The Minecraft version '26.3' is unobfuscated (no mappings). Forge / NeoForge support for unobfuscated Minecraft is through the dev.architectury.loom-no-remap plugin instead.
-   > Cannot get MinecraftProvider before it has been setup
+> Failed to setup Minecraft, java.lang.RuntimeException: Failed to provide net.neoforged:neoforge:26.3.+ : java.lang.RuntimeException: Could not resolve Forge userdev
 
 * Try:
 === LAST 40 ===
-	at org.gradle.internal.buildprocess.execution.StartParamsValidatingActionExecutor.execute(StartParamsValidatingActionExecutor.java:57)
-	at org.gradle.internal.buildprocess.execution.StartParamsValidatingActionExecutor.execute(StartParamsValidatingActionExecutor.java:32)
-	at org.gradle.internal.buildprocess.execution.SessionFailureReportingActionExecutor.execute(SessionFailureReportingActionExecutor.java:51)
-	at org.gradle.internal.buildprocess.execution.SessionFailureReportingActionExecutor.execute(SessionFailureReportingActionExecutor.java:39)
-	at org.gradle.internal.buildprocess.execution.SetupLoggingActionExecutor.execute(SetupLoggingActionExecutor.java:47)
-	at org.gradle.internal.buildprocess.execution.SetupLoggingActionExecutor.execute(SetupLoggingActionExecutor.java:31)
-	at org.gradle.launcher.daemon.server.exec.ExecuteBuild.doBuild(ExecuteBuild.java:70)
-	at org.gradle.launcher.daemon.server.exec.BuildCommandOnly.execute(BuildCommandOnly.java:37)
-	at org.gradle.launcher.daemon.server.api.DaemonCommandExecution.proceed(DaemonCommandExecution.java:104)
-	at org.gradle.launcher.daemon.server.exec.WatchForDisconnection.execute(WatchForDisconnection.java:39)
-	at org.gradle.launcher.daemon.server.api.DaemonCommandExecution.proceed(DaemonCommandExecution.java:104)
-	at org.gradle.launcher.daemon.server.exec.ResetDeprecationLogger.execute(ResetDeprecationLogger.java:29)
-	at org.gradle.launcher.daemon.server.api.DaemonCommandExecution.proceed(DaemonCommandExecution.java:104)
-	at org.gradle.launcher.daemon.server.exec.RequestStopIfSingleUsedDaemon.execute(RequestStopIfSingleUsedDaemon.java:35)
-	at org.gradle.launcher.daemon.server.api.DaemonCommandExecution.proceed(DaemonCommandExecution.java:104)
-	at org.gradle.launcher.daemon.server.exec.ForwardClientInput.lambda$execute$0(ForwardClientInput.java:40)
-	at org.gradle.internal.daemon.clientinput.ClientInputForwarder.forwardInput(ClientInputForwarder.java:80)
-	at org.gradle.launcher.daemon.server.exec.ForwardClientInput.execute(ForwardClientInput.java:37)
-	at org.gradle.launcher.daemon.server.api.DaemonCommandExecution.proceed(DaemonCommandExecution.java:104)
-	at org.gradle.launcher.daemon.server.exec.LogAndCheckHealth.execute(LogAndCheckHealth.java:53)
-	at org.gradle.launcher.daemon.server.api.DaemonCommandExecution.proceed(DaemonCommandExecution.java:104)
-	at org.gradle.launcher.daemon.server.exec.ApplyClientEnvironmentVariables.doBuild(ApplyClientEnvironmentVariables.java:82)
-	at org.gradle.launcher.daemon.server.exec.BuildCommandOnly.execute(BuildCommandOnly.java:37)
-	at org.gradle.launcher.daemon.server.api.DaemonCommandExecution.proceed(DaemonCommandExecution.java:104)
-	at org.gradle.launcher.daemon.server.exec.LogToClient.doBuild(LogToClient.java:63)
-	at org.gradle.launcher.daemon.server.exec.BuildCommandOnly.execute(BuildCommandOnly.java:37)
-	at org.gradle.launcher.daemon.server.api.DaemonCommandExecution.proceed(DaemonCommandExecution.java:104)
-	at org.gradle.launcher.daemon.server.exec.EstablishBuildEnvironment.doBuild(EstablishBuildEnvironment.java:74)
-	at org.gradle.launcher.daemon.server.exec.BuildCommandOnly.execute(BuildCommandOnly.java:37)
-	at org.gradle.launcher.daemon.server.api.DaemonCommandExecution.proceed(DaemonCommandExecution.java:104)
-	at org.gradle.launcher.daemon.server.exec.StartBuildOrRespondWithBusy$1.run(StartBuildOrRespondWithBusy.java:52)
-	at org.gradle.launcher.daemon.server.DaemonStateCoordinator.lambda$runCommand$0(DaemonStateCoordinator.java:321)
-	at org.gradle.internal.concurrent.ExecutorPolicy$CatchAndRecordFailures.onExecute(ExecutorPolicy.java:65)
-	at org.gradle.internal.concurrent.AbstractManagedExecutor$1.run(AbstractManagedExecutor.java:47)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1090)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614)
-	at java.base/java.lang.Thread.run(Thread.java:1474)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$1.execute(DefaultBuildOperationRunner.java:30)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$1.execute(DefaultBuildOperationRunner.java:27)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:67)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:60)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:167)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:60)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.run(DefaultBuildOperationRunner.java:48)
+	at org.gradle.configuration.internal.DefaultListenerBuildOperationDecorator$BuildOperationEmittingAction.execute(DefaultListenerBuildOperationDecorator.java:170)
+	at org.gradle.internal.event.BroadcastDispatch$ActionInvocationHandler.dispatch(BroadcastDispatch.java:101)
+	at org.gradle.internal.event.BroadcastDispatch$ActionInvocationHandler.dispatch(BroadcastDispatch.java:89)
+	at org.gradle.internal.event.AbstractBroadcastDispatch.dispatch(AbstractBroadcastDispatch.java:44)
+	at org.gradle.internal.event.BroadcastDispatch$SingletonDispatch.dispatch(BroadcastDispatch.java:270)
+	at org.gradle.internal.event.BroadcastDispatch$SingletonDispatch.dispatch(BroadcastDispatch.java:172)
+	at org.gradle.internal.event.AbstractBroadcastDispatch.dispatch(AbstractBroadcastDispatch.java:84)
+	at org.gradle.internal.event.AbstractBroadcastDispatch.dispatch(AbstractBroadcastDispatch.java:70)
+	at org.gradle.internal.event.BroadcastDispatch$CompositeDispatch.dispatch(BroadcastDispatch.java:382)
+	at org.gradle.internal.event.BroadcastDispatch$CompositeDispatch.dispatch(BroadcastDispatch.java:274)
+	at org.gradle.internal.event.ListenerBroadcast.dispatch(ListenerBroadcast.java:160)
+	at org.gradle.internal.event.ListenerBroadcast.dispatch(ListenerBroadcast.java:37)
+	at org.gradle.internal.dispatch.ProxyDispatchAdapter$DispatchingInvocationHandler.invoke(ProxyDispatchAdapter.java:88)
+	at jdk.proxy1/jdk.proxy1.$Proxy73.afterEvaluate(Unknown Source)
+	at org.gradle.configuration.project.LifecycleProjectEvaluator$NotifyAfterEvaluate$1.execute(LifecycleProjectEvaluator.java:247)
+	at org.gradle.configuration.project.LifecycleProjectEvaluator$NotifyAfterEvaluate$1.execute(LifecycleProjectEvaluator.java:244)
+	at org.gradle.api.internal.project.DefaultProject.stepEvaluationListener(DefaultProject.java:1525)
+	at org.gradle.configuration.project.LifecycleProjectEvaluator$NotifyAfterEvaluate.run(LifecycleProjectEvaluator.java:253)
+	... 164 more
+Caused by: java.lang.RuntimeException: Failed to provide net.neoforged:neoforge:26.3.+ : java.lang.RuntimeException: Could not resolve Forge userdev
+	at dev.architectury.loom.forge.dependency.DependencyProviders.handleDependencies(DependencyProviders.java:111)
+	at net.fabricmc.loom.configuration.CompileConfiguration.setupDependencyProviders(CompileConfiguration.java:611)
+	at net.fabricmc.loom.configuration.CompileConfiguration.setupMinecraft(CompileConfiguration.java:269)
+	at net.fabricmc.loom.configuration.CompileConfiguration.lambda$run$1(CompileConfiguration.java:144)
+	... 193 more
+Caused by: java.lang.RuntimeException: Could not resolve Forge userdev
+	at dev.architectury.loom.forge.dependency.ForgeUserdevProvider.lambda$provide$0(ForgeUserdevProvider.java:60)
+	at dev.architectury.loom.forge.dependency.ForgeUserdevProvider.provide(ForgeUserdevProvider.java:60)
+	at dev.architectury.loom.forge.dependency.DependencyProviders.handleDependencies(DependencyProviders.java:109)
+	... 196 more
 
 
-BUILD FAILED in 46s
+BUILD FAILED in 51s

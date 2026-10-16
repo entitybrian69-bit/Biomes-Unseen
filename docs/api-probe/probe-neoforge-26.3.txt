@@ -6,9 +6,7 @@ FAILURE: Build failed with an exception.
 
 * What went wrong:
 A problem occurred configuring project ':neoforge-26.3'.
-> Failed to notify project evaluation listener.
-   > Failed to setup Minecraft, java.lang.UnsupportedOperationException: Architectury Loom: The Minecraft version '26.3' is unobfuscated (no mappings). Forge / NeoForge support for unobfuscated Minecraft is through the dev.architectury.loom-no-remap plugin instead.
-   > Cannot get MinecraftProvider before it has been setup
+> Failed to setup Minecraft, java.lang.RuntimeException: Failed to provide net.neoforged:neoforge:26.3.+ : java.lang.RuntimeException: Could not resolve Forge userdev
 
 * Try:
 > Run with --stacktrace option to get the stack trace.
@@ -16,4 +14,4 @@ A problem occurred configuring project ':neoforge-26.3'.
 > Run with --scan to get full insights from a Build Scan (powered by Develocity).
 > Get more help at https://help.gradle.org.
 
-BUILD FAILED in 1m 2s
+BUILD FAILED in 48s

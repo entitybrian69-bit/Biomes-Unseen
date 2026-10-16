@@ -1,26 +1,14 @@
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/item/LoreBookItem.java:9: error: cannot find symbol
-import net.minecraft.world.InteractionResultHolder;
-                          ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/item/LoreBookItem.java:31: error: cannot find symbol
-    public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/item/LoreBookItem.java:30: error: cannot find symbol
+    public InteractionResult use(Level level, Player player, InteractionHand hand) {
            ^
 ---
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/item/UnseenTonicItem.java:9: error: cannot find symbol
-import net.minecraft.world.InteractionResultHolder;
-                          ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/item/UnseenTonicItem.java:33: error: cannot find symbol
-    public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/item/UnseenTonicItem.java:32: error: cannot find symbol
+    public InteractionResult use(Level level, Player player, InteractionHand hand) {
            ^
 ---
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/item/UnseenGearItems.java:3: error: cannot find symbol
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/item/UnseenGearItems.java:5: error: cannot find symbol
 import net.minecraft.world.item.ArmorMaterial;
                                ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/item/UnseenGearItems.java:74: error: cannot find symbol
-        UnseenArmorItem(OreDef ore, UnseenArmorMaterial material, ArmorType slot, Item.Properties properties) {
-                                                                  ^
 ---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/client/legacy/UnseenLegacyRenderer.java:13: error: wrong number of type arguments; required 3
         extends MobRenderer<T, UnseenLegacyModel<T>> {
@@ -39,27 +27,27 @@ import net.minecraft.world.item.ArmorMaterial;
                                  ^
 ---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/entity/mobs/CinderPupEntity.java:68: error: cannot find symbol
-            return net.minecraft.world.InteractionResult.sidedSuccess(unseenLevel().isClientSide);
+            return net.minecraft.world.InteractionResult.sidedSuccess(unseenLevel().isClientSide());
                                                         ^
 ---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/entity/mobs/LanternFoxEntity.java:64: error: cannot find symbol
-            return net.minecraft.world.InteractionResult.sidedSuccess(unseenLevel().isClientSide);
+            return net.minecraft.world.InteractionResult.sidedSuccess(unseenLevel().isClientSide());
                                                         ^
 ---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/entity/mobs/FrostFawnEntity.java:66: error: cannot find symbol
-            return net.minecraft.world.InteractionResult.sidedSuccess(unseenLevel().isClientSide);
+            return net.minecraft.world.InteractionResult.sidedSuccess(unseenLevel().isClientSide());
                                                         ^
 ---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/entity/mobs/LumoxEntity.java:66: error: cannot find symbol
-            return net.minecraft.world.InteractionResult.sidedSuccess(unseenLevel().isClientSide);
+            return net.minecraft.world.InteractionResult.sidedSuccess(unseenLevel().isClientSide());
                                                         ^
 ---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/entity/mobs/EmberCalfEntity.java:65: error: cannot find symbol
-            return net.minecraft.world.InteractionResult.sidedSuccess(unseenLevel().isClientSide);
+            return net.minecraft.world.InteractionResult.sidedSuccess(unseenLevel().isClientSide());
                                                         ^
 ---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/entity/mobs/SporeSproutEntity.java:64: error: cannot find symbol
-            return net.minecraft.world.InteractionResult.sidedSuccess(unseenLevel().isClientSide);
+            return net.minecraft.world.InteractionResult.sidedSuccess(unseenLevel().isClientSide());
                                                         ^
 ---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/entity/ai/ThrottledGoal.java:24: error: cannot find symbol
@@ -67,7 +55,7 @@ import net.minecraft.world.item.ArmorMaterial;
                                                       ^
 ---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/entity/ai/WanderTradeGoal.java:54: error: cannot find symbol
-        if (customer != null && tradeCooldown == 390 && !mob.unseenLevel().isClientSide) {
+        if (customer != null && tradeCooldown == 390 && !mob.unseenLevel().isClientSide()) {
                                                             ^
 ---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/entity/ai/WanderTradeGoal.java:63: error: items has private access in Inventory
@@ -99,16 +87,12 @@ import net.minecraft.world.item.ArmorMaterial;
                 ^
 ---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/entity/boss/VoidSerpentEntity.java:187: error: no suitable method found for spawnAtLocation(ItemStack)
-            spawnAtLocation(new ItemStack(ModItems.TROPHIES.get("star_whale"), 3));
+            spawnAtLocation(new ItemStack(ModItems.TROPHIES.get("star_whale").get(), 3));
             ^
 ---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/entity/boss/VoidSerpentEntity.java:189: error: no suitable method found for spawnAtLocation(ItemStack)
-                spawnAtLocation(new ItemStack(ModItems.GEAR.get("voidshard_sword")));
+                spawnAtLocation(new ItemStack(ModItems.GEAR.get("voidshard_sword").get()));
                 ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/entity/boss/HeartOfTheForestEntity.java:94: error: incompatible types: Reference<SoundEvent> cannot be converted to SoundEvent
-        playSound(SoundEvents.RAID_HORN, 2.0F, 0.8F);
-                             ^
 ---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/entity/boss/HeartOfTheForestEntity.java:125: error: cannot find symbol
             for (Player player : unseenLevel().getNearestPlayers(this, 10.0D, 10.0D)) {
@@ -127,116 +111,132 @@ import net.minecraft.world.item.ArmorMaterial;
                 ^
 ---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/entity/boss/HeartOfTheForestEntity.java:154: error: no suitable method found for spawnAtLocation(ItemStack)
-            spawnAtLocation(new ItemStack(ModItems.TROPHIES.get("brambleback"), 3));
+            spawnAtLocation(new ItemStack(ModItems.TROPHIES.get("brambleback").get(), 3));
             ^
 ---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/entity/boss/HeartOfTheForestEntity.java:156: error: no suitable method found for spawnAtLocation(ItemStack)
-                spawnAtLocation(new ItemStack(ModItems.GEAR.get("sylvanite_sword")));
+                spawnAtLocation(new ItemStack(ModItems.GEAR.get("sylvanite_sword").get()));
                 ^
 ---
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/registry/ModEntities.java:65: error: cannot find symbol
-        Lumox = ENTITIES.register("lumox", () -> EntityType.Builder.of(LumoxEntity::new, MobCategory.CREATURE)
-                ^
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/registry/ModItems.java:158: error: constructor SpawnEggItem in class SpawnEggItem cannot be applied to given types;
+                    () -> new SpawnEggItem((EntityType<? extends Mob>) (EntityType<?>) ModEntities.MOB_TYPES.get(mobId).get(),
+                          ^
 ---
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/registry/ModEntities.java:67: error: incompatible types: String cannot be converted to ResourceKey<EntityType<?>>
-                .build("lumox"));
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/registry/ModItems.java:167: error: constructor SpawnEggItem in class SpawnEggItem cannot be applied to given types;
+                    () -> new SpawnEggItem((EntityType<? extends Mob>) (EntityType<?>) ModEntities.BOSS_TYPES.get(bossId).get(),
+                          ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/item/UnseenArmorMaterial.java:43: error: cannot find symbol
+                List.of(new ArmorMaterial.Layer(ResourceLocation.fromNamespaceAndPath("biomesunseen", ore.id))),
+                                         ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/item/UnseenArmorMaterial.java:41: error: incompatible types: Holder<SoundEvent> cannot be converted to SoundEvent
+                BuiltInRegistries.SOUND_EVENT.wrapAsHolder(SoundEvents.ARMOR_EQUIP_IRON),
+                                                                      ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/item/UnseenArmorMaterial.java:63: error: cannot find symbol
+        return material.getDefense(type);
                        ^
 ---
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/registry/ModEntities.java:68: error: cannot find symbol
-        Brambleback = ENTITIES.register("brambleback", () -> EntityType.Builder.of(BramblebackEntity::new, MobCategory.CREATURE)
-                      ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/registry/ModEntities.java:70: error: incompatible types: String cannot be converted to ResourceKey<EntityType<?>>
-                .build("brambleback"));
-                       ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/registry/ModEntities.java:71: error: cannot find symbol
-        Siltstrider = ENTITIES.register("siltstrider", () -> EntityType.Builder.of(SiltstriderEntity::new, MobCategory.CREATURE)
-                      ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/registry/ModEntities.java:73: error: incompatible types: String cannot be converted to ResourceKey<EntityType<?>>
-                .build("siltstrider"));
-                       ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/registry/ModEntities.java:74: error: cannot find symbol
-        Glimmermoth = ENTITIES.register("glimmermoth", () -> EntityType.Builder.of(GlimmermothEntity::new, MobCategory.CREATURE)
-                      ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/registry/ModEntities.java:76: error: incompatible types: String cannot be converted to ResourceKey<EntityType<?>>
-                .build("glimmermoth"));
-                       ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/registry/ModEntities.java:77: error: cannot find symbol
-        PeatHopper = ENTITIES.register("peat_hopper", () -> EntityType.Builder.of(PeatHopperEntity::new, MobCategory.CREATURE)
-                     ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/registry/ModEntities.java:79: error: incompatible types: String cannot be converted to ResourceKey<EntityType<?>>
-                .build("peat_hopper"));
-                       ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/registry/ModEntities.java:80: error: cannot find symbol
-        EmberCalf = ENTITIES.register("ember_calf", () -> EntityType.Builder.of(EmberCalfEntity::new, MobCategory.CREATURE)
-                    ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/registry/ModEntities.java:82: error: incompatible types: String cannot be converted to ResourceKey<EntityType<?>>
-                .build("ember_calf"));
-                       ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/registry/ModEntities.java:83: error: cannot find symbol
-        FrostFawn = ENTITIES.register("frost_fawn", () -> EntityType.Builder.of(FrostFawnEntity::new, MobCategory.CREATURE)
-                    ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/registry/ModEntities.java:85: error: incompatible types: String cannot be converted to ResourceKey<EntityType<?>>
-                .build("frost_fawn"));
-                       ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/registry/ModEntities.java:86: error: cannot find symbol
-        Murkling = ENTITIES.register("murkling", () -> EntityType.Builder.of(MurklingEntity::new, MobCategory.MONSTER)
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/item/LoreBookItem.java:33: error: cannot find symbol
+            return InteractionResult.SUCCESS;
                    ^
 ---
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/registry/ModEntities.java:88: error: incompatible types: String cannot be converted to ResourceKey<EntityType<?>>
-                .build("murkling"));
-                       ^
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/item/LoreBookItem.java:35: error: cannot find symbol
+        player.sendSystemMessage(net.minecraft.network.chat.Component.translatable(
+              ^
 ---
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/registry/ModEntities.java:89: error: cannot find symbol
-        SporeSprout = ENTITIES.register("spore_sprout", () -> EntityType.Builder.of(SporeSproutEntity::new, MobCategory.CREATURE)
-                      ^
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/item/LoreBookItem.java:37: error: cannot find symbol
+        return InteractionResult.SUCCESS;
+               ^
 ---
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/registry/ModEntities.java:91: error: incompatible types: String cannot be converted to ResourceKey<EntityType<?>>
-                .build("spore_sprout"));
-                       ^
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/item/UnseenTonicItem.java:34: error: incompatible types: MobEffect cannot be converted to Holder<MobEffect>
+        player.addEffect(new MobEffectInstance(effectFor(ore), 20 * 60, 0));
+                                                        ^
 ---
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/registry/ModEntities.java:92: error: cannot find symbol
-        Skywisp = ENTITIES.register("skywisp", () -> EntityType.Builder.of(SkywispEntity::new, MobCategory.CREATURE)
-                  ^
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/item/UnseenTonicItem.java:38: error: cannot find symbol
+        return InteractionResult.SUCCESS;
+               ^
 ---
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/registry/ModEntities.java:94: error: incompatible types: String cannot be converted to ResourceKey<EntityType<?>>
-                .build("skywisp"));
-                       ^
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/item/UnseenTonicItem.java:43: error: incompatible types: Holder<MobEffect> cannot be converted to MobEffect
+            return MobEffects.FIRE_RESISTANCE;
+                             ^
 ---
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/registry/ModEntities.java:95: error: cannot find symbol
-        ThunderRam = ENTITIES.register("thunder_ram", () -> EntityType.Builder.of(ThunderRamEntity::new, MobCategory.CREATURE)
-                     ^
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/item/UnseenTonicItem.java:46: error: cannot find symbol
+            return MobEffects.MOVEMENT_SPEED;
+                             ^
 ---
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/registry/ModEntities.java:97: error: incompatible types: String cannot be converted to ResourceKey<EntityType<?>>
-                .build("thunder_ram"));
-                       ^
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/item/UnseenTonicItem.java:49: error: cannot find symbol
+            return MobEffects.DAMAGE_BOOST;
+                             ^
 ---
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/registry/ModEntities.java:98: error: cannot find symbol
-        Mosshorn = ENTITIES.register("mosshorn", () -> EntityType.Builder.of(MosshornEntity::new, MobCategory.CREATURE)
-                   ^
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/item/UnseenTonicItem.java:52: error: incompatible types: Holder<MobEffect> cannot be converted to MobEffect
+            return MobEffects.REGENERATION;
+                             ^
 ---
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/registry/ModEntities.java:100: error: incompatible types: String cannot be converted to ResourceKey<EntityType<?>>
-                .build("mosshorn"));
-                       ^
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/item/UnseenTonicItem.java:55: error: incompatible types: Holder<MobEffect> cannot be converted to MobEffect
+            return MobEffects.INVISIBILITY;
+                             ^
 ---
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/registry/ModEntities.java:101: error: cannot find symbol
-        CinderPup = ENTITIES.register("cinder_pup", () -> EntityType.Builder.of(CinderPupEntity::new, MobCategory.CREATURE)
-                    ^
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/item/UnseenTonicItem.java:58: error: incompatible types: Holder<MobEffect> cannot be converted to MobEffect
+            return MobEffects.NIGHT_VISION;
+                             ^
 ---
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/registry/ModEntities.java:103: error: incompatible types: String cannot be converted to ResourceKey<EntityType<?>>
-                .build("cinder_pup"));
-                       ^
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/item/UnseenTonicItem.java:61: error: incompatible types: Holder<MobEffect> cannot be converted to MobEffect
+            return MobEffects.WATER_BREATHING;
+                             ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/item/UnseenTonicItem.java:64: error: incompatible types: Holder<MobEffect> cannot be converted to MobEffect
+            return MobEffects.POISON;
+                             ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/item/UnseenTonicItem.java:67: error: cannot find symbol
+            return MobEffects.MOVEMENT_SLOWDOWN;
+                             ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/item/UnseenTonicItem.java:70: error: cannot find symbol
+            return MobEffects.DIG_SPEED;
+                             ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/item/UnseenTonicItem.java:73: error: incompatible types: Holder<MobEffect> cannot be converted to MobEffect
+            return MobEffects.LEVITATION;
+                             ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/item/UnseenTonicItem.java:76: error: incompatible types: Holder<MobEffect> cannot be converted to MobEffect
+            return MobEffects.ABSORPTION;
+                             ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/item/UnseenTonicItem.java:78: error: cannot find symbol
+        return MobEffects.DAMAGE_RESISTANCE;
+                         ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/client/ClientSetup.java:25: error: incompatible types: cannot infer type-variable(s) T#1
+        EntityRendererRegistry.register(ModEntities.Lumox, context -> new UnseenLegacyRenderer<>(context, "lumox"));
+                                       ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/client/ClientSetup.java:26: error: incompatible types: cannot infer type-variable(s) T#1
+        EntityRendererRegistry.register(ModEntities.Brambleback, context -> new UnseenLegacyRenderer<>(context, "brambleback"));
+                                       ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/client/ClientSetup.java:27: error: incompatible types: cannot infer type-variable(s) T#1
+        EntityRendererRegistry.register(ModEntities.Siltstrider, context -> new UnseenLegacyRenderer<>(context, "siltstrider"));
+                                       ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/client/ClientSetup.java:28: error: incompatible types: cannot infer type-variable(s) T#1
+        EntityRendererRegistry.register(ModEntities.Glimmermoth, context -> new UnseenLegacyRenderer<>(context, "glimmermoth"));
+                                       ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/client/ClientSetup.java:29: error: incompatible types: cannot infer type-variable(s) T#1
+        EntityRendererRegistry.register(ModEntities.PeatHopper, context -> new UnseenLegacyRenderer<>(context, "peat_hopper"));
+                                       ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/client/ClientSetup.java:30: error: incompatible types: cannot infer type-variable(s) T#1
+        EntityRendererRegistry.register(ModEntities.EmberCalf, context -> new UnseenLegacyRenderer<>(context, "ember_calf"));
+                                       ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/client/ClientSetup.java:31: error: incompatible types: cannot infer type-variable(s) T#1
+        EntityRendererRegistry.register(ModEntities.FrostFawn, context -> new UnseenLegacyRenderer<>(context, "frost_fawn"));
+                                       ^
 ---
 === STACKTRACE ===
 Caused by: org.gradle.api.internal.tasks.compile.CompilationFailedException: Compilation failed; see the compiler output below.
@@ -244,43 +244,43 @@ Caused by: org.gradle.api.internal.tasks.compile.CompilationFailedException: Com
 * What went wrong:
 Execution failed for task ':fabric-1.21.5:compileJava' (registered by plugin class 'org.gradle.api.plugins.JavaBasePlugin').
 > Compilation failed; see the compiler output below.
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/item/LoreBookItem.java:9: error: cannot find symbol
-  import net.minecraft.world.InteractionResultHolder;
-                            ^
-    symbol:   class InteractionResultHolder
-    location: package net.minecraft.world
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/item/LoreBookItem.java:31: error: cannot find symbol
-      public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/item/LoreBookItem.java:30: error: cannot find symbol
+      public InteractionResult use(Level level, Player player, InteractionHand hand) {
              ^
-    symbol:   class InteractionResultHolder
+    symbol:   class InteractionResult
     location: class LoreBookItem
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/item/UnseenTonicItem.java:9: error: cannot find symbol
-  import net.minecraft.world.InteractionResultHolder;
-                            ^
-    symbol:   class InteractionResultHolder
-    location: package net.minecraft.world
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/item/UnseenTonicItem.java:33: error: cannot find symbol
-      public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/item/UnseenTonicItem.java:32: error: cannot find symbol
+      public InteractionResult use(Level level, Player player, InteractionHand hand) {
              ^
-    symbol:   class InteractionResultHolder
+    symbol:   class InteractionResult
     location: class UnseenTonicItem
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/item/UnseenGearItems.java:3: error: cannot find symbol
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/item/UnseenGearItems.java:5: error: cannot find symbol
   import net.minecraft.world.item.ArmorMaterial;
                                  ^
     symbol:   class ArmorMaterial
     location: package net.minecraft.world.item
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/item/UnseenGearItems.java:74: error: cannot find symbol
-          UnseenArmorItem(OreDef ore, UnseenArmorMaterial material, ArmorType slot, Item.Properties properties) {
-                                                                    ^
-    symbol:   class ArmorType
-    location: class UnseenArmorItem
   /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/entity/boss/VoidSerpentEntity.java:144: error: cannot find symbol
                   net.minecraft.world.phys.AABB box = new AABB(segmentX(i) - 2.0D, segmentY(i) - 2.0D, segmentZ(i) - 2.0D,
                                                           ^
     symbol:   class AABB
     location: class VoidSerpentEntity
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/registry/ModEntities.java:65: error: cannot find symbol
-          Lumox = ENTITIES.register("lumox", () -> EntityType.Builder.of(LumoxEntity::new, MobCategory.CREATURE)
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/item/UnseenArmorMaterial.java:43: error: cannot find symbol
+                  List.of(new ArmorMaterial.Layer(ResourceLocation.fromNamespaceAndPath("biomesunseen", ore.id))),
+                                           ^
+    symbol:   class Layer
+    location: class ArmorMaterial
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/item/LoreBookItem.java:33: error: cannot find symbol
+              return InteractionResult.SUCCESS;
+                     ^
+    symbol:   variable InteractionResult
+    location: class LoreBookItem
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/item/LoreBookItem.java:37: error: cannot find symbol
+          return InteractionResult.SUCCESS;
+                 ^
+    symbol:   variable InteractionResult
+    location: class LoreBookItem
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.5/java/com/biomesunseen/item/UnseenTonicItem.java:38: error: cannot find symbol
+          return InteractionResult.SUCCESS;
 === LAST 40 ===
 	at org.gradle.internal.execution.steps.MutableStep.execute(MutableStep.java:26)
 	at org.gradle.internal.execution.steps.ValidateStep$Mutable.executeDelegate(ValidateStep.java:79)
@@ -320,5 +320,5 @@ Execution failed for task ':fabric-1.21.5:compileJava' (registered by plugin cla
 	... 25 more
 
 
-BUILD FAILED in 1m 9s
+BUILD FAILED in 1m 25s
 1 actionable task: 1 executed

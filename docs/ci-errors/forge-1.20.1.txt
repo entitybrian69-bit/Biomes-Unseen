@@ -7,7 +7,7 @@
                                                       ^
 ---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.19.4/java/com/biomesunseen/entity/ai/WanderTradeGoal.java:54: error: cannot find symbol
-        if (customer != null && tradeCooldown == 390 && !mob.unseenLevel().isClientSide) {
+        if (customer != null && tradeCooldown == 390 && !mob.unseenLevel().isClientSide()) {
                                                             ^
 ---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.19.4/java/com/biomesunseen/entity/ai/PackAttackGoal.java:33: error: method does not override or implement a method from a supertype
@@ -22,137 +22,9 @@
                 net.minecraft.world.phys.AABB box = new AABB(segmentX(i) - 2.0D, segmentY(i) - 2.0D, segmentZ(i) - 2.0D,
                                                         ^
 ---
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.19.4/java/com/biomesunseen/entity/boss/VoidSerpentEntity.java:187: error: no suitable constructor found for ItemStack(RegistrySupplier<Item>,int)
-            spawnAtLocation(new ItemStack(ModItems.TROPHIES.get("star_whale"), 3));
-                            ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.19.4/java/com/biomesunseen/entity/boss/VoidSerpentEntity.java:189: error: no suitable constructor found for ItemStack(RegistrySupplier<Item>)
-                spawnAtLocation(new ItemStack(ModItems.GEAR.get("voidshard_sword")));
-                                ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.19.4/java/com/biomesunseen/entity/boss/HeartOfTheForestEntity.java:94: error: incompatible types: Reference<SoundEvent> cannot be converted to SoundEvent
-        playSound(SoundEvents.RAID_HORN, 2.0F, 0.8F);
-                             ^
----
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.19.4/java/com/biomesunseen/entity/boss/HeartOfTheForestEntity.java:125: error: cannot find symbol
             for (Player player : unseenLevel().getNearestPlayers(this, 10.0D, 10.0D)) {
                                               ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.19.4/java/com/biomesunseen/entity/boss/HeartOfTheForestEntity.java:154: error: no suitable constructor found for ItemStack(RegistrySupplier<Item>,int)
-            spawnAtLocation(new ItemStack(ModItems.TROPHIES.get("brambleback"), 3));
-                            ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.19.4/java/com/biomesunseen/entity/boss/HeartOfTheForestEntity.java:156: error: no suitable constructor found for ItemStack(RegistrySupplier<Item>)
-                spawnAtLocation(new ItemStack(ModItems.GEAR.get("sylvanite_sword")));
-                                ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.19.4/java/com/biomesunseen/registry/ModEntities.java:65: error: cannot find symbol
-        Lumox = ENTITIES.register("lumox", () -> EntityType.Builder.of(LumoxEntity::new, MobCategory.CREATURE)
-                ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.19.4/java/com/biomesunseen/registry/ModEntities.java:68: error: cannot find symbol
-        Brambleback = ENTITIES.register("brambleback", () -> EntityType.Builder.of(BramblebackEntity::new, MobCategory.CREATURE)
-                      ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.19.4/java/com/biomesunseen/registry/ModEntities.java:71: error: cannot find symbol
-        Siltstrider = ENTITIES.register("siltstrider", () -> EntityType.Builder.of(SiltstriderEntity::new, MobCategory.CREATURE)
-                      ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.19.4/java/com/biomesunseen/registry/ModEntities.java:74: error: cannot find symbol
-        Glimmermoth = ENTITIES.register("glimmermoth", () -> EntityType.Builder.of(GlimmermothEntity::new, MobCategory.CREATURE)
-                      ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.19.4/java/com/biomesunseen/registry/ModEntities.java:77: error: cannot find symbol
-        PeatHopper = ENTITIES.register("peat_hopper", () -> EntityType.Builder.of(PeatHopperEntity::new, MobCategory.CREATURE)
-                     ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.19.4/java/com/biomesunseen/registry/ModEntities.java:80: error: cannot find symbol
-        EmberCalf = ENTITIES.register("ember_calf", () -> EntityType.Builder.of(EmberCalfEntity::new, MobCategory.CREATURE)
-                    ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.19.4/java/com/biomesunseen/registry/ModEntities.java:83: error: cannot find symbol
-        FrostFawn = ENTITIES.register("frost_fawn", () -> EntityType.Builder.of(FrostFawnEntity::new, MobCategory.CREATURE)
-                    ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.19.4/java/com/biomesunseen/registry/ModEntities.java:86: error: cannot find symbol
-        Murkling = ENTITIES.register("murkling", () -> EntityType.Builder.of(MurklingEntity::new, MobCategory.MONSTER)
-                   ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.19.4/java/com/biomesunseen/registry/ModEntities.java:89: error: cannot find symbol
-        SporeSprout = ENTITIES.register("spore_sprout", () -> EntityType.Builder.of(SporeSproutEntity::new, MobCategory.CREATURE)
-                      ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.19.4/java/com/biomesunseen/registry/ModEntities.java:92: error: cannot find symbol
-        Skywisp = ENTITIES.register("skywisp", () -> EntityType.Builder.of(SkywispEntity::new, MobCategory.CREATURE)
-                  ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.19.4/java/com/biomesunseen/registry/ModEntities.java:95: error: cannot find symbol
-        ThunderRam = ENTITIES.register("thunder_ram", () -> EntityType.Builder.of(ThunderRamEntity::new, MobCategory.CREATURE)
-                     ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.19.4/java/com/biomesunseen/registry/ModEntities.java:98: error: cannot find symbol
-        Mosshorn = ENTITIES.register("mosshorn", () -> EntityType.Builder.of(MosshornEntity::new, MobCategory.CREATURE)
-                   ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.19.4/java/com/biomesunseen/registry/ModEntities.java:101: error: cannot find symbol
-        CinderPup = ENTITIES.register("cinder_pup", () -> EntityType.Builder.of(CinderPupEntity::new, MobCategory.CREATURE)
-                    ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.19.4/java/com/biomesunseen/registry/ModEntities.java:104: error: cannot find symbol
-        EchoHowler = ENTITIES.register("echo_howler", () -> EntityType.Builder.of(EchoHowlerEntity::new, MobCategory.MONSTER)
-                     ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.19.4/java/com/biomesunseen/registry/ModEntities.java:107: error: cannot find symbol
-        DuneSkimmer = ENTITIES.register("dune_skimmer", () -> EntityType.Builder.of(DuneSkimmerEntity::new, MobCategory.CREATURE)
-                      ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.19.4/java/com/biomesunseen/registry/ModEntities.java:110: error: cannot find symbol
-        TideCaller = ENTITIES.register("tide_caller", () -> EntityType.Builder.of(TideCallerEntity::new, MobCategory.CREATURE)
-                     ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.19.4/java/com/biomesunseen/registry/ModEntities.java:113: error: cannot find symbol
-        GloomStalker = ENTITIES.register("gloom_stalker", () -> EntityType.Builder.of(GloomStalkerEntity::new, MobCategory.MONSTER)
-                       ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.19.4/java/com/biomesunseen/registry/ModEntities.java:116: error: cannot find symbol
-        CrystalHermit = ENTITIES.register("crystal_hermit", () -> EntityType.Builder.of(CrystalHermitEntity::new, MobCategory.CREATURE)
-                        ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.19.4/java/com/biomesunseen/registry/ModEntities.java:119: error: cannot find symbol
-        WindDancer = ENTITIES.register("wind_dancer", () -> EntityType.Builder.of(WindDancerEntity::new, MobCategory.CREATURE)
-                     ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.19.4/java/com/biomesunseen/registry/ModEntities.java:122: error: cannot find symbol
-        MireGolem = ENTITIES.register("mire_golem", () -> EntityType.Builder.of(MireGolemEntity::new, MobCategory.CREATURE)
-                    ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.19.4/java/com/biomesunseen/registry/ModEntities.java:125: error: cannot find symbol
-        LanternFox = ENTITIES.register("lantern_fox", () -> EntityType.Builder.of(LanternFoxEntity::new, MobCategory.CREATURE)
-                     ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.19.4/java/com/biomesunseen/registry/ModEntities.java:128: error: cannot find symbol
-        ReefGrazer = ENTITIES.register("reef_grazer", () -> EntityType.Builder.of(ReefGrazerEntity::new, MobCategory.CREATURE)
-                     ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.19.4/java/com/biomesunseen/registry/ModEntities.java:131: error: cannot find symbol
-        AshCrawler = ENTITIES.register("ash_crawler", () -> EntityType.Builder.of(AshCrawlerEntity::new, MobCategory.MONSTER)
-                     ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.19.4/java/com/biomesunseen/registry/ModEntities.java:134: error: cannot find symbol
-        StarWhale = ENTITIES.register("star_whale", () -> EntityType.Builder.of(StarWhaleEntity::new, MobCategory.CREATURE)
-                    ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.19.4/java/com/biomesunseen/registry/ModEntities.java:137: error: cannot find symbol
-        PetalWing = ENTITIES.register("petal_wing", () -> EntityType.Builder.of(PetalWingEntity::new, MobCategory.CREATURE)
-                    ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.19.4/java/com/biomesunseen/registry/ModEntities.java:140: error: cannot find symbol
-        HeartOfTheForest = ENTITIES.register("heart_of_the_forest", () -> EntityType.Builder.of(HeartOfTheForestEntity::new, MobCategory.MONSTER)
-                           ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.19.4/java/com/biomesunseen/registry/ModEntities.java:143: error: cannot find symbol
-        VoidSerpent = ENTITIES.register("void_serpent", () -> EntityType.Builder.of(VoidSerpentEntity::new, MobCategory.MONSTER)
-                      ^
 ---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.19.4/java/com/biomesunseen/client/particle/UnseenParticle.java:15: error: UnseenParticle is not abstract and does not override abstract method render(VertexConsumer,Camera,float) in Particle
 public class UnseenParticle extends Particle {
@@ -167,7 +39,7 @@ public class UnseenParticle extends Particle {
             ^
 ---
 > Task :forge-1.20.1:compileJava FAILED
-gradle/actions: Writing build results to /home/runner/work/_temp/.gradle-actions/build-results/__run-1792156032257.json
+gradle/actions: Writing build results to /home/runner/work/_temp/.gradle-actions/build-results/__run_2-1792158596914.json
 
 ---
 * What went wrong:
@@ -191,7 +63,7 @@ org.gradle.api.tasks.TaskExecutionException: Execution failed for task ':forge-1
                                                       ^
 ---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.19.4/java/com/biomesunseen/entity/ai/WanderTradeGoal.java:54: error: cannot find symbol
-        if (customer != null && tradeCooldown == 390 && !mob.unseenLevel().isClientSide) {
+        if (customer != null && tradeCooldown == 390 && !mob.unseenLevel().isClientSide()) {
                                                             ^
 ---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.19.4/java/com/biomesunseen/entity/ai/PackAttackGoal.java:33: error: method does not override or implement a method from a supertype
@@ -206,37 +78,24 @@ org.gradle.api.tasks.TaskExecutionException: Execution failed for task ':forge-1
                 net.minecraft.world.phys.AABB box = new AABB(segmentX(i) - 2.0D, segmentY(i) - 2.0D, segmentZ(i) - 2.0D,
                                                         ^
 ---
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.19.4/java/com/biomesunseen/entity/boss/VoidSerpentEntity.java:187: error: no suitable constructor found for ItemStack(RegistrySupplier<Item>,int)
-            spawnAtLocation(new ItemStack(ModItems.TROPHIES.get("star_whale"), 3));
-                            ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.19.4/java/com/biomesunseen/entity/boss/VoidSerpentEntity.java:189: error: no suitable constructor found for ItemStack(RegistrySupplier<Item>)
-                spawnAtLocation(new ItemStack(ModItems.GEAR.get("voidshard_sword")));
-                                ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.19.4/java/com/biomesunseen/entity/boss/HeartOfTheForestEntity.java:94: error: incompatible types: Reference<SoundEvent> cannot be converted to SoundEvent
-        playSound(SoundEvents.RAID_HORN, 2.0F, 0.8F);
-                             ^
----
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.19.4/java/com/biomesunseen/entity/boss/HeartOfTheForestEntity.java:125: error: cannot find symbol
             for (Player player : unseenLevel().getNearestPlayers(this, 10.0D, 10.0D)) {
                                               ^
 ---
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.19.4/java/com/biomesunseen/entity/boss/HeartOfTheForestEntity.java:154: error: no suitable constructor found for ItemStack(RegistrySupplier<Item>,int)
-            spawnAtLocation(new ItemStack(ModItems.TROPHIES.get("brambleback"), 3));
-                            ^
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.19.4/java/com/biomesunseen/client/particle/UnseenParticle.java:15: error: UnseenParticle is not abstract and does not override abstract method render(VertexConsumer,Camera,float) in Particle
+public class UnseenParticle extends Particle {
+       ^
 ---
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.19.4/java/com/biomesunseen/entity/boss/HeartOfTheForestEntity.java:156: error: no suitable constructor found for ItemStack(RegistrySupplier<Item>)
-                spawnAtLocation(new ItemStack(ModItems.GEAR.get("sylvanite_sword")));
-                                ^
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.19.4/java/com/biomesunseen/client/particle/UnseenParticle.java:28: error: cannot find symbol
+        this.setSpriteFromAge(sprites);
+            ^
 ---
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.19.4/java/com/biomesunseen/registry/ModEntities.java:65: error: cannot find symbol
-        Lumox = ENTITIES.register("lumox", () -> EntityType.Builder.of(LumoxEntity::new, MobCategory.CREATURE)
-                ^
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.19.4/java/com/biomesunseen/client/particle/UnseenParticle.java:34: error: cannot find symbol
+        this.setSpriteFromAge(this.sprites);
+            ^
 ---
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.19.4/java/com/biomesunseen/registry/ModEntities.java:68: error: cannot find symbol
-        Brambleback = ENTITIES.register("brambleback", () -> EntityType.Builder.of(BramblebackEntity::new, MobCategory.CREATURE)
-                      ^
+BUILD FAILED in 2m
+1 actionable task: 1 executed
 ---
 === STACKTRACE ===
 Caused by: org.gradle.api.internal.tasks.compile.CompilationFailedException: Compilation failed; see the compiler output below.
@@ -247,11 +106,12 @@ Execution failed for task ':forge-1.20.1:compileJava' (registered by plugin clas
   /home/runner/work/Biomes-Unseen/Biomes-Unseen/forge-1.20.1/src/main/java/com/biomesunseen/forge/BiomesUnseenForge.java:23: warning: [removal] get() in FMLJavaModLoadingContext has been deprecated and marked for removal
           IEventBus modBus = FMLJavaModLoadingContext.get().getModEventBus();
                                                      ^
-  42 errors
+  10 errors
   1 warning
 
 * Try:
 === LAST 40 ===
+  symbol: method setSpriteFromAge(SpriteSet)
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.19.4/java/com/biomesunseen/client/particle/UnseenParticle.java:34: error: cannot find symbol
         this.setSpriteFromAge(this.sprites);
             ^
@@ -260,8 +120,7 @@ Note: Some input files use or override a deprecated API.
 Note: Recompile with -Xlint:deprecation for details.
 Note: Some input files use unchecked or unsafe operations.
 Note: Recompile with -Xlint:unchecked for details.
-Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
-42 errors
+10 errors
 1 warning
 	at org.gradle.api.internal.tasks.compile.JdkJavaCompiler.execute(JdkJavaCompiler.java:88)
 	at org.gradle.api.internal.tasks.compile.JdkJavaCompiler.execute(JdkJavaCompiler.java:49)
@@ -290,5 +149,5 @@ Note: Some messages have been simplified; recompile with -Xdiags:verbose to get 
 	at org.gradle.internal.concurrent.AbstractManagedExecutor$1.run(AbstractManagedExecutor.java:47)
 
 
-BUILD FAILED in 2m 6s
+BUILD FAILED in 2m
 1 actionable task: 1 executed

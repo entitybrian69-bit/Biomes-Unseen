@@ -1,13 +1,13 @@
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/forge-1.19/src/main/java/com/biomesunseen/platform/PlatformExpectImpl.java:38: error: package net.minecraft.core.registries.BuiltInRegistry does not exist
-        net.minecraft.core.registries.BuiltInRegistry.ENTITY_TYPE_REGISTRY
-                                                     ^
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/forge-1.19/src/main/java/com/biomesunseen/platform/PlatformExpectImpl.java:38: error: package net.minecraft.core.registries.BuiltInRegistries does not exist
+        net.minecraft.core.registries.BuiltInRegistries.ENTITY_TYPE
+                                                       ^
 ---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/entity/ai/ThrottledGoal.java:24: error: cannot find symbol
         return AiThrottle.shouldThink(mob.getId(), mob.unseenLevel().getGameTime())
                                                       ^
 ---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/entity/ai/WanderTradeGoal.java:54: error: cannot find symbol
-        if (customer != null && tradeCooldown == 390 && !mob.unseenLevel().isClientSide) {
+        if (customer != null && tradeCooldown == 390 && !mob.unseenLevel().isClientSide()) {
                                                             ^
 ---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/entity/ai/PackAttackGoal.java:33: error: method does not override or implement a method from a supertype
@@ -30,213 +30,213 @@
                 unseenLevel().broadcastDamageEvent(target, DamageSource.mobAttack(this));
                              ^
 ---
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/entity/boss/VoidSerpentEntity.java:187: error: no suitable constructor found for ItemStack(RegistrySupplier<Item>,int)
-            spawnAtLocation(new ItemStack(ModItems.TROPHIES.get("star_whale"), 3));
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/entity/boss/HeartOfTheForestEntity.java:125: error: cannot find symbol
+            for (Player player : unseenLevel().getNearestPlayers(this, 10.0D, 10.0D)) {
+                                              ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/registry/ModRegistries.java:20: error: method create in class DeferredRegister<T#2> cannot be applied to given types;
+            DeferredRegister.create(MOD_ID, Registry.BLOCK);
                             ^
 ---
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/entity/boss/VoidSerpentEntity.java:189: error: no suitable constructor found for ItemStack(RegistrySupplier<Item>)
-                spawnAtLocation(new ItemStack(ModItems.GEAR.get("voidshard_sword")));
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/registry/ModRegistries.java:22: error: method create in class DeferredRegister<T#2> cannot be applied to given types;
+            DeferredRegister.create(MOD_ID, Registry.ITEM);
+                            ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/registry/ModRegistries.java:24: error: method create in class DeferredRegister<T#2> cannot be applied to given types;
+            DeferredRegister.create(MOD_ID, Registry.ENTITY_TYPE);
+                            ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/registry/ModRegistries.java:26: error: method create in class DeferredRegister<T#2> cannot be applied to given types;
+            DeferredRegister.create(MOD_ID, Registry.SOUND_EVENT);
+                            ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/registry/ModRegistries.java:28: error: method create in class DeferredRegister<T#2> cannot be applied to given types;
+            DeferredRegister.create(MOD_ID, Registry.PARTICLE_TYPE);
+                            ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/client/ClientSetup.java:53: error: no suitable method found for register(RegistrySupplier<ParticleType<SimpleParticleType>>,UnseenPart[...]::new)
+        ParticleProviderRegistry.register(ModParticles.BY_ID.get("crystal_spark"),
                                 ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/client/ClientSetup.java:55: error: no suitable method found for register(RegistrySupplier<ParticleType<SimpleParticleType>>,UnseenPart[...]::new)
+        ParticleProviderRegistry.register(ModParticles.BY_ID.get("ember_flake"),
+                                ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/client/ClientSetup.java:57: error: no suitable method found for register(RegistrySupplier<ParticleType<SimpleParticleType>>,UnseenPart[...]::new)
+        ParticleProviderRegistry.register(ModParticles.BY_ID.get("void_mote"),
+                                ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/client/ClientSetup.java:59: error: no suitable method found for register(RegistrySupplier<ParticleType<SimpleParticleType>>,UnseenPart[...]::new)
+        ParticleProviderRegistry.register(ModParticles.BY_ID.get("spore_drift"),
+                                ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/client/ClientSetup.java:61: error: no suitable method found for register(RegistrySupplier<ParticleType<SimpleParticleType>>,UnseenPart[...]::new)
+        ParticleProviderRegistry.register(ModParticles.BY_ID.get("frost_mote"),
+                                ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/client/ClientSetup.java:63: error: no suitable method found for register(RegistrySupplier<ParticleType<SimpleParticleType>>,UnseenPart[...]::new)
+        ParticleProviderRegistry.register(ModParticles.BY_ID.get("storm_arc"),
+                                ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/client/ClientSetup.java:65: error: no suitable method found for register(RegistrySupplier<ParticleType<SimpleParticleType>>,UnseenPart[...]::new)
+        ParticleProviderRegistry.register(ModParticles.BY_ID.get("petal_burst"),
+                                ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/client/ClientSetup.java:67: error: no suitable method found for register(RegistrySupplier<ParticleType<SimpleParticleType>>,UnseenPart[...]::new)
+        ParticleProviderRegistry.register(ModParticles.BY_ID.get("heal_glow"),
+                                ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/client/particle/UnseenParticle.java:15: error: UnseenParticle is not abstract and does not override abstract method render(VertexConsumer,Camera,float) in Particle
+public class UnseenParticle extends Particle {
+       ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/client/particle/UnseenParticle.java:28: error: cannot find symbol
+        this.setSpriteFromAge(sprites);
+            ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/client/particle/UnseenParticle.java:34: error: cannot find symbol
+        this.setSpriteFromAge(this.sprites);
+            ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/block/UnseenDecorBlock.java:21: error: no suitable method found for of(no arguments)
+        BlockBehaviour.Properties properties = BlockBehaviour.Properties.of();
+                                                                        ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/block/UnseenOreBlock.java:22: error: cannot find symbol
+        BlockBehaviour.Properties properties = BlockBehaviour.Properties.of(Material.STONE).strength(3.0F, 3.0F);
+                                                                            ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/block/UnseenPlantBlock.java:23: error: no suitable method found for of(no arguments)
+        BlockBehaviour.Properties properties = BlockBehaviour.Properties.of();
+                                                                        ^
+---
+> Task :forge-1.19:compileJava FAILED
+gradle/actions: Writing build results to /home/runner/work/_temp/.gradle-actions/build-results/__run_2-1792158272714.json
+
+---
+* What went wrong:
+Execution failed for task ':forge-1.19:compileJava' (registered by plugin class 'org.gradle.api.plugins.JavaBasePlugin').
+> Compilation failed; see the compiler output below.
+---
+Execution failed for task ':forge-1.19:compileJava' (registered by plugin class 'org.gradle.api.plugins.JavaBasePlugin').
+> Compilation failed; see the compiler output below.
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/forge-1.19/src/main/java/com/biomesunseen/platform/PlatformExpectImpl.java:38: error: package net.minecraft.core.registries.BuiltInRegistries does not exist
+---
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/forge-1.19/src/main/java/com/biomesunseen/platform/PlatformExpectImpl.java:38: error: package net.minecraft.core.registries.BuiltInRegistries does not exist
+          net.minecraft.core.registries.BuiltInRegistries.ENTITY_TYPE
+                                                         ^
+---
+org.gradle.api.tasks.TaskExecutionException: Execution failed for task ':forge-1.19:compileJava' (registered by plugin class 'org.gradle.api.plugins.JavaBasePlugin').
+	at org.gradle.api.internal.tasks.execution.DefaultTaskNodeExecutor.lambda$doExecute$1(DefaultTaskNodeExecutor.java:367)
+	at org.gradle.internal.Try$Failure.ifSuccessfulOrElse(Try.java:288)
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/forge-1.19/src/main/java/com/biomesunseen/platform/PlatformExpectImpl.java:38: error: package net.minecraft.core.registries.BuiltInRegistries does not exist
+        net.minecraft.core.registries.BuiltInRegistries.ENTITY_TYPE
+                                                       ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/entity/ai/ThrottledGoal.java:24: error: cannot find symbol
+        return AiThrottle.shouldThink(mob.getId(), mob.unseenLevel().getGameTime())
+                                                      ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/entity/ai/WanderTradeGoal.java:54: error: cannot find symbol
+        if (customer != null && tradeCooldown == 390 && !mob.unseenLevel().isClientSide()) {
+                                                            ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/entity/ai/PackAttackGoal.java:33: error: method does not override or implement a method from a supertype
+    @Override
+    ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/entity/ai/PackAttackGoal.java:35: error: method checkAndPerformAttack in class MeleeAttackGoal cannot be applied to given types;
+        super.checkAndPerformAttack(target);
+             ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/entity/boss/VoidSerpentEntity.java:144: error: cannot find symbol
+                AABB box = new AABB(segmentX(i) - 2.0D, segmentY(i) - 2.0D, segmentZ(i) - 2.0D,
+                ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/entity/boss/VoidSerpentEntity.java:144: error: cannot find symbol
+                AABB box = new AABB(segmentX(i) - 2.0D, segmentY(i) - 2.0D, segmentZ(i) - 2.0D,
+                               ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/entity/boss/VoidSerpentEntity.java:158: error: cannot find symbol
+                unseenLevel().broadcastDamageEvent(target, DamageSource.mobAttack(this));
+                             ^
 ---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/entity/boss/HeartOfTheForestEntity.java:125: error: cannot find symbol
             for (Player player : unseenLevel().getNearestPlayers(this, 10.0D, 10.0D)) {
                                               ^
 ---
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/entity/boss/HeartOfTheForestEntity.java:154: error: no suitable constructor found for ItemStack(RegistrySupplier<Item>,int)
-            spawnAtLocation(new ItemStack(ModItems.TROPHIES.get("brambleback"), 3));
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/registry/ModRegistries.java:20: error: method create in class DeferredRegister<T#2> cannot be applied to given types;
+            DeferredRegister.create(MOD_ID, Registry.BLOCK);
                             ^
 ---
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/entity/boss/HeartOfTheForestEntity.java:156: error: no suitable constructor found for ItemStack(RegistrySupplier<Item>)
-                spawnAtLocation(new ItemStack(ModItems.GEAR.get("sylvanite_sword")));
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/registry/ModRegistries.java:22: error: method create in class DeferredRegister<T#2> cannot be applied to given types;
+            DeferredRegister.create(MOD_ID, Registry.ITEM);
+                            ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/registry/ModRegistries.java:24: error: method create in class DeferredRegister<T#2> cannot be applied to given types;
+            DeferredRegister.create(MOD_ID, Registry.ENTITY_TYPE);
+                            ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/registry/ModRegistries.java:26: error: method create in class DeferredRegister<T#2> cannot be applied to given types;
+            DeferredRegister.create(MOD_ID, Registry.SOUND_EVENT);
+                            ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/registry/ModRegistries.java:28: error: method create in class DeferredRegister<T#2> cannot be applied to given types;
+            DeferredRegister.create(MOD_ID, Registry.PARTICLE_TYPE);
+                            ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/client/ClientSetup.java:53: error: no suitable method found for register(RegistrySupplier<ParticleType<SimpleParticleType>>,UnseenPart[...]::new)
+        ParticleProviderRegistry.register(ModParticles.BY_ID.get("crystal_spark"),
                                 ^
 ---
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/registry/ModEntities.java:65: error: cannot find symbol
-        Lumox = ENTITIES.register("lumox", () -> EntityType.Builder.of(LumoxEntity::new, MobCategory.CREATURE)
-                ^
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/client/ClientSetup.java:55: error: no suitable method found for register(RegistrySupplier<ParticleType<SimpleParticleType>>,UnseenPart[...]::new)
+        ParticleProviderRegistry.register(ModParticles.BY_ID.get("ember_flake"),
+                                ^
 ---
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/registry/ModEntities.java:68: error: cannot find symbol
-        Brambleback = ENTITIES.register("brambleback", () -> EntityType.Builder.of(BramblebackEntity::new, MobCategory.CREATURE)
-                      ^
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/client/ClientSetup.java:57: error: no suitable method found for register(RegistrySupplier<ParticleType<SimpleParticleType>>,UnseenPart[...]::new)
+        ParticleProviderRegistry.register(ModParticles.BY_ID.get("void_mote"),
+                                ^
 ---
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/registry/ModEntities.java:71: error: cannot find symbol
-        Siltstrider = ENTITIES.register("siltstrider", () -> EntityType.Builder.of(SiltstriderEntity::new, MobCategory.CREATURE)
-                      ^
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/client/ClientSetup.java:59: error: no suitable method found for register(RegistrySupplier<ParticleType<SimpleParticleType>>,UnseenPart[...]::new)
+        ParticleProviderRegistry.register(ModParticles.BY_ID.get("spore_drift"),
+                                ^
 ---
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/registry/ModEntities.java:74: error: cannot find symbol
-        Glimmermoth = ENTITIES.register("glimmermoth", () -> EntityType.Builder.of(GlimmermothEntity::new, MobCategory.CREATURE)
-                      ^
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/client/ClientSetup.java:61: error: no suitable method found for register(RegistrySupplier<ParticleType<SimpleParticleType>>,UnseenPart[...]::new)
+        ParticleProviderRegistry.register(ModParticles.BY_ID.get("frost_mote"),
+                                ^
 ---
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/registry/ModEntities.java:77: error: cannot find symbol
-        PeatHopper = ENTITIES.register("peat_hopper", () -> EntityType.Builder.of(PeatHopperEntity::new, MobCategory.CREATURE)
-                     ^
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/client/ClientSetup.java:63: error: no suitable method found for register(RegistrySupplier<ParticleType<SimpleParticleType>>,UnseenPart[...]::new)
+        ParticleProviderRegistry.register(ModParticles.BY_ID.get("storm_arc"),
+                                ^
 ---
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/registry/ModEntities.java:80: error: cannot find symbol
-        EmberCalf = ENTITIES.register("ember_calf", () -> EntityType.Builder.of(EmberCalfEntity::new, MobCategory.CREATURE)
-                    ^
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/client/ClientSetup.java:65: error: no suitable method found for register(RegistrySupplier<ParticleType<SimpleParticleType>>,UnseenPart[...]::new)
+        ParticleProviderRegistry.register(ModParticles.BY_ID.get("petal_burst"),
+                                ^
 ---
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/registry/ModEntities.java:83: error: cannot find symbol
-        FrostFawn = ENTITIES.register("frost_fawn", () -> EntityType.Builder.of(FrostFawnEntity::new, MobCategory.CREATURE)
-                    ^
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/client/ClientSetup.java:67: error: no suitable method found for register(RegistrySupplier<ParticleType<SimpleParticleType>>,UnseenPart[...]::new)
+        ParticleProviderRegistry.register(ModParticles.BY_ID.get("heal_glow"),
+                                ^
 ---
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/registry/ModEntities.java:86: error: cannot find symbol
-        Murkling = ENTITIES.register("murkling", () -> EntityType.Builder.of(MurklingEntity::new, MobCategory.MONSTER)
-                   ^
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/client/particle/UnseenParticle.java:15: error: UnseenParticle is not abstract and does not override abstract method render(VertexConsumer,Camera,float) in Particle
+public class UnseenParticle extends Particle {
+       ^
 ---
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/registry/ModEntities.java:89: error: cannot find symbol
-        SporeSprout = ENTITIES.register("spore_sprout", () -> EntityType.Builder.of(SporeSproutEntity::new, MobCategory.CREATURE)
-                      ^
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/client/particle/UnseenParticle.java:28: error: cannot find symbol
+        this.setSpriteFromAge(sprites);
+            ^
 ---
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/registry/ModEntities.java:92: error: cannot find symbol
-        Skywisp = ENTITIES.register("skywisp", () -> EntityType.Builder.of(SkywispEntity::new, MobCategory.CREATURE)
-                  ^
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/client/particle/UnseenParticle.java:34: error: cannot find symbol
+        this.setSpriteFromAge(this.sprites);
+            ^
 ---
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/registry/ModEntities.java:95: error: cannot find symbol
-        ThunderRam = ENTITIES.register("thunder_ram", () -> EntityType.Builder.of(ThunderRamEntity::new, MobCategory.CREATURE)
-                     ^
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/block/UnseenDecorBlock.java:21: error: no suitable method found for of(no arguments)
+        BlockBehaviour.Properties properties = BlockBehaviour.Properties.of();
+                                                                        ^
 ---
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/registry/ModEntities.java:98: error: cannot find symbol
-        Mosshorn = ENTITIES.register("mosshorn", () -> EntityType.Builder.of(MosshornEntity::new, MobCategory.CREATURE)
-                   ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/registry/ModEntities.java:101: error: cannot find symbol
-        CinderPup = ENTITIES.register("cinder_pup", () -> EntityType.Builder.of(CinderPupEntity::new, MobCategory.CREATURE)
-                    ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/registry/ModEntities.java:104: error: cannot find symbol
-        EchoHowler = ENTITIES.register("echo_howler", () -> EntityType.Builder.of(EchoHowlerEntity::new, MobCategory.MONSTER)
-                     ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/registry/ModEntities.java:107: error: cannot find symbol
-        DuneSkimmer = ENTITIES.register("dune_skimmer", () -> EntityType.Builder.of(DuneSkimmerEntity::new, MobCategory.CREATURE)
-                      ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/registry/ModEntities.java:110: error: cannot find symbol
-        TideCaller = ENTITIES.register("tide_caller", () -> EntityType.Builder.of(TideCallerEntity::new, MobCategory.CREATURE)
-                     ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/registry/ModEntities.java:113: error: cannot find symbol
-        GloomStalker = ENTITIES.register("gloom_stalker", () -> EntityType.Builder.of(GloomStalkerEntity::new, MobCategory.MONSTER)
-                       ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/registry/ModEntities.java:116: error: cannot find symbol
-        CrystalHermit = ENTITIES.register("crystal_hermit", () -> EntityType.Builder.of(CrystalHermitEntity::new, MobCategory.CREATURE)
-                        ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/registry/ModEntities.java:119: error: cannot find symbol
-        WindDancer = ENTITIES.register("wind_dancer", () -> EntityType.Builder.of(WindDancerEntity::new, MobCategory.CREATURE)
-                     ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/registry/ModEntities.java:122: error: cannot find symbol
-        MireGolem = ENTITIES.register("mire_golem", () -> EntityType.Builder.of(MireGolemEntity::new, MobCategory.CREATURE)
-                    ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/registry/ModEntities.java:125: error: cannot find symbol
-        LanternFox = ENTITIES.register("lantern_fox", () -> EntityType.Builder.of(LanternFoxEntity::new, MobCategory.CREATURE)
-                     ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/registry/ModEntities.java:128: error: cannot find symbol
-        ReefGrazer = ENTITIES.register("reef_grazer", () -> EntityType.Builder.of(ReefGrazerEntity::new, MobCategory.CREATURE)
-                     ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/registry/ModEntities.java:131: error: cannot find symbol
-        AshCrawler = ENTITIES.register("ash_crawler", () -> EntityType.Builder.of(AshCrawlerEntity::new, MobCategory.MONSTER)
-                     ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/registry/ModEntities.java:134: error: cannot find symbol
-        StarWhale = ENTITIES.register("star_whale", () -> EntityType.Builder.of(StarWhaleEntity::new, MobCategory.CREATURE)
-                    ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/registry/ModEntities.java:137: error: cannot find symbol
-        PetalWing = ENTITIES.register("petal_wing", () -> EntityType.Builder.of(PetalWingEntity::new, MobCategory.CREATURE)
-                    ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/registry/ModEntities.java:140: error: cannot find symbol
-        HeartOfTheForest = ENTITIES.register("heart_of_the_forest", () -> EntityType.Builder.of(HeartOfTheForestEntity::new, MobCategory.MONSTER)
-                           ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/registry/ModEntities.java:143: error: cannot find symbol
-        VoidSerpent = ENTITIES.register("void_serpent", () -> EntityType.Builder.of(VoidSerpentEntity::new, MobCategory.MONSTER)
-                      ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/registry/ModBlocks.java:39: error: package ModRegistry does not exist
-            ORES.put(ore.id, ModRegistry.BLOCK_REGISTRYS.register(ore.id + "_ore",
-                                        ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/registry/ModBlocks.java:44: error: package ModRegistry does not exist
-            DECOR.put(decor.id, ModRegistry.BLOCK_REGISTRYS.register(decor.id,
-                                           ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/registry/ModBlocks.java:49: error: package ModRegistry does not exist
-            PLANTS.put(plant.id, ModRegistry.BLOCK_REGISTRYS.register(plant.id,
-                                            ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/registry/ModItems.java:87: error: package ModRegistry does not exist
-        UNSEEN_SIGIL = track(ModRegistry.ITEM_REGISTRYS.register("unseen_sigil",
-                                        ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/registry/ModItems.java:92: error: package ModRegistry does not exist
-            track(ModRegistry.ITEM_REGISTRYS.register(block.getId().getPath(),
-                             ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/registry/ModItems.java:96: error: package ModRegistry does not exist
-            track(ModRegistry.ITEM_REGISTRYS.register(block.getId().getPath(),
-                             ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/registry/ModItems.java:100: error: package ModRegistry does not exist
-            track(ModRegistry.ITEM_REGISTRYS.register(block.getId().getPath(),
-                             ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/registry/ModItems.java:107: error: package ModRegistry does not exist
-            RegistrySupplier<Item> mineral = track(ModRegistry.ITEM_REGISTRYS.register(ore.id,
-                                                              ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/registry/ModItems.java:114: error: package ModRegistry does not exist
-            GEAR.put(ore.id + "_pickaxe", track(ModRegistry.ITEM_REGISTRYS.register(
-                                                           ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/registry/ModItems.java:118: error: package ModRegistry does not exist
-            GEAR.put(ore.id + "_sword", track(ModRegistry.ITEM_REGISTRYS.register(
-                                                         ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/registry/ModItems.java:122: error: package ModRegistry does not exist
-            GEAR.put(ore.id + "_helmet", track(ModRegistry.ITEM_REGISTRYS.register(
-                                                          ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/registry/ModItems.java:126: error: package ModRegistry does not exist
-            GEAR.put(ore.id + "_chestplate", track(ModRegistry.ITEM_REGISTRYS.register(
-                                                              ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/registry/ModItems.java:130: error: package ModRegistry does not exist
-            GEAR.put(ore.id + "_leggings", track(ModRegistry.ITEM_REGISTRYS.register(
-                                                            ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/registry/ModItems.java:134: error: package ModRegistry does not exist
-            GEAR.put(ore.id + "_boots", track(ModRegistry.ITEM_REGISTRYS.register(
-                                                         ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/registry/ModItems.java:138: error: package ModRegistry does not exist
-            TONICS.put(ore.id, track(ModRegistry.ITEM_REGISTRYS.register(
-                                                ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/registry/ModItems.java:146: error: package ModRegistry does not exist
-            MACHINE_CORES.put(tier, track(ModRegistry.ITEM_REGISTRYS.register(
-                                                     ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/registry/ModItems.java:156: error: package ModRegistry does not exist
-            SPAWN_EGGS.put(mobId, track(ModRegistry.ITEM_REGISTRYS.register(
-                                                   ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/registry/ModItems.java:165: error: package ModRegistry does not exist
-            SPAWN_EGGS.put(bossId, track(ModRegistry.ITEM_REGISTRYS.register(
-                                                    ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/registry/ModItems.java:177: error: package ModRegistry does not exist
-            LORE_BOOKS.put(theme, track(ModRegistry.ITEM_REGISTRYS.register(
-                                                   ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/registry/ModItems.java:186: error: package ModRegistry does not exist
-            TROPHIES.put(mobId, track(ModRegistry.ITEM_REGISTRYS.register(
-                                                 ^
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/block/UnseenOreBlock.java:22: error: cannot find symbol
+        BlockBehaviour.Properties properties = BlockBehaviour.Properties.of(Material.STONE).strength(3.0F, 3.0F);
+                                                                            ^
 ---
 === STACKTRACE ===
 Caused by: org.gradle.api.internal.tasks.compile.CompilationFailedException: Compilation failed; see the compiler output below.
@@ -244,13 +244,14 @@ Caused by: org.gradle.api.internal.tasks.compile.CompilationFailedException: Com
 * What went wrong:
 Execution failed for task ':forge-1.19:compileJava' (registered by plugin class 'org.gradle.api.plugins.JavaBasePlugin').
 > Compilation failed; see the compiler output below.
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/forge-1.19/src/main/java/com/biomesunseen/platform/PlatformExpectImpl.java:38: error: package net.minecraft.core.registries.BuiltInRegistry does not exist
-          net.minecraft.core.registries.BuiltInRegistry.ENTITY_TYPE_REGISTRY
-                                                       ^
-  79 errors
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/forge-1.19/src/main/java/com/biomesunseen/platform/PlatformExpectImpl.java:38: error: package net.minecraft.core.registries.BuiltInRegistries does not exist
+          net.minecraft.core.registries.BuiltInRegistries.ENTITY_TYPE
+                                                         ^
+  28 errors
 
 * Try:
 === LAST 40 ===
+    method Properties.of(Material,DyeColor) is not applicable
       (actual and formal argument lists differ in length)
     method Properties.of(Material,MaterialColor) is not applicable
       (actual and formal argument lists differ in length)
@@ -260,8 +261,7 @@ Note: Some input files use or override a deprecated API.
 Note: Recompile with -Xlint:deprecation for details.
 Note: Some input files use unchecked or unsafe operations.
 Note: Recompile with -Xlint:unchecked for details.
-Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
-79 errors
+28 errors
 	at org.gradle.api.internal.tasks.compile.JdkJavaCompiler.execute(JdkJavaCompiler.java:88)
 	at org.gradle.api.internal.tasks.compile.JdkJavaCompiler.execute(JdkJavaCompiler.java:49)
 	at org.gradle.api.internal.tasks.compile.daemon.CompilerWorkAction.execute(CompilerWorkAction.java:52)
@@ -289,5 +289,5 @@ Note: Some messages have been simplified; recompile with -Xdiags:verbose to get 
 	at org.gradle.internal.concurrent.AbstractManagedExecutor$1.run(AbstractManagedExecutor.java:47)
 
 
-BUILD FAILED in 2m 8s
+BUILD FAILED in 2m 1s
 1 actionable task: 1 executed

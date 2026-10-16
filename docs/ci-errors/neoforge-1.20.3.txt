@@ -1,68 +1,157 @@
-* What went wrong:
-A problem occurred configuring project ':neoforge-1.20.3'.
-> Failed to setup Minecraft, java.lang.RuntimeException: Failed to provide net.neoforged:neoforge:20.3.+ : java.lang.RuntimeException: Could not resolve Forge userdev
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/neoforge-1.20.3/src/main/java/com/biomesunseen/platform/PlatformExpectImpl.java:39: error: method register in class SpawnPlacements cannot be applied to given types;
+                .ifPresent(resolved -> net.minecraft.world.entity.SpawnPlacements.register(
+                                                                                 ^
 ---
-BUILD FAILED in 46s
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/neoforge-1.20.3/src/main/java/com/biomesunseen/platform/PlatformExpectImpl.java:70: error: cannot find symbol
+        return net.neoforged.neoforgespi.language.ModList.get().isLoaded(modId);
+                                                 ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.20.2/java/com/biomesunseen/entity/ai/ThrottledGoal.java:24: error: cannot find symbol
+        return AiThrottle.shouldThink(mob.getId(), mob.unseenLevel().getGameTime())
+                                                      ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.20.2/java/com/biomesunseen/entity/ai/WanderTradeGoal.java:54: error: cannot find symbol
+        if (customer != null && tradeCooldown == 390 && !mob.unseenLevel().isClientSide()) {
+                                                            ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.20.2/java/com/biomesunseen/entity/boss/VoidSerpentEntity.java:144: error: cannot find symbol
+                net.minecraft.world.phys.AABB box = new AABB(segmentX(i) - 2.0D, segmentY(i) - 2.0D, segmentZ(i) - 2.0D,
+                                                        ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.20.2/java/com/biomesunseen/entity/boss/HeartOfTheForestEntity.java:125: error: cannot find symbol
+            for (Player player : unseenLevel().getNearestPlayers(this, 10.0D, 10.0D)) {
+                                              ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.20.2/java/com/biomesunseen/client/particle/UnseenParticle.java:15: error: UnseenParticle is not abstract and does not override abstract method render(VertexConsumer,Camera,float) in Particle
+public class UnseenParticle extends Particle {
+       ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.20.2/java/com/biomesunseen/client/particle/UnseenParticle.java:28: error: cannot find symbol
+        this.setSpriteFromAge(sprites);
+            ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.20.2/java/com/biomesunseen/client/particle/UnseenParticle.java:34: error: cannot find symbol
+        this.setSpriteFromAge(this.sprites);
+            ^
+---
+> Task :neoforge-1.20.3:compileJava FAILED
+gradle/actions: Writing build results to /home/runner/work/_temp/.gradle-actions/build-results/__run_2-1792158741116.json
+
+---
+* What went wrong:
+Execution failed for task ':neoforge-1.20.3:compileJava' (registered by plugin class 'org.gradle.api.plugins.JavaBasePlugin').
+> Compilation failed; see the compiler output below.
+---
+Execution failed for task ':neoforge-1.20.3:compileJava' (registered by plugin class 'org.gradle.api.plugins.JavaBasePlugin').
+> Compilation failed; see the compiler output below.
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/neoforge-1.20.3/src/main/java/com/biomesunseen/platform/PlatformExpectImpl.java:39: error: method register in class SpawnPlacements cannot be applied to given types;
+---
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/neoforge-1.20.3/src/main/java/com/biomesunseen/platform/PlatformExpectImpl.java:39: error: method register in class SpawnPlacements cannot be applied to given types;
+                  .ifPresent(resolved -> net.minecraft.world.entity.SpawnPlacements.register(
+                                                                                   ^
+---
+org.gradle.api.tasks.TaskExecutionException: Execution failed for task ':neoforge-1.20.3:compileJava' (registered by plugin class 'org.gradle.api.plugins.JavaBasePlugin').
+	at org.gradle.api.internal.tasks.execution.DefaultTaskNodeExecutor.lambda$doExecute$1(DefaultTaskNodeExecutor.java:367)
+	at org.gradle.internal.Try$Failure.ifSuccessfulOrElse(Try.java:288)
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/neoforge-1.20.3/src/main/java/com/biomesunseen/platform/PlatformExpectImpl.java:39: error: method register in class SpawnPlacements cannot be applied to given types;
+                .ifPresent(resolved -> net.minecraft.world.entity.SpawnPlacements.register(
+                                                                                 ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/neoforge-1.20.3/src/main/java/com/biomesunseen/platform/PlatformExpectImpl.java:70: error: cannot find symbol
+        return net.neoforged.neoforgespi.language.ModList.get().isLoaded(modId);
+                                                 ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.20.2/java/com/biomesunseen/entity/ai/ThrottledGoal.java:24: error: cannot find symbol
+        return AiThrottle.shouldThink(mob.getId(), mob.unseenLevel().getGameTime())
+                                                      ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.20.2/java/com/biomesunseen/entity/ai/WanderTradeGoal.java:54: error: cannot find symbol
+        if (customer != null && tradeCooldown == 390 && !mob.unseenLevel().isClientSide()) {
+                                                            ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.20.2/java/com/biomesunseen/entity/boss/VoidSerpentEntity.java:144: error: cannot find symbol
+                net.minecraft.world.phys.AABB box = new AABB(segmentX(i) - 2.0D, segmentY(i) - 2.0D, segmentZ(i) - 2.0D,
+                                                        ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.20.2/java/com/biomesunseen/entity/boss/HeartOfTheForestEntity.java:125: error: cannot find symbol
+            for (Player player : unseenLevel().getNearestPlayers(this, 10.0D, 10.0D)) {
+                                              ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.20.2/java/com/biomesunseen/client/particle/UnseenParticle.java:15: error: UnseenParticle is not abstract and does not override abstract method render(VertexConsumer,Camera,float) in Particle
+public class UnseenParticle extends Particle {
+       ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.20.2/java/com/biomesunseen/client/particle/UnseenParticle.java:28: error: cannot find symbol
+        this.setSpriteFromAge(sprites);
+            ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.20.2/java/com/biomesunseen/client/particle/UnseenParticle.java:34: error: cannot find symbol
+        this.setSpriteFromAge(this.sprites);
+            ^
+---
+BUILD FAILED in 2m 3s
+1 actionable task: 1 executed
 ---
 === STACKTRACE ===
-Caused by: java.lang.RuntimeException: Failed to setup Minecraft, java.lang.RuntimeException: Failed to provide net.neoforged:neoforge:20.3.+ : java.lang.RuntimeException: Could not resolve Forge userdev
-	at net.fabricmc.loom.util.ExceptionUtil.createDescriptiveWrapper(ExceptionUtil.java:59)
-	at net.fabricmc.loom.configuration.CompileConfiguration.lambda$run$1(CompileConfiguration.java:152)
-	at net.fabricmc.loom.configuration.CompileConfiguration.lambda$afterEvaluationWithService$0(CompileConfiguration.java:617)
-	at net.fabricmc.loom.util.gradle.GradleUtils.lambda$afterSuccessfulEvaluation$0(GradleUtils.java:51)
-Caused by: java.lang.RuntimeException: Failed to provide net.neoforged:neoforge:20.3.+ : java.lang.RuntimeException: Could not resolve Forge userdev
-	at dev.architectury.loom.forge.dependency.DependencyProviders.handleDependencies(DependencyProviders.java:111)
-	at net.fabricmc.loom.configuration.CompileConfiguration.setupDependencyProviders(CompileConfiguration.java:611)
-	at net.fabricmc.loom.configuration.CompileConfiguration.setupMinecraft(CompileConfiguration.java:253)
-	at net.fabricmc.loom.configuration.CompileConfiguration.lambda$run$1(CompileConfiguration.java:144)
-Caused by: java.lang.RuntimeException: Could not resolve Forge userdev
-	at dev.architectury.loom.forge.dependency.ForgeUserdevProvider.lambda$provide$0(ForgeUserdevProvider.java:60)
-	at dev.architectury.loom.forge.dependency.ForgeUserdevProvider.provide(ForgeUserdevProvider.java:60)
-	at dev.architectury.loom.forge.dependency.DependencyProviders.handleDependencies(DependencyProviders.java:109)
+Caused by: org.gradle.api.internal.tasks.compile.CompilationFailedException: Compilation failed; see the compiler output below.
 === WHAT WENT WRONG ===
 * What went wrong:
-A problem occurred configuring project ':neoforge-1.20.3'.
-> Failed to setup Minecraft, java.lang.RuntimeException: Failed to provide net.neoforged:neoforge:20.3.+ : java.lang.RuntimeException: Could not resolve Forge userdev
+Execution failed for task ':neoforge-1.20.3:compileJava' (registered by plugin class 'org.gradle.api.plugins.JavaBasePlugin').
+> Compilation failed; see the compiler output below.
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/neoforge-1.20.3/src/main/java/com/biomesunseen/platform/PlatformExpectImpl.java:39: error: method register in class SpawnPlacements cannot be applied to given types;
+                  .ifPresent(resolved -> net.minecraft.world.entity.SpawnPlacements.register(
+                                                                                   ^
+    required: EntityType<T>,Type,Types,SpawnPredicate<T>
+    found:    EntityType<CAP#1>,Type,Types,net.minecr[...]Rules
+    reason: inference variable T has incompatible bounds
+      equality constraints: CAP#1
+      lower bounds: Mob
+    where T is a type-variable:
+      T extends Mob declared in method <T>register(EntityType<T>,Type,Types,SpawnPredicate<T>)
+    where CAP#1 is a fresh type-variable:
+      CAP#1 extends Entity from capture of ?
+  9 errors
 
 * Try:
 === LAST 40 ===
-	at org.gradle.internal.operations.DefaultBuildOperationRunner$1.execute(DefaultBuildOperationRunner.java:30)
-	at org.gradle.internal.operations.DefaultBuildOperationRunner$1.execute(DefaultBuildOperationRunner.java:27)
-	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:67)
-	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:60)
-	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:167)
-	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:60)
-	at org.gradle.internal.operations.DefaultBuildOperationRunner.run(DefaultBuildOperationRunner.java:48)
-	at org.gradle.configuration.internal.DefaultListenerBuildOperationDecorator$BuildOperationEmittingAction.execute(DefaultListenerBuildOperationDecorator.java:170)
-	at org.gradle.internal.event.BroadcastDispatch$ActionInvocationHandler.dispatch(BroadcastDispatch.java:101)
-	at org.gradle.internal.event.BroadcastDispatch$ActionInvocationHandler.dispatch(BroadcastDispatch.java:89)
-	at org.gradle.internal.event.AbstractBroadcastDispatch.dispatch(AbstractBroadcastDispatch.java:44)
-	at org.gradle.internal.event.BroadcastDispatch$SingletonDispatch.dispatch(BroadcastDispatch.java:270)
-	at org.gradle.internal.event.BroadcastDispatch$SingletonDispatch.dispatch(BroadcastDispatch.java:172)
-	at org.gradle.internal.event.AbstractBroadcastDispatch.dispatch(AbstractBroadcastDispatch.java:84)
-	at org.gradle.internal.event.AbstractBroadcastDispatch.dispatch(AbstractBroadcastDispatch.java:70)
-	at org.gradle.internal.event.BroadcastDispatch$CompositeDispatch.dispatch(BroadcastDispatch.java:382)
-	at org.gradle.internal.event.BroadcastDispatch$CompositeDispatch.dispatch(BroadcastDispatch.java:274)
-	at org.gradle.internal.event.ListenerBroadcast.dispatch(ListenerBroadcast.java:160)
-	at org.gradle.internal.event.ListenerBroadcast.dispatch(ListenerBroadcast.java:37)
-	at org.gradle.internal.dispatch.ProxyDispatchAdapter$DispatchingInvocationHandler.invoke(ProxyDispatchAdapter.java:88)
-	at jdk.proxy1/jdk.proxy1.$Proxy73.afterEvaluate(Unknown Source)
-	at org.gradle.configuration.project.LifecycleProjectEvaluator$NotifyAfterEvaluate$1.execute(LifecycleProjectEvaluator.java:247)
-	at org.gradle.configuration.project.LifecycleProjectEvaluator$NotifyAfterEvaluate$1.execute(LifecycleProjectEvaluator.java:244)
-	at org.gradle.api.internal.project.DefaultProject.stepEvaluationListener(DefaultProject.java:1525)
-	at org.gradle.configuration.project.LifecycleProjectEvaluator$NotifyAfterEvaluate.run(LifecycleProjectEvaluator.java:253)
-	... 164 more
-Caused by: java.lang.RuntimeException: Failed to provide net.neoforged:neoforge:20.3.+ : java.lang.RuntimeException: Could not resolve Forge userdev
-	at dev.architectury.loom.forge.dependency.DependencyProviders.handleDependencies(DependencyProviders.java:111)
-	at net.fabricmc.loom.configuration.CompileConfiguration.setupDependencyProviders(CompileConfiguration.java:611)
-	at net.fabricmc.loom.configuration.CompileConfiguration.setupMinecraft(CompileConfiguration.java:253)
-	at net.fabricmc.loom.configuration.CompileConfiguration.lambda$run$1(CompileConfiguration.java:144)
-	... 193 more
-Caused by: java.lang.RuntimeException: Could not resolve Forge userdev
-	at dev.architectury.loom.forge.dependency.ForgeUserdevProvider.lambda$provide$0(ForgeUserdevProvider.java:60)
-	at dev.architectury.loom.forge.dependency.ForgeUserdevProvider.provide(ForgeUserdevProvider.java:60)
-	at dev.architectury.loom.forge.dependency.DependencyProviders.handleDependencies(DependencyProviders.java:109)
-	... 196 more
+            ^
+  symbol: method setSpriteFromAge(SpriteSet)
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.20.2/java/com/biomesunseen/client/particle/UnseenParticle.java:34: error: cannot find symbol
+        this.setSpriteFromAge(this.sprites);
+            ^
+  symbol: method setSpriteFromAge(SpriteSet)
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: Some input files use unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+9 errors
+	at org.gradle.api.internal.tasks.compile.JdkJavaCompiler.execute(JdkJavaCompiler.java:88)
+	at org.gradle.api.internal.tasks.compile.JdkJavaCompiler.execute(JdkJavaCompiler.java:49)
+	at org.gradle.api.internal.tasks.compile.daemon.CompilerWorkAction.execute(CompilerWorkAction.java:52)
+	at org.gradle.workers.internal.DefaultWorkerServer.execute(DefaultWorkerServer.java:68)
+	at org.gradle.workers.internal.AbstractClassLoaderWorker$1.create(AbstractClassLoaderWorker.java:54)
+	at org.gradle.workers.internal.AbstractClassLoaderWorker$1.create(AbstractClassLoaderWorker.java:48)
+	at org.gradle.internal.classloader.ClassLoaderUtils.executeInClassloader(ClassLoaderUtils.java:103)
+	at org.gradle.workers.internal.AbstractClassLoaderWorker.executeInClassLoader(AbstractClassLoaderWorker.java:48)
+	at org.gradle.workers.internal.FlatClassLoaderWorker.run(FlatClassLoaderWorker.java:32)
+	at org.gradle.workers.internal.FlatClassLoaderWorker.run(FlatClassLoaderWorker.java:22)
+	at org.gradle.workers.internal.WorkerDaemonServer.run(WorkerDaemonServer.java:109)
+	at org.gradle.workers.internal.WorkerDaemonServer.run(WorkerDaemonServer.java:78)
+	at org.gradle.process.internal.worker.request.WorkerAction.lambda$run$1(WorkerAction.java:150)
+	at org.gradle.process.internal.worker.child.WorkerLogEventListener.withWorkerLoggingProtocol(WorkerLogEventListener.java:41)
+	at org.gradle.process.internal.worker.request.WorkerAction.lambda$run$0(WorkerAction.java:150)
+	at org.gradle.internal.operations.CurrentBuildOperationRef.with(CurrentBuildOperationRef.java:85)
+	at org.gradle.process.internal.worker.request.WorkerAction.run(WorkerAction.java:142)
+	at org.gradle.internal.dispatch.MethodInvocation.invokeOn(MethodInvocation.java:77)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:28)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:19)
+	at org.gradle.internal.remote.internal.hub.MessageHubBackedObjectConnection$DispatchWrapper.dispatch(MessageHubBackedObjectConnection.java:183)
+	at org.gradle.internal.remote.internal.hub.MessageHubBackedObjectConnection$DispatchWrapper.dispatch(MessageHubBackedObjectConnection.java:165)
+	at org.gradle.internal.remote.internal.hub.MessageHub$Handler.run(MessageHub.java:414)
+	at org.gradle.internal.concurrent.ExecutorPolicy$CatchAndRecordFailures.onExecute(ExecutorPolicy.java:65)
+	at org.gradle.internal.concurrent.AbstractManagedExecutor$1.run(AbstractManagedExecutor.java:47)
 
 
-BUILD FAILED in 46s
+BUILD FAILED in 2m 3s
+1 actionable task: 1 executed
