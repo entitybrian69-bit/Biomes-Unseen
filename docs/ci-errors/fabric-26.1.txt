@@ -2,5 +2,5 @@
 A problem occurred configuring project ':fabric-26.1'.
 > Failed to setup Minecraft, java.lang.RuntimeException: Failed to find official mojang mappings for 26.1
 ---
-BUILD FAILED in 33s
+BUILD FAILED in 37s
 ---

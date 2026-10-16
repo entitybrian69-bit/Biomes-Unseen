@@ -14,10 +14,6 @@
             net.minecraft.util.math.BlockPos center, String soundEventId, int radius) {
                                    ^
 ---
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.16.5/java/com/biomesunseen/entity/BiomesUnseenMob.java:5: error: cannot find symbol
-import net.minecraft.world.entity.ai.attributes.AttributeModifierMap;
-                                               ^
----
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.16.5/java/com/biomesunseen/entity/BiomesUnseenMob.java:58: error: variable unseenLevelField is already defined in class com.biomesunseen.entity.BiomesUnseenMob
     private static java.lang.reflect.Field unseenLevelField;
                                            ^
@@ -156,5 +152,9 @@ import net.minecraft.client.model.geom.builders.CubeListBuilder;
 ---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.16.5/java/com/biomesunseen/client/legacy/UnseenLegacyModel.java:10: error: package net.minecraft.client.model.geom.builders does not exist
 import net.minecraft.client.model.geom.builders.LayerDefinition;
+                                               ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.16.5/java/com/biomesunseen/client/legacy/UnseenLegacyModel.java:11: error: package net.minecraft.client.model.geom.builders does not exist
+import net.minecraft.client.model.geom.builders.MeshDefinition;
                                                ^
 ---

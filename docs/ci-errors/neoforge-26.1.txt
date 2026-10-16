@@ -2,5 +2,5 @@
 A problem occurred configuring project ':neoforge-26.1'.
 > Failed to notify project evaluation listener.
 ---
-BUILD FAILED in 38s
+BUILD FAILED in 30s
 ---

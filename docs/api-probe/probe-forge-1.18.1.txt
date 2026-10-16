@@ -14,4 +14,4 @@ A problem occurred configuring project ':forge-1.18.1'.
 > Run with --scan to get full insights from a Build Scan (powered by Develocity).
 > Get more help at https://help.gradle.org.
 
-BUILD FAILED in 1m 57s
+BUILD FAILED in 1m 49s
