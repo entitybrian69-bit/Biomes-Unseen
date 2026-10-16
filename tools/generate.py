@@ -103,6 +103,12 @@ LEGACY_MOJANG_FQN = [
     ("net.minecraft.network.syncher.DataSerializers", "net.minecraft.network.syncher.EntityDataSerializers"),
     ("net.minecraft.network.syncher.EntityDataManager", "net.minecraft.network.syncher.SynchedEntityData"),
     ("net.minecraft.network.chat.StringTextComponent", "net.minecraft.network.chat.TextComponent"),
+    ("net.minecraft.world.server.ServerWorld", "net.minecraft.server.level.ServerLevel"),
+    ("net.minecraft.world.server.", "net.minecraft.server.level."),
+    ("net.minecraft.entity.ai.attributes.AttributeModifierMap.MutableAttribute",
+     "net.minecraft.world.entity.ai.attributes.AttributeSupplier.Builder"),
+    ("net.minecraft.entity.ai.attributes.AttributeModifierMap",
+     "net.minecraft.world.entity.ai.attributes.AttributeSupplier"),
     ("net.minecraft.network.chat.contents.LiteralContents", "net.minecraft.network.chat.TextComponent"),
     ("Component.literal(", "new net.minecraft.network.chat.TextComponent("),
     ("Component.translatable(", "new net.minecraft.network.chat.TranslatableComponent("),
@@ -132,6 +138,9 @@ LEGACY_MOJANG_ID = [
     (r"\bRegistryKey\b", "ResourceKey"),
     (r"\bTranslationTextComponent\b", "TranslatableComponent"),
     (r"\bStringTextComponent\b", "TextComponent"),
+    (r"\bServerWorld\b", "ServerLevel"),
+    (r"\bAttributeModifierMap\.MutableAttribute\b", "AttributeSupplier.Builder"),
+    (r"\bAttributeModifierMap\b", "AttributeSupplier"),
 ]
 
 # net.minecraft.core.registries.Registries arrived in 1.19.3; older lines use
