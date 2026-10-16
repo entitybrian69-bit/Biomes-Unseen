@@ -3,125 +3,47 @@ not a neoforge module, nothing to pin
 === MODULE PROPERTIES ===
 minecraft_version=1.17.1
 architectury_version=3.6.18
-> Task :fabric-1.17.1:compileJava FAILED
-gradle/actions: Writing build results to /home/runner/work/_temp/.gradle-actions/build-results/__run-1792177858118.json
-
-FAILURE: Build failed with an exception.
-
-* What went wrong:
-Execution failed for task ':fabric-1.17.1:compileJava' (registered by plugin class 'org.gradle.api.plugins.JavaBasePlugin').
----
-* What went wrong:
-Execution failed for task ':fabric-1.17.1:compileJava' (registered by plugin class 'org.gradle.api.plugins.JavaBasePlugin').
-> Could not resolve all files for configuration ':fabric-1.17.1:compileClasspath'.
-   > Could not find org.lwjgl:lwjgl:3.2.2.
-     Searched in the following locations:
-       - https://repo.maven.apache.org/maven2/org/lwjgl/lwjgl/3.2.2/lwjgl-3.2.2.pom
-     Required by:
----
-Execution failed for task ':fabric-1.17.1:compileJava' (registered by plugin class 'org.gradle.api.plugins.JavaBasePlugin').
-> Could not resolve all files for configuration ':fabric-1.17.1:compileClasspath'.
-   > Could not find org.lwjgl:lwjgl:3.2.2.
-     Searched in the following locations:
-       - https://repo.maven.apache.org/maven2/org/lwjgl/lwjgl/3.2.2/lwjgl-3.2.2.pom
-     Required by:
-         project ':fabric-1.17.1'
----
-org.gradle.api.tasks.TaskExecutionException: Execution failed for task ':fabric-1.17.1:compileJava' (registered by plugin class 'org.gradle.api.plugins.JavaBasePlugin').
-	at org.gradle.api.internal.tasks.execution.DefaultTaskNodeExecutor.executeCatchingFailures(DefaultTaskNodeExecutor.java:231)
-	at org.gradle.api.internal.tasks.execution.DefaultTaskNodeExecutor.executeWithFallbackOperationId(DefaultTaskNodeExecutor.java:197)
-	at org.gradle.api.internal.tasks.execution.DefaultTaskNodeExecutor.executeWithLifecycle(DefaultTaskNodeExecutor.java:171)
-	at org.gradle.api.internal.tasks.execution.DefaultTaskNodeExecutor.access$000(DefaultTaskNodeExecutor.java:67)
-	at org.gradle.api.internal.tasks.execution.DefaultTaskNodeExecutor$1.run(DefaultTaskNodeExecutor.java:136)
-	at org.gradle.internal.operations.DefaultBuildOperationRunner$1.execute(DefaultBuildOperationRunner.java:30)
----
-BUILD FAILED in 59s
-1 actionable task: 1 executed
----
 === CONFIG DIAGNOSTICS ===
-21:> Could not resolve all files for configuration ':fabric-1.17.1:compileClasspath'.
-87:Caused by: org.gradle.api.internal.artifacts.ivyservice.TypedResolveException: Could not resolve all files for configuration ':fabric-1.17.1:compileClasspath'.
 === STACKTRACE ===
-Caused by: org.gradle.api.internal.artifacts.ivyservice.TypedResolveException: Could not resolve all files for configuration ':fabric-1.17.1:compileClasspath'.
 === WHAT WENT WRONG ===
-* What went wrong:
-Execution failed for task ':fabric-1.17.1:compileJava' (registered by plugin class 'org.gradle.api.plugins.JavaBasePlugin').
-> Could not resolve all files for configuration ':fabric-1.17.1:compileClasspath'.
-   > Could not find org.lwjgl:lwjgl:3.2.2.
-     Searched in the following locations:
-       - https://repo.maven.apache.org/maven2/org/lwjgl/lwjgl/3.2.2/lwjgl-3.2.2.pom
-     Required by:
-         project ':fabric-1.17.1'
-   > Could not find org.lwjgl:lwjgl-jemalloc:3.2.2.
-     Searched in the following locations:
-       - https://repo.maven.apache.org/maven2/org/lwjgl/lwjgl-jemalloc/3.2.2/lwjgl-jemalloc-3.2.2.pom
-     Required by:
-         project ':fabric-1.17.1'
-   > Could not find org.lwjgl:lwjgl-openal:3.2.2.
-     Searched in the following locations:
-       - https://repo.maven.apache.org/maven2/org/lwjgl/lwjgl-openal/3.2.2/lwjgl-openal-3.2.2.pom
-     Required by:
-         project ':fabric-1.17.1'
-   > Could not find org.lwjgl:lwjgl-opengl:3.2.2.
-     Searched in the following locations:
-       - https://repo.maven.apache.org/maven2/org/lwjgl/lwjgl-opengl/3.2.2/lwjgl-opengl-3.2.2.pom
-     Required by:
-         project ':fabric-1.17.1'
-   > Could not find org.lwjgl:lwjgl-glfw:3.2.2.
-     Searched in the following locations:
-       - https://repo.maven.apache.org/maven2/org/lwjgl/lwjgl-glfw/3.2.2/lwjgl-glfw-3.2.2.pom
-     Required by:
-         project ':fabric-1.17.1'
-   > Could not find org.lwjgl:lwjgl-stb:3.2.2.
-     Searched in the following locations:
-       - https://repo.maven.apache.org/maven2/org/lwjgl/lwjgl-stb/3.2.2/lwjgl-stb-3.2.2.pom
-     Required by:
-         project ':fabric-1.17.1'
-   > Could not find org.lwjgl:lwjgl-tinyfd:3.2.2.
-     Searched in the following locations:
-       - https://repo.maven.apache.org/maven2/org/lwjgl/lwjgl-tinyfd/3.2.2/lwjgl-tinyfd-3.2.2.pom
-     Required by:
-         project ':fabric-1.17.1'
-
-* Try:
 === LAST 40 ===
-	... 20 more
-Cause 1: org.gradle.internal.resolve.ModuleVersionNotFoundException: Could not find org.lwjgl:lwjgl:3.2.2.
-Searched in the following locations:
-  - https://repo.maven.apache.org/maven2/org/lwjgl/lwjgl/3.2.2/lwjgl-3.2.2.pom
-Required by:
-    project ':fabric-1.17.1'
-Cause 2: org.gradle.internal.resolve.ModuleVersionNotFoundException: Could not find org.lwjgl:lwjgl-jemalloc:3.2.2.
-Searched in the following locations:
-  - https://repo.maven.apache.org/maven2/org/lwjgl/lwjgl-jemalloc/3.2.2/lwjgl-jemalloc-3.2.2.pom
-Required by:
-    project ':fabric-1.17.1'
-Cause 3: org.gradle.internal.resolve.ModuleVersionNotFoundException: Could not find org.lwjgl:lwjgl-openal:3.2.2.
-Searched in the following locations:
-  - https://repo.maven.apache.org/maven2/org/lwjgl/lwjgl-openal/3.2.2/lwjgl-openal-3.2.2.pom
-Required by:
-    project ':fabric-1.17.1'
-Cause 4: org.gradle.internal.resolve.ModuleVersionNotFoundException: Could not find org.lwjgl:lwjgl-opengl:3.2.2.
-Searched in the following locations:
-  - https://repo.maven.apache.org/maven2/org/lwjgl/lwjgl-opengl/3.2.2/lwjgl-opengl-3.2.2.pom
-Required by:
-    project ':fabric-1.17.1'
-Cause 5: org.gradle.internal.resolve.ModuleVersionNotFoundException: Could not find org.lwjgl:lwjgl-glfw:3.2.2.
-Searched in the following locations:
-  - https://repo.maven.apache.org/maven2/org/lwjgl/lwjgl-glfw/3.2.2/lwjgl-glfw-3.2.2.pom
-Required by:
-    project ':fabric-1.17.1'
-Cause 6: org.gradle.internal.resolve.ModuleVersionNotFoundException: Could not find org.lwjgl:lwjgl-stb:3.2.2.
-Searched in the following locations:
-  - https://repo.maven.apache.org/maven2/org/lwjgl/lwjgl-stb/3.2.2/lwjgl-stb-3.2.2.pom
-Required by:
-    project ':fabric-1.17.1'
-Cause 7: org.gradle.internal.resolve.ModuleVersionNotFoundException: Could not find org.lwjgl:lwjgl-tinyfd:3.2.2.
-Searched in the following locations:
-  - https://repo.maven.apache.org/maven2/org/lwjgl/lwjgl-tinyfd/3.2.2/lwjgl-tinyfd-3.2.2.pom
-Required by:
-    project ':fabric-1.17.1'
 
+> Configure project :fabric-1.17.1
+Architectury Loom: 1.17.493
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Using of the official minecraft mappings is at your own risk!
+Please make sure to read and understand the following license:
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# (c) 2020 Microsoft Corporation. These mappings are provided "as-is" and you bear the risk of using them. You may copy and use the mappings for development purposes, but you may not redistribute the mappings complete and unmodified. Microsoft makes no warranties, express or implied, with respect to the mappings provided here.  Use and modification of this document or the source code (in any form) of Minecraft: Java Edition is governed by the Minecraft End User License Agreement available at https://account.mojang.com/documents/minecraft_eula.
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+:remapped 1 mods (intermediary -> named) in 1s
 
-BUILD FAILED in 59s
-1 actionable task: 1 executed
+> Task :fabric-1.17.1:compileJava
+Note: /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/worldgen/LegacyStructureRegistrar.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: Some input files use unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+
+> Task :fabric-1.17.1:processResources
+> Task :fabric-1.17.1:classes
+> Task :fabric-1.17.1:jar
+> Task :fabric-1.17.1:processIncludeJars
+> Task :fabric-1.17.1:sourcesJar
+> Task :fabric-1.17.1:validateAccessWidener NO-SOURCE
+> Task :fabric-1.17.1:check
+> Task :fabric-1.17.1:remapJar
+> Task :fabric-1.17.1:remapSourcesJar
+> Task :fabric-1.17.1:assemble
+> Task :fabric-1.17.1:build
+gradle/actions: Writing build results to /home/runner/work/_temp/.gradle-actions/build-results/__run-1792179106660.json
+
+[Incubating] Problems report is available at: file:///home/runner/work/Biomes-Unseen/Biomes-Unseen/build/reports/problems/problems-report.html
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 10.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/9.8.1/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD SUCCESSFUL in 1m 23s
+7 actionable tasks: 7 executed

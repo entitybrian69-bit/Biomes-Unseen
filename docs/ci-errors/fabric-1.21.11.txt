@@ -3,47 +3,75 @@ not a neoforge module, nothing to pin
 === MODULE PROPERTIES ===
 minecraft_version=1.21.11
 architectury_version=19.0.1
+* What went wrong:
+A problem occurred configuring project ':fabric-1.21.11'.
+> Could not resolve all artifacts for configuration 'classpath'.
+   > Could not download kotlin-metadata-jvm-2.3.20.jar (org.jetbrains.kotlin:kotlin-metadata-jvm:2.3.20)
+      > Could not get resource 'https://maven.minecraftforge.net/org/jetbrains/kotlin/kotlin-metadata-jvm/2.3.20/kotlin-metadata-jvm-2.3.20.jar'.
+         > Could not GET 'https://maven.minecraftforge.net/org/jetbrains/kotlin/kotlin-metadata-jvm/2.3.20/kotlin-metadata-jvm-2.3.20.jar'.
+            > Received status code 409 from server: Conflict
+---
+BUILD FAILED in 31s
+---
 === CONFIG DIAGNOSTICS ===
+8:A problem occurred configuring project ':fabric-1.21.11'.
+9:> Could not resolve all artifacts for configuration 'classpath'.
+21:org.gradle.api.ProjectConfigurationException: A problem occurred configuring project ':fabric-1.21.11'.
+182:Caused by: org.gradle.api.internal.artifacts.ivyservice.TypedResolveException: Could not resolve all artifacts for configuration 'classpath'.
 === STACKTRACE ===
+Caused by: org.gradle.api.internal.artifacts.ivyservice.TypedResolveException: Could not resolve all artifacts for configuration 'classpath'.
+Caused by: org.gradle.internal.resolve.ArtifactResolveException: Could not download kotlin-metadata-jvm-2.3.20.jar (org.jetbrains.kotlin:kotlin-metadata-jvm:2.3.20)
+Caused by: org.gradle.api.resources.ResourceException: Could not get resource 'https://maven.minecraftforge.net/org/jetbrains/kotlin/kotlin-metadata-jvm/2.3.20/kotlin-metadata-jvm-2.3.20.jar'.
+Caused by: org.gradle.internal.resource.transport.http.HttpRequestException: Could not GET 'https://maven.minecraftforge.net/org/jetbrains/kotlin/kotlin-metadata-jvm/2.3.20/kotlin-metadata-jvm-2.3.20.jar'.
+Caused by: org.gradle.internal.resource.HttpErrorStatusCodeException: Received status code 409 from server: Conflict
 === WHAT WENT WRONG ===
+* What went wrong:
+A problem occurred configuring project ':fabric-1.21.11'.
+> Could not resolve all artifacts for configuration 'classpath'.
+   > Could not download kotlin-metadata-jvm-2.3.20.jar (org.jetbrains.kotlin:kotlin-metadata-jvm:2.3.20)
+      > Could not get resource 'https://maven.minecraftforge.net/org/jetbrains/kotlin/kotlin-metadata-jvm/2.3.20/kotlin-metadata-jvm-2.3.20.jar'.
+         > Could not GET 'https://maven.minecraftforge.net/org/jetbrains/kotlin/kotlin-metadata-jvm/2.3.20/kotlin-metadata-jvm-2.3.20.jar'.
+            > Received status code 409 from server: Conflict
+
+* Try:
 === LAST 40 ===
+	at org.gradle.internal.work.DefaultWorkerLeaseService.tryWhileConditionToRunAsWorkerThread(DefaultWorkerLeaseService.java:157)
+	at org.gradle.internal.work.WorkerLeaseQueueProcessor.lambda$trySpawnWorker$0(WorkerLeaseQueueProcessor.java:147)
+	... 2 more
+Caused by: org.gradle.api.resources.ResourceException: Could not get resource 'https://maven.minecraftforge.net/org/jetbrains/kotlin/kotlin-metadata-jvm/2.3.20/kotlin-metadata-jvm-2.3.20.jar'.
+	at org.gradle.internal.resource.ResourceExceptions.failure(ResourceExceptions.java:78)
+	at org.gradle.internal.resource.ResourceExceptions.getFailed(ResourceExceptions.java:57)
+	at org.gradle.api.internal.artifacts.repositories.resolver.DefaultExternalResourceArtifactResolver.downloadByCoords(DefaultExternalResourceArtifactResolver.java:154)
+	at org.gradle.api.internal.artifacts.repositories.resolver.DefaultExternalResourceArtifactResolver.downloadStaticResource(DefaultExternalResourceArtifactResolver.java:94)
+	at org.gradle.api.internal.artifacts.repositories.resolver.DefaultExternalResourceArtifactResolver.resolveArtifact(DefaultExternalResourceArtifactResolver.java:62)
+	at org.gradle.api.internal.artifacts.repositories.resolver.ExternalResourceResolver$RemoteRepositoryAccess.resolveArtifact(ExternalResourceResolver.java:498)
+	... 35 more
+Caused by: org.gradle.internal.resource.transport.http.HttpRequestException: Could not GET 'https://maven.minecraftforge.net/org/jetbrains/kotlin/kotlin-metadata-jvm/2.3.20/kotlin-metadata-jvm-2.3.20.jar'.
+	at org.gradle.internal.resource.transport.http.ApacheCommonsHttpClient.processResponse(ApacheCommonsHttpClient.java:299)
+	at org.gradle.internal.resource.transport.http.ApacheCommonsHttpClient.performGet(ApacheCommonsHttpClient.java:135)
+	at org.gradle.internal.resource.transport.http.HttpResourceAccessor.openResource(HttpResourceAccessor.java:49)
+	at org.gradle.internal.resource.transport.http.HttpResourceAccessor.openResource(HttpResourceAccessor.java:32)
+	at org.gradle.internal.resource.transfer.AbstractExternalResourceAccessor.withContent(AbstractExternalResourceAccessor.java:32)
+	at org.gradle.internal.resource.transfer.DefaultExternalResourceConnector.withContent(DefaultExternalResourceConnector.java:59)
+	at org.gradle.internal.resource.transfer.ProgressLoggingExternalResourceAccessor$DownloadOperation.call(ProgressLoggingExternalResourceAccessor.java:136)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:210)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:205)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:67)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:60)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:167)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:60)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.call(DefaultBuildOperationRunner.java:54)
+	at org.gradle.internal.resource.transfer.ProgressLoggingExternalResourceAccessor.withContent(ProgressLoggingExternalResourceAccessor.java:49)
+	at org.gradle.internal.resource.transfer.AccessorBackedExternalResource.withContentIfPresent(AccessorBackedExternalResource.java:103)
+	at org.gradle.internal.resource.transfer.DefaultCacheAwareExternalResourceAccessor.copyToCache(DefaultCacheAwareExternalResourceAccessor.java:188)
+	at org.gradle.internal.resource.transfer.DefaultCacheAwareExternalResourceAccessor.lambda$getResource$0(DefaultCacheAwareExternalResourceAccessor.java:86)
+	at org.gradle.cache.internal.ProducerGuard$AdaptiveProducerGuard.guardByKey(ProducerGuard.java:97)
+	at org.gradle.internal.resource.transfer.DefaultCacheAwareExternalResourceAccessor.getResource(DefaultCacheAwareExternalResourceAccessor.java:80)
+	at org.gradle.api.internal.artifacts.repositories.resolver.DefaultExternalResourceArtifactResolver.downloadByCoords(DefaultExternalResourceArtifactResolver.java:149)
+	... 38 more
+Caused by: org.gradle.internal.resource.HttpErrorStatusCodeException: Received status code 409 from server: Conflict
+	at org.gradle.internal.resource.transport.http.ApacheCommonsHttpClient.processResponse(ApacheCommonsHttpClient.java:298)
+	... 58 more
 
-> Configure project :fabric-1.21.11
-Architectury Loom: 1.17.493
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Using of the official minecraft mappings is at your own risk!
-Please make sure to read and understand the following license:
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-# (c) 2020 Microsoft Corporation. These mappings are provided "as-is" and you bear the risk of using them. You may copy and use the mappings for development purposes, but you may not redistribute the mappings complete and unmodified. Microsoft makes no warranties, express or implied, with respect to the mappings provided here.  Use and modification of this document or the source code (in any form) of Minecraft: Java Edition is governed by the Minecraft End User License Agreement available at https://account.mojang.com/documents/minecraft_eula.
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-:remapped 1 mods (intermediary -> named) in 928ms
 
-> Task :fabric-1.21.11:compileJava
-Note: Some input files use or override a deprecated API.
-Note: Recompile with -Xlint:deprecation for details.
-Note: Some input files use unchecked or unsafe operations.
-Note: Recompile with -Xlint:unchecked for details.
-
-> Task :fabric-1.21.11:processResources
-> Task :fabric-1.21.11:classes
-> Task :fabric-1.21.11:jar
-> Task :fabric-1.21.11:processIncludeJars
-> Task :fabric-1.21.11:sourcesJar
-> Task :fabric-1.21.11:validateAccessWidener NO-SOURCE
-> Task :fabric-1.21.11:check
-> Task :fabric-1.21.11:remapJar
-> Task :fabric-1.21.11:remapSourcesJar
-> Task :fabric-1.21.11:assemble
-> Task :fabric-1.21.11:build
-gradle/actions: Writing build results to /home/runner/work/_temp/.gradle-actions/build-results/__run-1792178607818.json
-
-[Incubating] Problems report is available at: file:///home/runner/work/Biomes-Unseen/Biomes-Unseen/build/reports/problems/problems-report.html
-
-Deprecated Gradle features were used in this build, making it incompatible with Gradle 10.
-
-You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
-
-For more on this, please refer to https://docs.gradle.org/9.8.1/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
-
-BUILD SUCCESSFUL in 1m 15s
-7 actionable tasks: 7 executed
+BUILD FAILED in 31s
