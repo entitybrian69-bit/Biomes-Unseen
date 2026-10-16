@@ -196,64 +196,64 @@ public final class ModConfig {
             v = v.trim();
             try {
             if ("biomeRarityMultiplier".equals(key)) {
-                cfg.biomeRarityMultiplier = Double.parseDouble(v);
+                biomeRarityMultiplier = Double.parseDouble(v);
             }
             if ("biomeTerraformingStrength".equals(key)) {
-                cfg.biomeTerraformingStrength = Double.parseDouble(v);
+                biomeTerraformingStrength = Double.parseDouble(v);
             }
             if ("enableAllBiomes".equals(key)) {
-                cfg.enableAllBiomes = Boolean.parseBoolean(v);
+                enableAllBiomes = Boolean.parseBoolean(v);
             }
             if ("enableAllOres".equals(key)) {
-                cfg.enableAllOres = Boolean.parseBoolean(v);
+                enableAllOres = Boolean.parseBoolean(v);
             }
             if ("enableAllStructures".equals(key)) {
-                cfg.enableAllStructures = Boolean.parseBoolean(v);
+                enableAllStructures = Boolean.parseBoolean(v);
             }
             if ("enableAllMobs".equals(key)) {
-                cfg.enableAllMobs = Boolean.parseBoolean(v);
+                enableAllMobs = Boolean.parseBoolean(v);
             }
             if ("enableBosses".equals(key)) {
-                cfg.enableBosses = Boolean.parseBoolean(v);
+                enableBosses = Boolean.parseBoolean(v);
             }
             if ("oreRateMultiplier".equals(key)) {
-                cfg.oreRateMultiplier = Double.parseDouble(v);
+                oreRateMultiplier = Double.parseDouble(v);
             }
             if ("structureSpacingMultiplier".equals(key)) {
-                cfg.structureSpacingMultiplier = Double.parseDouble(v);
+                structureSpacingMultiplier = Double.parseDouble(v);
             }
             if ("mobSpawnMultiplier".equals(key)) {
-                cfg.mobSpawnMultiplier = Double.parseDouble(v);
+                mobSpawnMultiplier = Double.parseDouble(v);
             }
             if ("mobGlobalCap".equals(key)) {
-                cfg.mobGlobalCap = Integer.parseInt(v);
+                mobGlobalCap = Integer.parseInt(v);
             }
             if ("entityAiThrottle".equals(key)) {
-                cfg.entityAiThrottle = Integer.parseInt(v);
+                entityAiThrottle = Integer.parseInt(v);
             }
             if ("ambientParticleDensity".equals(key)) {
-                cfg.ambientParticleDensity = Double.parseDouble(v);
+                ambientParticleDensity = Double.parseDouble(v);
             }
             if ("structureLodDistance".equals(key)) {
-                cfg.structureLodDistance = Integer.parseInt(v);
+                structureLodDistance = Integer.parseInt(v);
             }
             if ("musicFrequencyMultiplier".equals(key)) {
-                cfg.musicFrequencyMultiplier = Double.parseDouble(v);
+                musicFrequencyMultiplier = Double.parseDouble(v);
             }
             if ("weatherIntensity".equals(key)) {
-                cfg.weatherIntensity = Double.parseDouble(v);
+                weatherIntensity = Double.parseDouble(v);
             }
             if ("enableLoreBooks".equals(key)) {
-                cfg.enableLoreBooks = Boolean.parseBoolean(v);
+                enableLoreBooks = Boolean.parseBoolean(v);
             }
             if ("enableAdaptiveMobs".equals(key)) {
-                cfg.enableAdaptiveMobs = Boolean.parseBoolean(v);
+                enableAdaptiveMobs = Boolean.parseBoolean(v);
             }
             if ("enablePackTactics".equals(key)) {
-                cfg.enablePackTactics = Boolean.parseBoolean(v);
+                enablePackTactics = Boolean.parseBoolean(v);
             }
             if ("enableStructureLoot".equals(key)) {
-                cfg.enableStructureLoot = Boolean.parseBoolean(v);
+                enableStructureLoot = Boolean.parseBoolean(v);
             }
             } catch (NumberFormatException ignored) {
                 // Keep the current value for malformed entries.

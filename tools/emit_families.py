@@ -133,7 +133,7 @@ public final class BiomesUnseen {
         defaults.append("        cfg.%s = %s;" % (key, default))
         parses.append(
             "            if (@Q@%s@Q@.equals(key)) {\n"
-            "                cfg.%s = %s;\n"
+            "                %s = %s;\n"
             "            }" % (key, key, parse))
 
     template = """package com.biomesunseen.config;

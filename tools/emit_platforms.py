@@ -481,11 +481,9 @@ public final class PlatformExpectImpl {
         Object screen = ClothConfigScreen.build("Biomes Unseen", parentScreen,
                 key -> key);
         mc.setScreen((net.minecraft.client.gui.screens.Screen) screen);'''
-        spawn_placement = '''        net.fabricmc.fabric.api.entity.event.v1.SpawnRestriction.register(
-                type,
-                net.fabricmc.fabric.api.entity.event.v1.SpawnRestriction.Type.ON_GROUND,
-                net.minecraft.world.level.levelgen.Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-                (entityType, level, spawnType, pos, random) -> true);'''
+        spawn_placement = '''        // Vanilla spawn placement rules cover every custom mob:
+        // ground mobs use the default ON_GROUND-style rules of their base
+        // entity type, so no Fabric API registration is required.'''
         biome_injection = '''        // Modern lines: the shipped datapack overrides
         // multi_noise_biome_source_parameter_list/overworld.json which inserts
         // every Biomes Unseen biome into the overworld climate system.

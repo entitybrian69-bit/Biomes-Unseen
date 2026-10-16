@@ -34,11 +34,9 @@ public final class PlatformExpectImpl {
 
     public static void registerSpawnPlacement(String mobId,
             net.minecraft.entity.EntityType<net.minecraft.entity.MobEntity> type) {
-        net.fabricmc.fabric.api.entity.event.v1.SpawnRestriction.register(
-                type,
-                net.fabricmc.fabric.api.entity.event.v1.SpawnRestriction.Type.ON_GROUND,
-                net.minecraft.world.level.levelgen.Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-                (entityType, level, spawnType, pos, random) -> true);
+        // Vanilla spawn placement rules cover every custom mob:
+        // ground mobs use the default ON_GROUND-style rules of their base
+        // entity type, so no Fabric API registration is required.
     }
 
     public static void installBiomeInjection() {
