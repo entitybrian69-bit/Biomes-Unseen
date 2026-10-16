@@ -6,10 +6,8 @@ on:
   workflow_dispatch:
 
 jobs:
-  # Full-matrix API probe: for every target, dump the javap signature of the
-  # Minecraft classes the generators touch and upload it as an artifact.  The
-  # generator is then written against the real jar for each version instead of
-  # against guesswork.
+  # Full-matrix API probe: javap the Minecraft jar every target compiles
+  # against, so generated code is written against the real API per version.
   probe:
     name: probe-${{ matrix.module }}
     runs-on: ubuntu-latest
@@ -18,79 +16,145 @@ jobs:
       fail-fast: false
       max-parallel: 20
       matrix:
-        module:
-          - "fabric-1.16.5"
-          - "forge-1.16.5"
-          - "fabric-1.17.1"
-          - "forge-1.17.1"
-          - "fabric-1.18.1"
-          - "forge-1.18.1"
-          - "fabric-1.18.2"
-          - "forge-1.18.2"
-          - "fabric-1.19"
-          - "forge-1.19"
-          - "fabric-1.19.1"
-          - "forge-1.19.1"
-          - "fabric-1.19.2"
-          - "forge-1.19.2"
-          - "fabric-1.19.3"
-          - "forge-1.19.3"
-          - "fabric-1.19.4"
-          - "forge-1.19.4"
-          - "fabric-1.20"
-          - "forge-1.20"
-          - "fabric-1.20.1"
-          - "forge-1.20.1"
-          - "fabric-1.20.2"
-          - "neoforge-1.20.2"
-          - "fabric-1.20.3"
-          - "neoforge-1.20.3"
-          - "fabric-1.20.4"
-          - "neoforge-1.20.4"
-          - "fabric-1.20.5"
-          - "neoforge-1.20.5"
-          - "fabric-1.20.6"
-          - "neoforge-1.20.6"
-          - "fabric-1.21"
-          - "neoforge-1.21"
-          - "fabric-1.21.1"
-          - "neoforge-1.21.1"
-          - "fabric-1.21.2"
-          - "neoforge-1.21.2"
-          - "fabric-1.21.3"
-          - "neoforge-1.21.3"
-          - "fabric-1.21.4"
-          - "neoforge-1.21.4"
-          - "fabric-1.21.5"
-          - "neoforge-1.21.5"
-          - "fabric-1.21.6"
-          - "neoforge-1.21.6"
-          - "fabric-1.21.7"
-          - "neoforge-1.21.7"
-          - "fabric-1.21.8"
-          - "neoforge-1.21.8"
-          - "fabric-1.21.9"
-          - "neoforge-1.21.9"
-          - "fabric-1.21.10"
-          - "neoforge-1.21.10"
-          - "fabric-1.21.11"
-          - "neoforge-1.21.11"
-          - "fabric-26.1"
-          - "neoforge-26.1"
-          - "fabric-26.1.1"
-          - "neoforge-26.1.1"
-          - "fabric-26.1.2"
-          - "neoforge-26.1.2"
-          - "fabric-26.2"
-          - "neoforge-26.2"
-          - "fabric-26.3"
-          - "neoforge-26.3"
+        include:
+          - module: "fabric-1.16.5"
+            java: 21
+          - module: "forge-1.16.5"
+            java: 21
+          - module: "fabric-1.17.1"
+            java: 21
+          - module: "forge-1.17.1"
+            java: 21
+          - module: "fabric-1.18.1"
+            java: 21
+          - module: "forge-1.18.1"
+            java: 21
+          - module: "fabric-1.18.2"
+            java: 21
+          - module: "forge-1.18.2"
+            java: 21
+          - module: "fabric-1.19"
+            java: 21
+          - module: "forge-1.19"
+            java: 21
+          - module: "fabric-1.19.1"
+            java: 21
+          - module: "forge-1.19.1"
+            java: 21
+          - module: "fabric-1.19.2"
+            java: 21
+          - module: "forge-1.19.2"
+            java: 21
+          - module: "fabric-1.19.3"
+            java: 21
+          - module: "forge-1.19.3"
+            java: 21
+          - module: "fabric-1.19.4"
+            java: 21
+          - module: "forge-1.19.4"
+            java: 21
+          - module: "fabric-1.20"
+            java: 21
+          - module: "forge-1.20"
+            java: 21
+          - module: "fabric-1.20.1"
+            java: 21
+          - module: "forge-1.20.1"
+            java: 21
+          - module: "fabric-1.20.2"
+            java: 21
+          - module: "neoforge-1.20.2"
+            java: 21
+          - module: "fabric-1.20.3"
+            java: 21
+          - module: "neoforge-1.20.3"
+            java: 21
+          - module: "fabric-1.20.4"
+            java: 21
+          - module: "neoforge-1.20.4"
+            java: 21
+          - module: "fabric-1.20.5"
+            java: 21
+          - module: "neoforge-1.20.5"
+            java: 21
+          - module: "fabric-1.20.6"
+            java: 21
+          - module: "neoforge-1.20.6"
+            java: 21
+          - module: "fabric-1.21"
+            java: 21
+          - module: "neoforge-1.21"
+            java: 21
+          - module: "fabric-1.21.1"
+            java: 21
+          - module: "neoforge-1.21.1"
+            java: 21
+          - module: "fabric-1.21.2"
+            java: 21
+          - module: "neoforge-1.21.2"
+            java: 21
+          - module: "fabric-1.21.3"
+            java: 21
+          - module: "neoforge-1.21.3"
+            java: 21
+          - module: "fabric-1.21.4"
+            java: 21
+          - module: "neoforge-1.21.4"
+            java: 21
+          - module: "fabric-1.21.5"
+            java: 21
+          - module: "neoforge-1.21.5"
+            java: 21
+          - module: "fabric-1.21.6"
+            java: 21
+          - module: "neoforge-1.21.6"
+            java: 21
+          - module: "fabric-1.21.7"
+            java: 21
+          - module: "neoforge-1.21.7"
+            java: 21
+          - module: "fabric-1.21.8"
+            java: 21
+          - module: "neoforge-1.21.8"
+            java: 21
+          - module: "fabric-1.21.9"
+            java: 21
+          - module: "neoforge-1.21.9"
+            java: 21
+          - module: "fabric-1.21.10"
+            java: 21
+          - module: "neoforge-1.21.10"
+            java: 21
+          - module: "fabric-1.21.11"
+            java: 21
+          - module: "neoforge-1.21.11"
+            java: 21
+          - module: "fabric-26.1"
+            java: 25
+          - module: "neoforge-26.1"
+            java: 25
+          - module: "fabric-26.1.1"
+            java: 25
+          - module: "neoforge-26.1.1"
+            java: 25
+          - module: "fabric-26.1.2"
+            java: 25
+          - module: "neoforge-26.1.2"
+            java: 25
+          - module: "fabric-26.2"
+            java: 25
+          - module: "neoforge-26.2"
+            java: 25
+          - module: "fabric-26.3"
+            java: 25
+          - module: "neoforge-26.3"
+            java: 25
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-java@v4
         with:
           distribution: temurin
-          java-version: "21"
+          java-version: "${{ matrix.java }}"
       - uses: gradle/actions/setup-gradle@v4
         with:
           gradle-version: "9.8.1"
@@ -104,6 +168,48 @@ jobs:
           name: probe-${{ matrix.module }}
           path: probe-*.txt
           if-no-files-found: error
+
+  # NeoForge configuration experiment: the neoforge modules fail during Gradle
+  # configuration, so each variant tries one change to the module build script.
+  neoforge-config:
+    name: neoforge-cfg-${{ matrix.variant }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    strategy:
+      fail-fast: false
+      matrix:
+        variant: ["baseline", "no-mappings", "no-java-plugin", "no-architectury", "settings-platform"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "21"
+      - uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: "9.8.1"
+      - name: Apply variant and probe
+        env:
+          BIOMESUNSEEN_MODULE: neoforge-1.21.1
+        run: |
+          set +e
+          M=neoforge-1.21.1
+          case "${{ matrix.variant }}" in
+            no-mappings)     sed -i '/officialMojangMappings/d' $M/build.gradle ;;
+            no-java-plugin)  sed -i '/id "java"/d' $M/build.gradle ;;
+            no-architectury) sed -i '/dev.architectury:architectury/d' $M/build.gradle ;;
+            settings-platform) sed -i 's/^loom.platform=.*/loom.platform=neoforge/' $M/gradle.properties ;;
+          esac
+          echo "=== variant ${{ matrix.variant }} ==="
+          bash tools/ci_probe.sh "$M" "probe-nf-${{ matrix.variant }}.txt"
+          grep -m6 -E "MCJAR=|What went wrong|Failed to setup|Could not|PRESENT net.minecraft.world.item.ArmorMaterial" "probe-nf-${{ matrix.variant }}.txt"
+      - name: Upload variant report
+        uses: actions/upload-artifact@v4
+        with:
+          name: neoforge-cfg-${{ matrix.variant }}
+          path: probe-nf-*.txt
+          if-no-files-found: ignore
+
   build:
     name: ${{ matrix.module }}
     runs-on: ubuntu-latest
@@ -112,82 +218,148 @@ jobs:
       fail-fast: false
       max-parallel: 15
       matrix:
-        module:
-          - "fabric-1.16.5"
-          - "forge-1.16.5"
-          - "fabric-1.17.1"
-          - "forge-1.17.1"
-          - "fabric-1.18.1"
-          - "forge-1.18.1"
-          - "fabric-1.18.2"
-          - "forge-1.18.2"
-          - "fabric-1.19"
-          - "forge-1.19"
-          - "fabric-1.19.1"
-          - "forge-1.19.1"
-          - "fabric-1.19.2"
-          - "forge-1.19.2"
-          - "fabric-1.19.3"
-          - "forge-1.19.3"
-          - "fabric-1.19.4"
-          - "forge-1.19.4"
-          - "fabric-1.20"
-          - "forge-1.20"
-          - "fabric-1.20.1"
-          - "forge-1.20.1"
-          - "fabric-1.20.2"
-          - "neoforge-1.20.2"
-          - "fabric-1.20.3"
-          - "neoforge-1.20.3"
-          - "fabric-1.20.4"
-          - "neoforge-1.20.4"
-          - "fabric-1.20.5"
-          - "neoforge-1.20.5"
-          - "fabric-1.20.6"
-          - "neoforge-1.20.6"
-          - "fabric-1.21"
-          - "neoforge-1.21"
-          - "fabric-1.21.1"
-          - "neoforge-1.21.1"
-          - "fabric-1.21.2"
-          - "neoforge-1.21.2"
-          - "fabric-1.21.3"
-          - "neoforge-1.21.3"
-          - "fabric-1.21.4"
-          - "neoforge-1.21.4"
-          - "fabric-1.21.5"
-          - "neoforge-1.21.5"
-          - "fabric-1.21.6"
-          - "neoforge-1.21.6"
-          - "fabric-1.21.7"
-          - "neoforge-1.21.7"
-          - "fabric-1.21.8"
-          - "neoforge-1.21.8"
-          - "fabric-1.21.9"
-          - "neoforge-1.21.9"
-          - "fabric-1.21.10"
-          - "neoforge-1.21.10"
-          - "fabric-1.21.11"
-          - "neoforge-1.21.11"
-          - "fabric-26.1"
-          - "neoforge-26.1"
-          - "fabric-26.1.1"
-          - "neoforge-26.1.1"
-          - "fabric-26.1.2"
-          - "neoforge-26.1.2"
-          - "fabric-26.2"
-          - "neoforge-26.2"
-          - "fabric-26.3"
-          - "neoforge-26.3"
+        include:
+          - module: "fabric-1.16.5"
+            java: 21
+          - module: "forge-1.16.5"
+            java: 21
+          - module: "fabric-1.17.1"
+            java: 21
+          - module: "forge-1.17.1"
+            java: 21
+          - module: "fabric-1.18.1"
+            java: 21
+          - module: "forge-1.18.1"
+            java: 21
+          - module: "fabric-1.18.2"
+            java: 21
+          - module: "forge-1.18.2"
+            java: 21
+          - module: "fabric-1.19"
+            java: 21
+          - module: "forge-1.19"
+            java: 21
+          - module: "fabric-1.19.1"
+            java: 21
+          - module: "forge-1.19.1"
+            java: 21
+          - module: "fabric-1.19.2"
+            java: 21
+          - module: "forge-1.19.2"
+            java: 21
+          - module: "fabric-1.19.3"
+            java: 21
+          - module: "forge-1.19.3"
+            java: 21
+          - module: "fabric-1.19.4"
+            java: 21
+          - module: "forge-1.19.4"
+            java: 21
+          - module: "fabric-1.20"
+            java: 21
+          - module: "forge-1.20"
+            java: 21
+          - module: "fabric-1.20.1"
+            java: 21
+          - module: "forge-1.20.1"
+            java: 21
+          - module: "fabric-1.20.2"
+            java: 21
+          - module: "neoforge-1.20.2"
+            java: 21
+          - module: "fabric-1.20.3"
+            java: 21
+          - module: "neoforge-1.20.3"
+            java: 21
+          - module: "fabric-1.20.4"
+            java: 21
+          - module: "neoforge-1.20.4"
+            java: 21
+          - module: "fabric-1.20.5"
+            java: 21
+          - module: "neoforge-1.20.5"
+            java: 21
+          - module: "fabric-1.20.6"
+            java: 21
+          - module: "neoforge-1.20.6"
+            java: 21
+          - module: "fabric-1.21"
+            java: 21
+          - module: "neoforge-1.21"
+            java: 21
+          - module: "fabric-1.21.1"
+            java: 21
+          - module: "neoforge-1.21.1"
+            java: 21
+          - module: "fabric-1.21.2"
+            java: 21
+          - module: "neoforge-1.21.2"
+            java: 21
+          - module: "fabric-1.21.3"
+            java: 21
+          - module: "neoforge-1.21.3"
+            java: 21
+          - module: "fabric-1.21.4"
+            java: 21
+          - module: "neoforge-1.21.4"
+            java: 21
+          - module: "fabric-1.21.5"
+            java: 21
+          - module: "neoforge-1.21.5"
+            java: 21
+          - module: "fabric-1.21.6"
+            java: 21
+          - module: "neoforge-1.21.6"
+            java: 21
+          - module: "fabric-1.21.7"
+            java: 21
+          - module: "neoforge-1.21.7"
+            java: 21
+          - module: "fabric-1.21.8"
+            java: 21
+          - module: "neoforge-1.21.8"
+            java: 21
+          - module: "fabric-1.21.9"
+            java: 21
+          - module: "neoforge-1.21.9"
+            java: 21
+          - module: "fabric-1.21.10"
+            java: 21
+          - module: "neoforge-1.21.10"
+            java: 21
+          - module: "fabric-1.21.11"
+            java: 21
+          - module: "neoforge-1.21.11"
+            java: 21
+          - module: "fabric-26.1"
+            java: 25
+          - module: "neoforge-26.1"
+            java: 25
+          - module: "fabric-26.1.1"
+            java: 25
+          - module: "neoforge-26.1.1"
+            java: 25
+          - module: "fabric-26.1.2"
+            java: 25
+          - module: "neoforge-26.1.2"
+            java: 25
+          - module: "fabric-26.2"
+            java: 25
+          - module: "neoforge-26.2"
+            java: 25
+          - module: "fabric-26.3"
+            java: 25
+          - module: "neoforge-26.3"
+            java: 25
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Set up JDK 21 (Temurin)
+      - name: Set up JDK ${{ matrix.java }} (Temurin)
         uses: actions/setup-java@v4
         with:
           distribution: temurin
-          java-version: 21
+          java-version: "${{ matrix.java }}"
 
       - name: Set up Gradle
         uses: gradle/actions/setup-gradle@v4
@@ -202,8 +374,12 @@ jobs:
           gradle :${{ matrix.module }}:build -x test --no-daemon 2>&1 | tee build.log
           code=${PIPESTATUS[0]}
           mkdir -p ci-errors
-          grep -E "error:|Execution failed|What went wrong|^> Task .*FAILED" build.log \
-            | head -300 > "ci-errors/${{ matrix.module }}.txt"
+          grep -n -E "error:|Execution failed|What went wrong|FAILED" build.log > hits.txt
+          : > "ci-errors/${{ matrix.module }}.txt"
+          cut -d: -f1 hits.txt | head -40 | while read -r ln; do
+            sed -n "$((ln)),$((ln+2))p" build.log >> "ci-errors/${{ matrix.module }}.txt"
+            echo "---" >> "ci-errors/${{ matrix.module }}.txt"
+          done
           echo "captured $(wc -l < ci-errors/${{ matrix.module }}.txt) lines (exit $code)"
           exit $code
 
@@ -222,7 +398,6 @@ jobs:
           name: jars-${{ matrix.module }}
           path: ${{ matrix.module }}/build/libs/*.jar
           if-no-files-found: error
-          retention-days: 30
 
   release:
     name: Publish jars to GitHub release
@@ -261,11 +436,13 @@ jobs:
               --title "Biomes Unseen 1.0.0" \
               --notes "Biomes Unseen 1.0.0 - multi-version, multi-loader jars (80 biomes, 20 ores, 30 structures, 25 mobs, 2 bosses, fully animated)."
           fi
+          echo "=== release assets ==="
+          gh release view v1.0.0 --json assets --jq '.assets[].name'
 
   collect:
     name: collect-probe-and-error-reports
     runs-on: ubuntu-latest
-    needs: [probe, build]
+    needs: [probe, build, neoforge-config]
     if: always()
     permissions:
       contents: write

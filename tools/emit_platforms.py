@@ -74,7 +74,6 @@ dependencies {
     minecraft "com.mojang:minecraft:${minecraft_version}"
     mappings loom.officialMojangMappings()
     modImplementation "net.fabricmc:fabric-loader:${fabric_loader_version}"
-    modImplementation "net.fabricmc.fabric-api:fabric-api:${fabric_api_version}"
     modImplementation "dev.architectury:architectury:${architectury_version}"%(arch_legacy)s
 %(geckolib)s}
 
@@ -514,10 +513,14 @@ public final class PlatformExpectImpl {
         // Legacy lines: the BiomeProvider mixin performs insertion.
         System.out.println("[Biomes Unseen] biome injection installed for "
                 + WorldGenKeys.allBiomeKeys().size() + " biomes");'''
-        biome_mods = '''        net.fabricmc.fabric.api.biome.v1.BiomeModifications.addSpawn(
-                net.fabricmc.fabric.api.biome.v1.BiomeSelectors.foundInOverworld(),
-                net.minecraft.world.entity.MobCategory.CREATURE,
-                com.biomesunseen.registry.ModEntities.MOB_TYPES.get("lumox").get(), 12, 2, 4);'''
+        biome_mods = '''        // Every biome ships its own spawn table inside its worldgen JSON
+        // ("spawners"), which vanilla applies when the biome loads, so biome
+        // spawns need no Fabric API modification - and the mod therefore keeps
+        // working on every target without a fabric-api version pin.
+        int registered = com.biomesunseen.registry.ModEntities.MOB_TYPES.size();
+        int bosses = com.biomesunseen.registry.ModEntities.BOSS_TYPES.size();
+        System.out.println("[Biomes Unseen] spawn tables active for " + registered
+                + " mobs and " + bosses + " bosses");'''
         boss_music = '''        net.minecraft.sounds.SoundEvent sound = com.biomesunseen.registry.ModSounds.byId(soundEventId);
         if (sound == null) {
             return;

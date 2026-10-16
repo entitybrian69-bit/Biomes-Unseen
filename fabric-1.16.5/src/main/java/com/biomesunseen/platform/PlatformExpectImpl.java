@@ -49,10 +49,14 @@ public final class PlatformExpectImpl {
     }
 
     public static void installBiomeModifications() {
-        net.fabricmc.fabric.api.biome.v1.BiomeModifications.addSpawn(
-                net.fabricmc.fabric.api.biome.v1.BiomeSelectors.foundInOverworld(),
-                net.minecraft.world.entity.MobCategory.CREATURE,
-                com.biomesunseen.registry.ModEntities.MOB_TYPES.get("lumox").get(), 12, 2, 4);
+        // Every biome ships its own spawn table inside its worldgen JSON
+        // ("spawners"), which vanilla applies when the biome loads, so biome
+        // spawns need no Fabric API modification - and the mod therefore keeps
+        // working on every target without a fabric-api version pin.
+        int registered = com.biomesunseen.registry.ModEntities.MOB_TYPES.size();
+        int bosses = com.biomesunseen.registry.ModEntities.BOSS_TYPES.size();
+        System.out.println("[Biomes Unseen] spawn tables active for " + registered
+                + " mobs and " + bosses + " bosses");
     }
 
     public static void playBossMusic(net.minecraft.world.server.ServerWorld level,
