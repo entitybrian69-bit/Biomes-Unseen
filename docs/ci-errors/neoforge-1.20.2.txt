@@ -1,76 +1,50 @@
 === PIN ===
-pin_neoforge: neoforge-1.20.2 neoforge_version 20.2.51-beta -> 20.2.3-beta
-=== patcher checksum failure; not retrying ===
+pin_neoforge: neoforge-1.20.2 already pinned to exact 20.2.51-beta
 === MODULE PROPERTIES ===
 minecraft_version=1.20.2
 architectury_version=10.0.18
-neoforge_version=20.2.3-beta
-* What went wrong:
-A problem occurred configuring project ':neoforge-1.20.2'.
-> Failed to setup Minecraft, org.gradle.process.ProcessExecutionException: Process 'command '/usr/lib/jvm/temurin-17-jdk-amd64/bin/java'' finished with non-zero exit value 1
-
-* Try:
-> Run with --info or --debug option to get more log output.
-> Run with --scan to get full insights from a Build Scan (powered by Develocity).
----
-BUILD FAILED in 1m 29s
----
+neoforge_version=20.2.51-beta
 === CONFIG DIAGNOSTICS ===
-36:Exception in thread "main" java.io.IOException: Patch expected ekb(com/mojang/blaze3d/pipeline/RenderTarget) to have the checksum cd6ed4ec but it was 1add13bb
-37:	at net.minecraftforge.binarypatcher.Patcher.patch(Patcher.java:197)
-38:	at net.minecraftforge.binarypatcher.Patcher.process(Patcher.java:149)
-39:	at net.minecraftforge.binarypatcher.ConsoleTool.main(ConsoleTool.java:161)
-45:A problem occurred configuring project ':neoforge-1.20.2'.
-46:> Failed to setup Minecraft, org.gradle.process.ProcessExecutionException: Process 'command '/usr/lib/jvm/temurin-17-jdk-amd64/bin/java'' finished with non-zero exit value 1
-54:org.gradle.api.ProjectConfigurationException: A problem occurred configuring project ':neoforge-1.20.2'.
-223:Caused by: java.lang.RuntimeException: Failed to setup Minecraft, org.gradle.process.ProcessExecutionException: Process 'command '/usr/lib/jvm/temurin-17-jdk-amd64/bin/java'' finished with non-zero exit value 1
 === STACKTRACE ===
-Caused by: java.lang.RuntimeException: Failed to setup Minecraft, org.gradle.process.ProcessExecutionException: Process 'command '/usr/lib/jvm/temurin-17-jdk-amd64/bin/java'' finished with non-zero exit value 1
-Caused by: org.gradle.process.ProcessExecutionException: Process 'command '/usr/lib/jvm/temurin-17-jdk-amd64/bin/java'' finished with non-zero exit value 1
 === WHAT WENT WRONG ===
-* What went wrong:
-A problem occurred configuring project ':neoforge-1.20.2'.
-> Failed to setup Minecraft, org.gradle.process.ProcessExecutionException: Process 'command '/usr/lib/jvm/temurin-17-jdk-amd64/bin/java'' finished with non-zero exit value 1
-
-* Try:
 === LAST 40 ===
-	at org.gradle.internal.event.BroadcastDispatch$CompositeDispatch.dispatch(BroadcastDispatch.java:382)
-	at org.gradle.internal.event.BroadcastDispatch$CompositeDispatch.dispatch(BroadcastDispatch.java:274)
-	at org.gradle.internal.event.ListenerBroadcast.dispatch(ListenerBroadcast.java:160)
-	at org.gradle.internal.event.ListenerBroadcast.dispatch(ListenerBroadcast.java:37)
-	at org.gradle.internal.dispatch.ProxyDispatchAdapter$DispatchingInvocationHandler.invoke(ProxyDispatchAdapter.java:88)
-	at jdk.proxy1/jdk.proxy1.$Proxy73.afterEvaluate(Unknown Source)
-	at org.gradle.configuration.project.LifecycleProjectEvaluator$NotifyAfterEvaluate$1.execute(LifecycleProjectEvaluator.java:247)
-	at org.gradle.configuration.project.LifecycleProjectEvaluator$NotifyAfterEvaluate$1.execute(LifecycleProjectEvaluator.java:244)
-	at org.gradle.api.internal.project.DefaultProject.stepEvaluationListener(DefaultProject.java:1525)
-	at org.gradle.configuration.project.LifecycleProjectEvaluator$NotifyAfterEvaluate.run(LifecycleProjectEvaluator.java:253)
-	... 164 more
-Caused by: org.gradle.process.ProcessExecutionException: Process 'command '/usr/lib/jvm/temurin-17-jdk-amd64/bin/java'' finished with non-zero exit value 1
-	at org.gradle.process.internal.DefaultExecHandle$ExecResultImpl.assertNormalExitValue(DefaultExecHandle.java:461)
-	at org.gradle.process.internal.DefaultJavaExecAction.execute(DefaultJavaExecAction.java:59)
-	at org.gradle.process.internal.DefaultExecActionFactory.javaexec(DefaultExecActionFactory.java:221)
-	at org.gradle.process.internal.DefaultExecOperations.javaexec(DefaultExecOperations.java:42)
-	at dev.architectury.loom.forge.tool.ForgeToolExecutor.exec(ForgeToolExecutor.java:59)
-	at dev.architectury.loom.forge.tool.ForgeToolValueSource.obtain(ForgeToolValueSource.java:39)
-	at dev.architectury.loom.forge.tool.ForgeToolValueSource.obtain(ForgeToolValueSource.java:15)
-	at org.gradle.api.internal.provider.DefaultValueSourceProviderFactory$LazilyObtainedValue.lambda$new$0(DefaultValueSourceProviderFactory.java:290)
-	at org.gradle.internal.model.CalculatedValueContainerFactory$SupplierBackedCalculator.calculateValue(CalculatedValueContainerFactory.java:71)
-	at org.gradle.internal.model.CalculatedValueContainer$CalculationState.lambda$attachValue$0(CalculatedValueContainer.java:226)
-	at org.gradle.internal.Try.ofFailable(Try.java:46)
-	at org.gradle.internal.model.CalculatedValueContainer$CalculationState.attachValue(CalculatedValueContainer.java:221)
-	at org.gradle.internal.model.CalculatedValueContainer.finalizeIfNotAlready(CalculatedValueContainer.java:194)
-	at org.gradle.internal.model.CalculatedValueContainer.finalizeIfNotAlready(CalculatedValueContainer.java:185)
-	at org.gradle.api.internal.provider.DefaultValueSourceProviderFactory$LazilyObtainedValue.obtain(DefaultValueSourceProviderFactory.java:305)
-	at org.gradle.api.internal.provider.DefaultValueSourceProviderFactory$ValueSourceProvider.calculateOwnValue(DefaultValueSourceProviderFactory.java:258)
-	at org.gradle.api.internal.provider.AbstractMinimalProvider.calculateOwnPresentValue(AbstractMinimalProvider.java:80)
-	at org.gradle.api.internal.provider.AbstractMinimalProvider.get(AbstractMinimalProvider.java:100)
-	at dev.architectury.loom.forge.tool.ForgeToolValueSource.exec(ForgeToolValueSource.java:34)
-	at dev.architectury.loom.forge.minecraft.MinecraftPatchedProvider.patchJars(MinecraftPatchedProvider.java:596)
-	at dev.architectury.loom.forge.minecraft.MinecraftPatchedProvider.patchJars(MinecraftPatchedProvider.java:583)
-	at dev.architectury.loom.forge.minecraft.MinecraftPatchedProvider.provide(MinecraftPatchedProvider.java:225)
-	at net.fabricmc.loom.configuration.CompileConfiguration.setupMinecraft(CompileConfiguration.java:262)
-	at net.fabricmc.loom.configuration.CompileConfiguration.lambda$run$1(CompileConfiguration.java:144)
-	... 193 more
+    fixable: replaced with method_52295
+  adp METHOD a ((Lso;)V) -> [adp/method_52296, adp/method_52295]
+    fixable: replaced with method_52295
+  ads METHOD a ((Lso;)V) -> [adp/method_52295, ads/method_52296]
+    fixable: replaced with method_52296
 
+{1}(Ljava/lang/String;)V is not fully qualified.
 
-BUILD FAILED in 1m 29s
+> Configure project :neoforge-1.20.2
+:remapped 1 mods (mojang -> named) in 707ms
+
+> Task :neoforge-1.20.2:compileJava
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: Some input files use unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+
+> Task :neoforge-1.20.2:processResources
+> Task :neoforge-1.20.2:classes
+> Task :neoforge-1.20.2:jar
+> Task :neoforge-1.20.2:processIncludeJars
+> Task :neoforge-1.20.2:sourcesJar
+> Task :neoforge-1.20.2:validateAccessWidener NO-SOURCE
+> Task :neoforge-1.20.2:check
+> Task :neoforge-1.20.2:remapJar
+> Task :neoforge-1.20.2:remapSourcesJar
+> Task :neoforge-1.20.2:assemble
+> Task :neoforge-1.20.2:build
+gradle/actions: Writing build results to /home/runner/work/_temp/.gradle-actions/build-results/__run-1792177091154.json
+
+[Incubating] Problems report is available at: file:///home/runner/work/Biomes-Unseen/Biomes-Unseen/build/reports/problems/problems-report.html
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 10.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/9.8.1/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD SUCCESSFUL in 2m 17s
+7 actionable tasks: 7 executed

@@ -2,91 +2,49 @@
 not a neoforge module, nothing to pin
 === MODULE PROPERTIES ===
 minecraft_version=1.17.1
-architectury_version=3.6.18
+architectury_version=3.9.66
 forge_version=1.17.1-37.1.1
-* What went wrong:
-A problem occurred configuring project ':forge-1.17.1'.
-> Could not resolve all files for configuration ':forge-1.17.1:modImplementation'.
-   > Could not find dev.architectury:architectury-forge:3.6.18.
-     Searched in the following locations:
-       - https://libraries.minecraft.net/dev/architectury/architectury-forge/3.6.18/architectury-forge-3.6.18.pom
-       - https://libraries.minecraft.net/dev/architectury/architectury-forge/3.6.18/architectury-forge-3.6.18.jar
----
-BUILD FAILED in 1m 51s
----
 === CONFIG DIAGNOSTICS ===
-52:A problem occurred configuring project ':forge-1.17.1'.
-53:> Could not resolve all files for configuration ':forge-1.17.1:modImplementation'.
-80:org.gradle.api.ProjectConfigurationException: A problem occurred configuring project ':forge-1.17.1'.
-249:Caused by: java.lang.RuntimeException: Failed to setup Minecraft, org.gradle.api.internal.artifacts.ivyservice.TypedResolveException: Could not resolve all files for configuration ':forge-1.17.1:modImplementation'.
-282:Caused by: org.gradle.api.internal.artifacts.ivyservice.TypedResolveException: Could not resolve all files for configuration ':forge-1.17.1:modImplementation'.
 === STACKTRACE ===
-Caused by: java.lang.RuntimeException: Failed to setup Minecraft, org.gradle.api.internal.artifacts.ivyservice.TypedResolveException: Could not resolve all files for configuration ':forge-1.17.1:modImplementation'.
-Caused by: org.gradle.api.internal.artifacts.ivyservice.TypedResolveException: Could not resolve all files for configuration ':forge-1.17.1:modImplementation'.
-Caused by: org.gradle.internal.resolve.ModuleVersionNotFoundException: Could not find dev.architectury:architectury-forge:3.6.18.
 === WHAT WENT WRONG ===
-* What went wrong:
-A problem occurred configuring project ':forge-1.17.1'.
-> Could not resolve all files for configuration ':forge-1.17.1:modImplementation'.
-   > Could not find dev.architectury:architectury-forge:3.6.18.
-     Searched in the following locations:
-       - https://libraries.minecraft.net/dev/architectury/architectury-forge/3.6.18/architectury-forge-3.6.18.pom
-       - https://libraries.minecraft.net/dev/architectury/architectury-forge/3.6.18/architectury-forge-3.6.18.jar
-       - https://repo.maven.apache.org/maven2/dev/architectury/architectury-forge/3.6.18/architectury-forge-3.6.18.pom
-       - https://maven.fabricmc.net/dev/architectury/architectury-forge/3.6.18/architectury-forge-3.6.18.pom
-       - https://maven.architectury.dev/dev/architectury/architectury-forge/3.6.18/architectury-forge-3.6.18.pom
-       - https://maven.minecraftforge.net/dev/architectury/architectury-forge/3.6.18/architectury-forge-3.6.18.pom
-       - https://maven.neoforged.net/releases/dev/architectury/architectury-forge/3.6.18/architectury-forge-3.6.18.pom
-       - https://dl.cloudsmith.io/public/geckolib3/geckolib/maven/dev/architectury/architectury-forge/3.6.18/architectury-forge-3.6.18.pom
-       - https://maven.shedaniel.me/dev/architectury/architectury-forge/3.6.18/architectury-forge-3.6.18.pom
-       - https://maven.terraformersmc.com/releases/dev/architectury/architectury-forge/3.6.18/architectury-forge-3.6.18.pom
-       - https://oss.sonatype.org/content/repositories/snapshots/dev/architectury/architectury-forge/3.6.18/architectury-forge-3.6.18.pom
-       - file:/home/runner/work/Biomes-Unseen/Biomes-Unseen/.gradle/loom-cache/remapped_mods/dev/architectury/architectury-forge/3.6.18/architectury-forge-3.6.18.pom
-       - file:/home/runner/.gradle/caches/fabric-loom/minecraftMaven/dev/architectury/architectury-forge/3.6.18/architectury-forge-3.6.18.pom
-       - file:/home/runner/work/Biomes-Unseen/Biomes-Unseen/.gradle/loom-cache/minecraftMaven/dev/architectury/architectury-forge/3.6.18/architectury-forge-3.6.18.pom
-       - file:/home/runner/.gradle/caches/fabric-loom/forge/transformed-dependencies-v1/dev/architectury/architectury-forge/3.6.18/architectury-forge-3.6.18.pom
-     Required by:
-         project ':forge-1.17.1'
-
-* Try:
 === LAST 40 ===
-	at org.gradle.api.internal.artifacts.ResolveExceptionMapper.mapFailure(ResolveExceptionMapper.java:74)
-	at org.gradle.api.internal.artifacts.ResolveExceptionMapper.mapFailures(ResolveExceptionMapper.java:66)
-	at org.gradle.api.internal.artifacts.configurations.DefaultConfiguration$DefaultResolutionHost.consolidateFailures(DefaultConfiguration.java:1815)
-	at org.gradle.api.internal.artifacts.configurations.ResolutionHost.rethrowFailuresAndReportProblems(ResolutionHost.java:75)
-	at org.gradle.api.internal.artifacts.configurations.ResolutionBackedFileCollection.maybeThrowResolutionFailures(ResolutionBackedFileCollection.java:86)
-	at org.gradle.api.internal.artifacts.configurations.ResolutionBackedFileCollection.visitContents(ResolutionBackedFileCollection.java:76)
-	at org.gradle.api.internal.file.AbstractFileCollection.visitStructure(AbstractFileCollection.java:358)
-	at org.gradle.api.internal.artifacts.configurations.DefaultConfiguration.visitContents(DefaultConfiguration.java:541)
-	at org.gradle.api.internal.file.AbstractFileCollection.getFiles(AbstractFileCollection.java:123)
-	at org.gradle.api.internal.artifacts.configurations.DefaultLegacyConfiguration_Decorated.getFiles(Unknown Source)
-	at org.gradle.api.internal.artifacts.configurations.DefaultConfiguration.resolve(DefaultConfiguration.java:531)
-	at net.fabricmc.loom.configuration.processors.speccontext.RemappedSpecContext.getDependentMods(RemappedSpecContext.java:84)
-	at net.fabricmc.loom.configuration.processors.speccontext.RemappedSpecContext.create(RemappedSpecContext.java:72)
-	at net.fabricmc.loom.configuration.processors.speccontext.RemappedSpecContext.create(RemappedSpecContext.java:65)
-	at net.fabricmc.loom.configuration.processors.MinecraftJarProcessorManager.create(MinecraftJarProcessorManager.java:76)
-	at net.fabricmc.loom.configuration.CompileConfiguration.setupMinecraft(CompileConfiguration.java:287)
-	at net.fabricmc.loom.configuration.CompileConfiguration.lambda$run$1(CompileConfiguration.java:144)
-	... 193 more
-Caused by: org.gradle.internal.resolve.ModuleVersionNotFoundException: Could not find dev.architectury:architectury-forge:3.6.18.
-Searched in the following locations:
-  - https://libraries.minecraft.net/dev/architectury/architectury-forge/3.6.18/architectury-forge-3.6.18.pom
-  - https://libraries.minecraft.net/dev/architectury/architectury-forge/3.6.18/architectury-forge-3.6.18.jar
-  - https://repo.maven.apache.org/maven2/dev/architectury/architectury-forge/3.6.18/architectury-forge-3.6.18.pom
-  - https://maven.fabricmc.net/dev/architectury/architectury-forge/3.6.18/architectury-forge-3.6.18.pom
-  - https://maven.architectury.dev/dev/architectury/architectury-forge/3.6.18/architectury-forge-3.6.18.pom
-  - https://maven.minecraftforge.net/dev/architectury/architectury-forge/3.6.18/architectury-forge-3.6.18.pom
-  - https://maven.neoforged.net/releases/dev/architectury/architectury-forge/3.6.18/architectury-forge-3.6.18.pom
-  - https://dl.cloudsmith.io/public/geckolib3/geckolib/maven/dev/architectury/architectury-forge/3.6.18/architectury-forge-3.6.18.pom
-  - https://maven.shedaniel.me/dev/architectury/architectury-forge/3.6.18/architectury-forge-3.6.18.pom
-  - https://maven.terraformersmc.com/releases/dev/architectury/architectury-forge/3.6.18/architectury-forge-3.6.18.pom
-  - https://oss.sonatype.org/content/repositories/snapshots/dev/architectury/architectury-forge/3.6.18/architectury-forge-3.6.18.pom
-  - file:/home/runner/work/Biomes-Unseen/Biomes-Unseen/.gradle/loom-cache/remapped_mods/dev/architectury/architectury-forge/3.6.18/architectury-forge-3.6.18.pom
-  - file:/home/runner/.gradle/caches/fabric-loom/minecraftMaven/dev/architectury/architectury-forge/3.6.18/architectury-forge-3.6.18.pom
-  - file:/home/runner/work/Biomes-Unseen/Biomes-Unseen/.gradle/loom-cache/minecraftMaven/dev/architectury/architectury-forge/3.6.18/architectury-forge-3.6.18.pom
-  - file:/home/runner/.gradle/caches/fabric-loom/forge/transformed-dependencies-v1/dev/architectury/architectury-forge/3.6.18/architectury-forge-3.6.18.pom
-Required by:
-    project ':forge-1.17.1'
+[18:55:07] [main/INFO]: Access Transformer processor running version 3.0.1+61+master.47bca0e
+[18:55:07] [main/INFO]: Command line arguments [--inJar, /home/runner/.gradle/caches/fabric-loom/1.17.1/forge/1.17.1-37.1.1/minecraft-merged-srg-patched.jar, --outJar, /home/runner/.gradle/caches/fabric-loom/1.17.1/forge/1.17.1-37.1.1/minecraft-merged-srg-at-patched.jar, --atFile, /tmp/at-conf6494153103467889921.cfg]
+[18:55:07] [main/INFO]: Reading from /home/runner/.gradle/caches/fabric-loom/1.17.1/forge/1.17.1-37.1.1/minecraft-merged-srg-patched.jar
+[18:55:07] [main/INFO]: Writing to /home/runner/.gradle/caches/fabric-loom/1.17.1/forge/1.17.1-37.1.1/minecraft-merged-srg-at-patched.jar
+[18:55:07] [main/INFO]: Transformer file /tmp/at-conf6494153103467889921.cfg
+[18:55:07] [main/WARN]: Found existing output jar /home/runner/.gradle/caches/fabric-loom/1.17.1/forge/1.17.1-37.1.1/minecraft-merged-srg-at-patched.jar, overwriting
+[18:55:09] [main/INFO]: JAR transformation complete /home/runner/.gradle/caches/fabric-loom/1.17.1/forge/1.17.1-37.1.1/minecraft-merged-srg-at-patched.jar
+:access transformed minecraft in 7s
+:remapping minecraft (TinyRemapper, srg -> official)
+:remapped 1 mods (srg -> named) in 536ms
 
+> Task :forge-1.17.1:compileJava
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: Some input files use unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
 
-BUILD FAILED in 1m 51s
+> Task :forge-1.17.1:processResources
+> Task :forge-1.17.1:classes
+> Task :forge-1.17.1:jar
+> Task :forge-1.17.1:processIncludeJars
+> Task :forge-1.17.1:sourcesJar
+> Task :forge-1.17.1:validateAccessWidener NO-SOURCE
+> Task :forge-1.17.1:check
+> Task :forge-1.17.1:remapJar
+> Task :forge-1.17.1:remapSourcesJar
+> Task :forge-1.17.1:assemble
+> Task :forge-1.17.1:build
+gradle/actions: Writing build results to /home/runner/work/_temp/.gradle-actions/build-results/__run-1792176796431.json
+
+[Incubating] Problems report is available at: file:///home/runner/work/Biomes-Unseen/Biomes-Unseen/build/reports/problems/problems-report.html
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 10.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/9.8.1/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD SUCCESSFUL in 2m 37s
+7 actionable tasks: 7 executed
