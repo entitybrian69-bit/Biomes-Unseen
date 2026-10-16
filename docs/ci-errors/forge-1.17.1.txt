@@ -537,60 +537,36 @@ import dev.architectury.registry.registries.DeferredRegister;
                         ^
   symbol:   class DeferredRegister
   location: class ModRegistries
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/client/ClientSetup.java:3: error: package dev.architectury.registry.client.level.entity does not exist
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/client/ClientSetup.java:6: error: package dev.architectury.registry.client.level.entity does not exist
 import dev.architectury.registry.client.level.entity.EntityRendererRegistry;
 ---
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/client/ClientSetup.java:3: error: package dev.architectury.registry.client.level.entity does not exist
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/client/ClientSetup.java:6: error: package dev.architectury.registry.client.level.entity does not exist
 import dev.architectury.registry.client.level.entity.EntityRendererRegistry;
                                                     ^
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/client/ClientSetup.java:4: error: package dev.architectury.registry.client.particle does not exist
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/client/ClientSetup.java:7: error: package dev.architectury.registry.client.particle does not exist
 import dev.architectury.registry.client.particle.ParticleProviderRegistry;
                                                 ^
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/client/ClientSetup.java:5: error: package dev.architectury.registry.client.level.entity does not exist
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/client/ClientSetup.java:8: error: package dev.architectury.registry.client.level.entity does not exist
 ---
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/client/ClientSetup.java:4: error: package dev.architectury.registry.client.particle does not exist
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/client/ClientSetup.java:7: error: package dev.architectury.registry.client.particle does not exist
 import dev.architectury.registry.client.particle.ParticleProviderRegistry;
                                                 ^
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/client/ClientSetup.java:5: error: package dev.architectury.registry.client.level.entity does not exist
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/client/ClientSetup.java:8: error: package dev.architectury.registry.client.level.entity does not exist
 import dev.architectury.registry.client.level.entity.EntityModelLayerRegistry;
                                                     ^
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/worldgen/LegacyStructureRegistrar.java:5: error: cannot find symbol
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/entity/ai/WanderTradeGoal.java:56: error: package dev.architectury.registry.registries does not exist
 ---
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/client/ClientSetup.java:5: error: package dev.architectury.registry.client.level.entity does not exist
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/client/ClientSetup.java:8: error: package dev.architectury.registry.client.level.entity does not exist
 import dev.architectury.registry.client.level.entity.EntityModelLayerRegistry;
                                                     ^
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/worldgen/LegacyStructureRegistrar.java:5: error: cannot find symbol
-import net.minecraft.world.level.levelgen.StructureSeparationSettings;
-                                         ^
-  symbol:   class StructureSeparationSettings
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/worldgen/LegacyStructureRegistrar.java:5: error: cannot find symbol
-import net.minecraft.world.level.levelgen.StructureSeparationSettings;
-                                         ^
-  symbol:   class StructureSeparationSettings
-  location: package net.minecraft.world.level.levelgen
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/entity/BiomesUnseenMob.java:136: error: cannot find symbol
-            temperature = unseenLevel().getBiome(blockPosition()).value().getBaseTemperature();
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/entity/BiomesUnseenMob.java:136: error: cannot find symbol
-            temperature = unseenLevel().getBiome(blockPosition()).value().getBaseTemperature();
-                                                                 ^
-  symbol:   method value()
-  location: class Biome
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/entity/ai/WanderTradeGoal.java:56: error: package dev.architectury.registry.registries does not exist
             java.util.List<dev.architectury.registry.registries.RegistrySupplier<net.minecraft.world.item.Item>> minerals =
+                                                               ^
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/entity/boss/VoidSerpentEntity.java:181: error: package dev.architectury.registry.registries does not exist
 ---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/entity/ai/WanderTradeGoal.java:56: error: package dev.architectury.registry.registries does not exist
             java.util.List<dev.architectury.registry.registries.RegistrySupplier<net.minecraft.world.item.Item>> minerals =
                                                                ^
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/entity/ai/WanderTradeGoal.java:75: error: method does not override or implement a method from a supertype
-    @Override
-    ^
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/entity/boss/VoidSerpentEntity.java:181: error: package dev.architectury.registry.registries does not exist
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/entity/ai/WanderTradeGoal.java:75: error: method does not override or implement a method from a supertype
-    @Override
-    ^
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/entity/boss/VoidSerpentEntity.java:181: error: package dev.architectury.registry.registries does not exist
             java.util.List<dev.architectury.registry.registries.RegistrySupplier<net.minecraft.world.item.Item>> minerals =
                                                                ^
@@ -626,218 +602,218 @@ import net.minecraft.world.level.levelgen.StructureSeparationSettings;
   symbol:   class RegistrySupplier
   location: class ModEntities
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModEntities.java:147: error: cannot find symbol
-        EntityAttributeRegistry.register(Lumox, () -> Mob.createMobAttributes()
+        EntityAttributeRegistry.register(() -> Lumox.get(), () -> Mob.createMobAttributes()
 ---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModEntities.java:147: error: cannot find symbol
-        EntityAttributeRegistry.register(Lumox, () -> Mob.createMobAttributes()
+        EntityAttributeRegistry.register(() -> Lumox.get(), () -> Mob.createMobAttributes()
         ^
   symbol:   variable EntityAttributeRegistry
   location: class ModEntities
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModEntities.java:153: error: cannot find symbol
-        EntityAttributeRegistry.register(Brambleback, () -> Mob.createMobAttributes()
+        EntityAttributeRegistry.register(() -> Brambleback.get(), () -> Mob.createMobAttributes()
 ---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModEntities.java:153: error: cannot find symbol
-        EntityAttributeRegistry.register(Brambleback, () -> Mob.createMobAttributes()
+        EntityAttributeRegistry.register(() -> Brambleback.get(), () -> Mob.createMobAttributes()
         ^
   symbol:   variable EntityAttributeRegistry
   location: class ModEntities
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModEntities.java:159: error: cannot find symbol
-        EntityAttributeRegistry.register(Siltstrider, () -> Mob.createMobAttributes()
+        EntityAttributeRegistry.register(() -> Siltstrider.get(), () -> Mob.createMobAttributes()
 ---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModEntities.java:159: error: cannot find symbol
-        EntityAttributeRegistry.register(Siltstrider, () -> Mob.createMobAttributes()
+        EntityAttributeRegistry.register(() -> Siltstrider.get(), () -> Mob.createMobAttributes()
         ^
   symbol:   variable EntityAttributeRegistry
   location: class ModEntities
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModEntities.java:165: error: cannot find symbol
-        EntityAttributeRegistry.register(Glimmermoth, () -> Mob.createMobAttributes()
+        EntityAttributeRegistry.register(() -> Glimmermoth.get(), () -> Mob.createMobAttributes()
 ---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModEntities.java:165: error: cannot find symbol
-        EntityAttributeRegistry.register(Glimmermoth, () -> Mob.createMobAttributes()
+        EntityAttributeRegistry.register(() -> Glimmermoth.get(), () -> Mob.createMobAttributes()
         ^
   symbol:   variable EntityAttributeRegistry
   location: class ModEntities
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModEntities.java:171: error: cannot find symbol
-        EntityAttributeRegistry.register(PeatHopper, () -> Mob.createMobAttributes()
+        EntityAttributeRegistry.register(() -> PeatHopper.get(), () -> Mob.createMobAttributes()
 ---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModEntities.java:171: error: cannot find symbol
-        EntityAttributeRegistry.register(PeatHopper, () -> Mob.createMobAttributes()
+        EntityAttributeRegistry.register(() -> PeatHopper.get(), () -> Mob.createMobAttributes()
         ^
   symbol:   variable EntityAttributeRegistry
   location: class ModEntities
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModEntities.java:177: error: cannot find symbol
-        EntityAttributeRegistry.register(EmberCalf, () -> Mob.createMobAttributes()
+        EntityAttributeRegistry.register(() -> EmberCalf.get(), () -> Mob.createMobAttributes()
 ---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModEntities.java:177: error: cannot find symbol
-        EntityAttributeRegistry.register(EmberCalf, () -> Mob.createMobAttributes()
+        EntityAttributeRegistry.register(() -> EmberCalf.get(), () -> Mob.createMobAttributes()
         ^
   symbol:   variable EntityAttributeRegistry
   location: class ModEntities
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModEntities.java:183: error: cannot find symbol
-        EntityAttributeRegistry.register(FrostFawn, () -> Mob.createMobAttributes()
+        EntityAttributeRegistry.register(() -> FrostFawn.get(), () -> Mob.createMobAttributes()
 ---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModEntities.java:183: error: cannot find symbol
-        EntityAttributeRegistry.register(FrostFawn, () -> Mob.createMobAttributes()
+        EntityAttributeRegistry.register(() -> FrostFawn.get(), () -> Mob.createMobAttributes()
         ^
   symbol:   variable EntityAttributeRegistry
   location: class ModEntities
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModEntities.java:189: error: cannot find symbol
-        EntityAttributeRegistry.register(Murkling, () -> Mob.createMobAttributes()
+        EntityAttributeRegistry.register(() -> Murkling.get(), () -> Mob.createMobAttributes()
 ---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModEntities.java:189: error: cannot find symbol
-        EntityAttributeRegistry.register(Murkling, () -> Mob.createMobAttributes()
+        EntityAttributeRegistry.register(() -> Murkling.get(), () -> Mob.createMobAttributes()
         ^
   symbol:   variable EntityAttributeRegistry
   location: class ModEntities
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModEntities.java:195: error: cannot find symbol
-        EntityAttributeRegistry.register(SporeSprout, () -> Mob.createMobAttributes()
+        EntityAttributeRegistry.register(() -> SporeSprout.get(), () -> Mob.createMobAttributes()
 ---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModEntities.java:195: error: cannot find symbol
-        EntityAttributeRegistry.register(SporeSprout, () -> Mob.createMobAttributes()
+        EntityAttributeRegistry.register(() -> SporeSprout.get(), () -> Mob.createMobAttributes()
         ^
   symbol:   variable EntityAttributeRegistry
   location: class ModEntities
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModEntities.java:201: error: cannot find symbol
-        EntityAttributeRegistry.register(Skywisp, () -> Mob.createMobAttributes()
+        EntityAttributeRegistry.register(() -> Skywisp.get(), () -> Mob.createMobAttributes()
 ---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModEntities.java:201: error: cannot find symbol
-        EntityAttributeRegistry.register(Skywisp, () -> Mob.createMobAttributes()
+        EntityAttributeRegistry.register(() -> Skywisp.get(), () -> Mob.createMobAttributes()
         ^
   symbol:   variable EntityAttributeRegistry
   location: class ModEntities
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModEntities.java:207: error: cannot find symbol
-        EntityAttributeRegistry.register(ThunderRam, () -> Mob.createMobAttributes()
+        EntityAttributeRegistry.register(() -> ThunderRam.get(), () -> Mob.createMobAttributes()
 ---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModEntities.java:207: error: cannot find symbol
-        EntityAttributeRegistry.register(ThunderRam, () -> Mob.createMobAttributes()
+        EntityAttributeRegistry.register(() -> ThunderRam.get(), () -> Mob.createMobAttributes()
         ^
   symbol:   variable EntityAttributeRegistry
   location: class ModEntities
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModEntities.java:213: error: cannot find symbol
-        EntityAttributeRegistry.register(Mosshorn, () -> Mob.createMobAttributes()
+        EntityAttributeRegistry.register(() -> Mosshorn.get(), () -> Mob.createMobAttributes()
 ---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModEntities.java:213: error: cannot find symbol
-        EntityAttributeRegistry.register(Mosshorn, () -> Mob.createMobAttributes()
+        EntityAttributeRegistry.register(() -> Mosshorn.get(), () -> Mob.createMobAttributes()
         ^
   symbol:   variable EntityAttributeRegistry
   location: class ModEntities
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModEntities.java:219: error: cannot find symbol
-        EntityAttributeRegistry.register(CinderPup, () -> Mob.createMobAttributes()
+        EntityAttributeRegistry.register(() -> CinderPup.get(), () -> Mob.createMobAttributes()
 ---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModEntities.java:219: error: cannot find symbol
-        EntityAttributeRegistry.register(CinderPup, () -> Mob.createMobAttributes()
+        EntityAttributeRegistry.register(() -> CinderPup.get(), () -> Mob.createMobAttributes()
         ^
   symbol:   variable EntityAttributeRegistry
   location: class ModEntities
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModEntities.java:225: error: cannot find symbol
-        EntityAttributeRegistry.register(EchoHowler, () -> Mob.createMobAttributes()
+        EntityAttributeRegistry.register(() -> EchoHowler.get(), () -> Mob.createMobAttributes()
 ---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModEntities.java:225: error: cannot find symbol
-        EntityAttributeRegistry.register(EchoHowler, () -> Mob.createMobAttributes()
+        EntityAttributeRegistry.register(() -> EchoHowler.get(), () -> Mob.createMobAttributes()
         ^
   symbol:   variable EntityAttributeRegistry
   location: class ModEntities
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModEntities.java:231: error: cannot find symbol
-        EntityAttributeRegistry.register(DuneSkimmer, () -> Mob.createMobAttributes()
+        EntityAttributeRegistry.register(() -> DuneSkimmer.get(), () -> Mob.createMobAttributes()
 ---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModEntities.java:231: error: cannot find symbol
-        EntityAttributeRegistry.register(DuneSkimmer, () -> Mob.createMobAttributes()
+        EntityAttributeRegistry.register(() -> DuneSkimmer.get(), () -> Mob.createMobAttributes()
         ^
   symbol:   variable EntityAttributeRegistry
   location: class ModEntities
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModEntities.java:237: error: cannot find symbol
-        EntityAttributeRegistry.register(TideCaller, () -> Mob.createMobAttributes()
+        EntityAttributeRegistry.register(() -> TideCaller.get(), () -> Mob.createMobAttributes()
 ---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModEntities.java:237: error: cannot find symbol
-        EntityAttributeRegistry.register(TideCaller, () -> Mob.createMobAttributes()
+        EntityAttributeRegistry.register(() -> TideCaller.get(), () -> Mob.createMobAttributes()
         ^
   symbol:   variable EntityAttributeRegistry
   location: class ModEntities
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModEntities.java:243: error: cannot find symbol
-        EntityAttributeRegistry.register(GloomStalker, () -> Mob.createMobAttributes()
+        EntityAttributeRegistry.register(() -> GloomStalker.get(), () -> Mob.createMobAttributes()
 ---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModEntities.java:243: error: cannot find symbol
-        EntityAttributeRegistry.register(GloomStalker, () -> Mob.createMobAttributes()
+        EntityAttributeRegistry.register(() -> GloomStalker.get(), () -> Mob.createMobAttributes()
         ^
   symbol:   variable EntityAttributeRegistry
   location: class ModEntities
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModEntities.java:249: error: cannot find symbol
-        EntityAttributeRegistry.register(CrystalHermit, () -> Mob.createMobAttributes()
+        EntityAttributeRegistry.register(() -> CrystalHermit.get(), () -> Mob.createMobAttributes()
 ---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModEntities.java:249: error: cannot find symbol
-        EntityAttributeRegistry.register(CrystalHermit, () -> Mob.createMobAttributes()
+        EntityAttributeRegistry.register(() -> CrystalHermit.get(), () -> Mob.createMobAttributes()
         ^
   symbol:   variable EntityAttributeRegistry
   location: class ModEntities
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModEntities.java:255: error: cannot find symbol
-        EntityAttributeRegistry.register(WindDancer, () -> Mob.createMobAttributes()
+        EntityAttributeRegistry.register(() -> WindDancer.get(), () -> Mob.createMobAttributes()
 ---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModEntities.java:255: error: cannot find symbol
-        EntityAttributeRegistry.register(WindDancer, () -> Mob.createMobAttributes()
+        EntityAttributeRegistry.register(() -> WindDancer.get(), () -> Mob.createMobAttributes()
         ^
   symbol:   variable EntityAttributeRegistry
   location: class ModEntities
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModEntities.java:261: error: cannot find symbol
-        EntityAttributeRegistry.register(MireGolem, () -> Mob.createMobAttributes()
+        EntityAttributeRegistry.register(() -> MireGolem.get(), () -> Mob.createMobAttributes()
 ---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModEntities.java:261: error: cannot find symbol
-        EntityAttributeRegistry.register(MireGolem, () -> Mob.createMobAttributes()
+        EntityAttributeRegistry.register(() -> MireGolem.get(), () -> Mob.createMobAttributes()
         ^
   symbol:   variable EntityAttributeRegistry
   location: class ModEntities
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModEntities.java:267: error: cannot find symbol
-        EntityAttributeRegistry.register(LanternFox, () -> Mob.createMobAttributes()
+        EntityAttributeRegistry.register(() -> LanternFox.get(), () -> Mob.createMobAttributes()
 ---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModEntities.java:267: error: cannot find symbol
-        EntityAttributeRegistry.register(LanternFox, () -> Mob.createMobAttributes()
+        EntityAttributeRegistry.register(() -> LanternFox.get(), () -> Mob.createMobAttributes()
         ^
   symbol:   variable EntityAttributeRegistry
   location: class ModEntities
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModEntities.java:273: error: cannot find symbol
-        EntityAttributeRegistry.register(ReefGrazer, () -> Mob.createMobAttributes()
+        EntityAttributeRegistry.register(() -> ReefGrazer.get(), () -> Mob.createMobAttributes()
 ---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModEntities.java:273: error: cannot find symbol
-        EntityAttributeRegistry.register(ReefGrazer, () -> Mob.createMobAttributes()
+        EntityAttributeRegistry.register(() -> ReefGrazer.get(), () -> Mob.createMobAttributes()
         ^
   symbol:   variable EntityAttributeRegistry
   location: class ModEntities
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModEntities.java:279: error: cannot find symbol
-        EntityAttributeRegistry.register(AshCrawler, () -> Mob.createMobAttributes()
+        EntityAttributeRegistry.register(() -> AshCrawler.get(), () -> Mob.createMobAttributes()
 ---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModEntities.java:279: error: cannot find symbol
-        EntityAttributeRegistry.register(AshCrawler, () -> Mob.createMobAttributes()
+        EntityAttributeRegistry.register(() -> AshCrawler.get(), () -> Mob.createMobAttributes()
         ^
   symbol:   variable EntityAttributeRegistry
   location: class ModEntities
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModEntities.java:285: error: cannot find symbol
-        EntityAttributeRegistry.register(StarWhale, () -> Mob.createMobAttributes()
+        EntityAttributeRegistry.register(() -> StarWhale.get(), () -> Mob.createMobAttributes()
 ---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModEntities.java:285: error: cannot find symbol
-        EntityAttributeRegistry.register(StarWhale, () -> Mob.createMobAttributes()
+        EntityAttributeRegistry.register(() -> StarWhale.get(), () -> Mob.createMobAttributes()
         ^
   symbol:   variable EntityAttributeRegistry
   location: class ModEntities
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModEntities.java:291: error: cannot find symbol
-        EntityAttributeRegistry.register(PetalWing, () -> Mob.createMobAttributes()
+        EntityAttributeRegistry.register(() -> PetalWing.get(), () -> Mob.createMobAttributes()
 ---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModEntities.java:291: error: cannot find symbol
-        EntityAttributeRegistry.register(PetalWing, () -> Mob.createMobAttributes()
+        EntityAttributeRegistry.register(() -> PetalWing.get(), () -> Mob.createMobAttributes()
         ^
   symbol:   variable EntityAttributeRegistry
   location: class ModEntities
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModEntities.java:297: error: cannot find symbol
-        EntityAttributeRegistry.register(HeartOfTheForest, () -> Mob.createMobAttributes()
+        EntityAttributeRegistry.register(() -> HeartOfTheForest.get(), () -> Mob.createMobAttributes()
 ---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModEntities.java:297: error: cannot find symbol
-        EntityAttributeRegistry.register(HeartOfTheForest, () -> Mob.createMobAttributes()
+        EntityAttributeRegistry.register(() -> HeartOfTheForest.get(), () -> Mob.createMobAttributes()
         ^
   symbol:   variable EntityAttributeRegistry
   location: class ModEntities
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModEntities.java:304: error: cannot find symbol
-        EntityAttributeRegistry.register(VoidSerpent, () -> Mob.createMobAttributes()
+        EntityAttributeRegistry.register(() -> VoidSerpent.get(), () -> Mob.createMobAttributes()
 ---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModEntities.java:304: error: cannot find symbol
-        EntityAttributeRegistry.register(VoidSerpent, () -> Mob.createMobAttributes()
+        EntityAttributeRegistry.register(() -> VoidSerpent.get(), () -> Mob.createMobAttributes()
         ^
   symbol:   variable EntityAttributeRegistry
   location: class ModEntities
@@ -1297,312 +1273,336 @@ import net.minecraft.world.level.levelgen.StructureSeparationSettings;
               ^
   symbol:   method sendSystemMessage(TranslatableComponent)
   location: variable player of type Player
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/config/ClothConfigScreen.java:46: error: cannot find symbol
-            call(builder, "setTitle", new net.minecraft.network.chat.StringTextComponent(title));
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/config/ClothConfigScreen.java:46: error: cannot find symbol
-            call(builder, "setTitle", new net.minecraft.network.chat.StringTextComponent(title));
-                                                                    ^
-  symbol:   class StringTextComponent
-  location: package net.minecraft.network.chat
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/config/ClothConfigScreen.java:55: error: cannot find symbol
-            Object general = call(builder, "getOrCreateCategory", new net.minecraft.network.chat.StringTextComponent("General"));
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/config/ClothConfigScreen.java:55: error: cannot find symbol
-            Object general = call(builder, "getOrCreateCategory", new net.minecraft.network.chat.StringTextComponent("General"));
-                                                                                                ^
-  symbol:   class StringTextComponent
-  location: package net.minecraft.network.chat
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/config/ClothConfigScreen.java:64: error: cannot find symbol
-            Object world = call(builder, "getOrCreateCategory", new net.minecraft.network.chat.StringTextComponent("Level"));
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/config/ClothConfigScreen.java:64: error: cannot find symbol
-            Object world = call(builder, "getOrCreateCategory", new net.minecraft.network.chat.StringTextComponent("Level"));
-                                                                                              ^
-  symbol:   class StringTextComponent
-  location: package net.minecraft.network.chat
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/config/ClothConfigScreen.java:72: error: cannot find symbol
-            Object mobs = call(builder, "getOrCreateCategory", new net.minecraft.network.chat.StringTextComponent("Mobs & Performance"));
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/config/ClothConfigScreen.java:72: error: cannot find symbol
-            Object mobs = call(builder, "getOrCreateCategory", new net.minecraft.network.chat.StringTextComponent("Mobs & Performance"));
-                                                                                             ^
-  symbol:   class StringTextComponent
-  location: package net.minecraft.network.chat
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/config/ClothConfigScreen.java:91: error: cannot find symbol
-        Object entry = call(entryBuilder, "startBooleanField", new net.minecraft.network.chat.StringTextComponent(label), Boolean.valueOf(value));
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/config/ClothConfigScreen.java:91: error: cannot find symbol
-        Object entry = call(entryBuilder, "startBooleanField", new net.minecraft.network.chat.StringTextComponent(label), Boolean.valueOf(value));
-                                                                                             ^
-  symbol:   class StringTextComponent
-  location: package net.minecraft.network.chat
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/config/ClothConfigScreen.java:102: error: cannot find symbol
-        Object entry = call(entryBuilder, "startDoubleField", new net.minecraft.network.chat.StringTextComponent(label), Double.valueOf(value));
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/config/ClothConfigScreen.java:102: error: cannot find symbol
-        Object entry = call(entryBuilder, "startDoubleField", new net.minecraft.network.chat.StringTextComponent(label), Double.valueOf(value));
-                                                                                            ^
-  symbol:   class StringTextComponent
-  location: package net.minecraft.network.chat
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/config/ClothConfigScreen.java:115: error: cannot find symbol
-        Object entry = call(entryBuilder, "startIntField", new net.minecraft.network.chat.StringTextComponent(label), Integer.valueOf(value));
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/config/ClothConfigScreen.java:115: error: cannot find symbol
-        Object entry = call(entryBuilder, "startIntField", new net.minecraft.network.chat.StringTextComponent(label), Integer.valueOf(value));
-                                                                                         ^
-  symbol:   class StringTextComponent
-  location: package net.minecraft.network.chat
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/client/ClientSetup.java:24: error: cannot find symbol
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/client/ClientSetup.java:27: error: cannot find symbol
         EntityModelLayerRegistry.register(UnseenLegacyModel.LAYER, UnseenLegacyModel::createBodyLayer);
 ---
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/client/ClientSetup.java:24: error: cannot find symbol
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/client/ClientSetup.java:27: error: cannot find symbol
         EntityModelLayerRegistry.register(UnseenLegacyModel.LAYER, UnseenLegacyModel::createBodyLayer);
         ^
   symbol:   variable EntityModelLayerRegistry
   location: class ClientSetup
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/client/ClientSetup.java:25: error: cannot find symbol
-        EntityRendererRegistry.register(ModEntities.Lumox, context -> new UnseenLegacyRenderer<>(context, "lumox"));
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/client/ClientSetup.java:25: error: cannot find symbol
-        EntityRendererRegistry.register(ModEntities.Lumox, context -> new UnseenLegacyRenderer<>(context, "lumox"));
-        ^
-  symbol:   variable EntityRendererRegistry
-  location: class ClientSetup
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/client/ClientSetup.java:26: error: cannot find symbol
-        EntityRendererRegistry.register(ModEntities.Brambleback, context -> new UnseenLegacyRenderer<>(context, "brambleback"));
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/client/ClientSetup.java:26: error: cannot find symbol
-        EntityRendererRegistry.register(ModEntities.Brambleback, context -> new UnseenLegacyRenderer<>(context, "brambleback"));
-        ^
-  symbol:   variable EntityRendererRegistry
-  location: class ClientSetup
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/client/ClientSetup.java:27: error: cannot find symbol
-        EntityRendererRegistry.register(ModEntities.Siltstrider, context -> new UnseenLegacyRenderer<>(context, "siltstrider"));
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/client/ClientSetup.java:27: error: cannot find symbol
-        EntityRendererRegistry.register(ModEntities.Siltstrider, context -> new UnseenLegacyRenderer<>(context, "siltstrider"));
-        ^
-  symbol:   variable EntityRendererRegistry
-  location: class ClientSetup
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/client/ClientSetup.java:28: error: cannot find symbol
-        EntityRendererRegistry.register(ModEntities.Glimmermoth, context -> new UnseenLegacyRenderer<>(context, "glimmermoth"));
+        EntityRendererRegistry.register((Supplier<EntityType<? extends BiomesUnseenMob>>) (Supplier<?>) ModEntities.Lumox,
 ---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/client/ClientSetup.java:28: error: cannot find symbol
-        EntityRendererRegistry.register(ModEntities.Glimmermoth, context -> new UnseenLegacyRenderer<>(context, "glimmermoth"));
-        ^
-  symbol:   variable EntityRendererRegistry
-  location: class ClientSetup
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/client/ClientSetup.java:29: error: cannot find symbol
-        EntityRendererRegistry.register(ModEntities.PeatHopper, context -> new UnseenLegacyRenderer<>(context, "peat_hopper"));
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/client/ClientSetup.java:29: error: cannot find symbol
-        EntityRendererRegistry.register(ModEntities.PeatHopper, context -> new UnseenLegacyRenderer<>(context, "peat_hopper"));
+        EntityRendererRegistry.register((Supplier<EntityType<? extends BiomesUnseenMob>>) (Supplier<?>) ModEntities.Lumox,
         ^
   symbol:   variable EntityRendererRegistry
   location: class ClientSetup
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/client/ClientSetup.java:30: error: cannot find symbol
-        EntityRendererRegistry.register(ModEntities.EmberCalf, context -> new UnseenLegacyRenderer<>(context, "ember_calf"));
+        EntityRendererRegistry.register((Supplier<EntityType<? extends BiomesUnseenMob>>) (Supplier<?>) ModEntities.Brambleback,
 ---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/client/ClientSetup.java:30: error: cannot find symbol
-        EntityRendererRegistry.register(ModEntities.EmberCalf, context -> new UnseenLegacyRenderer<>(context, "ember_calf"));
-        ^
-  symbol:   variable EntityRendererRegistry
-  location: class ClientSetup
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/client/ClientSetup.java:31: error: cannot find symbol
-        EntityRendererRegistry.register(ModEntities.FrostFawn, context -> new UnseenLegacyRenderer<>(context, "frost_fawn"));
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/client/ClientSetup.java:31: error: cannot find symbol
-        EntityRendererRegistry.register(ModEntities.FrostFawn, context -> new UnseenLegacyRenderer<>(context, "frost_fawn"));
+        EntityRendererRegistry.register((Supplier<EntityType<? extends BiomesUnseenMob>>) (Supplier<?>) ModEntities.Brambleback,
         ^
   symbol:   variable EntityRendererRegistry
   location: class ClientSetup
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/client/ClientSetup.java:32: error: cannot find symbol
-        EntityRendererRegistry.register(ModEntities.Murkling, context -> new UnseenLegacyRenderer<>(context, "murkling"));
+        EntityRendererRegistry.register((Supplier<EntityType<? extends BiomesUnseenMob>>) (Supplier<?>) ModEntities.Siltstrider,
 ---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/client/ClientSetup.java:32: error: cannot find symbol
-        EntityRendererRegistry.register(ModEntities.Murkling, context -> new UnseenLegacyRenderer<>(context, "murkling"));
-        ^
-  symbol:   variable EntityRendererRegistry
-  location: class ClientSetup
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/client/ClientSetup.java:33: error: cannot find symbol
-        EntityRendererRegistry.register(ModEntities.SporeSprout, context -> new UnseenLegacyRenderer<>(context, "spore_sprout"));
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/client/ClientSetup.java:33: error: cannot find symbol
-        EntityRendererRegistry.register(ModEntities.SporeSprout, context -> new UnseenLegacyRenderer<>(context, "spore_sprout"));
+        EntityRendererRegistry.register((Supplier<EntityType<? extends BiomesUnseenMob>>) (Supplier<?>) ModEntities.Siltstrider,
         ^
   symbol:   variable EntityRendererRegistry
   location: class ClientSetup
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/client/ClientSetup.java:34: error: cannot find symbol
-        EntityRendererRegistry.register(ModEntities.Skywisp, context -> new UnseenLegacyRenderer<>(context, "skywisp"));
+        EntityRendererRegistry.register((Supplier<EntityType<? extends BiomesUnseenMob>>) (Supplier<?>) ModEntities.Glimmermoth,
 ---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/client/ClientSetup.java:34: error: cannot find symbol
-        EntityRendererRegistry.register(ModEntities.Skywisp, context -> new UnseenLegacyRenderer<>(context, "skywisp"));
-        ^
-  symbol:   variable EntityRendererRegistry
-  location: class ClientSetup
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/client/ClientSetup.java:35: error: cannot find symbol
-        EntityRendererRegistry.register(ModEntities.ThunderRam, context -> new UnseenLegacyRenderer<>(context, "thunder_ram"));
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/client/ClientSetup.java:35: error: cannot find symbol
-        EntityRendererRegistry.register(ModEntities.ThunderRam, context -> new UnseenLegacyRenderer<>(context, "thunder_ram"));
+        EntityRendererRegistry.register((Supplier<EntityType<? extends BiomesUnseenMob>>) (Supplier<?>) ModEntities.Glimmermoth,
         ^
   symbol:   variable EntityRendererRegistry
   location: class ClientSetup
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/client/ClientSetup.java:36: error: cannot find symbol
-        EntityRendererRegistry.register(ModEntities.Mosshorn, context -> new UnseenLegacyRenderer<>(context, "mosshorn"));
+        EntityRendererRegistry.register((Supplier<EntityType<? extends BiomesUnseenMob>>) (Supplier<?>) ModEntities.PeatHopper,
 ---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/client/ClientSetup.java:36: error: cannot find symbol
-        EntityRendererRegistry.register(ModEntities.Mosshorn, context -> new UnseenLegacyRenderer<>(context, "mosshorn"));
-        ^
-  symbol:   variable EntityRendererRegistry
-  location: class ClientSetup
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/client/ClientSetup.java:37: error: cannot find symbol
-        EntityRendererRegistry.register(ModEntities.CinderPup, context -> new UnseenLegacyRenderer<>(context, "cinder_pup"));
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/client/ClientSetup.java:37: error: cannot find symbol
-        EntityRendererRegistry.register(ModEntities.CinderPup, context -> new UnseenLegacyRenderer<>(context, "cinder_pup"));
+        EntityRendererRegistry.register((Supplier<EntityType<? extends BiomesUnseenMob>>) (Supplier<?>) ModEntities.PeatHopper,
         ^
   symbol:   variable EntityRendererRegistry
   location: class ClientSetup
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/client/ClientSetup.java:38: error: cannot find symbol
-        EntityRendererRegistry.register(ModEntities.EchoHowler, context -> new UnseenLegacyRenderer<>(context, "echo_howler"));
+        EntityRendererRegistry.register((Supplier<EntityType<? extends BiomesUnseenMob>>) (Supplier<?>) ModEntities.EmberCalf,
 ---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/client/ClientSetup.java:38: error: cannot find symbol
-        EntityRendererRegistry.register(ModEntities.EchoHowler, context -> new UnseenLegacyRenderer<>(context, "echo_howler"));
-        ^
-  symbol:   variable EntityRendererRegistry
-  location: class ClientSetup
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/client/ClientSetup.java:39: error: cannot find symbol
-        EntityRendererRegistry.register(ModEntities.DuneSkimmer, context -> new UnseenLegacyRenderer<>(context, "dune_skimmer"));
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/client/ClientSetup.java:39: error: cannot find symbol
-        EntityRendererRegistry.register(ModEntities.DuneSkimmer, context -> new UnseenLegacyRenderer<>(context, "dune_skimmer"));
+        EntityRendererRegistry.register((Supplier<EntityType<? extends BiomesUnseenMob>>) (Supplier<?>) ModEntities.EmberCalf,
         ^
   symbol:   variable EntityRendererRegistry
   location: class ClientSetup
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/client/ClientSetup.java:40: error: cannot find symbol
-        EntityRendererRegistry.register(ModEntities.TideCaller, context -> new UnseenLegacyRenderer<>(context, "tide_caller"));
+        EntityRendererRegistry.register((Supplier<EntityType<? extends BiomesUnseenMob>>) (Supplier<?>) ModEntities.FrostFawn,
 ---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/client/ClientSetup.java:40: error: cannot find symbol
-        EntityRendererRegistry.register(ModEntities.TideCaller, context -> new UnseenLegacyRenderer<>(context, "tide_caller"));
-        ^
-  symbol:   variable EntityRendererRegistry
-  location: class ClientSetup
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/client/ClientSetup.java:41: error: cannot find symbol
-        EntityRendererRegistry.register(ModEntities.GloomStalker, context -> new UnseenLegacyRenderer<>(context, "gloom_stalker"));
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/client/ClientSetup.java:41: error: cannot find symbol
-        EntityRendererRegistry.register(ModEntities.GloomStalker, context -> new UnseenLegacyRenderer<>(context, "gloom_stalker"));
+        EntityRendererRegistry.register((Supplier<EntityType<? extends BiomesUnseenMob>>) (Supplier<?>) ModEntities.FrostFawn,
         ^
   symbol:   variable EntityRendererRegistry
   location: class ClientSetup
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/client/ClientSetup.java:42: error: cannot find symbol
-        EntityRendererRegistry.register(ModEntities.CrystalHermit, context -> new UnseenLegacyRenderer<>(context, "crystal_hermit"));
+        EntityRendererRegistry.register((Supplier<EntityType<? extends BiomesUnseenMob>>) (Supplier<?>) ModEntities.Murkling,
 ---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/client/ClientSetup.java:42: error: cannot find symbol
-        EntityRendererRegistry.register(ModEntities.CrystalHermit, context -> new UnseenLegacyRenderer<>(context, "crystal_hermit"));
-        ^
-  symbol:   variable EntityRendererRegistry
-  location: class ClientSetup
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/client/ClientSetup.java:43: error: cannot find symbol
-        EntityRendererRegistry.register(ModEntities.WindDancer, context -> new UnseenLegacyRenderer<>(context, "wind_dancer"));
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/client/ClientSetup.java:43: error: cannot find symbol
-        EntityRendererRegistry.register(ModEntities.WindDancer, context -> new UnseenLegacyRenderer<>(context, "wind_dancer"));
+        EntityRendererRegistry.register((Supplier<EntityType<? extends BiomesUnseenMob>>) (Supplier<?>) ModEntities.Murkling,
         ^
   symbol:   variable EntityRendererRegistry
   location: class ClientSetup
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/client/ClientSetup.java:44: error: cannot find symbol
-        EntityRendererRegistry.register(ModEntities.MireGolem, context -> new UnseenLegacyRenderer<>(context, "mire_golem"));
+        EntityRendererRegistry.register((Supplier<EntityType<? extends BiomesUnseenMob>>) (Supplier<?>) ModEntities.SporeSprout,
 ---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/client/ClientSetup.java:44: error: cannot find symbol
-        EntityRendererRegistry.register(ModEntities.MireGolem, context -> new UnseenLegacyRenderer<>(context, "mire_golem"));
-        ^
-  symbol:   variable EntityRendererRegistry
-  location: class ClientSetup
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/client/ClientSetup.java:45: error: cannot find symbol
-        EntityRendererRegistry.register(ModEntities.LanternFox, context -> new UnseenLegacyRenderer<>(context, "lantern_fox"));
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/client/ClientSetup.java:45: error: cannot find symbol
-        EntityRendererRegistry.register(ModEntities.LanternFox, context -> new UnseenLegacyRenderer<>(context, "lantern_fox"));
+        EntityRendererRegistry.register((Supplier<EntityType<? extends BiomesUnseenMob>>) (Supplier<?>) ModEntities.SporeSprout,
         ^
   symbol:   variable EntityRendererRegistry
   location: class ClientSetup
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/client/ClientSetup.java:46: error: cannot find symbol
-        EntityRendererRegistry.register(ModEntities.ReefGrazer, context -> new UnseenLegacyRenderer<>(context, "reef_grazer"));
+        EntityRendererRegistry.register((Supplier<EntityType<? extends BiomesUnseenMob>>) (Supplier<?>) ModEntities.Skywisp,
 ---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/client/ClientSetup.java:46: error: cannot find symbol
-        EntityRendererRegistry.register(ModEntities.ReefGrazer, context -> new UnseenLegacyRenderer<>(context, "reef_grazer"));
-        ^
-  symbol:   variable EntityRendererRegistry
-  location: class ClientSetup
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/client/ClientSetup.java:47: error: cannot find symbol
-        EntityRendererRegistry.register(ModEntities.AshCrawler, context -> new UnseenLegacyRenderer<>(context, "ash_crawler"));
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/client/ClientSetup.java:47: error: cannot find symbol
-        EntityRendererRegistry.register(ModEntities.AshCrawler, context -> new UnseenLegacyRenderer<>(context, "ash_crawler"));
+        EntityRendererRegistry.register((Supplier<EntityType<? extends BiomesUnseenMob>>) (Supplier<?>) ModEntities.Skywisp,
         ^
   symbol:   variable EntityRendererRegistry
   location: class ClientSetup
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/client/ClientSetup.java:48: error: cannot find symbol
-        EntityRendererRegistry.register(ModEntities.StarWhale, context -> new UnseenLegacyRenderer<>(context, "star_whale"));
+        EntityRendererRegistry.register((Supplier<EntityType<? extends BiomesUnseenMob>>) (Supplier<?>) ModEntities.ThunderRam,
 ---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/client/ClientSetup.java:48: error: cannot find symbol
-        EntityRendererRegistry.register(ModEntities.StarWhale, context -> new UnseenLegacyRenderer<>(context, "star_whale"));
-        ^
-  symbol:   variable EntityRendererRegistry
-  location: class ClientSetup
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/client/ClientSetup.java:49: error: cannot find symbol
-        EntityRendererRegistry.register(ModEntities.PetalWing, context -> new UnseenLegacyRenderer<>(context, "petal_wing"));
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/client/ClientSetup.java:49: error: cannot find symbol
-        EntityRendererRegistry.register(ModEntities.PetalWing, context -> new UnseenLegacyRenderer<>(context, "petal_wing"));
+        EntityRendererRegistry.register((Supplier<EntityType<? extends BiomesUnseenMob>>) (Supplier<?>) ModEntities.ThunderRam,
         ^
   symbol:   variable EntityRendererRegistry
   location: class ClientSetup
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/client/ClientSetup.java:50: error: cannot find symbol
-        EntityRendererRegistry.register(ModEntities.HeartOfTheForest, context -> new UnseenLegacyRenderer<>(context, "heart_of_the_forest"));
+        EntityRendererRegistry.register((Supplier<EntityType<? extends BiomesUnseenMob>>) (Supplier<?>) ModEntities.Mosshorn,
 ---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/client/ClientSetup.java:50: error: cannot find symbol
-        EntityRendererRegistry.register(ModEntities.HeartOfTheForest, context -> new UnseenLegacyRenderer<>(context, "heart_of_the_forest"));
+        EntityRendererRegistry.register((Supplier<EntityType<? extends BiomesUnseenMob>>) (Supplier<?>) ModEntities.Mosshorn,
         ^
   symbol:   variable EntityRendererRegistry
   location: class ClientSetup
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/client/ClientSetup.java:51: error: cannot find symbol
-        EntityRendererRegistry.register(ModEntities.VoidSerpent, context -> new UnseenLegacyRenderer<>(context, "void_serpent"));
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/client/ClientSetup.java:52: error: cannot find symbol
+        EntityRendererRegistry.register((Supplier<EntityType<? extends BiomesUnseenMob>>) (Supplier<?>) ModEntities.CinderPup,
 ---
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/client/ClientSetup.java:51: error: cannot find symbol
-        EntityRendererRegistry.register(ModEntities.VoidSerpent, context -> new UnseenLegacyRenderer<>(context, "void_serpent"));
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/client/ClientSetup.java:52: error: cannot find symbol
+        EntityRendererRegistry.register((Supplier<EntityType<? extends BiomesUnseenMob>>) (Supplier<?>) ModEntities.CinderPup,
         ^
   symbol:   variable EntityRendererRegistry
   location: class ClientSetup
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/client/ClientSetup.java:53: error: cannot find symbol
-        ParticleProviderRegistry.register(ModParticles.BY_ID.get("crystal_spark"),
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/client/ClientSetup.java:54: error: cannot find symbol
+        EntityRendererRegistry.register((Supplier<EntityType<? extends BiomesUnseenMob>>) (Supplier<?>) ModEntities.EchoHowler,
 ---
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/client/ClientSetup.java:53: error: cannot find symbol
-        ParticleProviderRegistry.register(ModParticles.BY_ID.get("crystal_spark"),
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/client/ClientSetup.java:54: error: cannot find symbol
+        EntityRendererRegistry.register((Supplier<EntityType<? extends BiomesUnseenMob>>) (Supplier<?>) ModEntities.EchoHowler,
+        ^
+  symbol:   variable EntityRendererRegistry
+  location: class ClientSetup
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/client/ClientSetup.java:56: error: cannot find symbol
+        EntityRendererRegistry.register((Supplier<EntityType<? extends BiomesUnseenMob>>) (Supplier<?>) ModEntities.DuneSkimmer,
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/client/ClientSetup.java:56: error: cannot find symbol
+        EntityRendererRegistry.register((Supplier<EntityType<? extends BiomesUnseenMob>>) (Supplier<?>) ModEntities.DuneSkimmer,
+        ^
+  symbol:   variable EntityRendererRegistry
+  location: class ClientSetup
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/client/ClientSetup.java:58: error: cannot find symbol
+        EntityRendererRegistry.register((Supplier<EntityType<? extends BiomesUnseenMob>>) (Supplier<?>) ModEntities.TideCaller,
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/client/ClientSetup.java:58: error: cannot find symbol
+        EntityRendererRegistry.register((Supplier<EntityType<? extends BiomesUnseenMob>>) (Supplier<?>) ModEntities.TideCaller,
+        ^
+  symbol:   variable EntityRendererRegistry
+  location: class ClientSetup
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/client/ClientSetup.java:60: error: cannot find symbol
+        EntityRendererRegistry.register((Supplier<EntityType<? extends BiomesUnseenMob>>) (Supplier<?>) ModEntities.GloomStalker,
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/client/ClientSetup.java:60: error: cannot find symbol
+        EntityRendererRegistry.register((Supplier<EntityType<? extends BiomesUnseenMob>>) (Supplier<?>) ModEntities.GloomStalker,
+        ^
+  symbol:   variable EntityRendererRegistry
+  location: class ClientSetup
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/client/ClientSetup.java:62: error: cannot find symbol
+        EntityRendererRegistry.register((Supplier<EntityType<? extends BiomesUnseenMob>>) (Supplier<?>) ModEntities.CrystalHermit,
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/client/ClientSetup.java:62: error: cannot find symbol
+        EntityRendererRegistry.register((Supplier<EntityType<? extends BiomesUnseenMob>>) (Supplier<?>) ModEntities.CrystalHermit,
+        ^
+  symbol:   variable EntityRendererRegistry
+  location: class ClientSetup
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/client/ClientSetup.java:64: error: cannot find symbol
+        EntityRendererRegistry.register((Supplier<EntityType<? extends BiomesUnseenMob>>) (Supplier<?>) ModEntities.WindDancer,
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/client/ClientSetup.java:64: error: cannot find symbol
+        EntityRendererRegistry.register((Supplier<EntityType<? extends BiomesUnseenMob>>) (Supplier<?>) ModEntities.WindDancer,
+        ^
+  symbol:   variable EntityRendererRegistry
+  location: class ClientSetup
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/client/ClientSetup.java:66: error: cannot find symbol
+        EntityRendererRegistry.register((Supplier<EntityType<? extends BiomesUnseenMob>>) (Supplier<?>) ModEntities.MireGolem,
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/client/ClientSetup.java:66: error: cannot find symbol
+        EntityRendererRegistry.register((Supplier<EntityType<? extends BiomesUnseenMob>>) (Supplier<?>) ModEntities.MireGolem,
+        ^
+  symbol:   variable EntityRendererRegistry
+  location: class ClientSetup
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/client/ClientSetup.java:68: error: cannot find symbol
+        EntityRendererRegistry.register((Supplier<EntityType<? extends BiomesUnseenMob>>) (Supplier<?>) ModEntities.LanternFox,
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/client/ClientSetup.java:68: error: cannot find symbol
+        EntityRendererRegistry.register((Supplier<EntityType<? extends BiomesUnseenMob>>) (Supplier<?>) ModEntities.LanternFox,
+        ^
+  symbol:   variable EntityRendererRegistry
+  location: class ClientSetup
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/client/ClientSetup.java:70: error: cannot find symbol
+        EntityRendererRegistry.register((Supplier<EntityType<? extends BiomesUnseenMob>>) (Supplier<?>) ModEntities.ReefGrazer,
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/client/ClientSetup.java:70: error: cannot find symbol
+        EntityRendererRegistry.register((Supplier<EntityType<? extends BiomesUnseenMob>>) (Supplier<?>) ModEntities.ReefGrazer,
+        ^
+  symbol:   variable EntityRendererRegistry
+  location: class ClientSetup
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/client/ClientSetup.java:72: error: cannot find symbol
+        EntityRendererRegistry.register((Supplier<EntityType<? extends BiomesUnseenMob>>) (Supplier<?>) ModEntities.AshCrawler,
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/client/ClientSetup.java:72: error: cannot find symbol
+        EntityRendererRegistry.register((Supplier<EntityType<? extends BiomesUnseenMob>>) (Supplier<?>) ModEntities.AshCrawler,
+        ^
+  symbol:   variable EntityRendererRegistry
+  location: class ClientSetup
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/client/ClientSetup.java:74: error: cannot find symbol
+        EntityRendererRegistry.register((Supplier<EntityType<? extends BiomesUnseenMob>>) (Supplier<?>) ModEntities.StarWhale,
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/client/ClientSetup.java:74: error: cannot find symbol
+        EntityRendererRegistry.register((Supplier<EntityType<? extends BiomesUnseenMob>>) (Supplier<?>) ModEntities.StarWhale,
+        ^
+  symbol:   variable EntityRendererRegistry
+  location: class ClientSetup
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/client/ClientSetup.java:76: error: cannot find symbol
+        EntityRendererRegistry.register((Supplier<EntityType<? extends BiomesUnseenMob>>) (Supplier<?>) ModEntities.PetalWing,
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/client/ClientSetup.java:76: error: cannot find symbol
+        EntityRendererRegistry.register((Supplier<EntityType<? extends BiomesUnseenMob>>) (Supplier<?>) ModEntities.PetalWing,
+        ^
+  symbol:   variable EntityRendererRegistry
+  location: class ClientSetup
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/client/ClientSetup.java:78: error: cannot find symbol
+        EntityRendererRegistry.register((Supplier<EntityType<? extends BiomesUnseenMob>>) (Supplier<?>) ModEntities.HeartOfTheForest,
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/client/ClientSetup.java:78: error: cannot find symbol
+        EntityRendererRegistry.register((Supplier<EntityType<? extends BiomesUnseenMob>>) (Supplier<?>) ModEntities.HeartOfTheForest,
+        ^
+  symbol:   variable EntityRendererRegistry
+  location: class ClientSetup
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/client/ClientSetup.java:80: error: cannot find symbol
+        EntityRendererRegistry.register((Supplier<EntityType<? extends BiomesUnseenMob>>) (Supplier<?>) ModEntities.VoidSerpent,
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/client/ClientSetup.java:80: error: cannot find symbol
+        EntityRendererRegistry.register((Supplier<EntityType<? extends BiomesUnseenMob>>) (Supplier<?>) ModEntities.VoidSerpent,
+        ^
+  symbol:   variable EntityRendererRegistry
+  location: class ClientSetup
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/client/ClientSetup.java:83: error: cannot find symbol
+        ParticleProviderRegistry.register(ModParticles.BY_ID.get("crystal_spark").get(),
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/client/ClientSetup.java:83: error: cannot find symbol
+        ParticleProviderRegistry.register(ModParticles.BY_ID.get("crystal_spark").get(),
         ^
   symbol:   variable ParticleProviderRegistry
   location: class ClientSetup
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/client/ClientSetup.java:55: error: cannot find symbol
-        ParticleProviderRegistry.register(ModParticles.BY_ID.get("ember_flake"),
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/client/ClientSetup.java:85: error: cannot find symbol
+        ParticleProviderRegistry.register(ModParticles.BY_ID.get("ember_flake").get(),
 ---
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/client/ClientSetup.java:55: error: cannot find symbol
-        ParticleProviderRegistry.register(ModParticles.BY_ID.get("ember_flake"),
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/client/ClientSetup.java:85: error: cannot find symbol
+        ParticleProviderRegistry.register(ModParticles.BY_ID.get("ember_flake").get(),
         ^
   symbol:   variable ParticleProviderRegistry
   location: class ClientSetup
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/client/ClientSetup.java:57: error: cannot find symbol
-        ParticleProviderRegistry.register(ModParticles.BY_ID.get("void_mote"),
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/client/ClientSetup.java:87: error: cannot find symbol
+        ParticleProviderRegistry.register(ModParticles.BY_ID.get("void_mote").get(),
 ---
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/client/ClientSetup.java:57: error: cannot find symbol
-        ParticleProviderRegistry.register(ModParticles.BY_ID.get("void_mote"),
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/client/ClientSetup.java:87: error: cannot find symbol
+        ParticleProviderRegistry.register(ModParticles.BY_ID.get("void_mote").get(),
         ^
   symbol:   variable ParticleProviderRegistry
   location: class ClientSetup
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/client/ClientSetup.java:59: error: cannot find symbol
-        ParticleProviderRegistry.register(ModParticles.BY_ID.get("spore_drift"),
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/client/ClientSetup.java:89: error: cannot find symbol
+        ParticleProviderRegistry.register(ModParticles.BY_ID.get("spore_drift").get(),
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/client/ClientSetup.java:89: error: cannot find symbol
+        ParticleProviderRegistry.register(ModParticles.BY_ID.get("spore_drift").get(),
+        ^
+  symbol:   variable ParticleProviderRegistry
+  location: class ClientSetup
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/client/ClientSetup.java:91: error: cannot find symbol
+        ParticleProviderRegistry.register(ModParticles.BY_ID.get("frost_mote").get(),
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/client/ClientSetup.java:91: error: cannot find symbol
+        ParticleProviderRegistry.register(ModParticles.BY_ID.get("frost_mote").get(),
+        ^
+  symbol:   variable ParticleProviderRegistry
+  location: class ClientSetup
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/client/ClientSetup.java:93: error: cannot find symbol
+        ParticleProviderRegistry.register(ModParticles.BY_ID.get("storm_arc").get(),
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/client/ClientSetup.java:93: error: cannot find symbol
+        ParticleProviderRegistry.register(ModParticles.BY_ID.get("storm_arc").get(),
+        ^
+  symbol:   variable ParticleProviderRegistry
+  location: class ClientSetup
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/client/ClientSetup.java:95: error: cannot find symbol
+        ParticleProviderRegistry.register(ModParticles.BY_ID.get("petal_burst").get(),
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/client/ClientSetup.java:95: error: cannot find symbol
+        ParticleProviderRegistry.register(ModParticles.BY_ID.get("petal_burst").get(),
+        ^
+  symbol:   variable ParticleProviderRegistry
+  location: class ClientSetup
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/client/ClientSetup.java:97: error: cannot find symbol
+        ParticleProviderRegistry.register(ModParticles.BY_ID.get("heal_glow").get(),
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/client/ClientSetup.java:97: error: cannot find symbol
+        ParticleProviderRegistry.register(ModParticles.BY_ID.get("heal_glow").get(),
+        ^
+  symbol:   variable ParticleProviderRegistry
+  location: class ClientSetup
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+---
+> Task :forge-1.17.1:compileJava FAILED
+gradle/actions: Writing build results to /home/runner/work/_temp/.gradle-actions/build-results/__run-1792173414637.json
+
+[Incubating] Problems report is available at: file:///home/runner/work/Biomes-Unseen/Biomes-Unseen/build/reports/problems/problems-report.html
+
+FAILURE: Build failed with an exception.
+
+---
+* What went wrong:
+Execution failed for task ':forge-1.17.1:compileJava' (registered by plugin class 'org.gradle.api.plugins.JavaBasePlugin').
+> Compilation failed; see the compiler output below.
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModEntities.java:12: error: package dev.architectury.registry.level.entity does not exist
+  import dev.architectury.registry.level.entity.EntityAttributeRegistry;
+                                               ^
+  195 errors
+---
+Execution failed for task ':forge-1.17.1:compileJava' (registered by plugin class 'org.gradle.api.plugins.JavaBasePlugin').
+> Compilation failed; see the compiler output below.
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModEntities.java:12: error: package dev.architectury.registry.level.entity does not exist
+  import dev.architectury.registry.level.entity.EntityAttributeRegistry;
+                                               ^
+  195 errors
+
+---
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModEntities.java:12: error: package dev.architectury.registry.level.entity does not exist
+  import dev.architectury.registry.level.entity.EntityAttributeRegistry;
+                                               ^
+  195 errors
+
+* Try:
+> Check your code and dependencies to fix the compilation error(s)
+---
+org.gradle.api.tasks.TaskExecutionException: Execution failed for task ':forge-1.17.1:compileJava' (registered by plugin class 'org.gradle.api.plugins.JavaBasePlugin').
+	at org.gradle.api.internal.tasks.execution.DefaultTaskNodeExecutor.lambda$doExecute$1(DefaultTaskNodeExecutor.java:367)
+	at org.gradle.internal.Try$Failure.ifSuccessfulOrElse(Try.java:288)
+	at org.gradle.api.internal.tasks.execution.DefaultTaskNodeExecutor.doExecute(DefaultTaskNodeExecutor.java:365)
+	at org.gradle.api.internal.tasks.execution.DefaultTaskNodeExecutor.executeTrackingTaskIdentity(DefaultTaskNodeExecutor.java:332)
+	at org.gradle.api.internal.tasks.execution.DefaultTaskNodeExecutor.executeFinalizingProperties(DefaultTaskNodeExecutor.java:318)
+	at org.gradle.api.internal.tasks.execution.DefaultTaskNodeExecutor.executeSkippingWithNoActions(DefaultTaskNodeExecutor.java:289)
 ---
 === CONFIG DIAGNOSTICS ===
 === STACKTRACE ===
@@ -1614,21 +1614,21 @@ Execution failed for task ':forge-1.17.1:compileJava' (registered by plugin clas
   /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModEntities.java:12: error: package dev.architectury.registry.level.entity does not exist
   import dev.architectury.registry.level.entity.EntityAttributeRegistry;
                                                ^
-  209 errors
+  195 errors
 
 * Try:
 === LAST 40 ===
-  location: class LegacyStructureRegistrar
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/block/UnseenPlantBlock.java:24: error: cannot find symbol
-        return properties.noCollission().instabreak().offsetType(BlockBehaviour.OffsetType.XZ)
-                                                     ^
-  symbol:   method offsetType(OffsetType)
-  location: class Properties
+  location: class ClientSetup
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/client/ClientSetup.java:97: error: cannot find symbol
+        ParticleProviderRegistry.register(ModParticles.BY_ID.get("heal_glow").get(),
+        ^
+  symbol:   variable ParticleProviderRegistry
+  location: class ClientSetup
 Note: Some input files use or override a deprecated API.
 Note: Recompile with -Xlint:deprecation for details.
-Note: /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModItems.java uses unchecked or unsafe operations.
+Note: Some input files use unchecked or unsafe operations.
 Note: Recompile with -Xlint:unchecked for details.
-209 errors
+195 errors
 	at org.gradle.api.internal.tasks.compile.JdkJavaCompiler.execute(JdkJavaCompiler.java:88)
 	at org.gradle.api.internal.tasks.compile.JdkJavaCompiler.execute(JdkJavaCompiler.java:49)
 	at org.gradle.api.internal.tasks.compile.daemon.CompilerWorkAction.execute(CompilerWorkAction.java:52)
@@ -1656,5 +1656,5 @@ Note: Recompile with -Xlint:unchecked for details.
 	at org.gradle.internal.concurrent.AbstractManagedExecutor$1.run(AbstractManagedExecutor.java:47)
 
 
-BUILD FAILED in 2m 24s
+BUILD FAILED in 2m 34s
 1 actionable task: 1 executed

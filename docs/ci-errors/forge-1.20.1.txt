@@ -8,12 +8,12 @@ forge_version=1.20.1-47.3.12
 === STACKTRACE ===
 === WHAT WENT WRONG ===
 === LAST 40 ===
-[17:24:26] [main/INFO]: Transformer file /tmp/at-conf11366546731496468397.cfg
-[17:24:26] [main/WARN]: Found existing output jar /home/runner/.gradle/caches/fabric-loom/1.20.1/forge/1.20.1-47.3.12/minecraft-merged-srg-at-patched.jar, overwriting
-[17:24:30] [main/INFO]: JAR transformation complete /home/runner/.gradle/caches/fabric-loom/1.20.1/forge/1.20.1-47.3.12/minecraft-merged-srg-at-patched.jar
+[18:02:31] [main/INFO]: Transformer file /tmp/at-conf11898895033999393856.cfg
+[18:02:31] [main/WARN]: Found existing output jar /home/runner/.gradle/caches/fabric-loom/1.20.1/forge/1.20.1-47.3.12/minecraft-merged-srg-at-patched.jar, overwriting
+[18:02:34] [main/INFO]: JAR transformation complete /home/runner/.gradle/caches/fabric-loom/1.20.1/forge/1.20.1-47.3.12/minecraft-merged-srg-at-patched.jar
 :access transformed minecraft in 6s
 :remapping minecraft (TinyRemapper, srg -> official)
-:remapped 1 mods (srg -> named) in 725ms
+:remapped 1 mods (srg -> named) in 710ms
 
 > Task :forge-1.20.1:compileJava
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/forge-1.20.1/src/main/java/com/biomesunseen/forge/BiomesUnseenForge.java:23: warning: [removal] get() in FMLJavaModLoadingContext has been deprecated and marked for removal
@@ -36,7 +36,7 @@ Note: Recompile with -Xlint:unchecked for details.
 > Task :forge-1.20.1:remapSourcesJar
 > Task :forge-1.20.1:assemble
 > Task :forge-1.20.1:build
-gradle/actions: Writing build results to /home/runner/work/_temp/.gradle-actions/build-results/__run-1792171379403.json
+gradle/actions: Writing build results to /home/runner/work/_temp/.gradle-actions/build-results/__run-1792173626474.json
 
 [Incubating] Problems report is available at: file:///home/runner/work/Biomes-Unseen/Biomes-Unseen/build/reports/problems/problems-report.html
 
@@ -46,5 +46,5 @@ You can use '--warning-mode all' to show the individual deprecation warnings and
 
 For more on this, please refer to https://docs.gradle.org/9.8.1/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
 
-BUILD SUCCESSFUL in 2m 25s
+BUILD SUCCESSFUL in 3m 3s
 7 actionable tasks: 7 executed

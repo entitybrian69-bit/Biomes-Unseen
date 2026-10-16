@@ -1,11 +1,10 @@
 === PIN ===
 pin_neoforge: neoforge-1.20.2 neoforge_version 20.2.51-beta -> 20.2.3-beta
-=== configuration failure; retrying with NeoForge candidate 1 ===
-pin_neoforge: neoforge-1.20.2 neoforge_version 20.2.3-beta -> 20.2.4-beta
+=== patcher checksum failure; not retrying ===
 === MODULE PROPERTIES ===
 minecraft_version=1.20.2
 architectury_version=10.0.18
-neoforge_version=20.2.4-beta
+neoforge_version=20.2.3-beta
 * What went wrong:
 A problem occurred configuring project ':neoforge-1.20.2'.
 > Failed to setup Minecraft, org.gradle.process.ProcessExecutionException: Process 'command '/usr/lib/jvm/temurin-17-jdk-amd64/bin/java'' finished with non-zero exit value 1
@@ -14,17 +13,17 @@ A problem occurred configuring project ':neoforge-1.20.2'.
 > Run with --info or --debug option to get more log output.
 > Run with --scan to get full insights from a Build Scan (powered by Develocity).
 ---
-BUILD FAILED in 35s
+BUILD FAILED in 1m 15s
 ---
 === CONFIG DIAGNOSTICS ===
-38:Exception in thread "main" java.io.IOException: Patch expected ekb(com/mojang/blaze3d/pipeline/RenderTarget) to have the checksum cd6ed4ec but it was 1add13bb
-39:	at net.minecraftforge.binarypatcher.Patcher.patch(Patcher.java:197)
-40:	at net.minecraftforge.binarypatcher.Patcher.process(Patcher.java:149)
-41:	at net.minecraftforge.binarypatcher.ConsoleTool.main(ConsoleTool.java:161)
-47:A problem occurred configuring project ':neoforge-1.20.2'.
-48:> Failed to setup Minecraft, org.gradle.process.ProcessExecutionException: Process 'command '/usr/lib/jvm/temurin-17-jdk-amd64/bin/java'' finished with non-zero exit value 1
-56:org.gradle.api.ProjectConfigurationException: A problem occurred configuring project ':neoforge-1.20.2'.
-225:Caused by: java.lang.RuntimeException: Failed to setup Minecraft, org.gradle.process.ProcessExecutionException: Process 'command '/usr/lib/jvm/temurin-17-jdk-amd64/bin/java'' finished with non-zero exit value 1
+36:Exception in thread "main" java.io.IOException: Patch expected ekb(com/mojang/blaze3d/pipeline/RenderTarget) to have the checksum cd6ed4ec but it was 1add13bb
+37:	at net.minecraftforge.binarypatcher.Patcher.patch(Patcher.java:197)
+38:	at net.minecraftforge.binarypatcher.Patcher.process(Patcher.java:149)
+39:	at net.minecraftforge.binarypatcher.ConsoleTool.main(ConsoleTool.java:161)
+45:A problem occurred configuring project ':neoforge-1.20.2'.
+46:> Failed to setup Minecraft, org.gradle.process.ProcessExecutionException: Process 'command '/usr/lib/jvm/temurin-17-jdk-amd64/bin/java'' finished with non-zero exit value 1
+54:org.gradle.api.ProjectConfigurationException: A problem occurred configuring project ':neoforge-1.20.2'.
+223:Caused by: java.lang.RuntimeException: Failed to setup Minecraft, org.gradle.process.ProcessExecutionException: Process 'command '/usr/lib/jvm/temurin-17-jdk-amd64/bin/java'' finished with non-zero exit value 1
 === STACKTRACE ===
 Caused by: java.lang.RuntimeException: Failed to setup Minecraft, org.gradle.process.ProcessExecutionException: Process 'command '/usr/lib/jvm/temurin-17-jdk-amd64/bin/java'' finished with non-zero exit value 1
 Caused by: org.gradle.process.ProcessExecutionException: Process 'command '/usr/lib/jvm/temurin-17-jdk-amd64/bin/java'' finished with non-zero exit value 1
@@ -40,7 +39,7 @@ A problem occurred configuring project ':neoforge-1.20.2'.
 	at org.gradle.internal.event.ListenerBroadcast.dispatch(ListenerBroadcast.java:160)
 	at org.gradle.internal.event.ListenerBroadcast.dispatch(ListenerBroadcast.java:37)
 	at org.gradle.internal.dispatch.ProxyDispatchAdapter$DispatchingInvocationHandler.invoke(ProxyDispatchAdapter.java:88)
-	at jdk.proxy1/jdk.proxy1.$Proxy70.afterEvaluate(Unknown Source)
+	at jdk.proxy1/jdk.proxy1.$Proxy73.afterEvaluate(Unknown Source)
 	at org.gradle.configuration.project.LifecycleProjectEvaluator$NotifyAfterEvaluate$1.execute(LifecycleProjectEvaluator.java:247)
 	at org.gradle.configuration.project.LifecycleProjectEvaluator$NotifyAfterEvaluate$1.execute(LifecycleProjectEvaluator.java:244)
 	at org.gradle.api.internal.project.DefaultProject.stepEvaluationListener(DefaultProject.java:1525)
@@ -74,4 +73,4 @@ Caused by: org.gradle.process.ProcessExecutionException: Process 'command '/usr/
 	... 193 more
 
 
-BUILD FAILED in 35s
+BUILD FAILED in 1m 15s
