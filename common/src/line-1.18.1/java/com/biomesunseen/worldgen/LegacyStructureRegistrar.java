@@ -2,7 +2,7 @@ package com.biomesunseen.worldgen;
 
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.level.levelgen.StructureSeparationSettings;
+import net.minecraft.world.level.levelgen.feature.StructureSeparationSettings;
 import net.minecraft.world.level.levelgen.feature.StructureFeature;
 
 import com.biomesunseen.BiomesUnseen;

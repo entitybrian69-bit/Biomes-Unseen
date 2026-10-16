@@ -544,17 +544,12 @@ public final class PlatformExpectImpl {
         open_config = '''        net.minecraft.client.Minecraft mc = net.minecraft.client.Minecraft.getInstance();
         Object screen = ClothConfigScreen.build("Biomes Unseen", parentScreen, key -> key);
         mc.setScreen((net.minecraft.client.gui.screens.Screen) screen);'''
-        spawn_placement = '''        net.minecraft.core.registries.BuiltInRegistries.ENTITY_TYPE
-                .getOptional(new net.minecraft.resources.ResourceLocation("biomesunseen", mobId))
-                .ifPresent(resolved -> net.minecraft.world.entity.SpawnPlacements.register(
-                        resolved,
-                        net.minecraft.world.entity.SpawnPlacements.Type.ON_GROUND,
-                        net.minecraft.world.level.levelgen.Heightmap.Types
-                                .MOTION_BLOCKING_NO_LEAVES,
-                        (entityType, level, spawnType, pos, random) ->
-                                net.minecraft.world.entity.Mob.checkMobSpawnRules(
-                                        entityType, level, spawnType, pos,
-                                        random)));'''
+        spawn_placement = '''        net.minecraft.world.entity.SpawnPlacements.register(
+                type,
+                net.minecraft.world.entity.SpawnPlacements.Type.ON_GROUND,
+                net.minecraft.world.level.levelgen.Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                (net.minecraft.world.entity.SpawnPlacements.SpawnPredicate<net.minecraft.world.entity.Mob>)
+                        net.minecraft.world.entity.Mob::checkMobSpawnRules);'''
         biome_injection = '''        System.out.println("[Biomes Unseen] biome injection installed for "
                 + WorldGenKeys.allBiomeKeys().size() + " biomes");'''
         biome_mods = '''        MinecraftForge.EVENT_BUS.addListener(PlatformExpectImpl::onBiomeLoading);'''
@@ -573,17 +568,12 @@ public final class PlatformExpectImpl {
         open_config = '''        net.minecraft.client.Minecraft mc = net.minecraft.client.Minecraft.getInstance();
         Object screen = ClothConfigScreen.build("Biomes Unseen", parentScreen, key -> key);
         mc.setScreen((net.minecraft.client.gui.screens.Screen) screen);'''
-        spawn_placement = '''        net.minecraft.core.registries.BuiltInRegistries.ENTITY_TYPE
-                .getOptional(new net.minecraft.resources.ResourceLocation("biomesunseen", mobId))
-                .ifPresent(resolved -> net.minecraft.world.entity.SpawnPlacements.register(
-                        resolved,
-                        net.minecraft.world.entity.SpawnPlacements.Type.ON_GROUND,
-                        net.minecraft.world.level.levelgen.Heightmap.Types
-                                .MOTION_BLOCKING_NO_LEAVES,
-                        (entityType, level, spawnType, pos, random) ->
-                                net.minecraft.world.entity.Mob.checkMobSpawnRules(
-                                        entityType, level, spawnType, pos,
-                                        random)));'''
+        spawn_placement = '''        net.minecraft.world.entity.SpawnPlacements.register(
+                type,
+                net.minecraft.world.entity.SpawnPlacements.Type.ON_GROUND,
+                net.minecraft.world.level.levelgen.Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                (net.minecraft.world.entity.SpawnPlacements.SpawnPredicate<net.minecraft.world.entity.Mob>)
+                        net.minecraft.world.entity.Mob::checkMobSpawnRules);'''
         biome_injection = '''        System.out.println("[Biomes Unseen] biome injection installed for "
                 + WorldGenKeys.allBiomeKeys().size() + " biomes");'''
         biome_mods = '''        // NeoForge biome modifiers ship as data: data/biomesunseen/neoforge/biome_modifier/*.json

@@ -151,9 +151,9 @@ public class HeartOfTheForestEntity extends BiomesUnseenMob {
             for (int i = 0; i < 4 && !minerals.isEmpty(); i++) {
                 spawnAtLocation(new ItemStack(minerals.get(getRandom().nextInt(minerals.size())).get(), 2 + getRandom().nextInt(3)));
             }
-            spawnAtLocation(new ItemStack(ModItems.TROPHIES.get("brambleback"), 3));
+            spawnAtLocation(new ItemStack(ModItems.TROPHIES.get("brambleback").get(), 3));
             if (getRandom().nextInt(4) == 0) {
-                spawnAtLocation(new ItemStack(ModItems.GEAR.get("sylvanite_sword")));
+                spawnAtLocation(new ItemStack(ModItems.GEAR.get("sylvanite_sword").get()));
             }
         }
     }

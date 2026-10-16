@@ -130,7 +130,7 @@ public class VoidSerpentEntity extends BiomesUnseenMob {
             // void_beam
             triggerAnim("beam");
             if (distanceTo(target) < 32.0D) {
-                target.hurt(level().damageSources().mobAttack(this), (float) DEF.phaseAttackDamage(phase));
+                target.hurt(unseenLevel().damageSources().mobAttack(this), (float) DEF.phaseAttackDamage(phase));
             }
         } else if (choice == 1) {
             // phase_shift: blink behind the target, invulnerable during
@@ -146,7 +146,7 @@ public class VoidSerpentEntity extends BiomesUnseenMob {
                         segmentX(i) + 2.0D, segmentY(i) + 2.0D, segmentZ(i) + 2.0D);
                 for (LivingEntity entity : unseenLevel().getEntitiesOfClass(LivingEntity.class, box,
                         e -> e != this)) {
-                    entity.hurt(level().damageSources().mobAttack(this), 4.0F + phase * 2.0F);
+                    entity.hurt(unseenLevel().damageSources().mobAttack(this), 4.0F + phase * 2.0F);
                 }
             }
         } else if (choice == 3) {
@@ -156,8 +156,8 @@ public class VoidSerpentEntity extends BiomesUnseenMob {
                 double sx = getX() + getRandom().nextGaussian() * 4.0D;
                 double sy = getY() + getRandom().nextGaussian() * 2.0D;
                 double sz = getZ() + getRandom().nextGaussian() * 4.0D;
-                unseenLevel().broadcastDamageEvent(target, level().damageSources().mobAttack(this));
-                target.hurt(level().damageSources().mobAttack(this), 2.0F + phase);
+                unseenLevel().broadcastDamageEvent(target, unseenLevel().damageSources().mobAttack(this));
+                target.hurt(unseenLevel().damageSources().mobAttack(this), 2.0F + phase);
             }
         } else {
             // devour: pull the target in
@@ -185,9 +185,9 @@ public class VoidSerpentEntity extends BiomesUnseenMob {
             for (int i = 0; i < 5 && !minerals.isEmpty(); i++) {
                 spawnAtLocation(new ItemStack(minerals.get(getRandom().nextInt(minerals.size())).get(), 3 + getRandom().nextInt(4)));
             }
-            spawnAtLocation(new ItemStack(ModItems.TROPHIES.get("star_whale"), 3));
+            spawnAtLocation(new ItemStack(ModItems.TROPHIES.get("star_whale").get(), 3));
             if (getRandom().nextInt(4) == 0) {
-                spawnAtLocation(new ItemStack(ModItems.GEAR.get("voidshard_sword")));
+                spawnAtLocation(new ItemStack(ModItems.GEAR.get("voidshard_sword").get()));
             }
         }
     }

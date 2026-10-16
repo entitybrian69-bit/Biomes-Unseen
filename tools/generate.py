@@ -296,6 +296,49 @@ def postprocess(root, line_key):
             text = text.replace("\nimport net.minecraft.world.level.Level;",
                                 "\nimport net.minecraft.world.level.Level;\n"
                                 "import net.minecraft.world.phys.AABB;", 1)
+        if line_key in ("1.21.2", "1.21.4", "1.21.5", "1.21.9", "26"):
+            # 1.21.2 replaced InteractionResultHolder<T> with a plain
+            # InteractionResult return on Item#use.
+            text = text.replace("import net.minecraft.world.InteractionResultHolder;\n",
+                                "import net.minecraft.world.InteractionResult;\n")
+            text = text.replace("public InteractionResultHolder<ItemStack> use(",
+                                "public InteractionResult use(")
+            text = text.replace("InteractionResultHolder.success(stack)",
+                                "InteractionResult.SUCCESS")
+            text = text.replace("InteractionResultHolder.pass(stack)",
+                                "InteractionResult.PASS")
+            text = text.replace("InteractionResultHolder.fail(stack)",
+                                "InteractionResult.FAIL")
+        if line_key in ("1.17.1", "1.18.1"):
+            # Architectury 1.x kept EntityAttributeRegistry in the flat package.
+            text = text.replace("dev.architectury.registry.level.entity.EntityAttributeRegistry",
+                                "me.shedaniel.architectury.registry.EntityAttributeRegistry")
+            text = text.replace("dev.architectury.registry.registries.RegistrySupplier",
+                                "me.shedaniel.architectury.registry.RegistrySupplier")
+            text = text.replace("dev.architectury.registry.registries.DeferredRegister",
+                                "me.shedaniel.architectury.registry.DeferredRegister")
+        if line_key == "1.19.3":
+            # 1.19.3 predates ArmorItem$Type; armor is keyed by EquipmentSlot.
+            text = text.replace("import net.minecraft.world.item.ArmorItem;\n",
+                                "import net.minecraft.world.entity.EquipmentSlot;\n")
+            text = text.replace("ArmorItem.Type", "EquipmentSlot")
+            text = text.replace("case HELMET:", "case HEAD:")
+            text = text.replace("case CHESTPLATE:", "case CHEST:")
+            text = text.replace("case LEGGINGS:", "case LEGS:")
+            text = text.replace("case BOOTS:", "case FEET:")
+        if line_key in ("1.17.1", "1.18.1"):
+            # StructureSeparationSettings lives under .feature before 1.18.2.
+            text = text.replace(
+                "import net.minecraft.world.level.levelgen.StructureSeparationSettings;",
+                "import net.minecraft.world.level.levelgen.feature.StructureSeparationSettings;")
+        if F["pkgs"] == "legacy":
+            # 1.16.5 has no Entity$RemovalReason to override against; the spawn
+            # bookkeeping moves to die(), which exists on every line.
+            text = text.replace(
+                "    public void remove(net.minecraft.world.entity.Entity.RemovalReason reason) {\n"
+                "        super.remove(reason);\n",
+                "    public void die(net.minecraft.world.damagesource.DamageSource cause) {\n"
+                "        super.die(cause);\n")
         if line_key in NO_REGISTRIES_LINES:
             text = text.replace("import net.minecraft.core.registries.Registries;",
                                 "import net.minecraft.core.Registry;")

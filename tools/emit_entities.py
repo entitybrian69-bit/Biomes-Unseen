@@ -598,8 +598,9 @@ public class PackAttackGoal extends MeleeAttackGoal {
     }
 
     @Override
-    protected void checkAndPerformAttack(LivingEntity target, double distance) {
-        super.checkAndPerformAttack(target, distance);
+    public void tick() {
+        super.tick();
+        LivingEntity target = mob.getTarget();
         if (target != null && mob.distanceTo(target) < 3.0D) {
             double angle = Math.atan2(target.getZ() - mob.getZ(), target.getX() - mob.getX())
                     + circleDirection * 0.6D;
@@ -1492,9 +1493,9 @@ public class HeartOfTheForestEntity extends BiomesUnseenMob {
             for (int i = 0; i < 4 && !minerals.isEmpty(); i++) {
                 spawnAtLocation(new ItemStack(minerals.get(getRandom().nextInt(minerals.size())).get(), 2 + getRandom().nextInt(3)));
             }
-            spawnAtLocation(new ItemStack(ModItems.TROPHIES.get("brambleback"), 3));
+            spawnAtLocation(new ItemStack(ModItems.TROPHIES.get("brambleback").get(), 3));
             if (getRandom().nextInt(4) == 0) {
-                spawnAtLocation(new ItemStack(ModItems.GEAR.get("sylvanite_sword")));
+                spawnAtLocation(new ItemStack(ModItems.GEAR.get("sylvanite_sword").get()));
             }
         }
     }
@@ -1588,7 +1589,7 @@ public class HeartOfTheForestEntity extends BiomesUnseenMob {
         if legacy:
             heart = heart.replace("DamageSource.mobAttack(this)", "DamageSource.causeMobDamage(this)")
     else:
-        heart = heart.replace("damageSources().mobAttack(this)", "level().damageSources().mobAttack(this)")
+        heart = heart.replace("damageSources().mobAttack(this)", "unseenLevel().damageSources().mobAttack(this)")
     heart = heart.replace("super(type, level, Content.mob(\"brambleback\"));",
                           "super(type, level, bossMobDef(DEF));")
     _w(root, base + "/entity/boss/HeartOfTheForestEntity.java", heart)
@@ -1774,9 +1775,9 @@ public class VoidSerpentEntity extends BiomesUnseenMob {
             for (int i = 0; i < 5 && !minerals.isEmpty(); i++) {
                 spawnAtLocation(new ItemStack(minerals.get(getRandom().nextInt(minerals.size())).get(), 3 + getRandom().nextInt(4)));
             }
-            spawnAtLocation(new ItemStack(ModItems.TROPHIES.get("star_whale"), 3));
+            spawnAtLocation(new ItemStack(ModItems.TROPHIES.get("star_whale").get(), 3));
             if (getRandom().nextInt(4) == 0) {
-                spawnAtLocation(new ItemStack(ModItems.GEAR.get("voidshard_sword")));
+                spawnAtLocation(new ItemStack(ModItems.GEAR.get("voidshard_sword").get()));
             }
         }
     }
@@ -1875,10 +1876,10 @@ public class VoidSerpentEntity extends BiomesUnseenMob {
         serpent = serpent.replace("damageSources().mobAttack(this)", "DamageSource.mobAttack(this)")
         if legacy:
             serpent = serpent.replace("DamageSource.mobAttack(this)", "DamageSource.causeMobDamage(this)")
-        serpent = serpent.replace("level().broadcastDamageEvent(target, damageSources().mobAttack(this));",
+        serpent = serpent.replace("unseenLevel().broadcastDamageEvent(target, damageSources().mobAttack(this));",
                                   "")
     else:
-        serpent = serpent.replace("damageSources().mobAttack(this)", "level().damageSources().mobAttack(this)")
+        serpent = serpent.replace("damageSources().mobAttack(this)", "unseenLevel().damageSources().mobAttack(this)")
         serpent = serpent.replace("AABB box", "net.minecraft.world.phys.AABB box")
     serpent = serpent.replace("super(type, level, Content.mob(\"star_whale\"));",
                               "super(type, level, bossMobDef(DEF));")

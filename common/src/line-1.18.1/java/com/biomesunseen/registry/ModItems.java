@@ -18,8 +18,8 @@ import com.biomesunseen.item.UnseenArmorMaterial;
 import com.biomesunseen.item.UnseenGearItems;
 import com.biomesunseen.item.UnseenToolTier;
 
-import dev.architectury.registry.registries.DeferredRegister;
-import dev.architectury.registry.registries.RegistrySupplier;
+import me.shedaniel.architectury.registry.DeferredRegister;
+import me.shedaniel.architectury.registry.RegistrySupplier;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;

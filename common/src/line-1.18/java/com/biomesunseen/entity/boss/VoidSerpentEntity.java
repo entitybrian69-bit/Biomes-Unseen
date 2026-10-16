@@ -185,9 +185,9 @@ public class VoidSerpentEntity extends BiomesUnseenMob {
             for (int i = 0; i < 5 && !minerals.isEmpty(); i++) {
                 spawnAtLocation(new ItemStack(minerals.get(getRandom().nextInt(minerals.size())).get(), 3 + getRandom().nextInt(4)));
             }
-            spawnAtLocation(new ItemStack(ModItems.TROPHIES.get("star_whale"), 3));
+            spawnAtLocation(new ItemStack(ModItems.TROPHIES.get("star_whale").get(), 3));
             if (getRandom().nextInt(4) == 0) {
-                spawnAtLocation(new ItemStack(ModItems.GEAR.get("voidshard_sword")));
+                spawnAtLocation(new ItemStack(ModItems.GEAR.get("voidshard_sword").get()));
             }
         }
     }

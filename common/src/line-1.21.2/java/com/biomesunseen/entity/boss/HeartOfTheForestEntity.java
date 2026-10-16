@@ -101,14 +101,14 @@ public class HeartOfTheForestEntity extends BiomesUnseenMob {
             // root_slam: melee AoE
             triggerAnim("attack");
             if (distance < 6.0D) {
-                target.hurt(level().damageSources().mobAttack(this), (float) DEF.phaseAttackDamage(phase));
+                target.hurt(unseenLevel().damageSources().mobAttack(this), (float) DEF.phaseAttackDamage(phase));
                 target.setDeltaMovement(target.getDeltaMovement().add(0.0D, 0.6D, 0.0D));
             }
         } else if (choice == 1) {
             // spore_cloud
             triggerAnim("spore_cloud");
             if (distance < 12.0D) {
-                target.hurt(level().damageSources().mobAttack(this), 4.0F + phase * 2.0F);
+                target.hurt(unseenLevel().damageSources().mobAttack(this), 4.0F + phase * 2.0F);
                 target.addEffect(new net.minecraft.world.effect.MobEffectInstance(
                         net.minecraft.world.effect.MobEffects.POISON, 80, 0));
             }
@@ -116,14 +116,14 @@ public class HeartOfTheForestEntity extends BiomesUnseenMob {
             // verdant_beam: ranged
             triggerAnim("beam");
             if (distance < 24.0D) {
-                target.hurt(level().damageSources().mobAttack(this), 6.0F + phase * 2.0F);
+                target.hurt(unseenLevel().damageSources().mobAttack(this), 6.0F + phase * 2.0F);
                 unseenLevel().broadcastEntityEvent(this, (byte) 4);
             }
         } else {
             // quake_stomp
             triggerAnim("slam");
             for (Player player : unseenLevel().getNearestPlayers(this, 10.0D, 10.0D)) {
-                player.hurt(level().damageSources().mobAttack(this), 5.0F + phase * 2.0F);
+                player.hurt(unseenLevel().damageSources().mobAttack(this), 5.0F + phase * 2.0F);
                 player.setDeltaMovement(player.getDeltaMovement().add(0.0D, 0.8D, 0.0D));
             }
         }
@@ -151,9 +151,9 @@ public class HeartOfTheForestEntity extends BiomesUnseenMob {
             for (int i = 0; i < 4 && !minerals.isEmpty(); i++) {
                 spawnAtLocation(new ItemStack(minerals.get(getRandom().nextInt(minerals.size())).get(), 2 + getRandom().nextInt(3)));
             }
-            spawnAtLocation(new ItemStack(ModItems.TROPHIES.get("brambleback"), 3));
+            spawnAtLocation(new ItemStack(ModItems.TROPHIES.get("brambleback").get(), 3));
             if (getRandom().nextInt(4) == 0) {
-                spawnAtLocation(new ItemStack(ModItems.GEAR.get("sylvanite_sword")));
+                spawnAtLocation(new ItemStack(ModItems.GEAR.get("sylvanite_sword").get()));
             }
         }
     }
