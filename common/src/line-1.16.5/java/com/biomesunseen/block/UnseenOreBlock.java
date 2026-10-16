@@ -18,8 +18,8 @@ public class UnseenOreBlock extends Block {
         this.ore = ore;
     }
 
-    private static BlockBehaviour.Properties buildProperties(OreDef ore) {
-        BlockBehaviour.Properties properties = AbstractBlock.Properties.of(Material.STONE).strength(3.0F, 3.0F);
+    private static AbstractBlock.Properties buildProperties(OreDef ore) {
+        AbstractBlock.Properties properties = AbstractBlock.Properties.of(Material.STONE).strength(3.0F, 3.0F);
         if (ore.glows) {
             properties = properties.lightLevel(state -> 8);
         }

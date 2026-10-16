@@ -18,8 +18,8 @@ import com.biomesunseen.item.UnseenArmorMaterial;
 import com.biomesunseen.item.UnseenGearItems;
 import com.biomesunseen.item.UnseenToolTier;
 
-import dev.architectury.registry.DeferredRegister;
-import dev.architectury.registry.RegistrySupplier;
+import dev.architectury.registry.registries.DeferredRegister;
+import dev.architectury.registry.registries.RegistrySupplier;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
@@ -38,7 +38,7 @@ public final class ModItems {
 
     public static final String MOD_ID = ModConstants.MOD_ID;
 
-    public static ItemGroup MAIN;
+    public static CreativeModeTab MAIN;
 
     /** Every registered item, in creative-tab order. */
     public static final List<RegistrySupplier<Item>> ALL_ITEMS =
@@ -83,7 +83,7 @@ public final class ModItems {
     }
 
     public static void registerContent() {
-        MAIN = new ItemGroup("biomesunseen") {
+        MAIN = new CreativeModeTab("biomesunseen") {
             @Override
             public ItemStack makeIcon() {
                 return new ItemStack(UNSEEN_SIGIL.get());

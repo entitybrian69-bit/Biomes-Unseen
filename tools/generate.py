@@ -30,7 +30,7 @@ import emit_client_datagen
 import emit_assets
 import emit_data
 import emit_platforms
-from lines import LINES
+from lines import LINES, types_for
 from content import TARGETS
 
 # Architectury registry package moved at Architectury 2.x (1.17+).
@@ -144,12 +144,29 @@ def _walk_java(directory):
 
 def postprocess(root, line_key):
     F = LINES[line_key]
+    T = types_for(F)
     line_dir = os.path.join(root, "common/src/line-%s/java" % line_key)
     for path in _walk_java(line_dir):
         with open(path) as fh:
             text = fh.read()
         orig = text
+        # Expand short type names to this line's simple class names
+        # (ItemGroup -> CreativeModeTab on modern lines, Mob -> MobEntity on
+        # legacy).  The lookbehind keeps fully-qualified names untouched.
+        for short, full in T.items():
+            simple = full.rsplit(".", 1)[-1]
+            if simple != short:
+                text = re.sub(r"(?<!\.)\b%s\b" % re.escape(short), simple, text)
         if F["expect"] == "dev":
+            text = text.replace(
+                "me.shedaniel.architectury.registry.DeferredRegister",
+                "dev.architectury.registry.registries.DeferredRegister")
+            text = text.replace(
+                "me.shedaniel.architectury.registry.RegistrySupplier",
+                "dev.architectury.registry.registries.RegistrySupplier")
+            text = text.replace(
+                "me.shedaniel.architectury.registry.EntityAttributeRegistry",
+                "dev.architectury.registry.entity.EntityAttributeRegistry")
             text = text.replace(ARCH_PKG_OLD, ARCH_PKG_NEW)
         if F["text"] != "component":
             for a, b in TEXT_REWRITES:

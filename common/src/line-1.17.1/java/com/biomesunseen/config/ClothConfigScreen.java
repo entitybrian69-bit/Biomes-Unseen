@@ -61,7 +61,7 @@ public final class ClothConfigScreen {
             addBool(general, entryBuilder, translator.apply("enableLoreBooks"), cfg.enableLoreBooks, true, v -> cfg.enableLoreBooks = v);
             addBool(general, entryBuilder, translator.apply("enableStructureLoot"), cfg.enableStructureLoot, true, v -> cfg.enableStructureLoot = v);
 
-            Object world = call(builder, "getOrCreateCategory", new net.minecraft.network.chat.StringTextComponent("World"));
+            Object world = call(builder, "getOrCreateCategory", new net.minecraft.network.chat.StringTextComponent("Level"));
             addDouble(world, entryBuilder, translator.apply("biomeRarityMultiplier"), cfg.biomeRarityMultiplier, 1.0D, 0.0D, 10.0D, v -> cfg.biomeRarityMultiplier = v);
             addDouble(world, entryBuilder, translator.apply("biomeTerraformingStrength"), cfg.biomeTerraformingStrength, 1.0D, 0.0D, 3.0D, v -> cfg.biomeTerraformingStrength = v);
             addDouble(world, entryBuilder, translator.apply("oreRateMultiplier"), cfg.oreRateMultiplier, 1.0D, 0.0D, 10.0D, v -> cfg.oreRateMultiplier = v);

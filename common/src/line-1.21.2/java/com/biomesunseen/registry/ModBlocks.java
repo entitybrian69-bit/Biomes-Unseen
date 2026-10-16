@@ -11,7 +11,7 @@ import com.biomesunseen.core.DecorDef;
 import com.biomesunseen.core.OreDef;
 import com.biomesunseen.core.PlantDef;
 
-import dev.architectury.registry.RegistrySupplier;
+import dev.architectury.registry.registries.RegistrySupplier;
 
 import java.util.Collections;
 import java.util.LinkedHashMap;

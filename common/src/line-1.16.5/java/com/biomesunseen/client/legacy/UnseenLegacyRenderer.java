@@ -7,7 +7,7 @@ import net.minecraft.util.ResourceLocation;
 import com.biomesunseen.entity.BiomesUnseenMob;
 
 /**
- * Mob renderer for the 1.16.5 line using the legacy box model.
+ * MobEntity renderer for the 1.16.5 line using the legacy box model.
  */
 public class UnseenLegacyRenderer<T extends BiomesUnseenMob>
         extends MobRenderer<T, UnseenLegacyModel<T>> {

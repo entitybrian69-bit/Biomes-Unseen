@@ -141,7 +141,7 @@ public class VoidSerpentEntity extends BiomesUnseenMob {
             // tail_sweep: AoE around body segments
             triggerAnim("tail_sweep");
             for (int i = 0; i < bodySegments; i += 2) {
-                net.minecraft.util.math.AxisAlignedBB box = new AABB(segmentX(i) - 2.0D, segmentY(i) - 2.0D, segmentZ(i) - 2.0D,
+                net.minecraft.util.math.AxisAlignedBB box = new AxisAlignedBB(segmentX(i) - 2.0D, segmentY(i) - 2.0D, segmentZ(i) - 2.0D,
                         segmentX(i) + 2.0D, segmentY(i) + 2.0D, segmentZ(i) + 2.0D);
                 for (LivingEntity entity : level.getEntitiesOfClass(LivingEntity.class, box,
                         e -> e != this)) {

@@ -7,7 +7,7 @@ import net.minecraft.core.registries.BuiltInRegistries;
 import com.biomesunseen.BiomesUnseen;
 import com.biomesunseen.core.ModConstants;
 
-import dev.architectury.registry.DeferredRegister;
+import dev.architectury.registry.registries.DeferredRegister;
 
 /**
  * Every Architectury DeferredRegister used by Biomes Unseen.  Registration

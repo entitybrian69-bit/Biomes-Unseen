@@ -6,7 +6,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 /**
- * Level-of-detail cache for distant structure starts.  Structure placement
+ * World-of-detail cache for distant structure starts.  Structure placement
  * queries outside the configured radius are answered from this LRU cache
  * instead of re-running noise/placement code every chunk tick.
  */

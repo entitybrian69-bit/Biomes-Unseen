@@ -184,7 +184,7 @@ public final class ModItems {
                             new Item.Properties().stacksTo(1).tab(MAIN)))));
         }
 
-        // Mob trophies used in crafting and structure decor.
+        // MobEntity trophies used in crafting and structure decor.
         for (int i = 0; i < Content.MOBS.size(); i++) {
             final String mobId = Content.MOBS.get(i).id;
             TROPHIES.put(mobId, track(ModRegistries.ITEMS.register(

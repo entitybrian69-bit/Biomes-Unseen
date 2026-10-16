@@ -18,8 +18,8 @@ import com.biomesunseen.item.UnseenArmorMaterial;
 import com.biomesunseen.item.UnseenGearItems;
 import com.biomesunseen.item.UnseenToolTier;
 
-import dev.architectury.registry.DeferredRegister;
-import dev.architectury.registry.RegistrySupplier;
+import dev.architectury.registry.registries.DeferredRegister;
+import dev.architectury.registry.registries.RegistrySupplier;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
@@ -38,10 +38,10 @@ public final class ModItems {
 
     public static final String MOD_ID = ModConstants.MOD_ID;
 
-    private static final DeferredRegister<ItemGroup> TABS =
+    private static final DeferredRegister<CreativeModeTab> TABS =
             DeferredRegister.create(MOD_ID, Registries.CREATIVE_MODE_TAB);
 
-    public static RegistrySupplier<ItemGroup> MAIN;
+    public static RegistrySupplier<CreativeModeTab> MAIN;
 
     /** Every registered item, in creative-tab order. */
     public static final List<RegistrySupplier<Item>> ALL_ITEMS =
