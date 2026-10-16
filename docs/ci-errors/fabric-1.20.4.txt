@@ -1,65 +1,37 @@
-> Task :fabric-1.20.4:processResources FAILED
-gradle/actions: Writing build results to /home/runner/work/_temp/.gradle-actions/build-results/__run_2-1792164025318.json
-
----
-* What went wrong:
-Execution failed for task ':fabric-1.20.4:processResources' (registered by plugin class 'org.gradle.api.plugins.JavaBasePlugin').
-> Could not copy file '/home/runner/work/Biomes-Unseen/Biomes-Unseen/fabric-1.20.4/src/main/resources/fabric.mod.json' to '/home/runner/work/Biomes-Unseen/Biomes-Unseen/fabric-1.20.4/build/resources/main/fabric.mod.json'.
----
-Execution failed for task ':fabric-1.20.4:processResources' (registered by plugin class 'org.gradle.api.plugins.JavaBasePlugin').
-> Could not copy file '/home/runner/work/Biomes-Unseen/Biomes-Unseen/fabric-1.20.4/src/main/resources/fabric.mod.json' to '/home/runner/work/Biomes-Unseen/Biomes-Unseen/fabric-1.20.4/build/resources/main/fabric.mod.json'.
-   > Missing property (version) for Groovy template expansion. Defined keys [mod_version, mod_id, mod_name, minecraft_version].
----
-org.gradle.api.tasks.TaskExecutionException: Execution failed for task ':fabric-1.20.4:processResources' (registered by plugin class 'org.gradle.api.plugins.JavaBasePlugin').
-	at org.gradle.api.internal.tasks.execution.DefaultTaskNodeExecutor.lambda$doExecute$1(DefaultTaskNodeExecutor.java:367)
-	at org.gradle.internal.Try$Failure.ifSuccessfulOrElse(Try.java:288)
----
-BUILD FAILED in 1m 21s
-2 actionable tasks: 2 executed
----
 === STACKTRACE ===
-Caused by: org.gradle.api.internal.file.AbstractFileTreeElement$CopyFileElementException: Could not copy file '/home/runner/work/Biomes-Unseen/Biomes-Unseen/fabric-1.20.4/src/main/resources/fabric.mod.json' to '/home/runner/work/Biomes-Unseen/Biomes-Unseen/fabric-1.20.4/build/resources/main/fabric.mod.json'.
-Caused by: org.gradle.api.GradleException: Missing property (version) for Groovy template expansion. Defined keys [mod_version, mod_id, mod_name, minecraft_version].
-Caused by: groovy.lang.MissingPropertyException: No such property: version for class: SimpleTemplateScript1
 === WHAT WENT WRONG ===
-* What went wrong:
-Execution failed for task ':fabric-1.20.4:processResources' (registered by plugin class 'org.gradle.api.plugins.JavaBasePlugin').
-> Could not copy file '/home/runner/work/Biomes-Unseen/Biomes-Unseen/fabric-1.20.4/src/main/resources/fabric.mod.json' to '/home/runner/work/Biomes-Unseen/Biomes-Unseen/fabric-1.20.4/build/resources/main/fabric.mod.json'.
-   > Missing property (version) for Groovy template expansion. Defined keys [mod_version, mod_id, mod_name, minecraft_version].
-
-* Try:
 === LAST 40 ===
-	at org.gradle.internal.execution.steps.AssignMutableWorkspaceStep.executeMutable(AssignMutableWorkspaceStep.java:21)
-	at org.gradle.internal.execution.steps.MutableStep.execute(MutableStep.java:26)
-	at org.gradle.internal.execution.steps.ChoosePipelineStep.execute(ChoosePipelineStep.java:40)
-	at org.gradle.internal.execution.steps.ChoosePipelineStep.execute(ChoosePipelineStep.java:23)
-	at org.gradle.internal.execution.steps.ExecuteWorkBuildOperationFiringStep.lambda$execute$2(ExecuteWorkBuildOperationFiringStep.java:67)
-	at org.gradle.internal.execution.steps.ExecuteWorkBuildOperationFiringStep.execute(ExecuteWorkBuildOperationFiringStep.java:67)
-	at org.gradle.internal.execution.steps.ExecuteWorkBuildOperationFiringStep.execute(ExecuteWorkBuildOperationFiringStep.java:39)
-	at org.gradle.internal.execution.steps.IdentityCacheStep.execute(IdentityCacheStep.java:46)
-	at org.gradle.internal.execution.steps.IdentityCacheStep.execute(IdentityCacheStep.java:34)
-	at org.gradle.internal.execution.steps.IdentifyStep.execute(IdentifyStep.java:56)
-	at org.gradle.internal.execution.steps.IdentifyStep.execute(IdentifyStep.java:38)
-	at org.gradle.internal.execution.impl.DefaultExecutionEngine$1.execute(DefaultExecutionEngine.java:68)
-	at org.gradle.api.internal.tasks.execution.DefaultTaskNodeExecutor.doExecute(DefaultTaskNodeExecutor.java:364)
-	... 25 more
-Caused by: org.gradle.api.GradleException: Missing property (version) for Groovy template expansion. Defined keys [mod_version, mod_id, mod_name, minecraft_version].
-	at org.gradle.api.internal.file.copy.FilterChain$3.transform(FilterChain.java:131)
-	at org.gradle.api.internal.file.copy.FilterChain$3.transform(FilterChain.java:114)
-	at org.gradle.api.internal.file.copy.ChainingTransformer.transform(ChainingTransformer.java:37)
-	at org.gradle.api.internal.file.copy.FilterChain.transform(FilterChain.java:58)
-	at org.gradle.api.internal.file.copy.FilterChain.transform(FilterChain.java:67)
-	at org.gradle.api.internal.file.copy.DefaultFileCopyDetails.open(DefaultFileCopyDetails.java:122)
-	at org.gradle.api.internal.file.AbstractFileTreeElement.copyTo(AbstractFileTreeElement.java:64)
-	at org.gradle.api.internal.file.copy.DefaultFileCopyDetails.copyTo(DefaultFileCopyDetails.java:131)
-	at org.gradle.api.internal.file.AbstractFileTreeElement.copyFile(AbstractFileTreeElement.java:102)
-	at org.gradle.api.internal.file.AbstractFileTreeElement.copyTo(AbstractFileTreeElement.java:83)
-	... 154 more
-Caused by: groovy.lang.MissingPropertyException: No such property: version for class: SimpleTemplateScript1
-	at SimpleTemplateScript1.run(SimpleTemplateScript1.groovy:1)
-	at org.gradle.api.internal.file.copy.FilterChain$3.transform(FilterChain.java:128)
-	... 163 more
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/9.8.1/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build 
 
+> Configure project :fabric-1.20.4
+Architectury Loom: 1.17.493
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Using of the official minecraft mappings is at your own risk!
+Please make sure to read and understand the following license:
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# (c) 2020 Microsoft Corporation. These mappings are provided "as-is" and you bear the risk of using them. You may copy and use the mappings for development purposes, but you may not redistribute the mappings complete and unmodified. Microsoft makes no warranties, express or implied, with respect to the mappings provided here.  Use and modification of this document or the source code (in any form) of Minecraft: Java Edition is governed by the Minecraft End User License Agreement available at https://account.mojang.com/documents/minecraft_eula.
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+:remapped 1 mods (intermediary -> named) in 941ms
+
+> Task :fabric-1.20.4:compileJava
+Note: Some input files use unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+
+> Task :fabric-1.20.4:processResources
+> Task :fabric-1.20.4:classes
+> Task :fabric-1.20.4:jar
+> Task :fabric-1.20.4:processIncludeJars
+> Task :fabric-1.20.4:sourcesJar
+> Task :fabric-1.20.4:validateAccessWidener NO-SOURCE
+> Task :fabric-1.20.4:check
+> Task :fabric-1.20.4:remapJar
+> Task :fabric-1.20.4:remapSourcesJar
+> Task :fabric-1.20.4:assemble
+> Task :fabric-1.20.4:build
+gradle/actions: Writing build results to /home/runner/work/_temp/.gradle-actions/build-results/__run_2-1792164946179.json
+
+[Incubating] Problems report is available at: file:///home/runner/work/Biomes-Unseen/Biomes-Unseen/build/reports/problems/problems-report.html
 
 Deprecated Gradle features were used in this build, making it incompatible with Gradle 10.
 
@@ -67,5 +39,5 @@ You can use '--warning-mode all' to show the individual deprecation warnings and
 
 For more on this, please refer to https://docs.gradle.org/9.8.1/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
 
-BUILD FAILED in 1m 21s
-2 actionable tasks: 2 executed
+BUILD SUCCESSFUL in 1m 35s
+7 actionable tasks: 7 executed
