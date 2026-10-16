@@ -34,7 +34,7 @@ LINES = {
     ),
     "1.17.1": dict(
         line="1.17.1", mc="1.17.1", java=16, pkgs="modern", reg="core_registry",
-        geckolib="g3", tab="old", damage="old", synched="old",
+        geckolib="none", tab="old", damage="old", synched="old",
         text="translatable_class", material=True, sound_ctor="new",
         data_dirs="plural", biome_json="old", worldgen="legacy",
         biome_add="mixin_legacy", item_def="model_only", expect="dev",
@@ -42,7 +42,7 @@ LINES = {
     ),
     "1.18.1": dict(
         line="1.18.1", mc="1.18.1", java=17, pkgs="modern", reg="core_registry",
-        geckolib="g3", tab="old", damage="old", synched="old",
+        geckolib="none", tab="old", damage="old", synched="old",
         text="component", material=True, sound_ctor="new", data_dirs="plural",
         biome_json="old", worldgen="noise", biome_add="mixin_legacy",
         item_def="model_only", expect="dev", entity_base="modern",
@@ -50,7 +50,7 @@ LINES = {
     ),
     "1.18": dict(
         line="1.18", mc="1.18.2", java=17, pkgs="modern", reg="core_registry",
-        geckolib="g3", tab="old", damage="old", synched="old",
+        geckolib="none", tab="old", damage="old", synched="old",
         text="component", material=True, sound_ctor="new", data_dirs="plural",
         biome_json="old", worldgen="noise", biome_add="noise_list",
         item_def="model_only", expect="dev", entity_base="modern",
@@ -58,7 +58,7 @@ LINES = {
     ),
     "1.19.3": dict(
         line="1.19.3", mc="1.19.3", java=17, pkgs="modern", reg="registries",
-        geckolib="g3", tab="new", damage="old", synched="old",
+        geckolib="none", tab="new", damage="old", synched="old",
         text="component", material=False, sound_ctor="factory", data_dirs="plural",
         biome_json="new", worldgen="noise", biome_add="noise_list",
         item_def="model_only", expect="dev", entity_base="modern",
@@ -66,7 +66,7 @@ LINES = {
     ),
     "1.19.4": dict(
         line="1.19.4", mc="1.19.4", java=17, pkgs="modern", reg="registries",
-        geckolib="g4", tab="new", damage="new", synched="old",
+        geckolib="none", tab="new", damage="new", synched="old",
         text="component", material=False, sound_ctor="factory", data_dirs="plural",
         biome_json="new", worldgen="modern", biome_add="noise_list",
         item_def="model_only", expect="dev", entity_base="modern",
@@ -74,7 +74,7 @@ LINES = {
     ),
     "1.20.2": dict(
         line="1.20.2", mc="1.20.4", java=17, pkgs="modern", reg="registries",
-        geckolib="g4", tab="new", damage="new", synched="old",
+        geckolib="none", tab="new", damage="new", synched="old",
         text="component", material=False, sound_ctor="factory", data_dirs="plural",
         biome_json="new", worldgen="modern", biome_add="noise_list",
         item_def="model_only", expect="dev", entity_base="modern",
@@ -82,7 +82,7 @@ LINES = {
     ),
     "1.20.5": dict(
         line="1.20.5", mc="1.20.6", java=21, pkgs="modern", reg="registries",
-        geckolib="g4", tab="new", damage="new", synched="old",
+        geckolib="none", tab="new", damage="new", synched="old",
         text="component", material=False, sound_ctor="factory", data_dirs="plural",
         biome_json="new", worldgen="modern", biome_add="noise_list",
         item_def="model_only", expect="dev", entity_base="modern",
@@ -90,7 +90,7 @@ LINES = {
     ),
     "1.21": dict(
         line="1.21", mc="1.21.1", java=21, pkgs="modern", reg="registries",
-        geckolib="g4", tab="new", damage="new", synched="old",
+        geckolib="none", tab="new", damage="new", synched="old",
         text="component", material=False, sound_ctor="factory", data_dirs="flat",
         biome_json="new", worldgen="modern", biome_add="noise_list",
         item_def="model_only", expect="dev", entity_base="modern",
@@ -98,7 +98,7 @@ LINES = {
     ),
     "1.21.2": dict(
         line="1.21.2", mc="1.21.3", java=21, pkgs="modern", reg="registries",
-        geckolib="g4", tab="new", damage="new", synched="builder",
+        geckolib="none", tab="new", damage="new", synched="builder",
         text="component", material=False, sound_ctor="factory", data_dirs="flat",
         biome_json="new", worldgen="modern", biome_add="noise_list",
         item_def="items_dir", expect="dev", entity_base="modern",
@@ -106,7 +106,7 @@ LINES = {
     ),
     "1.21.4": dict(
         line="1.21.4", mc="1.21.4", java=21, pkgs="modern", reg="registries",
-        geckolib="g4", tab="new", damage="new", synched="builder",
+        geckolib="none", tab="new", damage="new", synched="builder",
         text="component", material=False, sound_ctor="factory", data_dirs="flat",
         biome_json="new", worldgen="modern", biome_add="noise_list",
         item_def="items_dir", expect="dev", entity_base="modern",
@@ -114,7 +114,7 @@ LINES = {
     ),
     "1.21.5": dict(
         line="1.21.5", mc="1.21.8", java=21, pkgs="modern", reg="registries",
-        geckolib="g4", tab="new", damage="new", synched="builder",
+        geckolib="none", tab="new", damage="new", synched="builder",
         text="component", material=False, sound_ctor="factory", data_dirs="flat",
         biome_json="new", worldgen="modern", biome_add="noise_list",
         item_def="items_dir", expect="dev", entity_base="modern",
@@ -122,7 +122,7 @@ LINES = {
     ),
     "1.21.9": dict(
         line="1.21.9", mc="1.21.11", java=21, pkgs="modern", reg="registries",
-        geckolib="g4", tab="new", damage="new", synched="builder",
+        geckolib="none", tab="new", damage="new", synched="builder",
         text="component", material=False, sound_ctor="factory", data_dirs="flat",
         biome_json="new", worldgen="modern", biome_add="noise_list",
         item_def="items_dir", expect="dev", entity_base="modern",
@@ -130,7 +130,7 @@ LINES = {
     ),
     "26": dict(
         line="26", mc="26.3", java=25, pkgs="modern", reg="registries",
-        geckolib="g4", tab="new", damage="new", synched="builder",
+        geckolib="none", tab="new", damage="new", synched="builder",
         text="component", material=False, sound_ctor="factory", data_dirs="flat",
         biome_json="new", worldgen="modern", biome_add="noise_list",
         item_def="items_dir", expect="dev", entity_base="modern",

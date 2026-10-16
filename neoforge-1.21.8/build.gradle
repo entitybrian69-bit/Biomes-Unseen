@@ -23,7 +23,6 @@ dependencies {
     mappings loom.officialMojangMappings()
     neoForge "net.neoforged:neoforge:${neoforge_version}"
     modImplementation "dev.architectury:architectury:${architectury_version}"
-    modImplementation "software.bernie.geckolib:geckolib-neoforge-1.21.1:4.7.5"
 }
 
 processResources {

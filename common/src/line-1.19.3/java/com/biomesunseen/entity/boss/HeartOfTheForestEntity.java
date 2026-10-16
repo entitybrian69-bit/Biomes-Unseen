@@ -7,14 +7,6 @@ import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.level.Level;
 
-import software.bernie.geckolib3.core.IAnimatable;
-import software.bernie.geckolib3.core.PlayState;
-import software.bernie.geckolib3.core.builder.AnimationBuilder;
-import software.bernie.geckolib3.core.controller.AnimationController;
-import software.bernie.geckolib3.core.event.predicate.AnimationState;
-import software.bernie.geckolib3.core.manager.AnimationData;
-import software.bernie.geckolib3.core.manager.AnimationFactory;
-
 
 import com.biomesunseen.core.BossDef;
 import com.biomesunseen.core.Content;
@@ -177,28 +169,17 @@ public class HeartOfTheForestEntity extends BiomesUnseenMob {
     }
 
 
+    private final com.biomesunseen.entity.legacy.LegacyAnimDriver animDriver =
+            new com.biomesunseen.entity.legacy.LegacyAnimDriver(this);
+
     @Override
-    public void registerControllers(AnimationData data) {
-        data.addAnimationController(new AnimationController<>(this, "movement", 0, event -> {
-            AnimationBuilder builder = new AnimationBuilder();
-            if (getAnimOneShotTicks() > 0 && getAnimOneShot() != null) {
-                builder.addAnimation("animation.heart_of_the_forest." + getAnimOneShot(), false);
-            } else if (event.isMoving()) {
-                builder.addAnimation("animation.heart_of_the_forest.walk", true);
-            } else {
-                builder.addAnimation(phase >= 2 ? "animation.heart_of_the_forest.wrath_idle"
-                        : "animation.heart_of_the_forest.idle", true);
-            }
-            event.getController().setAnimation(builder);
-            return PlayState.CONTINUE;
-        }));
+    public void aiStep() {
+        super.aiStep();
+        animDriver.tick();
     }
 
-    private AnimationFactory geoCache = new AnimationFactory(this);
-
-    @Override
-    public AnimationFactory getFactory() {
-        return geoCache;
+    public com.biomesunseen.entity.legacy.LegacyAnimDriver animDriver() {
+        return animDriver;
     }
 
 }

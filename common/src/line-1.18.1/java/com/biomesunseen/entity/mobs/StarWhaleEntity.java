@@ -2,15 +2,7 @@ package com.biomesunseen.entity.mobs;
 
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.level.Level;
-import software.bernie.geckolib3.core.PlayState;
-import software.bernie.geckolib3.core.builder.AnimationBuilder;
-import software.bernie.geckolib3.core.controller.AnimationController;
-import software.bernie.geckolib3.core.event.predicate.AnimationState;
-import software.bernie.geckolib3.core.manager.AnimationData;
-import software.bernie.geckolib3.core.manager.AnimationFactory;
-import software.bernie.geckolib3.util.GeckoLibUtil;
-
-import software.bernie.geckolib3.core.IAnimatable;
+import com.biomesunseen.entity.legacy.LegacyAnimDriver;
 
 
 import com.biomesunseen.core.Content;
@@ -52,29 +44,17 @@ public class StarWhaleEntity extends BiomesUnseenMob {
         return true;
     }
 
-    @Override
-    public void registerControllers(AnimationData data) {
-        data.addAnimationController(new AnimationController<>(this, "movement", 0, this::animPredicate));
-    }
-
-    private <E extends IAnimatable> PlayState animPredicate(software.bernie.geckolib3.core.event.predicate.AnimationState<E> event) {
-        AnimationBuilder builder = new AnimationBuilder();
-        if (getAnimOneShotTicks() > 0 && getAnimOneShot() != null) {
-            builder.addAnimation("animation.star_whale." + getAnimOneShot(), false);
-        } else if (event.isMoving() || isMovingEntity()) {
-            builder.addAnimation(isSprintingEntity() ? "animation.star_whale.run" : "animation.star_whale.walk", true);
-        } else {
-            builder.addAnimation("animation.star_whale.idle", true);
-        }
-        event.getController().setAnimation(builder);
-        return PlayState.CONTINUE;
-    }
-
-    private AnimationFactory geoCache = new AnimationFactory(this);
+    private final LegacyAnimDriver animDriver = new LegacyAnimDriver(this);
 
     @Override
-    public AnimationFactory getFactory() {
-        return geoCache;
+    public void aiStep() {
+        super.aiStep();
+        animDriver.tick();
+    }
+
+    /** Legacy animation driver (no GeckoLib on 1.16.5): exposes pose data. */
+    public LegacyAnimDriver animDriver() {
+        return animDriver;
     }
 
 }

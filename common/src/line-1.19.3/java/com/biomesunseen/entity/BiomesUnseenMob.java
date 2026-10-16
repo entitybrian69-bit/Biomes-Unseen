@@ -9,16 +9,6 @@ import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.level.Level;
 
 
-import software.bernie.geckolib3.core.IAnimatable;
-import software.bernie.geckolib3.core.PlayState;
-import software.bernie.geckolib3.core.builder.AnimationBuilder;
-import software.bernie.geckolib3.core.builder.ILoopType;
-import software.bernie.geckolib3.core.controller.AnimationController;
-import software.bernie.geckolib3.core.event.predicate.AnimationState;
-import software.bernie.geckolib3.core.manager.AnimationData;
-import software.bernie.geckolib3.core.manager.AnimationFactory;
-import software.bernie.geckolib3.util.GeckoLibUtil;
-
 import com.biomesunseen.BiomesUnseen;
 import com.biomesunseen.core.BossDef;
 import com.biomesunseen.core.MobDef;
@@ -33,15 +23,11 @@ import com.biomesunseen.util.SpawnCaps;
  *  - pack/herd helpers used by the generated AI goals
  *  - the GeckoLib animation state machine hooks every mob overrides
  */
-public abstract class BiomesUnseenMob implements IAnimatable {
+public abstract class BiomesUnseenMob  {
 
     protected final MobDef mobDef;
 
-    @Override
-    public void registerControllers(AnimationData data) {
-        data.addAnimationController(new AnimationController<>(this, "movement", 0,
-                this::animPredicate));
-    }
+
     /** Animation state: ticks remaining for the current one-shot anim. */
     private int animOneShotTicks;
     private String animOneShot;
@@ -60,17 +46,15 @@ public abstract class BiomesUnseenMob implements IAnimatable {
         return animOneShot;
     }
 
-    private <E extends IAnimatable> PlayState animPredicate(software.bernie.geckolib3.core.event.predicate.AnimationState<E> event) {
-        AnimationBuilder builder = new AnimationBuilder();
+    /** Current animation pose name for the legacy renderer. */
+    public String currentAnimName() {
         if (animOneShotTicks > 0 && animOneShot != null) {
-            builder.addAnimation("animation." + mobDef.id + "." + animOneShot, false);
-        } else if (event.isMoving() || isMovingEntity()) {
-            builder.addAnimation(isSprintingEntity() ? "animation." + mobDef.id + ".run" : "animation." + mobDef.id + ".walk", true);
-        } else {
-            builder.addAnimation("animation." + mobDef.id + ".idle", true);
+            return animOneShot;
         }
-        event.getController().setAnimation(builder);
-        return PlayState.CONTINUE;
+        if (isMovingEntity()) {
+            return isSprintingEntity() ? "run" : "walk";
+        }
+        return "idle";
     }
 
     protected BiomesUnseenMob(EntityType<? extends PathfinderMob> type, Level level, MobDef mobDef) {

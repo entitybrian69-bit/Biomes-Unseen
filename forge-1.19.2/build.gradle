@@ -23,7 +23,6 @@ dependencies {
     mappings loom.officialMojangMappings()
     forge "net.minecraftforge:forge:${forge_version}"
     modImplementation "dev.architectury:architectury:${architectury_version}"
-    modImplementation "software.bernie.geckolib:geckolib-forge-1.19:3.1.40"
 }
 
 processResources {

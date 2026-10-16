@@ -7,15 +7,6 @@ import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.level.Level;
 
-import software.bernie.geckolib.animatable.GeoAnimatable;
-import software.bernie.geckolib.animatable.instance.AnimatableInstanceCache;
-import software.bernie.geckolib.animatable.manager.AnimatableManager;
-import software.bernie.geckolib.animation.AnimationController;
-import software.bernie.geckolib.animation.PlayState;
-import software.bernie.geckolib.animation.RawAnimation;
-import software.bernie.geckolib.animation.AnimationState;
-import software.bernie.geckolib.util.GeckoLibUtil;
-
 
 import com.biomesunseen.core.BossDef;
 import com.biomesunseen.core.Content;
@@ -211,41 +202,17 @@ public class VoidSerpentEntity extends BiomesUnseenMob {
     }
 
 
+    private final com.biomesunseen.entity.legacy.LegacyAnimDriver animDriver =
+            new com.biomesunseen.entity.legacy.LegacyAnimDriver(this);
+
     @Override
-    public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
-        controllers.addAnimationController(new AnimationController<>(this, "movement", 0, event -> {
-            if (getAnimOneShotTicks() > 0 && getAnimOneShot() != null) {
-                event.getController().setAnimation(RawAnimation.begin()
-                        .thenPlay("animation.void_serpent." + getAnimOneShot()));
-                return PlayState.CONTINUE;
-            }
-            if (phaseShiftTicks > 0) {
-                event.getController().setAnimation(RawAnimation.begin()
-                        .thenPlay("animation.void_serpent.phase_shift"));
-                return PlayState.CONTINUE;
-            }
-            if (event.isMoving()) {
-                event.getController().setAnimation(RawAnimation.begin()
-                        .thenLoop(phase >= 2 ? "animation.void_serpent.frenzy_swim"
-                                : "animation.void_serpent.swim"));
-                return PlayState.CONTINUE;
-            }
-            event.getController().setAnimation(RawAnimation.begin()
-                    .thenLoop("animation.void_serpent.idle"));
-            return PlayState.CONTINUE;
-        }));
+    public void aiStep() {
+        super.aiStep();
+        animDriver.tick();
     }
 
-    private AnimatableInstanceCache geoCache = GeckoLibUtil.createInstanceCache(this);
-
-    @Override
-    public AnimatableInstanceCache getAnimatableInstanceCache() {
-        return geoCache;
-    }
-
-    @Override
-    public double getTick(Object object) {
-        return tickCount;
+    public com.biomesunseen.entity.legacy.LegacyAnimDriver animDriver() {
+        return animDriver;
     }
 
 }

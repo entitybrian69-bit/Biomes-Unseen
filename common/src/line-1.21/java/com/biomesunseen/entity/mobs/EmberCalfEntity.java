@@ -2,15 +2,7 @@ package com.biomesunseen.entity.mobs;
 
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.level.Level;
-import software.bernie.geckolib.animatable.GeoAnimatable;
-import software.bernie.geckolib.animatable.instance.AnimatableInstanceCache;
-import software.bernie.geckolib.animatable.manager.AnimatableManager;
-import software.bernie.geckolib.animation.AnimatableManager.ControllerRegistrar;
-import software.bernie.geckolib.animation.AnimationController;
-import software.bernie.geckolib.animation.PlayState;
-import software.bernie.geckolib.animation.RawAnimation;
-import software.bernie.geckolib.animation.AnimationState;
-import software.bernie.geckolib.util.GeckoLibUtil;
+import com.biomesunseen.entity.legacy.LegacyAnimDriver;
 
 
 import com.biomesunseen.core.Content;
@@ -91,36 +83,17 @@ public class EmberCalfEntity extends BiomesUnseenMob {
 
     private java.util.UUID ownerUUID;
 
-    @Override
-    public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
-        controllers.addAnimationController(new AnimationController<>(this, "movement", 0, this::animPredicate));
-    }
-
-    private <E extends GeoAnimatable> PlayState animPredicate(AnimationState<E> event) {
-        if (getAnimOneShotTicks() > 0 && getAnimOneShot() != null) {
-            event.getController().setAnimation(RawAnimation.begin()
-                    .thenPlay("animation.ember_calf." + getAnimOneShot()));
-            return PlayState.CONTINUE;
-        }
-        if (event.isMoving() || isMovingEntity()) {
-            event.getController().setAnimation(RawAnimation.begin().thenLoop(
-                    isSprintingEntity() ? "animation.ember_calf.run" : "animation.ember_calf.walk"));
-            return PlayState.CONTINUE;
-        }
-        event.getController().setAnimation(RawAnimation.begin().thenLoop("animation.ember_calf.idle"));
-        return PlayState.CONTINUE;
-    }
-
-    private AnimatableInstanceCache geoCache = GeckoLibUtil.createInstanceCache(this);
+    private final LegacyAnimDriver animDriver = new LegacyAnimDriver(this);
 
     @Override
-    public AnimatableInstanceCache getAnimatableInstanceCache() {
-        return geoCache;
+    public void aiStep() {
+        super.aiStep();
+        animDriver.tick();
     }
 
-    @Override
-    public double getTick(Object object) {
-        return tickCount;
+    /** Legacy animation driver (no GeckoLib on 1.16.5): exposes pose data. */
+    public LegacyAnimDriver animDriver() {
+        return animDriver;
     }
 
 }
