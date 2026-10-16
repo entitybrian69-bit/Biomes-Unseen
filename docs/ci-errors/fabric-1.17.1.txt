@@ -10,31 +10,15 @@ import net.minecraft.world.level.levelgen.StructureSeparationSettings;
     @Override
     ^
 ---
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/entity/ai/PackAttackGoal.java:33: error: method does not override or implement a method from a supertype
-    @Override
-    ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/entity/ai/PackAttackGoal.java:35: error: method checkAndPerformAttack in class MeleeAttackGoal cannot be applied to given types;
-        super.checkAndPerformAttack(target);
-             ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/entity/boss/VoidSerpentEntity.java:144: error: cannot find symbol
-                AABB box = new AABB(segmentX(i) - 2.0D, segmentY(i) - 2.0D, segmentZ(i) - 2.0D,
-                ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/entity/boss/VoidSerpentEntity.java:144: error: cannot find symbol
-                AABB box = new AABB(segmentX(i) - 2.0D, segmentY(i) - 2.0D, segmentZ(i) - 2.0D,
-                               ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/entity/boss/VoidSerpentEntity.java:158: error: cannot find symbol
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/entity/boss/VoidSerpentEntity.java:159: error: cannot find symbol
                 unseenLevel().broadcastDamageEvent(target, DamageSource.mobAttack(this));
                              ^
 ---
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/entity/boss/VoidSerpentEntity.java:187: error: incompatible types: RegistrySupplier<Item> cannot be converted to ItemLike
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/entity/boss/VoidSerpentEntity.java:188: error: incompatible types: RegistrySupplier<Item> cannot be converted to ItemLike
             spawnAtLocation(new ItemStack(ModItems.TROPHIES.get("star_whale"), 3));
                                                                ^
 ---
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/entity/boss/VoidSerpentEntity.java:189: error: no suitable constructor found for ItemStack(RegistrySupplier<Item>)
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/entity/boss/VoidSerpentEntity.java:190: error: no suitable constructor found for ItemStack(RegistrySupplier<Item>)
                 spawnAtLocation(new ItemStack(ModItems.GEAR.get("voidshard_sword")));
                                 ^
 ---
@@ -238,6 +222,22 @@ import net.minecraft.world.level.levelgen.StructureSeparationSettings;
         EntityAttributeRegistry.register(MireGolem, () -> Mob.createMobAttributes()
                                          ^
 ---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModEntities.java:267: error: incompatible types: RegistrySupplier<EntityType<LanternFoxEntity>> cannot be converted to Supplier<EntityType<? extends LivingEntity>>
+        EntityAttributeRegistry.register(LanternFox, () -> Mob.createMobAttributes()
+                                         ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModEntities.java:273: error: incompatible types: RegistrySupplier<EntityType<ReefGrazerEntity>> cannot be converted to Supplier<EntityType<? extends LivingEntity>>
+        EntityAttributeRegistry.register(ReefGrazer, () -> Mob.createMobAttributes()
+                                         ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModEntities.java:279: error: incompatible types: RegistrySupplier<EntityType<AshCrawlerEntity>> cannot be converted to Supplier<EntityType<? extends LivingEntity>>
+        EntityAttributeRegistry.register(AshCrawler, () -> Mob.createMobAttributes()
+                                         ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/registry/ModEntities.java:285: error: incompatible types: RegistrySupplier<EntityType<StarWhaleEntity>> cannot be converted to Supplier<EntityType<? extends LivingEntity>>
+        EntityAttributeRegistry.register(StarWhale, () -> Mob.createMobAttributes()
+                                         ^
+---
 === STACKTRACE ===
 Caused by: org.gradle.api.internal.tasks.compile.CompilationFailedException: Compilation failed; see the compiler output below.
 === WHAT WENT WRONG ===
@@ -253,13 +253,13 @@ Execution failed for task ':fabric-1.17.1:compileJava' (registered by plugin cla
 
 * Try:
 === LAST 40 ===
-  symbol:   class StringTextComponent
-  location: package net.minecraft.network.chat
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.17.1/java/com/biomesunseen/config/ClothConfigScreen.java:115: error: cannot find symbol
-        Object entry = call(entryBuilder, "startIntField", new net.minecraft.network.chat.StringTextComponent(label), Integer.valueOf(value));
-                                                                                         ^
-  symbol:   class StringTextComponent
-  location: package net.minecraft.network.chat
+                              ^
+  required: Supplier<EntityType<? extends T>>,EntityRendererProvider<T>
+  found:    RegistrySupplier<EntityType<GlimmermothEntity>>,(context)-[...]oth")
+  reason: cannot infer type-variable(s) T
+    (argument mismatch; RegistrySupplier<EntityType<GlimmermothEntity>> cannot be converted to Supplier<EntityType<? extends T>>)
+  where T is a type-variable:
+    T extends Entity declared in method <T>register(Supplier<EntityType<? extends T>>,EntityRendererProvider<T>)
 Note: Some input files use unchecked or unsafe operations.
 Note: Recompile with -Xlint:unchecked for details.
 Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
@@ -291,5 +291,5 @@ Note: Some messages have been simplified; recompile with -Xdiags:verbose to get 
 	at org.gradle.internal.concurrent.AbstractManagedExecutor$1.run(AbstractManagedExecutor.java:47)
 
 
-BUILD FAILED in 1m 26s
+BUILD FAILED in 1m 28s
 1 actionable task: 1 executed

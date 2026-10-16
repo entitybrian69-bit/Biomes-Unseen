@@ -1,7 +1,3 @@
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.2/java/com/biomesunseen/item/UnseenArmorMaterial.java:62: error: cannot find symbol
-    public int getDefenseForType(ArmorItem.Type type) {
-                                          ^
----
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.2/java/com/biomesunseen/item/LoreBookItem.java:9: error: cannot find symbol
 import net.minecraft.world.InteractionResultHolder;
                           ^
@@ -66,31 +62,35 @@ import net.minecraft.world.item.ArmorMaterial;
             return net.minecraft.world.InteractionResult.sidedSuccess(unseenLevel().isClientSide);
                                                         ^
 ---
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.2/java/com/biomesunseen/entity/boss/VoidSerpentEntity.java:144: error: cannot find symbol
-                net.minecraft.world.phys.AABB box = new AABB(segmentX(i) - 2.0D, segmentY(i) - 2.0D, segmentZ(i) - 2.0D,
-                                                        ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.2/java/com/biomesunseen/entity/boss/VoidSerpentEntity.java:172: error: method does not override or implement a method from a supertype
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.2/java/com/biomesunseen/entity/ai/PackAttackGoal.java:33: error: method does not override or implement a method from a supertype
     @Override
     ^
 ---
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.2/java/com/biomesunseen/entity/boss/VoidSerpentEntity.java:174: error: method isInvulnerableTo in class LivingEntity cannot be applied to given types;
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.2/java/com/biomesunseen/entity/ai/PackAttackGoal.java:35: error: method checkAndPerformAttack in class MeleeAttackGoal cannot be applied to given types;
+        super.checkAndPerformAttack(target, distance);
+             ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.2/java/com/biomesunseen/entity/boss/VoidSerpentEntity.java:173: error: method does not override or implement a method from a supertype
+    @Override
+    ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.2/java/com/biomesunseen/entity/boss/VoidSerpentEntity.java:175: error: method isInvulnerableTo in class LivingEntity cannot be applied to given types;
         return phaseShiftTicks > 0 || super.isInvulnerableTo(source);
                                            ^
 ---
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.2/java/com/biomesunseen/entity/boss/VoidSerpentEntity.java:181: error: no suitable method found for spawnAtLocation(ItemStack)
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.2/java/com/biomesunseen/entity/boss/VoidSerpentEntity.java:182: error: no suitable method found for spawnAtLocation(ItemStack)
             spawnAtLocation(new ItemStack(ModItems.UNSEEN_SIGIL.get()));
             ^
 ---
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.2/java/com/biomesunseen/entity/boss/VoidSerpentEntity.java:185: error: no suitable method found for spawnAtLocation(ItemStack)
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.2/java/com/biomesunseen/entity/boss/VoidSerpentEntity.java:186: error: no suitable method found for spawnAtLocation(ItemStack)
                 spawnAtLocation(new ItemStack(minerals.get(getRandom().nextInt(minerals.size())).get(), 3 + getRandom().nextInt(4)));
                 ^
 ---
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.2/java/com/biomesunseen/entity/boss/VoidSerpentEntity.java:187: error: no suitable method found for spawnAtLocation(ItemStack)
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.2/java/com/biomesunseen/entity/boss/VoidSerpentEntity.java:188: error: no suitable method found for spawnAtLocation(ItemStack)
             spawnAtLocation(new ItemStack(ModItems.TROPHIES.get("star_whale"), 3));
             ^
 ---
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.2/java/com/biomesunseen/entity/boss/VoidSerpentEntity.java:189: error: no suitable method found for spawnAtLocation(ItemStack)
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.2/java/com/biomesunseen/entity/boss/VoidSerpentEntity.java:190: error: no suitable method found for spawnAtLocation(ItemStack)
                 spawnAtLocation(new ItemStack(ModItems.GEAR.get("voidshard_sword")));
                 ^
 ---
@@ -244,11 +244,6 @@ Caused by: org.gradle.api.internal.tasks.compile.CompilationFailedException: Com
 * What went wrong:
 Execution failed for task ':fabric-1.21.3:compileJava' (registered by plugin class 'org.gradle.api.plugins.JavaBasePlugin').
 > Compilation failed; see the compiler output below.
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.2/java/com/biomesunseen/item/UnseenArmorMaterial.java:62: error: cannot find symbol
-      public int getDefenseForType(ArmorItem.Type type) {
-                                            ^
-    symbol:   class Type
-    location: class ArmorItem
   /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.2/java/com/biomesunseen/item/LoreBookItem.java:9: error: cannot find symbol
   import net.minecraft.world.InteractionResultHolder;
                             ^
@@ -279,8 +274,13 @@ Execution failed for task ':fabric-1.21.3:compileJava' (registered by plugin cla
                                                                     ^
     symbol:   class ArmorType
     location: class UnseenArmorItem
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.2/java/com/biomesunseen/entity/boss/VoidSerpentEntity.java:144: error: cannot find symbol
-                  net.minecraft.world.phys.AABB box = new AABB(segmentX(i) - 2.0D, segmentY(i) - 2.0D, segmentZ(i) - 2.0D,
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.2/java/com/biomesunseen/registry/ModEntities.java:65: error: cannot find symbol
+          Lumox = ENTITIES.register("lumox", () -> EntityType.Builder.of(LumoxEntity::new, MobCategory.CREATURE)
+                  ^
+    symbol:   variable ENTITIES
+    location: class ModEntities
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.2/java/com/biomesunseen/registry/ModEntities.java:68: error: cannot find symbol
+          Brambleback = ENTITIES.register("brambleback", () -> EntityType.Builder.of(BramblebackEntity::new, MobCategory.CREATURE)
 === LAST 40 ===
 	at org.gradle.internal.execution.steps.MutableStep.execute(MutableStep.java:26)
 	at org.gradle.internal.execution.steps.ValidateStep$Mutable.executeDelegate(ValidateStep.java:79)
@@ -320,5 +320,5 @@ Execution failed for task ':fabric-1.21.3:compileJava' (registered by plugin cla
 	... 25 more
 
 
-BUILD FAILED in 1m 23s
+BUILD FAILED in 1m 8s
 1 actionable task: 1 executed

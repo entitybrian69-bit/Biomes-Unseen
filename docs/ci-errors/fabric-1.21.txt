@@ -1,6 +1,10 @@
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/entity/boss/VoidSerpentEntity.java:144: error: cannot find symbol
-                net.minecraft.world.phys.AABB box = new AABB(segmentX(i) - 2.0D, segmentY(i) - 2.0D, segmentZ(i) - 2.0D,
-                                                        ^
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/entity/ai/PackAttackGoal.java:33: error: method does not override or implement a method from a supertype
+    @Override
+    ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/entity/ai/PackAttackGoal.java:35: error: method checkAndPerformAttack in class MeleeAttackGoal cannot be applied to given types;
+        super.checkAndPerformAttack(target, distance);
+             ^
 ---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/entity/boss/HeartOfTheForestEntity.java:94: error: incompatible types: Reference<SoundEvent> cannot be converted to SoundEvent
         playSound(SoundEvents.RAID_HORN, 2.0F, 0.8F);
@@ -118,78 +122,6 @@
         VoidSerpent = ENTITIES.register("void_serpent", () -> EntityType.Builder.of(VoidSerpentEntity::new, MobCategory.MONSTER)
                       ^
 ---
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/registry/ModTags.java:16: error: ResourceLocation(String,String) has private access in ResourceLocation
-    public static final TagKey<Block> ORES = TagKey.create(Registries.BLOCK, new ResourceLocation("c", "ores"));
-                                                                             ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/registry/ModTags.java:17: error: ResourceLocation(String,String) has private access in ResourceLocation
-    public static final TagKey<Block> ORES_IN_GROUND_STONE = TagKey.create(Registries.BLOCK, new ResourceLocation("c", "ores_in_ground/stone"));
-                                                                                             ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/registry/ModTags.java:18: error: ResourceLocation(String,String) has private access in ResourceLocation
-    public static final TagKey<Block> ORES_IN_GROUND_DEEPSLATE = TagKey.create(Registries.BLOCK, new ResourceLocation("c", "ores_in_ground/deepslate"));
-                                                                                                 ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/registry/ModTags.java:19: error: ResourceLocation(String,String) has private access in ResourceLocation
-    public static final TagKey<Block> STONES = TagKey.create(Registries.BLOCK, new ResourceLocation("c", "stones"));
-                                                                               ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/registry/ModTags.java:20: error: ResourceLocation(String,String) has private access in ResourceLocation
-    public static final TagKey<Block> WOODS = TagKey.create(Registries.BLOCK, new ResourceLocation("c", "woods"));
-                                                                              ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/registry/ModTags.java:21: error: ResourceLocation(String,String) has private access in ResourceLocation
-    public static final TagKey<Block> PLANTS = TagKey.create(Registries.BLOCK, new ResourceLocation("c", "plants"));
-                                                                               ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/registry/ModTags.java:22: error: ResourceLocation(String,String) has private access in ResourceLocation
-    public static final TagKey<Block> UNSEEN_ORES = TagKey.create(Registries.BLOCK, new ResourceLocation("biomesunseen", "ores"));
-                                                                                    ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/registry/ModTags.java:23: error: ResourceLocation(String,String) has private access in ResourceLocation
-    public static final TagKey<Block> UNSEEN_TERRAIN = TagKey.create(Registries.BLOCK, new ResourceLocation("biomesunseen", "terrain"));
-                                                                                       ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/registry/ModTags.java:24: error: ResourceLocation(String,String) has private access in ResourceLocation
-    public static final TagKey<Block> UNSEEN_PLANTS = TagKey.create(Registries.BLOCK, new ResourceLocation("biomesunseen", "plants"));
-                                                                                      ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/registry/ModTags.java:26: error: ResourceLocation(String,String) has private access in ResourceLocation
-    public static final TagKey<Item> ITEM_ORES = TagKey.create(Registries.ITEM, new ResourceLocation("c", "ores"));
-                                                                                ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/registry/ModTags.java:27: error: ResourceLocation(String,String) has private access in ResourceLocation
-    public static final TagKey<Item> ITEM_DUSTS = TagKey.create(Registries.ITEM, new ResourceLocation("c", "dusts"));
-                                                                                 ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/registry/ModTags.java:28: error: ResourceLocation(String,String) has private access in ResourceLocation
-    public static final TagKey<Item> ITEM_GEMS = TagKey.create(Registries.ITEM, new ResourceLocation("c", "gems"));
-                                                                                ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/registry/ModTags.java:29: error: ResourceLocation(String,String) has private access in ResourceLocation
-    public static final TagKey<Item> ITEM_INGOTS = TagKey.create(Registries.ITEM, new ResourceLocation("c", "ingots"));
-                                                                                  ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/registry/ModTags.java:30: error: ResourceLocation(String,String) has private access in ResourceLocation
-    public static final TagKey<Item> UNSEEN_ITEM_ORES = TagKey.create(Registries.ITEM, new ResourceLocation("biomesunseen", "ores"));
-                                                                                       ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/registry/ModTags.java:32: error: ResourceLocation(String,String) has private access in ResourceLocation
-    public static final TagKey<EntityType<?>> UNSEEN_MOBS = TagKey.create(Registries.ENTITY_TYPE, new ResourceLocation("biomesunseen", "mobs"));
-                                                                                                  ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/registry/ModTags.java:33: error: ResourceLocation(String,String) has private access in ResourceLocation
-    public static final TagKey<EntityType<?>> UNSEEN_BOSSES = TagKey.create(Registries.ENTITY_TYPE, new ResourceLocation("biomesunseen", "bosses"));
-                                                                                                    ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/registry/ModTags.java:34: error: ResourceLocation(String,String) has private access in ResourceLocation
-    public static final TagKey<EntityType<?>> TAMEABLE = TagKey.create(Registries.ENTITY_TYPE, new ResourceLocation("biomesunseen", "tameable"));
-                                                                                               ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/registry/ModTags.java:35: error: ResourceLocation(String,String) has private access in ResourceLocation
-    public static final TagKey<EntityType<?>> PACK_MOBS = TagKey.create(Registries.ENTITY_TYPE, new ResourceLocation("biomesunseen", "pack_mobs"));
-                                                                                                ^
----
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/registry/ModSounds.java:26: error: ResourceLocation(String,String) has private access in ResourceLocation
             BY_ID.put(id, ModRegistries.SOUNDS.register(id, () -> SoundEvent.createVariableRangeEvent(new ResourceLocation(ModConstants.MOD_ID, id))));
                                                                                                       ^
@@ -205,10 +137,6 @@ public class UnseenToolTier implements Tier {
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/item/UnseenArmorMaterial.java:41: error: incompatible types: Holder<SoundEvent> cannot be converted to SoundEvent
                 BuiltInRegistries.SOUND_EVENT.wrapAsHolder(SoundEvents.ARMOR_EQUIP_IRON),
                                                                       ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/item/UnseenArmorMaterial.java:43: error: ResourceLocation(String,String) has private access in ResourceLocation
-                List.of(new ArmorMaterial.Layer(new ResourceLocation("biomesunseen", ore.id))),
-                                                ^
 ---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/item/UnseenTonicItem.java:35: error: incompatible types: MobEffect cannot be converted to Holder<MobEffect>
         player.addEffect(new MobEffectInstance(effectFor(ore), 20 * 60, 0));
@@ -238,49 +166,121 @@ public class UnseenToolTier implements Tier {
             return MobEffects.NIGHT_VISION;
                              ^
 ---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/item/UnseenTonicItem.java:62: error: incompatible types: Holder<MobEffect> cannot be converted to MobEffect
+            return MobEffects.WATER_BREATHING;
+                             ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/item/UnseenTonicItem.java:65: error: incompatible types: Holder<MobEffect> cannot be converted to MobEffect
+            return MobEffects.POISON;
+                             ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/item/UnseenTonicItem.java:68: error: incompatible types: Holder<MobEffect> cannot be converted to MobEffect
+            return MobEffects.MOVEMENT_SLOWDOWN;
+                             ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/item/UnseenTonicItem.java:71: error: incompatible types: Holder<MobEffect> cannot be converted to MobEffect
+            return MobEffects.DIG_SPEED;
+                             ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/item/UnseenTonicItem.java:74: error: incompatible types: Holder<MobEffect> cannot be converted to MobEffect
+            return MobEffects.LEVITATION;
+                             ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/item/UnseenTonicItem.java:77: error: incompatible types: Holder<MobEffect> cannot be converted to MobEffect
+            return MobEffects.ABSORPTION;
+                             ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/item/UnseenTonicItem.java:79: error: incompatible types: Holder<MobEffect> cannot be converted to MobEffect
+        return MobEffects.DAMAGE_RESISTANCE;
+                         ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/item/UnseenGearItems.java:50: error: constructor PickaxeItem in class PickaxeItem cannot be applied to given types;
+            super(tier, (int) ore.toolAttackDamage - 1, (float) (ore.toolSpeed / 2.5) - 2.4F, properties);
+            ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/item/UnseenGearItems.java:64: error: constructor SwordItem in class SwordItem cannot be applied to given types;
+            super(tier, (int) ore.toolAttackDamage, (float) (ore.toolSpeed / 2.5), properties);
+            ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/client/particle/UnseenParticle.java:15: error: UnseenParticle is not abstract and does not override abstract method render(VertexConsumer,Camera,float) in Particle
+public class UnseenParticle extends Particle {
+       ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/client/particle/UnseenParticle.java:28: error: cannot find symbol
+        this.setSpriteFromAge(sprites);
+            ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/client/particle/UnseenParticle.java:34: error: cannot find symbol
+        this.setSpriteFromAge(this.sprites);
+            ^
+---
+> Task :fabric-1.21:compileJava FAILED
+gradle/actions: Writing build results to /home/runner/work/_temp/.gradle-actions/build-results/__run-1792158380069.json
+
+---
+* What went wrong:
+Execution failed for task ':fabric-1.21:compileJava' (registered by plugin class 'org.gradle.api.plugins.JavaBasePlugin').
+> Compilation failed; see the compiler output below.
+---
+Execution failed for task ':fabric-1.21:compileJava' (registered by plugin class 'org.gradle.api.plugins.JavaBasePlugin').
+> Compilation failed; see the compiler output below.
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/entity/ai/PackAttackGoal.java:33: error: method does not override or implement a method from a supertype
+---
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/entity/ai/PackAttackGoal.java:33: error: method does not override or implement a method from a supertype
+      @Override
+      ^
+---
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/item/UnseenToolTier.java:39: error: method does not override or implement a method from a supertype
+      @Override
+      ^
+---
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/entity/ai/PackAttackGoal.java:35: error: method checkAndPerformAttack in class MeleeAttackGoal cannot be applied to given types;
+          super.checkAndPerformAttack(target, distance);
+               ^
+---
 === STACKTRACE ===
 Caused by: org.gradle.api.internal.tasks.compile.CompilationFailedException: Compilation failed; see the compiler output below.
 === WHAT WENT WRONG ===
 * What went wrong:
 Execution failed for task ':fabric-1.21:compileJava' (registered by plugin class 'org.gradle.api.plugins.JavaBasePlugin').
 > Compilation failed; see the compiler output below.
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/entity/boss/VoidSerpentEntity.java:144: error: cannot find symbol
-                  net.minecraft.world.phys.AABB box = new AABB(segmentX(i) - 2.0D, segmentY(i) - 2.0D, segmentZ(i) - 2.0D,
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/entity/ai/PackAttackGoal.java:33: error: method does not override or implement a method from a supertype
+      @Override
+      ^
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/item/UnseenToolTier.java:39: error: method does not override or implement a method from a supertype
+      @Override
+      ^
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/entity/ai/PackAttackGoal.java:35: error: method checkAndPerformAttack in class MeleeAttackGoal cannot be applied to given types;
+          super.checkAndPerformAttack(target, distance);
+               ^
+    required: LivingEntity
+    found:    LivingEntity,double
+    reason: actual and formal argument lists differ in length
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/item/UnseenGearItems.java:50: error: constructor PickaxeItem in class PickaxeItem cannot be applied to given types;
+              super(tier, (int) ore.toolAttackDamage - 1, (float) (ore.toolSpeed / 2.5) - 2.4F, properties);
+              ^
+    required: Tier,Properties
+    found:    UnseenToolTier,int,float,Properties
+    reason: actual and formal argument lists differ in length
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/item/UnseenGearItems.java:64: error: constructor SwordItem in class SwordItem cannot be applied to given types;
+              super(tier, (int) ore.toolAttackDamage, (float) (ore.toolSpeed / 2.5), properties);
+              ^
+    required: Tier,Properties
+    found:    UnseenToolTier,int,float,Properties
+    reason: actual and formal argument lists differ in length
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/entity/boss/HeartOfTheForestEntity.java:94: error: incompatible types: Reference<SoundEvent> cannot be converted to SoundEvent
+          playSound(SoundEvents.RAID_HORN, 2.0F, 0.8F);
+                               ^
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/item/UnseenArmorMaterial.java:41: error: incompatible types: Holder<SoundEvent> cannot be converted to SoundEvent
+                  BuiltInRegistries.SOUND_EVENT.wrapAsHolder(SoundEvents.ARMOR_EQUIP_IRON),
+                                                                        ^
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/item/UnseenTonicItem.java:35: error: incompatible types: MobEffect cannot be converted to Holder<MobEffect>
+          player.addEffect(new MobEffectInstance(effectFor(ore), 20 * 60, 0));
                                                           ^
-    symbol:   class AABB
-    location: class VoidSerpentEntity
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/registry/ModEntities.java:65: error: cannot find symbol
-          Lumox = ENTITIES.register("lumox", () -> EntityType.Builder.of(LumoxEntity::new, MobCategory.CREATURE)
-                  ^
-    symbol:   variable ENTITIES
-    location: class ModEntities
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/registry/ModEntities.java:68: error: cannot find symbol
-          Brambleback = ENTITIES.register("brambleback", () -> EntityType.Builder.of(BramblebackEntity::new, MobCategory.CREATURE)
-                        ^
-    symbol:   variable ENTITIES
-    location: class ModEntities
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/registry/ModEntities.java:71: error: cannot find symbol
-          Siltstrider = ENTITIES.register("siltstrider", () -> EntityType.Builder.of(SiltstriderEntity::new, MobCategory.CREATURE)
-                        ^
-    symbol:   variable ENTITIES
-    location: class ModEntities
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/registry/ModEntities.java:74: error: cannot find symbol
-          Glimmermoth = ENTITIES.register("glimmermoth", () -> EntityType.Builder.of(GlimmermothEntity::new, MobCategory.CREATURE)
-                        ^
-    symbol:   variable ENTITIES
-    location: class ModEntities
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/registry/ModEntities.java:77: error: cannot find symbol
-          PeatHopper = ENTITIES.register("peat_hopper", () -> EntityType.Builder.of(PeatHopperEntity::new, MobCategory.CREATURE)
-                       ^
-    symbol:   variable ENTITIES
-    location: class ModEntities
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/registry/ModEntities.java:80: error: cannot find symbol
-          EmberCalf = ENTITIES.register("ember_calf", () -> EntityType.Builder.of(EmberCalfEntity::new, MobCategory.CREATURE)
-                      ^
-    symbol:   variable ENTITIES
-    location: class ModEntities
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/registry/ModEntities.java:83: error: cannot find symbol
-          FrostFawn = ENTITIES.register("frost_fawn", () -> EntityType.Builder.of(FrostFawnEntity::new, MobCategory.CREATURE)
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/item/UnseenTonicItem.java:44: error: incompatible types: Holder<MobEffect> cannot be converted to MobEffect
+              return MobEffects.FIRE_RESISTANCE;
+                               ^
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21/java/com/biomesunseen/item/UnseenTonicItem.java:47: error: incompatible types: Holder<MobEffect> cannot be converted to MobEffect
 === LAST 40 ===
 	at org.gradle.internal.execution.steps.MutableStep.execute(MutableStep.java:26)
 	at org.gradle.internal.execution.steps.ValidateStep$Mutable.executeDelegate(ValidateStep.java:79)
@@ -320,5 +320,5 @@ Execution failed for task ':fabric-1.21:compileJava' (registered by plugin class
 	... 25 more
 
 
-BUILD FAILED in 1m 20s
+BUILD FAILED in 1m 16s
 1 actionable task: 1 executed

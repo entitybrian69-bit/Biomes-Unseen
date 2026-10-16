@@ -1,36 +1,24 @@
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.19.4/java/com/biomesunseen/entity/ai/PackAttackGoal.java:33: error: method does not override or implement a method from a supertype
-    @Override
-    ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.19.4/java/com/biomesunseen/entity/ai/PackAttackGoal.java:35: error: method checkAndPerformAttack in class MeleeAttackGoal cannot be applied to given types;
-        super.checkAndPerformAttack(target);
-             ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.19.4/java/com/biomesunseen/entity/boss/VoidSerpentEntity.java:132: error: cannot find symbol
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.19.4/java/com/biomesunseen/entity/boss/VoidSerpentEntity.java:133: error: cannot find symbol
                 target.hurt(level().damageSources().mobAttack(this), (float) DEF.phaseAttackDamage(phase));
                             ^
 ---
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.19.4/java/com/biomesunseen/entity/boss/VoidSerpentEntity.java:144: error: cannot find symbol
-                net.minecraft.world.phys.AABB box = new AABB(segmentX(i) - 2.0D, segmentY(i) - 2.0D, segmentZ(i) - 2.0D,
-                                                        ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.19.4/java/com/biomesunseen/entity/boss/VoidSerpentEntity.java:148: error: cannot find symbol
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.19.4/java/com/biomesunseen/entity/boss/VoidSerpentEntity.java:149: error: cannot find symbol
                     entity.hurt(level().damageSources().mobAttack(this), 4.0F + phase * 2.0F);
                                 ^
 ---
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.19.4/java/com/biomesunseen/entity/boss/VoidSerpentEntity.java:158: error: cannot find symbol
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.19.4/java/com/biomesunseen/entity/boss/VoidSerpentEntity.java:159: error: cannot find symbol
                 unseenLevel().broadcastDamageEvent(target, level().damageSources().mobAttack(this));
                                                            ^
 ---
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.19.4/java/com/biomesunseen/entity/boss/VoidSerpentEntity.java:159: error: cannot find symbol
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.19.4/java/com/biomesunseen/entity/boss/VoidSerpentEntity.java:160: error: cannot find symbol
                 target.hurt(level().damageSources().mobAttack(this), 2.0F + phase);
                             ^
 ---
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.19.4/java/com/biomesunseen/entity/boss/VoidSerpentEntity.java:187: error: no suitable constructor found for ItemStack(RegistrySupplier<Item>,int)
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.19.4/java/com/biomesunseen/entity/boss/VoidSerpentEntity.java:188: error: no suitable constructor found for ItemStack(RegistrySupplier<Item>,int)
             spawnAtLocation(new ItemStack(ModItems.TROPHIES.get("star_whale"), 3));
                             ^
 ---
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.19.4/java/com/biomesunseen/entity/boss/VoidSerpentEntity.java:189: error: no suitable constructor found for ItemStack(RegistrySupplier<Item>)
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.19.4/java/com/biomesunseen/entity/boss/VoidSerpentEntity.java:190: error: no suitable constructor found for ItemStack(RegistrySupplier<Item>)
                 spawnAtLocation(new ItemStack(ModItems.GEAR.get("voidshard_sword")));
                                 ^
 ---
@@ -199,7 +187,7 @@ public class UnseenParticle extends Particle {
                                                                         ^
 ---
 > Task :fabric-1.19.4:compileJava FAILED
-gradle/actions: Writing build results to /home/runner/work/_temp/.gradle-actions/build-results/__run-1792156858931.json
+gradle/actions: Writing build results to /home/runner/work/_temp/.gradle-actions/build-results/__run-1792157882303.json
 
 ---
 * What went wrong:
@@ -208,35 +196,47 @@ Execution failed for task ':fabric-1.19.4:compileJava' (registered by plugin cla
 ---
 Execution failed for task ':fabric-1.19.4:compileJava' (registered by plugin class 'org.gradle.api.plugins.JavaBasePlugin').
 > Compilation failed; see the compiler output below.
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.19.4/java/com/biomesunseen/entity/ai/PackAttackGoal.java:33: error: method does not override or implement a method from a supertype
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.19.4/java/com/biomesunseen/entity/boss/VoidSerpentEntity.java:133: error: cannot find symbol
 ---
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.19.4/java/com/biomesunseen/entity/ai/PackAttackGoal.java:33: error: method does not override or implement a method from a supertype
-      @Override
-      ^
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.19.4/java/com/biomesunseen/entity/boss/VoidSerpentEntity.java:133: error: cannot find symbol
+                  target.hurt(level().damageSources().mobAttack(this), (float) DEF.phaseAttackDamage(phase));
+                              ^
 ---
 org.gradle.api.tasks.TaskExecutionException: Execution failed for task ':fabric-1.19.4:compileJava' (registered by plugin class 'org.gradle.api.plugins.JavaBasePlugin').
 	at org.gradle.api.internal.tasks.execution.DefaultTaskNodeExecutor.lambda$doExecute$1(DefaultTaskNodeExecutor.java:367)
 	at org.gradle.internal.Try$Failure.ifSuccessfulOrElse(Try.java:288)
 ---
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.19.4/java/com/biomesunseen/entity/ai/PackAttackGoal.java:33: error: method does not override or implement a method from a supertype
-    @Override
-    ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.19.4/java/com/biomesunseen/entity/ai/PackAttackGoal.java:35: error: method checkAndPerformAttack in class MeleeAttackGoal cannot be applied to given types;
-        super.checkAndPerformAttack(target);
-             ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.19.4/java/com/biomesunseen/entity/boss/VoidSerpentEntity.java:132: error: cannot find symbol
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.19.4/java/com/biomesunseen/entity/boss/VoidSerpentEntity.java:133: error: cannot find symbol
                 target.hurt(level().damageSources().mobAttack(this), (float) DEF.phaseAttackDamage(phase));
                             ^
 ---
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.19.4/java/com/biomesunseen/entity/boss/VoidSerpentEntity.java:144: error: cannot find symbol
-                net.minecraft.world.phys.AABB box = new AABB(segmentX(i) - 2.0D, segmentY(i) - 2.0D, segmentZ(i) - 2.0D,
-                                                        ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.19.4/java/com/biomesunseen/entity/boss/VoidSerpentEntity.java:148: error: cannot find symbol
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.19.4/java/com/biomesunseen/entity/boss/VoidSerpentEntity.java:149: error: cannot find symbol
                     entity.hurt(level().damageSources().mobAttack(this), 4.0F + phase * 2.0F);
                                 ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.19.4/java/com/biomesunseen/entity/boss/VoidSerpentEntity.java:159: error: cannot find symbol
+                unseenLevel().broadcastDamageEvent(target, level().damageSources().mobAttack(this));
+                                                           ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.19.4/java/com/biomesunseen/entity/boss/VoidSerpentEntity.java:160: error: cannot find symbol
+                target.hurt(level().damageSources().mobAttack(this), 2.0F + phase);
+                            ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.19.4/java/com/biomesunseen/entity/boss/VoidSerpentEntity.java:188: error: no suitable constructor found for ItemStack(RegistrySupplier<Item>,int)
+            spawnAtLocation(new ItemStack(ModItems.TROPHIES.get("star_whale"), 3));
+                            ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.19.4/java/com/biomesunseen/entity/boss/VoidSerpentEntity.java:190: error: no suitable constructor found for ItemStack(RegistrySupplier<Item>)
+                spawnAtLocation(new ItemStack(ModItems.GEAR.get("voidshard_sword")));
+                                ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.19.4/java/com/biomesunseen/entity/boss/HeartOfTheForestEntity.java:94: error: incompatible types: Reference<SoundEvent> cannot be converted to SoundEvent
+        playSound(SoundEvents.RAID_HORN, 2.0F, 0.8F);
+                             ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.19.4/java/com/biomesunseen/entity/boss/HeartOfTheForestEntity.java:104: error: cannot find symbol
+                target.hurt(level().damageSources().mobAttack(this), (float) DEF.phaseAttackDamage(phase));
+                            ^
 ---
 === STACKTRACE ===
 Caused by: org.gradle.api.internal.tasks.compile.CompilationFailedException: Compilation failed; see the compiler output below.
@@ -244,10 +244,12 @@ Caused by: org.gradle.api.internal.tasks.compile.CompilationFailedException: Com
 * What went wrong:
 Execution failed for task ':fabric-1.19.4:compileJava' (registered by plugin class 'org.gradle.api.plugins.JavaBasePlugin').
 > Compilation failed; see the compiler output below.
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.19.4/java/com/biomesunseen/entity/ai/PackAttackGoal.java:33: error: method does not override or implement a method from a supertype
-      @Override
-      ^
-  50 errors
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.19.4/java/com/biomesunseen/entity/boss/VoidSerpentEntity.java:133: error: cannot find symbol
+                  target.hurt(level().damageSources().mobAttack(this), (float) DEF.phaseAttackDamage(phase));
+                              ^
+    symbol:   method level()
+    location: class VoidSerpentEntity
+  47 errors
 
 * Try:
 === LAST 40 ===
@@ -261,7 +263,7 @@ Execution failed for task ':fabric-1.19.4:compileJava' (registered by plugin cla
 Note: Some input files use unchecked or unsafe operations.
 Note: Recompile with -Xlint:unchecked for details.
 Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
-50 errors
+47 errors
 	at org.gradle.api.internal.tasks.compile.JdkJavaCompiler.execute(JdkJavaCompiler.java:88)
 	at org.gradle.api.internal.tasks.compile.JdkJavaCompiler.execute(JdkJavaCompiler.java:49)
 	at org.gradle.api.internal.tasks.compile.daemon.CompilerWorkAction.execute(CompilerWorkAction.java:52)
@@ -289,5 +291,5 @@ Note: Some messages have been simplified; recompile with -Xdiags:verbose to get 
 	at org.gradle.internal.concurrent.AbstractManagedExecutor$1.run(AbstractManagedExecutor.java:47)
 
 
-BUILD FAILED in 1m 21s
+BUILD FAILED in 1m 12s
 1 actionable task: 1 executed

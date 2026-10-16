@@ -2,7 +2,7 @@
 A problem occurred configuring project ':fabric-26.3'.
 > Failed to setup Minecraft, java.lang.NullPointerException: Cannot invoke "String.equals(Object)" because "srcNamespace" is null
 ---
-BUILD FAILED in 50s
+BUILD FAILED in 46s
 ---
 === STACKTRACE ===
 Caused by: java.lang.RuntimeException: Failed to setup Minecraft, java.lang.NullPointerException: Cannot invoke "String.equals(Object)" because "srcNamespace" is null
@@ -68,4 +68,4 @@ Caused by: java.lang.NullPointerException: Cannot invoke "String.equals(Object)"
 	... 193 more
 
 
-BUILD FAILED in 50s
+BUILD FAILED in 46s
