@@ -6,7 +6,7 @@ FAILURE: Build failed with an exception.
 
 * What went wrong:
 A problem occurred configuring project ':neoforge-1.21.10'.
-> Failed to setup Minecraft, net.fabricmc.loom.util.download.DownloadException: Failed to download
+> Failed to setup Minecraft, java.lang.RuntimeException: Failed to provide net.neoforged:neoforge:21.10.+ : java.lang.RuntimeException: Could not resolve Forge userdev
 
 * Try:
 > Run with --stacktrace option to get the stack trace.
@@ -14,4 +14,4 @@ A problem occurred configuring project ':neoforge-1.21.10'.
 > Run with --scan to get full insights from a Build Scan (powered by Develocity).
 > Get more help at https://help.gradle.org.
 
-BUILD FAILED in 44s
+BUILD FAILED in 38s
