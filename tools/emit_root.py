@@ -28,7 +28,7 @@ SETTINGS_GRADLE = '''pluginManagement {
         mavenCentral()
     }
     plugins {
-        id "org.gradle.toolchains.foojay-resolver-convention" version "0.8.0"
+        id "org.gradle.toolchains.foojay-resolver-convention" version "1.0.0"
     }
 }
 
@@ -122,7 +122,6 @@ org.gradle.daemon=true
 org.gradle.parallel=true
 org.gradle.caching=true
 org.gradle.configuration-cache=false
-org.gradle.configureondemand=true
 
 # Architectury Loom plugin version used by every subproject
 loom_version=%(loom)s

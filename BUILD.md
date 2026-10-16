@@ -5,8 +5,8 @@
 1. Install a JDK for your target (see matrix below). Gradle toolchains will
    auto-download missing JDKs when `foojay-resolver` is available, otherwise
    install manually and set `JAVA_HOME`.
-2. Install Gradle 8.14.3 or newer (https://gradle.org), **or** let the included
-   `gradlew` script bootstrap the wrapper with `gradle wrapper --gradle-version 8.14.3`.
+2. Install Gradle 9.8.1 or newer (https://gradle.org), **or** let the included
+   `gradlew` script bootstrap the wrapper with `gradle wrapper --gradle-version 9.8.1`.
 3. First run needs internet access to the Fabric, Architectury, Forge/NeoForge,
    GeckoLib and Shedaniel (Cloth) maven repositories.
 
@@ -123,9 +123,9 @@ module's `gradle.properties`. To bump e.g. Fabric API for 1.21.1:
 
 ## 6. Troubleshooting
 
-- **`gradle-wrapper.jar` missing**: run `gradle wrapper --gradle-version 8.14.3` once.
+- **`gradle-wrapper.jar` missing**: run `gradle wrapper --gradle-version 9.8.1` once.
 - **Dependency resolution failure**: the pinned Fabric API / GeckoLib / Architectury
   version string for that Minecraft line needs a bump (see section 5).
 - **Wrong JDK**: set `org.gradle.java.home` or install the toolchain JDK the
   matrix lists for that target.
-- **26.x targets** need a JDK 25 toolchain; Gradle 8.14.3 downloads it automatically.
+- **26.x targets** need a JDK 25 toolchain; Gradle 9.8.1 downloads it automatically.

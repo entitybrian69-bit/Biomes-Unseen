@@ -314,7 +314,7 @@ LOOM_VERSION = "1.17.493"
 LOOM_VERSION_MID = "1.17.493"     # 1.21.6+
 LOOM_VERSION_NEW = "1.17.493"     # 26.x
 
-GRADLE_VERSION = "8.14.3"
+GRADLE_VERSION = "9.8.1"
 
 # ---------------------------------------------------------------------------
 # Biomes: 8 groups x 10 = 80.

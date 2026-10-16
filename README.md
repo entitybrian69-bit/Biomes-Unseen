@@ -33,7 +33,7 @@ module's exact Minecraft/loader toolchain (Architectury Loom, Mojang mappings).
 
 - **JDK** matching the target (8 for 1.16.5, 16 for 1.17.1, 17 for 1.18-1.20.4,
   21 for 1.20.5-1.21.11, 25 for 26.x). Gradle toolchains download missing JDKs automatically.
-- **Gradle 8.14.3** (or run `gradle wrapper --gradle-version 8.14.3` once; `gradlew` does this automatically if a system Gradle is on PATH).
+- **Gradle 9.8.1** (or run `gradle wrapper --gradle-version 9.8.1` once; `gradlew` does this automatically if a system Gradle is on PATH).
 - Internet access to Fabric / Forge / NeoForge / Architectury / GeckoLib / Shedaniel maven hosts.
 
 ## Building
