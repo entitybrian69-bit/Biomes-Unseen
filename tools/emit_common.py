@@ -764,13 +764,13 @@ public final class Content {
     }
 }
 ''' % {
-        "biomes": "\n".join(biome_lines),
-        "ores": "\n".join(ore_lines),
-        "decor": "\n".join(decor_lines),
-        "plants": "\n".join(plant_lines),
-        "structures": "\n".join(struct_lines),
-        "mobs": "\n".join(mob_lines),
-        "bosses": "\n".join(boss_lines),
+        "biomes": ",\n".join(biome_lines),
+        "ores": ",\n".join(ore_lines),
+        "decor": ",\n".join(decor_lines),
+        "plants": ",\n".join(plant_lines),
+        "structures": ",\n".join(struct_lines),
+        "mobs": ",\n".join(mob_lines),
+        "bosses": ",\n".join(boss_lines),
     }
     _w(root, JAVA_CORE + "/Content.java", content_java)
 
@@ -985,6 +985,6 @@ public final class CoreRegistries {
 ''' % {
         "particles": particle_list,
         "sounds": sound_list,
-        "advancements": "\n".join(
+        "advancements": ",\n".join(
             "            %s" % _s(a[0]) for a in ADVANCEMENT_ROWS),
     })

@@ -61,17 +61,17 @@ public final class CoreRegistries {
 
     /** Advancement ids in unlock order. */
     public static final List<String> ADVANCEMENT_IDS = Collections.unmodifiableList(Arrays.asList(new String[]{
-            "root"
-            "biome_explorer"
-            "biome_master"
-            "first_ore"
-            "all_ores"
-            "first_structure"
-            "all_structures"
-            "heart_of_the_forest"
-            "void_serpent"
-            "tame_mob"
-            "all_mobs"
+            "root",
+            "biome_explorer",
+            "biome_master",
+            "first_ore",
+            "all_ores",
+            "first_structure",
+            "all_structures",
+            "heart_of_the_forest",
+            "void_serpent",
+            "tame_mob",
+            "all_mobs",
             "boss_hunter"
     }));
 
