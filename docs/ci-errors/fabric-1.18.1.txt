@@ -6,14 +6,6 @@ import net.minecraft.world.level.levelgen.StructureSeparationSettings;
             temperature = unseenLevel().getBiome(blockPosition()).value().getBaseTemperature();
                                                                  ^
 ---
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18.1/java/com/biomesunseen/entity/ai/ThrottledGoal.java:24: error: cannot find symbol
-        return AiThrottle.shouldThink(mob.getId(), mob.unseenLevel().getGameTime())
-                                                      ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18.1/java/com/biomesunseen/entity/ai/WanderTradeGoal.java:54: error: cannot find symbol
-        if (customer != null && tradeCooldown == 390 && !mob.unseenLevel().isClientSide) {
-                                                            ^
----
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18.1/java/com/biomesunseen/entity/ai/PackAttackGoal.java:33: error: method does not override or implement a method from a supertype
     @Override
     ^
@@ -238,6 +230,14 @@ import net.minecraft.world.level.levelgen.StructureSeparationSettings;
         EntityAttributeRegistry.register(WindDancer, () -> Mob.createMobAttributes()
                                          ^
 ---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18.1/java/com/biomesunseen/registry/ModEntities.java:261: error: incompatible types: RegistrySupplier<EntityType<MireGolemEntity>> cannot be converted to Supplier<EntityType<? extends LivingEntity>>
+        EntityAttributeRegistry.register(MireGolem, () -> Mob.createMobAttributes()
+                                         ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18.1/java/com/biomesunseen/registry/ModEntities.java:267: error: incompatible types: RegistrySupplier<EntityType<LanternFoxEntity>> cannot be converted to Supplier<EntityType<? extends LivingEntity>>
+        EntityAttributeRegistry.register(LanternFox, () -> Mob.createMobAttributes()
+                                         ^
+---
 === STACKTRACE ===
 Caused by: org.gradle.api.internal.tasks.compile.CompilationFailedException: Compilation failed; see the compiler output below.
 === WHAT WENT WRONG ===
@@ -253,13 +253,13 @@ Execution failed for task ':fabric-1.18.1:compileJava' (registered by plugin cla
 
 * Try:
 === LAST 40 ===
-  symbol:   method literal(String)
-  location: interface Component
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18.1/java/com/biomesunseen/config/ClothConfigScreen.java:102: error: cannot find symbol
-        Object entry = call(entryBuilder, "startDoubleField", Component.literal(label), Double.valueOf(value));
-                                                                       ^
-  symbol:   method literal(String)
-  location: interface Component
+                              ^
+  required: Supplier<EntityType<? extends T>>,EntityRendererProvider<T>
+  found:    RegistrySupplier<EntityType<LumoxEntity>>,(context)-[...]mox")
+  reason: cannot infer type-variable(s) T
+    (argument mismatch; RegistrySupplier<EntityType<LumoxEntity>> cannot be converted to Supplier<EntityType<? extends T>>)
+  where T is a type-variable:
+    T extends Entity declared in method <T>register(Supplier<EntityType<? extends T>>,EntityRendererProvider<T>)
 Note: Some input files use unchecked or unsafe operations.
 Note: Recompile with -Xlint:unchecked for details.
 Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
@@ -291,5 +291,5 @@ Note: Some messages have been simplified; recompile with -Xdiags:verbose to get 
 	at org.gradle.internal.concurrent.AbstractManagedExecutor$1.run(AbstractManagedExecutor.java:47)
 
 
-BUILD FAILED in 1m 16s
+BUILD FAILED in 1m
 1 actionable task: 1 executed

@@ -122,13 +122,9 @@ import net.minecraft.world.item.ArmorMaterial;
             return net.minecraft.world.InteractionResult.sidedSuccess(unseenLevel().isClientSide);
                                                         ^
 ---
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/entity/ai/ThrottledGoal.java:24: error: cannot find symbol
-        return AiThrottle.shouldThink(mob.getId(), mob.unseenLevel().getGameTime())
-                                                      ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/entity/ai/WanderTradeGoal.java:54: error: cannot find symbol
-        if (customer != null && tradeCooldown == 390 && !mob.unseenLevel().isClientSide) {
-                                                            ^
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/entity/ai/WanderTradeGoal.java:54: error: isClientSide has private access in Level
+        if (customer != null && tradeCooldown == 390 && !com.biomesunseen.util.EntityLevels.of(mob).isClientSide) {
+                                                                                                   ^
 ---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/entity/ai/WanderTradeGoal.java:63: error: items has private access in Inventory
                 if (!customer.getInventory().items.stream().anyMatch(s -> !s.isEmpty())) {
@@ -238,6 +234,10 @@ import net.minecraft.world.item.ArmorMaterial;
         Glimmermoth = ENTITIES.register("glimmermoth", () -> EntityType.Builder.of(GlimmermothEntity::new, MobCategory.CREATURE)
                       ^
 ---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/registry/ModEntities.java:76: error: incompatible types: String cannot be converted to ResourceKey<EntityType<?>>
+                .build("glimmermoth"));
+                       ^
+---
 === STACKTRACE ===
 Caused by: org.gradle.api.internal.tasks.compile.CompilationFailedException: Compilation failed; see the compiler output below.
 === WHAT WENT WRONG ===
@@ -320,5 +320,5 @@ Execution failed for task ':fabric-1.21.10:compileJava' (registered by plugin cl
 	... 25 more
 
 
-BUILD FAILED in 1m 13s
+BUILD FAILED in 1m 12s
 1 actionable task: 1 executed

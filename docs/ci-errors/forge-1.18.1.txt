@@ -252,8 +252,8 @@ Execution failed for task ':forge-1.18.1:compileJava' (registered by plugin clas
 * Try:
 === LAST 40 ===
   location: class ModEntities
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18.1/java/com/biomesunseen/registry/ModEntities.java:104: error: cannot find symbol
-        EchoHowler = ENTITIES.register("echo_howler", () -> EntityType.Builder.of(EchoHowlerEntity::new, MobCategory.MONSTER)
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18.1/java/com/biomesunseen/registry/ModEntities.java:110: error: cannot find symbol
+        TideCaller = ENTITIES.register("tide_caller", () -> EntityType.Builder.of(TideCallerEntity::new, MobCategory.CREATURE)
                      ^
   symbol:   variable ENTITIES
   location: class ModEntities
@@ -289,5 +289,5 @@ Note: Recompile with -Xlint:unchecked for details.
 	at org.gradle.internal.concurrent.AbstractManagedExecutor$1.run(AbstractManagedExecutor.java:47)
 
 
-BUILD FAILED in 2m 5s
+BUILD FAILED in 2m 3s
 1 actionable task: 1 executed

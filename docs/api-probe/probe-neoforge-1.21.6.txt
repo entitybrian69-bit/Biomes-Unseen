@@ -6,7 +6,26 @@ FAILURE: Build failed with an exception.
 
 * What went wrong:
 A problem occurred configuring project ':neoforge-1.21.6'.
-> Failed to setup Minecraft, java.lang.RuntimeException: Failed to provide net.neoforged:neoforge:21.6.+ : java.lang.RuntimeException: Could not resolve Forge userdev
+> Could not resolve all dependencies for configuration ':neoforge-1.21.6:neoForge'.
+   > Could not find net.neoforged:neoforge:21.6.28.
+     Searched in the following locations:
+       - https://libraries.minecraft.net/net/neoforged/neoforge/21.6.28/neoforge-21.6.28.pom
+       - https://libraries.minecraft.net/net/neoforged/neoforge/21.6.28/neoforge-21.6.28.jar
+       - https://repo.maven.apache.org/maven2/net/neoforged/neoforge/21.6.28/neoforge-21.6.28.pom
+       - https://maven.fabricmc.net/net/neoforged/neoforge/21.6.28/neoforge-21.6.28.pom
+       - https://maven.architectury.dev/net/neoforged/neoforge/21.6.28/neoforge-21.6.28.pom
+       - https://maven.minecraftforge.net/net/neoforged/neoforge/21.6.28/neoforge-21.6.28.pom
+       - https://maven.neoforged.net/releases/net/neoforged/neoforge/21.6.28/neoforge-21.6.28.pom
+       - https://dl.cloudsmith.io/public/geckolib3/geckolib/maven/net/neoforged/neoforge/21.6.28/neoforge-21.6.28.pom
+       - https://maven.shedaniel.me/net/neoforged/neoforge/21.6.28/neoforge-21.6.28.pom
+       - https://maven.terraformersmc.com/releases/net/neoforged/neoforge/21.6.28/neoforge-21.6.28.pom
+       - https://oss.sonatype.org/content/repositories/snapshots/net/neoforged/neoforge/21.6.28/neoforge-21.6.28.pom
+       - file:/home/runner/work/Biomes-Unseen/Biomes-Unseen/.gradle/loom-cache/remapped_mods/net/neoforged/neoforge/21.6.28/neoforge-21.6.28.pom
+       - file:/home/runner/.gradle/caches/fabric-loom/minecraftMaven/net/neoforged/neoforge/21.6.28/neoforge-21.6.28.pom
+       - file:/home/runner/work/Biomes-Unseen/Biomes-Unseen/.gradle/loom-cache/minecraftMaven/net/neoforged/neoforge/21.6.28/neoforge-21.6.28.pom
+       - file:/home/runner/.gradle/caches/fabric-loom/forge/transformed-dependencies-v1/net/neoforged/neoforge/21.6.28/neoforge-21.6.28.pom
+     Required by:
+         project ':neoforge-1.21.6'
 
 * Try:
 > Run with --stacktrace option to get the stack trace.
@@ -14,4 +33,4 @@ A problem occurred configuring project ':neoforge-1.21.6'.
 > Run with --scan to get full insights from a Build Scan (powered by Develocity).
 > Get more help at https://help.gradle.org.
 
-BUILD FAILED in 31s
+BUILD FAILED in 42s

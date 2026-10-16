@@ -1,11 +1,3 @@
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/entity/ai/ThrottledGoal.java:24: error: cannot find symbol
-        return AiThrottle.shouldThink(mob.getId(), mob.unseenLevel().getGameTime())
-                                                      ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/entity/ai/WanderTradeGoal.java:54: error: cannot find symbol
-        if (customer != null && tradeCooldown == 390 && !mob.unseenLevel().isClientSide) {
-                                                            ^
----
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/entity/ai/PackAttackGoal.java:33: error: method does not override or implement a method from a supertype
     @Override
     ^
@@ -238,26 +230,32 @@
         EntityAttributeRegistry.register(LanternFox, () -> Mob.createMobAttributes()
                                          ^
 ---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/registry/ModEntities.java:273: error: incompatible types: RegistrySupplier<EntityType<ReefGrazerEntity>> cannot be converted to Supplier<EntityType<? extends LivingEntity>>
+        EntityAttributeRegistry.register(ReefGrazer, () -> Mob.createMobAttributes()
+                                         ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/registry/ModEntities.java:279: error: incompatible types: RegistrySupplier<EntityType<AshCrawlerEntity>> cannot be converted to Supplier<EntityType<? extends LivingEntity>>
+        EntityAttributeRegistry.register(AshCrawler, () -> Mob.createMobAttributes()
+                                         ^
+---
 === STACKTRACE ===
 Caused by: org.gradle.api.internal.tasks.compile.CompilationFailedException: Compilation failed; see the compiler output below.
 === WHAT WENT WRONG ===
 * What went wrong:
 Execution failed for task ':fabric-1.18.2:compileJava' (registered by plugin class 'org.gradle.api.plugins.JavaBasePlugin').
 > Compilation failed; see the compiler output below.
-  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/entity/ai/ThrottledGoal.java:24: error: cannot find symbol
-          return AiThrottle.shouldThink(mob.getId(), mob.unseenLevel().getGameTime())
-                                                        ^
-    symbol:   method unseenLevel()
-    location: variable mob of type PathfinderMob
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18/java/com/biomesunseen/entity/ai/PackAttackGoal.java:33: error: method does not override or implement a method from a supertype
+      @Override
+      ^
   100 errors
 
 * Try:
 === LAST 40 ===
                               ^
   required: Supplier<EntityType<? extends T>>,EntityRendererProvider<T>
-  found:    RegistrySupplier<EntityType<LumoxEntity>>,(context)-[...]mox")
+  found:    RegistrySupplier<EntityType<SiltstriderEntity>>,(context)-[...]der")
   reason: cannot infer type-variable(s) T
-    (argument mismatch; RegistrySupplier<EntityType<LumoxEntity>> cannot be converted to Supplier<EntityType<? extends T>>)
+    (argument mismatch; RegistrySupplier<EntityType<SiltstriderEntity>> cannot be converted to Supplier<EntityType<? extends T>>)
   where T is a type-variable:
     T extends Entity declared in method <T>register(Supplier<EntityType<? extends T>>,EntityRendererProvider<T>)
 Note: Some input files use unchecked or unsafe operations.
@@ -291,5 +289,5 @@ Note: Some messages have been simplified; recompile with -Xdiags:verbose to get 
 	at org.gradle.internal.concurrent.AbstractManagedExecutor$1.run(AbstractManagedExecutor.java:47)
 
 
-BUILD FAILED in 1m 19s
+BUILD FAILED in 1m 3s
 1 actionable task: 1 executed

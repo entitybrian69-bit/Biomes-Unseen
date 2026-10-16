@@ -162,13 +162,9 @@ import net.minecraft.resources.ResourceLocation;
             return net.minecraft.world.InteractionResult.sidedSuccess(unseenLevel().isClientSide);
                                                         ^
 ---
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/entity/ai/ThrottledGoal.java:24: error: cannot find symbol
-        return AiThrottle.shouldThink(mob.getId(), mob.unseenLevel().getGameTime())
-                                                      ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/entity/ai/WanderTradeGoal.java:54: error: cannot find symbol
-        if (customer != null && tradeCooldown == 390 && !mob.unseenLevel().isClientSide) {
-                                                            ^
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/entity/ai/WanderTradeGoal.java:54: error: isClientSide has private access in Level
+        if (customer != null && tradeCooldown == 390 && !com.biomesunseen.util.EntityLevels.of(mob).isClientSide) {
+                                                                                                   ^
 ---
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/entity/ai/WanderTradeGoal.java:63: error: items has private access in Inventory
                 if (!customer.getInventory().items.stream().anyMatch(s -> !s.isEmpty())) {
@@ -237,6 +233,10 @@ import net.minecraft.resources.ResourceLocation;
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/entity/boss/HeartOfTheForestEntity.java:148: error: no suitable method found for spawnAtLocation(ItemStack)
             spawnAtLocation(new ItemStack(ModItems.UNSEEN_SIGIL.get()));
             ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.9/java/com/biomesunseen/entity/boss/HeartOfTheForestEntity.java:152: error: no suitable method found for spawnAtLocation(ItemStack)
+                spawnAtLocation(new ItemStack(minerals.get(getRandom().nextInt(minerals.size())).get(), 2 + getRandom().nextInt(3)));
+                ^
 ---
 === STACKTRACE ===
 Caused by: org.gradle.api.internal.tasks.compile.CompilationFailedException: Compilation failed; see the compiler output below.
@@ -320,5 +320,5 @@ Execution failed for task ':fabric-1.21.11:compileJava' (registered by plugin cl
 	... 25 more
 
 
-BUILD FAILED in 57s
+BUILD FAILED in 1m 8s
 1 actionable task: 1 executed

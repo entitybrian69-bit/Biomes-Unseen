@@ -14,14 +14,6 @@
                 .ifPresent(resolved -> net.minecraft.world.entity.SpawnPlacements.register(
                                                                                  ^
 ---
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.19.3/java/com/biomesunseen/entity/ai/ThrottledGoal.java:24: error: cannot find symbol
-        return AiThrottle.shouldThink(mob.getId(), mob.unseenLevel().getGameTime())
-                                                      ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.19.3/java/com/biomesunseen/entity/ai/WanderTradeGoal.java:54: error: cannot find symbol
-        if (customer != null && tradeCooldown == 390 && !mob.unseenLevel().isClientSide) {
-                                                            ^
----
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.19.3/java/com/biomesunseen/entity/ai/PackAttackGoal.java:33: error: method does not override or implement a method from a supertype
     @Override
     ^
@@ -223,7 +215,7 @@ public class UnseenParticle extends Particle {
                                                                         ^
 ---
 > Task :forge-1.19.3:compileJava FAILED
-gradle/actions: Writing build results to /home/runner/work/_temp/.gradle-actions/build-results/__run-1792155919922.json
+gradle/actions: Writing build results to /home/runner/work/_temp/.gradle-actions/build-results/__run-1792156852402.json
 
 ---
 * What went wrong:
@@ -238,6 +230,14 @@ Execution failed for task ':forge-1.19.3:compileJava' (registered by plugin clas
       private static int indexOf(ArmorItem.Type type) {
                                           ^
 ---
+org.gradle.api.tasks.TaskExecutionException: Execution failed for task ':forge-1.19.3:compileJava' (registered by plugin class 'org.gradle.api.plugins.JavaBasePlugin').
+	at org.gradle.api.internal.tasks.execution.DefaultTaskNodeExecutor.lambda$doExecute$1(DefaultTaskNodeExecutor.java:367)
+	at org.gradle.internal.Try$Failure.ifSuccessfulOrElse(Try.java:288)
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.19.3/java/com/biomesunseen/item/UnseenArmorMaterial.java:31: error: cannot find symbol
+    private static int indexOf(ArmorItem.Type type) {
+                                        ^
+---
 === STACKTRACE ===
 Caused by: org.gradle.api.internal.tasks.compile.CompilationFailedException: Compilation failed; see the compiler output below.
 === WHAT WENT WRONG ===
@@ -249,7 +249,7 @@ Execution failed for task ':forge-1.19.3:compileJava' (registered by plugin clas
                                           ^
     symbol:   class Type
     location: class ArmorItem
-  56 errors
+  54 errors
 
 * Try:
 === LAST 40 ===
@@ -263,7 +263,7 @@ Note: Recompile with -Xlint:deprecation for details.
 Note: Some input files use unchecked or unsafe operations.
 Note: Recompile with -Xlint:unchecked for details.
 Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
-56 errors
+54 errors
 	at org.gradle.api.internal.tasks.compile.JdkJavaCompiler.execute(JdkJavaCompiler.java:88)
 	at org.gradle.api.internal.tasks.compile.JdkJavaCompiler.execute(JdkJavaCompiler.java:49)
 	at org.gradle.api.internal.tasks.compile.daemon.CompilerWorkAction.execute(CompilerWorkAction.java:52)
@@ -291,5 +291,5 @@ Note: Some messages have been simplified; recompile with -Xdiags:verbose to get 
 	at org.gradle.internal.concurrent.AbstractManagedExecutor$1.run(AbstractManagedExecutor.java:47)
 
 
-BUILD FAILED in 2m 10s
+BUILD FAILED in 2m 16s
 1 actionable task: 1 executed

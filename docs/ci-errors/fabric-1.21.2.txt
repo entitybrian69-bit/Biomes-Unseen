@@ -66,14 +66,6 @@ import net.minecraft.world.item.ArmorMaterial;
             return net.minecraft.world.InteractionResult.sidedSuccess(unseenLevel().isClientSide);
                                                         ^
 ---
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.2/java/com/biomesunseen/entity/ai/ThrottledGoal.java:24: error: cannot find symbol
-        return AiThrottle.shouldThink(mob.getId(), mob.unseenLevel().getGameTime())
-                                                      ^
----
-/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.2/java/com/biomesunseen/entity/ai/WanderTradeGoal.java:54: error: cannot find symbol
-        if (customer != null && tradeCooldown == 390 && !mob.unseenLevel().isClientSide) {
-                                                            ^
----
 /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.2/java/com/biomesunseen/entity/boss/VoidSerpentEntity.java:144: error: cannot find symbol
                 net.minecraft.world.phys.AABB box = new AABB(segmentX(i) - 2.0D, segmentY(i) - 2.0D, segmentZ(i) - 2.0D,
                                                         ^
@@ -238,6 +230,14 @@ import net.minecraft.world.item.ArmorMaterial;
                 .build("echo_howler"));
                        ^
 ---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.2/java/com/biomesunseen/registry/ModEntities.java:107: error: cannot find symbol
+        DuneSkimmer = ENTITIES.register("dune_skimmer", () -> EntityType.Builder.of(DuneSkimmerEntity::new, MobCategory.CREATURE)
+                      ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.21.2/java/com/biomesunseen/registry/ModEntities.java:109: error: incompatible types: String cannot be converted to ResourceKey<EntityType<?>>
+                .build("dune_skimmer"));
+                       ^
+---
 === STACKTRACE ===
 Caused by: org.gradle.api.internal.tasks.compile.CompilationFailedException: Compilation failed; see the compiler output below.
 === WHAT WENT WRONG ===
@@ -320,5 +320,5 @@ Execution failed for task ':fabric-1.21.2:compileJava' (registered by plugin cla
 	... 25 more
 
 
-BUILD FAILED in 1m 37s
+BUILD FAILED in 1m 30s
 1 actionable task: 1 executed
