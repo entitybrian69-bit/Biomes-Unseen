@@ -5,47 +5,1708 @@ pin_neoforge: neoforge-26.1.2 neoforge_version 26.1.2.3 -> 26.1.2.0-beta
 minecraft_version=26.1.2
 architectury_version=20.0.12
 neoforge_version=26.1.2.0-beta
-=== CONFIG DIAGNOSTICS ===
-=== STACKTRACE ===
-=== WHAT WENT WRONG ===
-=== LAST 40 ===
-SLF4J: Defaulting to no-operation (NOP) logger implementation
-SLF4J: See https://www.slf4j.org/codes.html#noProviders for further details.
-[11:14:51] [main/INFO]: Access Transformer processor running version null
-[11:14:51] [main/INFO]: Command line arguments [--inJar, /home/runner/.gradle/caches/fabric-loom/26.1.2/neoforge/26.1.2.0-beta/minecraft-merged-official-patched.jar, --outJar, /home/runner/.gradle/caches/fabric-loom/26.1.2/neoforge/26.1.2.0-beta/minecraft-merged-official-at-patched.jar, --atFile, /tmp/at-conf8174279714740185475.cfg, --atFile, /tmp/at-conf8160622600923172287.cfg]
-[11:14:51] [main/INFO]: Reading from /home/runner/.gradle/caches/fabric-loom/26.1.2/neoforge/26.1.2.0-beta/minecraft-merged-official-patched.jar
-[11:14:51] [main/INFO]: Writing to /home/runner/.gradle/caches/fabric-loom/26.1.2/neoforge/26.1.2.0-beta/minecraft-merged-official-at-patched.jar
-[11:14:51] [main/INFO]: Transformer file /tmp/at-conf8174279714740185475.cfg
-[11:14:51] [main/INFO]: Transformer file /tmp/at-conf8160622600923172287.cfg
-[11:14:51] [main/WARN]: Found existing output jar /home/runner/.gradle/caches/fabric-loom/26.1.2/neoforge/26.1.2.0-beta/minecraft-merged-official-at-patched.jar, overwriting
-[11:14:56] [main/INFO]: JAR transformation complete /home/runner/.gradle/caches/fabric-loom/26.1.2/neoforge/26.1.2.0-beta/minecraft-merged-official-at-patched.jar
-:access transformed minecraft in 10s
-:merging userdev into minecraft
-
-> Task :neoforge-26.1.2:compileJava
-Note: Some input files use or override a deprecated API.
-Note: Recompile with -Xlint:deprecation for details.
-Note: Some input files use unchecked or unsafe operations.
-Note: Recompile with -Xlint:unchecked for details.
-
-> Task :neoforge-26.1.2:processResources
-> Task :neoforge-26.1.2:classes
-> Task :neoforge-26.1.2:processIncludeJars
-> Task :neoforge-26.1.2:jar
-> Task :neoforge-26.1.2:sourcesJar
-> Task :neoforge-26.1.2:assemble
-> Task :neoforge-26.1.2:validateAccessWidener NO-SOURCE
-> Task :neoforge-26.1.2:check
-> Task :neoforge-26.1.2:build
-gradle/actions: Writing build results to /home/runner/work/_temp/.gradle-actions/build-results/__run-1792235637019.json
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheSkywardCrownEntity.java:25: error: cannot find symbol
+public class TheSkywardCrownEntity extends BiomesUnseenMob {
+                                           ^
+  symbol: class BiomesUnseenMob
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/WardenOfTheHollowDeepEntity.java:25: error: cannot find symbol
+public class WardenOfTheHollowDeepEntity extends BiomesUnseenMob {
+                                                 ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/WardenOfTheHollowDeepEntity.java:25: error: cannot find symbol
+public class WardenOfTheHollowDeepEntity extends BiomesUnseenMob {
+                                                 ^
+  symbol: class BiomesUnseenMob
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheUnravelingEntity.java:25: error: cannot find symbol
+public class TheUnravelingEntity extends BiomesUnseenMob {
+                                         ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheUnravelingEntity.java:25: error: cannot find symbol
+public class TheUnravelingEntity extends BiomesUnseenMob {
+                                         ^
+  symbol: class BiomesUnseenMob
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheSkywardCrownEntity.java:33: error: type argument ? extends TheSkywardCrownEntity is not within bounds of type-variable T
+    public TheSkywardCrownEntity(EntityType<? extends TheSkywardCrownEntity> type, Level level) {
+                                            ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheSkywardCrownEntity.java:33: error: type argument ? extends TheSkywardCrownEntity is not within bounds of type-variable T
+    public TheSkywardCrownEntity(EntityType<? extends TheSkywardCrownEntity> type, Level level) {
+                                            ^
+  where T is a type-variable:
+    T extends Entity declared in class EntityType
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheSkywardCrownEntity.java:37: error: method does not override or implement a method from a supertype
+    @Override
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheSkywardCrownEntity.java:37: error: method does not override or implement a method from a supertype
+    @Override
+    ^
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheSkywardCrownEntity.java:46: error: method does not override or implement a method from a supertype
+    @Override
+    ^
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheSkywardCrownEntity.java:48: error: cannot find symbol
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheSkywardCrownEntity.java:46: error: method does not override or implement a method from a supertype
+    @Override
+    ^
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheSkywardCrownEntity.java:48: error: cannot find symbol
+        super.aiStep();
+        ^
+  symbol:   variable super
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheSkywardCrownEntity.java:48: error: cannot find symbol
+        super.aiStep();
+        ^
+  symbol:   variable super
+  location: class TheSkywardCrownEntity
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheSkywardCrownEntity.java:49: error: cannot find symbol
+        if (unseenLevel().isClientSide()) {
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheSkywardCrownEntity.java:49: error: cannot find symbol
+        if (unseenLevel().isClientSide()) {
+            ^
+  symbol:   method unseenLevel()
+  location: class TheSkywardCrownEntity
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheSkywardCrownEntity.java:52: error: cannot find symbol
+        float fraction = getHealth() / getMaxHealth();
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheSkywardCrownEntity.java:52: error: cannot find symbol
+        float fraction = getHealth() / getMaxHealth();
+                         ^
+  symbol:   method getHealth()
+  location: class TheSkywardCrownEntity
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheSkywardCrownEntity.java:52: error: cannot find symbol
+        float fraction = getHealth() / getMaxHealth();
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheSkywardCrownEntity.java:52: error: cannot find symbol
+        float fraction = getHealth() / getMaxHealth();
+                                       ^
+  symbol:   method getMaxHealth()
+  location: class TheSkywardCrownEntity
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheSkywardCrownEntity.java:60: error: cannot find symbol
+            PlatformExpect.playBossMusic((net.minecraft.server.level.ServerLevel) unseenLevel(),
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheSkywardCrownEntity.java:60: error: cannot find symbol
+            PlatformExpect.playBossMusic((net.minecraft.server.level.ServerLevel) unseenLevel(),
+                                                                                  ^
+  symbol:   method unseenLevel()
+  location: class TheSkywardCrownEntity
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheSkywardCrownEntity.java:61: error: cannot find symbol
+                    blockPosition(), DEF.musicSoundEvent, 48);
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheSkywardCrownEntity.java:61: error: cannot find symbol
+                    blockPosition(), DEF.musicSoundEvent, 48);
+                    ^
+  symbol:   method blockPosition()
+  location: class TheSkywardCrownEntity
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheSkywardCrownEntity.java:63: error: cannot find symbol
+        LivingEntity target = getTarget();
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheSkywardCrownEntity.java:63: error: cannot find symbol
+        LivingEntity target = getTarget();
+                              ^
+  symbol:   method getTarget()
+  location: class TheSkywardCrownEntity
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheSkywardCrownEntity.java:67: error: cannot find symbol
+        getLookControl().setLookAt(target, 30.0F, 30.0F);
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheSkywardCrownEntity.java:67: error: cannot find symbol
+        getLookControl().setLookAt(target, 30.0F, 30.0F);
+        ^
+  symbol:   method getLookControl()
+  location: class TheSkywardCrownEntity
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheSkywardCrownEntity.java:76: error: cannot find symbol
+            triggerAnim("haloed");
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheSkywardCrownEntity.java:76: error: cannot find symbol
+            triggerAnim("haloed");
+            ^
+  symbol:   method triggerAnim(String)
+  location: class TheSkywardCrownEntity
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheSkywardCrownEntity.java:78: error: cannot find symbol
+            triggerAnim("shardfall");
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheSkywardCrownEntity.java:78: error: cannot find symbol
+            triggerAnim("shardfall");
+            ^
+  symbol:   method triggerAnim(String)
+  location: class TheSkywardCrownEntity
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheSkywardCrownEntity.java:80: error: cannot find symbol
+            triggerAnim("last_light");
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheSkywardCrownEntity.java:80: error: cannot find symbol
+            triggerAnim("last_light");
+            ^
+  symbol:   method triggerAnim(String)
+  location: class TheSkywardCrownEntity
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheSkywardCrownEntity.java:82: error: cannot find symbol
+        playSound(SoundEvents.RAID_HORN.value(), 2.0F, 0.8F);
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheSkywardCrownEntity.java:82: error: cannot find symbol
+        playSound(SoundEvents.RAID_HORN.value(), 2.0F, 0.8F);
+        ^
+  symbol:   method playSound(SoundEvent,float,float)
+  location: class TheSkywardCrownEntity
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheSkywardCrownEntity.java:86: error: cannot find symbol
+        double distance = distanceTo(target);
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheSkywardCrownEntity.java:86: error: cannot find symbol
+        double distance = distanceTo(target);
+                          ^
+  symbol:   method distanceTo(LivingEntity)
+  location: class TheSkywardCrownEntity
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheSkywardCrownEntity.java:87: error: cannot find symbol
+        int choice = (getRandom().nextInt(4) + phase) % 4;
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheSkywardCrownEntity.java:87: error: cannot find symbol
+        int choice = (getRandom().nextInt(4) + phase) % 4;
+                      ^
+  symbol:   method getRandom()
+  location: class TheSkywardCrownEntity
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheSkywardCrownEntity.java:89: error: cannot find symbol
+            triggerAnim("aerial_dive");
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheSkywardCrownEntity.java:89: error: cannot find symbol
+            triggerAnim("aerial_dive");
+            ^
+  symbol:   method triggerAnim(String)
+  location: class TheSkywardCrownEntity
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheSkywardCrownEntity.java:91: error: cannot find symbol
+                target.hurt(unseenLevel().damageSources().mobAttack(this), (float) DEF.phaseAttackDamage(phase));
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheSkywardCrownEntity.java:91: error: cannot find symbol
+                target.hurt(unseenLevel().damageSources().mobAttack(this), (float) DEF.phaseAttackDamage(phase));
+                            ^
+  symbol:   method unseenLevel()
+  location: class TheSkywardCrownEntity
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheSkywardCrownEntity.java:94: error: cannot find symbol
+            triggerAnim("gust_knockback");
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheSkywardCrownEntity.java:94: error: cannot find symbol
+            triggerAnim("gust_knockback");
+            ^
+  symbol:   method triggerAnim(String)
+  location: class TheSkywardCrownEntity
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheSkywardCrownEntity.java:96: error: cannot find symbol
+                target.hurt(unseenLevel().damageSources().mobAttack(this), 5.0F + phase * 2.0F);
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheSkywardCrownEntity.java:96: error: cannot find symbol
+                target.hurt(unseenLevel().damageSources().mobAttack(this), 5.0F + phase * 2.0F);
+                            ^
+  symbol:   method unseenLevel()
+  location: class TheSkywardCrownEntity
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheSkywardCrownEntity.java:99: error: cannot find symbol
+            triggerAnim("sunbeam");
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheSkywardCrownEntity.java:99: error: cannot find symbol
+            triggerAnim("sunbeam");
+            ^
+  symbol:   method triggerAnim(String)
+  location: class TheSkywardCrownEntity
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheSkywardCrownEntity.java:100: error: cannot find symbol
+            setPos(target.getX(), target.getY(), target.getZ());
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheSkywardCrownEntity.java:100: error: cannot find symbol
+            setPos(target.getX(), target.getY(), target.getZ());
+            ^
+  symbol:   method setPos(double,double,double)
+  location: class TheSkywardCrownEntity
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheSkywardCrownEntity.java:102: error: cannot find symbol
+                target.hurt(unseenLevel().damageSources().mobAttack(this), 3.0F + phase);
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheSkywardCrownEntity.java:102: error: cannot find symbol
+                target.hurt(unseenLevel().damageSources().mobAttack(this), 3.0F + phase);
+                            ^
+  symbol:   method unseenLevel()
+  location: class TheSkywardCrownEntity
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheSkywardCrownEntity.java:105: error: cannot find symbol
+            triggerAnim("sunbeam");
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheSkywardCrownEntity.java:105: error: cannot find symbol
+            triggerAnim("sunbeam");
+            ^
+  symbol:   method triggerAnim(String)
+  location: class TheSkywardCrownEntity
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheSkywardCrownEntity.java:106: error: cannot find symbol
+            for (Player player : unseenLevel().getEntitiesOfClass(Player.class,
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheSkywardCrownEntity.java:106: error: cannot find symbol
+            for (Player player : unseenLevel().getEntitiesOfClass(Player.class,
+                                 ^
+  symbol:   method unseenLevel()
+  location: class TheSkywardCrownEntity
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheSkywardCrownEntity.java:107: error: cannot find symbol
+                    getBoundingBox().inflate(10.0D))) {
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheSkywardCrownEntity.java:107: error: cannot find symbol
+                    getBoundingBox().inflate(10.0D))) {
+                    ^
+  symbol:   method getBoundingBox()
+  location: class TheSkywardCrownEntity
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheSkywardCrownEntity.java:108: error: cannot find symbol
+                player.hurt(unseenLevel().damageSources().mobAttack(this), 5.0F + phase * 2.0F);
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheSkywardCrownEntity.java:108: error: cannot find symbol
+                player.hurt(unseenLevel().damageSources().mobAttack(this), 5.0F + phase * 2.0F);
+                            ^
+  symbol:   method unseenLevel()
+  location: class TheSkywardCrownEntity
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheSkywardCrownEntity.java:114: error: method does not override or implement a method from a supertype
+    @Override
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheSkywardCrownEntity.java:114: error: method does not override or implement a method from a supertype
+    @Override
+    ^
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheSkywardCrownEntity.java:116: error: cannot find symbol
+        super.die(source);
+        ^
+  symbol:   variable super
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheSkywardCrownEntity.java:116: error: cannot find symbol
+        super.die(source);
+        ^
+  symbol:   variable super
+  location: class TheSkywardCrownEntity
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheSkywardCrownEntity.java:117: error: cannot find symbol
+        if (!unseenLevel().isClientSide()) {
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheSkywardCrownEntity.java:117: error: cannot find symbol
+        if (!unseenLevel().isClientSide()) {
+             ^
+  symbol:   method unseenLevel()
+  location: class TheSkywardCrownEntity
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheSkywardCrownEntity.java:121: error: incompatible types: TheSkywardCrownEntity cannot be converted to Entity
+                        com.biomesunseen.util.EntityLevels.of(this);
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheSkywardCrownEntity.java:121: error: incompatible types: TheSkywardCrownEntity cannot be converted to Entity
+                        com.biomesunseen.util.EntityLevels.of(this);
+                                                              ^
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheSkywardCrownEntity.java:123: error: cannot find symbol
+                    spawnAtLocation((net.minecraft.server.level.ServerLevel) dropLevel,
+                    ^
+  symbol:   method spawnAtLocation(ServerLevel,ItemStack)
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheSkywardCrownEntity.java:123: error: cannot find symbol
+                    spawnAtLocation((net.minecraft.server.level.ServerLevel) dropLevel,
+                    ^
+  symbol:   method spawnAtLocation(ServerLevel,ItemStack)
+  location: class TheSkywardCrownEntity
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheSkywardCrownEntity.java:129: error: incompatible types: TheSkywardCrownEntity cannot be converted to Entity
+                        com.biomesunseen.util.EntityLevels.of(this);
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheSkywardCrownEntity.java:129: error: incompatible types: TheSkywardCrownEntity cannot be converted to Entity
+                        com.biomesunseen.util.EntityLevels.of(this);
+                                                              ^
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheSkywardCrownEntity.java:131: error: cannot find symbol
+                    spawnAtLocation((net.minecraft.server.level.ServerLevel) dropLevel,
+                    ^
+  symbol:   method spawnAtLocation(ServerLevel,ItemStack)
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheSkywardCrownEntity.java:131: error: cannot find symbol
+                    spawnAtLocation((net.minecraft.server.level.ServerLevel) dropLevel,
+                    ^
+  symbol:   method spawnAtLocation(ServerLevel,ItemStack)
+  location: class TheSkywardCrownEntity
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheSkywardCrownEntity.java:143: error: incompatible types: TheSkywardCrownEntity cannot be converted to Entity
+                        com.biomesunseen.util.EntityLevels.of(this);
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheSkywardCrownEntity.java:143: error: incompatible types: TheSkywardCrownEntity cannot be converted to Entity
+                        com.biomesunseen.util.EntityLevels.of(this);
+                                                              ^
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheSkywardCrownEntity.java:147: error: cannot find symbol
+                        minerals.get(getRandom().nextInt(minerals.size())).get(), 3));
+                                     ^
+  symbol:   method getRandom()
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheSkywardCrownEntity.java:147: error: cannot find symbol
+                        minerals.get(getRandom().nextInt(minerals.size())).get(), 3));
+                                     ^
+  symbol:   method getRandom()
+  location: class TheSkywardCrownEntity
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheSkywardCrownEntity.java:145: error: cannot find symbol
+                    spawnAtLocation((net.minecraft.server.level.ServerLevel) dropLevel,
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheSkywardCrownEntity.java:145: error: cannot find symbol
+                    spawnAtLocation((net.minecraft.server.level.ServerLevel) dropLevel,
+                    ^
+  symbol:   method spawnAtLocation(ServerLevel,ItemStack)
+  location: class TheSkywardCrownEntity
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheSkywardCrownEntity.java:154: error: method does not override or implement a method from a supertype
+    @Override
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheSkywardCrownEntity.java:154: error: method does not override or implement a method from a supertype
+    @Override
+    ^
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheSkywardCrownEntity.java:159: error: method does not override or implement a method from a supertype
+    @Override
+    ^
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/WardenOfTheHollowDeepEntity.java:33: error: type argument ? extends WardenOfTheHollowDeepEntity is not within bounds of type-variable T
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheSkywardCrownEntity.java:159: error: method does not override or implement a method from a supertype
+    @Override
+    ^
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/WardenOfTheHollowDeepEntity.java:33: error: type argument ? extends WardenOfTheHollowDeepEntity is not within bounds of type-variable T
+    public WardenOfTheHollowDeepEntity(EntityType<? extends WardenOfTheHollowDeepEntity> type, Level level) {
+                                                  ^
+  where T is a type-variable:
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/WardenOfTheHollowDeepEntity.java:33: error: type argument ? extends WardenOfTheHollowDeepEntity is not within bounds of type-variable T
+    public WardenOfTheHollowDeepEntity(EntityType<? extends WardenOfTheHollowDeepEntity> type, Level level) {
+                                                  ^
+  where T is a type-variable:
+    T extends Entity declared in class EntityType
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/WardenOfTheHollowDeepEntity.java:37: error: method does not override or implement a method from a supertype
+    @Override
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/WardenOfTheHollowDeepEntity.java:37: error: method does not override or implement a method from a supertype
+    @Override
+    ^
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/WardenOfTheHollowDeepEntity.java:46: error: method does not override or implement a method from a supertype
+    @Override
+    ^
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/WardenOfTheHollowDeepEntity.java:48: error: cannot find symbol
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/WardenOfTheHollowDeepEntity.java:46: error: method does not override or implement a method from a supertype
+    @Override
+    ^
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/WardenOfTheHollowDeepEntity.java:48: error: cannot find symbol
+        super.aiStep();
+        ^
+  symbol:   variable super
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/WardenOfTheHollowDeepEntity.java:48: error: cannot find symbol
+        super.aiStep();
+        ^
+  symbol:   variable super
+  location: class WardenOfTheHollowDeepEntity
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/WardenOfTheHollowDeepEntity.java:49: error: cannot find symbol
+        if (unseenLevel().isClientSide()) {
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/WardenOfTheHollowDeepEntity.java:49: error: cannot find symbol
+        if (unseenLevel().isClientSide()) {
+            ^
+  symbol:   method unseenLevel()
+  location: class WardenOfTheHollowDeepEntity
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/WardenOfTheHollowDeepEntity.java:52: error: cannot find symbol
+        float fraction = getHealth() / getMaxHealth();
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/WardenOfTheHollowDeepEntity.java:52: error: cannot find symbol
+        float fraction = getHealth() / getMaxHealth();
+                         ^
+  symbol:   method getHealth()
+  location: class WardenOfTheHollowDeepEntity
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/WardenOfTheHollowDeepEntity.java:52: error: cannot find symbol
+        float fraction = getHealth() / getMaxHealth();
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/WardenOfTheHollowDeepEntity.java:52: error: cannot find symbol
+        float fraction = getHealth() / getMaxHealth();
+                                       ^
+  symbol:   method getMaxHealth()
+  location: class WardenOfTheHollowDeepEntity
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/WardenOfTheHollowDeepEntity.java:60: error: cannot find symbol
+            PlatformExpect.playBossMusic((net.minecraft.server.level.ServerLevel) unseenLevel(),
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/WardenOfTheHollowDeepEntity.java:60: error: cannot find symbol
+            PlatformExpect.playBossMusic((net.minecraft.server.level.ServerLevel) unseenLevel(),
+                                                                                  ^
+  symbol:   method unseenLevel()
+  location: class WardenOfTheHollowDeepEntity
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/WardenOfTheHollowDeepEntity.java:61: error: cannot find symbol
+                    blockPosition(), DEF.musicSoundEvent, 48);
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/WardenOfTheHollowDeepEntity.java:61: error: cannot find symbol
+                    blockPosition(), DEF.musicSoundEvent, 48);
+                    ^
+  symbol:   method blockPosition()
+  location: class WardenOfTheHollowDeepEntity
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/WardenOfTheHollowDeepEntity.java:63: error: cannot find symbol
+        LivingEntity target = getTarget();
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/WardenOfTheHollowDeepEntity.java:63: error: cannot find symbol
+        LivingEntity target = getTarget();
+                              ^
+  symbol:   method getTarget()
+  location: class WardenOfTheHollowDeepEntity
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/WardenOfTheHollowDeepEntity.java:67: error: cannot find symbol
+        getLookControl().setLookAt(target, 30.0F, 30.0F);
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/WardenOfTheHollowDeepEntity.java:67: error: cannot find symbol
+        getLookControl().setLookAt(target, 30.0F, 30.0F);
+        ^
+  symbol:   method getLookControl()
+  location: class WardenOfTheHollowDeepEntity
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/WardenOfTheHollowDeepEntity.java:76: error: cannot find symbol
+            triggerAnim("awakens");
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/WardenOfTheHollowDeepEntity.java:76: error: cannot find symbol
+            triggerAnim("awakens");
+            ^
+  symbol:   method triggerAnim(String)
+  location: class WardenOfTheHollowDeepEntity
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/WardenOfTheHollowDeepEntity.java:78: error: cannot find symbol
+            triggerAnim("spire_risen");
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/WardenOfTheHollowDeepEntity.java:78: error: cannot find symbol
+            triggerAnim("spire_risen");
+            ^
+  symbol:   method triggerAnim(String)
+  location: class WardenOfTheHollowDeepEntity
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/WardenOfTheHollowDeepEntity.java:80: error: cannot find symbol
+            triggerAnim("collapse");
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/WardenOfTheHollowDeepEntity.java:80: error: cannot find symbol
+            triggerAnim("collapse");
+            ^
+  symbol:   method triggerAnim(String)
+  location: class WardenOfTheHollowDeepEntity
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/WardenOfTheHollowDeepEntity.java:82: error: cannot find symbol
+        playSound(SoundEvents.RAID_HORN.value(), 2.0F, 0.8F);
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/WardenOfTheHollowDeepEntity.java:82: error: cannot find symbol
+        playSound(SoundEvents.RAID_HORN.value(), 2.0F, 0.8F);
+        ^
+  symbol:   method playSound(SoundEvent,float,float)
+  location: class WardenOfTheHollowDeepEntity
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/WardenOfTheHollowDeepEntity.java:86: error: cannot find symbol
+        double distance = distanceTo(target);
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/WardenOfTheHollowDeepEntity.java:86: error: cannot find symbol
+        double distance = distanceTo(target);
+                          ^
+  symbol:   method distanceTo(LivingEntity)
+  location: class WardenOfTheHollowDeepEntity
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/WardenOfTheHollowDeepEntity.java:87: error: cannot find symbol
+        int choice = (getRandom().nextInt(4) + phase) % 4;
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/WardenOfTheHollowDeepEntity.java:87: error: cannot find symbol
+        int choice = (getRandom().nextInt(4) + phase) % 4;
+                      ^
+  symbol:   method getRandom()
+  location: class WardenOfTheHollowDeepEntity
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/WardenOfTheHollowDeepEntity.java:89: error: cannot find symbol
+            triggerAnim("slam");
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/WardenOfTheHollowDeepEntity.java:89: error: cannot find symbol
+            triggerAnim("slam");
+            ^
+  symbol:   method triggerAnim(String)
+  location: class WardenOfTheHollowDeepEntity
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/WardenOfTheHollowDeepEntity.java:91: error: cannot find symbol
+                target.hurt(unseenLevel().damageSources().mobAttack(this), (float) DEF.phaseAttackDamage(phase));
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/WardenOfTheHollowDeepEntity.java:91: error: cannot find symbol
+                target.hurt(unseenLevel().damageSources().mobAttack(this), (float) DEF.phaseAttackDamage(phase));
+                            ^
+  symbol:   method unseenLevel()
+  location: class WardenOfTheHollowDeepEntity
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/WardenOfTheHollowDeepEntity.java:94: error: cannot find symbol
+            triggerAnim("tremor_wave");
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/WardenOfTheHollowDeepEntity.java:94: error: cannot find symbol
+            triggerAnim("tremor_wave");
+            ^
+  symbol:   method triggerAnim(String)
+  location: class WardenOfTheHollowDeepEntity
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/WardenOfTheHollowDeepEntity.java:96: error: cannot find symbol
+                target.hurt(unseenLevel().damageSources().mobAttack(this), 5.0F + phase * 2.0F);
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/WardenOfTheHollowDeepEntity.java:96: error: cannot find symbol
+                target.hurt(unseenLevel().damageSources().mobAttack(this), 5.0F + phase * 2.0F);
+                            ^
+  symbol:   method unseenLevel()
+  location: class WardenOfTheHollowDeepEntity
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/WardenOfTheHollowDeepEntity.java:99: error: cannot find symbol
+            triggerAnim("tunnel_ambush");
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/WardenOfTheHollowDeepEntity.java:99: error: cannot find symbol
+            triggerAnim("tunnel_ambush");
+            ^
+  symbol:   method triggerAnim(String)
+  location: class WardenOfTheHollowDeepEntity
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/WardenOfTheHollowDeepEntity.java:100: error: cannot find symbol
+            setPos(target.getX(), target.getY(), target.getZ());
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/WardenOfTheHollowDeepEntity.java:100: error: cannot find symbol
+            setPos(target.getX(), target.getY(), target.getZ());
+            ^
+  symbol:   method setPos(double,double,double)
+  location: class WardenOfTheHollowDeepEntity
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/WardenOfTheHollowDeepEntity.java:102: error: cannot find symbol
+                target.hurt(unseenLevel().damageSources().mobAttack(this), 3.0F + phase);
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/WardenOfTheHollowDeepEntity.java:102: error: cannot find symbol
+                target.hurt(unseenLevel().damageSources().mobAttack(this), 3.0F + phase);
+                            ^
+  symbol:   method unseenLevel()
+  location: class WardenOfTheHollowDeepEntity
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/WardenOfTheHollowDeepEntity.java:105: error: cannot find symbol
+            triggerAnim("tunnel_ambush");
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/WardenOfTheHollowDeepEntity.java:105: error: cannot find symbol
+            triggerAnim("tunnel_ambush");
+            ^
+  symbol:   method triggerAnim(String)
+  location: class WardenOfTheHollowDeepEntity
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/WardenOfTheHollowDeepEntity.java:106: error: cannot find symbol
+            for (Player player : unseenLevel().getEntitiesOfClass(Player.class,
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/WardenOfTheHollowDeepEntity.java:106: error: cannot find symbol
+            for (Player player : unseenLevel().getEntitiesOfClass(Player.class,
+                                 ^
+  symbol:   method unseenLevel()
+  location: class WardenOfTheHollowDeepEntity
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/WardenOfTheHollowDeepEntity.java:107: error: cannot find symbol
+                    getBoundingBox().inflate(10.0D))) {
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/WardenOfTheHollowDeepEntity.java:107: error: cannot find symbol
+                    getBoundingBox().inflate(10.0D))) {
+                    ^
+  symbol:   method getBoundingBox()
+  location: class WardenOfTheHollowDeepEntity
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/WardenOfTheHollowDeepEntity.java:108: error: cannot find symbol
+                player.hurt(unseenLevel().damageSources().mobAttack(this), 5.0F + phase * 2.0F);
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/WardenOfTheHollowDeepEntity.java:108: error: cannot find symbol
+                player.hurt(unseenLevel().damageSources().mobAttack(this), 5.0F + phase * 2.0F);
+                            ^
+  symbol:   method unseenLevel()
+  location: class WardenOfTheHollowDeepEntity
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/WardenOfTheHollowDeepEntity.java:114: error: method does not override or implement a method from a supertype
+    @Override
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/WardenOfTheHollowDeepEntity.java:114: error: method does not override or implement a method from a supertype
+    @Override
+    ^
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/WardenOfTheHollowDeepEntity.java:116: error: cannot find symbol
+        super.die(source);
+        ^
+  symbol:   variable super
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/WardenOfTheHollowDeepEntity.java:116: error: cannot find symbol
+        super.die(source);
+        ^
+  symbol:   variable super
+  location: class WardenOfTheHollowDeepEntity
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/WardenOfTheHollowDeepEntity.java:117: error: cannot find symbol
+        if (!unseenLevel().isClientSide()) {
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/WardenOfTheHollowDeepEntity.java:117: error: cannot find symbol
+        if (!unseenLevel().isClientSide()) {
+             ^
+  symbol:   method unseenLevel()
+  location: class WardenOfTheHollowDeepEntity
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/WardenOfTheHollowDeepEntity.java:121: error: incompatible types: WardenOfTheHollowDeepEntity cannot be converted to Entity
+                        com.biomesunseen.util.EntityLevels.of(this);
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/WardenOfTheHollowDeepEntity.java:121: error: incompatible types: WardenOfTheHollowDeepEntity cannot be converted to Entity
+                        com.biomesunseen.util.EntityLevels.of(this);
+                                                              ^
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/WardenOfTheHollowDeepEntity.java:123: error: cannot find symbol
+                    spawnAtLocation((net.minecraft.server.level.ServerLevel) dropLevel,
+                    ^
+  symbol:   method spawnAtLocation(ServerLevel,ItemStack)
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/WardenOfTheHollowDeepEntity.java:123: error: cannot find symbol
+                    spawnAtLocation((net.minecraft.server.level.ServerLevel) dropLevel,
+                    ^
+  symbol:   method spawnAtLocation(ServerLevel,ItemStack)
+  location: class WardenOfTheHollowDeepEntity
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/WardenOfTheHollowDeepEntity.java:129: error: incompatible types: WardenOfTheHollowDeepEntity cannot be converted to Entity
+                        com.biomesunseen.util.EntityLevels.of(this);
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/WardenOfTheHollowDeepEntity.java:129: error: incompatible types: WardenOfTheHollowDeepEntity cannot be converted to Entity
+                        com.biomesunseen.util.EntityLevels.of(this);
+                                                              ^
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/WardenOfTheHollowDeepEntity.java:131: error: cannot find symbol
+                    spawnAtLocation((net.minecraft.server.level.ServerLevel) dropLevel,
+                    ^
+  symbol:   method spawnAtLocation(ServerLevel,ItemStack)
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/WardenOfTheHollowDeepEntity.java:131: error: cannot find symbol
+                    spawnAtLocation((net.minecraft.server.level.ServerLevel) dropLevel,
+                    ^
+  symbol:   method spawnAtLocation(ServerLevel,ItemStack)
+  location: class WardenOfTheHollowDeepEntity
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/WardenOfTheHollowDeepEntity.java:143: error: incompatible types: WardenOfTheHollowDeepEntity cannot be converted to Entity
+                        com.biomesunseen.util.EntityLevels.of(this);
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/WardenOfTheHollowDeepEntity.java:143: error: incompatible types: WardenOfTheHollowDeepEntity cannot be converted to Entity
+                        com.biomesunseen.util.EntityLevels.of(this);
+                                                              ^
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/WardenOfTheHollowDeepEntity.java:147: error: cannot find symbol
+                        minerals.get(getRandom().nextInt(minerals.size())).get(), 3));
+                                     ^
+  symbol:   method getRandom()
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/WardenOfTheHollowDeepEntity.java:147: error: cannot find symbol
+                        minerals.get(getRandom().nextInt(minerals.size())).get(), 3));
+                                     ^
+  symbol:   method getRandom()
+  location: class WardenOfTheHollowDeepEntity
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/WardenOfTheHollowDeepEntity.java:145: error: cannot find symbol
+                    spawnAtLocation((net.minecraft.server.level.ServerLevel) dropLevel,
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/WardenOfTheHollowDeepEntity.java:145: error: cannot find symbol
+                    spawnAtLocation((net.minecraft.server.level.ServerLevel) dropLevel,
+                    ^
+  symbol:   method spawnAtLocation(ServerLevel,ItemStack)
+  location: class WardenOfTheHollowDeepEntity
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/WardenOfTheHollowDeepEntity.java:154: error: method does not override or implement a method from a supertype
+    @Override
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/WardenOfTheHollowDeepEntity.java:154: error: method does not override or implement a method from a supertype
+    @Override
+    ^
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/WardenOfTheHollowDeepEntity.java:159: error: method does not override or implement a method from a supertype
+    @Override
+    ^
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheUnravelingEntity.java:33: error: type argument ? extends TheUnravelingEntity is not within bounds of type-variable T
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/WardenOfTheHollowDeepEntity.java:159: error: method does not override or implement a method from a supertype
+    @Override
+    ^
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheUnravelingEntity.java:33: error: type argument ? extends TheUnravelingEntity is not within bounds of type-variable T
+    public TheUnravelingEntity(EntityType<? extends TheUnravelingEntity> type, Level level) {
+                                          ^
+  where T is a type-variable:
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheUnravelingEntity.java:33: error: type argument ? extends TheUnravelingEntity is not within bounds of type-variable T
+    public TheUnravelingEntity(EntityType<? extends TheUnravelingEntity> type, Level level) {
+                                          ^
+  where T is a type-variable:
+    T extends Entity declared in class EntityType
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheUnravelingEntity.java:37: error: method does not override or implement a method from a supertype
+    @Override
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheUnravelingEntity.java:37: error: method does not override or implement a method from a supertype
+    @Override
+    ^
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheUnravelingEntity.java:46: error: method does not override or implement a method from a supertype
+    @Override
+    ^
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheUnravelingEntity.java:48: error: cannot find symbol
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheUnravelingEntity.java:46: error: method does not override or implement a method from a supertype
+    @Override
+    ^
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheUnravelingEntity.java:48: error: cannot find symbol
+        super.aiStep();
+        ^
+  symbol:   variable super
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheUnravelingEntity.java:48: error: cannot find symbol
+        super.aiStep();
+        ^
+  symbol:   variable super
+  location: class TheUnravelingEntity
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheUnravelingEntity.java:49: error: cannot find symbol
+        if (unseenLevel().isClientSide()) {
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheUnravelingEntity.java:49: error: cannot find symbol
+        if (unseenLevel().isClientSide()) {
+            ^
+  symbol:   method unseenLevel()
+  location: class TheUnravelingEntity
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheUnravelingEntity.java:52: error: cannot find symbol
+        float fraction = getHealth() / getMaxHealth();
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheUnravelingEntity.java:52: error: cannot find symbol
+        float fraction = getHealth() / getMaxHealth();
+                         ^
+  symbol:   method getHealth()
+  location: class TheUnravelingEntity
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheUnravelingEntity.java:52: error: cannot find symbol
+        float fraction = getHealth() / getMaxHealth();
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheUnravelingEntity.java:52: error: cannot find symbol
+        float fraction = getHealth() / getMaxHealth();
+                                       ^
+  symbol:   method getMaxHealth()
+  location: class TheUnravelingEntity
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheUnravelingEntity.java:60: error: cannot find symbol
+            PlatformExpect.playBossMusic((net.minecraft.server.level.ServerLevel) unseenLevel(),
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheUnravelingEntity.java:60: error: cannot find symbol
+            PlatformExpect.playBossMusic((net.minecraft.server.level.ServerLevel) unseenLevel(),
+                                                                                  ^
+  symbol:   method unseenLevel()
+  location: class TheUnravelingEntity
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheUnravelingEntity.java:61: error: cannot find symbol
+                    blockPosition(), DEF.musicSoundEvent, 48);
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheUnravelingEntity.java:61: error: cannot find symbol
+                    blockPosition(), DEF.musicSoundEvent, 48);
+                    ^
+  symbol:   method blockPosition()
+  location: class TheUnravelingEntity
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheUnravelingEntity.java:63: error: cannot find symbol
+        LivingEntity target = getTarget();
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheUnravelingEntity.java:63: error: cannot find symbol
+        LivingEntity target = getTarget();
+                              ^
+  symbol:   method getTarget()
+  location: class TheUnravelingEntity
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheUnravelingEntity.java:67: error: cannot find symbol
+        getLookControl().setLookAt(target, 30.0F, 30.0F);
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheUnravelingEntity.java:67: error: cannot find symbol
+        getLookControl().setLookAt(target, 30.0F, 30.0F);
+        ^
+  symbol:   method getLookControl()
+  location: class TheUnravelingEntity
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheUnravelingEntity.java:76: error: cannot find symbol
+            triggerAnim("serpent");
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheUnravelingEntity.java:76: error: cannot find symbol
+            triggerAnim("serpent");
+            ^
+  symbol:   method triggerAnim(String)
+  location: class TheUnravelingEntity
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheUnravelingEntity.java:78: error: cannot find symbol
+            triggerAnim("humanoid");
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheUnravelingEntity.java:78: error: cannot find symbol
+            triggerAnim("humanoid");
+            ^
+  symbol:   method triggerAnim(String)
+  location: class TheUnravelingEntity
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheUnravelingEntity.java:80: error: cannot find symbol
+            triggerAnim("unmade");
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheUnravelingEntity.java:80: error: cannot find symbol
+            triggerAnim("unmade");
+            ^
+  symbol:   method triggerAnim(String)
+  location: class TheUnravelingEntity
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheUnravelingEntity.java:82: error: cannot find symbol
+        playSound(SoundEvents.RAID_HORN.value(), 2.0F, 0.8F);
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheUnravelingEntity.java:82: error: cannot find symbol
+        playSound(SoundEvents.RAID_HORN.value(), 2.0F, 0.8F);
+        ^
+  symbol:   method playSound(SoundEvent,float,float)
+  location: class TheUnravelingEntity
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheUnravelingEntity.java:86: error: cannot find symbol
+        double distance = distanceTo(target);
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheUnravelingEntity.java:86: error: cannot find symbol
+        double distance = distanceTo(target);
+                          ^
+  symbol:   method distanceTo(LivingEntity)
+  location: class TheUnravelingEntity
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheUnravelingEntity.java:87: error: cannot find symbol
+        int choice = (getRandom().nextInt(4) + phase) % 4;
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheUnravelingEntity.java:87: error: cannot find symbol
+        int choice = (getRandom().nextInt(4) + phase) % 4;
+                      ^
+  symbol:   method getRandom()
+  location: class TheUnravelingEntity
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheUnravelingEntity.java:89: error: cannot find symbol
+            triggerAnim("glitch_lunge");
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheUnravelingEntity.java:89: error: cannot find symbol
+            triggerAnim("glitch_lunge");
+            ^
+  symbol:   method triggerAnim(String)
+  location: class TheUnravelingEntity
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheUnravelingEntity.java:91: error: cannot find symbol
+                target.hurt(unseenLevel().damageSources().mobAttack(this), (float) DEF.phaseAttackDamage(phase));
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheUnravelingEntity.java:91: error: cannot find symbol
+                target.hurt(unseenLevel().damageSources().mobAttack(this), (float) DEF.phaseAttackDamage(phase));
+                            ^
+  symbol:   method unseenLevel()
+  location: class TheUnravelingEntity
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheUnravelingEntity.java:94: error: cannot find symbol
+            triggerAnim("rift_crawl");
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheUnravelingEntity.java:94: error: cannot find symbol
+            triggerAnim("rift_crawl");
+            ^
+  symbol:   method triggerAnim(String)
+  location: class TheUnravelingEntity
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheUnravelingEntity.java:96: error: cannot find symbol
+                target.hurt(unseenLevel().damageSources().mobAttack(this), 5.0F + phase * 2.0F);
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheUnravelingEntity.java:96: error: cannot find symbol
+                target.hurt(unseenLevel().damageSources().mobAttack(this), 5.0F + phase * 2.0F);
+                            ^
+  symbol:   method unseenLevel()
+  location: class TheUnravelingEntity
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheUnravelingEntity.java:99: error: cannot find symbol
+            triggerAnim("reality_tear");
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheUnravelingEntity.java:99: error: cannot find symbol
+            triggerAnim("reality_tear");
+            ^
+  symbol:   method triggerAnim(String)
+  location: class TheUnravelingEntity
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheUnravelingEntity.java:100: error: cannot find symbol
+            setPos(target.getX(), target.getY(), target.getZ());
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheUnravelingEntity.java:100: error: cannot find symbol
+            setPos(target.getX(), target.getY(), target.getZ());
+            ^
+  symbol:   method setPos(double,double,double)
+  location: class TheUnravelingEntity
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheUnravelingEntity.java:102: error: cannot find symbol
+                target.hurt(unseenLevel().damageSources().mobAttack(this), 3.0F + phase);
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheUnravelingEntity.java:102: error: cannot find symbol
+                target.hurt(unseenLevel().damageSources().mobAttack(this), 3.0F + phase);
+                            ^
+  symbol:   method unseenLevel()
+  location: class TheUnravelingEntity
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheUnravelingEntity.java:105: error: cannot find symbol
+            triggerAnim("reality_tear");
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheUnravelingEntity.java:105: error: cannot find symbol
+            triggerAnim("reality_tear");
+            ^
+  symbol:   method triggerAnim(String)
+  location: class TheUnravelingEntity
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheUnravelingEntity.java:106: error: cannot find symbol
+            for (Player player : unseenLevel().getEntitiesOfClass(Player.class,
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheUnravelingEntity.java:106: error: cannot find symbol
+            for (Player player : unseenLevel().getEntitiesOfClass(Player.class,
+                                 ^
+  symbol:   method unseenLevel()
+  location: class TheUnravelingEntity
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheUnravelingEntity.java:107: error: cannot find symbol
+                    getBoundingBox().inflate(10.0D))) {
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheUnravelingEntity.java:107: error: cannot find symbol
+                    getBoundingBox().inflate(10.0D))) {
+                    ^
+  symbol:   method getBoundingBox()
+  location: class TheUnravelingEntity
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheUnravelingEntity.java:108: error: cannot find symbol
+                player.hurt(unseenLevel().damageSources().mobAttack(this), 5.0F + phase * 2.0F);
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheUnravelingEntity.java:108: error: cannot find symbol
+                player.hurt(unseenLevel().damageSources().mobAttack(this), 5.0F + phase * 2.0F);
+                            ^
+  symbol:   method unseenLevel()
+  location: class TheUnravelingEntity
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheUnravelingEntity.java:114: error: method does not override or implement a method from a supertype
+    @Override
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheUnravelingEntity.java:114: error: method does not override or implement a method from a supertype
+    @Override
+    ^
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheUnravelingEntity.java:116: error: cannot find symbol
+        super.die(source);
+        ^
+  symbol:   variable super
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheUnravelingEntity.java:116: error: cannot find symbol
+        super.die(source);
+        ^
+  symbol:   variable super
+  location: class TheUnravelingEntity
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheUnravelingEntity.java:117: error: cannot find symbol
+        if (!unseenLevel().isClientSide()) {
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheUnravelingEntity.java:117: error: cannot find symbol
+        if (!unseenLevel().isClientSide()) {
+             ^
+  symbol:   method unseenLevel()
+  location: class TheUnravelingEntity
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheUnravelingEntity.java:121: error: incompatible types: TheUnravelingEntity cannot be converted to Entity
+                        com.biomesunseen.util.EntityLevels.of(this);
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheUnravelingEntity.java:121: error: incompatible types: TheUnravelingEntity cannot be converted to Entity
+                        com.biomesunseen.util.EntityLevels.of(this);
+                                                              ^
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheUnravelingEntity.java:123: error: cannot find symbol
+                    spawnAtLocation((net.minecraft.server.level.ServerLevel) dropLevel,
+                    ^
+  symbol:   method spawnAtLocation(ServerLevel,ItemStack)
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheUnravelingEntity.java:123: error: cannot find symbol
+                    spawnAtLocation((net.minecraft.server.level.ServerLevel) dropLevel,
+                    ^
+  symbol:   method spawnAtLocation(ServerLevel,ItemStack)
+  location: class TheUnravelingEntity
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheUnravelingEntity.java:129: error: incompatible types: TheUnravelingEntity cannot be converted to Entity
+                        com.biomesunseen.util.EntityLevels.of(this);
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheUnravelingEntity.java:129: error: incompatible types: TheUnravelingEntity cannot be converted to Entity
+                        com.biomesunseen.util.EntityLevels.of(this);
+                                                              ^
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheUnravelingEntity.java:131: error: cannot find symbol
+                    spawnAtLocation((net.minecraft.server.level.ServerLevel) dropLevel,
+                    ^
+  symbol:   method spawnAtLocation(ServerLevel,ItemStack)
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheUnravelingEntity.java:131: error: cannot find symbol
+                    spawnAtLocation((net.minecraft.server.level.ServerLevel) dropLevel,
+                    ^
+  symbol:   method spawnAtLocation(ServerLevel,ItemStack)
+  location: class TheUnravelingEntity
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheUnravelingEntity.java:143: error: incompatible types: TheUnravelingEntity cannot be converted to Entity
+                        com.biomesunseen.util.EntityLevels.of(this);
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheUnravelingEntity.java:143: error: incompatible types: TheUnravelingEntity cannot be converted to Entity
+                        com.biomesunseen.util.EntityLevels.of(this);
+                                                              ^
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheUnravelingEntity.java:147: error: cannot find symbol
+                        minerals.get(getRandom().nextInt(minerals.size())).get(), 3));
+                                     ^
+  symbol:   method getRandom()
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheUnravelingEntity.java:147: error: cannot find symbol
+                        minerals.get(getRandom().nextInt(minerals.size())).get(), 3));
+                                     ^
+  symbol:   method getRandom()
+  location: class TheUnravelingEntity
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheUnravelingEntity.java:145: error: cannot find symbol
+                    spawnAtLocation((net.minecraft.server.level.ServerLevel) dropLevel,
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheUnravelingEntity.java:145: error: cannot find symbol
+                    spawnAtLocation((net.minecraft.server.level.ServerLevel) dropLevel,
+                    ^
+  symbol:   method spawnAtLocation(ServerLevel,ItemStack)
+  location: class TheUnravelingEntity
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheUnravelingEntity.java:154: error: method does not override or implement a method from a supertype
+    @Override
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheUnravelingEntity.java:154: error: method does not override or implement a method from a supertype
+    @Override
+    ^
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheUnravelingEntity.java:159: error: method does not override or implement a method from a supertype
+    @Override
+    ^
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/registry/ModEntities.java:81: error: type argument WardenOfTheHollowDeepEntity is not within bounds of type-variable T
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheUnravelingEntity.java:159: error: method does not override or implement a method from a supertype
+    @Override
+    ^
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/registry/ModEntities.java:81: error: type argument WardenOfTheHollowDeepEntity is not within bounds of type-variable T
+    public static RegistrySupplier<EntityType<WardenOfTheHollowDeepEntity>> WardenOfTheHollowDeep;
+                                              ^
+  where T is a type-variable:
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/registry/ModEntities.java:81: error: type argument WardenOfTheHollowDeepEntity is not within bounds of type-variable T
+    public static RegistrySupplier<EntityType<WardenOfTheHollowDeepEntity>> WardenOfTheHollowDeep;
+                                              ^
+  where T is a type-variable:
+    T extends Entity declared in class EntityType
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/registry/ModEntities.java:82: error: type argument TheSkywardCrownEntity is not within bounds of type-variable T
+    public static RegistrySupplier<EntityType<TheSkywardCrownEntity>> TheSkywardCrown;
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/registry/ModEntities.java:82: error: type argument TheSkywardCrownEntity is not within bounds of type-variable T
+    public static RegistrySupplier<EntityType<TheSkywardCrownEntity>> TheSkywardCrown;
+                                              ^
+  where T is a type-variable:
+    T extends Entity declared in class EntityType
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/registry/ModEntities.java:83: error: type argument TheUnravelingEntity is not within bounds of type-variable T
+    public static RegistrySupplier<EntityType<TheUnravelingEntity>> TheUnraveling;
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/registry/ModEntities.java:83: error: type argument TheUnravelingEntity is not within bounds of type-variable T
+    public static RegistrySupplier<EntityType<TheUnravelingEntity>> TheUnraveling;
+                                              ^
+  where T is a type-variable:
+    T extends Entity declared in class EntityType
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/registry/ModEntities.java:268: error: method of in class Builder<T#2> cannot be applied to given types;
+        WardenOfTheHollowDeep = ModRegistries.ENTITIES.register("warden_of_the_hollow_deep", () -> EntityType.Builder.of(WardenOfTheHollowDeepEntity::new, MobCategory.MONSTER)
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/registry/ModEntities.java:268: error: method of in class Builder<T#2> cannot be applied to given types;
+        WardenOfTheHollowDeep = ModRegistries.ENTITIES.register("warden_of_the_hollow_deep", () -> EntityType.Builder.of(WardenOfTheHollowDeepEntity::new, MobCategory.MONSTER)
+                                                                                                                     ^
+  required: EntityFactory<T#1>,MobCategory
+  found:    WardenOfTh[...]::new,MobCategory
+  reason: inference variable T#1 has incompatible bounds
+    upper bounds: WardenOfTheHollowDeepEntity,Entity
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/registry/ModEntities.java:271: error: method of in class Builder<T#2> cannot be applied to given types;
+        TheSkywardCrown = ModRegistries.ENTITIES.register("the_skyward_crown", () -> EntityType.Builder.of(TheSkywardCrownEntity::new, MobCategory.MONSTER)
+                                                                                                       ^
+  required: EntityFactory<T#1>,MobCategory
+  found:    TheSkyward[...]::new,MobCategory
+  reason: inference variable T#1 has incompatible bounds
+    upper bounds: TheSkywardCrownEntity,Entity
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/registry/ModEntities.java:274: error: method of in class Builder<T#2> cannot be applied to given types;
+        TheUnraveling = ModRegistries.ENTITIES.register("the_unraveling", () -> EntityType.Builder.of(TheUnravelingEntity::new, MobCategory.MONSTER)
+                                                                                                  ^
+  required: EntityFactory<T#1>,MobCategory
+  found:    TheUnravel[...]::new,MobCategory
+  reason: inference variable T#1 has incompatible bounds
+    upper bounds: TheUnravelingEntity,Entity
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/registry/ModEntities.java:622: error: incompatible types: bad return type in lambda expression
+        EntityAttributeRegistry.register(() -> WardenOfTheHollowDeep.get(), () -> Mob.createMobAttributes()
+                                                                        ^
+    EntityType<WardenOfTheHollowDeepEntity> cannot be converted to EntityType<? extends LivingEntity>
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/registry/ModEntities.java:629: error: incompatible types: bad return type in lambda expression
+        EntityAttributeRegistry.register(() -> TheSkywardCrown.get(), () -> Mob.createMobAttributes()
+                                                                  ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/registry/ModEntities.java:629: error: incompatible types: bad return type in lambda expression
+        EntityAttributeRegistry.register(() -> TheSkywardCrown.get(), () -> Mob.createMobAttributes()
+                                                                  ^
+    EntityType<TheSkywardCrownEntity> cannot be converted to EntityType<? extends LivingEntity>
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/registry/ModEntities.java:636: error: incompatible types: bad return type in lambda expression
+        EntityAttributeRegistry.register(() -> TheUnraveling.get(), () -> Mob.createMobAttributes()
+                                                                ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/registry/ModEntities.java:636: error: incompatible types: bad return type in lambda expression
+        EntityAttributeRegistry.register(() -> TheUnraveling.get(), () -> Mob.createMobAttributes()
+                                                                ^
+    EntityType<TheUnravelingEntity> cannot be converted to EntityType<? extends LivingEntity>
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/registry/ModItems.java:205: error: cannot find symbol
+                            new Item.Properties()%(props_plain)s))));
+                                                   ^
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/registry/ModItems.java:205: error: cannot find symbol
+                            new Item.Properties()%(props_plain)s))));
+                                                   ^
+  symbol:   class props_plain
+  location: class ModItems
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/registry/ModItems.java:205: error: cannot find symbol
+                            new Item.Properties()%(props_plain)s))));
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/registry/ModItems.java:205: error: cannot find symbol
+                            new Item.Properties()%(props_plain)s))));
+                                                               ^
+  symbol:   variable s
+  location: class ModItems
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/client/ClientSetup.java:81: error: method register in class EntityRendererRegistry cannot be applied to given types;
+        EntityRendererRegistry.register(ModEntities.WardenOfTheHollowDeep, UnseenLegacyRenderer.provider("warden_of_the_hollow_deep"));
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/client/ClientSetup.java:81: error: method register in class EntityRendererRegistry cannot be applied to given types;
+        EntityRendererRegistry.register(ModEntities.WardenOfTheHollowDeep, UnseenLegacyRenderer.provider("warden_of_the_hollow_deep"));
+                              ^
+  required: Supplier<? extends EntityType<? extends T>>,EntityRendererProvider<T>
+  found:    RegistrySupplier<EntityType<WardenOfTheHollowDeepEntity>>,EntityRendererProvider<BiomesUnseenMob>
+  reason: inference variable T has incompatible bounds
+    upper bounds: Entity
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/client/ClientSetup.java:82: error: method register in class EntityRendererRegistry cannot be applied to given types;
+        EntityRendererRegistry.register(ModEntities.TheSkywardCrown, UnseenLegacyRenderer.provider("the_skyward_crown"));
+                              ^
+  required: Supplier<? extends EntityType<? extends T>>,EntityRendererProvider<T>
+  found:    RegistrySupplier<EntityType<TheSkywardCrownEntity>>,EntityRendererProvider<BiomesUnseenMob>
+  reason: inference variable T has incompatible bounds
+    upper bounds: Entity
+---
+/home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/client/ClientSetup.java:83: error: method register in class EntityRendererRegistry cannot be applied to given types;
+        EntityRendererRegistry.register(ModEntities.TheUnraveling, UnseenLegacyRenderer.provider("the_unraveling"));
+                              ^
+  required: Supplier<? extends EntityType<? extends T>>,EntityRendererProvider<T>
+  found:    RegistrySupplier<EntityType<TheUnravelingEntity>>,EntityRendererProvider<BiomesUnseenMob>
+  reason: inference variable T has incompatible bounds
+    upper bounds: Entity
+---
+> Task :neoforge-26.1.2:compileJava FAILED
+gradle/actions: Writing build results to /home/runner/work/_temp/.gradle-actions/build-results/__run-1792246339070.json
 
 [Incubating] Problems report is available at: file:///home/runner/work/Biomes-Unseen/Biomes-Unseen/build/reports/problems/problems-report.html
 
-Deprecated Gradle features were used in this build, making it incompatible with Gradle 10.
+FAILURE: Build failed with an exception.
 
-You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+---
+* What went wrong:
+Execution failed for task ':neoforge-26.1.2:compileJava' (registered by plugin class 'org.gradle.api.plugins.JavaBasePlugin').
+> Compilation failed; see the compiler output below.
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheSkywardCrownEntity.java:25: error: cannot find symbol
+  public class TheSkywardCrownEntity extends BiomesUnseenMob {
+                                             ^
+    symbol: class BiomesUnseenMob
+---
+Execution failed for task ':neoforge-26.1.2:compileJava' (registered by plugin class 'org.gradle.api.plugins.JavaBasePlugin').
+> Compilation failed; see the compiler output below.
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheSkywardCrownEntity.java:25: error: cannot find symbol
+  public class TheSkywardCrownEntity extends BiomesUnseenMob {
+                                             ^
+    symbol: class BiomesUnseenMob
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/WardenOfTheHollowDeepEntity.java:25: error: cannot find symbol
+---
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheSkywardCrownEntity.java:25: error: cannot find symbol
+  public class TheSkywardCrownEntity extends BiomesUnseenMob {
+                                             ^
+    symbol: class BiomesUnseenMob
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/WardenOfTheHollowDeepEntity.java:25: error: cannot find symbol
+  public class WardenOfTheHollowDeepEntity extends BiomesUnseenMob {
+                                                   ^
+---
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/WardenOfTheHollowDeepEntity.java:25: error: cannot find symbol
+  public class WardenOfTheHollowDeepEntity extends BiomesUnseenMob {
+                                                   ^
+    symbol: class BiomesUnseenMob
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheUnravelingEntity.java:25: error: cannot find symbol
+  public class TheUnravelingEntity extends BiomesUnseenMob {
+                                           ^
+---
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheUnravelingEntity.java:25: error: cannot find symbol
+  public class TheUnravelingEntity extends BiomesUnseenMob {
+                                           ^
+    symbol: class BiomesUnseenMob
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheSkywardCrownEntity.java:33: error: type argument ? extends TheSkywardCrownEntity is not within bounds of type-variable T
+      public TheSkywardCrownEntity(EntityType<? extends TheSkywardCrownEntity> type, Level level) {
+                                              ^
+---
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheSkywardCrownEntity.java:33: error: type argument ? extends TheSkywardCrownEntity is not within bounds of type-variable T
+      public TheSkywardCrownEntity(EntityType<? extends TheSkywardCrownEntity> type, Level level) {
+                                              ^
+    where T is a type-variable:
+      T extends Entity declared in class EntityType
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/WardenOfTheHollowDeepEntity.java:33: error: type argument ? extends WardenOfTheHollowDeepEntity is not within bounds of type-variable T
+      public WardenOfTheHollowDeepEntity(EntityType<? extends WardenOfTheHollowDeepEntity> type, Level level) {
+---
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/WardenOfTheHollowDeepEntity.java:33: error: type argument ? extends WardenOfTheHollowDeepEntity is not within bounds of type-variable T
+      public WardenOfTheHollowDeepEntity(EntityType<? extends WardenOfTheHollowDeepEntity> type, Level level) {
+                                                    ^
+    where T is a type-variable:
+      T extends Entity declared in class EntityType
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheUnravelingEntity.java:33: error: type argument ? extends TheUnravelingEntity is not within bounds of type-variable T
+      public TheUnravelingEntity(EntityType<? extends TheUnravelingEntity> type, Level level) {
+---
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheUnravelingEntity.java:33: error: type argument ? extends TheUnravelingEntity is not within bounds of type-variable T
+      public TheUnravelingEntity(EntityType<? extends TheUnravelingEntity> type, Level level) {
+                                            ^
+    where T is a type-variable:
+      T extends Entity declared in class EntityType
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/registry/ModEntities.java:81: error: type argument WardenOfTheHollowDeepEntity is not within bounds of type-variable T
+      public static RegistrySupplier<EntityType<WardenOfTheHollowDeepEntity>> WardenOfTheHollowDeep;
+---
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/registry/ModEntities.java:81: error: type argument WardenOfTheHollowDeepEntity is not within bounds of type-variable T
+      public static RegistrySupplier<EntityType<WardenOfTheHollowDeepEntity>> WardenOfTheHollowDeep;
+                                                ^
+    where T is a type-variable:
+      T extends Entity declared in class EntityType
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/registry/ModEntities.java:82: error: type argument TheSkywardCrownEntity is not within bounds of type-variable T
+      public static RegistrySupplier<EntityType<TheSkywardCrownEntity>> TheSkywardCrown;
+---
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/registry/ModEntities.java:82: error: type argument TheSkywardCrownEntity is not within bounds of type-variable T
+      public static RegistrySupplier<EntityType<TheSkywardCrownEntity>> TheSkywardCrown;
+                                                ^
+    where T is a type-variable:
+      T extends Entity declared in class EntityType
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/registry/ModEntities.java:83: error: type argument TheUnravelingEntity is not within bounds of type-variable T
+      public static RegistrySupplier<EntityType<TheUnravelingEntity>> TheUnraveling;
+---
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/registry/ModEntities.java:83: error: type argument TheUnravelingEntity is not within bounds of type-variable T
+      public static RegistrySupplier<EntityType<TheUnravelingEntity>> TheUnraveling;
+                                                ^
+    where T is a type-variable:
+      T extends Entity declared in class EntityType
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheSkywardCrownEntity.java:37: error: method does not override or implement a method from a supertype
+      @Override
+---
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheSkywardCrownEntity.java:37: error: method does not override or implement a method from a supertype
+      @Override
+      ^
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheSkywardCrownEntity.java:46: error: method does not override or implement a method from a supertype
+      @Override
+      ^
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheSkywardCrownEntity.java:114: error: method does not override or implement a method from a supertype
+---
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheSkywardCrownEntity.java:46: error: method does not override or implement a method from a supertype
+      @Override
+      ^
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheSkywardCrownEntity.java:114: error: method does not override or implement a method from a supertype
+      @Override
+      ^
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheSkywardCrownEntity.java:154: error: method does not override or implement a method from a supertype
+---
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheSkywardCrownEntity.java:114: error: method does not override or implement a method from a supertype
+      @Override
+      ^
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheSkywardCrownEntity.java:154: error: method does not override or implement a method from a supertype
+      @Override
+      ^
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheSkywardCrownEntity.java:159: error: method does not override or implement a method from a supertype
+---
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheSkywardCrownEntity.java:154: error: method does not override or implement a method from a supertype
+      @Override
+      ^
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheSkywardCrownEntity.java:159: error: method does not override or implement a method from a supertype
+      @Override
+      ^
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/WardenOfTheHollowDeepEntity.java:37: error: method does not override or implement a method from a supertype
+---
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheSkywardCrownEntity.java:159: error: method does not override or implement a method from a supertype
+      @Override
+      ^
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/WardenOfTheHollowDeepEntity.java:37: error: method does not override or implement a method from a supertype
+      @Override
+      ^
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/WardenOfTheHollowDeepEntity.java:46: error: method does not override or implement a method from a supertype
+---
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/WardenOfTheHollowDeepEntity.java:37: error: method does not override or implement a method from a supertype
+      @Override
+      ^
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/WardenOfTheHollowDeepEntity.java:46: error: method does not override or implement a method from a supertype
+      @Override
+      ^
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/WardenOfTheHollowDeepEntity.java:114: error: method does not override or implement a method from a supertype
+---
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/WardenOfTheHollowDeepEntity.java:46: error: method does not override or implement a method from a supertype
+      @Override
+      ^
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/WardenOfTheHollowDeepEntity.java:114: error: method does not override or implement a method from a supertype
+      @Override
+      ^
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/WardenOfTheHollowDeepEntity.java:154: error: method does not override or implement a method from a supertype
+---
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/WardenOfTheHollowDeepEntity.java:114: error: method does not override or implement a method from a supertype
+      @Override
+      ^
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/WardenOfTheHollowDeepEntity.java:154: error: method does not override or implement a method from a supertype
+      @Override
+      ^
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/WardenOfTheHollowDeepEntity.java:159: error: method does not override or implement a method from a supertype
+---
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/WardenOfTheHollowDeepEntity.java:154: error: method does not override or implement a method from a supertype
+      @Override
+      ^
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/WardenOfTheHollowDeepEntity.java:159: error: method does not override or implement a method from a supertype
+      @Override
+      ^
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheUnravelingEntity.java:37: error: method does not override or implement a method from a supertype
+---
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/WardenOfTheHollowDeepEntity.java:159: error: method does not override or implement a method from a supertype
+      @Override
+      ^
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheUnravelingEntity.java:37: error: method does not override or implement a method from a supertype
+      @Override
+      ^
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheUnravelingEntity.java:46: error: method does not override or implement a method from a supertype
+---
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheUnravelingEntity.java:37: error: method does not override or implement a method from a supertype
+      @Override
+      ^
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheUnravelingEntity.java:46: error: method does not override or implement a method from a supertype
+      @Override
+      ^
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheUnravelingEntity.java:114: error: method does not override or implement a method from a supertype
+---
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheUnravelingEntity.java:46: error: method does not override or implement a method from a supertype
+      @Override
+      ^
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheUnravelingEntity.java:114: error: method does not override or implement a method from a supertype
+      @Override
+      ^
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheUnravelingEntity.java:154: error: method does not override or implement a method from a supertype
+---
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheUnravelingEntity.java:114: error: method does not override or implement a method from a supertype
+      @Override
+      ^
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheUnravelingEntity.java:154: error: method does not override or implement a method from a supertype
+      @Override
+      ^
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheUnravelingEntity.java:159: error: method does not override or implement a method from a supertype
+---
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheUnravelingEntity.java:154: error: method does not override or implement a method from a supertype
+      @Override
+      ^
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheUnravelingEntity.java:159: error: method does not override or implement a method from a supertype
+      @Override
+      ^
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheSkywardCrownEntity.java:48: error: cannot find symbol
+---
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheUnravelingEntity.java:159: error: method does not override or implement a method from a supertype
+      @Override
+      ^
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheSkywardCrownEntity.java:48: error: cannot find symbol
+          super.aiStep();
+          ^
+    symbol:   variable super
+---
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheSkywardCrownEntity.java:48: error: cannot find symbol
+          super.aiStep();
+          ^
+    symbol:   variable super
+    location: class TheSkywardCrownEntity
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheSkywardCrownEntity.java:116: error: cannot find symbol
+          super.die(source);
+---
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheSkywardCrownEntity.java:116: error: cannot find symbol
+          super.die(source);
+          ^
+    symbol:   variable super
+    location: class TheSkywardCrownEntity
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/WardenOfTheHollowDeepEntity.java:48: error: cannot find symbol
+          super.aiStep();
+---
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/WardenOfTheHollowDeepEntity.java:48: error: cannot find symbol
+          super.aiStep();
+          ^
+    symbol:   variable super
+    location: class WardenOfTheHollowDeepEntity
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/WardenOfTheHollowDeepEntity.java:116: error: cannot find symbol
+          super.die(source);
+---
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/WardenOfTheHollowDeepEntity.java:116: error: cannot find symbol
+          super.die(source);
+          ^
+    symbol:   variable super
+    location: class WardenOfTheHollowDeepEntity
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheUnravelingEntity.java:48: error: cannot find symbol
+          super.aiStep();
+---
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheUnravelingEntity.java:48: error: cannot find symbol
+          super.aiStep();
+          ^
+    symbol:   variable super
+    location: class TheUnravelingEntity
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheUnravelingEntity.java:116: error: cannot find symbol
+          super.die(source);
+---
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheUnravelingEntity.java:116: error: cannot find symbol
+          super.die(source);
+          ^
+    symbol:   variable super
+    location: class TheUnravelingEntity
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/registry/ModItems.java:205: error: cannot find symbol
+                              new Item.Properties()%(props_plain)s))));
+---
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/registry/ModItems.java:205: error: cannot find symbol
+                              new Item.Properties()%(props_plain)s))));
+                                                     ^
+    symbol:   class props_plain
+    location: class ModItems
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/registry/ModItems.java:205: error: cannot find symbol
+                              new Item.Properties()%(props_plain)s))));
+---
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/registry/ModItems.java:205: error: cannot find symbol
+                              new Item.Properties()%(props_plain)s))));
+                                                                 ^
+    symbol:   variable s
+    location: class ModItems
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheSkywardCrownEntity.java:49: error: cannot find symbol
+          if (unseenLevel().isClientSide()) {
+---
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheSkywardCrownEntity.java:49: error: cannot find symbol
+          if (unseenLevel().isClientSide()) {
+              ^
+    symbol:   method unseenLevel()
+    location: class TheSkywardCrownEntity
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheSkywardCrownEntity.java:52: error: cannot find symbol
+          float fraction = getHealth() / getMaxHealth();
+---
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheSkywardCrownEntity.java:52: error: cannot find symbol
+          float fraction = getHealth() / getMaxHealth();
+                           ^
+    symbol:   method getHealth()
+    location: class TheSkywardCrownEntity
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheSkywardCrownEntity.java:52: error: cannot find symbol
+          float fraction = getHealth() / getMaxHealth();
+---
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheSkywardCrownEntity.java:52: error: cannot find symbol
+          float fraction = getHealth() / getMaxHealth();
+                                         ^
+    symbol:   method getMaxHealth()
+    location: class TheSkywardCrownEntity
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheSkywardCrownEntity.java:60: error: cannot find symbol
+              PlatformExpect.playBossMusic((net.minecraft.server.level.ServerLevel) unseenLevel(),
+---
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheSkywardCrownEntity.java:60: error: cannot find symbol
+              PlatformExpect.playBossMusic((net.minecraft.server.level.ServerLevel) unseenLevel(),
+                                                                                    ^
+    symbol:   method unseenLevel()
+    location: class TheSkywardCrownEntity
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheSkywardCrownEntity.java:61: error: cannot find symbol
+                      blockPosition(), DEF.musicSoundEvent, 48);
+---
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheSkywardCrownEntity.java:61: error: cannot find symbol
+                      blockPosition(), DEF.musicSoundEvent, 48);
+                      ^
+    symbol:   method blockPosition()
+    location: class TheSkywardCrownEntity
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheSkywardCrownEntity.java:63: error: cannot find symbol
+          LivingEntity target = getTarget();
+---
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheSkywardCrownEntity.java:63: error: cannot find symbol
+          LivingEntity target = getTarget();
+                                ^
+    symbol:   method getTarget()
+    location: class TheSkywardCrownEntity
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheSkywardCrownEntity.java:67: error: cannot find symbol
+          getLookControl().setLookAt(target, 30.0F, 30.0F);
+---
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheSkywardCrownEntity.java:67: error: cannot find symbol
+          getLookControl().setLookAt(target, 30.0F, 30.0F);
+          ^
+    symbol:   method getLookControl()
+    location: class TheSkywardCrownEntity
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheSkywardCrownEntity.java:76: error: cannot find symbol
+              triggerAnim("haloed");
+---
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheSkywardCrownEntity.java:76: error: cannot find symbol
+              triggerAnim("haloed");
+              ^
+    symbol:   method triggerAnim(String)
+    location: class TheSkywardCrownEntity
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheSkywardCrownEntity.java:78: error: cannot find symbol
+              triggerAnim("shardfall");
+---
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheSkywardCrownEntity.java:78: error: cannot find symbol
+              triggerAnim("shardfall");
+              ^
+    symbol:   method triggerAnim(String)
+    location: class TheSkywardCrownEntity
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheSkywardCrownEntity.java:80: error: cannot find symbol
+              triggerAnim("last_light");
+---
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheSkywardCrownEntity.java:80: error: cannot find symbol
+              triggerAnim("last_light");
+              ^
+    symbol:   method triggerAnim(String)
+    location: class TheSkywardCrownEntity
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheSkywardCrownEntity.java:82: error: cannot find symbol
+          playSound(SoundEvents.RAID_HORN.value(), 2.0F, 0.8F);
+---
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheSkywardCrownEntity.java:82: error: cannot find symbol
+          playSound(SoundEvents.RAID_HORN.value(), 2.0F, 0.8F);
+          ^
+    symbol:   method playSound(SoundEvent,float,float)
+    location: class TheSkywardCrownEntity
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheSkywardCrownEntity.java:86: error: cannot find symbol
+          double distance = distanceTo(target);
+---
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheSkywardCrownEntity.java:86: error: cannot find symbol
+          double distance = distanceTo(target);
+                            ^
+    symbol:   method distanceTo(LivingEntity)
+    location: class TheSkywardCrownEntity
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheSkywardCrownEntity.java:87: error: cannot find symbol
+          int choice = (getRandom().nextInt(4) + phase) % 4;
+---
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheSkywardCrownEntity.java:87: error: cannot find symbol
+          int choice = (getRandom().nextInt(4) + phase) % 4;
+                        ^
+    symbol:   method getRandom()
+    location: class TheSkywardCrownEntity
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheSkywardCrownEntity.java:89: error: cannot find symbol
+              triggerAnim("aerial_dive");
+---
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheSkywardCrownEntity.java:89: error: cannot find symbol
+              triggerAnim("aerial_dive");
+              ^
+    symbol:   method triggerAnim(String)
+    location: class TheSkywardCrownEntity
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheSkywardCrownEntity.java:91: error: cannot find symbol
+                  target.hurt(unseenLevel().damageSources().mobAttack(this), (float) DEF.phaseAttackDamage(phase));
+---
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheSkywardCrownEntity.java:91: error: cannot find symbol
+                  target.hurt(unseenLevel().damageSources().mobAttack(this), (float) DEF.phaseAttackDamage(phase));
+                              ^
+    symbol:   method unseenLevel()
+    location: class TheSkywardCrownEntity
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheSkywardCrownEntity.java:94: error: cannot find symbol
+              triggerAnim("gust_knockback");
+---
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheSkywardCrownEntity.java:94: error: cannot find symbol
+              triggerAnim("gust_knockback");
+              ^
+    symbol:   method triggerAnim(String)
+    location: class TheSkywardCrownEntity
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheSkywardCrownEntity.java:96: error: cannot find symbol
+                  target.hurt(unseenLevel().damageSources().mobAttack(this), 5.0F + phase * 2.0F);
+---
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheSkywardCrownEntity.java:96: error: cannot find symbol
+                  target.hurt(unseenLevel().damageSources().mobAttack(this), 5.0F + phase * 2.0F);
+                              ^
+    symbol:   method unseenLevel()
+    location: class TheSkywardCrownEntity
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheSkywardCrownEntity.java:99: error: cannot find symbol
+              triggerAnim("sunbeam");
+---
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheSkywardCrownEntity.java:99: error: cannot find symbol
+              triggerAnim("sunbeam");
+              ^
+    symbol:   method triggerAnim(String)
+    location: class TheSkywardCrownEntity
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheSkywardCrownEntity.java:100: error: cannot find symbol
+              setPos(target.getX(), target.getY(), target.getZ());
+---
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheSkywardCrownEntity.java:100: error: cannot find symbol
+              setPos(target.getX(), target.getY(), target.getZ());
+              ^
+    symbol:   method setPos(double,double,double)
+    location: class TheSkywardCrownEntity
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheSkywardCrownEntity.java:102: error: cannot find symbol
+                  target.hurt(unseenLevel().damageSources().mobAttack(this), 3.0F + phase);
+---
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheSkywardCrownEntity.java:102: error: cannot find symbol
+                  target.hurt(unseenLevel().damageSources().mobAttack(this), 3.0F + phase);
+                              ^
+    symbol:   method unseenLevel()
+    location: class TheSkywardCrownEntity
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheSkywardCrownEntity.java:105: error: cannot find symbol
+              triggerAnim("sunbeam");
+---
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheSkywardCrownEntity.java:105: error: cannot find symbol
+              triggerAnim("sunbeam");
+              ^
+    symbol:   method triggerAnim(String)
+    location: class TheSkywardCrownEntity
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheSkywardCrownEntity.java:106: error: cannot find symbol
+              for (Player player : unseenLevel().getEntitiesOfClass(Player.class,
+---
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheSkywardCrownEntity.java:106: error: cannot find symbol
+              for (Player player : unseenLevel().getEntitiesOfClass(Player.class,
+                                   ^
+    symbol:   method unseenLevel()
+    location: class TheSkywardCrownEntity
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheSkywardCrownEntity.java:107: error: cannot find symbol
+                      getBoundingBox().inflate(10.0D))) {
+---
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheSkywardCrownEntity.java:107: error: cannot find symbol
+                      getBoundingBox().inflate(10.0D))) {
+                      ^
+    symbol:   method getBoundingBox()
+    location: class TheSkywardCrownEntity
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheSkywardCrownEntity.java:108: error: cannot find symbol
+                  player.hurt(unseenLevel().damageSources().mobAttack(this), 5.0F + phase * 2.0F);
+---
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheSkywardCrownEntity.java:108: error: cannot find symbol
+                  player.hurt(unseenLevel().damageSources().mobAttack(this), 5.0F + phase * 2.0F);
+                              ^
+    symbol:   method unseenLevel()
+    location: class TheSkywardCrownEntity
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheSkywardCrownEntity.java:117: error: cannot find symbol
+          if (!unseenLevel().isClientSide()) {
+---
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheSkywardCrownEntity.java:117: error: cannot find symbol
+          if (!unseenLevel().isClientSide()) {
+               ^
+    symbol:   method unseenLevel()
+    location: class TheSkywardCrownEntity
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheSkywardCrownEntity.java:123: error: cannot find symbol
+                      spawnAtLocation((net.minecraft.server.level.ServerLevel) dropLevel,
+---
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheSkywardCrownEntity.java:123: error: cannot find symbol
+                      spawnAtLocation((net.minecraft.server.level.ServerLevel) dropLevel,
+                      ^
+    symbol:   method spawnAtLocation(ServerLevel,ItemStack)
+    location: class TheSkywardCrownEntity
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheSkywardCrownEntity.java:131: error: cannot find symbol
+                      spawnAtLocation((net.minecraft.server.level.ServerLevel) dropLevel,
+---
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheSkywardCrownEntity.java:131: error: cannot find symbol
+                      spawnAtLocation((net.minecraft.server.level.ServerLevel) dropLevel,
+                      ^
+    symbol:   method spawnAtLocation(ServerLevel,ItemStack)
+    location: class TheSkywardCrownEntity
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheSkywardCrownEntity.java:147: error: cannot find symbol
+                          minerals.get(getRandom().nextInt(minerals.size())).get(), 3));
+---
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheSkywardCrownEntity.java:147: error: cannot find symbol
+                          minerals.get(getRandom().nextInt(minerals.size())).get(), 3));
+                                       ^
+    symbol:   method getRandom()
+    location: class TheSkywardCrownEntity
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheSkywardCrownEntity.java:145: error: cannot find symbol
+                      spawnAtLocation((net.minecraft.server.level.ServerLevel) dropLevel,
+---
+=== CONFIG DIAGNOSTICS ===
+=== STACKTRACE ===
+Caused by: org.gradle.api.internal.tasks.compile.CompilationFailedException: Compilation failed; see the compiler output below.
+=== WHAT WENT WRONG ===
+* What went wrong:
+Execution failed for task ':neoforge-26.1.2:compileJava' (registered by plugin class 'org.gradle.api.plugins.JavaBasePlugin').
+> Compilation failed; see the compiler output below.
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheSkywardCrownEntity.java:25: error: cannot find symbol
+  public class TheSkywardCrownEntity extends BiomesUnseenMob {
+                                             ^
+    symbol: class BiomesUnseenMob
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/WardenOfTheHollowDeepEntity.java:25: error: cannot find symbol
+  public class WardenOfTheHollowDeepEntity extends BiomesUnseenMob {
+                                                   ^
+    symbol: class BiomesUnseenMob
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheUnravelingEntity.java:25: error: cannot find symbol
+  public class TheUnravelingEntity extends BiomesUnseenMob {
+                                           ^
+    symbol: class BiomesUnseenMob
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheSkywardCrownEntity.java:33: error: type argument ? extends TheSkywardCrownEntity is not within bounds of type-variable T
+      public TheSkywardCrownEntity(EntityType<? extends TheSkywardCrownEntity> type, Level level) {
+                                              ^
+    where T is a type-variable:
+      T extends Entity declared in class EntityType
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/WardenOfTheHollowDeepEntity.java:33: error: type argument ? extends WardenOfTheHollowDeepEntity is not within bounds of type-variable T
+      public WardenOfTheHollowDeepEntity(EntityType<? extends WardenOfTheHollowDeepEntity> type, Level level) {
+                                                    ^
+    where T is a type-variable:
+      T extends Entity declared in class EntityType
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheUnravelingEntity.java:33: error: type argument ? extends TheUnravelingEntity is not within bounds of type-variable T
+      public TheUnravelingEntity(EntityType<? extends TheUnravelingEntity> type, Level level) {
+                                            ^
+    where T is a type-variable:
+      T extends Entity declared in class EntityType
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/registry/ModEntities.java:81: error: type argument WardenOfTheHollowDeepEntity is not within bounds of type-variable T
+      public static RegistrySupplier<EntityType<WardenOfTheHollowDeepEntity>> WardenOfTheHollowDeep;
+                                                ^
+    where T is a type-variable:
+      T extends Entity declared in class EntityType
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/registry/ModEntities.java:82: error: type argument TheSkywardCrownEntity is not within bounds of type-variable T
+      public static RegistrySupplier<EntityType<TheSkywardCrownEntity>> TheSkywardCrown;
+                                                ^
+    where T is a type-variable:
+      T extends Entity declared in class EntityType
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/registry/ModEntities.java:83: error: type argument TheUnravelingEntity is not within bounds of type-variable T
+      public static RegistrySupplier<EntityType<TheUnravelingEntity>> TheUnraveling;
+                                                ^
+    where T is a type-variable:
+      T extends Entity declared in class EntityType
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheSkywardCrownEntity.java:37: error: method does not override or implement a method from a supertype
+      @Override
+      ^
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheSkywardCrownEntity.java:46: error: method does not override or implement a method from a supertype
+      @Override
+      ^
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheSkywardCrownEntity.java:114: error: method does not override or implement a method from a supertype
+      @Override
+      ^
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheSkywardCrownEntity.java:154: error: method does not override or implement a method from a supertype
+      @Override
+      ^
+  /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-26/java/com/biomesunseen/entity/boss/TheSkywardCrownEntity.java:159: error: method does not override or implement a method from a supertype
+      @Override
+      ^
+=== LAST 40 ===
+	at org.gradle.internal.execution.steps.MutableStep.execute(MutableStep.java:26)
+	at org.gradle.internal.execution.steps.ValidateStep$Mutable.executeDelegate(ValidateStep.java:79)
+	at org.gradle.internal.execution.steps.ValidateStep$Mutable.executeDelegate(ValidateStep.java:65)
+	at org.gradle.internal.execution.steps.ValidateStep.execute(ValidateStep.java:105)
+	at org.gradle.internal.execution.steps.ValidateStep$Mutable.execute(ValidateStep.java:65)
+	at org.gradle.internal.execution.steps.CaptureMutableStateBeforeExecutionStep.executeMutable(CaptureMutableStateBeforeExecutionStep.java:86)
+	at org.gradle.internal.execution.steps.CaptureMutableStateBeforeExecutionStep.execute(CaptureMutableStateBeforeExecutionStep.java:65)
+	at org.gradle.internal.execution.steps.CaptureMutableStateBeforeExecutionStep.execute(CaptureMutableStateBeforeExecutionStep.java:45)
+	at org.gradle.internal.execution.steps.SkipEmptyMutableWorkStep.executeWithNonEmptySources(SkipEmptyMutableWorkStep.java:210)
+	at org.gradle.internal.execution.steps.SkipEmptyMutableWorkStep.executeMutable(SkipEmptyMutableWorkStep.java:90)
+	at org.gradle.internal.execution.steps.SkipEmptyMutableWorkStep.executeMutable(SkipEmptyMutableWorkStep.java:53)
+	at org.gradle.internal.execution.steps.MutableStep.execute(MutableStep.java:26)
+	at org.gradle.internal.execution.steps.legacy.MarkSnapshottingInputsStartedStep.execute(MarkSnapshottingInputsStartedStep.java:38)
+	at org.gradle.internal.execution.steps.LoadPreviousExecutionStateStep.executeMutable(LoadPreviousExecutionStateStep.java:36)
+	at org.gradle.internal.execution.steps.LoadPreviousExecutionStateStep.executeMutable(LoadPreviousExecutionStateStep.java:23)
+	at org.gradle.internal.execution.steps.MutableStep.execute(MutableStep.java:26)
+	at org.gradle.internal.execution.steps.HandleStaleOutputsStep.executeMutable(HandleStaleOutputsStep.java:77)
+	at org.gradle.internal.execution.steps.HandleStaleOutputsStep.executeMutable(HandleStaleOutputsStep.java:43)
+	at org.gradle.internal.execution.steps.MutableStep.execute(MutableStep.java:26)
+	at org.gradle.internal.execution.steps.AssignMutableWorkspaceStep.lambda$executeMutable$0(AssignMutableWorkspaceStep.java:34)
+	at org.gradle.api.internal.tasks.execution.TaskExecution$4.withWorkspace(TaskExecution.java:314)
+	at org.gradle.internal.execution.steps.AssignMutableWorkspaceStep.executeMutable(AssignMutableWorkspaceStep.java:30)
+	at org.gradle.internal.execution.steps.AssignMutableWorkspaceStep.executeMutable(AssignMutableWorkspaceStep.java:21)
+	at org.gradle.internal.execution.steps.MutableStep.execute(MutableStep.java:26)
+	at org.gradle.internal.execution.steps.ChoosePipelineStep.execute(ChoosePipelineStep.java:40)
+	at org.gradle.internal.execution.steps.ChoosePipelineStep.execute(ChoosePipelineStep.java:23)
+	at org.gradle.internal.execution.steps.ExecuteWorkBuildOperationFiringStep.lambda$execute$2(ExecuteWorkBuildOperationFiringStep.java:67)
+	at org.gradle.internal.execution.steps.ExecuteWorkBuildOperationFiringStep.execute(ExecuteWorkBuildOperationFiringStep.java:67)
+	at org.gradle.internal.execution.steps.ExecuteWorkBuildOperationFiringStep.execute(ExecuteWorkBuildOperationFiringStep.java:39)
+	at org.gradle.internal.execution.steps.IdentityCacheStep.execute(IdentityCacheStep.java:46)
+	at org.gradle.internal.execution.steps.IdentityCacheStep.execute(IdentityCacheStep.java:34)
+	at org.gradle.internal.execution.steps.IdentifyStep.execute(IdentifyStep.java:56)
+	at org.gradle.internal.execution.steps.IdentifyStep.execute(IdentifyStep.java:38)
+	at org.gradle.internal.execution.impl.DefaultExecutionEngine$1.execute(DefaultExecutionEngine.java:68)
+	at org.gradle.api.internal.tasks.execution.DefaultTaskNodeExecutor.doExecute(DefaultTaskNodeExecutor.java:364)
+	... 25 more
 
-For more on this, please refer to https://docs.gradle.org/9.8.1/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
 
-BUILD SUCCESSFUL in 1m 32s
-5 actionable tasks: 5 executed
+BUILD FAILED in 1m 11s
+1 actionable task: 1 executed
