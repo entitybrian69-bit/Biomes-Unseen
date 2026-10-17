@@ -84,4 +84,25 @@ done
 } >> "$OUT"
 
 echo "captured $(wc -l < "$OUT") lines (exit $code)"
+
+# Surface the first errors as GitHub annotations.  The ci-errors artifact is
+# the full record, but artifact/blob downloads are not reachable from every
+# client, so the first slice of the report is mirrored into annotations (the
+# API serves those directly).
+if [ -n "${GITHUB_ACTIONS:-}" ]; then
+  emitted=0
+  grep -n -E "error:" build.log | cut -d: -f1 | sort -un | head -10 > ann_lines.txt
+  while IFS= read -r ln; do
+    [ -z "$ln" ] && continue
+    detail=$(sed -n "${ln},$((ln + 5))p" build.log | sed -e 's/%/%25/g' | tr '\n' '|' | cut -c1-900)
+    echo "::error file=ci-errors/${MOD}.txt,line=1::${MOD}: ${detail}"
+    emitted=$((emitted + 1))
+  done < ann_lines.txt
+  rm -f ann_lines.txt
+  if [ "$emitted" -eq 0 ]; then
+    msg=$(tail -16 build.log | sed -e 's/%/%25/g' | tr '\n' '|' | cut -c1-900)
+    echo "::error file=ci-errors/${MOD}.txt,line=1::${MOD}: ${msg}"
+  fi
+fi
+
 exit "$code"
