@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "minecraft:item/template_spawn_egg"
+    "layer0": "biomesunseen:item/star_whale_spawn_egg"
   }
 }

@@ -189,6 +189,8 @@ metals.sbt
 .kotlin/
 *.log
 .DS_Store
+__pycache__/
+*.pyc
 '''
 
 

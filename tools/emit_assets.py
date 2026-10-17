@@ -435,25 +435,37 @@ def emit(root):
 
     # ---------------- sounds.json ----------------
     # Sound objects must use "name" (a bare "sound" key made the loader abort
-    # parsing with "Missing name").  Reference vanilla sound *files* (path
-    # under the target namespace's sounds/ dir) so every event is audible
-    # without shipping placeholder .ogg binaries.
-    def _vanilla_sound_file(se):
-        if se.startswith(("music.", "ambient.", "boss.")):
-            return "minecraft:ambient/cave"
-        if se.startswith(("mob.", "entity.")):
-            return "minecraft:mob/sheep/say1"
-        return "minecraft:dig/stone1"
+    # parsing with "Missing name").  Every event also gets a real generated
+    # .ogg in our own namespace so audio works even on installs whose vanilla
+    # asset set is incomplete (Android launchers routinely skip sound files).
+    def _write_ogg(path, seed_key, seconds):
+        import subprocess
+        import zlib
+        try:
+            import imageio_ffmpeg
+            ff = imageio_ffmpeg.get_ffmpeg_exe()
+        except Exception:
+            print("WARN: imageio-ffmpeg unavailable, skipped %s" % path)
+            return
+        freq = 180 + (zlib.crc32(seed_key.encode("utf-8")) % 240)
+        os.makedirs(os.path.dirname(path), exist_ok=True)
+        subprocess.run([ff, "-y", "-f", "lavfi", "-i",
+                        "sine=frequency=%d:duration=%s" % (freq, seconds),
+                        "-ar", "22050", "-ac", "1",
+                        "-c:a", "libvorbis", "-q:a", "2", path],
+                       check=True, capture_output=True)
 
     sounds = {}
     for se in SOUND_EVENTS:
+        rel = se.replace(".", "/")
         sound_entry = {"subtitle": "subtitles.biomesunseen." + se.split(".")[-1]}
         if se.startswith("music."):
-            sound_entry["sounds"] = [{"name": _vanilla_sound_file(se),
-                                      "stream": True}]
+            sound_entry["sounds"] = [{"name": "biomesunseen:" + rel, "stream": True}]
         else:
-            sound_entry["sounds"] = [_vanilla_sound_file(se)]
+            sound_entry["sounds"] = ["biomesunseen:" + rel]
         sounds[se] = sound_entry
+        _write_ogg(os.path.join(root, A, "sounds", rel + ".ogg"),
+                   se, 4.0 if se.startswith("music.") else 1.5)
     _wj(root, A + "/sounds.json", sounds)
 
     # ---------------- blockstates + models ----------------
@@ -487,10 +499,10 @@ def emit(root):
                        "_leggings", "_boots", "_tonic"):
             flat_item(oid + suffix, "biomesunseen:item/" + oid + suffix)
     for (mid, *_r) in MOB_ROWS:
-        flat_item(mid + "_spawn_egg", "minecraft:item/template_spawn_egg")
+        flat_item(mid + "_spawn_egg", "biomesunseen:item/" + mid + "_spawn_egg")
         flat_item(mid + "_trophy", "biomesunseen:item/" + mid + "_trophy")
     for (bid, *_r) in BOSS_ROWS:
-        flat_item(bid + "_spawn_egg", "minecraft:item/template_spawn_egg")
+        flat_item(bid + "_spawn_egg", "biomesunseen:item/" + bid + "_spawn_egg")
     for tier in range(1, 5):
         flat_item("machine_core_t%d" % tier, "biomesunseen:item/machine_core_t%d" % tier)
     flat_item("unseen_sigil", "biomesunseen:item/unseen_sigil")
@@ -532,10 +544,14 @@ def emit(root):
                          pnggen.entity_texture(color, 4000 + idx, accent), 32, 32)
         pnggen.write_png(os.path.join(root, titem, mid + "_trophy.png"),
                          pnggen.item_texture(color, 4500 + idx, "blob"), 16, 16)
+        pnggen.write_png(os.path.join(root, titem, mid + "_spawn_egg.png"),
+                         pnggen.item_texture(color, 4600 + idx, "egg"), 16, 16)
     for idx, (bid, display, hp, spd, atk, w, h, arena, music, phases, attacks, loot,
               grp, color, glow) in enumerate(BOSS_ROWS):
         pnggen.write_png(os.path.join(root, tentity, bid + ".png"),
                          pnggen.entity_texture(color, 5000 + idx, (color // 3) & 0xFFFFFF), 32, 32)
+        pnggen.write_png(os.path.join(root, titem, bid + "_spawn_egg.png"),
+                         pnggen.item_texture(color, 5100 + idx, "egg"), 16, 16)
     for idx, p in enumerate(PARTICLE_TYPES):
         color = [0x80FFF0, 0xFFB060, 0x9A40D0, 0xC8A832, 0xC0F0FF, 0xFFFFA0,
                  0xFF9AC8, 0x88FF88][idx]

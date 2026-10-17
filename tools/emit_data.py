@@ -247,6 +247,8 @@ def _ore_placed(ore):
 def _legacy_configured_structure(def_row):
     (sid, display, group, category, spacing, sep, rarity, maxd, hasboss,
      bossid, pool, bg, tier, lore) = def_row
+    # jigsaw codec: max_distance_from_center is intRange(1, 128)
+    maxd = max(1, min(128, maxd))
     biome_keys = []
     for brow in BIOME_ROWS:
         if brow[2] in bg:
@@ -270,6 +272,8 @@ def _legacy_configured_structure(def_row):
 def _modern_structure(def_row):
     (sid, display, group, category, spacing, sep, rarity, maxd, hasboss,
      bossid, pool, bg, tier, lore) = def_row
+    # jigsaw codec: max_distance_from_center is intRange(1, 128)
+    maxd = max(1, min(128, maxd))
     biome_keys = []
     for brow in BIOME_ROWS:
         if brow[2] in bg:

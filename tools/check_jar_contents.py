@@ -100,6 +100,10 @@ def main(argv):
                         problems.append("%s: structure missing %s" % (mod, key))
                 if "config" in st:
                     problems.append("%s: structure uses the config wrapper" % mod)
+                mdc = st.get("max_distance_from_center")
+                if isinstance(mdc, int) and not 1 <= mdc <= 128:
+                    problems.append("%s: structure max_distance_from_center %d outside [1:128]"
+                                    % (mod, mdc))
             if glob.glob(os.path.join(
                     "common/src", style_dir, "resources/data/minecraft/worldgen",
                     "multi_noise_biome_source_parameter_list", "*.json")):

@@ -143,8 +143,11 @@ def write_structure_nbt(path, size, palette, blocks, data_version=2586):
 
     w._byte(0x00)  # end root compound
 
-    with gzip.open(path, "wb") as fh:
-        fh.write(bytes(w.buf))
+    # mtime=0 keeps the gzip header stable so regenerated trees are
+    # byte-identical between runs (gzip.open stamps wall-clock time).
+    with open(path, "wb") as fh:
+        with gzip.GzipFile(fileobj=fh, mode="wb", mtime=0) as gz:
+            gz.write(bytes(w.buf))
 
 
 def build_room(size_x=5, size_y=4, size_z=5, floor_state=0, wall_state=1,

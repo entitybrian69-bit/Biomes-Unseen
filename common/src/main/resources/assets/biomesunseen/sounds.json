@@ -2,56 +2,56 @@
   "ambient.biomesunseen.crystal_loop": {
     "subtitle": "subtitles.biomesunseen.crystal_loop",
     "sounds": [
-      "minecraft:ambient/cave"
+      "biomesunseen:ambient/biomesunseen/crystal_loop"
     ]
   },
   "ambient.biomesunseen.ember_loop": {
     "subtitle": "subtitles.biomesunseen.ember_loop",
     "sounds": [
-      "minecraft:ambient/cave"
+      "biomesunseen:ambient/biomesunseen/ember_loop"
     ]
   },
   "ambient.biomesunseen.verdant_loop": {
     "subtitle": "subtitles.biomesunseen.verdant_loop",
     "sounds": [
-      "minecraft:ambient/cave"
+      "biomesunseen:ambient/biomesunseen/verdant_loop"
     ]
   },
   "ambient.biomesunseen.frost_loop": {
     "subtitle": "subtitles.biomesunseen.frost_loop",
     "sounds": [
-      "minecraft:ambient/cave"
+      "biomesunseen:ambient/biomesunseen/frost_loop"
     ]
   },
   "ambient.biomesunseen.storm_loop": {
     "subtitle": "subtitles.biomesunseen.storm_loop",
     "sounds": [
-      "minecraft:ambient/cave"
+      "biomesunseen:ambient/biomesunseen/storm_loop"
     ]
   },
   "ambient.biomesunseen.mire_loop": {
     "subtitle": "subtitles.biomesunseen.mire_loop",
     "sounds": [
-      "minecraft:ambient/cave"
+      "biomesunseen:ambient/biomesunseen/mire_loop"
     ]
   },
   "ambient.biomesunseen.sky_loop": {
     "subtitle": "subtitles.biomesunseen.sky_loop",
     "sounds": [
-      "minecraft:ambient/cave"
+      "biomesunseen:ambient/biomesunseen/sky_loop"
     ]
   },
   "ambient.biomesunseen.void_loop": {
     "subtitle": "subtitles.biomesunseen.void_loop",
     "sounds": [
-      "minecraft:ambient/cave"
+      "biomesunseen:ambient/biomesunseen/void_loop"
     ]
   },
   "music.biomesunseen.crystal_theme": {
     "subtitle": "subtitles.biomesunseen.crystal_theme",
     "sounds": [
       {
-        "name": "minecraft:ambient/cave",
+        "name": "biomesunseen:music/biomesunseen/crystal_theme",
         "stream": true
       }
     ]
@@ -60,7 +60,7 @@
     "subtitle": "subtitles.biomesunseen.ember_theme",
     "sounds": [
       {
-        "name": "minecraft:ambient/cave",
+        "name": "biomesunseen:music/biomesunseen/ember_theme",
         "stream": true
       }
     ]
@@ -69,7 +69,7 @@
     "subtitle": "subtitles.biomesunseen.verdant_theme",
     "sounds": [
       {
-        "name": "minecraft:ambient/cave",
+        "name": "biomesunseen:music/biomesunseen/verdant_theme",
         "stream": true
       }
     ]
@@ -78,7 +78,7 @@
     "subtitle": "subtitles.biomesunseen.frost_theme",
     "sounds": [
       {
-        "name": "minecraft:ambient/cave",
+        "name": "biomesunseen:music/biomesunseen/frost_theme",
         "stream": true
       }
     ]
@@ -87,7 +87,7 @@
     "subtitle": "subtitles.biomesunseen.storm_theme",
     "sounds": [
       {
-        "name": "minecraft:ambient/cave",
+        "name": "biomesunseen:music/biomesunseen/storm_theme",
         "stream": true
       }
     ]
@@ -96,7 +96,7 @@
     "subtitle": "subtitles.biomesunseen.mire_theme",
     "sounds": [
       {
-        "name": "minecraft:ambient/cave",
+        "name": "biomesunseen:music/biomesunseen/mire_theme",
         "stream": true
       }
     ]
@@ -105,7 +105,7 @@
     "subtitle": "subtitles.biomesunseen.sky_theme",
     "sounds": [
       {
-        "name": "minecraft:ambient/cave",
+        "name": "biomesunseen:music/biomesunseen/sky_theme",
         "stream": true
       }
     ]
@@ -114,7 +114,7 @@
     "subtitle": "subtitles.biomesunseen.void_theme",
     "sounds": [
       {
-        "name": "minecraft:ambient/cave",
+        "name": "biomesunseen:music/biomesunseen/void_theme",
         "stream": true
       }
     ]
@@ -123,7 +123,7 @@
     "subtitle": "subtitles.biomesunseen.boss_heart",
     "sounds": [
       {
-        "name": "minecraft:ambient/cave",
+        "name": "biomesunseen:music/biomesunseen/boss_heart",
         "stream": true
       }
     ]
@@ -132,7 +132,7 @@
     "subtitle": "subtitles.biomesunseen.boss_serpent",
     "sounds": [
       {
-        "name": "minecraft:ambient/cave",
+        "name": "biomesunseen:music/biomesunseen/boss_serpent",
         "stream": true
       }
     ]
@@ -140,91 +140,91 @@
   "subtitles.biomesunseen.heart_roar": {
     "subtitle": "subtitles.biomesunseen.heart_roar",
     "sounds": [
-      "minecraft:dig/stone1"
+      "biomesunseen:subtitles/biomesunseen/heart_roar"
     ]
   },
   "subtitles.biomesunseen.serpent_hiss": {
     "subtitle": "subtitles.biomesunseen.serpent_hiss",
     "sounds": [
-      "minecraft:dig/stone1"
+      "biomesunseen:subtitles/biomesunseen/serpent_hiss"
     ]
   },
   "entity.biomesunseen.lumox.ambient": {
     "subtitle": "subtitles.biomesunseen.ambient",
     "sounds": [
-      "minecraft:mob/sheep/say1"
+      "biomesunseen:entity/biomesunseen/lumox/ambient"
     ]
   },
   "entity.biomesunseen.lumox.hurt": {
     "subtitle": "subtitles.biomesunseen.hurt",
     "sounds": [
-      "minecraft:mob/sheep/say1"
+      "biomesunseen:entity/biomesunseen/lumox/hurt"
     ]
   },
   "entity.biomesunseen.lumox.death": {
     "subtitle": "subtitles.biomesunseen.death",
     "sounds": [
-      "minecraft:mob/sheep/say1"
+      "biomesunseen:entity/biomesunseen/lumox/death"
     ]
   },
   "entity.biomesunseen.heart_of_the_forest.ambient": {
     "subtitle": "subtitles.biomesunseen.ambient",
     "sounds": [
-      "minecraft:mob/sheep/say1"
+      "biomesunseen:entity/biomesunseen/heart_of_the_forest/ambient"
     ]
   },
   "entity.biomesunseen.heart_of_the_forest.hurt": {
     "subtitle": "subtitles.biomesunseen.hurt",
     "sounds": [
-      "minecraft:mob/sheep/say1"
+      "biomesunseen:entity/biomesunseen/heart_of_the_forest/hurt"
     ]
   },
   "entity.biomesunseen.heart_of_the_forest.death": {
     "subtitle": "subtitles.biomesunseen.death",
     "sounds": [
-      "minecraft:mob/sheep/say1"
+      "biomesunseen:entity/biomesunseen/heart_of_the_forest/death"
     ]
   },
   "entity.biomesunseen.void_serpent.ambient": {
     "subtitle": "subtitles.biomesunseen.ambient",
     "sounds": [
-      "minecraft:mob/sheep/say1"
+      "biomesunseen:entity/biomesunseen/void_serpent/ambient"
     ]
   },
   "entity.biomesunseen.void_serpent.hurt": {
     "subtitle": "subtitles.biomesunseen.hurt",
     "sounds": [
-      "minecraft:mob/sheep/say1"
+      "biomesunseen:entity/biomesunseen/void_serpent/hurt"
     ]
   },
   "entity.biomesunseen.void_serpent.death": {
     "subtitle": "subtitles.biomesunseen.death",
     "sounds": [
-      "minecraft:mob/sheep/say1"
+      "biomesunseen:entity/biomesunseen/void_serpent/death"
     ]
   },
   "block.biomesunseen.ore_chime": {
     "subtitle": "subtitles.biomesunseen.ore_chime",
     "sounds": [
-      "minecraft:dig/stone1"
+      "biomesunseen:block/biomesunseen/ore_chime"
     ]
   },
   "block.biomesunseen.crystal_resonate": {
     "subtitle": "subtitles.biomesunseen.crystal_resonate",
     "sounds": [
-      "minecraft:dig/stone1"
+      "biomesunseen:block/biomesunseen/crystal_resonate"
     ]
   },
   "block.biomesunseen.mire_step": {
     "subtitle": "subtitles.biomesunseen.mire_step",
     "sounds": [
-      "minecraft:dig/stone1"
+      "biomesunseen:block/biomesunseen/mire_step"
     ]
   },
   "block.biomesunseen.ember_crackle": {
     "subtitle": "subtitles.biomesunseen.ember_crackle",
     "sounds": [
-      "minecraft:dig/stone1"
+      "biomesunseen:block/biomesunseen/ember_crackle"
     ]
   }
 }

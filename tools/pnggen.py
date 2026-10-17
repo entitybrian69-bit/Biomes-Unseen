@@ -108,6 +108,7 @@ def item_texture(color, seed, shape="blob"):
             d = (dx * dx + dy * dy) ** 0.5
             inside = d < 6.2 if shape == "blob" else (
                 2 <= x <= 13 and 2 <= y <= 13 if shape == "ingot" else
+                ((dx / 4.8) ** 2 + (dy / 6.8) ** 2) < 1.0 if shape == "egg" else
                 (abs(dx) + abs(dy) < 7.0))
             if inside:
                 n = _hash_noise(x, y, seed)

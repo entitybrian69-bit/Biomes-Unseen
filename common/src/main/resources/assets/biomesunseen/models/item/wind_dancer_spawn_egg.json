@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "minecraft:item/template_spawn_egg"
+    "layer0": "biomesunseen:item/wind_dancer_spawn_egg"
   }
 }
