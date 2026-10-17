@@ -2,7 +2,7 @@
 
 > A massive world-generation, adventure, biome, structure, ore, mob and boss mod: 80 biomes, 20 ores, 30 structures, 25 mobs and 2 multi-phase bosses.
 
-**Mod id:** `biomesunseen` &nbsp;|&nbsp; **Version:** 1.0.2 &nbsp;|&nbsp; **License:** MIT
+**Mod id:** `biomesunseen` &nbsp;|&nbsp; **Version:** 1.0.3 &nbsp;|&nbsp; **License:** MIT
 
 ## Content
 

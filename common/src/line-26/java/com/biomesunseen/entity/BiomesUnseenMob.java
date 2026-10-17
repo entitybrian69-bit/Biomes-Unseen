@@ -25,32 +25,12 @@ import com.biomesunseen.util.SpawnCaps;
  */
 public abstract class BiomesUnseenMob extends PathfinderMob  {
 
-    /** Field cache - {@code level} is a public field on 1.19.4 and private
-     *  from 1.20 on, so every line reads it through this one accessor. */
-    private static java.lang.reflect.Field unseenLevelField;
-    private java.lang.Object unseenLevelCache;
-
-    /** @return the Level this mob is ticking in, on every 1.19.4+ line. */
+    /** @return the Level this mob is ticking in.  Compiled field/method
+     *  access so the mapping remapper (Fabric intermediary, Forge SRG)
+     *  rewrites it correctly in production - reflection on the literal
+     *  name "level" can never work outside the dev workspace. */
     public final net.minecraft.world.level.Level unseenLevel() {
-        if (unseenLevelCache instanceof net.minecraft.world.level.Level) {
-            return (net.minecraft.world.level.Level) unseenLevelCache;
-        }
-        if (unseenLevelField == null) {
-            try {
-                java.lang.reflect.Field f =
-                        net.minecraft.world.entity.Entity.class.getDeclaredField("level");
-                f.setAccessible(true);
-                unseenLevelField = f;
-            } catch (ReflectiveOperationException e) {
-                throw new IllegalStateException("Cannot reach Entity#level", e);
-            }
-        }
-        try {
-            unseenLevelCache = unseenLevelField.get(this);
-        } catch (ReflectiveOperationException e) {
-            throw new IllegalStateException("Cannot read Entity#level", e);
-        }
-        return (net.minecraft.world.level.Level) unseenLevelCache;
+        return this.level();
     }
 
 
