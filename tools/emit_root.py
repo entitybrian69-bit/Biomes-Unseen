@@ -138,7 +138,7 @@ GRADLE_PROPERTIES = '''# -------------------------------------------------------
 # ---------------------------------------------------------------------------
 mod_id=biomesunseen
 mod_name=Biomes Unseen
-mod_version=1.0.0
+mod_version=%(ver)s
 mod_group=com.biomesunseen
 mod_description=A massive world-generation, adventure, biome, structure, ore, mob and boss mod.
 mod_license=MIT
@@ -162,7 +162,7 @@ gradle_version=%(gradle)s
 # Common dependency versions (per-module gradle.properties may override)
 # ---------------------------------------------------------------------------
 fabric_loader_version=%(loader)s
-''' % {"loom": LOOM_VERSION, "gradle": GRADLE_VERSION, "loader": FABRIC_LOADER_VERSION}
+''' % {"loom": LOOM_VERSION, "gradle": GRADLE_VERSION, "loader": FABRIC_LOADER_VERSION, "ver": MOD_VERSION}
 
 GITIGNORE = '''# Gradle
 .gradle/
@@ -414,7 +414,7 @@ def _build_md():
     a("./gradlew :<module>:build")
     a("```")
     a("")
-    a("Output jar: `<module>/build/libs/biomesunseen-<mc>-<loader>-1.0.0.jar`")
+    a("Output jar: `<module>/build/libs/biomesunseen-<mc>-<loader>-' + MOD_VERSION + '.jar`")
     a("")
     a("## 2. Full target matrix")
     a("")
@@ -435,8 +435,8 @@ def _build_md():
     a("")
     a("```")
     a("<module>/build/libs/")
-    a("  biomesunseen-<mc>-<loader>-1.0.0.jar        <- drop into mods/")
-    a("  biomesunseen-<mc>-<loader>-1.0.0-sources.jar <- sources (not needed at runtime)")
+    a("  biomesunseen-<mc>-<loader>-' + MOD_VERSION + '.jar        <- drop into mods/")
+    a("  biomesunseen-<mc>-<loader>-' + MOD_VERSION + '-sources.jar <- sources (not needed at runtime)")
     a("```")
     a("")
     a("## 4. Datagen")

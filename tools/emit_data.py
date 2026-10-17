@@ -138,7 +138,7 @@ def _biome_json(def_row, style, feature_ids, monster_spawns, creature_spawns):
         "sky_color": g["sky"],
         "fog_color": g["fog"],
         "mood_sound": {
-            "sound": g["ambient"],
+            "sound": "biomesunseen:" + g["ambient"],
             "tick_delay": 400,
             "block_search_extent": 8,
             "offset": 2.0,
@@ -469,7 +469,7 @@ def emit_tree(root, style_name, style):
         bjson = _biome_json(brow, biome_json, feats, monsters, creatures)
         if biome_json == "old":
             # effects.mood_sound sound name: use our own event ids
-            bjson["effects"]["mood_sound"]["sound"] = BIOME_GROUPS[group]["ambient"]
+            bjson["effects"]["mood_sound"]["sound"] = "biomesunseen:" + BIOME_GROUPS[group]["ambient"]
         _wj(root, "%s/%s/worldgen/biome/%s.json" % (base, ns, bid), bjson)
 
     # ---------------- structures ----------------

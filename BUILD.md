@@ -17,7 +17,7 @@ cd Biomes-Unseen
 ./gradlew :<module>:build
 ```
 
-Output jar: `<module>/build/libs/biomesunseen-<mc>-<loader>-1.0.0.jar`
+Output jar: `<module>/build/libs/biomesunseen-<mc>-<loader>-' + MOD_VERSION + '.jar`
 
 ## 2. Full target matrix
 
@@ -94,8 +94,8 @@ Output jar: `<module>/build/libs/biomesunseen-<mc>-<loader>-1.0.0.jar`
 
 ```
 <module>/build/libs/
-  biomesunseen-<mc>-<loader>-1.0.0.jar        <- drop into mods/
-  biomesunseen-<mc>-<loader>-1.0.0-sources.jar <- sources (not needed at runtime)
+  biomesunseen-<mc>-<loader>-' + MOD_VERSION + '.jar        <- drop into mods/
+  biomesunseen-<mc>-<loader>-' + MOD_VERSION + '-sources.jar <- sources (not needed at runtime)
 ```
 
 ## 4. Datagen

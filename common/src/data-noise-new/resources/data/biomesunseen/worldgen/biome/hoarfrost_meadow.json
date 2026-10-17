@@ -14,7 +14,7 @@
     "sky_color": 14086399,
     "fog_color": 15399167,
     "mood_sound": {
-      "sound": "ambient.biomesunseen.frost_loop",
+      "sound": "biomesunseen:ambient.biomesunseen.frost_loop",
       "tick_delay": 400,
       "block_search_extent": 8,
       "offset": 2.0
