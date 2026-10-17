@@ -6,9 +6,11 @@ block.  Everything in the mod is animated."""
 import json
 import os
 
-from content import (BIOME_ROWS, ORE_ROWS, DECOR_ROWS, PLANT_ROWS, MOB_ROWS,
-                     BOSS_ROWS, STRUCTURE_ROWS, SOUND_EVENTS, PARTICLE_TYPES,
-                     CONFIG_ROWS)
+from content import (ALL_BIOME_ROWS as BIOME_ROWS, ALL_ORE_ROWS as ORE_ROWS,
+                     ALL_DECOR_ROWS as DECOR_ROWS, ALL_PLANT_ROWS as PLANT_ROWS,
+                     ALL_MOB_ROWS as MOB_ROWS, ALL_BOSS_ROWS as BOSS_ROWS,
+                     ALL_STRUCTURE_ROWS as STRUCTURE_ROWS, SOUND_EVENTS,
+                     PARTICLE_TYPES, CONFIG_ROWS, PORTAL_ROWS, DIMENSION_DEFS)
 import pnggen
 
 
@@ -340,7 +342,8 @@ def _mob_anims(mob_id, anims, is_bird, is_serpent):
 
 def _boss_anims(boss_id, phases, attacks):
     anims = list(phases) + list(attacks) + ["idle", "walk", "run", "hurt", "death"]
-    out = _mob_anims(boss_id, anims, False, boss_id == "void_serpent")
+    out = _mob_anims(boss_id, anims, False,
+                     boss_id in ("void_serpent", "the_unraveling"))
     if boss_id == "heart_of_the_forest":
         out["animation.heart_of_the_forest.wrath_idle"] = _clip(2.2, True, {
             "trunk": {"rotation": {"0.0": [0, 0, 0], "1.1": [0, 2, 2], "2.2": [0, 0, 0]}},
@@ -420,6 +423,9 @@ def emit(root):
     for (bid, display, *_r) in BOSS_ROWS:
         lang["entity.biomesunseen." + bid] = display
         lang["item.biomesunseen." + bid + "_spawn_egg"] = display + " Spawn Egg"
+        lang["item.biomesunseen." + bid + "_relic"] = display + " Relic"
+    for (dim_id, dim_display, _frame, _portal, key, _mob, _y) in PORTAL_ROWS:
+        lang["item.biomesunseen." + key] = dim_display + " Key"
     lang["item.biomesunseen.unseen_sigil"] = "Unseen Sigil"
     for tier in range(1, 5):
         lang["item.biomesunseen.machine_core_t%d" % tier] = "Machine Core T%d" % tier
@@ -513,6 +519,10 @@ def emit(root):
         flat_item(bid + "_spawn_egg", "biomesunseen:item/" + bid + "_spawn_egg")
     for tier in range(1, 5):
         flat_item("machine_core_t%d" % tier, "biomesunseen:item/machine_core_t%d" % tier)
+    for (dim_id, dim_display, _frame, _portal, key, _mob, _y) in PORTAL_ROWS:
+        flat_item(key, "biomesunseen:item/" + key)
+    for (bid, *_r) in BOSS_ROWS:
+        flat_item(bid + "_relic", "biomesunseen:item/" + bid + "_relic")
     flat_item("unseen_sigil", "biomesunseen:item/unseen_sigil")
     themes = sorted({row[13] for row in STRUCTURE_ROWS})
     for theme in themes:
@@ -560,13 +570,21 @@ def emit(root):
                          pnggen.entity_texture(color, 5000 + idx, (color // 3) & 0xFFFFFF), 32, 32)
         pnggen.write_png(os.path.join(root, titem, bid + "_spawn_egg.png"),
                          pnggen.item_texture(color, 5100 + idx, "egg"), 16, 16)
+    _particle_palette = [0x80FFF0, 0xFFB060, 0x9A40D0, 0xC8A832, 0xC0F0FF,
+                         0xFFFFA0, 0xFF9AC8, 0x88FF88, 0x40E0A0, 0xA0C8FF,
+                         0xFF40A0]
     for idx, p in enumerate(PARTICLE_TYPES):
-        color = [0x80FFF0, 0xFFB060, 0x9A40D0, 0xC8A832, 0xC0F0FF, 0xFFFFA0,
-                 0xFF9AC8, 0x88FF88][idx]
+        color = _particle_palette[idx % len(_particle_palette)]
         pnggen.write_png(os.path.join(root, tpart, p + ".png"),
                          pnggen.particle_texture(color), 8, 8)
     pnggen.write_png(os.path.join(root, titem, "unseen_sigil.png"),
                      pnggen.gui_icon_texture(0x9AF0E0, 6001), 16, 16)
+    for idx, (dim_id, dim_display, _frame, _portal, key, _mob, _y) in enumerate(PORTAL_ROWS):
+        pnggen.write_png(os.path.join(root, titem, key + ".png"),
+                         pnggen.item_texture(0x9AD8F0 - idx * 0x204060, 6300 + idx, "blob"), 16, 16)
+    for idx, (bid, *_r) in enumerate(BOSS_ROWS):
+        pnggen.write_png(os.path.join(root, titem, bid + "_relic.png"),
+                         pnggen.item_texture(0xFFD8A0, 6400 + idx, "ingot"), 16, 16)
     for idx in range(1, 5):
         pnggen.write_png(os.path.join(root, titem, "machine_core_t%d.png" % idx),
                          pnggen.item_texture(0xC0C8D0 + idx * 0x080808, 6100 + idx, "ingot"), 16, 16)
@@ -589,8 +607,17 @@ def emit(root):
             {"format_version": "1.8.0",
              "animations": _mob_anims(mid, anims, is_bird, False)})
     # Bosses
-    _wj(root, geo + "/heart_of_the_forest.geo.json", _heart_geo())
-    _wj(root, geo + "/void_serpent.geo.json", _serpent_geo())
+    for (bid, display, hp, spd, atk, w, h, arena, music, phases, attacks, loot,
+         grp, color, glow) in BOSS_ROWS:
+        if bid == "heart_of_the_forest":
+            g = _heart_geo()
+        elif bid in ("void_serpent", "the_unraveling"):
+            g = _serpent_geo()
+        elif "crown" in bid:
+            g = _bird_geo(bid, w, h)
+        else:
+            g = _quadruped_geo(bid, w, h, glow)
+        _wj(root, geo + "/%s.geo.json" % bid, g)
     for (bid, display, hp, spd, atk, w, h, arena, music, phases, attacks, loot,
          grp, color, glow) in BOSS_ROWS:
         _wj(root, anims_dir + "/%s.animation.json" % bid,

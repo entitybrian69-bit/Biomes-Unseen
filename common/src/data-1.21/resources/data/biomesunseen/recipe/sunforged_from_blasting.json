@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:blasting",
+  "ingredient": {
+    "item": "biomesunseen:sunforged_ore"
+  },
+  "result": "biomesunseen:sunforged",
+  "experience": 0.7,
+  "cookingtime": 100
+}

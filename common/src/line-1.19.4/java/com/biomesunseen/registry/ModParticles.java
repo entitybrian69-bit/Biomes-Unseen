@@ -13,7 +13,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 /**
- * All 8 custom particle types (crystal sparks, embers, void motes, ...).
+ * All 11 custom particle types (crystal sparks, embers, void motes, ...).
  */
 public final class ModParticles {
 

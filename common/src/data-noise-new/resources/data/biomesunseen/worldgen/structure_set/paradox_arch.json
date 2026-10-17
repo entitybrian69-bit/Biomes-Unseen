@@ -1,0 +1,15 @@
+{
+  "structures": [
+    {
+      "structure": "biomesunseen:paradox_arch",
+      "weight": 6
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "salt": 22220,
+    "spacing": 22,
+    "separation": 9,
+    "spread_type": "linear"
+  }
+}

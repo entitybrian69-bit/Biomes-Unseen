@@ -1,0 +1,36 @@
+{
+  "type": "minecraft:jigsaw",
+  "biomes": [
+    "biomesunseen:dawnlit_isle",
+    "biomesunseen:aurora_drift",
+    "biomesunseen:skyglass_archipelago",
+    "biomesunseen:cloudstep_meadow",
+    "biomesunseen:windward_ridge",
+    "biomesunseen:twilight_canopy",
+    "biomesunseen:starfall_hollows",
+    "biomesunseen:sunflare_plateau",
+    "biomesunseen:moonpetal_gardens",
+    "biomesunseen:aether_current_spires",
+    "biomesunseen:floating_ruins_expanse",
+    "biomesunseen:halo_shore",
+    "biomesunseen:cerulean_skylake",
+    "biomesunseen:thunderhead_reef",
+    "biomesunseen:glimmerwind_fields",
+    "biomesunseen:celestial_terrace",
+    "biomesunseen:duskveil_cliffs",
+    "biomesunseen:luminark_shoals",
+    "biomesunseen:skyforge_isles",
+    "biomesunseen:the_last_horizon"
+  ],
+  "step": "surface_structures",
+  "spawn_overrides": {},
+  "terrain_adaptation": "none",
+  "start_pool": "biomesunseen:crowns_eyrie_start",
+  "size": 5,
+  "start_height": {
+    "absolute": 0
+  },
+  "project_start_to_heightmap": "WORLD_SURFACE_WG",
+  "max_distance_from_center": 128,
+  "use_expansion_hack": true
+}

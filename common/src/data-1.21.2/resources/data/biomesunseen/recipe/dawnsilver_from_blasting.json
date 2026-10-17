@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:blasting",
+  "ingredient": {
+    "item": "biomesunseen:dawnsilver_ore"
+  },
+  "result": "biomesunseen:dawnsilver",
+  "experience": 0.7,
+  "cookingtime": 100
+}

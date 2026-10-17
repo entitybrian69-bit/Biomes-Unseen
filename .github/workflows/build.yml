@@ -2,7 +2,7 @@ name: Build all targets
 
 on:
   push:
-    branches: ["arena/721c719c-biomes-unseen", "arena/be9e6e99-biomes-unseen", "main"]
+    branches: ["arena/721c719c-biomes-unseen", "arena/be9e6e99-biomes-unseen", "arena/e2b32e44-biomes-unseen", "main"]
   workflow_dispatch:
 
 # A 66-job matrix takes 15-40 minutes; when a newer commit lands, the older

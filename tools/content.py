@@ -815,3 +815,555 @@ ADVANCEMENT_ROWS = [
     ("all_mobs", "Menagerie of the Unseen", "Encounter all 25 Biomes Unseen mobs", "tame_mob"),
     ("boss_hunter", "Unseen Slayer", "Defeat both bosses", "heart_of_the_forest"),
 ]
+
+# ===========================================================================
+# Expansion pack: three full dimensions (Part B / Part C scope).
+#
+# The tables below are the single source of truth for the dimension content.
+# Every emitter imports the combined ALL_* views so each of the 66 modules
+# ships exactly the same catalog.
+# ===========================================================================
+
+# ---------------------------------------------------------------------------
+# Dimension groups (biome palettes, ambience and music per dimension).
+# ---------------------------------------------------------------------------
+
+DIMENSION_GROUPS = {
+    "hollow_deep": {
+        "grass": 0x2A6A5A, "foliage": 0x1E5A4A, "water": 0x2E6A7A,
+        "sky": 0x05070C, "fog": 0x14231F,
+        "ambient": "ambient.biomesunseen.hollow_deep_loop",
+        "music": "music.biomesunseen.hollow_deep_theme",
+        "category": "hollow_deep",
+    },
+    "aetherfall": {
+        "grass": 0x9AD8FF, "foliage": 0x7AB8E8, "water": 0x8AD8FF,
+        "sky": 0x6A4A8A, "fog": 0xC8A8E8,
+        "ambient": "ambient.biomesunseen.aetherfall_loop",
+        "music": "music.biomesunseen.aetherfall_theme",
+        "category": "aetherfall",
+    },
+    "void_between": {
+        "grass": 0x5A2A7A, "foliage": 0x3A1A5A, "water": 0x2A0A4A,
+        "sky": 0x08040C, "fog": 0x1A0A22,
+        "ambient": "ambient.biomesunseen.void_between_loop",
+        "music": "music.biomesunseen.void_between_theme",
+        "category": "void_between",
+    },
+}
+
+BIOME_GROUPS.update(DIMENSION_GROUPS)
+
+# ---------------------------------------------------------------------------
+# Dimension definitions.
+# frame        - portal frame block (one of the dimension's stones)
+# portal       - portal block id
+# key          - igniter item dropped by the dimension's key mob
+# source_mob   - mob that drops the key
+# settings     - vanilla noise settings used by the dimension generator
+# effects      - dimension effects id
+# ---------------------------------------------------------------------------
+
+DIMENSION_DEFS = [
+    {
+        "id": "hollow_deep",
+        "display": "The Hollow Deep",
+        "group": "hollow_deep",
+        "frame": "hollowstone",
+        "portal": "hollow_deep_portal",
+        "key": "hollow_heart_key",
+        "source_mob": "glowmoth",
+        "settings": "caves",
+        "dimension_type": "minecraft:the_nether",
+        "fill_biome": "minecraft:lush_caves",
+        "key_ore": "lumenshard",
+        "effects": "minecraft:the_nether",
+        "fixed_time": 18000,
+        "has_skylight": False,
+        "ambient_light": 0.08,
+        "arrival_y": 48,
+        "story": "A buried world of living light and patient stone.",
+    },
+    {
+        "id": "aetherfall",
+        "display": "Aetherfall",
+        "group": "aetherfall",
+        "frame": "skyglass",
+        "portal": "aetherfall_portal",
+        "key": "aetherfall_key",
+        "source_mob": "dawnfinch",
+        "settings": "floating_islands",
+        "dimension_type": "minecraft:overworld",
+        "fill_biome": "minecraft:meadow",
+        "key_ore": "skyiron",
+        "effects": "minecraft:overworld",
+        "fixed_time": 13000,
+        "has_skylight": True,
+        "ambient_light": 0.35,
+        "arrival_y": 128,
+        "story": "Endless twilight above a sea of clouds.",
+    },
+    {
+        "id": "void_between",
+        "display": "The Void Between",
+        "group": "void_between",
+        "frame": "voidstone",
+        "portal": "void_between_portal",
+        "key": "void_between_key",
+        "source_mob": "glitchling",
+        "settings": "overworld",
+        "dimension_type": "minecraft:the_end",
+        "fill_biome": "minecraft:end_barrens",
+        "key_ore": "nullite",
+        "effects": "minecraft:the_end",
+        "fixed_time": 18000,
+        "has_skylight": False,
+        "ambient_light": 0.02,
+        "arrival_y": 96,
+        "story": "The place reality goes to forget itself.",
+    },
+]
+
+DIMENSION_BY_ID = {d["id"]: d for d in DIMENSION_DEFS}
+
+
+def dimension_for_biome(biome_id):
+    for dim in DIMENSION_DEFS:
+        for row in DIM_BIOME_ROWS:
+            if row[0] == biome_id:
+                return dim["id"]
+    return "overworld"
+
+
+def dimension_for_ore(ore_id):
+    for dim in DIMENSION_DEFS:
+        for row in DIM_ORE_ROWS:
+            if row[0] == ore_id:
+                return dim["id"]
+    return "overworld"
+
+
+def dimension_for_mob(mob_id):
+    for dim in DIMENSION_DEFS:
+        for row in DIM_MOB_ROWS:
+            if row[0] == mob_id:
+                return dim["id"]
+    return "overworld"
+
+
+def dimension_for_structure(sid):
+    for dim in DIMENSION_DEFS:
+        for row in DIM_STRUCTURE_ROWS:
+            if row[0] == sid:
+                return dim["id"]
+    return "overworld"
+
+
+# ---------------------------------------------------------------------------
+# 60 dimension biomes: 20 per dimension.
+# (id, display, group, depth, scale, temperature, downfall, rarity, weather)
+# ---------------------------------------------------------------------------
+
+_HOLLOW_NAMES = [
+    ("glowroot_caverns", "Glowroot Caverns"), ("fungal_abyss", "Fungal Abyss"),
+    ("crystal_vein_hollows", "Crystal Vein Hollows"), ("emberworm_tunnels", "Emberworm Tunnels"),
+    ("sunless_grotto", "Sunless Grotto"), ("mantle_chasm", "Mantle Chasm"),
+    ("lantern_mushroom_sea", "Lantern Mushroom Sea"), ("deepstone_spires", "Deepstone Spires"),
+    ("echo_lake_depths", "Echo Lake Depths"), ("fossil_rib_catacombs", "Fossil Rib Catacombs"),
+    ("magma_siphon_gallery", "Magma Siphon Gallery"), ("pale_mycelium_gardens", "Pale Mycelium Gardens"),
+    ("hollowstone_maze", "Hollowstone Maze"), ("voidlight_crevasse", "Voidlight Crevasse"),
+    ("buried_temple_depths", "Buried Temple Depths"), ("shimmering_sinkhole", "Shimmering Sinkhole"),
+    ("root_tangled_depths", "Root-Tangled Depths"), ("ancient_ossuary", "Ancient Ossuary"),
+    ("prismatic_underlake", "Prismatic Underlake"), ("the_first_ember", "The First Ember"),
+]
+_AETHER_NAMES = [
+    ("dawnlit_isle", "Dawnlit Isle"), ("aurora_drift", "Aurora Drift"),
+    ("skyglass_archipelago", "Skyglass Archipelago"), ("cloudstep_meadow", "Cloudstep Meadow"),
+    ("windward_ridge", "Windward Ridge"), ("twilight_canopy", "Twilight Canopy"),
+    ("starfall_hollows", "Starfall Hollows"), ("sunflare_plateau", "Sunflare Plateau"),
+    ("moonpetal_gardens", "Moonpetal Gardens"), ("aether_current_spires", "Aether Current Spires"),
+    ("floating_ruins_expanse", "Floating Ruins Expanse"), ("halo_shore", "Halo Shore"),
+    ("cerulean_skylake", "Cerulean Skylake"), ("thunderhead_reef", "Thunderhead Reef"),
+    ("glimmerwind_fields", "Glimmerwind Fields"), ("celestial_terrace", "Celestial Terrace"),
+    ("duskveil_cliffs", "Duskveil Cliffs"), ("luminark_shoals", "Luminark Shoals"),
+    ("skyforge_isles", "Skyforge Isles"), ("the_last_horizon", "The Last Horizon"),
+]
+_VOID_NAMES = [
+    ("glitchfield_barrens", "Glitchfield Barrens"), ("inverted_woods", "Inverted Woods"),
+    ("shardstorm_expanse", "Shardstorm Expanse"), ("null_spire_wastes", "Null Spire Wastes"),
+    ("echo_chamber_rifts", "Echo Chamber Rifts"), ("mirrorlake_absurdity", "Mirrorlake Absurdity"),
+    ("halfworld_terraces", "Halfworld Terraces"), ("screaming_static_plains", "Screaming Static Plains"),
+    ("forgotten_code_caverns", "Forgotten Code Caverns"), ("obsidian_dreamscape", "Obsidian Dreamscape"),
+    ("whisper_gallery", "Whisper Gallery"), ("unraveling_meadow", "Unraveling Meadow"),
+    ("paradox_dunes", "Paradox Dunes"), ("entropy_gardens", "Entropy Gardens"),
+    ("hollow_reflection_sea", "Hollow Reflection Sea"), ("static_bloom_basin", "Static Bloom Basin"),
+    ("impossible_stairways", "Impossible Stairways"), ("dreamt_mountains", "Dreamt Mountains"),
+    ("the_unwritten", "The Unwritten"), ("edges_of_everything", "Edges of Everything"),
+]
+
+
+def _dim_biome_rows(names, group, base_temp, span, weather_cycle):
+    rows = []
+    for idx, (bid, display) in enumerate(names):
+        depth = round(-0.6 + 0.06 * (idx % 10), 2)
+        scale = round(0.22 + 0.09 * ((idx * 3) % 9), 2)
+        temp = round(base_temp + span * ((idx % 7) / 6.0 - 0.5), 2)
+        downfall = round(0.25 + 0.7 * ((idx * 5) % 10) / 9.0, 2)
+        weather = weather_cycle[idx % len(weather_cycle)]
+        rarity = 6 + (idx % 6)
+        rows.append((bid, display, group, depth, scale, temp, downfall, rarity, weather))
+    return rows
+
+
+DIM_BIOME_ROWS = (
+    _dim_biome_rows(_HOLLOW_NAMES, "hollow_deep", 0.45, 0.6, ("clear", "clear", "rain"))
+    + _dim_biome_rows(_AETHER_NAMES, "aetherfall", 0.55, 0.5, ("clear", "clear", "thunder"))
+    + _dim_biome_rows(_VOID_NAMES, "void_between", 0.3, 0.7, ("clear", "thunder", "clear"))
+)
+
+assert len(DIM_BIOME_ROWS) == 60
+
+# ---------------------------------------------------------------------------
+# 5 stones per dimension (15 new palette blocks).
+# (id, display, color, sound, material)
+# ---------------------------------------------------------------------------
+
+DIM_STONE_ROWS = [
+    ("hollowstone", "Hollowstone", 0x3A4A44, "deepslate", "stone"),
+    ("deepslate_marrow", "Deepslate Marrow", 0x4A3A3A, "stone", "stone"),
+    ("glowgabbro", "Glowgabbro", 0x2E5A50, "stone", "stone"),
+    ("emberlimestone", "Emberlimestone", 0x6A4A3A, "stone", "stone"),
+    ("fossilshale", "Fossilshale", 0x5A5A4A, "stone", "stone"),
+    ("skyglass", "Skyglass", 0x9AD8F0, "glass", "crystal"),
+    ("cloudstone", "Cloudstone", 0xD8E4F0, "stone", "stone"),
+    ("dawnquartzite", "Dawnquartzite", 0xE8D8B8, "stone", "stone"),
+    ("windslate", "Windslate", 0x7A9AA8, "stone", "stone"),
+    ("starfall_basalt", "Starfall Basalt", 0x4A4A6A, "basalt", "stone"),
+    ("voidstone", "Voidstone", 0x2A1A3A, "deepslate", "stone"),
+    ("nullslate", "Nullslate", 0x1E1E2A, "stone", "stone"),
+    ("paradox_granite", "Paradox Granite", 0x6A3A5A, "stone", "stone"),
+    ("echoeslate", "Echoeslate", 0x3A3A5A, "stone", "stone"),
+    ("static_breccia", "Static Breccia", 0x5A2A4A, "stone", "stone"),
+]
+
+assert len(DIM_STONE_ROWS) == 15
+
+# ---------------------------------------------------------------------------
+# 8 dimension ores per dimension (24).
+# Same tuple shape as ORE_ROWS.
+# ---------------------------------------------------------------------------
+
+DIM_ORE_ROWS = [
+    # -- Hollow Deep --------------------------------------------------------
+    ("lumenshard", "Lumenshard", 0x80FFD0, 0xC0FFF0, 5, 40, 6, 7, 1.2, "hollow_deep", "stone", True,
+     (900, 3, 8.0, 3.2, 24), "night_vision", 2),
+    ("deepiron", "Deep Iron", 0x8A7A6A, 0xC8B8A0, 0, 30, 9, 8, 1.2, "hollow_deep", "deepslate", False,
+     (860, 3, 7.6, 3.1, 18), "strength", 2),
+    ("biolumite", "Biolumite", 0x40E0A0, 0x90FFD0, 8, 48, 5, 6, 1.0, "hollow_deep", "stone", True,
+     (980, 3, 8.2, 3.3, 26), "regeneration", 3),
+    ("hollow_crystal", "Hollow Crystal", 0xB0A0FF, 0xE0D8FF, 12, 60, 4, 4, 0.8, "hollow_deep", "stone", True,
+     (1200, 4, 9.0, 4.0, 28), "levitation", 3),
+    ("embercoal", "Embercoal", 0xFF6A30, 0xFFA070, 0, 64, 10, 9, 1.3, "hollow_deep", "stone", True,
+     (700, 2, 6.8, 2.6, 15), "fire_resistance", 1),
+    ("fungisteel", "Fungisteel", 0x6A8A3A, 0xA0C860, 10, 50, 7, 6, 1.0, "hollow_deep", "stone", False,
+     (940, 3, 7.8, 3.2, 22), "poison", 2),
+    ("abyss_opal", "Abyss Opal", 0x2A4A8A, 0x5A8AFF, 20, 70, 3, 3, 0.6, "hollow_deep", "deepslate", True,
+     (1600, 4, 9.6, 4.3, 30), "water_breathing", 4),
+    ("corestone", "Corestone", 0xFF3A2A, 0xFF8070, 0, 16, 2, 2, 0.4, "hollow_deep", "deepslate", True,
+     (2400, 4, 10.5, 5.0, 12), "absorption", 4),
+    # -- Aetherfall ---------------------------------------------------------
+    ("skyiron", "Skyiron", 0xB8C8D8, 0xE0F0FF, 80, 200, 8, 7, 1.1, "aetherfall", "stone", False,
+     (880, 3, 7.8, 3.1, 20), "swiftness", 2),
+    ("dawnsilver", "Dawnsilver", 0xF0E0A0, 0xFFF0C8, 90, 220, 6, 5, 0.9, "aetherfall", "stone", True,
+     (1040, 3, 8.4, 3.4, 26), "regeneration", 3),
+    ("windquartz", "Windquartz", 0xC8F0FF, 0xE8FFFF, 70, 180, 7, 6, 1.0, "aetherfall", "stone", True,
+     (780, 2, 7.2, 2.8, 24), "levitation", 1),
+    ("cloudite", "Cloudite", 0xE8F0FF, 0xFFFFFF, 100, 240, 6, 6, 1.0, "aetherfall", "stone", False,
+     (820, 3, 7.4, 2.9, 22), "slow_falling", 2),
+    ("sunforged", "Sunforged", 0xFFC040, 0xFFE090, 60, 160, 5, 4, 0.8, "aetherfall", "stone", True,
+     (1300, 4, 9.2, 4.0, 24), "strength", 3),
+    ("starfall_ore", "Starfall Ore", 0x8A8AFF, 0xC0C0FF, 120, 250, 4, 3, 0.6, "aetherfall", "stone", True,
+     (1500, 4, 9.4, 4.2, 30), "night_vision", 3),
+    ("aurorite", "Aurorite", 0x60FFC8, 0xA0FFE0, 110, 230, 5, 4, 0.7, "aetherfall", "stone", True,
+     (1180, 3, 8.6, 3.6, 28), "absorption", 3),
+    ("aetherglass", "Aetherglass", 0xA0D8FF, 0xE0F4FF, 140, 260, 8, 7, 1.0, "aetherfall", "stone", True,
+     (760, 2, 7.0, 2.7, 26), "water_breathing", 2),
+    # -- The Void Between ---------------------------------------------------
+    ("nullite", "Nullite", 0x3A2A4A, 0x7A5A9A, 0, 30, 5, 5, 0.9, "void_between", "deepslate", True,
+     (1350, 4, 8.8, 3.9, 18), "invisibility", 3),
+    ("glitchstone", "Glitchstone", 0xFF40A0, 0xFF90D0, 10, 50, 6, 6, 1.0, "void_between", "stone", True,
+     (1020, 3, 8.4, 3.5, 28), "swiftness", 3),
+    ("paradox_shard", "Paradox Shard", 0x40D0FF, 0x90F0FF, 20, 70, 4, 4, 0.7, "void_between", "stone", True,
+     (1450, 4, 9.2, 4.1, 30), "levitation", 3),
+    ("entropy_crystal", "Entropy Crystal", 0xA040FF, 0xD090FF, 5, 40, 3, 3, 0.55, "void_between", "deepslate", True,
+     (1750, 4, 9.8, 4.5, 32), "regeneration", 4),
+    ("void_ember", "Void Ember", 0x2A0A3A, 0x6A2A8A, 0, 24, 7, 6, 1.0, "void_between", "deepslate", True,
+     (880, 3, 7.6, 3.0, 20), "fire_resistance", 2),
+    ("mirrorshard", "Mirrorshard", 0xC0C0D8, 0xF0F0FF, 30, 90, 5, 5, 0.8, "void_between", "stone", True,
+     (1100, 3, 8.2, 3.4, 26), "invisibility", 2),
+    ("static_ore", "Static Ore", 0xE0E040, 0xFFFF90, 15, 65, 6, 6, 0.9, "void_between", "stone", True,
+     (960, 3, 7.8, 3.2, 22), "haste", 2),
+    ("finality", "Finality", 0xFFFFFF, 0xFFD0FF, 0, 12, 2, 2, 0.35, "void_between", "deepslate", True,
+     (2600, 4, 11.0, 5.5, 10), "absorption", 4),
+]
+
+assert len(DIM_ORE_ROWS) == 24
+
+# ---------------------------------------------------------------------------
+# 10 dimension mobs per dimension (30).
+# Same tuple shape as MOB_ROWS.
+# ---------------------------------------------------------------------------
+
+DIM_MOB_ROWS = [
+    # (id, display, category, hp, speed, attack, defense, width, height,
+    #  behaviors, tame, trade, pack, herd, flees, terrain, biome_groups,
+    #  weight, night, anims, color, glow)
+    # -- Hollow Deep --------------------------------------------------------
+    ("glowmoth", "Glowmoth", "creature", 7.0, 0.34, 0.5, 0.0, 0.8, 0.6,
+     ("flock", "ambient_fly", "graze"), True, False, False, True, True, True,
+     ("hollow_deep",), 12, False, ("idle", "walk", "fly", "flutter", "graze", "hurt", "death"), 0x80FFD0, True),
+    ("tunnel_hound", "Tunnel Hound", "monster", 22.0, 0.32, 5.0, 1.5, 0.9, 1.0,
+     ("pack_tactics", "follow_herd"), False, False, True, False, False, False,
+     ("hollow_deep",), 10, True, ("idle", "walk", "run", "attack", "pounce", "hurt", "death"), 0x5A6A5A, True),
+    ("crystal_beetle", "Crystal Beetle", "creature", 14.0, 0.22, 2.0, 4.0, 0.9, 0.8,
+     ("graze", "terrain_use"), False, False, False, False, False, True,
+     ("hollow_deep",), 9, False, ("idle", "walk", "graze", "burrow", "hurt", "death"), 0x40C0C0, True),
+    ("magma_snail", "Magma Snail", "creature", 18.0, 0.14, 2.0, 3.0, 1.1, 0.9,
+     ("graze", "terrain_use"), False, False, False, False, False, True,
+     ("hollow_deep",), 9, False, ("idle", "walk", "graze", "slam", "hurt", "death"), 0xFF6A30, True),
+    ("echo_bat", "Echo Bat", "creature", 8.0, 0.38, 1.0, 0.0, 0.6, 0.5,
+     ("flock", "ambient_fly"), False, False, False, True, True, True,
+     ("hollow_deep",), 13, True, ("idle", "fly", "glide", "dive", "hurt", "death"), 0x3A2A4A, False),
+    ("root_gnawer", "Root Gnawer", "monster", 16.0, 0.30, 4.0, 1.0, 0.8, 0.7,
+     ("pack_tactics", "graze"), False, False, True, True, False, False,
+     ("hollow_deep",), 10, False, ("idle", "walk", "run", "attack", "graze", "hurt", "death"), 0x6A4A2A, False),
+    ("deep_lurker", "Deep Lurker", "monster", 30.0, 0.26, 7.0, 2.0, 1.3, 1.6,
+     ("terrain_use", "pack_tactics"), False, False, False, False, False, True,
+     ("hollow_deep",), 6, True, ("idle", "walk", "swim", "attack", "pounce", "hurt", "death"), 0x1E2A3A, True),
+    ("lantern_jelly", "Lantern Jelly", "creature", 12.0, 0.20, 1.0, 1.0, 0.9, 0.9,
+     ("flock", "terrain_use"), False, False, False, True, True, True,
+     ("hollow_deep",), 11, False, ("idle", "swim", "surface", "dive", "hurt", "death"), 0x60FFE0, True),
+    ("stoneback", "Stoneback", "creature", 34.0, 0.20, 4.0, 6.0, 1.5, 1.5,
+     ("graze", "follow_herd", "pack_tactics"), False, False, True, True, False, False,
+     ("hollow_deep",), 7, False, ("idle", "walk", "run", "graze", "headbutt", "hurt", "death"), 0x5A4A3A, False),
+    ("mycopath", "Mycopath", "creature", 16.0, 0.24, 2.0, 2.0, 1.0, 1.2,
+     ("wander_trade", "barter", "graze"), False, True, False, True, True, False,
+     ("hollow_deep",), 8, False, ("idle", "walk", "trade", "offer", "accept", "graze", "hurt", "death"), 0xC8A832, True),
+    # -- Aetherfall ---------------------------------------------------------
+    ("skyray", "Skyray", "creature", 18.0, 0.36, 3.0, 1.0, 1.4, 0.6,
+     ("ambient_fly", "flock"), False, False, False, True, True, True,
+     ("aetherfall",), 12, False, ("idle", "fly", "glide", "dive", "hurt", "death"), 0x8AD8FF, True),
+    ("cloud_heron", "Cloud Heron", "creature", 14.0, 0.30, 2.0, 0.5, 1.0, 1.4,
+     ("ambient_fly", "flock", "graze"), False, False, False, True, True, True,
+     ("aetherfall",), 10, False, ("idle", "fly", "glide", "walk", "flee", "hurt", "death"), 0xE8F0FF, False),
+    ("zephyr_pup", "Zephyr Pup", "creature", 16.0, 0.35, 3.0, 1.0, 0.8, 0.8,
+     ("pack_tactics", "follow_herd"), True, False, True, True, False, False,
+     ("aetherfall",), 11, False, ("idle", "walk", "run", "attack", "beg", "sit", "tame", "hurt", "death"), 0xB8E8FF, True),
+    ("island_tortoise", "Island Tortoise", "creature", 40.0, 0.14, 3.0, 7.0, 1.8, 1.4,
+     ("graze", "follow_herd", "terrain_use"), False, False, False, True, False, True,
+     ("aetherfall",), 7, False, ("idle", "walk", "graze", "shell", "hurt", "death"), 0x8A9A6A, False),
+    ("dawnfinch", "Dawnfinch", "creature", 6.0, 0.40, 0.5, 0.0, 0.5, 0.5,
+     ("flock", "ambient_fly", "graze"), True, False, False, True, True, True,
+     ("aetherfall",), 14, False, ("idle", "fly", "flutter", "graze", "sit", "tame", "hurt", "death"), 0xFFD08A, True),
+    ("storm_jay", "Storm Jay", "creature", 10.0, 0.42, 2.0, 0.0, 0.7, 0.6,
+     ("flock", "ambient_fly"), False, False, False, True, False, True,
+     ("aetherfall",), 12, False, ("idle", "fly", "dive", "soar", "hurt", "death"), 0x6A7A8A, False),
+    ("summit_ram", "Summit Ram", "creature", 30.0, 0.28, 6.0, 3.0, 1.2, 1.4,
+     ("pack_tactics", "follow_herd", "graze"), False, False, True, True, False, False,
+     ("aetherfall",), 8, False, ("idle", "walk", "run", "charge", "headbutt", "hurt", "death"), 0xD8E4F0, False),
+    ("mistgraz", "Mistgraz", "creature", 22.0, 0.22, 2.0, 2.0, 1.2, 1.2,
+     ("graze", "follow_herd"), False, False, False, True, True, False,
+     ("aetherfall",), 10, False, ("idle", "walk", "run", "graze", "flee", "hurt", "death"), 0xC8D8E8, False),
+    ("star_serpent", "Star Serpent", "monster", 26.0, 0.34, 6.0, 2.0, 1.2, 1.0,
+     ("ambient_fly", "pack_tactics"), False, False, False, False, False, True,
+     ("aetherfall",), 7, True, ("idle", "fly", "attack", "pounce", "hurt", "death"), 0x8A8AFF, True),
+    ("windlark", "Windlark", "creature", 8.0, 0.44, 0.5, 0.0, 0.6, 0.5,
+     ("flock", "ambient_fly", "graze"), True, False, False, True, True, True,
+     ("aetherfall",), 13, False, ("idle", "fly", "dance", "glide", "sit", "tame", "hurt", "death"), 0xC8F0FF, True),
+    # -- The Void Between ---------------------------------------------------
+    ("glitchling", "Glitchling", "monster", 10.0, 0.40, 3.0, 0.0, 0.6, 0.6,
+     ("pack_tactics", "follow_herd"), False, False, True, True, True, False,
+     ("void_between",), 13, False, ("idle", "walk", "run", "attack", "blink", "hurt", "death"), 0xFF40A0, True),
+    ("null_stalker", "Null Stalker", "monster", 24.0, 0.34, 6.0, 1.0, 0.9, 1.4,
+     ("pack_tactics", "terrain_use"), False, False, False, False, False, True,
+     ("void_between",), 9, True, ("idle", "walk", "run", "stalk", "pounce", "attack", "hurt", "death"), 0x1E1E2A, True),
+    ("mirror_wisp", "Mirror Wisp", "creature", 8.0, 0.36, 0.5, 0.0, 0.7, 0.7,
+     ("ambient_fly", "flock"), False, False, False, True, True, True,
+     ("void_between",), 12, False, ("idle", "fly", "glide", "heal", "hurt", "death"), 0xC0C0D8, True),
+    ("paradox_beast", "Paradox Beast", "monster", 34.0, 0.26, 8.0, 3.0, 1.4, 1.6,
+     ("terrain_use", "pack_tactics"), False, False, False, False, False, True,
+     ("void_between",), 6, False, ("idle", "walk", "run", "charge", "slam", "hurt", "death"), 0x6A3A5A, True),
+    ("static_crawler", "Static Crawler", "monster", 14.0, 0.33, 4.0, 1.0, 0.7, 0.5,
+     ("pack_tactics", "terrain_use"), False, False, True, False, True, True,
+     ("void_between",), 11, False, ("idle", "walk", "run", "attack", "burrow", "hurt", "death"), 0xE0E040, True),
+    ("dream_eater", "Dream Eater", "monster", 28.0, 0.29, 7.0, 2.0, 1.1, 1.3,
+     ("pack_tactics", "graze"), False, False, False, False, False, False,
+     ("void_between",), 7, True, ("idle", "walk", "run", "stalk", "attack", "devour", "hurt", "death"), 0x5A2A7A, True),
+    ("shardwing", "Shardwing", "creature", 12.0, 0.38, 3.0, 0.5, 0.9, 0.7,
+     ("ambient_fly", "flock"), False, False, False, True, True, True,
+     ("void_between",), 12, False, ("idle", "fly", "glide", "dive", "hurt", "death"), 0xA0D8FF, True),
+    ("inverse_grazer", "Inverse Grazer", "creature", 20.0, 0.22, 2.0, 3.0, 1.2, 1.2,
+     ("graze", "follow_herd"), False, False, False, True, True, False,
+     ("void_between",), 9, False, ("idle", "walk", "graze", "float", "hurt", "death"), 0x3A1A5A, True),
+    ("echo_husk", "Echo Husk", "monster", 20.0, 0.31, 5.0, 2.0, 0.9, 1.5,
+     ("pack_tactics", "follow_herd"), False, False, True, True, False, False,
+     ("void_between",), 9, False, ("idle", "walk", "run", "howl", "attack", "hurt", "death"), 0x3A3A5A, False),
+    ("unravel_spawn", "Unravel Spawn", "creature", 16.0, 0.27, 1.0, 1.0, 1.0, 1.0,
+     ("wander_trade", "barter"), False, True, False, False, False, False,
+     ("void_between",), 7, False, ("idle", "walk", "trade", "offer", "accept", "blink", "hurt", "death"), 0xFF90D0, True),
+]
+
+assert len(DIM_MOB_ROWS) == 30
+
+# ---------------------------------------------------------------------------
+# 5 structures per dimension + 3 overworld portal structures.
+# Same tuple shape as STRUCTURE_ROWS.
+# ---------------------------------------------------------------------------
+
+DIM_STRUCTURE_ROWS = [
+    # -- Hollow Deep --------------------------------------------------------
+    ("wardens_spire_arena", "Warden's Spire Arena", "hollow_deep", "boss_arena", 48, 18, 0.35, 256,
+     True, "warden_of_the_hollow_deep", "warden_spire_start", ("hollow_deep",), 5, "the_warden"),
+    ("glowroot_shrine", "Glowroot Shrine", "hollow_deep", "shrine", 22, 9, 0.65, 128,
+     False, None, "glowroot_shrine_start", ("hollow_deep",), 2, "rootkeepers"),
+    ("fossil_vault", "Fossil Vault", "hollow_deep", "tomb", 26, 10, 0.55, 160,
+     False, None, "fossil_vault_start", ("hollow_deep",), 3, "bonecharters"),
+    ("ember_siphon", "Ember Siphon", "hollow_deep", "forge", 30, 12, 0.5, 176,
+     False, None, "ember_siphon_start", ("hollow_deep",), 4, "siphonwrights"),
+    ("mycelium_circle", "Mycelium Circle", "hollow_deep", "shrine", 20, 8, 0.7, 112,
+     False, None, "mycelium_circle_start", ("hollow_deep",), 2, "myconids"),
+    # -- Aetherfall ---------------------------------------------------------
+    ("crowns_eyrie", "Crown's Eyrie", "aetherfall", "boss_arena", 48, 18, 0.35, 256,
+     True, "the_skyward_crown", "crowns_eyrie_start", ("aetherfall",), 5, "the_crown"),
+    ("skyglass_temple", "Skyglass Temple", "aetherfall", "temple", 24, 10, 0.6, 144,
+     False, None, "skyglass_temple_start", ("aetherfall",), 3, "glasspriests"),
+    ("windward_beacon", "Windward Beacon", "aetherfall", "tower", 28, 11, 0.55, 160,
+     False, None, "windward_beacon_start", ("aetherfall",), 3, "beaconkeepers"),
+    ("starfall_observatory", "Starfall Observatory", "aetherfall", "tower", 30, 12, 0.5, 176,
+     False, None, "starfall_observatory_start", ("aetherfall",), 4, "starwatchers"),
+    ("halo_gatehouse", "Halo Gatehouse", "aetherfall", "ruin", 22, 9, 0.65, 128,
+     False, None, "halo_gatehouse_start", ("aetherfall",), 2, "gatekeepers"),
+    # -- The Void Between ---------------------------------------------------
+    ("unraveling_nexus", "Unraveling Nexus", "void_between", "boss_arena", 48, 18, 0.35, 256,
+     True, "the_unraveling", "unraveling_nexus_start", ("void_between",), 5, "the_unraveling"),
+    ("paradox_arch", "Paradox Arch", "void_between", "ruin", 22, 9, 0.65, 128,
+     False, None, "paradox_arch_start", ("void_between",), 3, "archivists"),
+    ("mirror_vault", "Mirror Vault", "void_between", "dungeon", 26, 10, 0.55, 160,
+     False, None, "mirror_vault_start", ("void_between",), 4, "mirrorkeepers"),
+    ("static_ziggurat", "Static Ziggurat", "void_between", "pyramid", 32, 12, 0.5, 176,
+     False, None, "static_ziggurat_start", ("void_between",), 4, "static_priests"),
+    ("forgotten_library", "Forgotten Library", "void_between", "ruin", 28, 11, 0.55, 160,
+     False, None, "forgotten_library_start", ("void_between",), 4, "the_unwritten"),
+]
+
+assert len(DIM_STRUCTURE_ROWS) == 15
+
+# Overworld portal sites: a pre-built frame for each dimension so the portal is
+# reachable without prior knowledge of the recipe.  The key item still has to
+# be earned from the dimension's mob (a closed loop: the site shows where to go,
+# the key opens it).
+PORTAL_STRUCTURE_ROWS = [
+    ("hollow_deep_gate", "Hollow Deep Gate", "verdant", "portal", 40, 15, 0.4, 208,
+     False, None, "hollow_deep_gate_start", ("verdant", "mire"), 3, "gatekeepers"),
+    ("aetherfall_gate", "Aetherfall Gate", "sky", "portal", 40, 15, 0.4, 208,
+     False, None, "aetherfall_gate_start", ("sky", "storm"), 3, "gatekeepers"),
+    ("void_between_gate", "Void Between Gate", "void", "portal", 40, 15, 0.4, 208,
+     False, None, "void_between_gate_start", ("void",), 4, "gatekeepers"),
+]
+
+assert len(PORTAL_STRUCTURE_ROWS) == 3
+
+# ---------------------------------------------------------------------------
+# 3 dimension bosses (5 total with the two overworld bosses).
+# Same tuple shape as BOSS_ROWS.
+# ---------------------------------------------------------------------------
+
+DIM_BOSS_ROWS = [
+    ("warden_of_the_hollow_deep", "Warden of the Hollow Deep", 620.0, 0.22, 16.0, 3.2, 5.0,
+     "wardens_spire_arena", "music.biomesunseen.boss_warden",
+     ("buried", "awakens", "spire_risen", "collapse"),
+     ("slam", "tremor_wave", "tunnel_ambush", "spire_rise", "hollow_beam", "summon_glowmoth"),
+     "bosses/warden_of_the_hollow_deep", "hollow_deep", 0x2A8A6A, True),
+    ("the_skyward_crown", "The Skyward Crown", 560.0, 0.34, 14.0, 2.4, 3.8,
+     "crowns_eyrie", "music.biomesunseen.boss_crown",
+     ("descending", "haloed", "shardfall", "last_light"),
+     ("aerial_dive", "gust_knockback", "sunbeam", "shard_split", "orbit_shards", "summon_dawnfinch"),
+     "bosses/the_skyward_crown", "aetherfall", 0xFFD060, True),
+    ("the_unraveling", "The Unraveling", 700.0, 0.30, 18.0, 2.8, 4.0,
+     "unraveling_nexus", "music.biomesunseen.boss_unraveling",
+     ("quadruped", "serpent", "humanoid", "unmade"),
+     ("glitch_lunge", "rift_crawl", "reality_tear", "form_shift", "entropy_wave", "static_barrage"),
+     "bosses/the_unraveling", "void_between", 0xFF40A0, True),
+]
+
+assert len(DIM_BOSS_ROWS) == 3
+
+# ---------------------------------------------------------------------------
+# Combined catalog views.  Every emitter works from these so a target can
+# never ship a partial catalog.
+# ---------------------------------------------------------------------------
+
+ALL_BIOME_ROWS = BIOME_ROWS + DIM_BIOME_ROWS
+ALL_ORE_ROWS = ORE_ROWS + DIM_ORE_ROWS
+# Portal blocks are ordinary blocks with a glass-like look; the journey itself
+# is driven by the dimension key item (see PORTAL_ROWS / UnseenTravel).
+PORTAL_BLOCK_ROWS = [
+    ("hollow_deep_portal", "Hollow Deep Portal", 0x2A8A6A, "glass", "glass"),
+    ("aetherfall_portal", "Aetherfall Portal", 0x9AD8F0, "glass", "glass"),
+    ("void_between_portal", "Void Between Portal", 0x5A2A7A, "glass", "glass"),
+]
+
+ALL_DECOR_ROWS = DECOR_ROWS + DIM_STONE_ROWS + PORTAL_BLOCK_ROWS
+ALL_PLANT_ROWS = list(PLANT_ROWS)
+ALL_STRUCTURE_ROWS = STRUCTURE_ROWS + DIM_STRUCTURE_ROWS + PORTAL_STRUCTURE_ROWS
+ALL_MOB_ROWS = MOB_ROWS + DIM_MOB_ROWS
+ALL_BOSS_ROWS = BOSS_ROWS + DIM_BOSS_ROWS
+
+assert len(ALL_BIOME_ROWS) == 140
+assert len(ALL_ORE_ROWS) == 44
+assert len(ALL_DECOR_ROWS) == 30
+assert len(ALL_STRUCTURE_ROWS) == 48
+assert len(ALL_MOB_ROWS) == 55
+assert len(ALL_BOSS_ROWS) == 5
+
+# ---------------------------------------------------------------------------
+# Portal catalog.
+# ---------------------------------------------------------------------------
+
+PORTAL_ROWS = [
+    (d["id"], d["display"], d["frame"], d["portal"], d["key"],
+     d["source_mob"], d["arrival_y"])
+    for d in DIMENSION_DEFS
+]
+
+# ---------------------------------------------------------------------------
+# Extra sound events: dimension ambience/music and per-phase boss tracks.
+# ---------------------------------------------------------------------------
+
+for _d in DIMENSION_DEFS:
+    SOUND_EVENTS.append(_d["ambient"] if False else "ambient.biomesunseen.%s_loop" % _d["id"])
+    SOUND_EVENTS.append("music.biomesunseen.%s_theme" % _d["id"])
+    SOUND_EVENTS.append("entity.biomesunseen.%s.ambient" % _d["source_mob"])
+
+for _b in BOSS_ROWS + DIM_BOSS_ROWS:
+    for _phase in range(1, 5):
+        SOUND_EVENTS.append("music.biomesunseen.%s_phase%d" % (_b[0], _phase))
+
+SOUND_EVENTS = list(dict.fromkeys(SOUND_EVENTS))
+
+# Extra particle types used by the new dimensions.
+PARTICLE_TYPES.extend(["hollow_mote", "aurora_dust", "glitch_spark"])
+
+# ---------------------------------------------------------------------------
+# Advancements for the new dimensions and bosses.
+# ---------------------------------------------------------------------------
+
+ADVANCEMENT_ROWS.extend([
+    ("enter_hollow_deep", "Into the Hollow Deep", "Enter The Hollow Deep", "root"),
+    ("enter_aetherfall", "Above the Clouds", "Enter Aetherfall", "root"),
+    ("enter_void_between", "Between Everything", "Enter The Void Between", "root"),
+    ("warden_of_the_hollow_deep", "The Warden Falls", "Defeat the Warden of the Hollow Deep", "enter_hollow_deep"),
+    ("the_skyward_crown", "Crownbreaker", "Defeat The Skyward Crown", "enter_aetherfall"),
+    ("the_unraveling", "Unmade", "Defeat The Unraveling", "enter_void_between"),
+    ("boss_master", "Warden of Five", "Defeat all five bosses", "boss_hunter"),
+])

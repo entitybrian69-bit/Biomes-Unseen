@@ -1,0 +1,15 @@
+{
+  "parent": "biomesunseen:enter_void_between",
+  "display": {
+    "icon": {
+      "item": "biomesunseen:unseen_sigil"
+    },
+    "title": "Unmade",
+    "description": "Defeat The Unraveling"
+  },
+  "criteria": {
+    "tick": {
+      "trigger": "minecraft:tick"
+    }
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "SGS",
+    "GKG",
+    "SGS"
+  ],
+  "key": {
+    "S": {
+      "item": "biomesunseen:voidstone"
+    },
+    "G": {
+      "item": "biomesunseen:unseen_sigil"
+    },
+    "K": {
+      "item": "biomesunseen:nullite_tonic"
+    }
+  },
+  "result": {
+    "item": "biomesunseen:void_between_key",
+    "count": 1
+  }
+}

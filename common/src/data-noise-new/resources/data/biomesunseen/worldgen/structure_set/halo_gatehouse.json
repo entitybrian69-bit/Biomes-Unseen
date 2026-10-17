@@ -1,0 +1,15 @@
+{
+  "structures": [
+    {
+      "structure": "biomesunseen:halo_gatehouse",
+      "weight": 6
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "salt": 58472,
+    "spacing": 22,
+    "separation": 9,
+    "spread_type": "linear"
+  }
+}

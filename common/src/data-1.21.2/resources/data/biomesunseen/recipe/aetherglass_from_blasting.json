@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:blasting",
+  "ingredient": {
+    "item": "biomesunseen:aetherglass_ore"
+  },
+  "result": "biomesunseen:aetherglass",
+  "experience": 0.7,
+  "cookingtime": 100
+}

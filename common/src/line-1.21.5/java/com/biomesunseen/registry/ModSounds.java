@@ -13,7 +13,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 /**
- * All 33 sound events: biome ambience, music, mob calls and block sounds.
+ * All 62 sound events: biome ambience, music, mob calls and block sounds.
  */
 public final class ModSounds {
 

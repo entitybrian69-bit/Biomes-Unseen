@@ -3,15 +3,28 @@
 
 import os
 
-from content import (MOD_ID, ORE_ROWS, DECOR_ROWS, PLANT_ROWS, MOB_ROWS,
-                     BOSS_ROWS, STRUCTURE_ROWS, SOUND_EVENTS, PARTICLE_TYPES,
-                     BIOME_GROUPS)
+from content import (MOD_ID, ALL_ORE_ROWS as ORE_ROWS,
+                     ALL_DECOR_ROWS as DECOR_ROWS, ALL_PLANT_ROWS as PLANT_ROWS,
+                     ALL_MOB_ROWS as MOB_ROWS, ALL_BOSS_ROWS as BOSS_ROWS,
+                     ALL_STRUCTURE_ROWS as STRUCTURE_ROWS, SOUND_EVENTS,
+                     PARTICLE_TYPES, BIOME_GROUPS, PORTAL_ROWS, DIMENSION_DEFS)
 from lines import LINES, types_for, registry_constant
 from emit_families import _w, _s, _camel, _imports, _sound_event_expr, _reg
 
 
 def emit_registries(root, line_key):
     F = LINES[line_key]
+    portal_rows = "".join(
+        '            {"%s", "%s"},\n' % (p[0], p[4]) for p in PORTAL_ROWS)
+    portal_key_loop = (
+        "        String[][] portalKeys = {\n"
+        + portal_rows +
+        "        };\n"
+        "        for (final String[] portal : portalKeys) {\n"
+        "            PORTAL_KEYS.put(portal[1], track(ModRegistries.ITEMS.register(portal[1],\n"
+        "                    () -> new com.biomesunseen.item.UnseenPortalKeyItem(portal[0],\n"
+        "                            new Item.Properties()%(props_plain)s))));\n"
+        "        }\n")
     T = types_for(F)
     base = "common/src/line-%s/java/com/biomesunseen" % line_key
     legacy = F["pkgs"] == "legacy"
@@ -426,8 +439,7 @@ public final class ModParticles {
 
 %(imports)s
 
-import com.biomesunseen.entity.boss.HeartOfTheForestEntity;
-import com.biomesunseen.entity.boss.VoidSerpentEntity;
+import com.biomesunseen.entity.boss.*;
 import com.biomesunseen.entity.mobs.*;
 
 import me.shedaniel.architectury.registry.EntityAttributeRegistry;
@@ -626,6 +638,12 @@ public final class ModItems {
     /** mob id -> trophy drop item */
     public static final Map<String, RegistrySupplier<Item>> TROPHIES =
             new LinkedHashMap<String, RegistrySupplier<Item>>();
+    /** dimension id -> portal key item */
+    public static final Map<String, RegistrySupplier<Item>> PORTAL_KEYS =
+            new LinkedHashMap<String, RegistrySupplier<Item>>();
+    /** boss id -> unique relic drop */
+    public static final Map<String, RegistrySupplier<Item>> BOSS_RELICS =
+            new LinkedHashMap<String, RegistrySupplier<Item>>();
 
     private static RegistrySupplier<Item> track(RegistrySupplier<Item> supplier) {
         ALL_ITEMS.add(supplier);
@@ -740,6 +758,17 @@ public final class ModItems {
                     mobId + "_trophy",
                     () -> new Item(new Item.Properties()%(props_plain)s))));
         }
+
+        // Dimension keys: right-click to enter the dimension, or to return to
+        // the overworld when standing inside it.
+%(portal_key_loop)s
+        // Unique relic dropped by every boss (guaranteed, one per kill).
+        for (int i = 0; i < Content.BOSSES.size(); i++) {
+            final String bossId = Content.BOSSES.get(i).id;
+            BOSS_RELICS.put(bossId, track(ModRegistries.ITEMS.register(
+                    bossId + "_relic",
+                    () -> new Item(new Item.Properties()%(props_plain)s))));
+        }
     }
 
     public static RegistrySupplier<Item> mineral(String oreId) {
@@ -753,6 +782,7 @@ public final class ModItems {
         "tabs_register": tabs_register,
         "tab_setup": tab_setup,
         "props16": props16,
+        "portal_key_loop": portal_key_loop,
         "props_plain": props_plain,
         "props_one": props_one,
         "n_minerals": len(ORE_ROWS),
@@ -1034,6 +1064,48 @@ public class UnseenTonicItem extends Item {
         return InteractionResultHolder.success(stack);
     }
 '''
+    _w(root, base + "/item/UnseenPortalKeyItem.java",
+       '''package com.biomesunseen.item;
+
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResultHolder;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.Level;
+
+import com.biomesunseen.worldgen.UnseenTravel;
+
+/**
+ * Dimension key.  Right-clicking with it either opens the way into the key's
+ * dimension or, when already inside, carries the player back to the overworld
+ * spawn.  The destination is looked up by dimension id at use time so the same
+ * item works before and after the dimension is registered.
+ */
+public class UnseenPortalKeyItem extends Item {
+
+    private final String dimensionId;
+
+    public UnseenPortalKeyItem(String dimensionId, Item.Properties properties) {
+        super(properties);
+        this.dimensionId = dimensionId;
+    }
+
+    public String dimensionId() {
+        return dimensionId;
+    }
+
+    @Override
+    public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
+        ItemStack stack = player.getItemInHand(hand);
+        if (!level.isClientSide) {
+            UnseenTravel.travel(level, player, dimensionId);
+        }
+        return InteractionResultHolder.success(stack);
+    }
+}
+''')
+
     _w(root, base + "/item/LoreBookItem.java", '''package com.biomesunseen.item;
 
 %(use_imports)s

@@ -267,6 +267,306 @@
         "verdant",
         "crystal"
       ]
+    },
+    {
+      "id": "biomesunseen:glowmoth",
+      "weight": 12,
+      "categories": [
+        "creature"
+      ],
+      "groups": [
+        "hollow_deep"
+      ]
+    },
+    {
+      "id": "biomesunseen:tunnel_hound",
+      "weight": 10,
+      "categories": [
+        "monster"
+      ],
+      "groups": [
+        "hollow_deep"
+      ]
+    },
+    {
+      "id": "biomesunseen:crystal_beetle",
+      "weight": 9,
+      "categories": [
+        "creature"
+      ],
+      "groups": [
+        "hollow_deep"
+      ]
+    },
+    {
+      "id": "biomesunseen:magma_snail",
+      "weight": 9,
+      "categories": [
+        "creature"
+      ],
+      "groups": [
+        "hollow_deep"
+      ]
+    },
+    {
+      "id": "biomesunseen:echo_bat",
+      "weight": 13,
+      "categories": [
+        "creature"
+      ],
+      "groups": [
+        "hollow_deep"
+      ]
+    },
+    {
+      "id": "biomesunseen:root_gnawer",
+      "weight": 10,
+      "categories": [
+        "monster"
+      ],
+      "groups": [
+        "hollow_deep"
+      ]
+    },
+    {
+      "id": "biomesunseen:deep_lurker",
+      "weight": 6,
+      "categories": [
+        "monster"
+      ],
+      "groups": [
+        "hollow_deep"
+      ]
+    },
+    {
+      "id": "biomesunseen:lantern_jelly",
+      "weight": 11,
+      "categories": [
+        "creature"
+      ],
+      "groups": [
+        "hollow_deep"
+      ]
+    },
+    {
+      "id": "biomesunseen:stoneback",
+      "weight": 7,
+      "categories": [
+        "creature"
+      ],
+      "groups": [
+        "hollow_deep"
+      ]
+    },
+    {
+      "id": "biomesunseen:mycopath",
+      "weight": 8,
+      "categories": [
+        "creature"
+      ],
+      "groups": [
+        "hollow_deep"
+      ]
+    },
+    {
+      "id": "biomesunseen:skyray",
+      "weight": 12,
+      "categories": [
+        "creature"
+      ],
+      "groups": [
+        "aetherfall"
+      ]
+    },
+    {
+      "id": "biomesunseen:cloud_heron",
+      "weight": 10,
+      "categories": [
+        "creature"
+      ],
+      "groups": [
+        "aetherfall"
+      ]
+    },
+    {
+      "id": "biomesunseen:zephyr_pup",
+      "weight": 11,
+      "categories": [
+        "creature"
+      ],
+      "groups": [
+        "aetherfall"
+      ]
+    },
+    {
+      "id": "biomesunseen:island_tortoise",
+      "weight": 7,
+      "categories": [
+        "creature"
+      ],
+      "groups": [
+        "aetherfall"
+      ]
+    },
+    {
+      "id": "biomesunseen:dawnfinch",
+      "weight": 14,
+      "categories": [
+        "creature"
+      ],
+      "groups": [
+        "aetherfall"
+      ]
+    },
+    {
+      "id": "biomesunseen:storm_jay",
+      "weight": 12,
+      "categories": [
+        "creature"
+      ],
+      "groups": [
+        "aetherfall"
+      ]
+    },
+    {
+      "id": "biomesunseen:summit_ram",
+      "weight": 8,
+      "categories": [
+        "creature"
+      ],
+      "groups": [
+        "aetherfall"
+      ]
+    },
+    {
+      "id": "biomesunseen:mistgraz",
+      "weight": 10,
+      "categories": [
+        "creature"
+      ],
+      "groups": [
+        "aetherfall"
+      ]
+    },
+    {
+      "id": "biomesunseen:star_serpent",
+      "weight": 7,
+      "categories": [
+        "monster"
+      ],
+      "groups": [
+        "aetherfall"
+      ]
+    },
+    {
+      "id": "biomesunseen:windlark",
+      "weight": 13,
+      "categories": [
+        "creature"
+      ],
+      "groups": [
+        "aetherfall"
+      ]
+    },
+    {
+      "id": "biomesunseen:glitchling",
+      "weight": 13,
+      "categories": [
+        "monster"
+      ],
+      "groups": [
+        "void_between"
+      ]
+    },
+    {
+      "id": "biomesunseen:null_stalker",
+      "weight": 9,
+      "categories": [
+        "monster"
+      ],
+      "groups": [
+        "void_between"
+      ]
+    },
+    {
+      "id": "biomesunseen:mirror_wisp",
+      "weight": 12,
+      "categories": [
+        "creature"
+      ],
+      "groups": [
+        "void_between"
+      ]
+    },
+    {
+      "id": "biomesunseen:paradox_beast",
+      "weight": 6,
+      "categories": [
+        "monster"
+      ],
+      "groups": [
+        "void_between"
+      ]
+    },
+    {
+      "id": "biomesunseen:static_crawler",
+      "weight": 11,
+      "categories": [
+        "monster"
+      ],
+      "groups": [
+        "void_between"
+      ]
+    },
+    {
+      "id": "biomesunseen:dream_eater",
+      "weight": 7,
+      "categories": [
+        "monster"
+      ],
+      "groups": [
+        "void_between"
+      ]
+    },
+    {
+      "id": "biomesunseen:shardwing",
+      "weight": 12,
+      "categories": [
+        "creature"
+      ],
+      "groups": [
+        "void_between"
+      ]
+    },
+    {
+      "id": "biomesunseen:inverse_grazer",
+      "weight": 9,
+      "categories": [
+        "creature"
+      ],
+      "groups": [
+        "void_between"
+      ]
+    },
+    {
+      "id": "biomesunseen:echo_husk",
+      "weight": 9,
+      "categories": [
+        "monster"
+      ],
+      "groups": [
+        "void_between"
+      ]
+    },
+    {
+      "id": "biomesunseen:unravel_spawn",
+      "weight": 7,
+      "categories": [
+        "creature"
+      ],
+      "groups": [
+        "void_between"
+      ]
     }
   ]
 }

@@ -1,0 +1,15 @@
+{
+  "structures": [
+    {
+      "structure": "biomesunseen:windward_beacon",
+      "weight": 6
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "salt": 65696,
+    "spacing": 28,
+    "separation": 11,
+    "spread_type": "linear"
+  }
+}

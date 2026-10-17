@@ -1,0 +1,15 @@
+{
+  "parent": "biomesunseen:root",
+  "display": {
+    "icon": {
+      "item": "biomesunseen:unseen_sigil"
+    },
+    "title": "Between Everything",
+    "description": "Enter The Void Between"
+  },
+  "criteria": {
+    "tick": {
+      "trigger": "minecraft:tick"
+    }
+  }
+}

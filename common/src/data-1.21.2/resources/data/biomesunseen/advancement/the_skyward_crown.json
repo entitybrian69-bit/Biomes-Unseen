@@ -1,0 +1,15 @@
+{
+  "parent": "biomesunseen:enter_aetherfall",
+  "display": {
+    "icon": {
+      "item": "biomesunseen:unseen_sigil"
+    },
+    "title": "Crownbreaker",
+    "description": "Defeat The Skyward Crown"
+  },
+  "criteria": {
+    "tick": {
+      "trigger": "minecraft:tick"
+    }
+  }
+}

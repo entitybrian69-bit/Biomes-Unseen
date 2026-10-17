@@ -1,0 +1,15 @@
+{
+  "structures": [
+    {
+      "structure": "biomesunseen:crowns_eyrie",
+      "weight": 4
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "salt": 96368,
+    "spacing": 48,
+    "separation": 18,
+    "spread_type": "linear"
+  }
+}

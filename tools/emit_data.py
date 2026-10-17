@@ -6,10 +6,38 @@ overworld multi-noise parameter list."""
 import json
 import os
 
-from content import (BIOME_ROWS, BIOME_GROUPS, ORE_ROWS, DECOR_ROWS, PLANT_ROWS,
-                     MOB_ROWS, BOSS_ROWS, STRUCTURE_ROWS, ADVANCEMENT_ROWS)
+from content import (ALL_BIOME_ROWS as BIOME_ROWS, BIOME_GROUPS,
+                     BIOME_ROWS as OVERWORLD_BIOME_ROWS,
+                     ALL_ORE_ROWS as ORE_ROWS, ALL_DECOR_ROWS as DECOR_ROWS,
+                     ALL_PLANT_ROWS as PLANT_ROWS,
+                     ALL_MOB_ROWS as MOB_ROWS, ALL_BOSS_ROWS as BOSS_ROWS,
+                     ALL_STRUCTURE_ROWS as STRUCTURE_ROWS, ADVANCEMENT_ROWS,
+                     DIMENSION_DEFS, DIM_BIOME_ROWS, PORTAL_ROWS)
 from lines import LINES, MC_TO_LINE
 import nbt
+
+
+BOSS_MINIONS = {
+    "heart_of_the_forest": "brambleback",
+    "void_serpent": "star_whale",
+    "warden_of_the_hollow_deep": "stoneback",
+    "the_skyward_crown": "summit_ram",
+    "the_unraveling": "echo_husk",
+}
+
+
+def minion_for(boss_id):
+    return BOSS_MINIONS.get(boss_id, "lumox")
+
+
+# Ore that every boss drops in bulk: the deepest, rarest one per dimension.
+BOSS_ORE = {
+    "heart_of_the_forest": "sylvanite",
+    "void_serpent": "voidshard",
+    "warden_of_the_hollow_deep": "corestone",
+    "the_skyward_crown": "starfall_ore",
+    "the_unraveling": "finality",
+}
 
 
 def _stable_salt(sid):
@@ -88,6 +116,13 @@ def _palette_for(group):
                 "minecraft:quartz_pillar", "minecraft:glass"],
         "void": ["biomesunseen:void_veined_stone", "biomesunseen:nullglass",
                  "minecraft:deepslate_bricks", "minecraft:crying_obsidian"],
+        # The three expansion dimensions build from their own stone palettes.
+        "hollow_deep": ["biomesunseen:hollowstone", "biomesunseen:glowgabbro",
+                        "biomesunseen:deepslate_marrow", "biomesunseen:fossilshale"],
+        "aetherfall": ["biomesunseen:skyglass", "biomesunseen:cloudstone",
+                       "biomesunseen:dawnquartzite", "biomesunseen:windslate"],
+        "void_between": ["biomesunseen:voidstone", "biomesunseen:nullslate",
+                         "biomesunseen:echoeslate", "biomesunseen:static_breccia"],
     }
     return base[group]
 
@@ -373,7 +408,7 @@ def _overworld_parameter_list():
 
     # Biomes Unseen entries: each biome gets a distinct climate point derived
     # from its temperature/downfall with jitter from its id hash.
-    for idx, (bid, display, group, depth, scale, temp, downfall, rarity, weather) in enumerate(BIOME_ROWS):
+    for idx, (bid, display, group, depth, scale, temp, downfall, rarity, weather) in enumerate(OVERWORLD_BIOME_ROWS):
         t = round((temp - 0.7) * 1.6, 2)
         h = round((downfall - 0.5) * 1.8, 2)
         c = round(-0.1 + (idx % 7) * 0.05, 2)
@@ -383,6 +418,53 @@ def _overworld_parameter_list():
         entries.append(entry("biomesunseen:" + bid, t, h, c, e, dpt, wd))
 
     return {"biomes": entries}
+
+
+def _dimension_parameter_list(dim):
+    """Multi-noise parameter list for one custom dimension: its 20 biomes plus
+    one vanilla fallback so every climate point resolves."""
+    entries = []
+    rows = [r for r in DIM_BIOME_ROWS if r[2] == dim["group"]]
+    for idx, (bid, display, group, depth, scale, temp, downfall, rarity, weather) in enumerate(rows):
+        entries.append({
+            "biome": "biomesunseen:" + bid,
+            "parameters": {
+                "temperature": max(-2.0, min(2.0, round((temp - 0.7) * 1.6, 2))),
+                "humidity": max(-2.0, min(2.0, round((downfall - 0.5) * 1.8, 2))),
+                "continentalness": max(-2.0, min(2.0, round(-0.1 + (idx % 7) * 0.05, 2))),
+                "erosion": max(-2.0, min(2.0, round(((idx * 37) % 11 - 5) / 10.0, 2))),
+                "depth": max(-2.0, min(2.0, round(depth / 3.0, 2))),
+                "weirdness": max(-2.0, min(2.0, round(((idx * 17) % 9 - 4) / 12.0, 2))),
+                "offset": 0.0,
+            },
+        })
+    entries.append({
+        "biome": dim["fill_biome"],
+        "parameters": {
+            "temperature": 0.0, "humidity": 0.0, "continentalness": 0.0,
+            "erosion": 0.0, "depth": 0.0, "weirdness": 0.0, "offset": 0.0,
+        },
+    })
+    return entries
+
+
+def _dimension_def(dim, style):
+    """Dimension JSON.  Vanilla dimension types are reused so the file stays
+    valid from 1.16.5 through 26.x - the custom sky/fog identity lives in the
+    biome effects, which every one of those versions reads."""
+    settings = dim["settings"]
+    if style[0] == "legacy":
+        # caves/floating_islands noise settings do not exist before 1.18.
+        settings = "overworld"
+    return {
+        "type": dim["dimension_type"],
+        "generator": {
+            "type": "minecraft:noise",
+            "settings": "minecraft:%s" % settings,
+            "biome_source": {"type": "minecraft:multi_noise",
+                             "biomes": _dimension_parameter_list(dim)},
+        },
+    }
 
 
 def _dimension_overworld(biomes):
@@ -528,6 +610,11 @@ def emit_tree(root, style_name, style):
             _wj(root, "%s/data/minecraft/worldgen/world_preset/%s.json"
                 % (base, preset_id), _world_preset(biomes, settings))
 
+    # ---------------- custom dimensions ----------------
+    for dim in DIMENSION_DEFS:
+        _wj(root, "%s/%s/dimension/%s.json" % (base, ns, dim["id"]),
+            _dimension_def(dim, style))
+
     # ---------------- loot tables ----------------
     for ore in ORES:
         _wj(root, "%s/%s/%s/blocks/%s_ore.json" % (base, ns, loot_dir, ore.id),
@@ -551,32 +638,53 @@ def emit_tree(root, style_name, style):
                                      "name": "biomesunseen:%s" % pid}]}]})
     for mrow in MOB_ROWS:
         mid = mrow[0]
+        pools = [{"rolls": 1,
+                  "entries": [{"type": "minecraft:item",
+                               "name": "biomesunseen:%s_trophy" % mid,
+                               "functions": [{"function": "minecraft:set_count",
+                                              "count": {"type": "minecraft:uniform",
+                                                        "min": 0, "max": 2}}]}]}]
+        for dim in DIMENSION_DEFS:
+            if dim["source_mob"] == mid:
+                # The dimension key: always dropped so the portal is reachable
+                # on every world, no configuration required.
+                pools.append({"rolls": 1,
+                              "entries": [{"type": "minecraft:item",
+                                           "name": "biomesunseen:%s" % dim["key"]}]})
         _wj(root, "%s/%s/%s/entities/%s.json" % (base, ns, loot_dir, mid),
-            {"type": "minecraft:entity",
-             "pools": [{"rolls": 1,
-                        "entries": [{"type": "minecraft:item",
-                                     "name": "biomesunseen:%s_trophy" % mid,
-                                     "functions": [{"function": "minecraft:set_count",
-                                                    "count": {"type": "minecraft:uniform",
-                                                              "min": 0, "max": 2}}]}]}]})
+            {"type": "minecraft:entity", "pools": pools})
     for brow in BOSS_ROWS:
         bid = brow[0]
+        ore_name = BOSS_ORE.get(bid, "voidshard")
         _wj(root, "%s/%s/%s/entities/%s.json" % (base, ns, loot_dir, bid),
             {"type": "minecraft:entity",
              "pools": [
+                 # Guaranteed unique boss relic.
+                 {"rolls": 1,
+                  "entries": [{"type": "minecraft:item",
+                               "name": "biomesunseen:%s_relic" % bid}]},
                  {"rolls": 1,
                   "entries": [{"type": "minecraft:item",
                                "name": "biomesunseen:unseen_sigil"}]},
                  {"rolls": {"type": "minecraft:uniform", "min": 3, "max": 6},
                   "entries": [{"type": "minecraft:item",
-                               "name": "biomesunseen:%s" % brow[10].split("/")[-1]
-                               if False else "biomesunseen:voidshard"}]},
+                               "name": "biomesunseen:%s" % ore_name}]},
                  {"rolls": 1,
                   "entries": [{"type": "minecraft:item",
-                               "name": "biomesunseen:%s_trophy" % ("brambleback" if bid == "heart_of_the_forest" else "star_whale")}]}
+                               "name": "biomesunseen:%s_trophy" % minion_for(bid)}]}
              ]})
 
     # ---------------- recipes ----------------
+    for dim in DIMENSION_DEFS:
+        _wj(root, "%s/%s/%s/%s_key.json" % (base, ns, recipe_dir, dim["id"]),
+            {"type": "minecraft:crafting_shaped",
+             "pattern": ["SGS", "GKG", "SGS"],
+             "key": {
+                 "S": {"item": "biomesunseen:%s" % dim["frame"]},
+                 "G": {"item": "biomesunseen:unseen_sigil"},
+                 "K": {"item": "biomesunseen:%s_tonic" % dim["key_ore"]},
+             },
+             "result": {"item": "biomesunseen:%s" % dim["key"], "count": 1}})
     for ore in ORES:
         _wj(root, "%s/%s/%s/%s_from_smelting.json" % (base, ns, recipe_dir, ore.id),
             {"type": "minecraft:smelting",

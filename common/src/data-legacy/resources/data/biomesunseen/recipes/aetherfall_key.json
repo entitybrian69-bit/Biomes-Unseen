@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "SGS",
+    "GKG",
+    "SGS"
+  ],
+  "key": {
+    "S": {
+      "item": "biomesunseen:skyglass"
+    },
+    "G": {
+      "item": "biomesunseen:unseen_sigil"
+    },
+    "K": {
+      "item": "biomesunseen:skyiron_tonic"
+    }
+  },
+  "result": {
+    "item": "biomesunseen:aetherfall_key",
+    "count": 1
+  }
+}

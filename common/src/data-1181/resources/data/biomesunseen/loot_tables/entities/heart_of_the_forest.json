@@ -6,6 +6,15 @@
       "entries": [
         {
           "type": "minecraft:item",
+          "name": "biomesunseen:heart_of_the_forest_relic"
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
           "name": "biomesunseen:unseen_sigil"
         }
       ]
@@ -19,7 +28,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "biomesunseen:voidshard"
+          "name": "biomesunseen:sylvanite"
         }
       ]
     },

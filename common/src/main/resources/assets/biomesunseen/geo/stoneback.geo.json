@@ -1,0 +1,191 @@
+{
+  "format_version": "1.12.0",
+  "minecraft:geometry": [
+    {
+      "description": {
+        "identifier": "geometry.stoneback",
+        "texture_width": 32,
+        "texture_height": 32,
+        "visible_bounds_width": 3,
+        "visible_bounds_height": 3,
+        "visible_bounds_offset": [
+          0,
+          1,
+          0
+        ]
+      },
+      "bones": [
+        {
+          "name": "root",
+          "pivot": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "body",
+          "parent": "root",
+          "pivot": [
+            0,
+            12,
+            0
+          ],
+          "cubes": [
+            {
+              "origin": [
+                -12,
+                2,
+                -12
+              ],
+              "size": [
+                24,
+                12,
+                23
+              ],
+              "uv": [
+                16,
+                16
+              ]
+            }
+          ]
+        },
+        {
+          "name": "head",
+          "parent": "body",
+          "pivot": [
+            0,
+            16,
+            -13
+          ],
+          "cubes": [
+            {
+              "origin": [
+                -6,
+                12,
+                -23
+              ],
+              "size": [
+                11,
+                11,
+                11
+              ],
+              "uv": [
+                0,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "name": "leg0",
+          "parent": "root",
+          "pivot": [
+            -11,
+            8,
+            10
+          ],
+          "cubes": [
+            {
+              "origin": [
+                -12,
+                0,
+                9
+              ],
+              "size": [
+                3,
+                8,
+                3
+              ],
+              "uv": [
+                0,
+                16
+              ]
+            }
+          ]
+        },
+        {
+          "name": "leg1",
+          "parent": "root",
+          "pivot": [
+            11,
+            8,
+            10
+          ],
+          "cubes": [
+            {
+              "origin": [
+                9,
+                0,
+                9
+              ],
+              "size": [
+                3,
+                8,
+                3
+              ],
+              "uv": [
+                0,
+                16
+              ]
+            }
+          ]
+        },
+        {
+          "name": "leg2",
+          "parent": "root",
+          "pivot": [
+            -11,
+            8,
+            -11
+          ],
+          "cubes": [
+            {
+              "origin": [
+                -12,
+                0,
+                -12
+              ],
+              "size": [
+                3,
+                8,
+                3
+              ],
+              "uv": [
+                0,
+                16
+              ]
+            }
+          ]
+        },
+        {
+          "name": "leg3",
+          "parent": "root",
+          "pivot": [
+            11,
+            8,
+            -11
+          ],
+          "cubes": [
+            {
+              "origin": [
+                9,
+                0,
+                -12
+              ],
+              "size": [
+                3,
+                8,
+                3
+              ],
+              "uv": [
+                0,
+                16
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

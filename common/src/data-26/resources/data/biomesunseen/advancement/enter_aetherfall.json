@@ -1,0 +1,15 @@
+{
+  "parent": "biomesunseen:root",
+  "display": {
+    "icon": {
+      "item": "biomesunseen:unseen_sigil"
+    },
+    "title": "Above the Clouds",
+    "description": "Enter Aetherfall"
+  },
+  "criteria": {
+    "tick": {
+      "trigger": "minecraft:tick"
+    }
+  }
+}

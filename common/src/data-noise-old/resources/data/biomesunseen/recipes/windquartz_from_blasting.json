@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:blasting",
+  "ingredient": {
+    "item": "biomesunseen:windquartz_ore"
+  },
+  "result": "biomesunseen:windquartz",
+  "experience": 0.7,
+  "cookingtime": 100
+}

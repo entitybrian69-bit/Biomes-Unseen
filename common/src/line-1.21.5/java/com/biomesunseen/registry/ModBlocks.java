@@ -18,7 +18,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 /**
- * All 42 blocks: 20 ores, 12 palette blocks and
+ * All 84 blocks: 44 ores, 30 palette blocks and
            10 plants.
  */
 public final class ModBlocks {

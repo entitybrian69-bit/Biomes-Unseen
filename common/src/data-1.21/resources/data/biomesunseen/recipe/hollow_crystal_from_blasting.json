@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:blasting",
+  "ingredient": {
+    "item": "biomesunseen:hollow_crystal_ore"
+  },
+  "result": "biomesunseen:hollow_crystal",
+  "experience": 0.7,
+  "cookingtime": 100
+}

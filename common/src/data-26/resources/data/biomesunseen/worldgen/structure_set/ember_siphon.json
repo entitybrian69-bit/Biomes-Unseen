@@ -1,0 +1,15 @@
+{
+  "structures": [
+    {
+      "structure": "biomesunseen:ember_siphon",
+      "weight": 5
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "salt": 21125,
+    "spacing": 30,
+    "separation": 12,
+    "spread_type": "linear"
+  }
+}

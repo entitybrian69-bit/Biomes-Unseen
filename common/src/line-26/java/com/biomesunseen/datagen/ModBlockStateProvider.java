@@ -8,7 +8,7 @@ import com.biomesunseen.core.PlantDef;
 import java.nio.file.Path;
 
 /**
- * Generates blockstates and block models for all 42 blocks.
+ * Generates blockstates and block models for all 84 blocks.
  */
 public final class ModBlockStateProvider {
 

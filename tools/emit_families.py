@@ -5,9 +5,12 @@ emit_families2.py.  Every line tree is complete, standalone Java."""
 
 import os
 
-from content import (MOD_ID, ORE_ROWS, DECOR_ROWS, PLANT_ROWS, BIOME_ROWS,
-                     STRUCTURE_ROWS, MOB_ROWS, BOSS_ROWS, CONFIG_ROWS,
-                     PARTICLE_TYPES)
+from content import (MOD_ID, ALL_ORE_ROWS as ORE_ROWS,
+                     ALL_DECOR_ROWS as DECOR_ROWS, ALL_PLANT_ROWS as PLANT_ROWS,
+                     ALL_BIOME_ROWS as BIOME_ROWS,
+                     ALL_STRUCTURE_ROWS as STRUCTURE_ROWS,
+                     ALL_MOB_ROWS as MOB_ROWS, ALL_BOSS_ROWS as BOSS_ROWS,
+                     CONFIG_ROWS, PARTICLE_TYPES)
 from lines import LINES, types_for, registry_constant
 
 PKG = "com/biomesunseen"

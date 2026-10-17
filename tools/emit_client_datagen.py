@@ -3,8 +3,11 @@
 
 import os
 
-from content import (MOB_ROWS, BOSS_ROWS, ORE_ROWS, DECOR_ROWS, PLANT_ROWS,
-                     PARTICLE_TYPES, BIOME_ROWS, STRUCTURE_ROWS)
+from content import (ALL_MOB_ROWS as MOB_ROWS, ALL_BOSS_ROWS as BOSS_ROWS,
+                     ALL_ORE_ROWS as ORE_ROWS, ALL_DECOR_ROWS as DECOR_ROWS,
+                     ALL_PLANT_ROWS as PLANT_ROWS, PARTICLE_TYPES,
+                     ALL_BIOME_ROWS as BIOME_ROWS,
+                     ALL_STRUCTURE_ROWS as STRUCTURE_ROWS)
 from lines import LINES
 from emit_families import _w, _s, _camel
 

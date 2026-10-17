@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:blasting",
+  "ingredient": {
+    "item": "biomesunseen:abyss_opal_ore"
+  },
+  "result": "biomesunseen:abyss_opal",
+  "experience": 0.7,
+  "cookingtime": 100
+}

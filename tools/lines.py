@@ -334,3 +334,43 @@ def line_source_root(line_key):
 
 def line_resource_root(line_key):
     return "common/src/line-%s/resources" % line_key
+
+
+# ---------------------------------------------------------------------------
+# Cross-dimension teleport API generation.
+#
+# javap over the 33 API probes shows exactly three shapes for the call that
+# moves a player into another ServerLevel (see docs/api-probe):
+#   * "legacy": Entity#changeDimension(ServerLevel)               ... 1.16.5-1.20.6
+#   * "set":    Entity#teleportTo(ServerLevel, x, y, z, Set, f, f) ... 1.21, 1.21.1
+#   * "set8":   same + trailing boolean (setCamera)               ... 1.21.2+
+# The boolean form replaced the Set-only form in 1.21.2; changeDimension lost
+# its ServerLevel overload in 1.21 when DimensionTransition was introduced.
+# ---------------------------------------------------------------------------
+
+_TRAVEL_SET = ("1.21", "1.21.1")
+
+
+def _version_tuple(mc):
+    parts = []
+    for chunk in str(mc).split("."):
+        try:
+            parts.append(int(chunk))
+        except ValueError:
+            parts.append(0)
+    while len(parts) < 3:
+        parts.append(0)
+    return tuple(parts[:3])
+
+
+def travel_api(mc):
+    """Return the teleport code shape for an exact Minecraft version."""
+    if str(mc) in _TRAVEL_SET:
+        return "set"
+    if _version_tuple(mc) >= (1, 21, 2):
+        return "set8"
+    return "legacy"
+
+
+def travel_api_for_line(line_key):
+    return travel_api(LINES[line_key]["mc"])

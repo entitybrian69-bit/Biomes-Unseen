@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:blasting",
+  "ingredient": {
+    "item": "biomesunseen:glitchstone_ore"
+  },
+  "result": "biomesunseen:glitchstone",
+  "experience": 0.7,
+  "cookingtime": 100
+}

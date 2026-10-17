@@ -1,0 +1,15 @@
+{
+  "structures": [
+    {
+      "structure": "biomesunseen:mycelium_circle",
+      "weight": 7
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "salt": 12589,
+    "spacing": 20,
+    "separation": 8,
+    "spread_type": "linear"
+  }
+}

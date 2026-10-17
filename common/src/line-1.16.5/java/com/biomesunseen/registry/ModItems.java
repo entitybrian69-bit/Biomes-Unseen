@@ -27,9 +27,9 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * All items: 20 ore minerals, 120 gear pieces, 20
- * tonics, 4 machine cores, 27 spawn eggs, 29 lore
- * books, 25 mob trophies and the tab sigil.  Everything is
+ * All items: 44 ore minerals, 264 gear pieces, 44
+ * tonics, 4 machine cores, 60 spawn eggs, 43 lore
+ * books, 55 mob trophies and the tab sigil.  Everything is
  * created from the shared Content catalog so items can never drift from
  * worldgen.
  */
@@ -71,6 +71,12 @@ public final class ModItems {
             new LinkedHashMap<String, RegistrySupplier<Item>>();
     /** mob id -> trophy drop item */
     public static final Map<String, RegistrySupplier<Item>> TROPHIES =
+            new LinkedHashMap<String, RegistrySupplier<Item>>();
+    /** dimension id -> portal key item */
+    public static final Map<String, RegistrySupplier<Item>> PORTAL_KEYS =
+            new LinkedHashMap<String, RegistrySupplier<Item>>();
+    /** boss id -> unique relic drop */
+    public static final Map<String, RegistrySupplier<Item>> BOSS_RELICS =
             new LinkedHashMap<String, RegistrySupplier<Item>>();
 
     private static RegistrySupplier<Item> track(RegistrySupplier<Item> supplier) {
@@ -184,6 +190,27 @@ public final class ModItems {
             final String mobId = Content.MOBS.get(i).id;
             TROPHIES.put(mobId, track(ModRegistries.ITEMS.register(
                     mobId + "_trophy",
+                    () -> new Item(new Item.Properties()))));
+        }
+
+        // Dimension keys: right-click to enter the dimension, or to return to
+        // the overworld when standing inside it.
+        String[][] portalKeys = {
+            {"hollow_deep", "hollow_heart_key"},
+            {"aetherfall", "aetherfall_key"},
+            {"void_between", "void_between_key"},
+        };
+        for (final String[] portal : portalKeys) {
+            PORTAL_KEYS.put(portal[1], track(ModRegistries.ITEMS.register(portal[1],
+                    () -> new com.biomesunseen.item.UnseenPortalKeyItem(portal[0],
+                            new Item.Properties()%(props_plain)s))));
+        }
+
+        // Unique relic dropped by every boss (guaranteed, one per kill).
+        for (int i = 0; i < Content.BOSSES.size(); i++) {
+            final String bossId = Content.BOSSES.get(i).id;
+            BOSS_RELICS.put(bossId, track(ModRegistries.ITEMS.register(
+                    bossId + "_relic",
                     () -> new Item(new Item.Properties()))));
         }
     }

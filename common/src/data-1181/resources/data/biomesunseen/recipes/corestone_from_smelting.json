@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "biomesunseen:corestone_ore"
+  },
+  "result": "biomesunseen:corestone",
+  "experience": 0.7,
+  "cookingtime": 200
+}

@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:blasting",
+  "ingredient": {
+    "item": "biomesunseen:starfall_ore_ore"
+  },
+  "result": "biomesunseen:starfall_ore",
+  "experience": 0.7,
+  "cookingtime": 100
+}

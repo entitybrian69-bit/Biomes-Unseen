@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "SGS",
+    "GKG",
+    "SGS"
+  ],
+  "key": {
+    "S": {
+      "item": "biomesunseen:hollowstone"
+    },
+    "G": {
+      "item": "biomesunseen:unseen_sigil"
+    },
+    "K": {
+      "item": "biomesunseen:lumenshard_tonic"
+    }
+  },
+  "result": {
+    "item": "biomesunseen:hollow_heart_key",
+    "count": 1
+  }
+}

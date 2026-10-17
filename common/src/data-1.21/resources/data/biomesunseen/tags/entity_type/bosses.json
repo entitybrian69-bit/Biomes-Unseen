@@ -2,6 +2,9 @@
   "replace": false,
   "values": [
     "biomesunseen:heart_of_the_forest",
-    "biomesunseen:void_serpent"
+    "biomesunseen:void_serpent",
+    "biomesunseen:warden_of_the_hollow_deep",
+    "biomesunseen:the_skyward_crown",
+    "biomesunseen:the_unraveling"
   ]
 }

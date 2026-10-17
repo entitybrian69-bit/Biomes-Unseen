@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:blasting",
+  "ingredient": {
+    "item": "biomesunseen:lumenshard_ore"
+  },
+  "result": "biomesunseen:lumenshard",
+  "experience": 0.7,
+  "cookingtime": 100
+}

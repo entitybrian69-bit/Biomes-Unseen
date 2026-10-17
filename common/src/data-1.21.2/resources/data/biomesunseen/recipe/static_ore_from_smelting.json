@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "biomesunseen:static_ore_ore"
+  },
+  "result": "biomesunseen:static_ore",
+  "experience": 0.7,
+  "cookingtime": 200
+}

@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "biomesunseen:embercoal_ore"
+  },
+  "result": "biomesunseen:embercoal",
+  "experience": 0.7,
+  "cookingtime": 200
+}

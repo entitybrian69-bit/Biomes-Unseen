@@ -1,0 +1,15 @@
+{
+  "structures": [
+    {
+      "structure": "biomesunseen:aetherfall_gate",
+      "weight": 4
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "salt": 58924,
+    "spacing": 40,
+    "separation": 15,
+    "spread_type": "linear"
+  }
+}

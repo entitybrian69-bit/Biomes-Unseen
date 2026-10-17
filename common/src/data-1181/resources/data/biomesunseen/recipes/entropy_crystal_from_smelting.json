@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "biomesunseen:entropy_crystal_ore"
+  },
+  "result": "biomesunseen:entropy_crystal",
+  "experience": 0.7,
+  "cookingtime": 200
+}

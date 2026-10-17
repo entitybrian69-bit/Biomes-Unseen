@@ -1,0 +1,264 @@
+{
+  "type": "minecraft:the_nether",
+  "generator": {
+    "type": "minecraft:noise",
+    "settings": "minecraft:caves",
+    "biome_source": {
+      "type": "minecraft:multi_noise",
+      "biomes": [
+        {
+          "biome": "biomesunseen:glowroot_caverns",
+          "parameters": {
+            "temperature": -0.88,
+            "humidity": -0.45,
+            "continentalness": -0.1,
+            "erosion": -0.5,
+            "depth": -0.2,
+            "weirdness": -0.33,
+            "offset": 0.0
+          }
+        },
+        {
+          "biome": "biomesunseen:fungal_abyss",
+          "parameters": {
+            "temperature": -0.72,
+            "humidity": 0.25,
+            "continentalness": -0.05,
+            "erosion": -0.1,
+            "depth": -0.18,
+            "weirdness": 0.33,
+            "offset": 0.0
+          }
+        },
+        {
+          "biome": "biomesunseen:crystal_vein_hollows",
+          "parameters": {
+            "temperature": -0.56,
+            "humidity": -0.45,
+            "continentalness": 0.0,
+            "erosion": 0.3,
+            "depth": -0.16,
+            "weirdness": 0.25,
+            "offset": 0.0
+          }
+        },
+        {
+          "biome": "biomesunseen:emberworm_tunnels",
+          "parameters": {
+            "temperature": -0.4,
+            "humidity": 0.25,
+            "continentalness": 0.05,
+            "erosion": -0.4,
+            "depth": -0.14,
+            "weirdness": 0.17,
+            "offset": 0.0
+          }
+        },
+        {
+          "biome": "biomesunseen:sunless_grotto",
+          "parameters": {
+            "temperature": -0.24,
+            "humidity": -0.45,
+            "continentalness": 0.1,
+            "erosion": 0.0,
+            "depth": -0.12,
+            "weirdness": 0.08,
+            "offset": 0.0
+          }
+        },
+        {
+          "biome": "biomesunseen:mantle_chasm",
+          "parameters": {
+            "temperature": -0.08,
+            "humidity": 0.25,
+            "continentalness": 0.15,
+            "erosion": 0.4,
+            "depth": -0.1,
+            "weirdness": 0.0,
+            "offset": 0.0
+          }
+        },
+        {
+          "biome": "biomesunseen:lantern_mushroom_sea",
+          "parameters": {
+            "temperature": 0.08,
+            "humidity": -0.45,
+            "continentalness": 0.2,
+            "erosion": -0.3,
+            "depth": -0.08,
+            "weirdness": -0.08,
+            "offset": 0.0
+          }
+        },
+        {
+          "biome": "biomesunseen:deepstone_spires",
+          "parameters": {
+            "temperature": -0.88,
+            "humidity": 0.25,
+            "continentalness": -0.1,
+            "erosion": 0.1,
+            "depth": -0.06,
+            "weirdness": -0.17,
+            "offset": 0.0
+          }
+        },
+        {
+          "biome": "biomesunseen:echo_lake_depths",
+          "parameters": {
+            "temperature": -0.72,
+            "humidity": -0.45,
+            "continentalness": -0.05,
+            "erosion": 0.5,
+            "depth": -0.04,
+            "weirdness": -0.25,
+            "offset": 0.0
+          }
+        },
+        {
+          "biome": "biomesunseen:fossil_rib_catacombs",
+          "parameters": {
+            "temperature": -0.56,
+            "humidity": 0.25,
+            "continentalness": 0.0,
+            "erosion": -0.2,
+            "depth": -0.02,
+            "weirdness": -0.33,
+            "offset": 0.0
+          }
+        },
+        {
+          "biome": "biomesunseen:magma_siphon_gallery",
+          "parameters": {
+            "temperature": -0.4,
+            "humidity": -0.45,
+            "continentalness": 0.05,
+            "erosion": 0.2,
+            "depth": -0.2,
+            "weirdness": 0.33,
+            "offset": 0.0
+          }
+        },
+        {
+          "biome": "biomesunseen:pale_mycelium_gardens",
+          "parameters": {
+            "temperature": -0.24,
+            "humidity": 0.25,
+            "continentalness": 0.1,
+            "erosion": -0.5,
+            "depth": -0.18,
+            "weirdness": 0.25,
+            "offset": 0.0
+          }
+        },
+        {
+          "biome": "biomesunseen:hollowstone_maze",
+          "parameters": {
+            "temperature": -0.08,
+            "humidity": -0.45,
+            "continentalness": 0.15,
+            "erosion": -0.1,
+            "depth": -0.16,
+            "weirdness": 0.17,
+            "offset": 0.0
+          }
+        },
+        {
+          "biome": "biomesunseen:voidlight_crevasse",
+          "parameters": {
+            "temperature": 0.08,
+            "humidity": 0.25,
+            "continentalness": 0.2,
+            "erosion": 0.3,
+            "depth": -0.14,
+            "weirdness": 0.08,
+            "offset": 0.0
+          }
+        },
+        {
+          "biome": "biomesunseen:buried_temple_depths",
+          "parameters": {
+            "temperature": -0.88,
+            "humidity": -0.45,
+            "continentalness": -0.1,
+            "erosion": -0.4,
+            "depth": -0.12,
+            "weirdness": 0.0,
+            "offset": 0.0
+          }
+        },
+        {
+          "biome": "biomesunseen:shimmering_sinkhole",
+          "parameters": {
+            "temperature": -0.72,
+            "humidity": 0.25,
+            "continentalness": -0.05,
+            "erosion": 0.0,
+            "depth": -0.1,
+            "weirdness": -0.08,
+            "offset": 0.0
+          }
+        },
+        {
+          "biome": "biomesunseen:root_tangled_depths",
+          "parameters": {
+            "temperature": -0.56,
+            "humidity": -0.45,
+            "continentalness": 0.0,
+            "erosion": 0.4,
+            "depth": -0.08,
+            "weirdness": -0.17,
+            "offset": 0.0
+          }
+        },
+        {
+          "biome": "biomesunseen:ancient_ossuary",
+          "parameters": {
+            "temperature": -0.4,
+            "humidity": 0.25,
+            "continentalness": 0.05,
+            "erosion": -0.3,
+            "depth": -0.06,
+            "weirdness": -0.25,
+            "offset": 0.0
+          }
+        },
+        {
+          "biome": "biomesunseen:prismatic_underlake",
+          "parameters": {
+            "temperature": -0.24,
+            "humidity": -0.45,
+            "continentalness": 0.1,
+            "erosion": 0.1,
+            "depth": -0.04,
+            "weirdness": -0.33,
+            "offset": 0.0
+          }
+        },
+        {
+          "biome": "biomesunseen:the_first_ember",
+          "parameters": {
+            "temperature": -0.08,
+            "humidity": 0.25,
+            "continentalness": 0.15,
+            "erosion": 0.5,
+            "depth": -0.02,
+            "weirdness": 0.33,
+            "offset": 0.0
+          }
+        },
+        {
+          "biome": "minecraft:lush_caves",
+          "parameters": {
+            "temperature": 0.0,
+            "humidity": 0.0,
+            "continentalness": 0.0,
+            "erosion": 0.0,
+            "depth": 0.0,
+            "weirdness": 0.0,
+            "offset": 0.0
+          }
+        }
+      ]
+    }
+  }
+}

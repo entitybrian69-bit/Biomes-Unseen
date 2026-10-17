@@ -1,0 +1,264 @@
+{
+  "type": "minecraft:overworld",
+  "generator": {
+    "type": "minecraft:noise",
+    "settings": "minecraft:floating_islands",
+    "biome_source": {
+      "type": "minecraft:multi_noise",
+      "biomes": [
+        {
+          "biome": "biomesunseen:dawnlit_isle",
+          "parameters": {
+            "temperature": -0.64,
+            "humidity": -0.45,
+            "continentalness": -0.1,
+            "erosion": -0.5,
+            "depth": -0.2,
+            "weirdness": -0.33,
+            "offset": 0.0
+          }
+        },
+        {
+          "biome": "biomesunseen:aurora_drift",
+          "parameters": {
+            "temperature": -0.51,
+            "humidity": 0.25,
+            "continentalness": -0.05,
+            "erosion": -0.1,
+            "depth": -0.18,
+            "weirdness": 0.33,
+            "offset": 0.0
+          }
+        },
+        {
+          "biome": "biomesunseen:skyglass_archipelago",
+          "parameters": {
+            "temperature": -0.37,
+            "humidity": -0.45,
+            "continentalness": 0.0,
+            "erosion": 0.3,
+            "depth": -0.16,
+            "weirdness": 0.25,
+            "offset": 0.0
+          }
+        },
+        {
+          "biome": "biomesunseen:cloudstep_meadow",
+          "parameters": {
+            "temperature": -0.24,
+            "humidity": 0.25,
+            "continentalness": 0.05,
+            "erosion": -0.4,
+            "depth": -0.14,
+            "weirdness": 0.17,
+            "offset": 0.0
+          }
+        },
+        {
+          "biome": "biomesunseen:windward_ridge",
+          "parameters": {
+            "temperature": -0.11,
+            "humidity": -0.45,
+            "continentalness": 0.1,
+            "erosion": 0.0,
+            "depth": -0.12,
+            "weirdness": 0.08,
+            "offset": 0.0
+          }
+        },
+        {
+          "biome": "biomesunseen:twilight_canopy",
+          "parameters": {
+            "temperature": 0.03,
+            "humidity": 0.25,
+            "continentalness": 0.15,
+            "erosion": 0.4,
+            "depth": -0.1,
+            "weirdness": 0.0,
+            "offset": 0.0
+          }
+        },
+        {
+          "biome": "biomesunseen:starfall_hollows",
+          "parameters": {
+            "temperature": 0.16,
+            "humidity": -0.45,
+            "continentalness": 0.2,
+            "erosion": -0.3,
+            "depth": -0.08,
+            "weirdness": -0.08,
+            "offset": 0.0
+          }
+        },
+        {
+          "biome": "biomesunseen:sunflare_plateau",
+          "parameters": {
+            "temperature": -0.64,
+            "humidity": 0.25,
+            "continentalness": -0.1,
+            "erosion": 0.1,
+            "depth": -0.06,
+            "weirdness": -0.17,
+            "offset": 0.0
+          }
+        },
+        {
+          "biome": "biomesunseen:moonpetal_gardens",
+          "parameters": {
+            "temperature": -0.51,
+            "humidity": -0.45,
+            "continentalness": -0.05,
+            "erosion": 0.5,
+            "depth": -0.04,
+            "weirdness": -0.25,
+            "offset": 0.0
+          }
+        },
+        {
+          "biome": "biomesunseen:aether_current_spires",
+          "parameters": {
+            "temperature": -0.37,
+            "humidity": 0.25,
+            "continentalness": 0.0,
+            "erosion": -0.2,
+            "depth": -0.02,
+            "weirdness": -0.33,
+            "offset": 0.0
+          }
+        },
+        {
+          "biome": "biomesunseen:floating_ruins_expanse",
+          "parameters": {
+            "temperature": -0.24,
+            "humidity": -0.45,
+            "continentalness": 0.05,
+            "erosion": 0.2,
+            "depth": -0.2,
+            "weirdness": 0.33,
+            "offset": 0.0
+          }
+        },
+        {
+          "biome": "biomesunseen:halo_shore",
+          "parameters": {
+            "temperature": -0.11,
+            "humidity": 0.25,
+            "continentalness": 0.1,
+            "erosion": -0.5,
+            "depth": -0.18,
+            "weirdness": 0.25,
+            "offset": 0.0
+          }
+        },
+        {
+          "biome": "biomesunseen:cerulean_skylake",
+          "parameters": {
+            "temperature": 0.03,
+            "humidity": -0.45,
+            "continentalness": 0.15,
+            "erosion": -0.1,
+            "depth": -0.16,
+            "weirdness": 0.17,
+            "offset": 0.0
+          }
+        },
+        {
+          "biome": "biomesunseen:thunderhead_reef",
+          "parameters": {
+            "temperature": 0.16,
+            "humidity": 0.25,
+            "continentalness": 0.2,
+            "erosion": 0.3,
+            "depth": -0.14,
+            "weirdness": 0.08,
+            "offset": 0.0
+          }
+        },
+        {
+          "biome": "biomesunseen:glimmerwind_fields",
+          "parameters": {
+            "temperature": -0.64,
+            "humidity": -0.45,
+            "continentalness": -0.1,
+            "erosion": -0.4,
+            "depth": -0.12,
+            "weirdness": 0.0,
+            "offset": 0.0
+          }
+        },
+        {
+          "biome": "biomesunseen:celestial_terrace",
+          "parameters": {
+            "temperature": -0.51,
+            "humidity": 0.25,
+            "continentalness": -0.05,
+            "erosion": 0.0,
+            "depth": -0.1,
+            "weirdness": -0.08,
+            "offset": 0.0
+          }
+        },
+        {
+          "biome": "biomesunseen:duskveil_cliffs",
+          "parameters": {
+            "temperature": -0.37,
+            "humidity": -0.45,
+            "continentalness": 0.0,
+            "erosion": 0.4,
+            "depth": -0.08,
+            "weirdness": -0.17,
+            "offset": 0.0
+          }
+        },
+        {
+          "biome": "biomesunseen:luminark_shoals",
+          "parameters": {
+            "temperature": -0.24,
+            "humidity": 0.25,
+            "continentalness": 0.05,
+            "erosion": -0.3,
+            "depth": -0.06,
+            "weirdness": -0.25,
+            "offset": 0.0
+          }
+        },
+        {
+          "biome": "biomesunseen:skyforge_isles",
+          "parameters": {
+            "temperature": -0.11,
+            "humidity": -0.45,
+            "continentalness": 0.1,
+            "erosion": 0.1,
+            "depth": -0.04,
+            "weirdness": -0.33,
+            "offset": 0.0
+          }
+        },
+        {
+          "biome": "biomesunseen:the_last_horizon",
+          "parameters": {
+            "temperature": 0.03,
+            "humidity": 0.25,
+            "continentalness": 0.15,
+            "erosion": 0.5,
+            "depth": -0.02,
+            "weirdness": 0.33,
+            "offset": 0.0
+          }
+        },
+        {
+          "biome": "minecraft:meadow",
+          "parameters": {
+            "temperature": 0.0,
+            "humidity": 0.0,
+            "continentalness": 0.0,
+            "erosion": 0.0,
+            "depth": 0.0,
+            "weirdness": 0.0,
+            "offset": 0.0
+          }
+        }
+      ]
+    }
+  }
+}

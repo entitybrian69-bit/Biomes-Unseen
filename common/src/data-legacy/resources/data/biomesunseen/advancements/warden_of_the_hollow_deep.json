@@ -1,0 +1,15 @@
+{
+  "parent": "biomesunseen:enter_hollow_deep",
+  "display": {
+    "icon": {
+      "item": "biomesunseen:unseen_sigil"
+    },
+    "title": "The Warden Falls",
+    "description": "Defeat the Warden of the Hollow Deep"
+  },
+  "criteria": {
+    "tick": {
+      "trigger": "minecraft:tick"
+    }
+  }
+}

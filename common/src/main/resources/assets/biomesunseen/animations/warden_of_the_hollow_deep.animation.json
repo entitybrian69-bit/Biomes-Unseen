@@ -1,0 +1,725 @@
+{
+  "format_version": "1.8.0",
+  "animations": {
+    "animation.warden_of_the_hollow_deep.buried": {
+      "animation_length": 1.8,
+      "loop": true,
+      "bones": {
+        "body": {
+          "scale": {
+            "0.0": [
+              1,
+              1,
+              1
+            ],
+            "0.9": [
+              1.02,
+              1.04,
+              1.02
+            ],
+            "1.8": [
+              1,
+              1,
+              1
+            ]
+          }
+        },
+        "head": {
+          "rotation": {
+            "0.0": [
+              0,
+              0,
+              0
+            ],
+            "0.9": [
+              1.5,
+              0,
+              0
+            ],
+            "1.8": [
+              0,
+              0,
+              0
+            ]
+          }
+        }
+      }
+    },
+    "animation.warden_of_the_hollow_deep.awakens": {
+      "animation_length": 1.8,
+      "loop": true,
+      "bones": {
+        "body": {
+          "scale": {
+            "0.0": [
+              1,
+              1,
+              1
+            ],
+            "0.9": [
+              1.02,
+              1.04,
+              1.02
+            ],
+            "1.8": [
+              1,
+              1,
+              1
+            ]
+          }
+        },
+        "head": {
+          "rotation": {
+            "0.0": [
+              0,
+              0,
+              0
+            ],
+            "0.9": [
+              1.5,
+              0,
+              0
+            ],
+            "1.8": [
+              0,
+              0,
+              0
+            ]
+          }
+        }
+      }
+    },
+    "animation.warden_of_the_hollow_deep.spire_risen": {
+      "animation_length": 1.8,
+      "loop": true,
+      "bones": {
+        "body": {
+          "scale": {
+            "0.0": [
+              1,
+              1,
+              1
+            ],
+            "0.9": [
+              1.02,
+              1.04,
+              1.02
+            ],
+            "1.8": [
+              1,
+              1,
+              1
+            ]
+          }
+        },
+        "head": {
+          "rotation": {
+            "0.0": [
+              0,
+              0,
+              0
+            ],
+            "0.9": [
+              1.5,
+              0,
+              0
+            ],
+            "1.8": [
+              0,
+              0,
+              0
+            ]
+          }
+        }
+      }
+    },
+    "animation.warden_of_the_hollow_deep.collapse": {
+      "animation_length": 1.8,
+      "loop": true,
+      "bones": {
+        "body": {
+          "scale": {
+            "0.0": [
+              1,
+              1,
+              1
+            ],
+            "0.9": [
+              1.02,
+              1.04,
+              1.02
+            ],
+            "1.8": [
+              1,
+              1,
+              1
+            ]
+          }
+        },
+        "head": {
+          "rotation": {
+            "0.0": [
+              0,
+              0,
+              0
+            ],
+            "0.9": [
+              1.5,
+              0,
+              0
+            ],
+            "1.8": [
+              0,
+              0,
+              0
+            ]
+          }
+        }
+      }
+    },
+    "animation.warden_of_the_hollow_deep.slam": {
+      "animation_length": 0.8,
+      "loop": false,
+      "bones": {
+        "body": {
+          "rotation": {
+            "0.0": [
+              0,
+              0,
+              0
+            ],
+            "0.25": [
+              -14,
+              0,
+              0
+            ],
+            "0.55": [
+              18,
+              0,
+              0
+            ],
+            "0.8": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        "head": {
+          "rotation": {
+            "0.0": [
+              0,
+              0,
+              0
+            ],
+            "0.3": [
+              16,
+              0,
+              0
+            ],
+            "0.8": [
+              0,
+              0,
+              0
+            ]
+          }
+        }
+      }
+    },
+    "animation.warden_of_the_hollow_deep.tremor_wave": {
+      "animation_length": 1.8,
+      "loop": true,
+      "bones": {
+        "body": {
+          "scale": {
+            "0.0": [
+              1,
+              1,
+              1
+            ],
+            "0.9": [
+              1.02,
+              1.04,
+              1.02
+            ],
+            "1.8": [
+              1,
+              1,
+              1
+            ]
+          }
+        },
+        "head": {
+          "rotation": {
+            "0.0": [
+              0,
+              0,
+              0
+            ],
+            "0.9": [
+              1.5,
+              0,
+              0
+            ],
+            "1.8": [
+              0,
+              0,
+              0
+            ]
+          }
+        }
+      }
+    },
+    "animation.warden_of_the_hollow_deep.tunnel_ambush": {
+      "animation_length": 1.8,
+      "loop": true,
+      "bones": {
+        "body": {
+          "scale": {
+            "0.0": [
+              1,
+              1,
+              1
+            ],
+            "0.9": [
+              1.02,
+              1.04,
+              1.02
+            ],
+            "1.8": [
+              1,
+              1,
+              1
+            ]
+          }
+        },
+        "head": {
+          "rotation": {
+            "0.0": [
+              0,
+              0,
+              0
+            ],
+            "0.9": [
+              1.5,
+              0,
+              0
+            ],
+            "1.8": [
+              0,
+              0,
+              0
+            ]
+          }
+        }
+      }
+    },
+    "animation.warden_of_the_hollow_deep.spire_rise": {
+      "animation_length": 1.8,
+      "loop": true,
+      "bones": {
+        "body": {
+          "scale": {
+            "0.0": [
+              1,
+              1,
+              1
+            ],
+            "0.9": [
+              1.02,
+              1.04,
+              1.02
+            ],
+            "1.8": [
+              1,
+              1,
+              1
+            ]
+          }
+        },
+        "head": {
+          "rotation": {
+            "0.0": [
+              0,
+              0,
+              0
+            ],
+            "0.9": [
+              1.5,
+              0,
+              0
+            ],
+            "1.8": [
+              0,
+              0,
+              0
+            ]
+          }
+        }
+      }
+    },
+    "animation.warden_of_the_hollow_deep.hollow_beam": {
+      "animation_length": 1.8,
+      "loop": true,
+      "bones": {
+        "body": {
+          "scale": {
+            "0.0": [
+              1,
+              1,
+              1
+            ],
+            "0.9": [
+              1.02,
+              1.04,
+              1.02
+            ],
+            "1.8": [
+              1,
+              1,
+              1
+            ]
+          }
+        },
+        "head": {
+          "rotation": {
+            "0.0": [
+              0,
+              0,
+              0
+            ],
+            "0.9": [
+              1.5,
+              0,
+              0
+            ],
+            "1.8": [
+              0,
+              0,
+              0
+            ]
+          }
+        }
+      }
+    },
+    "animation.warden_of_the_hollow_deep.summon_glowmoth": {
+      "animation_length": 1.8,
+      "loop": true,
+      "bones": {
+        "body": {
+          "scale": {
+            "0.0": [
+              1,
+              1,
+              1
+            ],
+            "0.9": [
+              1.02,
+              1.04,
+              1.02
+            ],
+            "1.8": [
+              1,
+              1,
+              1
+            ]
+          }
+        },
+        "head": {
+          "rotation": {
+            "0.0": [
+              0,
+              0,
+              0
+            ],
+            "0.9": [
+              1.5,
+              0,
+              0
+            ],
+            "1.8": [
+              0,
+              0,
+              0
+            ]
+          }
+        }
+      }
+    },
+    "animation.warden_of_the_hollow_deep.idle": {
+      "animation_length": 3.0,
+      "loop": true,
+      "bones": {
+        "body": {
+          "scale": {
+            "0.0": [
+              1,
+              1,
+              1
+            ],
+            "1.5": [
+              1.02,
+              1.04,
+              1.02
+            ],
+            "3.0": [
+              1,
+              1,
+              1
+            ]
+          }
+        },
+        "head": {
+          "rotation": {
+            "0.0": [
+              0,
+              0,
+              0
+            ],
+            "1.5": [
+              1.5,
+              0,
+              0
+            ],
+            "3.0": [
+              0,
+              0,
+              0
+            ]
+          }
+        }
+      }
+    },
+    "animation.warden_of_the_hollow_deep.walk": {
+      "animation_length": 1.0,
+      "loop": true,
+      "bones": {
+        "leg0": {
+          "rotation": {
+            "0.0": [
+              0,
+              0,
+              0
+            ],
+            "0.5": [
+              22,
+              0,
+              0
+            ],
+            "1.0": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        "leg1": {
+          "rotation": {
+            "0.0": [
+              0,
+              0,
+              0
+            ],
+            "0.5": [
+              -22,
+              0,
+              0
+            ],
+            "1.0": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        "leg2": {
+          "rotation": {
+            "0.0": [
+              0,
+              0,
+              0
+            ],
+            "0.5": [
+              -22,
+              0,
+              0
+            ],
+            "1.0": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        "leg3": {
+          "rotation": {
+            "0.0": [
+              0,
+              0,
+              0
+            ],
+            "0.5": [
+              22,
+              0,
+              0
+            ],
+            "1.0": [
+              0,
+              0,
+              0
+            ]
+          }
+        }
+      }
+    },
+    "animation.warden_of_the_hollow_deep.run": {
+      "animation_length": 0.6,
+      "loop": true,
+      "bones": {
+        "leg0": {
+          "rotation": {
+            "0.0": [
+              0,
+              0,
+              0
+            ],
+            "0.3": [
+              32,
+              0,
+              0
+            ],
+            "0.6": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        "leg1": {
+          "rotation": {
+            "0.0": [
+              0,
+              0,
+              0
+            ],
+            "0.3": [
+              -32,
+              0,
+              0
+            ],
+            "0.6": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        "leg2": {
+          "rotation": {
+            "0.0": [
+              0,
+              0,
+              0
+            ],
+            "0.3": [
+              -32,
+              0,
+              0
+            ],
+            "0.6": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        "leg3": {
+          "rotation": {
+            "0.0": [
+              0,
+              0,
+              0
+            ],
+            "0.3": [
+              32,
+              0,
+              0
+            ],
+            "0.6": [
+              0,
+              0,
+              0
+            ]
+          }
+        }
+      }
+    },
+    "animation.warden_of_the_hollow_deep.hurt": {
+      "animation_length": 0.4,
+      "loop": false,
+      "bones": {
+        "body": {
+          "rotation": {
+            "0.0": [
+              0,
+              0,
+              0
+            ],
+            "0.12": [
+              0,
+              0,
+              12
+            ],
+            "0.28": [
+              0,
+              0,
+              -8
+            ],
+            "0.4": [
+              0,
+              0,
+              0
+            ]
+          }
+        }
+      }
+    },
+    "animation.warden_of_the_hollow_deep.death": {
+      "animation_length": 1.2,
+      "loop": false,
+      "bones": {
+        "root": {
+          "rotation": {
+            "0.0": [
+              0,
+              0,
+              0
+            ],
+            "0.9": [
+              0,
+              0,
+              -88
+            ],
+            "1.2": [
+              0,
+              0,
+              -90
+            ]
+          },
+          "position": {
+            "0.0": [
+              0,
+              0,
+              0
+            ],
+            "1.2": [
+              0,
+              -2,
+              0
+            ]
+          }
+        }
+      }
+    }
+  }
+}

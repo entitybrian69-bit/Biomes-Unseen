@@ -47,8 +47,41 @@ public final class ClientSetup {
         EntityRendererRegistry.register(ModEntities.AshCrawler, UnseenLegacyRenderer.provider("ash_crawler"));
         EntityRendererRegistry.register(ModEntities.StarWhale, UnseenLegacyRenderer.provider("star_whale"));
         EntityRendererRegistry.register(ModEntities.PetalWing, UnseenLegacyRenderer.provider("petal_wing"));
+        EntityRendererRegistry.register(ModEntities.Glowmoth, UnseenLegacyRenderer.provider("glowmoth"));
+        EntityRendererRegistry.register(ModEntities.TunnelHound, UnseenLegacyRenderer.provider("tunnel_hound"));
+        EntityRendererRegistry.register(ModEntities.CrystalBeetle, UnseenLegacyRenderer.provider("crystal_beetle"));
+        EntityRendererRegistry.register(ModEntities.MagmaSnail, UnseenLegacyRenderer.provider("magma_snail"));
+        EntityRendererRegistry.register(ModEntities.EchoBat, UnseenLegacyRenderer.provider("echo_bat"));
+        EntityRendererRegistry.register(ModEntities.RootGnawer, UnseenLegacyRenderer.provider("root_gnawer"));
+        EntityRendererRegistry.register(ModEntities.DeepLurker, UnseenLegacyRenderer.provider("deep_lurker"));
+        EntityRendererRegistry.register(ModEntities.LanternJelly, UnseenLegacyRenderer.provider("lantern_jelly"));
+        EntityRendererRegistry.register(ModEntities.Stoneback, UnseenLegacyRenderer.provider("stoneback"));
+        EntityRendererRegistry.register(ModEntities.Mycopath, UnseenLegacyRenderer.provider("mycopath"));
+        EntityRendererRegistry.register(ModEntities.Skyray, UnseenLegacyRenderer.provider("skyray"));
+        EntityRendererRegistry.register(ModEntities.CloudHeron, UnseenLegacyRenderer.provider("cloud_heron"));
+        EntityRendererRegistry.register(ModEntities.ZephyrPup, UnseenLegacyRenderer.provider("zephyr_pup"));
+        EntityRendererRegistry.register(ModEntities.IslandTortoise, UnseenLegacyRenderer.provider("island_tortoise"));
+        EntityRendererRegistry.register(ModEntities.Dawnfinch, UnseenLegacyRenderer.provider("dawnfinch"));
+        EntityRendererRegistry.register(ModEntities.StormJay, UnseenLegacyRenderer.provider("storm_jay"));
+        EntityRendererRegistry.register(ModEntities.SummitRam, UnseenLegacyRenderer.provider("summit_ram"));
+        EntityRendererRegistry.register(ModEntities.Mistgraz, UnseenLegacyRenderer.provider("mistgraz"));
+        EntityRendererRegistry.register(ModEntities.StarSerpent, UnseenLegacyRenderer.provider("star_serpent"));
+        EntityRendererRegistry.register(ModEntities.Windlark, UnseenLegacyRenderer.provider("windlark"));
+        EntityRendererRegistry.register(ModEntities.Glitchling, UnseenLegacyRenderer.provider("glitchling"));
+        EntityRendererRegistry.register(ModEntities.NullStalker, UnseenLegacyRenderer.provider("null_stalker"));
+        EntityRendererRegistry.register(ModEntities.MirrorWisp, UnseenLegacyRenderer.provider("mirror_wisp"));
+        EntityRendererRegistry.register(ModEntities.ParadoxBeast, UnseenLegacyRenderer.provider("paradox_beast"));
+        EntityRendererRegistry.register(ModEntities.StaticCrawler, UnseenLegacyRenderer.provider("static_crawler"));
+        EntityRendererRegistry.register(ModEntities.DreamEater, UnseenLegacyRenderer.provider("dream_eater"));
+        EntityRendererRegistry.register(ModEntities.Shardwing, UnseenLegacyRenderer.provider("shardwing"));
+        EntityRendererRegistry.register(ModEntities.InverseGrazer, UnseenLegacyRenderer.provider("inverse_grazer"));
+        EntityRendererRegistry.register(ModEntities.EchoHusk, UnseenLegacyRenderer.provider("echo_husk"));
+        EntityRendererRegistry.register(ModEntities.UnravelSpawn, UnseenLegacyRenderer.provider("unravel_spawn"));
         EntityRendererRegistry.register(ModEntities.HeartOfTheForest, UnseenLegacyRenderer.provider("heart_of_the_forest"));
         EntityRendererRegistry.register(ModEntities.VoidSerpent, UnseenLegacyRenderer.provider("void_serpent"));
+        EntityRendererRegistry.register(ModEntities.WardenOfTheHollowDeep, UnseenLegacyRenderer.provider("warden_of_the_hollow_deep"));
+        EntityRendererRegistry.register(ModEntities.TheSkywardCrown, UnseenLegacyRenderer.provider("the_skyward_crown"));
+        EntityRendererRegistry.register(ModEntities.TheUnraveling, UnseenLegacyRenderer.provider("the_unraveling"));
 
         ParticleProviderRegistry.register(ModParticles.BY_ID.get("crystal_spark"),
                 UnseenParticle.Provider::new);
@@ -65,6 +98,12 @@ public final class ClientSetup {
         ParticleProviderRegistry.register(ModParticles.BY_ID.get("petal_burst"),
                 UnseenParticle.Provider::new);
         ParticleProviderRegistry.register(ModParticles.BY_ID.get("heal_glow"),
+                UnseenParticle.Provider::new);
+        ParticleProviderRegistry.register(ModParticles.BY_ID.get("hollow_mote"),
+                UnseenParticle.Provider::new);
+        ParticleProviderRegistry.register(ModParticles.BY_ID.get("aurora_dust"),
+                UnseenParticle.Provider::new);
+        ParticleProviderRegistry.register(ModParticles.BY_ID.get("glitch_spark"),
                 UnseenParticle.Provider::new);
     }
 }

@@ -1,0 +1,191 @@
+{
+  "format_version": "1.12.0",
+  "minecraft:geometry": [
+    {
+      "description": {
+        "identifier": "geometry.paradox_beast",
+        "texture_width": 32,
+        "texture_height": 32,
+        "visible_bounds_width": 3,
+        "visible_bounds_height": 3,
+        "visible_bounds_offset": [
+          0,
+          1,
+          0
+        ]
+      },
+      "bones": [
+        {
+          "name": "root",
+          "pivot": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "body",
+          "parent": "root",
+          "pivot": [
+            0,
+            13,
+            0
+          ],
+          "cubes": [
+            {
+              "origin": [
+                -11,
+                2,
+                -11
+              ],
+              "size": [
+                22,
+                13,
+                21
+              ],
+              "uv": [
+                16,
+                16
+              ]
+            }
+          ]
+        },
+        {
+          "name": "head",
+          "parent": "body",
+          "pivot": [
+            0,
+            17,
+            -12
+          ],
+          "cubes": [
+            {
+              "origin": [
+                -5,
+                13,
+                -21
+              ],
+              "size": [
+                10,
+                10,
+                10
+              ],
+              "uv": [
+                0,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "name": "leg0",
+          "parent": "root",
+          "pivot": [
+            -10,
+            8,
+            9
+          ],
+          "cubes": [
+            {
+              "origin": [
+                -11,
+                0,
+                8
+              ],
+              "size": [
+                3,
+                8,
+                3
+              ],
+              "uv": [
+                0,
+                16
+              ]
+            }
+          ]
+        },
+        {
+          "name": "leg1",
+          "parent": "root",
+          "pivot": [
+            10,
+            8,
+            9
+          ],
+          "cubes": [
+            {
+              "origin": [
+                8,
+                0,
+                8
+              ],
+              "size": [
+                3,
+                8,
+                3
+              ],
+              "uv": [
+                0,
+                16
+              ]
+            }
+          ]
+        },
+        {
+          "name": "leg2",
+          "parent": "root",
+          "pivot": [
+            -10,
+            8,
+            -10
+          ],
+          "cubes": [
+            {
+              "origin": [
+                -11,
+                0,
+                -11
+              ],
+              "size": [
+                3,
+                8,
+                3
+              ],
+              "uv": [
+                0,
+                16
+              ]
+            }
+          ]
+        },
+        {
+          "name": "leg3",
+          "parent": "root",
+          "pivot": [
+            10,
+            8,
+            -10
+          ],
+          "cubes": [
+            {
+              "origin": [
+                8,
+                0,
+                -11
+              ],
+              "size": [
+                3,
+                8,
+                3
+              ],
+              "uv": [
+                0,
+                16
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -19,7 +19,10 @@ public final class CoreRegistries {
             "frost_mote",
             "storm_arc",
             "petal_burst",
-            "heal_glow"
+            "heal_glow",
+            "hollow_mote",
+            "aurora_dust",
+            "glitch_spark"
     }));
 
     /** Sound event ids (full "event.path" form used by sounds.json). */
@@ -56,7 +59,36 @@ public final class CoreRegistries {
             "block.biomesunseen.ore_chime",
             "block.biomesunseen.crystal_resonate",
             "block.biomesunseen.mire_step",
-            "block.biomesunseen.ember_crackle"
+            "block.biomesunseen.ember_crackle",
+            "ambient.biomesunseen.hollow_deep_loop",
+            "music.biomesunseen.hollow_deep_theme",
+            "entity.biomesunseen.glowmoth.ambient",
+            "ambient.biomesunseen.aetherfall_loop",
+            "music.biomesunseen.aetherfall_theme",
+            "entity.biomesunseen.dawnfinch.ambient",
+            "ambient.biomesunseen.void_between_loop",
+            "music.biomesunseen.void_between_theme",
+            "entity.biomesunseen.glitchling.ambient",
+            "music.biomesunseen.heart_of_the_forest_phase1",
+            "music.biomesunseen.heart_of_the_forest_phase2",
+            "music.biomesunseen.heart_of_the_forest_phase3",
+            "music.biomesunseen.heart_of_the_forest_phase4",
+            "music.biomesunseen.void_serpent_phase1",
+            "music.biomesunseen.void_serpent_phase2",
+            "music.biomesunseen.void_serpent_phase3",
+            "music.biomesunseen.void_serpent_phase4",
+            "music.biomesunseen.warden_of_the_hollow_deep_phase1",
+            "music.biomesunseen.warden_of_the_hollow_deep_phase2",
+            "music.biomesunseen.warden_of_the_hollow_deep_phase3",
+            "music.biomesunseen.warden_of_the_hollow_deep_phase4",
+            "music.biomesunseen.the_skyward_crown_phase1",
+            "music.biomesunseen.the_skyward_crown_phase2",
+            "music.biomesunseen.the_skyward_crown_phase3",
+            "music.biomesunseen.the_skyward_crown_phase4",
+            "music.biomesunseen.the_unraveling_phase1",
+            "music.biomesunseen.the_unraveling_phase2",
+            "music.biomesunseen.the_unraveling_phase3",
+            "music.biomesunseen.the_unraveling_phase4"
     }));
 
     /** Advancement ids in unlock order. */
@@ -72,7 +104,14 @@ public final class CoreRegistries {
             "void_serpent",
             "tame_mob",
             "all_mobs",
-            "boss_hunter"
+            "boss_hunter",
+            "enter_hollow_deep",
+            "enter_aetherfall",
+            "enter_void_between",
+            "warden_of_the_hollow_deep",
+            "the_skyward_crown",
+            "the_unraveling",
+            "boss_master"
     }));
 
     private CoreRegistries() {

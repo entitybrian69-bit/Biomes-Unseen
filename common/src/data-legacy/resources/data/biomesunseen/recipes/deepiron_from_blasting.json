@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:blasting",
+  "ingredient": {
+    "item": "biomesunseen:deepiron_ore"
+  },
+  "result": "biomesunseen:deepiron",
+  "experience": 0.7,
+  "cookingtime": 100
+}

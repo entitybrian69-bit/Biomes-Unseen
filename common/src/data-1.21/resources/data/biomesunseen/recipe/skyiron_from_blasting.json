@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:blasting",
+  "ingredient": {
+    "item": "biomesunseen:skyiron_ore"
+  },
+  "result": "biomesunseen:skyiron",
+  "experience": 0.7,
+  "cookingtime": 100
+}

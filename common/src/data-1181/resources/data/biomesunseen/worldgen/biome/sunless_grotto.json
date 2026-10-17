@@ -1,0 +1,123 @@
+{
+  "category": "hollow_deep",
+  "depth": -0.36,
+  "scale": 0.49,
+  "temperature": 0.55,
+  "downfall": 0.25,
+  "precipitation": "none",
+  "surface_builder": "minecraft:default",
+  "effects": {
+    "grass_color": 2779738,
+    "foliage_color": 1989194,
+    "water_color": 3041914,
+    "water_fog_color": 1520957,
+    "sky_color": 329484,
+    "fog_color": 1319711,
+    "mood_sound": {
+      "sound": "biomesunseen:ambient.biomesunseen.hollow_deep_loop",
+      "tick_delay": 400,
+      "block_search_extent": 8,
+      "offset": 2.0
+    }
+  },
+  "carvers": {
+    "air": []
+  },
+  "features": [
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [
+      "biomesunseen:glimmer_quartz_ore",
+      "biomesunseen:moonshard_ore",
+      "biomesunseen:stelliferrum_ore",
+      "biomesunseen:tideglass_ore",
+      "biomesunseen:hearthstone_ore",
+      "biomesunseen:lumenshard_ore",
+      "biomesunseen:deepiron_ore",
+      "biomesunseen:biolumite_ore",
+      "biomesunseen:hollow_crystal_ore",
+      "biomesunseen:embercoal_ore",
+      "biomesunseen:fungisteel_ore",
+      "biomesunseen:abyss_opal_ore",
+      "biomesunseen:corestone_ore"
+    ],
+    [],
+    [],
+    []
+  ],
+  "spawners": {
+    "monster": [
+      {
+        "type": "biomesunseen:tunnel_hound",
+        "weight": 10,
+        "minCount": 1,
+        "maxCount": 4
+      },
+      {
+        "type": "biomesunseen:root_gnawer",
+        "weight": 10,
+        "minCount": 1,
+        "maxCount": 4
+      },
+      {
+        "type": "biomesunseen:deep_lurker",
+        "weight": 6,
+        "minCount": 1,
+        "maxCount": 2
+      }
+    ],
+    "creature": [
+      {
+        "type": "biomesunseen:glowmoth",
+        "weight": 12,
+        "minCount": 1,
+        "maxCount": 2
+      },
+      {
+        "type": "biomesunseen:crystal_beetle",
+        "weight": 9,
+        "minCount": 1,
+        "maxCount": 2
+      },
+      {
+        "type": "biomesunseen:magma_snail",
+        "weight": 9,
+        "minCount": 1,
+        "maxCount": 2
+      },
+      {
+        "type": "biomesunseen:echo_bat",
+        "weight": 13,
+        "minCount": 1,
+        "maxCount": 2
+      },
+      {
+        "type": "biomesunseen:lantern_jelly",
+        "weight": 11,
+        "minCount": 1,
+        "maxCount": 2
+      },
+      {
+        "type": "biomesunseen:stoneback",
+        "weight": 7,
+        "minCount": 1,
+        "maxCount": 4
+      },
+      {
+        "type": "biomesunseen:mycopath",
+        "weight": 8,
+        "minCount": 1,
+        "maxCount": 2
+      }
+    ],
+    "ambient": [],
+    "water_creature": [],
+    "water_ambient": [],
+    "misc": []
+  },
+  "spawn_costs": {}
+}

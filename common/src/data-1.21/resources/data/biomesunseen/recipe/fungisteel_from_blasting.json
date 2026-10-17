@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:blasting",
+  "ingredient": {
+    "item": "biomesunseen:fungisteel_ore"
+  },
+  "result": "biomesunseen:fungisteel",
+  "experience": 0.7,
+  "cookingtime": 100
+}

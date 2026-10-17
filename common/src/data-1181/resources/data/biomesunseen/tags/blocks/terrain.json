@@ -12,6 +12,24 @@
     "biomesunseen:living_heartwood",
     "biomesunseen:void_veined_stone",
     "biomesunseen:glowcap_block",
-    "biomesunseen:sunstone_bricks"
+    "biomesunseen:sunstone_bricks",
+    "biomesunseen:hollowstone",
+    "biomesunseen:deepslate_marrow",
+    "biomesunseen:glowgabbro",
+    "biomesunseen:emberlimestone",
+    "biomesunseen:fossilshale",
+    "biomesunseen:skyglass",
+    "biomesunseen:cloudstone",
+    "biomesunseen:dawnquartzite",
+    "biomesunseen:windslate",
+    "biomesunseen:starfall_basalt",
+    "biomesunseen:voidstone",
+    "biomesunseen:nullslate",
+    "biomesunseen:paradox_granite",
+    "biomesunseen:echoeslate",
+    "biomesunseen:static_breccia",
+    "biomesunseen:hollow_deep_portal",
+    "biomesunseen:aetherfall_portal",
+    "biomesunseen:void_between_portal"
   ]
 }

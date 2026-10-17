@@ -1,0 +1,15 @@
+{
+  "parent": "biomesunseen:boss_hunter",
+  "display": {
+    "icon": {
+      "item": "biomesunseen:unseen_sigil"
+    },
+    "title": "Warden of Five",
+    "description": "Defeat all five bosses"
+  },
+  "criteria": {
+    "tick": {
+      "trigger": "minecraft:tick"
+    }
+  }
+}

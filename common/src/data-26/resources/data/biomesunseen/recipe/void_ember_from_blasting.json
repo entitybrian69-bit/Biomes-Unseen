@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:blasting",
+  "ingredient": {
+    "item": "biomesunseen:void_ember_ore"
+  },
+  "result": "biomesunseen:void_ember",
+  "experience": 0.7,
+  "cookingtime": 100
+}

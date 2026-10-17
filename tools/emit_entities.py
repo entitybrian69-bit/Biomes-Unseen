@@ -6,8 +6,11 @@ animation JSON."""
 
 import os
 
-from content import MOB_ROWS, BOSS_ROWS, DECOR_ROWS
-from lines import LINES, types_for
+from content import (ALL_MOB_ROWS as MOB_ROWS, ALL_BOSS_ROWS as BOSS_ROWS,
+                     ALL_DECOR_ROWS as DECOR_ROWS,
+                     BOSS_ROWS as OVERWORLD_BOSS_ROWS,
+                     DIM_BOSS_ROWS, PORTAL_ROWS, DIMENSION_DEFS)
+from lines import LINES, types_for, travel_api
 from emit_families import _w, _s, _camel
 
 
@@ -1874,6 +1877,10 @@ public class VoidSerpentEntity extends BiomesUnseenMob {
         serpent = serpent.replace("AABB box", "net.minecraft.util.math.AxisAlignedBB box")
     _w(root, base + "/entity/boss/VoidSerpentEntity.java", serpent)
 
+    _emit_dimension_bosses(root, base, F, legacy, geckolib, world_t,
+                           boss_imports, gecko_imports, player_t)
+    _emit_travel(root, F, base)
+
     # ---- Animated blocks (GeckoLib GeoBlock for the crystal/glowcap/nullglass) ----
     if geckolib != "none":
         iface = "software.bernie.geckolib.animatable.GeoBlock" if geckolib == "g4" else "software.bernie.geckolib3.core.IAnimatable"
@@ -1996,3 +2003,392 @@ public class UnseenAnimatedBlock extends Block implements IAnimatable {
 }
 '''
         _w(root, base + "/block/UnseenAnimatedBlock.java", anim_block)
+
+
+# ====================================================================== #
+# Dimension bosses: one fully animated, multi-phase encounter per
+# expansion dimension.  Deliberately written with the exact same API calls
+# as the two hand-written bosses above so every one of the 17 API lines
+# compiles with the idioms already proven in this tree.
+# ====================================================================== #
+
+_BOSS_JAVA = """package com.biomesunseen.entity.boss;
+
+__BOSS_IMPORTS____GECKO_IMPORTS__
+
+import com.biomesunseen.core.BossDef;
+import com.biomesunseen.core.Content;
+import com.biomesunseen.platform.PlatformExpect;
+import com.biomesunseen.registry.ModItems;
+
+import net.minecraft.world.item.ItemStack;
+
+/**
+ * __DISPLAY__ - __BLURB__
+ *
+ * <p>Health-gated four-phase encounter.  Phase transitions fire their own
+ * GeckoLib one-shot, the attack rotation re-arms per phase, and the boss
+ * announces every phase through its own music track.</p>
+ */
+public class __CLS__ extends BiomesUnseenMob {
+
+    private static final BossDef DEF = Content.boss("__ID__");
+
+    private int phase;
+    private int attackCooldown;
+    private int musicCooldown;
+
+    public __CLS__(EntityType<? extends __CLS__> type, __WORLD__ level) {
+        super(type, level, bossMobDef(DEF));
+    }
+
+    @Override
+    protected void registerGoals() {
+        // Driven from aiStep for deterministic phase behaviour.
+    }
+
+    public int phase() {
+        return phase;
+    }
+
+    @Override
+    public void aiStep() {
+        super.aiStep();
+        if (unseenLevel().isClientSide) {
+            return;
+        }
+        float fraction = getHealth() / getMaxHealth();
+        int next = DEF.phaseForHealthFraction(fraction);
+        if (next != phase) {
+            onPhaseChanged(next);
+            phase = next;
+        }
+        if (--musicCooldown <= 0) {
+            musicCooldown = 600;
+            PlatformExpect.playBossMusic((net.minecraft.server.level.ServerLevel) unseenLevel(),
+                    blockPosition(), DEF.musicSoundEvent, 48);
+        }
+        LivingEntity target = getTarget();
+        if (target == null) {
+            return;
+        }
+        getLookControl().setLookAt(target, 30.0F, 30.0F);
+        if (--attackCooldown <= 0) {
+            attackCooldown = 70 - phase * 10;
+            performAttack(target);
+        }
+    }
+
+    private void onPhaseChanged(int next) {
+        if (next == 1) {
+            triggerAnim("__PHASE1__");
+        } else if (next == 2) {
+            triggerAnim("__PHASE2__");
+        } else if (next >= 3) {
+            triggerAnim("__PHASE3__");
+        }
+        playSound(SoundEvents.RAID_HORN, 2.0F, 0.8F);
+    }
+
+    private void performAttack(LivingEntity target) {
+        double distance = distanceTo(target);
+        int choice = (getRandom().nextInt(4) + phase) % 4;
+        if (choice == 0) {
+            triggerAnim("__ATK0__");
+            if (distance < 6.0D) {
+                target.hurt(damageSources().mobAttack(this), (float) DEF.phaseAttackDamage(phase));
+            }
+        } else if (choice == 1) {
+            triggerAnim("__ATK1__");
+            if (distance < 18.0D) {
+                target.hurt(damageSources().mobAttack(this), 5.0F + phase * 2.0F);
+            }
+        } else if (choice == 2) {
+            triggerAnim("__ATK2__");
+            setPos(target.getX(), target.getY(), target.getZ());
+            if (distance < 4.0D) {
+                target.hurt(damageSources().mobAttack(this), 3.0F + phase);
+            }
+        } else {
+            triggerAnim("__ATK3__");
+            for (__PLAYER__ player : unseenLevel().getEntitiesOfClass(__PLAYER__.class,
+                    getBoundingBox().inflate(10.0D))) {
+                player.hurt(damageSources().mobAttack(this), 5.0F + phase * 2.0F);
+                player.setDeltaMovement(player.getDeltaMovement().add(0.0D, 0.8D, 0.0D));
+            }
+        }
+    }
+
+    @Override
+    public void die(DamageSource source) {
+        super.die(source);
+        if (!unseenLevel().isClientSide) {
+            // Guaranteed unique relic plus the shared sigil and mineral cache.
+            spawnAtLocation(new ItemStack(ModItems.BOSS_RELICS.get("__ID__").get()));
+            spawnAtLocation(new ItemStack(ModItems.UNSEEN_SIGIL.get()));
+            for (int i = 0; i < 3; i++) {
+                java.util.List<me.shedaniel.architectury.registry.RegistrySupplier<net.minecraft.world.item.Item>> minerals =
+                        new java.util.ArrayList<>(ModItems.MINERALS.values());
+                if (minerals.isEmpty()) {
+                    break;
+                }
+                spawnAtLocation(new ItemStack(
+                        minerals.get(getRandom().nextInt(minerals.size())).get(), 3));
+            }
+        }
+    }
+
+    @Override
+    public boolean removeWhenFarAway(double distance) {
+        return false;
+    }
+
+    @Override
+    public boolean requiresCustomPersistence() {
+        return true;
+    }
+
+__GECKO_METHODS__}
+"""
+
+
+def _boss_gecko_methods(boss_id, geckolib):
+    if geckolib == "g4":
+        return """    @Override
+    public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
+        controllers.addAnimationController(new AnimationController<>(this, "movement", 0, event -> {
+            if (getAnimOneShotTicks() > 0 && getAnimOneShot() != null) {
+                event.getController().setAnimation(RawAnimation.begin()
+                        .thenPlay("animation.%s." + getAnimOneShot()));
+                return PlayState.CONTINUE;
+            }
+            if (event.isMoving()) {
+                event.getController().setAnimation(RawAnimation.begin()
+                        .thenLoop("animation.%s.walk"));
+                return PlayState.CONTINUE;
+            }
+            event.getController().setAnimation(RawAnimation.begin()
+                    .thenLoop("animation.%s.idle"));
+            return PlayState.CONTINUE;
+        }));
+    }
+
+    private AnimatableInstanceCache geoCache = GeckoLibUtil.createInstanceCache(this);
+
+    @Override
+    public AnimatableInstanceCache getAnimatableInstanceCache() {
+        return geoCache;
+    }
+
+    @Override
+    public double getTick(Object object) {
+        return tickCount;
+    }
+
+""" % (boss_id, boss_id, boss_id)
+    if geckolib == "g3":
+        return """    @Override
+    public void registerControllers(AnimationData data) {
+        data.addAnimationController(new AnimationController<>(this, "movement", 0, event -> {
+            AnimationBuilder builder = new AnimationBuilder();
+            if (getAnimOneShotTicks() > 0 && getAnimOneShot() != null) {
+                builder.addAnimation("animation.%s." + getAnimOneShot(), false);
+            } else if (event.isMoving()) {
+                builder.addAnimation("animation.%s.walk", true);
+            } else {
+                builder.addAnimation("animation.%s.idle", true);
+            }
+            event.getController().setAnimation(builder);
+            return PlayState.CONTINUE;
+        }));
+    }
+
+    private AnimationFactory geoCache = new AnimationFactory(this);
+
+    @Override
+    public AnimationFactory getFactory() {
+        return geoCache;
+    }
+
+""" % (boss_id, boss_id, boss_id)
+    return ""
+
+
+_BOSS_BLURBS = {
+    "warden_of_the_hollow_deep": "the stone-and-root jailer of the deep galleries",
+    "the_skyward_crown": "a crowned raptor that rules the floating isles",
+    "the_unraveling": "a shape-shifting tear in the fabric of the Void Between",
+}
+
+
+def _emit_dimension_bosses(root, base, F, legacy, geckolib, world_t,
+                           boss_imports, gecko_imports, player_t):
+    for row in DIM_BOSS_ROWS:
+        (bid, display, hp, spd, atk, w, h, arena, music, phases, attacks, loot,
+         grp, color, glow) = row
+        cls = _camel(bid) + "Entity"
+        text = (_BOSS_JAVA
+                .replace("__BOSS_IMPORTS__", boss_imports)
+                .replace("__GECKO_IMPORTS__", gecko_imports)
+                .replace("__DISPLAY__", display)
+                .replace("__BLURB__", _BOSS_BLURBS.get(bid, "an unseen boss"))
+                .replace("__CLS__", cls)
+                .replace("__ID__", bid)
+                .replace("__WORLD__", world_t)
+                .replace("__PLAYER__", player_t)
+                .replace("__PHASE1__", phases[1] if len(phases) > 1 else "idle")
+                .replace("__PHASE2__", phases[2] if len(phases) > 2 else "idle")
+                .replace("__PHASE3__", phases[3] if len(phases) > 3 else "idle")
+                .replace("__ATK0__", attacks[0] if len(attacks) > 0 else "attack")
+                .replace("__ATK1__", attacks[1] if len(attacks) > 1 else "attack")
+                .replace("__ATK2__", attacks[2] if len(attacks) > 2 else "attack")
+                .replace("__ATK3__", attacks[2] if len(attacks) > 3 else "attack")
+                .replace("__GECKO_METHODS__", _boss_gecko_methods(bid, geckolib)))
+        if F["damage"] == "old":
+            text = text.replace("damageSources().mobAttack(this)", "DamageSource.mobAttack(this)")
+            if legacy:
+                text = text.replace("DamageSource.mobAttack(this)",
+                                    "DamageSource.causeMobDamage(this)")
+        else:
+            text = text.replace("damageSources().mobAttack(this)",
+                                "unseenLevel().damageSources().mobAttack(this)")
+        _w(root, base + "/entity/boss/" + cls + ".java", text)
+
+
+# ====================================================================== #
+# Cross-dimension travel (per API line) + the dimension key item.
+# ====================================================================== #
+
+_TRAVEL_JAVA = """package com.biomesunseen.worldgen;
+
+import java.util.Collections;
+
+import net.minecraft.core.BlockPos;
+import net.minecraft.server.MinecraftServer;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.BlockState;
+
+import com.biomesunseen.registry.ModBlocks;
+
+/**
+ * Travel between the overworld and the three Biomes Unseen dimensions.
+ *
+ * <p>The destination is found by walking {@link MinecraftServer#getAllLevels()}
+ * and comparing {@code Level#dimension().location()}, which needs no
+ * registry-key helpers (their package moved three times between 1.16.5 and
+ * 26.x) and no server mappings beyond what every target exposes.</p>
+ *
+ * <p>A 3x3 landing pad of the dimension's own stone is laid down on arrival so
+ * the player never lands inside terrain or over the void, and arriving back in
+ * the overworld reuses the world spawn.</p>
+ */
+public final class UnseenTravel {
+
+    public static final String MOD_ID = "biomesunseen";
+
+    /** Where each player stepped into a dimension, so the way back is exact. */
+    private static final java.util.Map<java.util.UUID, double[]> RETURN =
+            new java.util.HashMap<java.util.UUID, double[]>();
+
+    private UnseenTravel() {
+    }
+
+    public static boolean travel(Level level, Player player, String dimensionId) {
+        MinecraftServer server = level.getServer();
+        if (server == null) {
+            return false;
+        }
+        String key = MOD_ID + ":" + dimensionId;
+        if (level.dimension().location().toString().equals(key)) {
+            ServerLevel overworld = find(server, "minecraft:overworld");
+            if (overworld == null) {
+                return false;
+            }
+            double[] home = RETURN.get(player.getUUID());
+            double hx = home == null ? 0.0D : home[0];
+            double hy = home == null ? 100.0D : home[1];
+            double hz = home == null ? 0.0D : home[2];
+            buildArrival(overworld, (int) Math.floor(hx), (int) Math.floor(hy),
+                    (int) Math.floor(hz), Blocks.STONE.defaultBlockState());
+            return send(player, overworld, hx, hy, hz);
+        }
+        RETURN.put(player.getUUID(), new double[]{player.getX(), player.getY(), player.getZ()});
+        ServerLevel target = find(server, key);
+        if (target == null) {
+            return false;
+        }
+        int x = (int) Math.floor(player.getX());
+        int z = (int) Math.floor(player.getZ());
+        int y = arrivalY(dimensionId);
+        buildArrival(target, x, y, z, floorFor(dimensionId));
+        return send(player, target, x + 0.5D, y, z + 0.5D);
+    }
+
+    private static ServerLevel find(MinecraftServer server, String key) {
+        for (ServerLevel candidate : server.getAllLevels()) {
+            if (candidate.dimension().location().toString().equals(key)) {
+                return candidate;
+            }
+        }
+        return null;
+    }
+
+    private static int arrivalY(String dimensionId) {
+        if ("aetherfall".equals(dimensionId)) {
+            return 128;
+        }
+        if ("void_between".equals(dimensionId)) {
+            return 96;
+        }
+        return 48;
+    }
+
+    private static void buildArrival(ServerLevel level, int x, int y, int z, BlockState floor) {
+        for (int dx = -1; dx <= 1; dx++) {
+            for (int dz = -1; dz <= 1; dz++) {
+                level.setBlock(new BlockPos(x + dx, y - 1, z + dz), floor, 3, 512);
+                level.setBlock(new BlockPos(x + dx, y, z + dz),
+                        Blocks.AIR.defaultBlockState(), 3, 512);
+                level.setBlock(new BlockPos(x + dx, y + 1, z + dz),
+                        Blocks.AIR.defaultBlockState(), 3, 512);
+            }
+        }
+    }
+
+    private static BlockState floorFor(String dimensionId) {
+        Block block;
+        if ("aetherfall".equals(dimensionId)) {
+            block = ModBlocks.DECOR.get("skyglass").get();
+        } else if ("void_between".equals(dimensionId)) {
+            block = ModBlocks.DECOR.get("voidstone").get();
+        } else {
+            block = ModBlocks.DECOR.get("hollowstone").get();
+        }
+        if (block == null) {
+            return Blocks.STONE.defaultBlockState();
+        }
+        return block.defaultBlockState();
+    }
+
+    private static boolean send(Player player, ServerLevel target, double x, double y, double z) {
+__SEND__
+        return true;
+    }
+}
+"""
+
+_SEND_LEGACY = """        player.changeDimension(target);
+        player.setPos(x, y, z);"""
+_SEND_SET = """        player.teleportTo(target, x, y, z, Collections.emptySet(), 0.0F, 0.0F);"""
+_SEND_SET8 = """        player.teleportTo(target, x, y, z, Collections.emptySet(), 0.0F, 0.0F, true);"""
+
+
+def _emit_travel(root, F, base):
+    api = travel_api(F["mc"])
+    send = {"legacy": _SEND_LEGACY, "set": _SEND_SET, "set8": _SEND_SET8}[api]
+    text = _TRAVEL_JAVA.replace("__SEND__", send)
+    _w(root, base + "/worldgen/UnseenTravel.java", text)

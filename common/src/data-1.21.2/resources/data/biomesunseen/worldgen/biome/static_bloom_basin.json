@@ -1,0 +1,118 @@
+{
+  "temperature": 0.07,
+  "downfall": 0.64,
+  "has_precipitation": false,
+  "effects": {
+    "grass_color": 5909114,
+    "foliage_color": 3807834,
+    "water_color": 2755146,
+    "water_fog_color": 1377573,
+    "sky_color": 525324,
+    "fog_color": 1706530,
+    "mood_sound": {
+      "sound": "biomesunseen:ambient.biomesunseen.void_between_loop",
+      "tick_delay": 400,
+      "block_search_extent": 8,
+      "offset": 2.0
+    }
+  },
+  "carvers": [],
+  "features": [
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [
+      "biomesunseen:glimmer_quartz_ore",
+      "biomesunseen:moonshard_ore",
+      "biomesunseen:stelliferrum_ore",
+      "biomesunseen:tideglass_ore",
+      "biomesunseen:hearthstone_ore",
+      "biomesunseen:nullite_ore",
+      "biomesunseen:glitchstone_ore",
+      "biomesunseen:paradox_shard_ore",
+      "biomesunseen:entropy_crystal_ore",
+      "biomesunseen:void_ember_ore",
+      "biomesunseen:mirrorshard_ore",
+      "biomesunseen:static_ore_ore",
+      "biomesunseen:finality_ore"
+    ],
+    [],
+    [],
+    [],
+    []
+  ],
+  "spawners": {
+    "monster": [
+      {
+        "type": "biomesunseen:glitchling",
+        "weight": 13,
+        "minCount": 1,
+        "maxCount": 4
+      },
+      {
+        "type": "biomesunseen:null_stalker",
+        "weight": 9,
+        "minCount": 1,
+        "maxCount": 2
+      },
+      {
+        "type": "biomesunseen:paradox_beast",
+        "weight": 6,
+        "minCount": 1,
+        "maxCount": 2
+      },
+      {
+        "type": "biomesunseen:static_crawler",
+        "weight": 11,
+        "minCount": 1,
+        "maxCount": 4
+      },
+      {
+        "type": "biomesunseen:dream_eater",
+        "weight": 7,
+        "minCount": 1,
+        "maxCount": 2
+      },
+      {
+        "type": "biomesunseen:echo_husk",
+        "weight": 9,
+        "minCount": 1,
+        "maxCount": 4
+      }
+    ],
+    "creature": [
+      {
+        "type": "biomesunseen:mirror_wisp",
+        "weight": 12,
+        "minCount": 1,
+        "maxCount": 2
+      },
+      {
+        "type": "biomesunseen:shardwing",
+        "weight": 12,
+        "minCount": 1,
+        "maxCount": 2
+      },
+      {
+        "type": "biomesunseen:inverse_grazer",
+        "weight": 9,
+        "minCount": 1,
+        "maxCount": 2
+      },
+      {
+        "type": "biomesunseen:unravel_spawn",
+        "weight": 7,
+        "minCount": 1,
+        "maxCount": 2
+      }
+    ],
+    "ambient": [],
+    "water_creature": [],
+    "water_ambient": [],
+    "misc": []
+  },
+  "spawn_costs": {}
+}

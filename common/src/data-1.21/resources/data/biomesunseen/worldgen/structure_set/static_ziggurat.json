@@ -1,0 +1,15 @@
+{
+  "structures": [
+    {
+      "structure": "biomesunseen:static_ziggurat",
+      "weight": 5
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "salt": 83102,
+    "spacing": 32,
+    "separation": 12,
+    "spread_type": "linear"
+  }
+}

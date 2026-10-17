@@ -1,0 +1,191 @@
+{
+  "format_version": "1.12.0",
+  "minecraft:geometry": [
+    {
+      "description": {
+        "identifier": "geometry.warden_of_the_hollow_deep",
+        "texture_width": 32,
+        "texture_height": 32,
+        "visible_bounds_width": 3,
+        "visible_bounds_height": 3,
+        "visible_bounds_offset": [
+          0,
+          1,
+          0
+        ]
+      },
+      "bones": [
+        {
+          "name": "root",
+          "pivot": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "body",
+          "parent": "root",
+          "pivot": [
+            0,
+            40,
+            0
+          ],
+          "cubes": [
+            {
+              "origin": [
+                -26,
+                2,
+                -26
+              ],
+              "size": [
+                52,
+                40,
+                51
+              ],
+              "uv": [
+                16,
+                16
+              ]
+            }
+          ]
+        },
+        {
+          "name": "head",
+          "parent": "body",
+          "pivot": [
+            0,
+            44,
+            -27
+          ],
+          "cubes": [
+            {
+              "origin": [
+                -13,
+                40,
+                -51
+              ],
+              "size": [
+                25,
+                25,
+                25
+              ],
+              "uv": [
+                0,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "name": "leg0",
+          "parent": "root",
+          "pivot": [
+            -25,
+            8,
+            24
+          ],
+          "cubes": [
+            {
+              "origin": [
+                -26,
+                0,
+                23
+              ],
+              "size": [
+                3,
+                8,
+                3
+              ],
+              "uv": [
+                0,
+                16
+              ]
+            }
+          ]
+        },
+        {
+          "name": "leg1",
+          "parent": "root",
+          "pivot": [
+            25,
+            8,
+            24
+          ],
+          "cubes": [
+            {
+              "origin": [
+                23,
+                0,
+                23
+              ],
+              "size": [
+                3,
+                8,
+                3
+              ],
+              "uv": [
+                0,
+                16
+              ]
+            }
+          ]
+        },
+        {
+          "name": "leg2",
+          "parent": "root",
+          "pivot": [
+            -25,
+            8,
+            -25
+          ],
+          "cubes": [
+            {
+              "origin": [
+                -26,
+                0,
+                -26
+              ],
+              "size": [
+                3,
+                8,
+                3
+              ],
+              "uv": [
+                0,
+                16
+              ]
+            }
+          ]
+        },
+        {
+          "name": "leg3",
+          "parent": "root",
+          "pivot": [
+            25,
+            8,
+            -25
+          ],
+          "cubes": [
+            {
+              "origin": [
+                23,
+                0,
+                -26
+              ],
+              "size": [
+                3,
+                8,
+                3
+              ],
+              "uv": [
+                0,
+                16
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

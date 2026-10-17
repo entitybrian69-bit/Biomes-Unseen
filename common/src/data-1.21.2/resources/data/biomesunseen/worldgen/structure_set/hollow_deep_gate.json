@@ -1,0 +1,15 @@
+{
+  "structures": [
+    {
+      "structure": "biomesunseen:hollow_deep_gate",
+      "weight": 4
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "salt": 99463,
+    "spacing": 40,
+    "separation": 15,
+    "spread_type": "linear"
+  }
+}

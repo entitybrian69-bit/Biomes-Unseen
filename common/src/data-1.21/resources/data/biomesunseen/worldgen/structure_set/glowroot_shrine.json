@@ -1,0 +1,15 @@
+{
+  "structures": [
+    {
+      "structure": "biomesunseen:glowroot_shrine",
+      "weight": 6
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "salt": 59380,
+    "spacing": 22,
+    "separation": 9,
+    "spread_type": "linear"
+  }
+}

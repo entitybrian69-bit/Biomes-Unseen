@@ -226,5 +226,248 @@
     "sounds": [
       "biomesunseen:block/biomesunseen/ember_crackle"
     ]
+  },
+  "ambient.biomesunseen.hollow_deep_loop": {
+    "subtitle": "subtitles.biomesunseen.hollow_deep_loop",
+    "sounds": [
+      "biomesunseen:ambient/biomesunseen/hollow_deep_loop"
+    ]
+  },
+  "music.biomesunseen.hollow_deep_theme": {
+    "subtitle": "subtitles.biomesunseen.hollow_deep_theme",
+    "sounds": [
+      {
+        "name": "biomesunseen:music/biomesunseen/hollow_deep_theme",
+        "stream": true
+      }
+    ]
+  },
+  "entity.biomesunseen.glowmoth.ambient": {
+    "subtitle": "subtitles.biomesunseen.ambient",
+    "sounds": [
+      "biomesunseen:entity/biomesunseen/glowmoth/ambient"
+    ]
+  },
+  "ambient.biomesunseen.aetherfall_loop": {
+    "subtitle": "subtitles.biomesunseen.aetherfall_loop",
+    "sounds": [
+      "biomesunseen:ambient/biomesunseen/aetherfall_loop"
+    ]
+  },
+  "music.biomesunseen.aetherfall_theme": {
+    "subtitle": "subtitles.biomesunseen.aetherfall_theme",
+    "sounds": [
+      {
+        "name": "biomesunseen:music/biomesunseen/aetherfall_theme",
+        "stream": true
+      }
+    ]
+  },
+  "entity.biomesunseen.dawnfinch.ambient": {
+    "subtitle": "subtitles.biomesunseen.ambient",
+    "sounds": [
+      "biomesunseen:entity/biomesunseen/dawnfinch/ambient"
+    ]
+  },
+  "ambient.biomesunseen.void_between_loop": {
+    "subtitle": "subtitles.biomesunseen.void_between_loop",
+    "sounds": [
+      "biomesunseen:ambient/biomesunseen/void_between_loop"
+    ]
+  },
+  "music.biomesunseen.void_between_theme": {
+    "subtitle": "subtitles.biomesunseen.void_between_theme",
+    "sounds": [
+      {
+        "name": "biomesunseen:music/biomesunseen/void_between_theme",
+        "stream": true
+      }
+    ]
+  },
+  "entity.biomesunseen.glitchling.ambient": {
+    "subtitle": "subtitles.biomesunseen.ambient",
+    "sounds": [
+      "biomesunseen:entity/biomesunseen/glitchling/ambient"
+    ]
+  },
+  "music.biomesunseen.heart_of_the_forest_phase1": {
+    "subtitle": "subtitles.biomesunseen.heart_of_the_forest_phase1",
+    "sounds": [
+      {
+        "name": "biomesunseen:music/biomesunseen/heart_of_the_forest_phase1",
+        "stream": true
+      }
+    ]
+  },
+  "music.biomesunseen.heart_of_the_forest_phase2": {
+    "subtitle": "subtitles.biomesunseen.heart_of_the_forest_phase2",
+    "sounds": [
+      {
+        "name": "biomesunseen:music/biomesunseen/heart_of_the_forest_phase2",
+        "stream": true
+      }
+    ]
+  },
+  "music.biomesunseen.heart_of_the_forest_phase3": {
+    "subtitle": "subtitles.biomesunseen.heart_of_the_forest_phase3",
+    "sounds": [
+      {
+        "name": "biomesunseen:music/biomesunseen/heart_of_the_forest_phase3",
+        "stream": true
+      }
+    ]
+  },
+  "music.biomesunseen.heart_of_the_forest_phase4": {
+    "subtitle": "subtitles.biomesunseen.heart_of_the_forest_phase4",
+    "sounds": [
+      {
+        "name": "biomesunseen:music/biomesunseen/heart_of_the_forest_phase4",
+        "stream": true
+      }
+    ]
+  },
+  "music.biomesunseen.void_serpent_phase1": {
+    "subtitle": "subtitles.biomesunseen.void_serpent_phase1",
+    "sounds": [
+      {
+        "name": "biomesunseen:music/biomesunseen/void_serpent_phase1",
+        "stream": true
+      }
+    ]
+  },
+  "music.biomesunseen.void_serpent_phase2": {
+    "subtitle": "subtitles.biomesunseen.void_serpent_phase2",
+    "sounds": [
+      {
+        "name": "biomesunseen:music/biomesunseen/void_serpent_phase2",
+        "stream": true
+      }
+    ]
+  },
+  "music.biomesunseen.void_serpent_phase3": {
+    "subtitle": "subtitles.biomesunseen.void_serpent_phase3",
+    "sounds": [
+      {
+        "name": "biomesunseen:music/biomesunseen/void_serpent_phase3",
+        "stream": true
+      }
+    ]
+  },
+  "music.biomesunseen.void_serpent_phase4": {
+    "subtitle": "subtitles.biomesunseen.void_serpent_phase4",
+    "sounds": [
+      {
+        "name": "biomesunseen:music/biomesunseen/void_serpent_phase4",
+        "stream": true
+      }
+    ]
+  },
+  "music.biomesunseen.warden_of_the_hollow_deep_phase1": {
+    "subtitle": "subtitles.biomesunseen.warden_of_the_hollow_deep_phase1",
+    "sounds": [
+      {
+        "name": "biomesunseen:music/biomesunseen/warden_of_the_hollow_deep_phase1",
+        "stream": true
+      }
+    ]
+  },
+  "music.biomesunseen.warden_of_the_hollow_deep_phase2": {
+    "subtitle": "subtitles.biomesunseen.warden_of_the_hollow_deep_phase2",
+    "sounds": [
+      {
+        "name": "biomesunseen:music/biomesunseen/warden_of_the_hollow_deep_phase2",
+        "stream": true
+      }
+    ]
+  },
+  "music.biomesunseen.warden_of_the_hollow_deep_phase3": {
+    "subtitle": "subtitles.biomesunseen.warden_of_the_hollow_deep_phase3",
+    "sounds": [
+      {
+        "name": "biomesunseen:music/biomesunseen/warden_of_the_hollow_deep_phase3",
+        "stream": true
+      }
+    ]
+  },
+  "music.biomesunseen.warden_of_the_hollow_deep_phase4": {
+    "subtitle": "subtitles.biomesunseen.warden_of_the_hollow_deep_phase4",
+    "sounds": [
+      {
+        "name": "biomesunseen:music/biomesunseen/warden_of_the_hollow_deep_phase4",
+        "stream": true
+      }
+    ]
+  },
+  "music.biomesunseen.the_skyward_crown_phase1": {
+    "subtitle": "subtitles.biomesunseen.the_skyward_crown_phase1",
+    "sounds": [
+      {
+        "name": "biomesunseen:music/biomesunseen/the_skyward_crown_phase1",
+        "stream": true
+      }
+    ]
+  },
+  "music.biomesunseen.the_skyward_crown_phase2": {
+    "subtitle": "subtitles.biomesunseen.the_skyward_crown_phase2",
+    "sounds": [
+      {
+        "name": "biomesunseen:music/biomesunseen/the_skyward_crown_phase2",
+        "stream": true
+      }
+    ]
+  },
+  "music.biomesunseen.the_skyward_crown_phase3": {
+    "subtitle": "subtitles.biomesunseen.the_skyward_crown_phase3",
+    "sounds": [
+      {
+        "name": "biomesunseen:music/biomesunseen/the_skyward_crown_phase3",
+        "stream": true
+      }
+    ]
+  },
+  "music.biomesunseen.the_skyward_crown_phase4": {
+    "subtitle": "subtitles.biomesunseen.the_skyward_crown_phase4",
+    "sounds": [
+      {
+        "name": "biomesunseen:music/biomesunseen/the_skyward_crown_phase4",
+        "stream": true
+      }
+    ]
+  },
+  "music.biomesunseen.the_unraveling_phase1": {
+    "subtitle": "subtitles.biomesunseen.the_unraveling_phase1",
+    "sounds": [
+      {
+        "name": "biomesunseen:music/biomesunseen/the_unraveling_phase1",
+        "stream": true
+      }
+    ]
+  },
+  "music.biomesunseen.the_unraveling_phase2": {
+    "subtitle": "subtitles.biomesunseen.the_unraveling_phase2",
+    "sounds": [
+      {
+        "name": "biomesunseen:music/biomesunseen/the_unraveling_phase2",
+        "stream": true
+      }
+    ]
+  },
+  "music.biomesunseen.the_unraveling_phase3": {
+    "subtitle": "subtitles.biomesunseen.the_unraveling_phase3",
+    "sounds": [
+      {
+        "name": "biomesunseen:music/biomesunseen/the_unraveling_phase3",
+        "stream": true
+      }
+    ]
+  },
+  "music.biomesunseen.the_unraveling_phase4": {
+    "subtitle": "subtitles.biomesunseen.the_unraveling_phase4",
+    "sounds": [
+      {
+        "name": "biomesunseen:music/biomesunseen/the_unraveling_phase4",
+        "stream": true
+      }
+    ]
   }
 }

@@ -10,9 +10,13 @@ from 1.16.5 (Java 8) through 26.3 (Java 25).  Java 8 syntax only.
 
 import os
 
-from content import (BIOME_GROUPS, BIOME_ROWS, ORE_ROWS, DECOR_ROWS, PLANT_ROWS,
-                     STRUCTURE_ROWS, MOB_ROWS, BOSS_ROWS, CONFIG_ROWS,
-                     PARTICLE_TYPES, SOUND_EVENTS, ADVANCEMENT_ROWS, MOD_ID)
+from content import (BIOME_GROUPS, ALL_BIOME_ROWS as BIOME_ROWS,
+                     ALL_ORE_ROWS as ORE_ROWS, ALL_DECOR_ROWS as DECOR_ROWS,
+                     ALL_PLANT_ROWS as PLANT_ROWS,
+                     ALL_STRUCTURE_ROWS as STRUCTURE_ROWS,
+                     ALL_MOB_ROWS as MOB_ROWS, ALL_BOSS_ROWS as BOSS_ROWS,
+                     CONFIG_ROWS, PARTICLE_TYPES, SOUND_EVENTS,
+                     ADVANCEMENT_ROWS, MOD_ID)
 
 
 def _w(root, rel, text):
