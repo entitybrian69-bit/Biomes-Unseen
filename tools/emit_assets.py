@@ -429,8 +429,8 @@ def emit(root):
     for key, _typ, _d, comment in CONFIG_ROWS:
         lang["biomesunseen.config." + key] = key
     for se in SOUND_EVENTS:
-        lang["subtitles." + se.split(".", 1)[-1] if se.startswith("subtitles.") else
-             "subtitles." + se] = se
+        tail = se.split(".")[-1]
+        lang["subtitles.biomesunseen." + tail] = tail.replace("_", " ").title()
     _wj(root, A + "/lang/en_us.json", lang)
 
     # ---------------- sounds.json ----------------
