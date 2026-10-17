@@ -202,7 +202,7 @@ public final class ModItems {
         for (final String[] portal : portalKeys) {
             PORTAL_KEYS.put(portal[1], track(ModRegistries.ITEMS.register(portal[1],
                     () -> new com.biomesunseen.item.UnseenPortalKeyItem(portal[0],
-                            new Item.Properties()%(props_plain)s))));
+                            new Item.Properties()))));
         }
 
         // Unique relic dropped by every boss (guaranteed, one per kill).

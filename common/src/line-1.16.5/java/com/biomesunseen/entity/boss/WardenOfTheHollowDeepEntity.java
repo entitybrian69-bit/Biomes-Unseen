@@ -10,6 +10,7 @@ import net.minecraft.world.level.Level;
 
 import com.biomesunseen.core.BossDef;
 import com.biomesunseen.core.Content;
+import com.biomesunseen.entity.BiomesUnseenMob;
 import com.biomesunseen.platform.PlatformExpect;
 import com.biomesunseen.registry.ModItems;
 

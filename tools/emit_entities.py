@@ -2018,6 +2018,7 @@ __BOSS_IMPORTS____GECKO_IMPORTS__
 
 import com.biomesunseen.core.BossDef;
 import com.biomesunseen.core.Content;
+import com.biomesunseen.entity.BiomesUnseenMob;
 import com.biomesunseen.platform.PlatformExpect;
 import com.biomesunseen.registry.ModItems;
 

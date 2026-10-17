@@ -23,7 +23,7 @@ def emit_registries(root, line_key):
         "        for (final String[] portal : portalKeys) {\n"
         "            PORTAL_KEYS.put(portal[1], track(ModRegistries.ITEMS.register(portal[1],\n"
         "                    () -> new com.biomesunseen.item.UnseenPortalKeyItem(portal[0],\n"
-        "                            new Item.Properties()%(props_plain)s))));\n"
+        "                            new Item.Properties()))));\n"
         "        }\n")
     T = types_for(F)
     base = "common/src/line-%s/java/com/biomesunseen" % line_key
