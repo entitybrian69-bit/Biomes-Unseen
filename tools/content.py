@@ -8,7 +8,7 @@ complete definition used verbatim in generated code.
 
 MOD_ID = "biomesunseen"
 MOD_NAME = "Biomes Unseen"
-MOD_VERSION = "1.0.1"
+MOD_VERSION = "1.0.2"
 MOD_GROUP = "com.biomesunseen"
 MOD_DESCRIPTION = (
     "A massive world-generation, adventure, biome, structure, ore, mob and boss "

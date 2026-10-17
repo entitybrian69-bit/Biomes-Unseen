@@ -316,12 +316,19 @@ def _overworld_parameter_list():
     every Biomes Unseen biome in its own temperature/humidity band."""
     entries = []
 
+    def clamp(v):
+        # Climate.Parameter codec = intervalCodec(floatRange(-2, 2)): values
+        # outside [-2.0, 2.0] fail world_preset/dimension decoding and abort
+        # world creation ("Missing overworld dimension").
+        return max(-2.0, min(2.0, float(v)))
+
     def entry(biome, t, h, c, w, d, e):
         return {
             "biome": biome,
             "parameters": {
-                "temperature": t, "humidity": h, "continentalness": c,
-                "erosion": w, "depth": d, "weirdness": e,
+                "temperature": clamp(t), "humidity": clamp(h),
+                "continentalness": clamp(c), "erosion": clamp(w),
+                "depth": clamp(d), "weirdness": clamp(e),
                 "offset": 0.0,
             },
         }

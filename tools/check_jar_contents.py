@@ -108,6 +108,48 @@ def main(argv):
                     "common/src", style_dir, "resources/data/minecraft/worldgen",
                     "multi_noise_biome_source_parameter_list", "*.json")):
                 problems.append("%s: ships invalid multi_noise parameter list" % mod)
+        # Climate parameter range gate: Climate.Parameter is
+        # intervalCodec(floatRange(-2,2)) and offset is floatRange(0,1).
+        # Out-of-range values make world_preset/dimension fail to decode
+        # ("Missing overworld dimension") and abort world creation.
+        for pf in sorted(glob.glob(os.path.join(
+                "common/src", style_dir, "resources/data", "**", "*.json"),
+                recursive=True)):
+            try:
+                doc = json.load(open(pf))
+            except Exception:
+                continue
+            stack = [doc]
+            while stack:
+                o = stack.pop()
+                if isinstance(o, dict):
+                    if ("temperature" in o and "offset" in o
+                            and isinstance(o.get("offset"), (int, float))):
+                        for ax in ("temperature", "humidity", "continentalness",
+                                   "erosion", "depth", "weirdness"):
+                            v = o.get(ax)
+                            if isinstance(v, (int, float)) and not -2.0 <= v <= 2.0:
+                                problems.append("%s: %s %s=%s outside [-2:2]"
+                                                % (mod, os.path.basename(pf), ax, v))
+                        off = o.get("offset")
+                        if isinstance(off, (int, float)) and not 0.0 <= off <= 1.0:
+                            problems.append("%s: %s offset=%s outside [0:1]"
+                                            % (mod, os.path.basename(pf), off))
+                    stack.extend(o.values())
+                elif isinstance(o, list):
+                    stack.extend(o)
+        for ssp in sorted(glob.glob(os.path.join(
+                "common/src", style_dir,
+                "resources/data/biomesunseen/worldgen/structure_set", "*.json"))):
+            try:
+                doc = json.load(open(ssp))
+            except Exception:
+                continue
+            pl = doc.get("placement", {})
+            sp, sep = pl.get("spacing"), pl.get("separation")
+            if isinstance(sp, int) and isinstance(sep, int) and not sp > sep:
+                problems.append("%s: %s spacing %d <= separation %d"
+                                % (mod, os.path.basename(ssp), sp, sep))
         if mod.startswith("fabric"):
             declared = ('"mixins"' in open(
                 "%s/src/main/resources/fabric.mod.json" % mod).read())
