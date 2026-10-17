@@ -5,7 +5,7 @@
       "weight": 1,
       "element": {
         "element_type": "minecraft:legacy_single_pool_element",
-        "location": "biomesunseen:alchemists_spire/start/start",
+        "location": "biomesunseen:alchemists_spire/start",
         "projection": "rigid",
         "processors": "minecraft:empty"
       }

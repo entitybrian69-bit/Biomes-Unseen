@@ -1,0 +1,92 @@
+{
+  "temperature": 1.5,
+  "downfall": 0.05,
+  "has_precipitation": false,
+  "effects": {
+    "grass_color": 12737070,
+    "foliage_color": 11027231,
+    "water_color": 16742972,
+    "water_fog_color": 8338718,
+    "sky_color": 16757626,
+    "fog_color": 15239002,
+    "mood_sound": {
+      "sound": "ambient.biomesunseen.ember_loop",
+      "tick_delay": 400,
+      "block_search_extent": 8,
+      "offset": 2.0
+    }
+  },
+  "carvers": [],
+  "features": [
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [
+      "biomesunseen:emberite_ore",
+      "biomesunseen:glimmer_quartz_ore",
+      "biomesunseen:moonshard_ore",
+      "biomesunseen:crimsonite_ore",
+      "biomesunseen:stelliferrum_ore",
+      "biomesunseen:ashium_ore",
+      "biomesunseen:tideglass_ore",
+      "biomesunseen:hearthstone_ore"
+    ],
+    [],
+    [],
+    [],
+    []
+  ],
+  "attributes": {
+    "minecraft:gameplay/natural_mob_spawns": {
+      "argument": {
+        "spawn_costs": {},
+        "spawns_by_category": {
+          "monster": [
+            {
+              "type": "biomesunseen:ash_crawler",
+              "weight": 11,
+              "count": {
+                "type": "minecraft:uniform",
+                "min_inclusive": 1,
+                "max_inclusive": 4
+              }
+            }
+          ],
+          "creature": [
+            {
+              "type": "biomesunseen:ember_calf",
+              "weight": 10,
+              "count": {
+                "type": "minecraft:uniform",
+                "min_inclusive": 1,
+                "max_inclusive": 2
+              }
+            },
+            {
+              "type": "biomesunseen:cinder_pup",
+              "weight": 11,
+              "count": {
+                "type": "minecraft:uniform",
+                "min_inclusive": 1,
+                "max_inclusive": 4
+              }
+            },
+            {
+              "type": "biomesunseen:dune_skimmer",
+              "weight": 10,
+              "count": {
+                "type": "minecraft:uniform",
+                "min_inclusive": 1,
+                "max_inclusive": 4
+              }
+            }
+          ]
+        }
+      }
+    },
+    "minecraft:visual/sky_color": "#ffb37a"
+  }
+}

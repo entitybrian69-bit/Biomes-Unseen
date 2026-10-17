@@ -1,0 +1,15 @@
+{
+  "structures": [
+    {
+      "structure": "biomesunseen:fungal_cathedral",
+      "weight": 6
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "salt": 88131,
+    "spacing": 30,
+    "separation": 12,
+    "spread_type": "linear"
+  }
+}

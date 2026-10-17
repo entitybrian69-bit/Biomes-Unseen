@@ -1,0 +1,82 @@
+{
+  "temperature": 0.22,
+  "downfall": 0.3,
+  "has_precipitation": false,
+  "effects": {
+    "grass_color": 6965898,
+    "foliage_color": 5913210,
+    "water_color": 4860522,
+    "water_fog_color": 2430261,
+    "sky_color": 2759226,
+    "fog_color": 3811914,
+    "mood_sound": {
+      "sound": "ambient.biomesunseen.void_loop",
+      "tick_delay": 400,
+      "block_search_extent": 8,
+      "offset": 2.0
+    }
+  },
+  "carvers": [],
+  "features": [
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [
+      "biomesunseen:voidshard_ore",
+      "biomesunseen:glimmer_quartz_ore",
+      "biomesunseen:moonshard_ore",
+      "biomesunseen:stelliferrum_ore",
+      "biomesunseen:tideglass_ore",
+      "biomesunseen:gloomshard_ore",
+      "biomesunseen:hearthstone_ore"
+    ],
+    [],
+    [],
+    [],
+    []
+  ],
+  "attributes": {
+    "minecraft:gameplay/natural_mob_spawns": {
+      "argument": {
+        "spawn_costs": {},
+        "spawns_by_category": {
+          "monster": [
+            {
+              "type": "biomesunseen:echo_howler",
+              "weight": 8,
+              "count": {
+                "type": "minecraft:uniform",
+                "min_inclusive": 1,
+                "max_inclusive": 4
+              }
+            },
+            {
+              "type": "biomesunseen:gloom_stalker",
+              "weight": 9,
+              "count": {
+                "type": "minecraft:uniform",
+                "min_inclusive": 1,
+                "max_inclusive": 4
+              }
+            }
+          ],
+          "creature": [
+            {
+              "type": "biomesunseen:star_whale",
+              "weight": 3,
+              "count": {
+                "type": "minecraft:uniform",
+                "min_inclusive": 1,
+                "max_inclusive": 4
+              }
+            }
+          ]
+        }
+      }
+    },
+    "minecraft:visual/sky_color": "#2a1a3a"
+  }
+}

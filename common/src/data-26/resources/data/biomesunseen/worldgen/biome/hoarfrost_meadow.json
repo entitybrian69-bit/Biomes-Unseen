@@ -1,0 +1,80 @@
+{
+  "temperature": -0.35,
+  "downfall": 0.7,
+  "has_precipitation": true,
+  "effects": {
+    "grass_color": 11069135,
+    "foliage_color": 9427144,
+    "water_color": 7321832,
+    "water_fog_color": 3628148,
+    "sky_color": 14086399,
+    "fog_color": 15399167,
+    "mood_sound": {
+      "sound": "ambient.biomesunseen.frost_loop",
+      "tick_delay": 400,
+      "block_search_extent": 8,
+      "offset": 2.0
+    }
+  },
+  "carvers": [],
+  "features": [
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [
+      "biomesunseen:glimmer_quartz_ore",
+      "biomesunseen:froststeel_ore",
+      "biomesunseen:moonshard_ore",
+      "biomesunseen:stelliferrum_ore",
+      "biomesunseen:tideglass_ore",
+      "biomesunseen:hearthstone_ore"
+    ],
+    [],
+    [],
+    [],
+    []
+  ],
+  "attributes": {
+    "minecraft:gameplay/natural_mob_spawns": {
+      "argument": {
+        "spawn_costs": {},
+        "spawns_by_category": {
+          "monster": [],
+          "creature": [
+            {
+              "type": "biomesunseen:frost_fawn",
+              "weight": 12,
+              "count": {
+                "type": "minecraft:uniform",
+                "min_inclusive": 1,
+                "max_inclusive": 2
+              }
+            },
+            {
+              "type": "biomesunseen:mosshorn",
+              "weight": 8,
+              "count": {
+                "type": "minecraft:uniform",
+                "min_inclusive": 1,
+                "max_inclusive": 2
+              }
+            },
+            {
+              "type": "biomesunseen:lantern_fox",
+              "weight": 11,
+              "count": {
+                "type": "minecraft:uniform",
+                "min_inclusive": 1,
+                "max_inclusive": 2
+              }
+            }
+          ]
+        }
+      }
+    },
+    "minecraft:visual/sky_color": "#d6f0ff"
+  }
+}

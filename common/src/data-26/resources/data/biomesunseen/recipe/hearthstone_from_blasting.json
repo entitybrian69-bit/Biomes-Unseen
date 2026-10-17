@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:blasting",
+  "ingredient": {
+    "item": "biomesunseen:hearthstone_ore"
+  },
+  "result": "biomesunseen:hearthstone",
+  "experience": 0.7,
+  "cookingtime": 100
+}

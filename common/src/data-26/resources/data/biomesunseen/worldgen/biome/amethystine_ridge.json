@@ -1,0 +1,108 @@
+{
+  "temperature": 0.35,
+  "downfall": 0.45,
+  "has_precipitation": false,
+  "effects": {
+    "grass_color": 8382680,
+    "foliage_color": 6542530,
+    "water_color": 4185298,
+    "water_fog_color": 2059881,
+    "sky_color": 11072767,
+    "fog_color": 13629951,
+    "mood_sound": {
+      "sound": "ambient.biomesunseen.crystal_loop",
+      "tick_delay": 400,
+      "block_search_extent": 8,
+      "offset": 2.0
+    }
+  },
+  "carvers": [],
+  "features": [
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [
+      "biomesunseen:azurethril_ore",
+      "biomesunseen:glimmer_quartz_ore",
+      "biomesunseen:moonshard_ore",
+      "biomesunseen:stelliferrum_ore",
+      "biomesunseen:tideglass_ore",
+      "biomesunseen:prismatic_ore_ore",
+      "biomesunseen:hearthstone_ore"
+    ],
+    [],
+    [],
+    [],
+    []
+  ],
+  "attributes": {
+    "minecraft:gameplay/natural_mob_spawns": {
+      "argument": {
+        "spawn_costs": {},
+        "spawns_by_category": {
+          "monster": [],
+          "creature": [
+            {
+              "type": "biomesunseen:lumox",
+              "weight": 12,
+              "count": {
+                "type": "minecraft:uniform",
+                "min_inclusive": 1,
+                "max_inclusive": 2
+              }
+            },
+            {
+              "type": "biomesunseen:glimmermoth",
+              "weight": 14,
+              "count": {
+                "type": "minecraft:uniform",
+                "min_inclusive": 1,
+                "max_inclusive": 4
+              }
+            },
+            {
+              "type": "biomesunseen:dune_skimmer",
+              "weight": 10,
+              "count": {
+                "type": "minecraft:uniform",
+                "min_inclusive": 1,
+                "max_inclusive": 4
+              }
+            },
+            {
+              "type": "biomesunseen:crystal_hermit",
+              "weight": 8,
+              "count": {
+                "type": "minecraft:uniform",
+                "min_inclusive": 1,
+                "max_inclusive": 2
+              }
+            },
+            {
+              "type": "biomesunseen:reef_grazer",
+              "weight": 9,
+              "count": {
+                "type": "minecraft:uniform",
+                "min_inclusive": 1,
+                "max_inclusive": 2
+              }
+            },
+            {
+              "type": "biomesunseen:petal_wing",
+              "weight": 14,
+              "count": {
+                "type": "minecraft:uniform",
+                "min_inclusive": 1,
+                "max_inclusive": 4
+              }
+            }
+          ]
+        }
+      }
+    },
+    "minecraft:visual/sky_color": "#a8f4ff"
+  }
+}

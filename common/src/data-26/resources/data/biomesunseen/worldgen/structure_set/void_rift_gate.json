@@ -1,0 +1,15 @@
+{
+  "structures": [
+    {
+      "structure": "biomesunseen:void_rift_gate",
+      "weight": 4
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "salt": 88333,
+    "spacing": 40,
+    "separation": 15,
+    "spread_type": "linear"
+  }
+}

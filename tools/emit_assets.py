@@ -434,14 +434,25 @@ def emit(root):
     _wj(root, A + "/lang/en_us.json", lang)
 
     # ---------------- sounds.json ----------------
+    # Sound objects must use "name" (a bare "sound" key made the loader abort
+    # parsing with "Missing name").  Reference vanilla sound *files* (path
+    # under the target namespace's sounds/ dir) so every event is audible
+    # without shipping placeholder .ogg binaries.
+    def _vanilla_sound_file(se):
+        if se.startswith(("music.", "ambient.", "boss.")):
+            return "minecraft:ambient/cave"
+        if se.startswith(("mob.", "entity.")):
+            return "minecraft:mob/sheep/say1"
+        return "minecraft:dig/stone1"
+
     sounds = {}
     for se in SOUND_EVENTS:
         sound_entry = {"subtitle": "subtitles.biomesunseen." + se.split(".")[-1]}
         if se.startswith("music."):
-            sound_entry["sounds"] = [{"sound": "biomesunseen:" + se.replace(".", "/"),
+            sound_entry["sounds"] = [{"name": _vanilla_sound_file(se),
                                       "stream": True}]
         else:
-            sound_entry["sounds"] = ["biomesunseen:" + se.replace(".", "/")]
+            sound_entry["sounds"] = [_vanilla_sound_file(se)]
         sounds[se] = sound_entry
     _wj(root, A + "/sounds.json", sounds)
 
@@ -455,6 +466,8 @@ def emit(root):
     for bid, _kind, parent in all_ids:
         _wj(root, states + "/%s.json" % bid,
             {"variants": {"": {"model": "biomesunseen:block/" + bid}}})
+        _wj(root, imodels + "/%s.json" % bid,
+            {"parent": "biomesunseen:block/" + bid})
         if parent == "cube_all":
             _wj(root, bmodels + "/%s.json" % bid,
                 {"parent": "minecraft:block/cube_all",
@@ -586,10 +599,4 @@ def emit(root):
                      },
                  },
              }})
-    # Placeholder ogg references: sounds.json points at
-    # assets/biomesunseen/sounds/*.ogg; ship a sounds/README so the folder
-    # exists and audio can be dropped in without touching code.
-    _w(root, A + "/sounds/README.md",
-       "# Sound files\n\nPlace .ogg files here using the paths referenced by sounds.json "
-       "(e.g. `music/boss_heart.ogg`, `ambient/crystal_loop.ogg`). "
-       "Missing files fall back to silence without errors.\n")
+

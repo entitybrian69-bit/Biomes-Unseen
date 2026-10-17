@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:blasting",
+  "ingredient": {
+    "item": "biomesunseen:sylvanite_ore"
+  },
+  "result": "biomesunseen:sylvanite",
+  "experience": 0.7,
+  "cookingtime": 100
+}

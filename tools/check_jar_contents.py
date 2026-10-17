@@ -12,6 +12,7 @@ generator:
 Usage: tools/check_jar_contents.py [module ...]     (default: every module)
 """
 import glob
+import json
 import os
 import sys
 
@@ -57,6 +58,52 @@ def main(argv):
             problems.append("%s: missing %s" % (mod, ICON))
         if len(biomes) != 80:
             problems.append("%s: %d biome files (expected 80)" % (mod, len(biomes)))
+        flags = LINES[MC_TO_LINE[mc]]
+        style_dir = STYLE_DIRS[style_key(flags)]
+        biome_style = style_key(flags)[3]
+        # worldgen codec-shape gate (world-creation crash class): every biome
+        # must carry the keys each line's Biome codec requires.
+        bsamp = sorted(glob.glob(os.path.join(
+            "common/src", style_dir,
+            "resources/data/biomesunseen/worldgen/biome", "*.json")))
+        if bsamp:
+            b = json.load(open(bsamp[0]))
+            eff = b.get("effects", {})
+            for key in ("water_fog_color", "sky_color", "fog_color", "water_color"):
+                if key not in eff:
+                    problems.append("%s: biome effects missing %s" % (mod, key))
+            if "carvers" not in b or "features" not in b:
+                problems.append("%s: biome missing carvers/features" % mod)
+            if biome_style == "attrs":
+                if "attributes" not in b:
+                    problems.append("%s: 26.x biome missing attributes" % mod)
+            else:
+                if "spawners" not in b or "spawn_costs" not in b:
+                    problems.append("%s: biome missing spawners/spawn_costs" % mod)
+            if biome_style in ("old", "new") and "precipitation" not in b:
+                problems.append("%s: biome missing precipitation" % mod)
+            if biome_style != "old" and "has_precipitation" not in b:
+                problems.append("%s: biome missing has_precipitation" % mod)
+            if biome_style in ("old", "new") and not isinstance(b.get("carvers"), dict):
+                problems.append("%s: carvers must be the map form on this line" % mod)
+            if biome_style in ("list", "attrs") and not isinstance(b.get("carvers"), list):
+                problems.append("%s: carvers must be the list form on this line" % mod)
+        if flags["structures"] == "sets":
+            ssamp = sorted(glob.glob(os.path.join(
+                "common/src", style_dir,
+                "resources/data/biomesunseen/worldgen/structure", "*.json")))
+            if ssamp:
+                st = json.load(open(ssamp[0]))
+                for key in ("start_pool", "size", "max_distance_from_center",
+                            "use_expansion_hack", "step", "biomes"):
+                    if key not in st:
+                        problems.append("%s: structure missing %s" % (mod, key))
+                if "config" in st:
+                    problems.append("%s: structure uses the config wrapper" % mod)
+            if glob.glob(os.path.join(
+                    "common/src", style_dir, "resources/data/minecraft/worldgen",
+                    "multi_noise_biome_source_parameter_list", "*.json")):
+                problems.append("%s: ships invalid multi_noise parameter list" % mod)
         if mod.startswith("fabric"):
             declared = ('"mixins"' in open(
                 "%s/src/main/resources/fabric.mod.json" % mod).read())

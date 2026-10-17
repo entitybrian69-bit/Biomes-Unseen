@@ -4,22 +4,26 @@
   "scale": 0.2,
   "temperature": 0.66,
   "downfall": 0.9,
+  "precipitation": "rain",
   "has_precipitation": true,
   "effects": {
     "grass_color": 6056764,
     "foliage_color": 4872752,
     "water_color": 3951150,
+    "water_fog_color": 1975575,
     "sky_color": 9083498,
     "fog_color": 7240274,
     "mood_sound": {
-      "sound": "minecraft:biomesunseen.mire_loop",
+      "sound": "ambient.biomesunseen.mire_loop",
       "tick_delay": 400,
       "block_search_extent": 8,
       "offset": 2.0
     }
   },
+  "carvers": {
+    "air": []
+  },
   "features": [
-    [],
     [],
     [],
     [],
@@ -34,6 +38,7 @@
       "biomesunseen:tideglass_ore",
       "biomesunseen:hearthstone_ore"
     ],
+    [],
     [],
     [],
     []
@@ -104,10 +109,9 @@
       }
     ],
     "ambient": [],
-    "axolotls": [],
-    "underground_water_creature": [],
     "water_creature": [],
     "water_ambient": [],
     "misc": []
-  }
+  },
+  "spawn_costs": {}
 }

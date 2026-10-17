@@ -1,0 +1,15 @@
+{
+  "structures": [
+    {
+      "structure": "biomesunseen:hollow_bell_tower",
+      "weight": 6
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "salt": 91321,
+    "spacing": 26,
+    "separation": 10,
+    "spread_type": "linear"
+  }
+}

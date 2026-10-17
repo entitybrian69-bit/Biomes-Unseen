@@ -41,8 +41,8 @@ public final class PlatformExpectImpl {
     }
 
     public static void installBiomeInjection() {
-        // Modern lines: the shipped datapack overrides
-        // multi_noise_biome_source_parameter_list/overworld.json which inserts
+        // Modern lines: the shipped datapack replaces the overworld dimension
+        // and world presets with a multi-noise biome source that inserts
         // every Biomes Unseen biome into the overworld climate system.
         // Legacy lines: the BiomeSource mixin performs insertion.
         System.out.println("[Biomes Unseen] biome injection installed for "

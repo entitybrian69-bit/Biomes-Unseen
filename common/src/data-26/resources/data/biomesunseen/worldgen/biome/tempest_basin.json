@@ -1,0 +1,90 @@
+{
+  "temperature": 0.5,
+  "downfall": 0.9,
+  "has_precipitation": true,
+  "effects": {
+    "grass_color": 7241610,
+    "foliage_color": 5663098,
+    "water_color": 4090767,
+    "water_fog_color": 2045255,
+    "sky_color": 8032168,
+    "fog_color": 10137538,
+    "mood_sound": {
+      "sound": "ambient.biomesunseen.storm_loop",
+      "tick_delay": 400,
+      "block_search_extent": 8,
+      "offset": 2.0
+    }
+  },
+  "carvers": [],
+  "features": [
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [
+      "biomesunseen:glimmer_quartz_ore",
+      "biomesunseen:moonshard_ore",
+      "biomesunseen:thunderglass_ore",
+      "biomesunseen:stelliferrum_ore",
+      "biomesunseen:tideglass_ore",
+      "biomesunseen:hearthstone_ore"
+    ],
+    [],
+    [],
+    [],
+    []
+  ],
+  "attributes": {
+    "minecraft:gameplay/natural_mob_spawns": {
+      "argument": {
+        "spawn_costs": {},
+        "spawns_by_category": {
+          "monster": [
+            {
+              "type": "biomesunseen:echo_howler",
+              "weight": 8,
+              "count": {
+                "type": "minecraft:uniform",
+                "min_inclusive": 1,
+                "max_inclusive": 4
+              }
+            }
+          ],
+          "creature": [
+            {
+              "type": "biomesunseen:skywisp",
+              "weight": 12,
+              "count": {
+                "type": "minecraft:uniform",
+                "min_inclusive": 1,
+                "max_inclusive": 4
+              }
+            },
+            {
+              "type": "biomesunseen:thunder_ram",
+              "weight": 8,
+              "count": {
+                "type": "minecraft:uniform",
+                "min_inclusive": 1,
+                "max_inclusive": 4
+              }
+            },
+            {
+              "type": "biomesunseen:tide_caller",
+              "weight": 7,
+              "count": {
+                "type": "minecraft:uniform",
+                "min_inclusive": 1,
+                "max_inclusive": 4
+              }
+            }
+          ]
+        }
+      }
+    },
+    "minecraft:visual/sky_color": "#7a8fa8"
+  }
+}

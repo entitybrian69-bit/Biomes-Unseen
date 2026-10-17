@@ -58,9 +58,9 @@ public final class ModWorldGen {
 
 
     /**
-     * Modern overworld injection: the shipped datapack overrides
-     * multi_noise_biome_source_parameter_list/overworld.json so every custom
-     * biome enters the climate system on all loaders.  Platform code adds
+     * Modern overworld injection: the shipped datapack replaces the
+     * overworld dimension and world presets with a multi-noise biome source
+     * so every custom biome enters the climate system on all loaders.  Platform code adds
      * loader-specific biome modifications on top.
      */
     private static void installNoiseListInjection() {

@@ -10,6 +10,7 @@
     "grass_color": 5425220,
     "foliage_color": 3123260,
     "water_color": 3049153,
+    "water_fog_color": 1524576,
     "sky_color": 8900331,
     "fog_color": 12576424,
     "mood_sound": {
@@ -18,6 +19,9 @@
       "block_search_extent": 8,
       "offset": 2.0
     }
+  },
+  "carvers": {
+    "air": []
   },
   "features": [
     [],
@@ -93,10 +97,9 @@
       }
     ],
     "ambient": [],
-    "axolotls": [],
-    "underground_water_creature": [],
     "water_creature": [],
     "water_ambient": [],
     "misc": []
-  }
+  },
+  "spawn_costs": {}
 }

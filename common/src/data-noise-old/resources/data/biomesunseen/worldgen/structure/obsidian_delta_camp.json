@@ -1,16 +1,5 @@
 {
   "type": "minecraft:jigsaw",
-  "config": {
-    "start_pool": "biomesunseen:delta_camp_start",
-    "size": 3,
-    "max_distance_from_center": 112,
-    "start_height": {
-      "type": "minecraft:constant",
-      "height": 0
-    },
-    "project_start_to_heightmap": "WORLD_SURFACE_WG",
-    "max_depth": 7
-  },
   "biomes": [
     "biomesunseen:emberite_basin",
     "biomesunseen:ashfall_steppe",
@@ -23,6 +12,15 @@
     "biomesunseen:obsidian_delta",
     "biomesunseen:magma_vent_garden"
   ],
+  "step": "surface_structures",
   "spawn_overrides": {},
-  "step": "surface_structures"
+  "terrain_adaptation": "none",
+  "start_pool": "biomesunseen:delta_camp_start",
+  "size": 3,
+  "start_height": {
+    "absolute": 0
+  },
+  "project_start_to_heightmap": "WORLD_SURFACE_WG",
+  "max_distance_from_center": 112,
+  "use_expansion_hack": true
 }

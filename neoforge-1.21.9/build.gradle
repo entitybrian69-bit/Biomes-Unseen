@@ -12,7 +12,7 @@ sourceSets.main.java.srcDirs += rootProject.file("common/src/main/java")
 sourceSets.main.java.srcDirs += rootProject.file("common/src/line-1.21.9/java")
 sourceSets.main.resources.srcDirs += rootProject.file("common/src/main/resources")
 sourceSets.main.resources.srcDirs += rootProject.file("common/src/line-1.21.9/resources")
-sourceSets.main.resources.srcDirs += rootProject.file("common/src/data-flat/resources")
+sourceSets.main.resources.srcDirs += rootProject.file("common/src/data-1.21.2/resources")
 sourceSets.main.resources.srcDirs += "src/generated/resources"
 
 loom {

@@ -1,0 +1,15 @@
+{
+  "parent": "biomesunseen:tame_mob",
+  "display": {
+    "icon": {
+      "item": "biomesunseen:unseen_sigil"
+    },
+    "title": "Menagerie of the Unseen",
+    "description": "Encounter all 25 Biomes Unseen mobs"
+  },
+  "criteria": {
+    "tick": {
+      "trigger": "minecraft:tick"
+    }
+  }
+}

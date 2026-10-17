@@ -1,0 +1,127 @@
+{
+  "temperature": 0.82,
+  "downfall": 0.8,
+  "has_precipitation": false,
+  "effects": {
+    "grass_color": 5425220,
+    "foliage_color": 3123260,
+    "water_color": 3049153,
+    "water_fog_color": 1524576,
+    "sky_color": 8900331,
+    "fog_color": 12576424,
+    "mood_sound": {
+      "sound": "ambient.biomesunseen.verdant_loop",
+      "tick_delay": 400,
+      "block_search_extent": 8,
+      "offset": 2.0
+    }
+  },
+  "carvers": [],
+  "features": [
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [
+      "biomesunseen:glimmer_quartz_ore",
+      "biomesunseen:sylvanite_ore",
+      "biomesunseen:moonshard_ore",
+      "biomesunseen:veridium_ore",
+      "biomesunseen:petrified_amber_ore",
+      "biomesunseen:stelliferrum_ore",
+      "biomesunseen:tideglass_ore",
+      "biomesunseen:hearthstone_ore"
+    ],
+    [],
+    [],
+    [],
+    []
+  ],
+  "attributes": {
+    "minecraft:gameplay/natural_mob_spawns": {
+      "argument": {
+        "spawn_costs": {},
+        "spawns_by_category": {
+          "monster": [],
+          "creature": [
+            {
+              "type": "biomesunseen:lumox",
+              "weight": 12,
+              "count": {
+                "type": "minecraft:uniform",
+                "min_inclusive": 1,
+                "max_inclusive": 2
+              }
+            },
+            {
+              "type": "biomesunseen:brambleback",
+              "weight": 9,
+              "count": {
+                "type": "minecraft:uniform",
+                "min_inclusive": 1,
+                "max_inclusive": 4
+              }
+            },
+            {
+              "type": "biomesunseen:glimmermoth",
+              "weight": 14,
+              "count": {
+                "type": "minecraft:uniform",
+                "min_inclusive": 1,
+                "max_inclusive": 4
+              }
+            },
+            {
+              "type": "biomesunseen:peat_hopper",
+              "weight": 12,
+              "count": {
+                "type": "minecraft:uniform",
+                "min_inclusive": 1,
+                "max_inclusive": 2
+              }
+            },
+            {
+              "type": "biomesunseen:spore_sprout",
+              "weight": 9,
+              "count": {
+                "type": "minecraft:uniform",
+                "min_inclusive": 1,
+                "max_inclusive": 2
+              }
+            },
+            {
+              "type": "biomesunseen:mosshorn",
+              "weight": 8,
+              "count": {
+                "type": "minecraft:uniform",
+                "min_inclusive": 1,
+                "max_inclusive": 2
+              }
+            },
+            {
+              "type": "biomesunseen:lantern_fox",
+              "weight": 11,
+              "count": {
+                "type": "minecraft:uniform",
+                "min_inclusive": 1,
+                "max_inclusive": 2
+              }
+            },
+            {
+              "type": "biomesunseen:petal_wing",
+              "weight": 14,
+              "count": {
+                "type": "minecraft:uniform",
+                "min_inclusive": 1,
+                "max_inclusive": 4
+              }
+            }
+          ]
+        }
+      }
+    },
+    "minecraft:visual/sky_color": "#87ceeb"
+  }
+}

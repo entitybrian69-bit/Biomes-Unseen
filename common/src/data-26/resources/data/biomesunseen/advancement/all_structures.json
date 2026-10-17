@@ -1,0 +1,15 @@
+{
+  "parent": "biomesunseen:first_structure",
+  "display": {
+    "icon": {
+      "item": "biomesunseen:unseen_sigil"
+    },
+    "title": "Cartographer of Shadows",
+    "description": "Enter all 30 Biomes Unseen structures"
+  },
+  "criteria": {
+    "tick": {
+      "trigger": "minecraft:tick"
+    }
+  }
+}

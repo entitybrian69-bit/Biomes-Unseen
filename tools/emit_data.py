@@ -48,8 +48,12 @@ STYLE_DIRS = {
     ("placed", "legacy", "plural", "old"): "data-1181",
     ("placed", "sets", "plural", "old"): "data-noise-old",
     ("placed", "sets", "plural", "new"): "data-noise-new",
-    ("placed", "sets", "flat", "new"): "data-flat",
+    ("placed", "sets", "flat", "new"): "data-1.21",
+    ("placed", "sets", "flat", "list"): "data-1.21.2",
+    ("placed", "sets", "flat", "attrs"): "data-26",
 }
+
+_HAS_DEEP_DARK = True
 
 ANIMATED_BLOCKS = ("crystal_shard_block", "glowcap_block", "nullglass")
 
@@ -102,23 +106,39 @@ def emit_structure_nbt(root):
             size, npal, blocks = nbt.build_room(7, 5, 7, 0, 1, 2, 3)
         else:
             size, npal, blocks = nbt.build_room(5, 4, 5, 0, 1, 2, 3)
-        path = os.path.join(root, "common/src/main/resources/data/biomesunseen/structures",
-                            sid, "start.nbt")
-        os.makedirs(os.path.dirname(path), exist_ok=True)
-        nbt.write_structure_nbt(path, size, palette[:npal], blocks)
+        for nbt_dir in ("structures", "structure"):
+            path = os.path.join(root, "common/src/main/resources/data/biomesunseen",
+                                nbt_dir, sid, "start.nbt")
+            os.makedirs(os.path.dirname(path), exist_ok=True)
+            nbt.write_structure_nbt(path, size, palette[:npal], blocks)
+
+
+def _spawn_attrs(entries):
+    out = []
+    for e in entries:
+        out.append({
+            "type": e["type"],
+            "weight": e["weight"],
+            "count": {"type": "minecraft:uniform",
+                      "min_inclusive": e["minCount"],
+                      "max_inclusive": e["maxCount"]},
+        })
+    return out
 
 
 def _biome_json(def_row, style, feature_ids, monster_spawns, creature_spawns):
     (bid, display, group, depth, scale, temp, downfall, rarity, weather) = def_row
     g = BIOME_GROUPS[group]
+    water_fog = (g["water"] >> 1) & 0x7F7F7F
     effects = {
         "grass_color": g["grass"],
         "foliage_color": g["foliage"],
         "water_color": g["water"],
+        "water_fog_color": water_fog,
         "sky_color": g["sky"],
         "fog_color": g["fog"],
         "mood_sound": {
-            "sound": g["ambient"].replace("ambient.", "minecraft:"),
+            "sound": g["ambient"],
             "tick_delay": 400,
             "block_search_extent": 8,
             "offset": 2.0,
@@ -131,36 +151,63 @@ def _biome_json(def_row, style, feature_ids, monster_spawns, creature_spawns):
     else:
         precipitation = "none"
     biome = {}
-    biome["category"] = g["category"]
-    biome["depth"] = depth
-    biome["scale"] = scale
+    if style in ("old", "new"):
+        # depth/scale/category left the codec in 1.18/1.19; on those versions
+        # the extra keys are ignored, on 1.16/1.17 they are required.
+        biome["category"] = g["category"]
+        biome["depth"] = depth
+        biome["scale"] = scale
     biome["temperature"] = temp
     biome["downfall"] = downfall
     if style == "old":
         biome["precipitation"] = precipitation
         biome["surface_builder"] = "minecraft:default"
+    elif style == "new":
+        # 1.19.3 still decodes "precipitation"; 1.19.4 (23w03a) renamed it to
+        # "has_precipitation". Unknown keys are ignored, so ship both.
+        biome["precipitation"] = precipitation
+        biome["has_precipitation"] = precipitation != "none"
     else:
         biome["has_precipitation"] = precipitation != "none"
     biome["effects"] = effects
-    if style == "old":
-        # legacy feature steps: 10 lists referencing configured features
-        steps = [[] for _ in range(10)]
-        steps[6] = feature_ids
-        biome["features"] = steps
+    if style in ("old", "new"):
+        # carver-type map form until 1.21.2 (24w33a) replaced it with a list
+        biome["carvers"] = {"air": []}
     else:
-        steps = [[] for _ in range(11)]
-        steps[7] = feature_ids
-        biome["features"] = steps
-    biome["spawners"] = {
-        "monster": monster_spawns,
-        "creature": creature_spawns,
-        "ambient": [],
-        "axolotls": [],
-        "underground_water_creature": [],
-        "water_creature": [],
-        "water_ambient": [],
-        "misc": [],
-    }
+        biome["carvers"] = []
+    # 10 generation steps on 1.16/1.17, 11 once FLUID_SPRINGS exists; list
+    # length is lenient and index 6 is UNDERGROUND_ORES in both layouts.
+    steps = [[] for _ in range(10 if style == "old" else 11)]
+    steps[6] = feature_ids
+    biome["features"] = steps
+    if style == "attrs":
+        # 26.x moved mob spawns and sky colour into biome attributes.
+        def hexcol(c):
+            return "#%06x" % (c & 0xFFFFFF)
+        biome["attributes"] = {
+            "minecraft:gameplay/natural_mob_spawns": {
+                "argument": {
+                    "spawn_costs": {},
+                    "spawns_by_category": {
+                        "monster": _spawn_attrs(monster_spawns),
+                        "creature": _spawn_attrs(creature_spawns),
+                    },
+                },
+            },
+            "minecraft:visual/sky_color": hexcol(g["sky"]),
+        }
+    else:
+        # only category keys that exist on every target of the style: unknown
+        # MobCategory keys fail the spawners map codec outright.
+        biome["spawners"] = {
+            "monster": monster_spawns,
+            "creature": creature_spawns,
+            "ambient": [],
+            "water_creature": [],
+            "water_ambient": [],
+            "misc": [],
+        }
+        biome["spawn_costs"] = {}
     return biome
 
 
@@ -209,13 +256,14 @@ def _legacy_configured_structure(def_row):
         "config": {
             "start_pool": "biomesunseen:%s" % pool,
             "size": 3 if category != "boss_arena" else 5,
-            "start_height": {"type": "minecraft:constant", "height": 0},
+            "start_height": {"absolute": 0},
             "project_start_to_heightmap": "WORLD_SURFACE_WG",
             "max_distance_from_center": maxd,
-            "biomes": biome_keys,
-            "max_depth": 7,
+            "use_expansion_hack": False,
         },
+        "biomes": biome_keys,
         "adapt_noise": False,
+        "spawn_overrides": {},
     }
 
 
@@ -226,23 +274,23 @@ def _modern_structure(def_row):
     for brow in BIOME_ROWS:
         if brow[2] in bg:
             biome_keys.append("biomesunseen:" + brow[0])
+    # Flat jigsaw shape (fields sit next to "type"), valid 1.18.2 through 26.x.
     return {
         "type": "minecraft:jigsaw",
-        "config": {
-            "start_pool": "biomesunseen:%s" % pool,
-            "size": 3 if category != "boss_arena" else 5,
-            "max_distance_from_center": maxd,
-            "start_height": {"type": "minecraft:constant", "height": 0},
-            "project_start_to_heightmap": "WORLD_SURFACE_WG",
-            "max_depth": 7,
-        },
         "biomes": biome_keys,
-        "spawn_overrides": {},
         "step": "surface_structures",
+        "spawn_overrides": {},
+        "terrain_adaptation": "none",
+        "start_pool": "biomesunseen:%s" % pool,
+        "size": 3 if category != "boss_arena" else 5,
+        "start_height": {"absolute": 0},
+        "project_start_to_heightmap": "WORLD_SURFACE_WG",
+        "max_distance_from_center": maxd,
+        "use_expansion_hack": True,
     }
 
 
-def _template_pool(pool_id):
+def _template_pool(sid):
     return {
         "fallback": "minecraft:empty",
         "elements": [
@@ -250,8 +298,7 @@ def _template_pool(pool_id):
                 "weight": 1,
                 "element": {
                     "element_type": "minecraft:legacy_single_pool_element",
-                    "location": "biomesunseen:%s" % pool_id.replace("_start", "/start")
-                        if pool_id.endswith("_start") else "biomesunseen:%s/start" % pool_id,
+                    "location": "biomesunseen:%s/start" % sid,
                     "projection": "rigid",
                     "processors": "minecraft:empty",
                 },
@@ -309,6 +356,8 @@ def _overworld_parameter_list():
         ("minecraft:deep_dark", -0.5, -0.5, -1.6),
     ]
     for biome, t, h, d in vanilla:
+        if biome == "minecraft:deep_dark" and not _HAS_DEEP_DARK:
+            continue
         entries.append(entry(biome, t, h, 0, 0, d, 0))
 
     # Biomes Unseen entries: each biome gets a distinct climate point derived
@@ -323,6 +372,50 @@ def _overworld_parameter_list():
         entries.append(entry("biomesunseen:" + bid, t, h, c, e, dpt, wd))
 
     return {"biomes": entries}
+
+
+def _dimension_overworld(biomes):
+    return {
+        "type": "minecraft:overworld",
+        "generator": {
+            "type": "minecraft:noise",
+            "settings": "minecraft:overworld",
+            "biome_source": {"type": "minecraft:multi_noise", "biomes": biomes},
+        },
+    }
+
+
+def _world_preset(biomes, settings):
+    return {
+        "dimensions": {
+            "minecraft:overworld": {
+                "type": "minecraft:overworld",
+                "generator": {
+                    "type": "minecraft:noise",
+                    "biome_source": {"type": "minecraft:multi_noise",
+                                     "biomes": biomes},
+                    "settings": "minecraft:%s" % settings,
+                },
+            },
+            "minecraft:the_end": {
+                "type": "minecraft:the_end",
+                "generator": {
+                    "type": "minecraft:noise",
+                    "biome_source": {"type": "minecraft:the_end"},
+                    "settings": "minecraft:end",
+                },
+            },
+            "minecraft:the_nether": {
+                "type": "minecraft:the_nether",
+                "generator": {
+                    "type": "minecraft:noise",
+                    "biome_source": {"type": "minecraft:multi_noise",
+                                     "preset": "minecraft:nether"},
+                    "settings": "minecraft:nether",
+                },
+            },
+        },
+    }
 
 
 def emit_tree(root, style_name, style):
@@ -395,7 +488,7 @@ def emit_tree(root, style_name, style):
                     },
                 })
             _wj(root, "%s/%s/worldgen/template_pool/%s.json" % (base, ns, pool),
-                _template_pool(sid + "/start"))
+                _template_pool(sid))
     else:
         for row in STRUCTURE_ROWS:
             (sid, display, group, category, spacing, sep, rarity, maxd, hasboss,
@@ -403,12 +496,26 @@ def emit_tree(root, style_name, style):
             _wj(root, "%s/%s/worldgen/configured_structure_feature/%s.json"
                 % (base, ns, sid), _legacy_configured_structure(row))
             _wj(root, "%s/%s/worldgen/template_pool/%s.json" % (base, ns, pool),
-                _template_pool(sid + "/start"))
+                _template_pool(sid))
 
-    # ---------------- overworld parameter list ----------------
+    # ---------------- overworld biome injection ----------------
+    # The old multi_noise_biome_source_parameter_list/overworld.json override
+    # was invalid: that registry only accepts {"preset": ...} aliases and its
+    # codec crashed world creation on the custom "biomes" list.  Instead we
+    # replace the overworld dimension (Default world type) and the vanilla
+    # world presets (when a preset is selected) with a multi-noise biome
+    # source that includes every Biomes Unseen biome.
     if structures == "sets":
-        _wj(root, "%s/data/minecraft/worldgen/multi_noise_biome_source_parameter_list/overworld.json"
-            % base, _overworld_parameter_list())
+        global _HAS_DEEP_DARK
+        _HAS_DEEP_DARK = biome_json != "old"
+        biomes = _overworld_parameter_list()["biomes"]
+        _wj(root, "%s/data/minecraft/dimension/overworld.json" % base,
+            _dimension_overworld(biomes))
+        for preset_id, settings in (("normal", "overworld"),
+                                    ("amplified", "amplified"),
+                                    ("large_biomes", "large_biomes")):
+            _wj(root, "%s/data/minecraft/worldgen/world_preset/%s.json"
+                % (base, preset_id), _world_preset(biomes, settings))
 
     # ---------------- loot tables ----------------
     for ore in ORES:

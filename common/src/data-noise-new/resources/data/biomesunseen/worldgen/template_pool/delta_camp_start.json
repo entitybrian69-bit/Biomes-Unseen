@@ -5,7 +5,7 @@
       "weight": 1,
       "element": {
         "element_type": "minecraft:legacy_single_pool_element",
-        "location": "biomesunseen:obsidian_delta_camp/start/start",
+        "location": "biomesunseen:obsidian_delta_camp/start",
         "projection": "rigid",
         "processors": "minecraft:empty"
       }

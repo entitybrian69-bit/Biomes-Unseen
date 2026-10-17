@@ -1,0 +1,15 @@
+{
+  "structures": [
+    {
+      "structure": "biomesunseen:whispering_menhir",
+      "weight": 6
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "salt": 31816,
+    "spacing": 26,
+    "separation": 10,
+    "spread_type": "linear"
+  }
+}

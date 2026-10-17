@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:blasting",
+  "ingredient": {
+    "item": "biomesunseen:petrified_amber_ore"
+  },
+  "result": "biomesunseen:petrified_amber",
+  "experience": 0.7,
+  "cookingtime": 100
+}

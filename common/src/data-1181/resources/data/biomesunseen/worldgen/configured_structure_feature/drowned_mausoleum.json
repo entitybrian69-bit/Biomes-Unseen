@@ -4,24 +4,24 @@
     "start_pool": "biomesunseen:mausoleum_start",
     "size": 3,
     "start_height": {
-      "type": "minecraft:constant",
-      "height": 0
+      "absolute": 0
     },
     "project_start_to_heightmap": "WORLD_SURFACE_WG",
     "max_distance_from_center": 176,
-    "biomes": [
-      "biomesunseen:murkiron_bogs",
-      "biomesunseen:peat_hollow_mire",
-      "biomesunseen:drowned_root_marsh",
-      "biomesunseen:sporechoked_mire",
-      "biomesunseen:blackwillow_bayou",
-      "biomesunseen:siltveil_fens",
-      "biomesunseen:bog_ember_quagmire",
-      "biomesunseen:hollowreed_wetlands",
-      "biomesunseen:mire_glass_pools",
-      "biomesunseen:gloomwater_flats"
-    ],
-    "max_depth": 7
+    "use_expansion_hack": false
   },
-  "adapt_noise": false
+  "biomes": [
+    "biomesunseen:murkiron_bogs",
+    "biomesunseen:peat_hollow_mire",
+    "biomesunseen:drowned_root_marsh",
+    "biomesunseen:sporechoked_mire",
+    "biomesunseen:blackwillow_bayou",
+    "biomesunseen:siltveil_fens",
+    "biomesunseen:bog_ember_quagmire",
+    "biomesunseen:hollowreed_wetlands",
+    "biomesunseen:mire_glass_pools",
+    "biomesunseen:gloomwater_flats"
+  ],
+  "adapt_noise": false,
+  "spawn_overrides": {}
 }

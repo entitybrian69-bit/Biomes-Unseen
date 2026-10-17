@@ -533,8 +533,8 @@ public final class PlatformExpectImpl {
         spawn_placement = '''        // Vanilla spawn placement rules cover every custom mob:
         // ground mobs use the default ON_GROUND-style rules of their base
         // entity type, so no Fabric API registration is required.'''
-        biome_injection = '''        // Modern lines: the shipped datapack overrides
-        // multi_noise_biome_source_parameter_list/overworld.json which inserts
+        biome_injection = '''        // Modern lines: the shipped datapack replaces the overworld dimension
+        // and world presets with a multi-noise biome source that inserts
         // every Biomes Unseen biome into the overworld climate system.
         // Legacy lines: the BiomeProvider mixin performs insertion.
         System.out.println("[Biomes Unseen] biome injection installed for "
