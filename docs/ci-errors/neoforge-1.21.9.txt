@@ -9,16 +9,16 @@ neoforge_version=21.9.0-beta
 === STACKTRACE ===
 === WHAT WENT WRONG ===
 === LAST 40 ===
-    fixable: replaced with getCurrentSwingDuration
-  awy METHOD I (()I) -> [cew/getCurrentSwingDuration, awy/getPermissionLevel]
     fixable: replaced with getPermissionLevel
-  hep METHOD I (()I) -> [cew/getCurrentSwingDuration, hep/getPermissionLevel]
+  cew METHOD I (()I) -> [cew/getCurrentSwingDuration, cew/getPermissionLevel]
+    fixable: replaced with getCurrentSwingDuration
+  czl METHOD I (()I) -> [cew/getCurrentSwingDuration, czl/getPermissionLevel]
     fixable: replaced with getPermissionLevel
 
 {1}(Ljava/lang/String;)V is not fully qualified.
 
 > Configure project :neoforge-1.21.9
-:remapped 1 mods (mojang -> named) in 855ms
+:remapped 1 mods (mojang -> named) in 638ms
 
 > Task :neoforge-1.21.9:compileJava
 Note: Some input files use or override a deprecated API.
@@ -37,7 +37,7 @@ Note: Recompile with -Xlint:unchecked for details.
 > Task :neoforge-1.21.9:remapSourcesJar
 > Task :neoforge-1.21.9:assemble
 > Task :neoforge-1.21.9:build
-gradle/actions: Writing build results to /home/runner/work/_temp/.gradle-actions/build-results/__run-1792211829656.json
+gradle/actions: Writing build results to /home/runner/work/_temp/.gradle-actions/build-results/__run-1792213466340.json
 
 [Incubating] Problems report is available at: file:///home/runner/work/Biomes-Unseen/Biomes-Unseen/build/reports/problems/problems-report.html
 
@@ -47,5 +47,5 @@ You can use '--warning-mode all' to show the individual deprecation warnings and
 
 For more on this, please refer to https://docs.gradle.org/9.8.1/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
 
-BUILD SUCCESSFUL in 2m 25s
+BUILD SUCCESSFUL in 1m 41s
 7 actionable tasks: 7 executed

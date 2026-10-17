@@ -11,13 +11,13 @@ neoforge_version=20.2.51-beta
     fixable: replaced with method_52296
   adr METHOD a ((Lso;)V) -> [adp/method_52295, adr/method_52296]
     fixable: replaced with method_52295
-  ads METHOD a ((Lso;)V) -> [adp/method_52295, ads/method_52296]
-    fixable: replaced with method_52296
+  adp METHOD a ((Lso;)V) -> [adp/method_52296, adp/method_52295]
+    fixable: replaced with method_52295
 
 {1}(Ljava/lang/String;)V is not fully qualified.
 
 > Configure project :neoforge-1.20.2
-:remapped 1 mods (mojang -> named) in 657ms
+:remapped 1 mods (mojang -> named) in 815ms
 
 > Task :neoforge-1.20.2:compileJava
 Note: Some input files use or override a deprecated API.
@@ -36,7 +36,7 @@ Note: Recompile with -Xlint:unchecked for details.
 > Task :neoforge-1.20.2:remapSourcesJar
 > Task :neoforge-1.20.2:assemble
 > Task :neoforge-1.20.2:build
-gradle/actions: Writing build results to /home/runner/work/_temp/.gradle-actions/build-results/__run-1792211454065.json
+gradle/actions: Writing build results to /home/runner/work/_temp/.gradle-actions/build-results/__run-1792213080462.json
 
 [Incubating] Problems report is available at: file:///home/runner/work/Biomes-Unseen/Biomes-Unseen/build/reports/problems/problems-report.html
 
@@ -46,5 +46,5 @@ You can use '--warning-mode all' to show the individual deprecation warnings and
 
 For more on this, please refer to https://docs.gradle.org/9.8.1/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
 
-BUILD SUCCESSFUL in 2m 5s
+BUILD SUCCESSFUL in 2m 16s
 7 actionable tasks: 7 executed
