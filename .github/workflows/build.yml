@@ -16,6 +16,7 @@ jobs:
   # against, so generated code is written against the real API per version.
   probe:
     name: probe-${{ matrix.module }}
+    if: ${{ !contains(github.event.head_commit.message || ' ', '[mirror]') }}
     runs-on: ubuntu-latest
     timeout-minutes: 30
     strategy:
@@ -179,6 +180,7 @@ jobs:
   # configuration, so each variant tries one change to the module build script.
   neoforge-config:
     name: neoforge-cfg-${{ matrix.variant }}
+    if: ${{ !contains(github.event.head_commit.message || ' ', '[mirror]') }}
     runs-on: ubuntu-latest
     timeout-minutes: 25
     strategy:
@@ -218,6 +220,7 @@ jobs:
 
   build:
     name: ${{ matrix.module }}
+    if: ${{ !contains(github.event.head_commit.message || ' ', '[mirror]') }}
     runs-on: ubuntu-latest
     timeout-minutes: 45
     strategy:
@@ -397,7 +400,7 @@ jobs:
     name: Publish jars to GitHub release
     runs-on: ubuntu-latest
     needs: build
-    if: always()
+    if: ${{ always() && !contains(github.event.head_commit.message || ' ', '[mirror]') }}
     permissions:
       contents: write
     steps:
@@ -461,7 +464,7 @@ jobs:
     name: collect-probe-and-error-reports
     runs-on: ubuntu-latest
     needs: [probe, build, neoforge-config]
-    if: always()
+    if: ${{ always() && !contains(github.event.head_commit.message || ' ', '[mirror]') }}
     permissions:
       contents: write
     steps:
@@ -502,3 +505,35 @@ jobs:
             git commit -m "ci: probe + compiler-error reports for all targets [skip ci]"
             git push origin "HEAD:${GITHUB_REF_NAME}"
           fi
+
+  # Transport job: on a commit message tagged [mirror], skip the matrix and
+  # copy the already-published v1.0.0 jars into the branch tree so a client
+  # without CDN access can fetch them over plain git.
+  mirror-jars:
+    name: Mirror release jars into branch
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    if: ${{ github.event_name == 'push' && contains(github.event.head_commit.message, '[mirror]') }}
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download published v1.0.0 jars
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -e
+          rm -rf jars/v1.0.0
+          mkdir -p jars/v1.0.0
+          gh release download v1.0.0 --repo "$GITHUB_REPOSITORY" --pattern '*.jar' --dir jars/v1.0.0
+          echo "jar count: $(ls jars/v1.0.0/*.jar | wc -l)"
+          (cd jars/v1.0.0 && sha256sum *.jar > SHA256SUMS.txt)
+          ls -la jars/v1.0.0 | head -8
+      - name: Commit jars into the branch
+        run: |
+          set -e
+          git config user.name "biomesunseen-ci"
+          git config user.email "ci@biomesunseen.local"
+          git add -f jars/v1.0.0
+          git commit -m "ci: mirror v1.0.0 release jars into branch tree [skip ci]"
+          git push origin "HEAD:${GITHUB_REF_NAME}"
