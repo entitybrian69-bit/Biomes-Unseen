@@ -3,82 +3,47 @@ not a neoforge module, nothing to pin
 === MODULE PROPERTIES ===
 minecraft_version=1.20.4
 architectury_version=11.1.17
-* What went wrong:
-A problem occurred configuring project ':fabric-1.20.4'.
-> Could not resolve all artifacts for configuration 'classpath'.
-   > Could not find toml-3.6.6.jar (com.electronwill.night-config:toml:3.6.6).
-     Searched in the following locations:
-         https://plugins.gradle.org/m2/com/electronwill/night-config/toml/3.6.6/toml-3.6.6.jar
-   > Could not find error_prone_annotations-2.48.0.jar (com.google.errorprone:error_prone_annotations:2.48.0).
----
-BUILD FAILED in 25s
----
 === CONFIG DIAGNOSTICS ===
-8:A problem occurred configuring project ':fabric-1.20.4'.
-9:> Could not resolve all artifacts for configuration 'classpath'.
-32:org.gradle.api.ProjectConfigurationException: A problem occurred configuring project ':fabric-1.20.4'.
-193:Caused by: org.gradle.api.internal.artifacts.ivyservice.TypedResolveException: Could not resolve all artifacts for configuration 'classpath'.
 === STACKTRACE ===
-Caused by: org.gradle.api.internal.artifacts.ivyservice.TypedResolveException: Could not resolve all artifacts for configuration 'classpath'.
 === WHAT WENT WRONG ===
-* What went wrong:
-A problem occurred configuring project ':fabric-1.20.4'.
-> Could not resolve all artifacts for configuration 'classpath'.
-   > Could not find toml-3.6.6.jar (com.electronwill.night-config:toml:3.6.6).
-     Searched in the following locations:
-         https://plugins.gradle.org/m2/com/electronwill/night-config/toml/3.6.6/toml-3.6.6.jar
-   > Could not find error_prone_annotations-2.48.0.jar (com.google.errorprone:error_prone_annotations:2.48.0).
-     Searched in the following locations:
-         https://plugins.gradle.org/m2/com/google/errorprone/error_prone_annotations/2.48.0/error_prone_annotations-2.48.0.jar
-   > Could not find at-0.1.0-rc1.jar (org.cadixdev:at:0.1.0-rc1).
-     Searched in the following locations:
-         https://plugins.gradle.org/m2/org/cadixdev/at/0.1.0-rc1/at-0.1.0-rc1.jar
-   > Could not find commons-text-1.9.jar (org.apache.commons:commons-text:1.9).
-     Searched in the following locations:
-         https://plugins.gradle.org/m2/org/apache/commons/commons-text/1.9/commons-text-1.9.jar
-   > Could not find commons-lang3-3.12.0.jar (org.apache.commons:commons-lang3:3.12.0).
-     Searched in the following locations:
-         https://plugins.gradle.org/m2/org/apache/commons/commons-lang3/3.12.0/commons-lang3-3.12.0.jar
-
-* Try:
 === LAST 40 ===
-	at org.gradle.api.internal.artifacts.ivyservice.ivyresolve.ErrorHandlingModuleComponentRepository$ErrorHandlingModuleComponentRepositoryAccess.lambda$resolveArtifact$0(ErrorHandlingModuleComponentRepository.java:181)
-	at org.gradle.api.internal.artifacts.ivyservice.ivyresolve.ErrorHandlingModuleComponentRepository$ErrorHandlingModuleComponentRepositoryAccess.tryResolveAndMaybeDisable(ErrorHandlingModuleComponentRepository.java:252)
-	at org.gradle.api.internal.artifacts.ivyservice.ivyresolve.ErrorHandlingModuleComponentRepository$ErrorHandlingModuleComponentRepositoryAccess.performOperationWithRetries(ErrorHandlingModuleComponentRepository.java:205)
-	at org.gradle.api.internal.artifacts.ivyservice.ivyresolve.ErrorHandlingModuleComponentRepository$ErrorHandlingModuleComponentRepositoryAccess.resolveArtifact(ErrorHandlingModuleComponentRepository.java:179)
-	at org.gradle.api.internal.artifacts.ivyservice.ivyresolve.RepositoryChainArtifactResolver.resolveArtifactLater(RepositoryChainArtifactResolver.java:75)
-	at org.gradle.api.internal.artifacts.ivyservice.ivyresolve.RepositoryChainArtifactResolver.lambda$resolveArtifact$1(RepositoryChainArtifactResolver.java:63)
-	at org.gradle.internal.model.CalculatedValueContainerFactory$SupplierBackedCalculator.calculateValue(CalculatedValueContainerFactory.java:71)
-	at org.gradle.internal.model.CalculatedValueContainer$CalculationState.lambda$attachValue$0(CalculatedValueContainer.java:226)
-	at org.gradle.internal.Try.ofFailable(Try.java:46)
-	at org.gradle.internal.model.CalculatedValueContainer$CalculationState.attachValue(CalculatedValueContainer.java:221)
-	at org.gradle.internal.model.CalculatedValueContainer.finalizeIfNotAlready(CalculatedValueContainer.java:194)
-	at org.gradle.internal.model.CalculatedValueContainer.finalizeIfNotAlready(CalculatedValueContainer.java:185)
-	at org.gradle.api.internal.artifacts.ivyservice.resolveengine.artifact.ArtifactBackedResolvedVariant$DownloadArtifactFile.run(ArtifactBackedResolvedVariant.java:212)
-	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:67)
-	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:60)
-	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:167)
-	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:60)
-	at org.gradle.internal.operations.DefaultBuildOperationExecutor.lambda$executeInParallel$0(DefaultBuildOperationExecutor.java:105)
-	at org.gradle.internal.operations.DefaultBuildOperationQueue$OperationRunnable.runOperation(DefaultBuildOperationQueue.java:303)
-	at org.gradle.internal.operations.DefaultBuildOperationQueue$OperationRunnable.lambda$run$1(DefaultBuildOperationQueue.java:286)
-	at org.gradle.internal.resources.AbstractResourceLockRegistry.whileDisallowingLockChanges(AbstractResourceLockRegistry.java:51)
-	at org.gradle.internal.work.DefaultWorkerLeaseService.whileDisallowingProjectLockChanges(DefaultWorkerLeaseService.java:266)
-	at org.gradle.internal.operations.DefaultBuildOperationQueue$OperationRunnable.lambda$run$0(DefaultBuildOperationQueue.java:285)
-	at org.gradle.internal.operations.CurrentBuildOperationRef.with(CurrentBuildOperationRef.java:85)
-	at org.gradle.internal.operations.DefaultBuildOperationQueue$OperationRunnable.run(DefaultBuildOperationQueue.java:275)
-	at org.gradle.internal.work.WorkerLeaseQueueProcessor$QueueConsumer.run(WorkerLeaseQueueProcessor.java:196)
-	at org.gradle.internal.work.DefaultWorkerLeaseService.lambda$tryWhileConditionToRunAsWorkerThread$0(DefaultWorkerLeaseService.java:154)
-	at org.gradle.internal.work.DefaultWorkerLeaseService.lambda$runAndReleaseLocks$0(DefaultWorkerLeaseService.java:296)
-	at org.gradle.internal.work.ResourceLockStatistics$1.measure(ResourceLockStatistics.java:43)
-	at org.gradle.internal.work.DefaultWorkerLeaseService.runAndReleaseLocks(DefaultWorkerLeaseService.java:294)
-	at org.gradle.internal.work.DefaultWorkerLeaseService.tryWhileConditionToRunAsWorkerThread(DefaultWorkerLeaseService.java:157)
-	at org.gradle.internal.work.WorkerLeaseQueueProcessor.lambda$trySpawnWorker$0(WorkerLeaseQueueProcessor.java:147)
-	at org.gradle.internal.concurrent.ExecutorPolicy$CatchAndRecordFailures.onExecute(ExecutorPolicy.java:65)
-	at org.gradle.internal.concurrent.AbstractManagedExecutor$1.run(AbstractManagedExecutor.java:47)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
-	at java.base/java.lang.Thread.run(Thread.java:1583)
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/9.8.1/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build 
 
+> Configure project :fabric-1.20.4
+Architectury Loom: 1.17.493
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Using of the official minecraft mappings is at your own risk!
+Please make sure to read and understand the following license:
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# (c) 2020 Microsoft Corporation. These mappings are provided "as-is" and you bear the risk of using them. You may copy and use the mappings for development purposes, but you may not redistribute the mappings complete and unmodified. Microsoft makes no warranties, express or implied, with respect to the mappings provided here.  Use and modification of this document or the source code (in any form) of Minecraft: Java Edition is governed by the Minecraft End User License Agreement available at https://account.mojang.com/documents/minecraft_eula.
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+:remapped 1 mods (intermediary -> named) in 862ms
 
-BUILD FAILED in 25s
+> Task :fabric-1.20.4:compileJava
+Note: Some input files use unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+
+> Task :fabric-1.20.4:processResources
+> Task :fabric-1.20.4:classes
+> Task :fabric-1.20.4:jar
+> Task :fabric-1.20.4:processIncludeJars
+> Task :fabric-1.20.4:sourcesJar
+> Task :fabric-1.20.4:validateAccessWidener NO-SOURCE
+> Task :fabric-1.20.4:check
+> Task :fabric-1.20.4:remapJar
+> Task :fabric-1.20.4:remapSourcesJar
+> Task :fabric-1.20.4:assemble
+> Task :fabric-1.20.4:build
+gradle/actions: Writing build results to /home/runner/work/_temp/.gradle-actions/build-results/__run-1792248228783.json
+
+[Incubating] Problems report is available at: file:///home/runner/work/Biomes-Unseen/Biomes-Unseen/build/reports/problems/problems-report.html
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 10.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/9.8.1/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD SUCCESSFUL in 1m 25s
+7 actionable tasks: 7 executed
