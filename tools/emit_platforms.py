@@ -528,7 +528,7 @@ public final class PlatformExpectImpl {
         config_dir = '        return net.fabricmc.loader.api.FabricLoader.getInstance().getConfigDir().toString();'
         open_config = '''        net.minecraft.client.Minecraft mc = net.minecraft.client.Minecraft.getInstance();
         Object screen = ClothConfigScreen.build("Biomes Unseen", parentScreen,
-                key -> key);
+                key -> ClothConfigScreen.humanize(key));
         mc.setScreen((net.minecraft.client.gui.screens.Screen) screen);'''
         spawn_placement = '''        // Vanilla spawn placement rules cover every custom mob:
         // ground mobs use the default ON_GROUND-style rules of their base
@@ -560,7 +560,7 @@ public final class PlatformExpectImpl {
         is_fabric, is_forge = "false", "true"
         config_dir = '        return net.minecraftforge.fml.loading.FMLPaths.CONFIGDIR.get().toString();'
         open_config = '''        net.minecraft.client.Minecraft mc = net.minecraft.client.Minecraft.getInstance();
-        Object screen = ClothConfigScreen.build("Biomes Unseen", parentScreen, key -> key);
+        Object screen = ClothConfigScreen.build("Biomes Unseen", parentScreen, key -> ClothConfigScreen.humanize(key));
         mc.setScreen((net.minecraft.client.gui.screens.Screen) screen);'''
         spawn_placement = '''        net.minecraft.core.registries.BuiltInRegistries.ENTITY_TYPE
                 .getOptional(new net.minecraft.resources.ResourceLocation("biomesunseen", mobId))
@@ -587,7 +587,7 @@ public final class PlatformExpectImpl {
         is_fabric, is_forge = "false", "true"
         config_dir = '        return net.neoforged.fml.loading.FMLPaths.CONFIGDIR.get().toString();'
         open_config = '''        net.minecraft.client.Minecraft mc = net.minecraft.client.Minecraft.getInstance();
-        Object screen = ClothConfigScreen.build("Biomes Unseen", parentScreen, key -> key);
+        Object screen = ClothConfigScreen.build("Biomes Unseen", parentScreen, key -> ClothConfigScreen.humanize(key));
         mc.setScreen((net.minecraft.client.gui.screens.Screen) screen);'''
         spawn_placement = '''        net.minecraft.core.registries.BuiltInRegistries.ENTITY_TYPE
                 .getOptional(new net.minecraft.resources.ResourceLocation("biomesunseen", mobId))

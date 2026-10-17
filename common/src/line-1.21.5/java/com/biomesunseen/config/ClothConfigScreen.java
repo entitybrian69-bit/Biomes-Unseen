@@ -120,6 +120,26 @@ public final class ClothConfigScreen {
         call(category, "addEntry", call(entry, "build"));
     }
 
+    /**
+     * Humanize a camelCase config key into a display label:
+     * "biomeRarityMultiplier" becomes "Biome Rarity Multiplier".
+     */
+    public static String humanize(String key) {
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < key.length(); i++) {
+            char c = key.charAt(i);
+            if (i > 0 && Character.isUpperCase(c) && !Character.isUpperCase(key.charAt(i - 1))) {
+                sb.append(' ');
+            }
+            sb.append(c);
+        }
+        String s = sb.toString().replace('_', ' ').trim();
+        if (s.isEmpty()) {
+            return s;
+        }
+        return Character.toUpperCase(s.charAt(0)) + s.substring(1);
+    }
+
     /** Invoke the named instance method whose parameters accept the given arguments. */
     private static Object call(Object target, String name, Object... args)
             throws ReflectiveOperationException {

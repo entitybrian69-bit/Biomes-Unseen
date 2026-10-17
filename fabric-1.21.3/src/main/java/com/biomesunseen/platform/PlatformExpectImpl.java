@@ -29,7 +29,7 @@ public final class PlatformExpectImpl {
     public static void openConfigScreen(Object parentScreen) {
         net.minecraft.client.Minecraft mc = net.minecraft.client.Minecraft.getInstance();
         Object screen = ClothConfigScreen.build("Biomes Unseen", parentScreen,
-                key -> key);
+                key -> ClothConfigScreen.humanize(key));
         mc.setScreen((net.minecraft.client.gui.screens.Screen) screen);
     }
 

@@ -426,8 +426,16 @@ def emit(root):
     for row in STRUCTURE_ROWS:
         lang["structure.biomesunseen." + row[0]] = row[1]
         lang["book.biomesunseen." + row[13]] = "Journal of the " + row[13].replace("_", " ").title()
+    def _humanize(key):
+        out = []
+        for i, c in enumerate(key):
+            if i > 0 and c.isupper() and not key[i - 1].isupper():
+                out.append(' ')
+            out.append(c)
+        t = ''.join(out).replace('_', ' ').strip()
+        return (t[:1].upper() + t[1:]) if t else t
     for key, _typ, _d, comment in CONFIG_ROWS:
-        lang["biomesunseen.config." + key] = key
+        lang["biomesunseen.config." + key] = _humanize(key)
     for se in SOUND_EVENTS:
         tail = se.split(".")[-1]
         lang["subtitles.biomesunseen." + tail] = tail.replace("_", " ").title()
