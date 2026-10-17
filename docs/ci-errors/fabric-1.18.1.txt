@@ -16,7 +16,7 @@ Please make sure to read and understand the following license:
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # (c) 2020 Microsoft Corporation. These mappings are provided "as-is" and you bear the risk of using them. You may copy and use the mappings for development purposes, but you may not redistribute the mappings complete and unmodified. Microsoft makes no warranties, express or implied, with respect to the mappings provided here.  Use and modification of this document or the source code (in any form) of Minecraft: Java Edition is governed by the Minecraft End User License Agreement available at https://account.mojang.com/documents/minecraft_eula.
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-:remapped 1 mods (intermediary -> named) in 1s
+:remapped 1 mods (intermediary -> named) in 866ms
 
 > Task :fabric-1.18.1:compileJava
 Note: /home/runner/work/Biomes-Unseen/Biomes-Unseen/common/src/line-1.18.1/java/com/biomesunseen/worldgen/LegacyStructureRegistrar.java uses or overrides a deprecated API.
@@ -35,7 +35,7 @@ Note: Recompile with -Xlint:unchecked for details.
 > Task :fabric-1.18.1:remapSourcesJar
 > Task :fabric-1.18.1:assemble
 > Task :fabric-1.18.1:build
-gradle/actions: Writing build results to /home/runner/work/_temp/.gradle-actions/build-results/__run-1792180104419.json
+gradle/actions: Writing build results to /home/runner/work/_temp/.gradle-actions/build-results/__run-1792205268581.json
 
 [Incubating] Problems report is available at: file:///home/runner/work/Biomes-Unseen/Biomes-Unseen/build/reports/problems/problems-report.html
 
@@ -45,5 +45,5 @@ You can use '--warning-mode all' to show the individual deprecation warnings and
 
 For more on this, please refer to https://docs.gradle.org/9.8.1/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
 
-BUILD SUCCESSFUL in 1m 19s
+BUILD SUCCESSFUL in 1m 13s
 7 actionable tasks: 7 executed

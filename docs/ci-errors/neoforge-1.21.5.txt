@@ -9,16 +9,16 @@ neoforge_version=21.5.0-beta
 === STACKTRACE ===
 === WHAT WENT WRONG ===
 === LAST 40 ===
-[19:57:30] [main/INFO]: Transformer file /tmp/at-conf15987741061439616608.cfg
-[19:57:30] [main/WARN]: Found existing output jar /home/runner/.gradle/caches/fabric-loom/1.21.5/neoforge/21.5.0-beta/minecraft-merged-mojang-at-patched.jar, overwriting
-[19:57:34] [main/INFO]: JAR transformation complete /home/runner/.gradle/caches/fabric-loom/1.21.5/neoforge/21.5.0-beta/minecraft-merged-mojang-at-patched.jar
-:access transformed minecraft in 7s
+[02:58:35] [main/INFO]: Transformer file /tmp/at-conf6914981060542428371.cfg
+[02:58:35] [main/WARN]: Found existing output jar /home/runner/.gradle/caches/fabric-loom/1.21.5/neoforge/21.5.0-beta/minecraft-merged-mojang-at-patched.jar, overwriting
+[02:58:38] [main/INFO]: JAR transformation complete /home/runner/.gradle/caches/fabric-loom/1.21.5/neoforge/21.5.0-beta/minecraft-merged-mojang-at-patched.jar
+:access transformed minecraft in 6s
 :remapping minecraft (TinyRemapper, mojang -> official)
 
 {1}(Ljava/lang/String;)V is not fully qualified.
 
 > Configure project :neoforge-1.21.5
-:remapped 1 mods (mojang -> named) in 812ms
+:remapped 1 mods (mojang -> named) in 899ms
 
 > Task :neoforge-1.21.5:compileJava
 Note: Some input files use or override a deprecated API.
@@ -37,7 +37,7 @@ Note: Recompile with -Xlint:unchecked for details.
 > Task :neoforge-1.21.5:remapSourcesJar
 > Task :neoforge-1.21.5:assemble
 > Task :neoforge-1.21.5:build
-gradle/actions: Writing build results to /home/runner/work/_temp/.gradle-actions/build-results/__run-1792180582403.json
+gradle/actions: Writing build results to /home/runner/work/_temp/.gradle-actions/build-results/__run-1792205843593.json
 
 [Incubating] Problems report is available at: file:///home/runner/work/Biomes-Unseen/Biomes-Unseen/build/reports/problems/problems-report.html
 
@@ -47,5 +47,5 @@ You can use '--warning-mode all' to show the individual deprecation warnings and
 
 For more on this, please refer to https://docs.gradle.org/9.8.1/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
 
-BUILD SUCCESSFUL in 2m 7s
+BUILD SUCCESSFUL in 2m 19s
 7 actionable tasks: 7 executed
