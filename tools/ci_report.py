@@ -77,9 +77,16 @@ def main() -> int:
     lines = open(path, "r", encoding="utf-8", errors="replace").read().splitlines()
 
     # ---- 1. javac diagnostics -------------------------------------------
-    # These are the actionable ones: file, line and message, published against
-    # the source file so they appear inline on the diff.
+    # Collected first, then published as a few consolidated annotations.
+    #
+    # Emitting one annotation per diagnostic with file=/line= looks better in
+    # principle, but GitHub silently discards file-scoped annotations once a run
+    # produces many of them -- a 74-error build came back with none of the
+    # per-file entries retained, leaving only the summary. Generic annotations
+    # survive, so the diagnostics are chunked into those instead. Losing the
+    # inline placement is worth more than losing the message.
     seen = set()
+    diagnostics = []
     javac_errors = 0
     javac_warnings = 0
     for raw in lines:
@@ -90,12 +97,17 @@ def main() -> int:
         if key in seen:
             continue
         seen.add(key)
-        level = "error" if match["sev"] == "error" else "warning"
-        if level == "error":
+        if match["sev"] == "error":
             javac_errors += 1
         else:
             javac_warnings += 1
-        emit(level, match["msg"], file=match["file"], line=int(match["line"]))
+        # Keep file and line in the text, since the annotation can no longer
+        # carry them as structured fields.
+        short = match["file"].split("/com/biomesunseen/")[-1]
+        diagnostics.append(f"{short}:{match['line']}: {match['sev']}: {match['msg']}")
+
+    if diagnostics:
+        chunked("error", "javac", "\n".join(diagnostics))
 
     # ---- 2. Gradle's own failure explanation -----------------------------
     # Covers failures that are not javac's: missing dependencies, plugin
@@ -120,8 +132,9 @@ def main() -> int:
         chunked("error", "Build log tail", tail)
 
     emit("error",
-         f"Biomes Unseen build failed: {javac_errors} javac error(s), "
-         f"{javac_warnings} warning(s) reported as annotations")
+         f"Biomes Unseen build failed: {javac_errors} javac error(s) across "
+         f"{len(set(d.split(':')[0] for d in diagnostics))} file(s); "
+         f"{javac_warnings} warning(s)")
     return 0
 
 
