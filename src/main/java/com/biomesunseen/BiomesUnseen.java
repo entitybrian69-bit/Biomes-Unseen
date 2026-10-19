@@ -4,6 +4,7 @@ import com.biomesunseen.entity.BUBoss;
 import com.biomesunseen.entity.BUCreature;
 import com.biomesunseen.init.BUBiomes;
 import com.biomesunseen.init.BUBlocks;
+import com.biomesunseen.init.BUContent;
 import com.biomesunseen.init.BUCreativeTabs;
 import com.biomesunseen.init.BUDimensions;
 import com.biomesunseen.init.BUEntities;

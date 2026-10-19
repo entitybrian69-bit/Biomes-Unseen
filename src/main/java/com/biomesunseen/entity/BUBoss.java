@@ -100,7 +100,7 @@ public class BUBoss extends Monster implements GeoAnimatable {
 
     public static AttributeSupplier.Builder attributesFor(BossData boss) {
         MobData mob = BUEntities.mobDataFor(boss);
-        return Mob.createMonsterAttributes()
+        return Monster.createMonsterAttributes()
                 .add(Attributes.MAX_HEALTH, mob.maxHealth)
                 .add(Attributes.MOVEMENT_SPEED, mob.movementSpeed)
                 .add(Attributes.ATTACK_DAMAGE, Math.max(4.0D, mob.attackDamage))
@@ -365,7 +365,7 @@ public class BUBoss extends Monster implements GeoAnimatable {
     }
 
     @Override
-    public boolean isFireImmune() {
+    public boolean fireImmune() {
         return species.fireImmune;
     }
 
@@ -375,9 +375,9 @@ public class BUBoss extends Monster implements GeoAnimatable {
 
     @Override
     public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
-        controllers.add(new AnimationController<>(this, "body", 6.0F, this::bodyPredicate));
-        controllers.add(new AnimationController<>(this, "phase", 3.0F, this::phasePredicate));
-        controllers.add(new AnimationController<>(this, "action", 2.0F, this::actionPredicate));
+        controllers.add(new AnimationController<BUBoss>(this, "body", 6.0F, this::bodyPredicate));
+        controllers.add(new AnimationController<BUBoss>(this, "phase", 3.0F, this::phasePredicate));
+        controllers.add(new AnimationController<BUBoss>(this, "action", 2.0F, this::actionPredicate));
     }
 
     private PlayState bodyPredicate(AnimationState<BUBoss> state) {

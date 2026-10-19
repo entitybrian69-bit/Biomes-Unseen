@@ -19,6 +19,7 @@ import net.minecraft.world.item.ShovelItem;
 import net.minecraft.world.item.SwordItem;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.world.level.block.Block;
 import net.minecraftforge.common.ForgeSpawnEggItem;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
