@@ -252,8 +252,8 @@ public class BUCreature extends PathfinderMob implements GeoAnimatable {
 
     @Override
     public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
-        controllers.add(new AnimationController<BUCreature>(this, "body", 4.0F, this::bodyPredicate));
-        controllers.add(new AnimationController<BUCreature>(this, "action", 2.0F, this::actionPredicate));
+        controllers.add(new AnimationController<BUCreature>(this, "body", 4, this::bodyPredicate));
+        controllers.add(new AnimationController<BUCreature>(this, "action", 2, this::actionPredicate));
     }
 
     /**

@@ -375,9 +375,9 @@ public class BUBoss extends Monster implements GeoAnimatable {
 
     @Override
     public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
-        controllers.add(new AnimationController<BUBoss>(this, "body", 6.0F, this::bodyPredicate));
-        controllers.add(new AnimationController<BUBoss>(this, "phase", 3.0F, this::phasePredicate));
-        controllers.add(new AnimationController<BUBoss>(this, "action", 2.0F, this::actionPredicate));
+        controllers.add(new AnimationController<BUBoss>(this, "body", 6, this::bodyPredicate));
+        controllers.add(new AnimationController<BUBoss>(this, "phase", 3, this::phasePredicate));
+        controllers.add(new AnimationController<BUBoss>(this, "action", 2, this::actionPredicate));
     }
 
     private PlayState bodyPredicate(AnimationState<BUBoss> state) {
