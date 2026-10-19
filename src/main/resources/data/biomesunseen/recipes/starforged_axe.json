@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    "MM",
+    "MS",
+    " S"
+  ],
+  "key": {
+    "M": {
+      "item": "biomesunseen:starfall_core"
+    },
+    "S": {
+      "item": "minecraft:stick"
+    }
+  },
+  "result": {
+    "item": "biomesunseen:starforged_axe",
+    "count": 1
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "biomesunseen:block/deep_pearl_ore",
+    "particle": "biomesunseen:block/deep_pearl_ore"
+  }
+}

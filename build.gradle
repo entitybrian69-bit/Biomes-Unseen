@@ -1,0 +1,165 @@
+// ============================================================================
+//  BIOMES UNSEEN  --  Forge 1.20.1 build script
+//  Structured so the whole mod body lives behind a single source set and an
+//  API-abstraction package (com.biomesunseen.platform) which keeps the door
+//  open for an Architectury / NeoForge / Fabric port without touching content.
+// ============================================================================
+
+plugins {
+    id 'eclipse'
+    id 'idea'
+    id 'maven-publish'
+    id 'net.minecraftforge.gradle' version '[6.0.24,6.2)'
+}
+
+version = mod_version
+group   = mod_group_id
+
+base {
+    archivesName = mod_id
+}
+
+java {
+    toolchain.languageVersion = JavaLanguageVersion.of(17)
+    withSourcesJar()
+}
+
+minecraft {
+    // Official Mojang mappings. Parchment can be layered on by uncommenting
+    // the mappings line below and the parchmentmc plugin in settings.gradle.
+    mappings channel: mapping_channel, version: mapping_version
+
+    copyIdeResources = true
+
+    runs {
+        configureEach {
+            workingDirectory project.file('run')
+            property 'forge.logging.markers', 'REGISTRIES'
+            property 'forge.logging.console.level', 'debug'
+
+            mods {
+                "${mod_id}" {
+                    source sourceSets.main
+                }
+            }
+        }
+
+        client {
+            property 'forge.enabledGameTestNamespaces', mod_id
+        }
+
+        server {
+            property 'forge.enabledGameTestNamespaces', mod_id
+            args '--nogui'
+        }
+
+        gameTestServer {
+            property 'forge.enabledGameTestNamespaces', mod_id
+        }
+
+        data {
+            workingDirectory project.file('run-data')
+            args '--mod', mod_id, '--all',
+                 '--output', file('src/generated/resources/'),
+                 '--existing', file('src/main/resources/')
+        }
+    }
+}
+
+sourceSets.main.resources {
+    // DataGen output ships inside the jar.
+    srcDir 'src/generated/resources'
+}
+
+repositories {
+    mavenCentral()
+    // GeckoLib 4 (1.20.1 line)
+    maven {
+        name = 'GeckoLib'
+        url = 'https://dl.cloudsmith.io/public/geckolib3/geckolib/maven/'
+        content { includeGroupByRegex 'software\\.bernie.*' }
+    }
+    maven { url = 'https://maven.minecraftforge.net/' }
+    maven { url = 'https://maven.blamejared.com/' }
+    maven { url = 'https://modmaven.dev/' }
+}
+
+dependencies {
+    minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
+
+    // GeckoLib 4.4.7 is the 1.20.1 stable line.
+    implementation fg.deobf("software.bernie.geckolib:geckolib-forge-1.20.1:${geckolib_version}")
+}
+
+// ---------------------------------------------------------------------------
+//  ART PIPELINE HOOK
+//  Every texture in this mod is hand-authored as a pixel matrix and encoded to
+//  a real PNG by tools/generate_textures.py. The generated PNGs are committed
+//  to src/main/resources so the jar never depends on Python being present, but
+//  we re-run the generator on every build so art and code can never drift.
+// ---------------------------------------------------------------------------
+tasks.register('generateArt', Exec) {
+    group = 'biomesunseen'
+    description = 'Encodes hand-authored pixel matrices into PNG resources.'
+    workingDir = rootProject.projectDir
+    commandLine 'python3', 'tools/generate_textures.py'
+    onlyIf {
+        def py = ['python3', '--version']
+        try {
+            providers.exec { it.commandLine py }.result.get()
+            return true
+        } catch (Exception ignored) {
+            logger.warn('[BiomesUnseen] python3 not found - skipping art generation, using committed PNGs.')
+            return false
+        }
+    }
+}
+tasks.named('processResources') { dependsOn 'generateArt' }
+
+tasks.register('validateArt', Exec) {
+    group = 'biomesunseen'
+    description = 'Validates every JSON / PNG / texture reference in the mod.'
+    workingDir = rootProject.projectDir
+    commandLine 'python3', 'tools/validate.py'
+    onlyIf {
+        try {
+            providers.exec { it.commandLine 'python3', '--version' }.result.get()
+            return true
+        } catch (Exception ignored) {
+            logger.warn('[BiomesUnseen] python3 not found - skipping validation.')
+            return false
+        }
+    }
+}
+tasks.named('processResources') { finalizedBy 'validateArt' }
+
+tasks.named('jar', Jar).configure {
+    manifest {
+        attributes([
+            'Specification-Title'     : mod_name,
+            'Specification-Vendor'    : mod_authors,
+            'Specification-Version'   : '1',
+            'Implementation-Title'    : project.name,
+            'Implementation-Version'  : project.jar.archiveVersion,
+            'Implementation-Vendor'   : mod_authors,
+            'Implementation-Timestamp': new Date().format("yyyy-MM-dd'T'HH:mm:ssZ"),
+            'MixinConfigs'            : "${mod_id}.mixins.json"
+        ])
+    }
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+    options.release = 17
+}
+
+publishing {
+    publications {
+        register('mavenJava', MavenPublication) {
+            from components.java
+        }
+    }
+    repositories {
+        maven { url = "file://${project.projectDir}/mcmodsrepo" }
+    }
+}

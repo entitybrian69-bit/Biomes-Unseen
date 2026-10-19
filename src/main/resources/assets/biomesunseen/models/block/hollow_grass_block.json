@@ -1,0 +1,9 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "bottom": "biomesunseen:block/hollow_loam",
+    "top": "biomesunseen:block/hollow_grass_block",
+    "side": "biomesunseen:block/hollow_grass_block_side",
+    "particle": "biomesunseen:block/hollow_grass_block_side"
+  }
+}

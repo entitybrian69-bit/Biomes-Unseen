@@ -1,0 +1,13 @@
+{
+  "replace": false,
+  "values": [
+    "biomesunseen:aether_planks",
+    "biomesunseen:blight_planks",
+    "biomesunseen:hollow_planks",
+    "biomesunseen:lumen_planks",
+    "biomesunseen:petrified_planks",
+    "biomesunseen:sakura_planks",
+    "biomesunseen:spiritwood_planks",
+    "biomesunseen:void_planks"
+  ]
+}

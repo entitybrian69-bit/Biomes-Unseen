@@ -1,0 +1,9 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "bottom": "biomesunseen:block/lumen_dirt",
+    "top": "biomesunseen:block/lumen_grass_block",
+    "side": "biomesunseen:block/lumen_grass_block_side",
+    "particle": "biomesunseen:block/lumen_grass_block_side"
+  }
+}

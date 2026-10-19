@@ -1,0 +1,16 @@
+{
+  "replace": false,
+  "values": [
+    "biomesunseen:aetherium_ingot",
+    "biomesunseen:aetherium_refined",
+    "biomesunseen:hollowite_refined",
+    "biomesunseen:lumenshade_ingot",
+    "biomesunseen:lumenshade_refined",
+    "biomesunseen:nullite_refined",
+    "biomesunseen:rootiron_ingot",
+    "biomesunseen:rootiron_refined",
+    "biomesunseen:skylead_ingot",
+    "biomesunseen:sunscorch_ingot",
+    "biomesunseen:voidsteel_ingot"
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "biomesunseen:block/chrono_grit",
+    "particle": "biomesunseen:block/chrono_grit"
+  }
+}

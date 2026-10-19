@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    "M M",
+    "MMM",
+    "MMM"
+  ],
+  "key": {
+    "M": {
+      "item": "biomesunseen:aetherium_ingot"
+    }
+  },
+  "result": {
+    "item": "biomesunseen:aetherium_chestplate",
+    "count": 1
+  }
+}

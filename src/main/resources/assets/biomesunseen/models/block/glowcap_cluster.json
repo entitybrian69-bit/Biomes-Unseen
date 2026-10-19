@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cross",
+  "render_type": "minecraft:cutout",
+  "textures": {
+    "cross": "biomesunseen:block/glowcap_cluster",
+    "particle": "biomesunseen:block/glowcap_cluster"
+  }
+}

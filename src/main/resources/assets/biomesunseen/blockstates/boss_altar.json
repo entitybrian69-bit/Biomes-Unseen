@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "biomesunseen:block/boss_altar",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "biomesunseen:block/boss_altar"
+    },
+    "axis=z": {
+      "model": "biomesunseen:block/boss_altar",
+      "x": 90
+    }
+  }
+}

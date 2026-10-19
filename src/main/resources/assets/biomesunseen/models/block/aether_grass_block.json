@@ -1,0 +1,9 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "bottom": "biomesunseen:block/aether_loam",
+    "top": "biomesunseen:block/aether_grass_block",
+    "side": "biomesunseen:block/aether_grass_block_side",
+    "particle": "biomesunseen:block/aether_grass_block_side"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "biomesunseen:item/spire_climber_spawn_egg"
+  }
+}

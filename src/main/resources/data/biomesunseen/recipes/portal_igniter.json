@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "biomesunseen:lumenite_shard"
+    },
+    {
+      "item": "biomesunseen:voidsteel_ingot"
+    },
+    {
+      "item": "minecraft:blaze_rod"
+    }
+  ],
+  "result": {
+    "item": "biomesunseen:portal_igniter",
+    "count": 1
+  }
+}

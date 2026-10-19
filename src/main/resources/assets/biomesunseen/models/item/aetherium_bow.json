@@ -1,0 +1,15 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "biomesunseen:item/aetherium_bow"
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "minecraft:pulling": 1,
+        "minecraft:pull": 0.0
+      },
+      "model": "biomesunseen:item/aetherium_bow_pulling_0"
+    }
+  ]
+}

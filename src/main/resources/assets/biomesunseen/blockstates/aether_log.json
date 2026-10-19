@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "biomesunseen:block/aether_log",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "biomesunseen:block/aether_log"
+    },
+    "axis=z": {
+      "model": "biomesunseen:block/aether_log",
+      "x": 90
+    }
+  }
+}

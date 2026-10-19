@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "biomesunseen:block/mycelial_slimestone",
+    "particle": "biomesunseen:block/mycelial_slimestone"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "biomesunseen:block/twilight_shale",
+    "particle": "biomesunseen:block/twilight_shale"
+  }
+}

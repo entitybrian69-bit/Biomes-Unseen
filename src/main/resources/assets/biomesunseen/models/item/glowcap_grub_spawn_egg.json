@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "biomesunseen:item/glowcap_grub_spawn_egg"
+  }
+}

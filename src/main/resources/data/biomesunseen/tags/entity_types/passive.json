@@ -1,0 +1,33 @@
+{
+  "replace": false,
+  "values": [
+    "biomesunseen:astral_scribe",
+    "biomesunseen:astral_scribe_aether",
+    "biomesunseen:aurora_stag",
+    "biomesunseen:canopy_glider",
+    "biomesunseen:cloudfin",
+    "biomesunseen:glacier_ox",
+    "biomesunseen:glimmerwing",
+    "biomesunseen:glowcap_grub",
+    "biomesunseen:highland_goat",
+    "biomesunseen:hollow_scout",
+    "biomesunseen:lanternkeeper",
+    "biomesunseen:luminous_jelly",
+    "biomesunseen:meadow_skipper",
+    "biomesunseen:mire_wisp",
+    "biomesunseen:mossback_hare",
+    "biomesunseen:orchard_tender",
+    "biomesunseen:petaldancer",
+    "biomesunseen:reefglider",
+    "biomesunseen:rime_stag",
+    "biomesunseen:roadwarden",
+    "biomesunseen:savanna_strider",
+    "biomesunseen:sky_citizen",
+    "biomesunseen:sporeling",
+    "biomesunseen:sporeling_deep",
+    "biomesunseen:steppe_rider",
+    "biomesunseen:thicket_sprite",
+    "biomesunseen:unraveling_shard_aether",
+    "biomesunseen:veilwing"
+  ]
+}

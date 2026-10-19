@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "biomesunseen:block/boss_altar_top",
+    "side": "biomesunseen:block/boss_altar",
+    "particle": "biomesunseen:block/boss_altar"
+  }
+}

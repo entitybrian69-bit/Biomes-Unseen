@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "biomesunseen:block/sunscorch_block",
+    "particle": "biomesunseen:block/sunscorch_block"
+  }
+}

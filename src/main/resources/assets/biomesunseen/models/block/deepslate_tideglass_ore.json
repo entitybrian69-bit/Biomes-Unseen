@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "biomesunseen:block/deepslate_tideglass_ore",
+    "particle": "biomesunseen:block/deepslate_tideglass_ore"
+  }
+}

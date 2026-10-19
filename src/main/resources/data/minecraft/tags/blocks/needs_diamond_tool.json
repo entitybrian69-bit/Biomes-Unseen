@@ -1,0 +1,32 @@
+{
+  "replace": false,
+  "values": [
+    "biomesunseen:aetherium_ore",
+    "biomesunseen:ashen_core_ore",
+    "biomesunseen:basaltic_hollow_core_ore",
+    "biomesunseen:bloodstone_ore",
+    "biomesunseen:chronosite_ore",
+    "biomesunseen:dawnshard_ore",
+    "biomesunseen:deepslate_ashen_core_ore",
+    "biomesunseen:deepslate_bloodstone_ore",
+    "biomesunseen:deepslate_stormcell_ore",
+    "biomesunseen:deepslate_sunscorch_ore",
+    "biomesunseen:duskite_ore",
+    "biomesunseen:echo_crystal_ore",
+    "biomesunseen:glacierite_void_ore",
+    "biomesunseen:gloomite_ore",
+    "biomesunseen:hollowite_ore",
+    "biomesunseen:lumenshade_ore",
+    "biomesunseen:nullite_ore",
+    "biomesunseen:root_heart_ore",
+    "biomesunseen:runeglass_ore",
+    "biomesunseen:starfall_ore",
+    "biomesunseen:staticite_ore",
+    "biomesunseen:stormcell_aether_ore",
+    "biomesunseen:stormcell_ore",
+    "biomesunseen:sunscorch_ore",
+    "biomesunseen:sunspore_ore",
+    "biomesunseen:voidsteel_ore",
+    "biomesunseen:witherite_ore"
+  ]
+}

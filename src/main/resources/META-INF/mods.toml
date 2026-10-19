@@ -1,0 +1,44 @@
+modLoader = "javafml"
+loaderVersion = "[47,)"
+license = "All Rights Reserved"
+issueTrackerURL = "https://github.com/entitybrian69-bit/Biomes-Unseen/issues"
+
+[[mods]]
+modId = "biomesunseen"
+version = "${file.jarVersion}"
+displayName = "Biomes Unseen"
+updateJSONURL = "https://raw.githubusercontent.com/entitybrian69-bit/Biomes-Unseen/main/update.json"
+displayURL = "https://github.com/entitybrian69-bit/Biomes-Unseen"
+logoFile = "logo.png"
+credits = "Built as a total-conversion worldgen expansion."
+authors = "Biomes Unseen Team"
+description = '''
+Biomes Unseen is a total-conversion exploration mod: 140 hand-authored biomes
+across five Overworld categories, three new dimensions, 44 ores with real uses,
+ten gear families with set bonuses, 80 creatures, 34 jigsaw structures and five
+multi-phase bosses.
+
+Every texture is hand-authored pixel art. Every creature is a fully articulated
+GeckoLib model. Every hostile has real targeting and melee AI.
+'''
+
+[[dependencies.biomesunseen]]
+    modId = "forge"
+    mandatory = true
+    versionRange = "[47.2.20,)"
+    ordering = "NONE"
+    side = "BOTH"
+
+[[dependencies.biomesunseen]]
+    modId = "minecraft"
+    mandatory = true
+    versionRange = "[1.20.1,1.21)"
+    ordering = "NONE"
+    side = "BOTH"
+
+[[dependencies.biomesunseen]]
+    modId = "geckolib"
+    mandatory = true
+    versionRange = "[4.4.7,)"
+    ordering = "AFTER"
+    side = "BOTH"

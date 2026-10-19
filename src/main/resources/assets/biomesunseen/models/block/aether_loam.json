@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "biomesunseen:block/aether_loam",
+    "particle": "biomesunseen:block/aether_loam"
+  }
+}

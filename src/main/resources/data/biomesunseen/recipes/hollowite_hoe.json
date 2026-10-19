@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    "MM",
+    " S",
+    " S"
+  ],
+  "key": {
+    "M": {
+      "item": "biomesunseen:hollowite_gem"
+    },
+    "S": {
+      "item": "minecraft:stick"
+    }
+  },
+  "result": {
+    "item": "biomesunseen:hollowite_hoe",
+    "count": 1
+  }
+}

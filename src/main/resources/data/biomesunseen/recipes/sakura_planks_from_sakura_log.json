@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "biomesunseen:sakura_log"
+    }
+  ],
+  "result": {
+    "item": "biomesunseen:sakura_planks",
+    "count": 4
+  }
+}

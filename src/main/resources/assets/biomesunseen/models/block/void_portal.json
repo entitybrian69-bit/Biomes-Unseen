@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "render_type": "minecraft:translucent",
+  "textures": {
+    "all": "biomesunseen:block/void_portal",
+    "particle": "biomesunseen:block/void_portal"
+  }
+}

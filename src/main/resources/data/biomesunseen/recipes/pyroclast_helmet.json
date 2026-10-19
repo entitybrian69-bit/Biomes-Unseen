@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    "MMM",
+    "M M"
+  ],
+  "key": {
+    "M": {
+      "item": "biomesunseen:ashen_core_fragment"
+    }
+  },
+  "result": {
+    "item": "biomesunseen:pyroclast_helmet",
+    "count": 1
+  }
+}

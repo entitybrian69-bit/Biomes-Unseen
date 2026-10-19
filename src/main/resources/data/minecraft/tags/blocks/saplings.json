@@ -1,0 +1,13 @@
+{
+  "replace": false,
+  "values": [
+    "biomesunseen:aether_sapling",
+    "biomesunseen:blight_sapling",
+    "biomesunseen:hollow_sapling",
+    "biomesunseen:lumen_sapling",
+    "biomesunseen:petrified_sapling",
+    "biomesunseen:sakura_sapling",
+    "biomesunseen:spiritwood_sapling",
+    "biomesunseen:void_sapling"
+  ]
+}

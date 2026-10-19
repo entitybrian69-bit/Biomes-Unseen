@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "biomesunseen:lore_fragment"
+    },
+    {
+      "item": "minecraft:paper"
+    },
+    {
+      "item": "minecraft:book"
+    }
+  ],
+  "result": {
+    "item": "biomesunseen:lore_book_heart",
+    "count": 1
+  }
+}

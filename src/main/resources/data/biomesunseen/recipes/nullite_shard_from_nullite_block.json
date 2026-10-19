@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "biomesunseen:nullite_block"
+    }
+  ],
+  "result": {
+    "item": "biomesunseen:nullite_shard",
+    "count": 9
+  }
+}

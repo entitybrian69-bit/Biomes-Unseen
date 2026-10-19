@@ -1,0 +1,21 @@
+{
+  "replace": false,
+  "values": [
+    "biomesunseen:aether_log",
+    "biomesunseen:aether_planks",
+    "biomesunseen:blight_log",
+    "biomesunseen:blight_planks",
+    "biomesunseen:hollow_log",
+    "biomesunseen:hollow_planks",
+    "biomesunseen:lumen_log",
+    "biomesunseen:lumen_planks",
+    "biomesunseen:petrified_log",
+    "biomesunseen:petrified_planks",
+    "biomesunseen:sakura_log",
+    "biomesunseen:sakura_planks",
+    "biomesunseen:spiritwood_log",
+    "biomesunseen:spiritwood_planks",
+    "biomesunseen:void_log",
+    "biomesunseen:void_planks"
+  ]
+}

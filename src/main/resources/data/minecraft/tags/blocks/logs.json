@@ -1,0 +1,13 @@
+{
+  "replace": false,
+  "values": [
+    "biomesunseen:aether_log",
+    "biomesunseen:blight_log",
+    "biomesunseen:hollow_log",
+    "biomesunseen:lumen_log",
+    "biomesunseen:petrified_log",
+    "biomesunseen:sakura_log",
+    "biomesunseen:spiritwood_log",
+    "biomesunseen:void_log"
+  ]
+}

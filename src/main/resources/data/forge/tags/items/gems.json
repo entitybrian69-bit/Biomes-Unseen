@@ -1,0 +1,23 @@
+{
+  "replace": false,
+  "values": [
+    "biomesunseen:abyssite_shard",
+    "biomesunseen:bloodstone_gem",
+    "biomesunseen:coralite_polish",
+    "biomesunseen:crown_shard",
+    "biomesunseen:duskite_gem",
+    "biomesunseen:echo_crystal",
+    "biomesunseen:emberquartz_shard",
+    "biomesunseen:fracture_shale_shard",
+    "biomesunseen:glacierite_shard",
+    "biomesunseen:gloomite_shard",
+    "biomesunseen:graveamber_chunk",
+    "biomesunseen:hollowite_gem",
+    "biomesunseen:kelpstone_shard",
+    "biomesunseen:lumenite_shard",
+    "biomesunseen:nullite_shard",
+    "biomesunseen:petrichorite_crystal",
+    "biomesunseen:sporeamber_chunk",
+    "biomesunseen:wraithsalt_crystal"
+  ]
+}

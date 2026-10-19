@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "biomesunseen:lumenshade_block"
+    }
+  ],
+  "result": {
+    "item": "biomesunseen:lumenshade_ingot",
+    "count": 9
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "biomesunseen:block/aetherfall_portal_frame",
+    "particle": "biomesunseen:block/aetherfall_portal_frame"
+  }
+}

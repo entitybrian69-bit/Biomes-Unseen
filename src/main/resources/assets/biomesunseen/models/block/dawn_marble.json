@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "biomesunseen:block/dawn_marble",
+    "particle": "biomesunseen:block/dawn_marble"
+  }
+}

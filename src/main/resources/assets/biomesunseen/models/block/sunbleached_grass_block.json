@@ -1,0 +1,9 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "bottom": "biomesunseen:block/sunbleached_dirt",
+    "top": "biomesunseen:block/sunbleached_grass_block",
+    "side": "biomesunseen:block/sunbleached_grass_block_side",
+    "particle": "biomesunseen:block/sunbleached_grass_block_side"
+  }
+}

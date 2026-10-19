@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "biomesunseen:blight_log"
+    }
+  ],
+  "result": {
+    "item": "biomesunseen:blight_planks",
+    "count": 4
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "biomesunseen:block/lumen_log_top",
+    "side": "biomesunseen:block/lumen_log",
+    "particle": "biomesunseen:block/lumen_log"
+  }
+}

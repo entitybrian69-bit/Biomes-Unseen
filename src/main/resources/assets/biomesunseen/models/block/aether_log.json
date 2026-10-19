@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "biomesunseen:block/aether_log_top",
+    "side": "biomesunseen:block/aether_log",
+    "particle": "biomesunseen:block/aether_log"
+  }
+}

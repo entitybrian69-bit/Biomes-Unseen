@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    "MWM",
+    "MMM",
+    " M "
+  ],
+  "key": {
+    "M": {
+      "item": "biomesunseen:starfall_core"
+    },
+    "W": {
+      "tag": "minecraft:planks"
+    }
+  },
+  "result": {
+    "item": "biomesunseen:starforged_shield",
+    "count": 1
+  }
+}

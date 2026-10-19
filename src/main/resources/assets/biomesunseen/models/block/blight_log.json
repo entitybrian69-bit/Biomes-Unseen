@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "biomesunseen:block/blight_log_top",
+    "side": "biomesunseen:block/blight_log",
+    "particle": "biomesunseen:block/blight_log"
+  }
+}

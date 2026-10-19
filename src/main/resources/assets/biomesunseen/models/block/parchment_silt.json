@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "biomesunseen:block/parchment_silt",
+    "particle": "biomesunseen:block/parchment_silt"
+  }
+}

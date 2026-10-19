@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "biomesunseen:spiritwood_log"
+    }
+  ],
+  "result": {
+    "item": "biomesunseen:spiritwood_planks",
+    "count": 4
+  }
+}

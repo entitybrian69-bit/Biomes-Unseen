@@ -1,0 +1,15 @@
+{
+  "replace": false,
+  "values": [
+    "biomesunseen:aether_leaves",
+    "biomesunseen:blight_leaves",
+    "biomesunseen:crystal_leaves",
+    "biomesunseen:glimmerleaf_leaves",
+    "biomesunseen:hollow_leaves",
+    "biomesunseen:lumen_leaves",
+    "biomesunseen:petrified_leaves",
+    "biomesunseen:sakura_leaves",
+    "biomesunseen:spiritwood_leaves",
+    "biomesunseen:void_leaves"
+  ]
+}

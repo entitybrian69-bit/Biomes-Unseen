@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "biomesunseen:block/lumenshade_ore",
+    "particle": "biomesunseen:block/lumenshade_ore"
+  }
+}
