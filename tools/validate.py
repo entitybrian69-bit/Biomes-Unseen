@@ -269,12 +269,22 @@ def check_java_texture_refs(have: Set[str], report: Report) -> None:
     built = re.compile(r'"textures/[a-z0-9_./-]*"\s*\+')
     for path in walk(JAVA, ".java"):
         text = open(path, "r", encoding="utf-8").read()
-        for m in lit.finditer(text):
-            resolve_texture_ref(m.group(1), have, report, rel(path), "java-texture")
-            report.count("java texture refs", 1)
+
+        # A concatenation prefix such as "textures/entity/" + id + ".png" is not
+        # a resolvable path -- it is half of one. Collect the spans the dynamic
+        # pattern covers and skip them in the literal scan, otherwise the prefix
+        # is reported as a missing texture while the same span is also (correctly)
+        # noted as dynamic. Only a complete literal can be resolved.
+        dynamic_spans = [m.span() for m in built.finditer(text)]
         for m in built.finditer(text):
             report.note("java-texture",
                         f"{rel(path)}: dynamic texture path at {m.group(0)!r}")
+
+        for m in lit.finditer(text):
+            if any(start <= m.start() < end for start, end in dynamic_spans):
+                continue
+            resolve_texture_ref(m.group(1), have, report, rel(path), "java-texture")
+            report.count("java texture refs", 1)
 
 
 # --------------------------------------------------------------------------- #
