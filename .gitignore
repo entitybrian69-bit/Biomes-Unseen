@@ -24,3 +24,6 @@ Thumbs.db
 # Python tooling caches
 __pycache__/
 *.pyc
+
+# CI build log, tee'd by the workflow for annotation reporting
+build.log

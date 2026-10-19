@@ -112,7 +112,22 @@ jobs:
       - name: Build with Gradle
         # --stacktrace because ForgeGradle failures are usually nested several
         # layers deep and the default output hides the real cause.
-        run: gradle build --no-daemon --stacktrace --warning-mode=summary
+        #
+        # The log is teed to a file as well as to stdout so the reporting step
+        # below can republish the compiler diagnostics as annotations. Actions
+        # logs are served from a blob host that is not reachable from every
+        # development environment, whereas annotations are readable through the
+        # ordinary REST API -- so this is what keeps a red build diagnosable.
+        run: |
+          set -o pipefail
+          gradle build --no-daemon --stacktrace --warning-mode=summary 2>&1 | tee build.log
+
+      - name: Publish compiler errors as annotations
+        if: failure()
+        # Converts javac's file:line: error: messages and Gradle's "What went
+        # wrong" block into check-run annotations, so the failing lines can be
+        # read back through api.github.com without needing the raw log.
+        run: python3 tools/ci_report.py build.log
 
       - name: Report compiled classes
         if: always()
