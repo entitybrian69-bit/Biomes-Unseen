@@ -65,8 +65,8 @@ public class BiomesUnseen {
         MinecraftForge.EVENT_BUS.register(this);
 
         LOGGER.info("Biomes Unseen loaded: {} blocks, {} items, {} creatures, {} bosses, {} biomes",
-                BUBlocks.all().size(), BUItems.all().size(), BUCreature.SPECIES.size(),
-                BUBoss.BOSSES.size(), BUBiomes.all().size());
+                BUBlocks.all().size(), BUItems.all().size(), BUContent.MOBS.length,
+                BUContent.BOSSES.length, BUBiomes.all().size());
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {

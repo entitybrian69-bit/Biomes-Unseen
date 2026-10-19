@@ -111,7 +111,7 @@ public final class BUEntities {
      * BUContent.MOBS (they are their own roster), so a synthesised row is built
      * from the boss's own numbers when there is no match.
      */
-    private static MobData mobDataFor(BossData boss) {
+    public static MobData mobDataFor(BossData boss) {
         for (MobData candidate : BUContent.MOBS) {
             if (candidate.id.equals(boss.id)) {
                 return candidate;
@@ -221,12 +221,13 @@ public final class BUEntities {
         if (sound == null) {
             return;
         }
-        player.connection.send(new net.minecraft.network.protocol.game.ClientboundStopSoundPacket(
-                null, SoundSource.MUSIC));
-        player.connection.send(new net.minecraft.network.protocol.game.ClientboundSoundPacket(
-                net.minecraftforge.registries.ForgeRegistries.SOUND_EVENTS.getDelegateOrThrow(sound),
-                SoundSource.MUSIC, boss.getX(), boss.getY(), boss.getZ(),
-                1.6F, 1.0F, player.level().getRandom().nextLong()));
+        stopBossMusic(boss, player);
+        // Played through the level on the MUSIC source rather than as a raw
+        // packet: it takes a SoundEvent directly, so no registry-holder lookup
+        // is needed, and it still ducks the biome track the way vanilla boss
+        // music does.
+        boss.level().playSound(null, boss.getX(), boss.getY(), boss.getZ(),
+                sound, SoundSource.MUSIC, 1.6F, 1.0F);
     }
 
     /** Stop the boss theme when the fight ends or the player leaves. */

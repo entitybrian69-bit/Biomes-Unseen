@@ -14,7 +14,7 @@ import software.bernie.geckolib.model.GeoModel;
  * Unraveling's unstable shell). Nothing here is shared with the creature model,
  * because a boss fight has to read as a different order of thing.
  */
-public class BUBossModel implements GeoModel<BUBoss> {
+public class BUBossModel extends GeoModel<BUBoss> {
 
     @Override
     public ResourceLocation getModelResource(BUBoss entity) {

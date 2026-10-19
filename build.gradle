@@ -89,10 +89,6 @@ dependencies {
 
     // GeckoLib 4.4.7 is the 1.20.1 stable line.
     implementation fg.deobf("software.bernie.geckolib:geckolib-forge-1.20.1:${geckolib_version}")
-
-    // Generates biomesunseen.refmap.json so the mixin can be remapped from the
-    // named mappings used at compile time to the obfuscated ones used at runtime.
-    annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
 }
 
 // ---------------------------------------------------------------------------
@@ -146,8 +142,7 @@ tasks.named('jar', Jar).configure {
             'Implementation-Title'    : project.name,
             'Implementation-Version'  : project.jar.archiveVersion,
             'Implementation-Vendor'   : mod_authors,
-            'Implementation-Timestamp': new Date().format("yyyy-MM-dd'T'HH:mm:ssZ"),
-            'MixinConfigs'            : "${mod_id}.mixins.json"
+            'Implementation-Timestamp': new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
         ])
     }
 }

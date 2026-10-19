@@ -45,7 +45,7 @@ public class BUFluidType extends FluidType {
             }
 
             @Override
-            public int getFluidTint() {
+            public int getTintColor() {
                 return tint;
             }
         });

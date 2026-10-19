@@ -2,8 +2,6 @@ package com.biomesunseen.item;
 
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.crafting.Ingredient;
-import net.minecraft.tags.TagKey;
-import net.minecraft.world.level.block.Block;
 
 import java.util.function.Supplier;
 
@@ -22,18 +20,15 @@ public final class BUTier implements Tier {
     private final float speed;
     private final float attackDamageBonus;
     private final int enchantmentValue;
-    private final TagKey<Block> incorrectBlocksForDrops;
     private final Supplier<Ingredient> repairIngredient;
 
     public BUTier(int level, int uses, float speed, float attackDamageBonus,
-                  int enchantmentValue, TagKey<Block> incorrectBlocksForDrops,
-                  Supplier<Ingredient> repairIngredient) {
+                  int enchantmentValue, Supplier<Ingredient> repairIngredient) {
         this.level = level;
         this.uses = uses;
         this.speed = speed;
         this.attackDamageBonus = attackDamageBonus;
         this.enchantmentValue = enchantmentValue;
-        this.incorrectBlocksForDrops = incorrectBlocksForDrops;
         this.repairIngredient = repairIngredient;
     }
 
@@ -67,13 +62,4 @@ public final class BUTier implements Tier {
         return repairIngredient.get();
     }
 
-    /**
-     * The tag listing blocks this tier cannot harvest.
-     *
-     * 1.20.1 expresses harvestability as an "incorrect for" tag: a block is
-     * harvestable by a tier unless it is tagged as incorrect for that tier.
-     */
-    public TagKey<Block> getIncorrectBlocksForDrops() {
-        return incorrectBlocksForDrops;
-    }
 }

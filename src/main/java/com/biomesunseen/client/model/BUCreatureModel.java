@@ -19,7 +19,7 @@ import software.bernie.geckolib.model.GeoModel;
  * rig and the same authored atlas band layout; what differs between species is
  * the texture and the overlays baked into it.
  */
-public class BUCreatureModel implements GeoModel<BUCreature> {
+public class BUCreatureModel extends GeoModel<BUCreature> {
 
     @Override
     public ResourceLocation getModelResource(BUCreature entity) {

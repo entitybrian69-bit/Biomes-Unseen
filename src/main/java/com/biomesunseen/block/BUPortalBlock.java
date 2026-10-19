@@ -10,7 +10,6 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.portal.PortalInfo;
 import net.minecraft.world.phys.Vec3;
 
 /**
@@ -26,6 +25,11 @@ import net.minecraft.world.phys.Vec3;
  * agreement by construction.
  */
 public class BUPortalBlock extends Block {
+
+    /** Persistent-data key holding the game time of the last transit. */
+    private static final String COOLDOWN_KEY = "BiomesUnseenPortalCooldown";
+    /** Ticks before the same entity may use a gate again. */
+    private static final int COOLDOWN_TICKS = 100;
 
     private final String destinationDimension;
 
@@ -46,11 +50,11 @@ public class BUPortalBlock extends Block {
             return;
         }
         // Riders and passengers would be detached by the teleport; the vanilla
-        // portal has the same guard.
-        if (entity.isInsidePortalCooldown() || entity.portalCooldown > 0) {
+        // portal guards the same way.
+        if (!(level instanceof ServerLevel serverLevel)) {
             return;
         }
-        if (!(level instanceof ServerLevel serverLevel)) {
+        if (isOnCooldown(entity, level)) {
             return;
         }
         MinecraftServer server = serverLevel.getServer();
@@ -68,25 +72,67 @@ public class BUPortalBlock extends Block {
             // Already standing in the destination dimension: bounce home.
             target = server.overworld();
         }
+
         Vec3 safe = BUDimensions.findSafeLanding(target, entity);
-        PortalInfo info = new PortalInfo(safe, Vec3.ZERO, entity.getYRot(), entity.getXRot());
-        entity.changeDimension(target, new net.minecraftforge.common.util.ITeleporter() {
+        ServerLevel destination = target;
+        markCooldown(entity, level);
+
+        entity.changeDimension(destination, new net.minecraftforge.common.util.ITeleporter() {
+            /**
+             * Place the entity in the destination dimension.
+             *
+             * This is the only abstract method Forge's ITeleporter declares, and
+             * it is where a custom destination is honoured: {@code repositionEntity}
+             * performs the cross-dimension move and hands back the (possibly new)
+             * entity instance, which is then positioned at the safe landing spot
+             * resolved above rather than at a matching portal coordinate.
+             */
             @Override
-            public PortalInfo getPortalInfo(Entity entityToMove, ServerLevel dest,
-                                            java.util.function.Function<Entity, PortalInfo> defaultGetter) {
-                return info;
+            public Entity placeEntity(Entity moving, ServerLevel currentWorld,
+                                     ServerLevel destWorld, float yaw,
+                                     java.util.function.Function<Boolean, Entity> repositionEntity) {
+                Entity placed = repositionEntity.apply(false);
+                placed.teleportTo(safe.x, safe.y, safe.z);
+                placed.setDeltaMovement(Vec3.ZERO);
+                placed.hurtMarked = true;
+                return placed;
             }
 
+            /** Returning false suppresses the vanilla portal whoosh. */
             @Override
-            public boolean playTeleportSound(Entity entity, ServerLevel source, ServerLevel dest) {
+            public boolean playTeleportSound(net.minecraft.server.level.ServerPlayer player,
+                                            ServerLevel sourceWorld, ServerLevel destWorld) {
                 return false;
             }
 
+            /**
+             * A custom dimension gate, not a nether portal.
+             *
+             * Returning false stops Forge from trying to build or link a
+             * {@code BlockPattern} portal frame, which this block does not have.
+             */
             @Override
-            public BlockState getPortalBlockState(ServerLevel level, BlockPos pos) {
-                return state;
+            public boolean isVanilla() {
+                return false;
             }
         });
-        entity.portalCooldown = 200;
+    }
+
+    /**
+     * Whether the entity has teleported too recently to go again.
+     *
+     * {@code entityInside} fires every tick the entity stands in the block, so
+     * without a guard a single step through would teleport repeatedly. The
+     * cooldown lives in the entity's Forge persistent data rather than in
+     * {@code Entity.portalCooldown}, which is private and governs vanilla
+     * nether portals -- sharing it would let a nether trip suppress this gate.
+     */
+    private boolean isOnCooldown(Entity entity, Level level) {
+        long last = entity.getPersistentData().getLong(COOLDOWN_KEY);
+        return last != 0L && level.getGameTime() - last < COOLDOWN_TICKS;
+    }
+
+    private void markCooldown(Entity entity, Level level) {
+        entity.getPersistentData().putLong(COOLDOWN_KEY, level.getGameTime());
     }
 }

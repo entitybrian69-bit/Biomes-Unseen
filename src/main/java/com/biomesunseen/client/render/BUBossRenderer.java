@@ -8,9 +8,9 @@ import software.bernie.geckolib.renderer.GeoEntityRenderer;
 /**
  * The renderer for the five bosses.
  *
- * Bosses scale up the model by their authored scale and never apply the default
- * death tip-over, because each has a hand-authored death sequence that is the
- * payoff of the fight.
+ * Bosses get their own renderer because they resolve a different model and
+ * texture root from creatures: each has a bespoke multi-part rig and its own
+ * 64x64 atlas rather than sharing a family rig.
  */
 public class BUBossRenderer extends GeoEntityRenderer<BUBoss> {
 
@@ -18,13 +18,5 @@ public class BUBossRenderer extends GeoEntityRenderer<BUBoss> {
         super(context, new BUBossModel());
     }
 
-    @Override
-    public float getMotionAnimThreshold(BUBoss entity) {
-        return 0.01F;
-    }
 
-    @Override
-    protected float getDeathMaxRotation(BUBoss entity) {
-        return 0.0F;
-    }
 }

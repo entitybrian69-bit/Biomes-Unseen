@@ -31,7 +31,7 @@ import software.bernie.geckolib.core.animation.AnimationController;
 import software.bernie.geckolib.core.animation.AnimationState;
 import software.bernie.geckolib.core.animation.RawAnimation;
 import software.bernie.geckolib.core.object.PlayState;
-import software.bernie.geckolib.entity.GeoEntity;
+import software.bernie.geckolib.core.animatable.GeoAnimatable;
 import software.bernie.geckolib.util.GeckoLibUtil;
 
 /**
@@ -53,7 +53,7 @@ import software.bernie.geckolib.util.GeckoLibUtil;
  * {@code .geo.json} and every phase transition is a keyframed
  * {@code .animation.json} clip.
  */
-public class BUBoss extends Monster implements GeoEntity {
+public class BUBoss extends Monster implements GeoAnimatable {
 
     private final BossData boss;
     private final MobData species;
@@ -72,7 +72,7 @@ public class BUBoss extends Monster implements GeoEntity {
     public BUBoss(EntityType<? extends BUBoss> type, Level level) {
         super(type, level);
         this.boss = BUEntities.bossFor(type);
-        this.species = this.boss.mob;
+        this.species = BUEntities.mobDataFor(this.boss);
         this.bossBar = new ServerBossEvent(
                 this.getDisplayName(),
                 barColor(this.boss.bossBarColor),
@@ -99,7 +99,7 @@ public class BUBoss extends Monster implements GeoEntity {
     // ------------------------------------------------------------------ //
 
     public static AttributeSupplier.Builder attributesFor(BossData boss) {
-        MobData mob = boss.mob;
+        MobData mob = BUEntities.mobDataFor(boss);
         return Mob.createMonsterAttributes()
                 .add(Attributes.MAX_HEALTH, mob.maxHealth)
                 .add(Attributes.MOVEMENT_SPEED, mob.movementSpeed)
@@ -321,11 +321,10 @@ public class BUBoss extends Monster implements GeoEntity {
                 bossBar.removePlayer(player);
                 BUEntities.stopBossMusic(this, player);
             }
-            // The boss loot table carries the artefact pieces and the lore book,
-            // so the kill is rewarded through data rather than hardcoded drops.
-            this.dropFromLootTable(
-                    net.minecraft.resources.ResourceLocation.tryBuild("biomesunseen",
-                            "entities/" + boss.id), source);
+            // Drops come from data/biomesunseen/loot_tables/entities/<boss_id>.json,
+            // which Forge resolves from the entity's registry name via the normal
+            // dropAllDeathLoot path in super.die(). Dispatching a table by hand
+            // here would double the loot.
         }
     }
 
@@ -361,7 +360,7 @@ public class BUBoss extends Monster implements GeoEntity {
     // ------------------------------------------------------------------ //
 
     @Override
-    protected EntityDimensions getDimensions(Pose pose) {
+    public EntityDimensions getDimensions(Pose pose) {
         return super.getDimensions(pose).scale(boss.scale);
     }
 

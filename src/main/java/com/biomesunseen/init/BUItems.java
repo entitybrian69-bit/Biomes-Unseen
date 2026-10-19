@@ -4,8 +4,6 @@ import com.biomesunseen.item.BUArmorMaterial;
 import com.biomesunseen.item.BULoreBookItem;
 import com.biomesunseen.item.BUTier;
 import net.minecraft.sounds.SoundEvents;
-import net.minecraft.tags.BlockTags;
-import net.minecraft.tags.TagKey;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.AxeItem;
@@ -21,7 +19,6 @@ import net.minecraft.world.item.ShovelItem;
 import net.minecraft.world.item.SwordItem;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.crafting.Ingredient;
-import net.minecraft.world.level.block.Block;
 import net.minecraftforge.common.ForgeSpawnEggItem;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
@@ -80,8 +77,9 @@ public final class BUItems {
             float attackBonus = (Float) row[4];
             int enchant = (Integer) row[5];
             String repair = (String) row[6];
-            TagKey<Block> tag = harvestTagFor(level);
-            TIERS.put(setId, new BUTier(level, uses, speed, attackBonus, enchant, tag,
+            // Harvestability in 1.20.1 is Tier.getLevel() plus the needs_*_tool
+            // block tags shipped in the datapack, so no tag key is needed here.
+            TIERS.put(setId, new BUTier(level, uses, speed, attackBonus, enchant,
                     () -> ingredientFor(repair)));
         }
 
@@ -108,25 +106,6 @@ public final class BUItems {
         }
     }
 
-    /**
-     * The "incorrect blocks for this tier" tag.
-     *
-     * 1.20.1 expresses harvestability as a tag of blocks a tier may NOT drop
-     * from, so each tier level maps to the corresponding vanilla needs_x_tool
-     * tag. Our own tags extend these so mod blocks are covered too.
-     */
-    private static TagKey<Block> harvestTagFor(int level) {
-        switch (level) {
-            case 1:
-                return BlockTags.INCORRECT_FOR_WOODEN_TOOL;
-            case 2:
-                return BlockTags.INCORRECT_FOR_STONE_TOOL;
-            case 3:
-                return BlockTags.INCORRECT_FOR_IRON_TOOL;
-            default:
-                return BlockTags.INCORRECT_FOR_DIAMOND_TOOL;
-        }
-    }
 
     private static Ingredient ingredientFor(String repairItem) {
         if (repairItem == null || repairItem.isEmpty()) {
@@ -148,7 +127,7 @@ public final class BUItems {
             if (isFluid(path) || path.endsWith("_portal")) {
                 continue;
             }
-            RegistryObject<Block> block = BUBlocks.holder(path);
+            RegistryObject<? extends Block> block = BUBlocks.holder(path);
             if (block == null) {
                 continue;
             }

@@ -30,7 +30,7 @@ import software.bernie.geckolib.core.animation.AnimationController;
 import software.bernie.geckolib.core.animation.AnimationState;
 import software.bernie.geckolib.core.animation.RawAnimation;
 import software.bernie.geckolib.core.object.PlayState;
-import software.bernie.geckolib.entity.GeoEntity;
+import software.bernie.geckolib.core.animatable.GeoAnimatable;
 import software.bernie.geckolib.util.GeckoLibUtil;
 
 import javax.annotation.Nullable;
@@ -49,7 +49,7 @@ import javax.annotation.Nullable;
  * The model is an articulated {@code .geo.json} and the motions are
  * {@code .animation.json} keyframes, both resolved by species id.
  */
-public class BUCreature extends PathfinderMob implements GeoEntity {
+public class BUCreature extends PathfinderMob implements GeoAnimatable {
 
     /** The species this instance was registered for; fixed at construction. */
     private final MobData species;
@@ -170,7 +170,7 @@ public class BUCreature extends PathfinderMob implements GeoEntity {
      * consult, so the visual and the hitbox stay in agreement.
      */
     @Override
-    protected net.minecraft.world.entity.EntityDimensions getDimensions(Pose pose) {
+    public net.minecraft.world.entity.EntityDimensions getDimensions(Pose pose) {
         return super.getDimensions(pose).scale(species.scale);
     }
 
@@ -195,11 +195,6 @@ public class BUCreature extends PathfinderMob implements GeoEntity {
         // The loot table under data/biomesunseen/loot_tables/entities carries the
         // authored drops, so nothing extra is needed here beyond the vanilla
         // table dispatch that super() performs.
-    }
-
-    @Override
-    protected int getExperienceReward() {
-        return species.experience;
     }
 
     @Override

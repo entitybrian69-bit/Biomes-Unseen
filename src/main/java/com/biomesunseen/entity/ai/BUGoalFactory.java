@@ -182,7 +182,7 @@ public final class BUGoalFactory {
                 return new MeleeAttackGoal(mob, 2.0D, true);
             case "open_door":
                 return new net.minecraft.world.entity.ai.goal.MoveThroughVillageGoal(
-                        mob, 1.0D, true, 4, mob::canBreakDoors);
+                        mob, 1.0D, true, 4, () -> true);
             case "trade_with_player":
             case "sit_when_ordered":
             case "follow_owner":

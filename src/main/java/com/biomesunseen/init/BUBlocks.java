@@ -44,7 +44,7 @@ public final class BUBlocks {
             DeferredRegister.create(ForgeRegistries.FLUIDS, BUContent.MODID);
 
     /** Registered blocks by registry path, for lookup from items and features. */
-    private static final Map<String, RegistryObject<Block>> BY_PATH = new LinkedHashMap<>();
+    private static final Map<String, RegistryObject<? extends Block>> BY_PATH = new LinkedHashMap<>();
     /** Fluid plumbing, keyed by block registry path. */
     private static final Map<String, FluidSet> FLUID_SETS = new LinkedHashMap<>();
 
@@ -293,11 +293,11 @@ public final class BUBlocks {
 
     /** The registered block for a path, or null if the mod does not add it. */
     public static Block get(String path) {
-        RegistryObject<Block> obj = BY_PATH.get(path);
+        RegistryObject<? extends Block> obj = BY_PATH.get(path);
         return obj == null ? null : obj.get();
     }
 
-    public static RegistryObject<Block> holder(String path) {
+    public static RegistryObject<? extends Block> holder(String path) {
         return BY_PATH.get(path);
     }
 
@@ -306,7 +306,7 @@ public final class BUBlocks {
     }
 
     /** Every registered block, in content-table order. */
-    public static java.util.Collection<RegistryObject<Block>> all() {
+    public static java.util.Collection<RegistryObject<? extends Block>> all() {
         return BY_PATH.values();
     }
 
