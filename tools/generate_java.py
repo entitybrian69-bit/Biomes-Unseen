@@ -342,7 +342,8 @@ def entity_section() -> str:
         out.append(f"                    {jarray(list(mob.target_classes), ' ' * 20, as_arg=True)},")
         out.append(f"                    {q(mob.spawn_category)}, {int(mob.spawn_weight)}, "
                    f"{int(mob.spawn_group[0])}, {int(mob.spawn_group[1])},")
-        out.append(f"                    {int(mob.experience)}")
+        out.append(f"                    {int(mob.experience)},")
+        out.append(f"                    {jarray(list(mob.animations), ' ' * 20, as_arg=True)}")
         out.append("            ),")
     out.append("    };")
     out.append("")

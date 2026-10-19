@@ -423,7 +423,10 @@ public final class BUContent {
                     "minecraft:player"
         },
                     "ambient", 40, 3, 6,
-                    2
+                    2,
+                    new String[] {
+                    "animation.idle", "animation.walk", "animation.attack", "animation.hurt", "animation.death"
+        }
             ),
             new MobData(
                     "mossback_hare", "quadruped", "overworld",
@@ -440,7 +443,10 @@ public final class BUContent {
                     "minecraft:player"
         },
                     "creature", 25, 2, 4,
-                    2
+                    2,
+                    new String[] {
+                    "animation.idle", "animation.walk", "animation.attack", "animation.hurt", "animation.death"
+        }
             ),
             new MobData(
                     "petaldancer", "biped", "overworld",
@@ -457,7 +463,10 @@ public final class BUContent {
                     "minecraft:player"
         },
                     "creature", 30, 2, 5,
-                    3
+                    3,
+                    new String[] {
+                    "animation.idle", "animation.walk", "animation.attack", "animation.hurt", "animation.death"
+        }
             ),
             new MobData(
                     "duskstalker", "quadruped", "overworld",
@@ -474,7 +483,10 @@ public final class BUContent {
                     "minecraft:player"
         },
                     "monster", 25, 1, 2,
-                    8
+                    8,
+                    new String[] {
+                    "animation.idle", "animation.walk", "animation.attack", "animation.hurt", "animation.death"
+        }
             ),
             new MobData(
                     "sporeling", "fungal", "overworld",
@@ -491,7 +503,10 @@ public final class BUContent {
                     "minecraft:player"
         },
                     "creature", 35, 3, 6,
-                    3
+                    3,
+                    new String[] {
+                    "animation.idle", "animation.walk", "animation.attack", "animation.hurt", "animation.death"
+        }
             ),
             new MobData(
                     "mire_wisp", "fungal", "overworld",
@@ -507,7 +522,10 @@ public final class BUContent {
                     "minecraft:player"
         },
                     "ambient", 30, 1, 3,
-                    2
+                    2,
+                    new String[] {
+                    "animation.idle", "animation.walk", "animation.attack", "animation.hurt", "animation.death"
+        }
             ),
             new MobData(
                     "bogcrawler", "arthropod", "overworld",
@@ -524,7 +542,10 @@ public final class BUContent {
                     "minecraft:player"
         },
                     "monster", 30, 1, 3,
-                    6
+                    6,
+                    new String[] {
+                    "animation.idle", "animation.walk", "animation.attack", "animation.hurt", "animation.death"
+        }
             ),
             new MobData(
                     "aurora_stag", "quadruped", "overworld",
@@ -541,7 +562,10 @@ public final class BUContent {
                     "minecraft:player"
         },
                     "creature", 18, 2, 4,
-                    6
+                    6,
+                    new String[] {
+                    "animation.idle", "animation.walk", "animation.attack", "animation.hurt", "animation.death"
+        }
             ),
             new MobData(
                     "thicket_sprite", "biped", "overworld",
@@ -558,7 +582,10 @@ public final class BUContent {
                     "minecraft:player"
         },
                     "ambient", 20, 1, 2,
-                    4
+                    4,
+                    new String[] {
+                    "animation.idle", "animation.walk", "animation.attack", "animation.hurt", "animation.death"
+        }
             ),
             new MobData(
                     "silkweaver", "arthropod", "overworld",
@@ -575,7 +602,10 @@ public final class BUContent {
                     "minecraft:player"
         },
                     "monster", 22, 2, 3,
-                    5
+                    5,
+                    new String[] {
+                    "animation.idle", "animation.walk", "animation.attack", "animation.hurt", "animation.death"
+        }
             ),
             new MobData(
                     "canopy_glider", "quadruped", "overworld",
@@ -592,7 +622,10 @@ public final class BUContent {
                     "minecraft:player"
         },
                     "creature", 20, 1, 3,
-                    4
+                    4,
+                    new String[] {
+                    "animation.idle", "animation.walk", "animation.attack", "animation.hurt", "animation.death"
+        }
             ),
             new MobData(
                     "frostling", "biped", "overworld",
@@ -609,7 +642,10 @@ public final class BUContent {
                     "minecraft:player"
         },
                     "monster", 30, 2, 4,
-                    5
+                    5,
+                    new String[] {
+                    "animation.idle", "animation.walk", "animation.attack", "animation.hurt", "animation.death"
+        }
             ),
             new MobData(
                     "glacier_ox", "quadruped", "overworld",
@@ -626,7 +662,10 @@ public final class BUContent {
                     "minecraft:player"
         },
                     "creature", 15, 2, 4,
-                    8
+                    8,
+                    new String[] {
+                    "animation.idle", "animation.walk", "animation.attack", "animation.hurt", "animation.death"
+        }
             ),
             new MobData(
                     "stonehide_boar", "quadruped", "overworld",
@@ -643,7 +682,10 @@ public final class BUContent {
                     "minecraft:player"
         },
                     "monster", 20, 2, 4,
-                    7
+                    7,
+                    new String[] {
+                    "animation.idle", "animation.walk", "animation.attack", "animation.hurt", "animation.death"
+        }
             ),
             new MobData(
                     "fossil_wraith", "biped", "overworld",
@@ -660,7 +702,10 @@ public final class BUContent {
                     "minecraft:player"
         },
                     "monster", 25, 1, 2,
-                    8
+                    8,
+                    new String[] {
+                    "animation.idle", "animation.walk", "animation.attack", "animation.hurt", "animation.death"
+        }
             ),
             new MobData(
                     "marrow_hound", "quadruped", "overworld",
@@ -677,7 +722,10 @@ public final class BUContent {
                     "minecraft:player"
         },
                     "monster", 25, 2, 3,
-                    7
+                    7,
+                    new String[] {
+                    "animation.idle", "animation.walk", "animation.attack", "animation.hurt", "animation.death"
+        }
             ),
             new MobData(
                     "temple_guardian", "biped", "overworld",
@@ -694,7 +742,10 @@ public final class BUContent {
                     "minecraft:player"
         },
                     "monster", 20, 1, 2,
-                    12
+                    12,
+                    new String[] {
+                    "animation.idle", "animation.walk", "animation.attack", "animation.hurt", "animation.death"
+        }
             ),
             new MobData(
                     "astral_scribe", "biped", "overworld",
@@ -711,7 +762,10 @@ public final class BUContent {
                     "minecraft:player"
         },
                     "creature", 18, 1, 1,
-                    6
+                    6,
+                    new String[] {
+                    "animation.idle", "animation.walk", "animation.attack", "animation.hurt", "animation.death"
+        }
             ),
             new MobData(
                     "moor_sentinel", "biped", "overworld",
@@ -728,7 +782,10 @@ public final class BUContent {
                     "minecraft:player"
         },
                     "monster", 12, 1, 1,
-                    14
+                    14,
+                    new String[] {
+                    "animation.idle", "animation.walk", "animation.attack", "animation.hurt", "animation.death"
+        }
             ),
             new MobData(
                     "slag_golem", "biped", "overworld",
@@ -745,7 +802,10 @@ public final class BUContent {
                     "minecraft:player"
         },
                     "monster", 15, 1, 1,
-                    16
+                    16,
+                    new String[] {
+                    "animation.idle", "animation.walk", "animation.attack", "animation.hurt", "animation.death"
+        }
             ),
             new MobData(
                     "emberling", "fungal", "overworld",
@@ -762,7 +822,10 @@ public final class BUContent {
                     "minecraft:player"
         },
                     "monster", 32, 2, 5,
-                    5
+                    5,
+                    new String[] {
+                    "animation.idle", "animation.walk", "animation.attack", "animation.hurt", "animation.death"
+        }
             ),
             new MobData(
                     "magma_lurker", "arthropod", "overworld",
@@ -779,7 +842,10 @@ public final class BUContent {
                     "minecraft:player"
         },
                     "monster", 22, 1, 2,
-                    10
+                    10,
+                    new String[] {
+                    "animation.idle", "animation.walk", "animation.attack", "animation.hurt", "animation.death"
+        }
             ),
             new MobData(
                     "canyon_skulk", "quadruped", "overworld",
@@ -796,7 +862,10 @@ public final class BUContent {
                     "minecraft:player"
         },
                     "monster", 24, 1, 3,
-                    7
+                    7,
+                    new String[] {
+                    "animation.idle", "animation.walk", "animation.attack", "animation.hurt", "animation.death"
+        }
             ),
             new MobData(
                     "sunscorch_vulture", "avian", "overworld",
@@ -813,7 +882,10 @@ public final class BUContent {
                     "minecraft:player"
         },
                     "monster", 22, 1, 3,
-                    5
+                    5,
+                    new String[] {
+                    "animation.idle", "animation.walk", "animation.attack", "animation.hurt", "animation.death"
+        }
             ),
             new MobData(
                     "blighthound", "quadruped", "overworld",
@@ -830,7 +902,10 @@ public final class BUContent {
                     "minecraft:player"
         },
                     "monster", 28, 2, 4,
-                    8
+                    8,
+                    new String[] {
+                    "animation.idle", "animation.walk", "animation.attack", "animation.hurt", "animation.death"
+        }
             ),
             new MobData(
                     "rotstalker", "biped", "overworld",
@@ -847,7 +922,10 @@ public final class BUContent {
                     "minecraft:player"
         },
                     "monster", 22, 1, 2,
-                    7
+                    7,
+                    new String[] {
+                    "animation.idle", "animation.walk", "animation.attack", "animation.hurt", "animation.death"
+        }
             ),
             new MobData(
                     "reefglider", "serpent", "overworld",
@@ -863,7 +941,10 @@ public final class BUContent {
                     "minecraft:player"
         },
                     "water_creature", 40, 3, 6,
-                    3
+                    3,
+                    new String[] {
+                    "animation.idle", "animation.walk", "animation.attack", "animation.hurt", "animation.death"
+        }
             ),
             new MobData(
                     "coralback_crab", "arthropod", "overworld",
@@ -880,7 +961,10 @@ public final class BUContent {
                     "minecraft:player"
         },
                     "water_creature", 30, 2, 5,
-                    5
+                    5,
+                    new String[] {
+                    "animation.idle", "animation.walk", "animation.attack", "animation.hurt", "animation.death"
+        }
             ),
             new MobData(
                     "shorelurker", "serpent", "overworld",
@@ -897,7 +981,10 @@ public final class BUContent {
                     "minecraft:player"
         },
                     "water_creature", 20, 1, 2,
-                    7
+                    7,
+                    new String[] {
+                    "animation.idle", "animation.walk", "animation.attack", "animation.hurt", "animation.death"
+        }
             ),
             new MobData(
                     "river_lamprey", "serpent", "overworld",
@@ -914,7 +1001,10 @@ public final class BUContent {
                     "minecraft:player"
         },
                     "water_creature", 25, 2, 4,
-                    4
+                    4,
+                    new String[] {
+                    "animation.idle", "animation.walk", "animation.attack", "animation.hurt", "animation.death"
+        }
             ),
             new MobData(
                     "kelp_serpent", "serpent", "overworld",
@@ -931,7 +1021,10 @@ public final class BUContent {
                     "minecraft:player"
         },
                     "water_creature", 12, 1, 1,
-                    12
+                    12,
+                    new String[] {
+                    "animation.idle", "animation.walk", "animation.attack", "animation.hurt", "animation.death"
+        }
             ),
             new MobData(
                     "trench_angler", "serpent", "overworld",
@@ -948,7 +1041,10 @@ public final class BUContent {
                     "minecraft:player"
         },
                     "water_creature", 28, 1, 2,
-                    10
+                    10,
+                    new String[] {
+                    "animation.idle", "animation.walk", "animation.attack", "animation.hurt", "animation.death"
+        }
             ),
             new MobData(
                     "abyssal_leviathan", "serpent", "overworld",
@@ -965,7 +1061,10 @@ public final class BUContent {
                     "minecraft:player"
         },
                     "water_creature", 4, 1, 1,
-                    60
+                    60,
+                    new String[] {
+                    "animation.idle", "animation.walk", "animation.attack", "animation.hurt", "animation.death"
+        }
             ),
             new MobData(
                     "highland_goat", "quadruped", "overworld",
@@ -982,7 +1081,10 @@ public final class BUContent {
                     "minecraft:player"
         },
                     "creature", 22, 2, 5,
-                    4
+                    4,
+                    new String[] {
+                    "animation.idle", "animation.walk", "animation.attack", "animation.hurt", "animation.death"
+        }
             ),
             new MobData(
                     "gale_harrier", "avian", "overworld",
@@ -999,7 +1101,10 @@ public final class BUContent {
                     "minecraft:player"
         },
                     "monster", 20, 1, 2,
-                    6
+                    6,
+                    new String[] {
+                    "animation.idle", "animation.walk", "animation.attack", "animation.hurt", "animation.death"
+        }
             ),
             new MobData(
                     "steppe_rider", "quadruped", "overworld",
@@ -1016,7 +1121,10 @@ public final class BUContent {
                     "minecraft:player"
         },
                     "creature", 20, 2, 4,
-                    6
+                    6,
+                    new String[] {
+                    "animation.idle", "animation.walk", "animation.attack", "animation.hurt", "animation.death"
+        }
             ),
             new MobData(
                     "savanna_strider", "biped", "overworld",
@@ -1033,7 +1141,10 @@ public final class BUContent {
                     "minecraft:player"
         },
                     "creature", 22, 3, 6,
-                    5
+                    5,
+                    new String[] {
+                    "animation.idle", "animation.walk", "animation.attack", "animation.hurt", "animation.death"
+        }
             ),
             new MobData(
                     "primal_cat", "quadruped", "overworld",
@@ -1050,7 +1161,10 @@ public final class BUContent {
                     "minecraft:player"
         },
                     "monster", 18, 1, 2,
-                    8
+                    8,
+                    new String[] {
+                    "animation.idle", "animation.walk", "animation.attack", "animation.hurt", "animation.death"
+        }
             ),
             new MobData(
                     "orchid_mantis", "arthropod", "overworld",
@@ -1067,7 +1181,10 @@ public final class BUContent {
                     "minecraft:player"
         },
                     "monster", 20, 1, 1,
-                    6
+                    6,
+                    new String[] {
+                    "animation.idle", "animation.walk", "animation.attack", "animation.hurt", "animation.death"
+        }
             ),
             new MobData(
                     "amber_sentinel", "biped", "overworld",
@@ -1084,7 +1201,10 @@ public final class BUContent {
                     "minecraft:player"
         },
                     "monster", 14, 1, 1,
-                    11
+                    11,
+                    new String[] {
+                    "animation.idle", "animation.walk", "animation.attack", "animation.hurt", "animation.death"
+        }
             ),
             new MobData(
                     "veilmourner", "biped", "overworld",
@@ -1101,7 +1221,10 @@ public final class BUContent {
                     "minecraft:player"
         },
                     "monster", 15, 1, 1,
-                    10
+                    10,
+                    new String[] {
+                    "animation.idle", "animation.walk", "animation.attack", "animation.hurt", "animation.death"
+        }
             ),
             new MobData(
                     "roadwarden", "biped", "overworld",
@@ -1118,7 +1241,10 @@ public final class BUContent {
                     "minecraft:player"
         },
                     "creature", 12, 1, 1,
-                    8
+                    8,
+                    new String[] {
+                    "animation.idle", "animation.walk", "animation.attack", "animation.hurt", "animation.death"
+        }
             ),
             new MobData(
                     "rootburrower", "arthropod", "overworld",
@@ -1135,7 +1261,10 @@ public final class BUContent {
                     "minecraft:player"
         },
                     "monster", 22, 1, 3,
-                    7
+                    7,
+                    new String[] {
+                    "animation.idle", "animation.walk", "animation.attack", "animation.hurt", "animation.death"
+        }
             ),
             new MobData(
                     "grove_warden", "biped", "overworld",
@@ -1152,7 +1281,10 @@ public final class BUContent {
                     "minecraft:player"
         },
                     "creature", 18, 1, 2,
-                    14
+                    14,
+                    new String[] {
+                    "animation.idle", "animation.walk", "animation.attack", "animation.hurt", "animation.death"
+        }
             ),
             new MobData(
                     "lanternkeeper", "biped", "overworld",
@@ -1169,7 +1301,10 @@ public final class BUContent {
                     "minecraft:player"
         },
                     "creature", 12, 1, 1,
-                    8
+                    8,
+                    new String[] {
+                    "animation.idle", "animation.walk", "animation.attack", "animation.hurt", "animation.death"
+        }
             ),
             new MobData(
                     "rime_stag", "quadruped", "overworld",
@@ -1186,7 +1321,10 @@ public final class BUContent {
                     "minecraft:player"
         },
                     "creature", 15, 1, 3,
-                    7
+                    7,
+                    new String[] {
+                    "animation.idle", "animation.walk", "animation.attack", "animation.hurt", "animation.death"
+        }
             ),
             new MobData(
                     "meadow_skipper", "arthropod", "overworld",
@@ -1202,7 +1340,10 @@ public final class BUContent {
                     "minecraft:player"
         },
                     "ambient", 32, 3, 6,
-                    1
+                    1,
+                    new String[] {
+                    "animation.idle", "animation.walk", "animation.attack", "animation.hurt", "animation.death"
+        }
             ),
             new MobData(
                     "frozen_mariner", "biped", "overworld",
@@ -1219,7 +1360,10 @@ public final class BUContent {
                     "minecraft:player"
         },
                     "monster", 12, 1, 1,
-                    10
+                    10,
+                    new String[] {
+                    "animation.idle", "animation.walk", "animation.attack", "animation.hurt", "animation.death"
+        }
             ),
             new MobData(
                     "luminous_jelly", "fungal", "overworld",
@@ -1235,7 +1379,10 @@ public final class BUContent {
                     "minecraft:player"
         },
                     "water_creature", 35, 3, 6,
-                    3
+                    3,
+                    new String[] {
+                    "animation.idle", "animation.walk", "animation.attack", "animation.hurt", "animation.death"
+        }
             ),
             new MobData(
                     "hollow_scout", "biped", "hollow_deep",
@@ -1252,7 +1399,10 @@ public final class BUContent {
                     "minecraft:player"
         },
                     "creature", 20, 1, 2,
-                    8
+                    8,
+                    new String[] {
+                    "animation.idle", "animation.walk", "animation.attack", "animation.hurt", "animation.death"
+        }
             ),
             new MobData(
                     "glowcap_grub", "arthropod", "hollow_deep",
@@ -1268,7 +1418,10 @@ public final class BUContent {
                     "minecraft:player"
         },
                     "creature", 28, 2, 4,
-                    2
+                    2,
+                    new String[] {
+                    "animation.idle", "animation.walk", "animation.attack", "animation.hurt", "animation.death"
+        }
             ),
             new MobData(
                     "gloomstalker", "quadruped", "hollow_deep",
@@ -1285,7 +1438,10 @@ public final class BUContent {
                     "minecraft:player"
         },
                     "monster", 28, 1, 2,
-                    9
+                    9,
+                    new String[] {
+                    "animation.idle", "animation.walk", "animation.attack", "animation.hurt", "animation.death"
+        }
             ),
             new MobData(
                     "sporeling_deep", "fungal", "hollow_deep",
@@ -1302,7 +1458,10 @@ public final class BUContent {
                     "minecraft:player"
         },
                     "creature", 38, 3, 6,
-                    3
+                    3,
+                    new String[] {
+                    "animation.idle", "animation.walk", "animation.attack", "animation.hurt", "animation.death"
+        }
             ),
             new MobData(
                     "mycelial_horror", "fungal", "hollow_deep",
@@ -1319,7 +1478,10 @@ public final class BUContent {
                     "minecraft:player"
         },
                     "monster", 10, 1, 1,
-                    18
+                    18,
+                    new String[] {
+                    "animation.idle", "animation.walk", "animation.attack", "animation.hurt", "animation.death"
+        }
             ),
             new MobData(
                     "fungal_titan", "biped", "hollow_deep",
@@ -1336,7 +1498,10 @@ public final class BUContent {
                     "minecraft:player"
         },
                     "monster", 8, 1, 1,
-                    22
+                    22,
+                    new String[] {
+                    "animation.idle", "animation.walk", "animation.attack", "animation.hurt", "animation.death"
+        }
             ),
             new MobData(
                     "vault_keeper", "biped", "hollow_deep",
@@ -1353,7 +1518,10 @@ public final class BUContent {
                     "minecraft:player"
         },
                     "monster", 15, 1, 1,
-                    14
+                    14,
+                    new String[] {
+                    "animation.idle", "animation.walk", "animation.attack", "animation.hurt", "animation.death"
+        }
             ),
             new MobData(
                     "hollow_drowned", "biped", "hollow_deep",
@@ -1370,7 +1538,10 @@ public final class BUContent {
                     "minecraft:player"
         },
                     "water_creature", 26, 2, 4,
-                    8
+                    8,
+                    new String[] {
+                    "animation.idle", "animation.walk", "animation.attack", "animation.hurt", "animation.death"
+        }
             ),
             new MobData(
                     "warren_skitter", "arthropod", "hollow_deep",
@@ -1387,7 +1558,10 @@ public final class BUContent {
                     "minecraft:player"
         },
                     "monster", 40, 4, 8,
-                    3
+                    3,
+                    new String[] {
+                    "animation.idle", "animation.walk", "animation.attack", "animation.hurt", "animation.death"
+        }
             ),
             new MobData(
                     "echo_bat", "avian", "hollow_deep",
@@ -1404,7 +1578,10 @@ public final class BUContent {
                     "minecraft:player"
         },
                     "ambient", 32, 3, 6,
-                    3
+                    3,
+                    new String[] {
+                    "animation.idle", "animation.walk", "animation.attack", "animation.hurt", "animation.death"
+        }
             ),
             new MobData(
                     "warden_acolyte", "biped", "hollow_deep",
@@ -1421,7 +1598,10 @@ public final class BUContent {
                     "minecraft:player"
         },
                     "monster", 18, 1, 2,
-                    15
+                    15,
+                    new String[] {
+                    "animation.idle", "animation.walk", "animation.attack", "animation.hurt", "animation.death"
+        }
             ),
             new MobData(
                     "veilwing", "avian", "aetherfall",
@@ -1437,7 +1617,10 @@ public final class BUContent {
                     "minecraft:player"
         },
                     "ambient", 32, 2, 5,
-                    4
+                    4,
+                    new String[] {
+                    "animation.idle", "animation.walk", "animation.attack", "animation.hurt", "animation.death"
+        }
             ),
             new MobData(
                     "cloudfin", "serpent", "aetherfall",
@@ -1453,7 +1636,10 @@ public final class BUContent {
                     "minecraft:player"
         },
                     "water_creature", 35, 3, 6,
-                    3
+                    3,
+                    new String[] {
+                    "animation.idle", "animation.walk", "animation.attack", "animation.hurt", "animation.death"
+        }
             ),
             new MobData(
                     "crown_sentinel", "biped", "aetherfall",
@@ -1470,7 +1656,10 @@ public final class BUContent {
                     "minecraft:player"
         },
                     "monster", 22, 1, 2,
-                    18
+                    18,
+                    new String[] {
+                    "animation.idle", "animation.walk", "animation.attack", "animation.hurt", "animation.death"
+        }
             ),
             new MobData(
                     "quarry_construct", "biped", "aetherfall",
@@ -1487,7 +1676,10 @@ public final class BUContent {
                     "minecraft:player"
         },
                     "monster", 18, 1, 2,
-                    13
+                    13,
+                    new String[] {
+                    "animation.idle", "animation.walk", "animation.attack", "animation.hurt", "animation.death"
+        }
             ),
             new MobData(
                     "rune_construct", "biped", "aetherfall",
@@ -1504,7 +1696,10 @@ public final class BUContent {
                     "minecraft:player"
         },
                     "monster", 18, 1, 2,
-                    12
+                    12,
+                    new String[] {
+                    "animation.idle", "animation.walk", "animation.attack", "animation.hurt", "animation.death"
+        }
             ),
             new MobData(
                     "stormcell_wisp", "fungal", "aetherfall",
@@ -1521,7 +1716,10 @@ public final class BUContent {
                     "minecraft:player"
         },
                     "monster", 26, 2, 4,
-                    6
+                    6,
+                    new String[] {
+                    "animation.idle", "animation.walk", "animation.attack", "animation.hurt", "animation.death"
+        }
             ),
             new MobData(
                     "orchard_tender", "biped", "aetherfall",
@@ -1538,7 +1736,10 @@ public final class BUContent {
                     "minecraft:player"
         },
                     "creature", 14, 1, 1,
-                    9
+                    9,
+                    new String[] {
+                    "animation.idle", "animation.walk", "animation.attack", "animation.hurt", "animation.death"
+        }
             ),
             new MobData(
                     "astral_scribe_aether", "biped", "aetherfall",
@@ -1555,7 +1756,10 @@ public final class BUContent {
                     "minecraft:player"
         },
                     "creature", 16, 1, 1,
-                    7
+                    7,
+                    new String[] {
+                    "animation.idle", "animation.walk", "animation.attack", "animation.hurt", "animation.death"
+        }
             ),
             new MobData(
                     "unraveling_shard_aether", "arthropod", "aetherfall",
@@ -1571,7 +1775,10 @@ public final class BUContent {
                     "minecraft:player"
         },
                     "ambient", 20, 2, 4,
-                    5
+                    5,
+                    new String[] {
+                    "animation.idle", "animation.walk", "animation.attack", "animation.hurt", "animation.death"
+        }
             ),
             new MobData(
                     "sky_citizen", "biped", "aetherfall",
@@ -1588,7 +1795,10 @@ public final class BUContent {
                     "minecraft:player"
         },
                     "creature", 18, 2, 3,
-                    6
+                    6,
+                    new String[] {
+                    "animation.idle", "animation.walk", "animation.attack", "animation.hurt", "animation.death"
+        }
             ),
             new MobData(
                     "void_scout", "biped", "void_between",
@@ -1605,7 +1815,10 @@ public final class BUContent {
                     "minecraft:player"
         },
                     "monster", 20, 1, 2,
-                    10
+                    10,
+                    new String[] {
+                    "animation.idle", "animation.walk", "animation.attack", "animation.hurt", "animation.death"
+        }
             ),
             new MobData(
                     "fracture_hound", "quadruped", "void_between",
@@ -1622,7 +1835,10 @@ public final class BUContent {
                     "minecraft:player"
         },
                     "monster", 30, 2, 4,
-                    11
+                    11,
+                    new String[] {
+                    "animation.idle", "animation.walk", "animation.attack", "animation.hurt", "animation.death"
+        }
             ),
             new MobData(
                     "static_wraith", "biped", "void_between",
@@ -1639,7 +1855,10 @@ public final class BUContent {
                     "minecraft:player"
         },
                     "monster", 28, 1, 3,
-                    10
+                    10,
+                    new String[] {
+                    "animation.idle", "animation.walk", "animation.attack", "animation.hurt", "animation.death"
+        }
             ),
             new MobData(
                     "garden_aberration", "fungal", "void_between",
@@ -1656,7 +1875,10 @@ public final class BUContent {
                     "minecraft:player"
         },
                     "monster", 22, 1, 2,
-                    13
+                    13,
+                    new String[] {
+                    "animation.idle", "animation.walk", "animation.attack", "animation.hurt", "animation.death"
+        }
             ),
             new MobData(
                     "null_swimmer", "serpent", "void_between",
@@ -1673,7 +1895,10 @@ public final class BUContent {
                     "minecraft:player"
         },
                     "water_creature", 30, 2, 4,
-                    9
+                    9,
+                    new String[] {
+                    "animation.idle", "animation.walk", "animation.attack", "animation.hurt", "animation.death"
+        }
             ),
             new MobData(
                     "chrono_warden", "biped", "void_between",
@@ -1690,7 +1915,10 @@ public final class BUContent {
                     "minecraft:player"
         },
                     "monster", 16, 1, 1,
-                    20
+                    20,
+                    new String[] {
+                    "animation.idle", "animation.walk", "animation.attack", "animation.hurt", "animation.death"
+        }
             ),
             new MobData(
                     "shardling", "arthropod", "void_between",
@@ -1707,7 +1935,10 @@ public final class BUContent {
                     "minecraft:player"
         },
                     "monster", 34, 3, 6,
-                    4
+                    4,
+                    new String[] {
+                    "animation.idle", "animation.walk", "animation.attack", "animation.hurt", "animation.death"
+        }
             ),
             new MobData(
                     "spire_climber", "arthropod", "void_between",
@@ -1724,7 +1955,10 @@ public final class BUContent {
                     "minecraft:player"
         },
                     "monster", 26, 1, 3,
-                    8
+                    8,
+                    new String[] {
+                    "animation.idle", "animation.walk", "animation.attack", "animation.hurt", "animation.death"
+        }
             ),
             new MobData(
                     "mirror_walk", "biped", "void_between",
@@ -1741,7 +1975,10 @@ public final class BUContent {
                     "minecraft:player"
         },
                     "monster", 20, 1, 2,
-                    11
+                    11,
+                    new String[] {
+                    "animation.idle", "animation.walk", "animation.attack", "animation.hurt", "animation.death"
+        }
             ),
             new MobData(
                     "unraveling_shard", "arthropod", "void_between",
@@ -1758,7 +1995,10 @@ public final class BUContent {
                     "minecraft:player"
         },
                     "monster", 25, 2, 4,
-                    9
+                    9,
+                    new String[] {
+                    "animation.idle", "animation.walk", "animation.attack", "animation.hurt", "animation.death"
+        }
             ),
     };
 

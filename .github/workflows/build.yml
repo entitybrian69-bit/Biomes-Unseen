@@ -1,0 +1,141 @@
+# ============================================================================
+#  Biomes Unseen -- continuous integration
+#
+#  Two jobs, deliberately split:
+#
+#    1. validate -- runs the offline Python validator over every JSON, PNG and
+#       texture reference. This is fast (seconds) and needs no JVM, so a broken
+#       asset fails here long before Gradle has finished downloading Forge.
+#
+#    2. build -- compiles the mod with ForgeGradle and produces the jar.
+#
+#  The repository intentionally ships no Gradle wrapper: the wrapper jar is a
+#  binary blob that cannot be generated in this environment, so Gradle is
+#  provisioned by the action instead. The version is pinned to the release
+#  ForgeGradle 6 targets for Minecraft 1.20.1.
+# ============================================================================
+
+name: build
+
+on:
+  push:
+    branches: [ '**' ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+# A new push to the same branch supersedes the run in flight: iteration here is
+# a fix-compile-push loop, and there is no value in finishing a build for a
+# commit that has already been replaced.
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    name: Validate assets and registry
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Regenerate textures from the authored pixel matrices
+        # The PNGs are committed so the jar never depends on Python, but
+        # regenerating them here proves the art pipeline still reproduces what
+        # is checked in -- a hand-edited PNG that no longer matches its source
+        # matrix fails the build instead of shipping silently.
+        run: python3 tools/generate_textures.py
+
+      - name: Regenerate resource JSON from the content tables
+        run: python3 tools/generate_resources.py
+
+      - name: Regenerate the Java content table
+        run: python3 tools/generate_java.py
+
+      - name: Assert generated files are committed
+        # Catches the drift that matters most: someone edits a content table but
+        # commits neither the regenerated JSON nor the regenerated Java.
+        run: |
+          if [ -n "$(git status --porcelain)" ]; then
+            echo "::error::Generated resources are out of date with the content tables."
+            echo "Run tools/generate_textures.py, tools/generate_resources.py and tools/generate_java.py, then commit."
+            git status --porcelain
+            git --no-pager diff --stat
+            exit 1
+          fi
+
+      - name: Validate registry consistency
+        run: python3 tools/registry.py
+
+      - name: Validate every JSON, PNG and texture reference
+        run: python3 tools/validate.py
+
+  build:
+    name: Compile mod (Forge 1.20.1)
+    runs-on: ubuntu-latest
+    # The jar is only meaningful if the assets it ships are valid, so a validator
+    # failure should not burn fifteen minutes of Gradle time as well.
+    needs: validate
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 17
+        # ForgeGradle 6 for Minecraft 1.20.1 requires Java 17 exactly; a newer
+        # toolchain breaks the deobfuscation step.
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - name: Set up Python
+        # processResources depends on generateArt and validateArt, so the JVM
+        # build invokes the same pipeline the validate job just checked.
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Set up Gradle
+        uses: gradle/actions/setup-gradle@v3
+        with:
+          gradle-version: '8.1.1'
+          cache-read-only: false
+
+      - name: Build with Gradle
+        # --stacktrace because ForgeGradle failures are usually nested several
+        # layers deep and the default output hides the real cause.
+        run: gradle build --no-daemon --stacktrace --warning-mode=summary
+
+      - name: Report compiled classes
+        if: always()
+        run: |
+          echo "== compiled classes =="
+          find build/classes/java/main -name '*.class' 2>/dev/null | wc -l
+          echo "== mixin refmap =="
+          find build -name '*.refmap.json' 2>/dev/null -exec ls -la {} \;
+
+      - name: Upload built jar
+        if: success()
+        uses: actions/upload-artifact@v4
+        with:
+          name: biomesunseen-jar
+          path: build/libs/*.jar
+          if-no-files-found: error
+          retention-days: 14
+
+      - name: Upload build report on failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: gradle-reports
+          path: build/reports/
+          if-no-files-found: ignore
+          retention-days: 7

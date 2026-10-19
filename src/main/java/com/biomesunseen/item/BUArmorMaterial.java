@@ -13,11 +13,15 @@ import java.util.function.Supplier;
  * One parameterised implementation serves all ten families; each is constructed
  * from a row of {@code BUContent.GEAR_ARMOUR}, which carries the per-slot
  * defence values, toughness, knockback resistance and repair ingredient.
+ *
+ * 1.20.1 indexes armour by {@link ArmorItem.Type} rather than by
+ * {@code EquipmentSlot}, so the defence array is ordered to match that enum
+ * (boots, leggings, chestplate, helmet).
  */
 public final class BUArmorMaterial implements ArmorMaterial {
 
     /** Vanilla's per-slot durability base, indexed by ArmorItem.Type ordinal. */
-    private static final int[] DURABILITY_PER_SLOT = {13, 15, 16, 11};
+    private static final int[] DURABILITY_PER_TYPE = {13, 15, 16, 11};
 
     private final String name;
     private final int durabilityMultiplier;
@@ -29,9 +33,8 @@ public final class BUArmorMaterial implements ArmorMaterial {
     private final Supplier<Ingredient> repairIngredient;
 
     /**
-     * @param protection defence for {boots, leggings, chestplate, helmet},
-     *                   indexed the same way as {@link ArmorItem.Type}'s
-     *                   durability array
+     * @param protection defence indexed by {@link ArmorItem.Type} ordinal:
+     *                   {helmet, chestplate, leggings, boots}
      */
     public BUArmorMaterial(String name, int durabilityMultiplier, int[] protection,
                            int enchantmentValue, Supplier<SoundEvent> equipSound,
@@ -48,13 +51,13 @@ public final class BUArmorMaterial implements ArmorMaterial {
     }
 
     @Override
-    public int getDurabilityForSlot(net.minecraft.world.entity.EquipmentSlot slot) {
-        return DURABILITY_PER_SLOT[slot.getIndex()] * durabilityMultiplier;
+    public int getDurabilityForType(ArmorItem.Type type) {
+        return DURABILITY_PER_TYPE[type.ordinal()] * durabilityMultiplier;
     }
 
     @Override
-    public int getDefenseForSlot(net.minecraft.world.entity.EquipmentSlot slot) {
-        return protection[slot.getIndex()];
+    public int getDefenseForType(ArmorItem.Type type) {
+        return protection[type.ordinal()];
     }
 
     @Override

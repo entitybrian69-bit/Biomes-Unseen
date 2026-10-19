@@ -38,6 +38,8 @@ public final class MobData {
     public final int spawnGroupMin;
     public final int spawnGroupMax;
     public final int experience;
+    /** Animation ids the species' .animation.json must define. */
+    public final String[] animations;
 
     public MobData(String id, String family, String dimension, boolean hostile,
                    float maxHealth, float movementSpeed, float attackDamage,
@@ -47,7 +49,8 @@ public final class MobData {
                    int textureWidth, int textureHeight,
                    String[] goals, String[] targetClasses,
                    String spawnCategory, int spawnWeight,
-                   int spawnGroupMin, int spawnGroupMax, int experience) {
+                   int spawnGroupMin, int spawnGroupMax, int experience,
+                   String[] animations) {
         this.id = id;
         this.family = family;
         this.dimension = dimension;
@@ -72,5 +75,6 @@ public final class MobData {
         this.spawnGroupMin = spawnGroupMin;
         this.spawnGroupMax = spawnGroupMax;
         this.experience = experience;
+        this.animations = animations;
     }
 }
