@@ -1,0 +1,15 @@
+{
+  "name": "biomesunseen:structures/stormback_lightning_scar",
+  "fallback": "minecraft:empty",
+  "elements": [
+    {
+      "weight": 1,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "biomesunseen:structures/stormback_lightning_scar/start",
+        "processors": "minecraft:empty",
+        "projection": "rigid"
+      }
+    }
+  ]
+}

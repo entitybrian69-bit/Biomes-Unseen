@@ -299,7 +299,8 @@ OVERWORLD_BIOMES: List[BiomeSpec] = [
         ores=("hollowite", "lumenshade", "deep_pearl"),
         structures=("biomesunseen:hollow_deep_portal",),
         music="biomesunseen:music.ethereal",
-        spawns=(("biomesunseen:basin_lurker", 20, 1, 2),),
+        spawns=(("biomesunseen:mire_wisp", 20, 1, 2),
+                ("biomesunseen:aurora_stag", 12, 2, 3)),
         lore="The light pools here the way water pools. It does not drain."),
 
     _ow("veilwood", "Veilwood", "ethereal",
@@ -448,7 +449,7 @@ _OW_ANCIENT = [
      "biomesunseen:lumen_grass_block", "biomesunseen:lumen_dirt", "biomesunseen:spiritwood_stone",
      9, "biomesunseen:ancestor_trees", 14, "biomesunseen:ancestor_flora",
      0.1, 0.2, ("biomesunseen:ancestor_shrine",), "biomesunseen:music.ancient",
-     None, None, (("biomesunseen:grove_warden", 20, 1, 2), ("biomesunseen:spiritwood_wisp", 25, 2, 4)),
+     None, None, (("biomesunseen:grove_warden", 20, 1, 2), ("biomesunseen:fossil_wraith", 25, 2, 4)),
      "Every tree was planted by someone who is buried under it.", 100),
 
     ("titan_graveyard", "Titan Graveyard", 0.3, 0.25, 0.55, 0.5, 0.05, 0.25, 0.0,

@@ -1,0 +1,21 @@
+{
+  "replace": false,
+  "values": [
+    "biomesunseen:ashen_caldera",
+    "biomesunseen:blighted_marches",
+    "biomesunseen:cinder_dunes",
+    "biomesunseen:frozen_expanse",
+    "biomesunseen:glacier_maw",
+    "biomesunseen:grave_ice_field",
+    "biomesunseen:howling_peaks",
+    "biomesunseen:ironstone_ravine",
+    "biomesunseen:obsidian_shelf",
+    "biomesunseen:rimeforest",
+    "biomesunseen:saltflat_mirage",
+    "biomesunseen:scorched_glassland",
+    "biomesunseen:stormback_steppe",
+    "biomesunseen:sulphur_vents",
+    "biomesunseen:volcanic_wasteland",
+    "biomesunseen:witherwood"
+  ]
+}

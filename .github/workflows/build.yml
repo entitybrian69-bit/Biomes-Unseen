@@ -60,6 +60,19 @@ jobs:
       - name: Regenerate the Java content table
         run: python3 tools/generate_java.py
 
+      - name: Regenerate worldgen datapack
+        # Biomes, features, dimensions and jigsaw structures. Without these the
+        # 140 biomes exist only as Java resource keys and never generate.
+        run: python3 tools/generate_worldgen.py
+
+      - name: Regenerate structure templates
+        # Binary NBT the template pools place. Runs after worldgen because it
+        # reads the emitted pools to learn where each template must live.
+        run: python3 tools/generate_structures.py
+
+      - name: Regenerate GeckoLib rigs and animations
+        run: python3 tools/generate_geckolib.py
+
       - name: Assert generated files are committed
         # Catches the drift that matters most: someone edits a content table but
         # commits neither the regenerated JSON nor the regenerated Java.

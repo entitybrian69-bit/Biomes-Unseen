@@ -1,0 +1,15 @@
+{
+  "name": "biomesunseen:structures/obsidian_shelf_spire",
+  "fallback": "minecraft:empty",
+  "elements": [
+    {
+      "weight": 1,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "biomesunseen:structures/obsidian_shelf_spire/start",
+        "processors": "minecraft:empty",
+        "projection": "rigid"
+      }
+    }
+  ]
+}

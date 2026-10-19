@@ -1,0 +1,65 @@
+{
+  "temperature": 0.45,
+  "downfall": 0.45,
+  "has_precipitation": false,
+  "effects": {
+    "sky_color": 7907327,
+    "fog_color": 12638463,
+    "water_color": 4159204,
+    "water_fog_color": 329011,
+    "grass_color_modifier": "none",
+    "music": {
+      "sound": "biomesunseen:music.aetherfall",
+      "min_delay": 12000,
+      "max_delay": 24000,
+      "replace_current_music": true
+    }
+  },
+  "spawners": {
+    "monster": [],
+    "creature": [
+      {
+        "type": "biomesunseen:astral_scribe",
+        "weight": 30,
+        "minCount": 1,
+        "maxCount": 3
+      }
+    ],
+    "ambient": [],
+    "axolotls": [],
+    "underground_water_creature": [],
+    "water_creature": [],
+    "water_ambient": [],
+    "misc": []
+  },
+  "spawn_costs": {},
+  "carvers": {
+    "air": [
+      "minecraft:cave",
+      "minecraft:cave_extra_underground"
+    ]
+  },
+  "features": [
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [
+      "biomesunseen:ore_aetherium",
+      "biomesunseen:ore_runeglass"
+    ],
+    [
+      "minecraft:glow_lichen"
+    ],
+    [],
+    [
+      "biomesunseen:archive_pillars_counted",
+      "biomesunseen:gilded_archive_flora_counted"
+    ],
+    [
+      "minecraft:freeze_top_layer"
+    ]
+  ]
+}

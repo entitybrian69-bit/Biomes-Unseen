@@ -1,0 +1,12 @@
+{
+  "feature": "biomesunseen:chrono_shelf_flora",
+  "placement": [
+    {
+      "type": "minecraft:count",
+      "count": 4
+    },
+    {
+      "type": "minecraft:biome"
+    }
+  ]
+}

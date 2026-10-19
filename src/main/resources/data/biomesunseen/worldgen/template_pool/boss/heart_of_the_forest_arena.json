@@ -1,0 +1,15 @@
+{
+  "name": "biomesunseen:boss/heart_of_the_forest_arena",
+  "fallback": "minecraft:empty",
+  "elements": [
+    {
+      "weight": 1,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "biomesunseen:boss/heart_of_the_forest_arena/start",
+        "processors": "minecraft:empty",
+        "projection": "rigid"
+      }
+    }
+  ]
+}

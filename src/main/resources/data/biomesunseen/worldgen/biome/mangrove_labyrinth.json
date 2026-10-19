@@ -1,0 +1,71 @@
+{
+  "temperature": 0.9,
+  "downfall": 1.0,
+  "has_precipitation": true,
+  "effects": {
+    "sky_color": 4880986,
+    "fog_color": 8433800,
+    "water_color": 2779722,
+    "water_fog_color": 399888,
+    "grass_color_modifier": "none",
+    "foliage_color": 4227136,
+    "grass_color": 6332512,
+    "ambient_sound": "biomesunseen:ambient.stream",
+    "music": {
+      "sound": "biomesunseen:music.aquatic",
+      "min_delay": 12000,
+      "max_delay": 24000,
+      "replace_current_music": true
+    }
+  },
+  "spawners": {
+    "monster": [
+      {
+        "type": "biomesunseen:bogcrawler",
+        "weight": 28,
+        "minCount": 2,
+        "maxCount": 4
+      },
+      {
+        "type": "biomesunseen:orchid_mantis",
+        "weight": 18,
+        "minCount": 1,
+        "maxCount": 1
+      }
+    ],
+    "creature": [],
+    "ambient": [],
+    "axolotls": [],
+    "underground_water_creature": [],
+    "water_creature": [],
+    "water_ambient": [],
+    "misc": []
+  },
+  "spawn_costs": {},
+  "carvers": {
+    "air": [
+      "minecraft:cave",
+      "minecraft:cave_extra_underground"
+    ]
+  },
+  "features": [
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [
+      "minecraft:glow_lichen"
+    ],
+    [],
+    [
+      "biomesunseen:mangrove_trees_counted",
+      "biomesunseen:mangrove_flora_counted"
+    ],
+    [
+      "minecraft:freeze_top_layer"
+    ]
+  ]
+}

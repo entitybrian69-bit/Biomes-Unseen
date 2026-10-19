@@ -1,0 +1,72 @@
+{
+  "temperature": -0.4,
+  "downfall": 0.55,
+  "has_precipitation": true,
+  "effects": {
+    "sky_color": 9484496,
+    "fog_color": 13691120,
+    "water_color": 5937344,
+    "water_fog_color": 664632,
+    "grass_color_modifier": "none",
+    "foliage_color": 8038576,
+    "grass_color": 10141896,
+    "ambient_sound": "biomesunseen:ambient.wind_high",
+    "music": {
+      "sound": "biomesunseen:music.harsh",
+      "min_delay": 12000,
+      "max_delay": 24000,
+      "replace_current_music": true
+    }
+  },
+  "spawners": {
+    "monster": [
+      {
+        "type": "biomesunseen:frostling",
+        "weight": 28,
+        "minCount": 2,
+        "maxCount": 4
+      }
+    ],
+    "creature": [
+      {
+        "type": "biomesunseen:rime_stag",
+        "weight": 15,
+        "minCount": 1,
+        "maxCount": 3
+      }
+    ],
+    "ambient": [],
+    "axolotls": [],
+    "underground_water_creature": [],
+    "water_creature": [],
+    "water_ambient": [],
+    "misc": []
+  },
+  "spawn_costs": {},
+  "carvers": {
+    "air": [
+      "minecraft:cave",
+      "minecraft:cave_extra_underground"
+    ]
+  },
+  "features": [
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [
+      "minecraft:glow_lichen"
+    ],
+    [],
+    [
+      "biomesunseen:rimeforest_pines_counted",
+      "biomesunseen:rime_flora_counted"
+    ],
+    [
+      "minecraft:freeze_top_layer"
+    ]
+  ]
+}

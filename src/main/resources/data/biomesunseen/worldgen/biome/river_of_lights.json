@@ -1,0 +1,77 @@
+{
+  "temperature": 0.6,
+  "downfall": 0.9,
+  "has_precipitation": true,
+  "effects": {
+    "sky_color": 2771562,
+    "fog_color": 5933744,
+    "water_color": 2783920,
+    "water_fog_color": 399920,
+    "grass_color_modifier": "none",
+    "foliage_color": 5279872,
+    "grass_color": 7385248,
+    "ambient_sound": "biomesunseen:ambient.stream",
+    "music": {
+      "sound": "biomesunseen:music.aquatic",
+      "min_delay": 12000,
+      "max_delay": 24000,
+      "replace_current_music": true
+    },
+    "particle": {
+      "options": {
+        "type": "biomesunseen:lumen_mote"
+      },
+      "probability": 0.0035
+    }
+  },
+  "spawners": {
+    "monster": [],
+    "creature": [],
+    "ambient": [],
+    "axolotls": [],
+    "underground_water_creature": [],
+    "water_creature": [
+      {
+        "type": "biomesunseen:reefglider",
+        "weight": 30,
+        "minCount": 2,
+        "maxCount": 5
+      },
+      {
+        "type": "biomesunseen:river_lamprey",
+        "weight": 20,
+        "minCount": 2,
+        "maxCount": 4
+      }
+    ],
+    "water_ambient": [],
+    "misc": []
+  },
+  "spawn_costs": {},
+  "carvers": {
+    "air": [
+      "minecraft:cave",
+      "minecraft:cave_extra_underground"
+    ]
+  },
+  "features": [
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [
+      "minecraft:glow_lichen"
+    ],
+    [],
+    [
+      "biomesunseen:riverside_willows_counted",
+      "biomesunseen:river_flora_counted"
+    ],
+    [
+      "minecraft:freeze_top_layer"
+    ]
+  ]
+}

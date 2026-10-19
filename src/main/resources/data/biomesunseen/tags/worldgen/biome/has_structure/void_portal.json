@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "biomesunseen:blighted_marches",
+    "biomesunseen:ghostlight_marsh",
+    "biomesunseen:shattered_archive",
+    "biomesunseen:void_threshold"
+  ]
+}

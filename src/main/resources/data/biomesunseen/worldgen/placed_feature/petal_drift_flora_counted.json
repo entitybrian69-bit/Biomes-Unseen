@@ -1,0 +1,12 @@
+{
+  "feature": "biomesunseen:petal_drift_flora",
+  "placement": [
+    {
+      "type": "minecraft:count",
+      "count": 30
+    },
+    {
+      "type": "minecraft:biome"
+    }
+  ]
+}

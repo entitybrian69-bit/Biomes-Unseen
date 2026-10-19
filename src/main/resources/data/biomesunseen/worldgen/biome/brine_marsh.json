@@ -1,0 +1,72 @@
+{
+  "temperature": 0.8,
+  "downfall": 1.0,
+  "has_precipitation": true,
+  "effects": {
+    "sky_color": 5929578,
+    "fog_color": 9482400,
+    "water_color": 3828314,
+    "water_fog_color": 663064,
+    "grass_color_modifier": "none",
+    "foliage_color": 4880976,
+    "grass_color": 6986352,
+    "ambient_sound": "biomesunseen:ambient.stream",
+    "music": {
+      "sound": "biomesunseen:music.aquatic",
+      "min_delay": 12000,
+      "max_delay": 24000,
+      "replace_current_music": true
+    }
+  },
+  "spawners": {
+    "monster": [
+      {
+        "type": "biomesunseen:bogcrawler",
+        "weight": 30,
+        "minCount": 2,
+        "maxCount": 4
+      }
+    ],
+    "creature": [],
+    "ambient": [],
+    "axolotls": [],
+    "underground_water_creature": [],
+    "water_creature": [
+      {
+        "type": "biomesunseen:river_lamprey",
+        "weight": 22,
+        "minCount": 2,
+        "maxCount": 4
+      }
+    ],
+    "water_ambient": [],
+    "misc": []
+  },
+  "spawn_costs": {},
+  "carvers": {
+    "air": [
+      "minecraft:cave",
+      "minecraft:cave_extra_underground"
+    ]
+  },
+  "features": [
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [
+      "minecraft:glow_lichen"
+    ],
+    [],
+    [
+      "biomesunseen:marsh_trees_counted",
+      "biomesunseen:brine_flora_counted"
+    ],
+    [
+      "minecraft:freeze_top_layer"
+    ]
+  ]
+}

@@ -1,0 +1,78 @@
+{
+  "temperature": 0.6,
+  "downfall": 0.9,
+  "has_precipitation": false,
+  "effects": {
+    "sky_color": 7907327,
+    "fog_color": 12638463,
+    "water_color": 4159204,
+    "water_fog_color": 329011,
+    "grass_color_modifier": "none",
+    "ambient_sound": "biomesunseen:ambient.stream",
+    "music": {
+      "sound": "biomesunseen:music.hollow_deep",
+      "min_delay": 12000,
+      "max_delay": 24000,
+      "replace_current_music": true
+    },
+    "particle": {
+      "options": {
+        "type": "biomesunseen:lumen_mote"
+      },
+      "probability": 0.0035
+    }
+  },
+  "spawners": {
+    "monster": [],
+    "creature": [
+      {
+        "type": "biomesunseen:hollow_scout",
+        "weight": 22,
+        "minCount": 2,
+        "maxCount": 4
+      },
+      {
+        "type": "biomesunseen:glowcap_grub",
+        "weight": 20,
+        "minCount": 2,
+        "maxCount": 3
+      }
+    ],
+    "ambient": [],
+    "axolotls": [],
+    "underground_water_creature": [],
+    "water_creature": [],
+    "water_ambient": [],
+    "misc": []
+  },
+  "spawn_costs": {},
+  "carvers": {
+    "air": [
+      "minecraft:cave",
+      "minecraft:cave_extra_underground"
+    ]
+  },
+  "features": [
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [
+      "biomesunseen:ore_hollowite",
+      "biomesunseen:ore_root_heart"
+    ],
+    [
+      "minecraft:glow_lichen"
+    ],
+    [],
+    [
+      "biomesunseen:oasis_palms_counted",
+      "biomesunseen:hollow_oasis_flora_counted"
+    ],
+    [
+      "minecraft:freeze_top_layer"
+    ]
+  ]
+}

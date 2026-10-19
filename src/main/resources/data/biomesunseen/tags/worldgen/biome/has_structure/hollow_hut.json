@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "biomesunseen:duskwood_hollow",
+    "biomesunseen:ghostlight_marsh",
+    "biomesunseen:veilwood",
+    "biomesunseen:whispering_mire"
+  ]
+}

@@ -1,0 +1,70 @@
+{
+  "temperature": 0.4,
+  "downfall": 1.0,
+  "has_precipitation": true,
+  "effects": {
+    "sky_color": 1321018,
+    "fog_color": 2771552,
+    "water_color": 663088,
+    "water_fog_color": 133136,
+    "grass_color_modifier": "none",
+    "foliage_color": 1720384,
+    "grass_color": 2775642,
+    "ambient_sound": "biomesunseen:ambient.deep_water",
+    "music": {
+      "sound": "biomesunseen:music.aquatic",
+      "min_delay": 12000,
+      "max_delay": 24000,
+      "replace_current_music": true
+    }
+  },
+  "spawners": {
+    "monster": [],
+    "creature": [],
+    "ambient": [],
+    "axolotls": [],
+    "underground_water_creature": [],
+    "water_creature": [
+      {
+        "type": "biomesunseen:trench_angler",
+        "weight": 32,
+        "minCount": 1,
+        "maxCount": 3
+      },
+      {
+        "type": "biomesunseen:abyssal_leviathan",
+        "weight": 4,
+        "minCount": 1,
+        "maxCount": 1
+      }
+    ],
+    "water_ambient": [],
+    "misc": []
+  },
+  "spawn_costs": {},
+  "carvers": {
+    "air": [
+      "minecraft:cave",
+      "minecraft:cave_extra_underground"
+    ]
+  },
+  "features": [
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [
+      "minecraft:glow_lichen"
+    ],
+    [],
+    [
+      "biomesunseen:leviathan_flora_counted"
+    ],
+    [
+      "minecraft:freeze_top_layer"
+    ]
+  ]
+}

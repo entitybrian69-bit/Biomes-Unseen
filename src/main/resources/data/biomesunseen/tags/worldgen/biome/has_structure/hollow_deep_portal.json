@@ -1,0 +1,11 @@
+{
+  "replace": false,
+  "values": [
+    "biomesunseen:cave",
+    "biomesunseen:duskwood_hollow",
+    "biomesunseen:hollow_threshold",
+    "biomesunseen:hollowlight_basin",
+    "biomesunseen:rootdeep_hollow",
+    "biomesunseen:sunken_hollow_city"
+  ]
+}

@@ -1,0 +1,76 @@
+{
+  "temperature": 0.9,
+  "downfall": 0.3,
+  "has_precipitation": true,
+  "effects": {
+    "sky_color": 9067066,
+    "fog_color": 12618328,
+    "water_color": 6969914,
+    "water_fog_color": 1707524,
+    "grass_color_modifier": "none",
+    "foliage_color": 8411680,
+    "grass_color": 10517056,
+    "music": {
+      "sound": "biomesunseen:music.vibrant",
+      "min_delay": 12000,
+      "max_delay": 24000,
+      "replace_current_music": true
+    },
+    "particle": {
+      "options": {
+        "type": "biomesunseen:ember_drift"
+      },
+      "probability": 0.0035
+    }
+  },
+  "spawners": {
+    "monster": [
+      {
+        "type": "biomesunseen:emberling",
+        "weight": 28,
+        "minCount": 2,
+        "maxCount": 4
+      },
+      {
+        "type": "biomesunseen:canyon_skulk",
+        "weight": 18,
+        "minCount": 1,
+        "maxCount": 2
+      }
+    ],
+    "creature": [],
+    "ambient": [],
+    "axolotls": [],
+    "underground_water_creature": [],
+    "water_creature": [],
+    "water_ambient": [],
+    "misc": []
+  },
+  "spawn_costs": {},
+  "carvers": {
+    "air": [
+      "minecraft:cave",
+      "minecraft:cave_extra_underground"
+    ]
+  },
+  "features": [
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [
+      "minecraft:glow_lichen"
+    ],
+    [],
+    [
+      "biomesunseen:emberfall_pines_counted",
+      "biomesunseen:emberfall_flora_counted"
+    ],
+    [
+      "minecraft:freeze_top_layer"
+    ]
+  ]
+}

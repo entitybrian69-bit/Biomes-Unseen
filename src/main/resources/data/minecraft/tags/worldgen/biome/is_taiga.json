@@ -1,0 +1,12 @@
+{
+  "replace": false,
+  "values": [
+    "biomesunseen:crystalline_tundra",
+    "biomesunseen:frozen_expanse",
+    "biomesunseen:glacial_lake",
+    "biomesunseen:glacier_maw",
+    "biomesunseen:grave_ice_field",
+    "biomesunseen:howling_peaks",
+    "biomesunseen:rimeforest"
+  ]
+}

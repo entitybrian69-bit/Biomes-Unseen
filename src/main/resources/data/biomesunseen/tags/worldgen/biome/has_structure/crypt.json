@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "biomesunseen:ashen_necropolis",
+    "biomesunseen:bronze_steppe",
+    "biomesunseen:colossal_boneyard",
+    "biomesunseen:old_king_road"
+  ]
+}

@@ -1,0 +1,71 @@
+{
+  "temperature": -0.7,
+  "downfall": 0.5,
+  "has_precipitation": true,
+  "effects": {
+    "sky_color": 8431816,
+    "fog_color": 12639464,
+    "water_color": 3832488,
+    "water_fog_color": 532536,
+    "grass_color_modifier": "none",
+    "foliage_color": 6983848,
+    "grass_color": 9089216,
+    "ambient_sound": "biomesunseen:ambient.wind_high",
+    "music": {
+      "sound": "biomesunseen:music.harsh",
+      "min_delay": 12000,
+      "max_delay": 24000,
+      "replace_current_music": true
+    }
+  },
+  "spawners": {
+    "monster": [
+      {
+        "type": "biomesunseen:frostling",
+        "weight": 32,
+        "minCount": 2,
+        "maxCount": 5
+      }
+    ],
+    "creature": [
+      {
+        "type": "biomesunseen:glacier_ox",
+        "weight": 15,
+        "minCount": 2,
+        "maxCount": 4
+      }
+    ],
+    "ambient": [],
+    "axolotls": [],
+    "underground_water_creature": [],
+    "water_creature": [],
+    "water_ambient": [],
+    "misc": []
+  },
+  "spawn_costs": {},
+  "carvers": {
+    "air": [
+      "minecraft:cave",
+      "minecraft:cave_extra_underground"
+    ]
+  },
+  "features": [
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [
+      "minecraft:glow_lichen"
+    ],
+    [],
+    [
+      "biomesunseen:glacier_flora_counted"
+    ],
+    [
+      "minecraft:freeze_top_layer"
+    ]
+  ]
+}

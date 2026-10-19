@@ -1,0 +1,78 @@
+{
+  "temperature": 0.85,
+  "downfall": 1.0,
+  "has_precipitation": true,
+  "effects": {
+    "sky_color": 8044760,
+    "fog_color": 12642544,
+    "water_color": 4239560,
+    "water_fog_color": 538696,
+    "grass_color_modifier": "none",
+    "foliage_color": 6338680,
+    "grass_color": 8442008,
+    "ambient_sound": "biomesunseen:ambient.surf",
+    "music": {
+      "sound": "biomesunseen:music.vibrant",
+      "min_delay": 12000,
+      "max_delay": 24000,
+      "replace_current_music": true
+    },
+    "particle": {
+      "options": {
+        "type": "biomesunseen:pollen_drift"
+      },
+      "probability": 0.0035
+    }
+  },
+  "spawners": {
+    "monster": [
+      {
+        "type": "biomesunseen:orchid_mantis",
+        "weight": 20,
+        "minCount": 1,
+        "maxCount": 1
+      }
+    ],
+    "creature": [],
+    "ambient": [],
+    "axolotls": [],
+    "underground_water_creature": [],
+    "water_creature": [
+      {
+        "type": "biomesunseen:reefglider",
+        "weight": 30,
+        "minCount": 2,
+        "maxCount": 5
+      }
+    ],
+    "water_ambient": [],
+    "misc": []
+  },
+  "spawn_costs": {},
+  "carvers": {
+    "air": [
+      "minecraft:cave",
+      "minecraft:cave_extra_underground"
+    ]
+  },
+  "features": [
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [
+      "minecraft:glow_lichen"
+    ],
+    [],
+    [
+      "biomesunseen:lagoon_mangrove_counted",
+      "biomesunseen:orchid_flora_counted"
+    ],
+    [
+      "minecraft:freeze_top_layer"
+    ]
+  ]
+}

@@ -1,0 +1,75 @@
+{
+  "temperature": 0.05,
+  "downfall": 0.4,
+  "has_precipitation": true,
+  "effects": {
+    "sky_color": 9091288,
+    "fog_color": 13164784,
+    "water_color": 6990536,
+    "water_fog_color": 329011,
+    "grass_color_modifier": "none",
+    "foliage_color": 8962264,
+    "grass_color": 11066600,
+    "music": {
+      "sound": "biomesunseen:music.ethereal",
+      "min_delay": 12000,
+      "max_delay": 24000,
+      "replace_current_music": true
+    }
+  },
+  "spawners": {
+    "monster": [
+      {
+        "type": "biomesunseen:frostling",
+        "weight": 25,
+        "minCount": 1,
+        "maxCount": 3
+      }
+    ],
+    "creature": [
+      {
+        "type": "biomesunseen:glacier_ox",
+        "weight": 15,
+        "minCount": 2,
+        "maxCount": 4
+      }
+    ],
+    "ambient": [],
+    "axolotls": [],
+    "underground_water_creature": [],
+    "water_creature": [],
+    "water_ambient": [],
+    "misc": []
+  },
+  "spawn_costs": {},
+  "carvers": {
+    "air": [
+      "minecraft:cave",
+      "minecraft:cave_extra_underground"
+    ]
+  },
+  "features": [
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [
+      "biomesunseen:ore_glacierite",
+      "biomesunseen:ore_frostbloom",
+      "biomesunseen:ore_echo_crystal"
+    ],
+    [
+      "minecraft:glow_lichen"
+    ],
+    [],
+    [
+      "biomesunseen:crystal_spike_trees_counted",
+      "biomesunseen:crystal_flora_counted"
+    ],
+    [
+      "minecraft:freeze_top_layer"
+    ]
+  ]
+}

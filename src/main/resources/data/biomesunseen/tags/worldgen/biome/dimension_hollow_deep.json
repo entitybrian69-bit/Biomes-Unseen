@@ -1,0 +1,25 @@
+{
+  "replace": false,
+  "values": [
+    "biomesunseen:basaltic_fissures",
+    "biomesunseen:chitin_warrens",
+    "biomesunseen:crystal_vault",
+    "biomesunseen:deep_bloom_reach",
+    "biomesunseen:echo_chasm",
+    "biomesunseen:fungal_forest",
+    "biomesunseen:gloomslate_depths",
+    "biomesunseen:glowcap_grotto",
+    "biomesunseen:hollow_core",
+    "biomesunseen:hollow_oasis",
+    "biomesunseen:hollow_threshold",
+    "biomesunseen:lantern_terraces",
+    "biomesunseen:luminous_sea",
+    "biomesunseen:mycelial_wastes",
+    "biomesunseen:pearl_depths",
+    "biomesunseen:root_cathedral",
+    "biomesunseen:spore_chalk_flats",
+    "biomesunseen:sunken_hollow_city",
+    "biomesunseen:tremor_ward",
+    "biomesunseen:weeping_galleries"
+  ]
+}

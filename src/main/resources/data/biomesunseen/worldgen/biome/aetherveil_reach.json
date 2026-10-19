@@ -1,0 +1,74 @@
+{
+  "temperature": 0.3,
+  "downfall": 0.4,
+  "has_precipitation": true,
+  "effects": {
+    "sky_color": 10139880,
+    "fog_color": 14214392,
+    "water_color": 8038624,
+    "water_fog_color": 329011,
+    "grass_color_modifier": "none",
+    "foliage_color": 9482464,
+    "grass_color": 11585776,
+    "music": {
+      "sound": "biomesunseen:music.ethereal",
+      "min_delay": 12000,
+      "max_delay": 24000,
+      "replace_current_music": true
+    },
+    "particle": {
+      "options": {
+        "type": "biomesunseen:aetherveil_mote"
+      },
+      "probability": 0.0035
+    }
+  },
+  "spawners": {
+    "monster": [],
+    "creature": [],
+    "ambient": [
+      {
+        "type": "biomesunseen:veilwing",
+        "weight": 25,
+        "minCount": 1,
+        "maxCount": 3
+      }
+    ],
+    "axolotls": [],
+    "underground_water_creature": [],
+    "water_creature": [],
+    "water_ambient": [],
+    "misc": []
+  },
+  "spawn_costs": {},
+  "carvers": {
+    "air": [
+      "minecraft:cave",
+      "minecraft:cave_extra_underground"
+    ]
+  },
+  "features": [
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [
+      "biomesunseen:ore_aetherium",
+      "biomesunseen:ore_dawnshard",
+      "biomesunseen:ore_skylead"
+    ],
+    [
+      "minecraft:glow_lichen"
+    ],
+    [],
+    [
+      "biomesunseen:aetherveil_trees_counted",
+      "biomesunseen:aetherveil_flora_counted"
+    ],
+    [
+      "minecraft:freeze_top_layer"
+    ]
+  ]
+}

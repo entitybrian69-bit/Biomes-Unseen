@@ -1,0 +1,71 @@
+{
+  "temperature": 0.95,
+  "downfall": 0.15,
+  "has_precipitation": true,
+  "effects": {
+    "sky_color": 9093352,
+    "fog_color": 14215408,
+    "water_color": 4886720,
+    "water_fog_color": 663600,
+    "grass_color_modifier": "none",
+    "foliage_color": 11046976,
+    "grass_color": 13152352,
+    "music": {
+      "sound": "biomesunseen:music.vibrant",
+      "min_delay": 12000,
+      "max_delay": 24000,
+      "replace_current_music": true
+    }
+  },
+  "spawners": {
+    "monster": [
+      {
+        "type": "biomesunseen:primal_cat",
+        "weight": 20,
+        "minCount": 1,
+        "maxCount": 3
+      }
+    ],
+    "creature": [
+      {
+        "type": "biomesunseen:savanna_strider",
+        "weight": 25,
+        "minCount": 3,
+        "maxCount": 6
+      }
+    ],
+    "ambient": [],
+    "axolotls": [],
+    "underground_water_creature": [],
+    "water_creature": [],
+    "water_ambient": [],
+    "misc": []
+  },
+  "spawn_costs": {},
+  "carvers": {
+    "air": [
+      "minecraft:cave",
+      "minecraft:cave_extra_underground"
+    ]
+  },
+  "features": [
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [
+      "minecraft:glow_lichen"
+    ],
+    [],
+    [
+      "biomesunseen:savanna_acacia_giants_counted",
+      "biomesunseen:savanna_flora_counted"
+    ],
+    [
+      "minecraft:freeze_top_layer"
+    ]
+  ]
+}

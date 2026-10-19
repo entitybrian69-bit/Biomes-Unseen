@@ -1,0 +1,12 @@
+{
+  "feature": "biomesunseen:marigold_flora",
+  "placement": [
+    {
+      "type": "minecraft:count",
+      "count": 34
+    },
+    {
+      "type": "minecraft:biome"
+    }
+  ]
+}

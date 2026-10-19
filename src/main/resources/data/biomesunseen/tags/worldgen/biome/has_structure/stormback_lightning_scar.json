@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [
+    "biomesunseen:frozen_expanse",
+    "biomesunseen:stormback_steppe",
+    "biomesunseen:volcanic_wasteland"
+  ]
+}

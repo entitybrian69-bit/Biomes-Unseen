@@ -1,0 +1,72 @@
+{
+  "temperature": 0.7,
+  "downfall": 0.95,
+  "has_precipitation": true,
+  "effects": {
+    "sky_color": 5933722,
+    "fog_color": 9485512,
+    "water_color": 3832458,
+    "water_fog_color": 532522,
+    "grass_color_modifier": "none",
+    "foliage_color": 5275752,
+    "grass_color": 7381128,
+    "ambient_sound": "biomesunseen:ambient.underwater",
+    "music": {
+      "sound": "biomesunseen:music.aquatic",
+      "min_delay": 12000,
+      "max_delay": 24000,
+      "replace_current_music": true
+    }
+  },
+  "spawners": {
+    "monster": [
+      {
+        "type": "biomesunseen:temple_guardian",
+        "weight": 22,
+        "minCount": 1,
+        "maxCount": 2
+      }
+    ],
+    "creature": [],
+    "ambient": [],
+    "axolotls": [],
+    "underground_water_creature": [],
+    "water_creature": [
+      {
+        "type": "biomesunseen:reefglider",
+        "weight": 25,
+        "minCount": 2,
+        "maxCount": 4
+      }
+    ],
+    "water_ambient": [],
+    "misc": []
+  },
+  "spawn_costs": {},
+  "carvers": {
+    "air": [
+      "minecraft:cave",
+      "minecraft:cave_extra_underground"
+    ]
+  },
+  "features": [
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [
+      "minecraft:glow_lichen"
+    ],
+    [],
+    [
+      "biomesunseen:ruins_palm_counted",
+      "biomesunseen:flooded_flora_counted"
+    ],
+    [
+      "minecraft:freeze_top_layer"
+    ]
+  ]
+}

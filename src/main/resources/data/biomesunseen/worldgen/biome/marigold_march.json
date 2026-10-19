@@ -1,0 +1,76 @@
+{
+  "temperature": 0.7,
+  "downfall": 0.65,
+  "has_precipitation": true,
+  "effects": {
+    "sky_color": 9093344,
+    "fog_color": 13690096,
+    "water_color": 4886728,
+    "water_fog_color": 663600,
+    "grass_color_modifier": "none",
+    "foliage_color": 12099632,
+    "grass_color": 14205008,
+    "music": {
+      "sound": "biomesunseen:music.vibrant",
+      "min_delay": 12000,
+      "max_delay": 24000,
+      "replace_current_music": true
+    },
+    "particle": {
+      "options": {
+        "type": "biomesunseen:pollen_drift"
+      },
+      "probability": 0.0035
+    }
+  },
+  "spawners": {
+    "monster": [],
+    "creature": [
+      {
+        "type": "biomesunseen:petaldancer",
+        "weight": 30,
+        "minCount": 3,
+        "maxCount": 6
+      },
+      {
+        "type": "biomesunseen:roadwarden",
+        "weight": 12,
+        "minCount": 1,
+        "maxCount": 1
+      }
+    ],
+    "ambient": [],
+    "axolotls": [],
+    "underground_water_creature": [],
+    "water_creature": [],
+    "water_ambient": [],
+    "misc": []
+  },
+  "spawn_costs": {},
+  "carvers": {
+    "air": [
+      "minecraft:cave",
+      "minecraft:cave_extra_underground"
+    ]
+  },
+  "features": [
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [
+      "minecraft:glow_lichen"
+    ],
+    [],
+    [
+      "biomesunseen:march_oaks_counted",
+      "biomesunseen:marigold_flora_counted"
+    ],
+    [
+      "minecraft:freeze_top_layer"
+    ]
+  ]
+}

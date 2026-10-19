@@ -20,8 +20,8 @@ import java.util.Map;
  * never registered.
  *
  * Sound ids in the content tables are dotted ("music.ethereal", "ambient.drip")
- * but registry paths may not contain dots, so the dot is swapped for an
- * underscore when the id is created and swapped back on lookup.
+ * and are registered under exactly that path, because ResourceLocation paths
+ * permit dots and the biome worldgen JSON references them verbatim.
  */
 public final class BUSounds {
 
@@ -43,9 +43,15 @@ public final class BUSounds {
         SOUNDS.register(bus);
     }
 
-    /** Registry path for an authored dotted sound id. */
+    /**
+     * Registry path for an authored sound id.
+     *
+     * Passed through unchanged: ResourceLocation paths permit dots, and the
+     * biome worldgen JSON references these ids verbatim, so rewriting them here
+     * would register a SoundEvent no biome can find.
+     */
     private static String pathFor(String id) {
-        return id.replace('.', '_');
+        return id;
     }
 
     /** The registered event for an authored id, or null if it does not exist. */

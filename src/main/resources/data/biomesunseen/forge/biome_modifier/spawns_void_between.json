@@ -1,0 +1,24 @@
+{
+  "type": "forge:none",
+  "comment": "Spawn lists live in each biome JSON; this modifier is a no-op placeholder that documents which entities are authored for this dimension.",
+  "biomes": "#biomesunseen:dimension_void_between",
+  "entities": [
+    "biomesunseen:astral_scribe",
+    "biomesunseen:blighthound",
+    "biomesunseen:chrono_warden",
+    "biomesunseen:echo_bat",
+    "biomesunseen:fracture_hound",
+    "biomesunseen:garden_aberration",
+    "biomesunseen:mire_wisp",
+    "biomesunseen:mirror_walk",
+    "biomesunseen:null_swimmer",
+    "biomesunseen:petaldancer",
+    "biomesunseen:shardling",
+    "biomesunseen:spire_climber",
+    "biomesunseen:static_wraith",
+    "biomesunseen:thicket_sprite",
+    "biomesunseen:trench_angler",
+    "biomesunseen:unraveling_shard",
+    "biomesunseen:void_scout"
+  ]
+}

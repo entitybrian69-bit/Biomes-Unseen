@@ -1,0 +1,12 @@
+{
+  "feature": "biomesunseen:glimmerleaf_flora",
+  "placement": [
+    {
+      "type": "minecraft:count",
+      "count": 20
+    },
+    {
+      "type": "minecraft:biome"
+    }
+  ]
+}

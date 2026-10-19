@@ -1,0 +1,12 @@
+{
+  "feature": "biomesunseen:terminal_glade_flora",
+  "placement": [
+    {
+      "type": "minecraft:count",
+      "count": 18
+    },
+    {
+      "type": "minecraft:biome"
+    }
+  ]
+}

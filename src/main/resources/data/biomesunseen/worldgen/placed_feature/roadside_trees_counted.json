@@ -1,0 +1,12 @@
+{
+  "feature": "biomesunseen:roadside_trees",
+  "placement": [
+    {
+      "type": "minecraft:count_on_every_surface",
+      "chunk_count": 3
+    },
+    {
+      "type": "minecraft:biome"
+    }
+  ]
+}

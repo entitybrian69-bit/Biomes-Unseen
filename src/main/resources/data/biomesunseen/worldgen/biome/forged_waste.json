@@ -1,0 +1,63 @@
+{
+  "temperature": 0.8,
+  "downfall": 0.15,
+  "has_precipitation": true,
+  "effects": {
+    "sky_color": 10521194,
+    "fog_color": 13679768,
+    "water_color": 9071178,
+    "water_fog_color": 2759178,
+    "grass_color_modifier": "none",
+    "foliage_color": 8944208,
+    "grass_color": 11049584,
+    "music": {
+      "sound": "biomesunseen:music.ancient",
+      "min_delay": 12000,
+      "max_delay": 24000,
+      "replace_current_music": true
+    }
+  },
+  "spawners": {
+    "monster": [
+      {
+        "type": "biomesunseen:slag_golem",
+        "weight": 22,
+        "minCount": 1,
+        "maxCount": 2
+      }
+    ],
+    "creature": [],
+    "ambient": [],
+    "axolotls": [],
+    "underground_water_creature": [],
+    "water_creature": [],
+    "water_ambient": [],
+    "misc": []
+  },
+  "spawn_costs": {},
+  "carvers": {
+    "air": [
+      "minecraft:cave",
+      "minecraft:cave_extra_underground"
+    ]
+  },
+  "features": [
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [
+      "minecraft:glow_lichen"
+    ],
+    [],
+    [
+      "biomesunseen:forged_flora_counted"
+    ],
+    [
+      "minecraft:freeze_top_layer"
+    ]
+  ]
+}

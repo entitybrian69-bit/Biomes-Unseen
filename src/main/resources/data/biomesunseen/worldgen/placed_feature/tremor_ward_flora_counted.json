@@ -1,0 +1,12 @@
+{
+  "feature": "biomesunseen:tremor_ward_flora",
+  "placement": [
+    {
+      "type": "minecraft:count",
+      "count": 3
+    },
+    {
+      "type": "minecraft:biome"
+    }
+  ]
+}

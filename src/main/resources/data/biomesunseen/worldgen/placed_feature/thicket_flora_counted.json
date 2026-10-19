@@ -1,0 +1,12 @@
+{
+  "feature": "biomesunseen:thicket_flora",
+  "placement": [
+    {
+      "type": "minecraft:count",
+      "count": 26
+    },
+    {
+      "type": "minecraft:biome"
+    }
+  ]
+}

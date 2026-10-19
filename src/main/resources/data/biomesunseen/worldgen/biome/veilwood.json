@@ -1,0 +1,75 @@
+{
+  "temperature": 0.55,
+  "downfall": 0.85,
+  "has_precipitation": true,
+  "effects": {
+    "sky_color": 3816026,
+    "fog_color": 9079480,
+    "water_color": 5921418,
+    "water_fog_color": 329011,
+    "grass_color_modifier": "none",
+    "foliage_color": 8038560,
+    "grass_color": 10141880,
+    "music": {
+      "sound": "biomesunseen:music.ethereal",
+      "min_delay": 12000,
+      "max_delay": 24000,
+      "replace_current_music": true
+    }
+  },
+  "spawners": {
+    "monster": [
+      {
+        "type": "biomesunseen:veilmourner",
+        "weight": 15,
+        "minCount": 1,
+        "maxCount": 1
+      }
+    ],
+    "creature": [],
+    "ambient": [
+      {
+        "type": "biomesunseen:glimmerwing",
+        "weight": 25,
+        "minCount": 2,
+        "maxCount": 4
+      }
+    ],
+    "axolotls": [],
+    "underground_water_creature": [],
+    "water_creature": [],
+    "water_ambient": [],
+    "misc": []
+  },
+  "spawn_costs": {},
+  "carvers": {
+    "air": [
+      "minecraft:cave",
+      "minecraft:cave_extra_underground"
+    ]
+  },
+  "features": [
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [
+      "biomesunseen:ore_duskite",
+      "biomesunseen:ore_wraithsalt",
+      "biomesunseen:ore_moonpetal"
+    ],
+    [
+      "minecraft:glow_lichen"
+    ],
+    [],
+    [
+      "biomesunseen:veilwood_trees_counted",
+      "biomesunseen:veilwood_flora_counted"
+    ],
+    [
+      "minecraft:freeze_top_layer"
+    ]
+  ]
+}

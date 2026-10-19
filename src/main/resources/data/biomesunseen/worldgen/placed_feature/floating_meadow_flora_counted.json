@@ -1,0 +1,12 @@
+{
+  "feature": "biomesunseen:floating_meadow_flora",
+  "placement": [
+    {
+      "type": "minecraft:count",
+      "count": 30
+    },
+    {
+      "type": "minecraft:biome"
+    }
+  ]
+}

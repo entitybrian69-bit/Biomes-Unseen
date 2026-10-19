@@ -1,0 +1,12 @@
+{
+  "feature": "biomesunseen:rootdeep_flora",
+  "placement": [
+    {
+      "type": "minecraft:count",
+      "count": 12
+    },
+    {
+      "type": "minecraft:biome"
+    }
+  ]
+}

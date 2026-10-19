@@ -1,0 +1,12 @@
+{
+  "feature": "biomesunseen:sunspore_flora",
+  "placement": [
+    {
+      "type": "minecraft:count",
+      "count": 16
+    },
+    {
+      "type": "minecraft:biome"
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "type": "forge:none",
+  "comment": "Spawn lists live in each biome JSON; this modifier is a no-op placeholder that documents which entities are authored for this dimension.",
+  "biomes": "#biomesunseen:dimension_hollow_deep",
+  "entities": [
+    "biomesunseen:echo_bat",
+    "biomesunseen:emberling",
+    "biomesunseen:fungal_titan",
+    "biomesunseen:glimmerwing",
+    "biomesunseen:gloomstalker",
+    "biomesunseen:glowcap_grub",
+    "biomesunseen:grove_warden",
+    "biomesunseen:hollow_drowned",
+    "biomesunseen:hollow_scout",
+    "biomesunseen:lanternkeeper",
+    "biomesunseen:luminous_jelly",
+    "biomesunseen:magma_lurker",
+    "biomesunseen:mycelial_horror",
+    "biomesunseen:petaldancer",
+    "biomesunseen:rootburrower",
+    "biomesunseen:sporeling",
+    "biomesunseen:trench_angler",
+    "biomesunseen:vault_keeper",
+    "biomesunseen:warden_acolyte",
+    "biomesunseen:warren_skitter"
+  ]
+}

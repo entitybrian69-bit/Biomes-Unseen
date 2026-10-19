@@ -1,0 +1,25 @@
+{
+  "replace": false,
+  "values": [
+    "biomesunseen:abyssal_shelf_void",
+    "biomesunseen:bleeding_spires",
+    "biomesunseen:chromatic_reef",
+    "biomesunseen:chrono_shelf",
+    "biomesunseen:dusk_mirror",
+    "biomesunseen:fracture_plains",
+    "biomesunseen:glitch_garden",
+    "biomesunseen:hollow_echo",
+    "biomesunseen:memory_vault",
+    "biomesunseen:null_sea",
+    "biomesunseen:outer_margin",
+    "biomesunseen:paradox_hollow",
+    "biomesunseen:recursive_fields",
+    "biomesunseen:serpent_run",
+    "biomesunseen:shardfall_expanse",
+    "biomesunseen:static_wastes",
+    "biomesunseen:terminal_glade",
+    "biomesunseen:unraveling_nexus",
+    "biomesunseen:void_threshold",
+    "biomesunseen:wither_veil"
+  ]
+}

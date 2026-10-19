@@ -1,0 +1,15 @@
+{
+  "name": "biomesunseen:structures/saltflat_caravan",
+  "fallback": "minecraft:empty",
+  "elements": [
+    {
+      "weight": 1,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "biomesunseen:structures/saltflat_caravan/start",
+        "processors": "minecraft:empty",
+        "projection": "rigid"
+      }
+    }
+  ]
+}

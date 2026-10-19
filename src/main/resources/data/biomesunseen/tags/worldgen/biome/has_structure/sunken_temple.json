@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "biomesunseen:flooded_ruins",
+    "biomesunseen:monolith_shore",
+    "biomesunseen:sunken_cathedral",
+    "biomesunseen:sunken_temple_reach"
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "name": "biomesunseen:structures/hieroglyph_wall",
+  "fallback": "minecraft:empty",
+  "elements": [
+    {
+      "weight": 1,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "biomesunseen:structures/hieroglyph_wall/start",
+        "processors": "minecraft:empty",
+        "projection": "rigid"
+      }
+    }
+  ]
+}

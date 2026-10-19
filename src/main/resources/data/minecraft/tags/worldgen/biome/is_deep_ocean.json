@@ -1,0 +1,21 @@
+{
+  "replace": false,
+  "values": [
+    "biomesunseen:abyssal_trench",
+    "biomesunseen:blackwater_bog",
+    "biomesunseen:brine_marsh",
+    "biomesunseen:coral_atoll_ring",
+    "biomesunseen:flooded_ruins",
+    "biomesunseen:geyser_lagoon",
+    "biomesunseen:glacial_lake",
+    "biomesunseen:kelp_cathedral",
+    "biomesunseen:leviathan_graveyard",
+    "biomesunseen:mangrove_labyrinth",
+    "biomesunseen:pearl_beds",
+    "biomesunseen:river_of_lights",
+    "biomesunseen:seagrass_meadow",
+    "biomesunseen:sunken_cathedral",
+    "biomesunseen:tidal_flats",
+    "biomesunseen:whitewater_gorge"
+  ]
+}

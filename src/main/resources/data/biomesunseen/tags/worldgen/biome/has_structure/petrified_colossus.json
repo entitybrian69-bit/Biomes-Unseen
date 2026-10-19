@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "biomesunseen:colossal_boneyard",
+    "biomesunseen:petrified_colossi",
+    "biomesunseen:petrified_forest",
+    "biomesunseen:titan_graveyard"
+  ]
+}

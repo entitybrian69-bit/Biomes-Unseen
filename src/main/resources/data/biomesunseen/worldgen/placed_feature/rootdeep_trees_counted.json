@@ -1,0 +1,12 @@
+{
+  "feature": "biomesunseen:rootdeep_trees",
+  "placement": [
+    {
+      "type": "minecraft:count_on_every_surface",
+      "chunk_count": 14
+    },
+    {
+      "type": "minecraft:biome"
+    }
+  ]
+}

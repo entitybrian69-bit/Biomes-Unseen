@@ -1,0 +1,21 @@
+{
+  "replace": false,
+  "values": [
+    "biomesunseen:amberwood",
+    "biomesunseen:bloomfield",
+    "biomesunseen:coral_shallows",
+    "biomesunseen:emberfall_ridge",
+    "biomesunseen:glimmerleaf_woodland",
+    "biomesunseen:harvest_hollows",
+    "biomesunseen:jewel_reef",
+    "biomesunseen:marigold_march",
+    "biomesunseen:orchid_lagoon",
+    "biomesunseen:primal_savanna",
+    "biomesunseen:pyroclast_fields",
+    "biomesunseen:sakura_highlands",
+    "biomesunseen:sunscorch_badlands",
+    "biomesunseen:sunspore_barrens",
+    "biomesunseen:tideglass_bay",
+    "biomesunseen:verdantheight"
+  ]
+}

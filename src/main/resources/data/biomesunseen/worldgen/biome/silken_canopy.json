@@ -1,0 +1,74 @@
+{
+  "temperature": 0.75,
+  "downfall": 0.85,
+  "has_precipitation": true,
+  "effects": {
+    "sky_color": 4876938,
+    "fog_color": 9087672,
+    "water_color": 4885146,
+    "water_fog_color": 329011,
+    "grass_color_modifier": "none",
+    "foliage_color": 8962168,
+    "grass_color": 11065496,
+    "music": {
+      "sound": "biomesunseen:music.ethereal",
+      "min_delay": 12000,
+      "max_delay": 24000,
+      "replace_current_music": true
+    }
+  },
+  "spawners": {
+    "monster": [
+      {
+        "type": "biomesunseen:silkweaver",
+        "weight": 25,
+        "minCount": 2,
+        "maxCount": 4
+      }
+    ],
+    "creature": [
+      {
+        "type": "biomesunseen:canopy_glider",
+        "weight": 20,
+        "minCount": 1,
+        "maxCount": 3
+      }
+    ],
+    "ambient": [],
+    "axolotls": [],
+    "underground_water_creature": [],
+    "water_creature": [],
+    "water_ambient": [],
+    "misc": []
+  },
+  "spawn_costs": {},
+  "carvers": {
+    "air": [
+      "minecraft:cave",
+      "minecraft:cave_extra_underground"
+    ]
+  },
+  "features": [
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [
+      "biomesunseen:ore_spiritwood",
+      "biomesunseen:ore_glimmerleaf"
+    ],
+    [
+      "minecraft:glow_lichen"
+    ],
+    [],
+    [
+      "biomesunseen:canopy_trees_counted",
+      "biomesunseen:canopy_flora_counted"
+    ],
+    [
+      "minecraft:freeze_top_layer"
+    ]
+  ]
+}

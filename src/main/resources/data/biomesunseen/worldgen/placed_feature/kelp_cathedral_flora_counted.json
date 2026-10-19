@@ -1,0 +1,12 @@
+{
+  "feature": "biomesunseen:kelp_cathedral_flora",
+  "placement": [
+    {
+      "type": "minecraft:count",
+      "count": 6
+    },
+    {
+      "type": "minecraft:biome"
+    }
+  ]
+}

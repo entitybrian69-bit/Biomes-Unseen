@@ -1,0 +1,70 @@
+{
+  "temperature": 0.5,
+  "downfall": 0.35,
+  "has_precipitation": true,
+  "effects": {
+    "sky_color": 9083560,
+    "fog_color": 12635352,
+    "water_color": 5929626,
+    "water_fog_color": 1714746,
+    "grass_color_modifier": "none",
+    "foliage_color": 8026728,
+    "grass_color": 10132104,
+    "music": {
+      "sound": "biomesunseen:music.ancient",
+      "min_delay": 12000,
+      "max_delay": 24000,
+      "replace_current_music": true
+    }
+  },
+  "spawners": {
+    "monster": [
+      {
+        "type": "biomesunseen:stonehide_boar",
+        "weight": 20,
+        "minCount": 2,
+        "maxCount": 4
+      },
+      {
+        "type": "biomesunseen:fossil_wraith",
+        "weight": 15,
+        "minCount": 1,
+        "maxCount": 1
+      }
+    ],
+    "creature": [],
+    "ambient": [],
+    "axolotls": [],
+    "underground_water_creature": [],
+    "water_creature": [],
+    "water_ambient": [],
+    "misc": []
+  },
+  "spawn_costs": {},
+  "carvers": {
+    "air": [
+      "minecraft:cave",
+      "minecraft:cave_extra_underground"
+    ]
+  },
+  "features": [
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [
+      "minecraft:glow_lichen"
+    ],
+    [],
+    [
+      "biomesunseen:petrified_trees_counted",
+      "biomesunseen:petrified_flora_counted"
+    ],
+    [
+      "minecraft:freeze_top_layer"
+    ]
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "feature": "biomesunseen:steppe_scrub",
+  "placement": [
+    {
+      "type": "minecraft:count_on_every_surface",
+      "chunk_count": 1
+    },
+    {
+      "type": "minecraft:biome"
+    }
+  ]
+}

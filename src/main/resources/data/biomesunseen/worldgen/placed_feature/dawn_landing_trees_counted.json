@@ -1,0 +1,12 @@
+{
+  "feature": "biomesunseen:dawn_landing_trees",
+  "placement": [
+    {
+      "type": "minecraft:count_on_every_surface",
+      "chunk_count": 5
+    },
+    {
+      "type": "minecraft:biome"
+    }
+  ]
+}

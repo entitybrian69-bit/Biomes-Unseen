@@ -1,0 +1,12 @@
+{
+  "feature": "biomesunseen:aurora_bridge_flora",
+  "placement": [
+    {
+      "type": "minecraft:count",
+      "count": 3
+    },
+    {
+      "type": "minecraft:biome"
+    }
+  ]
+}

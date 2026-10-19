@@ -1,0 +1,72 @@
+{
+  "temperature": 0.45,
+  "downfall": 0.55,
+  "has_precipitation": true,
+  "effects": {
+    "sky_color": 6978184,
+    "fog_color": 11057344,
+    "water_color": 4876922,
+    "water_fog_color": 1187882,
+    "grass_color_modifier": "none",
+    "foliage_color": 5931088,
+    "grass_color": 8034928,
+    "ambient_sound": "biomesunseen:ambient.wind_low",
+    "music": {
+      "sound": "biomesunseen:music.ancient",
+      "min_delay": 12000,
+      "max_delay": 24000,
+      "replace_current_music": true
+    }
+  },
+  "spawners": {
+    "monster": [
+      {
+        "type": "biomesunseen:moor_sentinel",
+        "weight": 18,
+        "minCount": 1,
+        "maxCount": 1
+      }
+    ],
+    "creature": [
+      {
+        "type": "biomesunseen:mossback_hare",
+        "weight": 20,
+        "minCount": 2,
+        "maxCount": 4
+      }
+    ],
+    "ambient": [],
+    "axolotls": [],
+    "underground_water_creature": [],
+    "water_creature": [],
+    "water_ambient": [],
+    "misc": []
+  },
+  "spawn_costs": {},
+  "carvers": {
+    "air": [
+      "minecraft:cave",
+      "minecraft:cave_extra_underground"
+    ]
+  },
+  "features": [
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [
+      "minecraft:glow_lichen"
+    ],
+    [],
+    [
+      "biomesunseen:moor_standing_stones_counted",
+      "biomesunseen:moor_flora_counted"
+    ],
+    [
+      "minecraft:freeze_top_layer"
+    ]
+  ]
+}

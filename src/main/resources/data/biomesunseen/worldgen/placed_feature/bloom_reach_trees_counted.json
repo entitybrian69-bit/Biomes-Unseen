@@ -1,0 +1,12 @@
+{
+  "feature": "biomesunseen:bloom_reach_trees",
+  "placement": [
+    {
+      "type": "minecraft:count_on_every_surface",
+      "chunk_count": 7
+    },
+    {
+      "type": "minecraft:biome"
+    }
+  ]
+}

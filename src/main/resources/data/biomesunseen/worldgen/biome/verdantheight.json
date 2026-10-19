@@ -1,0 +1,71 @@
+{
+  "temperature": 0.6,
+  "downfall": 0.85,
+  "has_precipitation": true,
+  "effects": {
+    "sky_color": 6992088,
+    "fog_color": 11589864,
+    "water_color": 3836608,
+    "water_fog_color": 664632,
+    "grass_color_modifier": "none",
+    "foliage_color": 5285960,
+    "grass_color": 7391336,
+    "music": {
+      "sound": "biomesunseen:music.vibrant",
+      "min_delay": 12000,
+      "max_delay": 24000,
+      "replace_current_music": true
+    }
+  },
+  "spawners": {
+    "monster": [
+      {
+        "type": "biomesunseen:silkweaver",
+        "weight": 20,
+        "minCount": 2,
+        "maxCount": 3
+      }
+    ],
+    "creature": [
+      {
+        "type": "biomesunseen:canopy_glider",
+        "weight": 25,
+        "minCount": 2,
+        "maxCount": 4
+      }
+    ],
+    "ambient": [],
+    "axolotls": [],
+    "underground_water_creature": [],
+    "water_creature": [],
+    "water_ambient": [],
+    "misc": []
+  },
+  "spawn_costs": {},
+  "carvers": {
+    "air": [
+      "minecraft:cave",
+      "minecraft:cave_extra_underground"
+    ]
+  },
+  "features": [
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [
+      "minecraft:glow_lichen"
+    ],
+    [],
+    [
+      "biomesunseen:verdantheight_jungle_counted",
+      "biomesunseen:verdantheight_flora_counted"
+    ],
+    [
+      "minecraft:freeze_top_layer"
+    ]
+  ]
+}

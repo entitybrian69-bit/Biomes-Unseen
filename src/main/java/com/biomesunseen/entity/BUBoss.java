@@ -447,8 +447,13 @@ public class BUBoss extends Monster implements GeoAnimatable {
             }
         }
         // Phase loops are derived from the phase index rather than listed on the
-        // species, so accept them when the data declares a matching phase.
-        return animation.startsWith("animation.phase.");
+        // species, and each phase also names its own entry clip. Both the
+        // numbered phase loops and the authored entry names live under
+        // animation.phase.* / animation.form.*, and the animation generator
+        // emits a clip for every entry_animation the content tables declare, so
+        // accepting these prefixes cannot reference a clip that is absent.
+        return animation.startsWith("animation.phase.")
+                || animation.startsWith("animation.form.");
     }
 
     @Override

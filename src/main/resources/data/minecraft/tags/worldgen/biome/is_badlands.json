@@ -1,0 +1,11 @@
+{
+  "replace": false,
+  "values": [
+    "biomesunseen:ashen_caldera",
+    "biomesunseen:cinder_dunes",
+    "biomesunseen:pyroclast_fields",
+    "biomesunseen:scorched_glassland",
+    "biomesunseen:sulphur_vents",
+    "biomesunseen:volcanic_wasteland"
+  ]
+}

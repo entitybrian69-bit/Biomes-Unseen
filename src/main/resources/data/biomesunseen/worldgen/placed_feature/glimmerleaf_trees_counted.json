@@ -1,0 +1,12 @@
+{
+  "feature": "biomesunseen:glimmerleaf_trees",
+  "placement": [
+    {
+      "type": "minecraft:count_on_every_surface",
+      "chunk_count": 12
+    },
+    {
+      "type": "minecraft:biome"
+    }
+  ]
+}

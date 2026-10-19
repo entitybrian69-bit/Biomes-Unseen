@@ -1,0 +1,81 @@
+{
+  "temperature": 0.65,
+  "downfall": 0.85,
+  "has_precipitation": true,
+  "effects": {
+    "sky_color": 2759498,
+    "fog_color": 7229368,
+    "water_color": 8019926,
+    "water_fog_color": 329011,
+    "grass_color_modifier": "none",
+    "foliage_color": 8571996,
+    "grass_color": 9427306,
+    "music": {
+      "sound": "biomesunseen:music.ethereal",
+      "min_delay": 12000,
+      "max_delay": 24000,
+      "replace_current_music": true
+    },
+    "particle": {
+      "options": {
+        "type": "biomesunseen:lumen_mote"
+      },
+      "probability": 0.0035
+    }
+  },
+  "spawners": {
+    "monster": [],
+    "creature": [
+      {
+        "type": "biomesunseen:mossback_hare",
+        "weight": 20,
+        "minCount": 2,
+        "maxCount": 4
+      }
+    ],
+    "ambient": [
+      {
+        "type": "biomesunseen:glimmerwing",
+        "weight": 40,
+        "minCount": 2,
+        "maxCount": 5
+      }
+    ],
+    "axolotls": [],
+    "underground_water_creature": [],
+    "water_creature": [],
+    "water_ambient": [],
+    "misc": []
+  },
+  "spawn_costs": {},
+  "carvers": {
+    "air": [
+      "minecraft:cave",
+      "minecraft:cave_extra_underground"
+    ]
+  },
+  "features": [
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [
+      "biomesunseen:ore_lumenite",
+      "biomesunseen:ore_glimmerleaf",
+      "biomesunseen:ore_sporeamber"
+    ],
+    [
+      "minecraft:glow_lichen"
+    ],
+    [],
+    [
+      "biomesunseen:lumen_trees_counted",
+      "biomesunseen:lumen_flora_counted"
+    ],
+    [
+      "minecraft:freeze_top_layer"
+    ]
+  ]
+}

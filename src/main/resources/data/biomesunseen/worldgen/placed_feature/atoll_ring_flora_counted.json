@@ -1,0 +1,12 @@
+{
+  "feature": "biomesunseen:atoll_ring_flora",
+  "placement": [
+    {
+      "type": "minecraft:count",
+      "count": 10
+    },
+    {
+      "type": "minecraft:biome"
+    }
+  ]
+}

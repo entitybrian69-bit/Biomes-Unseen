@@ -1,0 +1,12 @@
+{
+  "feature": "biomesunseen:lumenshade_trees",
+  "placement": [
+    {
+      "type": "minecraft:count_on_every_surface",
+      "chunk_count": 8
+    },
+    {
+      "type": "minecraft:biome"
+    }
+  ]
+}

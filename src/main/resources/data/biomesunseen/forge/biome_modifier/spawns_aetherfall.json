@@ -1,0 +1,18 @@
+{
+  "type": "forge:none",
+  "comment": "Spawn lists live in each biome JSON; this modifier is a no-op placeholder that documents which entities are authored for this dimension.",
+  "biomes": "#biomesunseen:dimension_aetherfall",
+  "entities": [
+    "biomesunseen:astral_scribe",
+    "biomesunseen:cloudfin",
+    "biomesunseen:crown_sentinel",
+    "biomesunseen:gale_harrier",
+    "biomesunseen:meadow_skipper",
+    "biomesunseen:orchard_tender",
+    "biomesunseen:petaldancer",
+    "biomesunseen:quarry_construct",
+    "biomesunseen:rune_construct",
+    "biomesunseen:stormcell_wisp",
+    "biomesunseen:veilwing"
+  ]
+}

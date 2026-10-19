@@ -1,0 +1,12 @@
+{
+  "feature": "biomesunseen:glowcap_flora",
+  "placement": [
+    {
+      "type": "minecraft:count",
+      "count": 24
+    },
+    {
+      "type": "minecraft:biome"
+    }
+  ]
+}

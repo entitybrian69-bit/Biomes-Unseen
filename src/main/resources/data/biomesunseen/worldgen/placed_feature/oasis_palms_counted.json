@@ -1,0 +1,12 @@
+{
+  "feature": "biomesunseen:oasis_palms",
+  "placement": [
+    {
+      "type": "minecraft:count_on_every_surface",
+      "chunk_count": 6
+    },
+    {
+      "type": "minecraft:biome"
+    }
+  ]
+}

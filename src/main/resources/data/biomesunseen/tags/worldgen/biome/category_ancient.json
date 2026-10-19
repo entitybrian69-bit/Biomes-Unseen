@@ -1,0 +1,21 @@
+{
+  "replace": false,
+  "values": [
+    "biomesunseen:ancestor_grove",
+    "biomesunseen:ashen_necropolis",
+    "biomesunseen:bronze_steppe",
+    "biomesunseen:colossal_boneyard",
+    "biomesunseen:forged_waste",
+    "biomesunseen:hieroglyph_canyon",
+    "biomesunseen:megalith_moor",
+    "biomesunseen:monolith_shore",
+    "biomesunseen:old_king_road",
+    "biomesunseen:petrified_colossi",
+    "biomesunseen:petrified_forest",
+    "biomesunseen:rootdeep_hollow",
+    "biomesunseen:ruined_observatory",
+    "biomesunseen:shattered_archive",
+    "biomesunseen:sunken_temple_reach",
+    "biomesunseen:titan_graveyard"
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "replace": false,
+  "values": [
+    "biomesunseen:aurora_bridge",
+    "biomesunseen:celestial_orchard",
+    "biomesunseen:cloud_sea",
+    "biomesunseen:crown_apex",
+    "biomesunseen:dawn_landing",
+    "biomesunseen:dawn_marble_quarry",
+    "biomesunseen:featherfall_grove",
+    "biomesunseen:floating_meadow",
+    "biomesunseen:gilded_archive",
+    "biomesunseen:gilded_citadel",
+    "biomesunseen:hymn_halls",
+    "biomesunseen:moonpetal_skyfield",
+    "biomesunseen:runeglass_fields",
+    "biomesunseen:shatterbelt",
+    "biomesunseen:skyward_steps",
+    "biomesunseen:starfall_vault",
+    "biomesunseen:stormcell_spire",
+    "biomesunseen:sunspire_plateau",
+    "biomesunseen:twilight_terrace",
+    "biomesunseen:zephyr_reach"
+  ]
+}

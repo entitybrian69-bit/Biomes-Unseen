@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "biomesunseen:ancestor_grove",
+    "biomesunseen:glimmering_thicket",
+    "biomesunseen:luminescent_grove",
+    "biomesunseen:silken_canopy"
+  ]
+}

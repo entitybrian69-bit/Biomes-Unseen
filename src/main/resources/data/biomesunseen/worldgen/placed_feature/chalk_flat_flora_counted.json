@@ -1,0 +1,12 @@
+{
+  "feature": "biomesunseen:chalk_flat_flora",
+  "placement": [
+    {
+      "type": "minecraft:count",
+      "count": 8
+    },
+    {
+      "type": "minecraft:biome"
+    }
+  ]
+}

@@ -1,0 +1,70 @@
+{
+  "temperature": 0.8,
+  "downfall": 1.0,
+  "has_precipitation": true,
+  "effects": {
+    "sky_color": 7913688,
+    "fog_color": 12642544,
+    "water_color": 4241616,
+    "water_fog_color": 537668,
+    "grass_color_modifier": "none",
+    "foliage_color": 6336648,
+    "grass_color": 8439976,
+    "ambient_sound": "biomesunseen:ambient.underwater",
+    "music": {
+      "sound": "biomesunseen:music.aquatic",
+      "min_delay": 12000,
+      "max_delay": 24000,
+      "replace_current_music": true
+    }
+  },
+  "spawners": {
+    "monster": [],
+    "creature": [],
+    "ambient": [],
+    "axolotls": [],
+    "underground_water_creature": [],
+    "water_creature": [
+      {
+        "type": "biomesunseen:reefglider",
+        "weight": 32,
+        "minCount": 3,
+        "maxCount": 6
+      },
+      {
+        "type": "biomesunseen:coralback_crab",
+        "weight": 26,
+        "minCount": 2,
+        "maxCount": 4
+      }
+    ],
+    "water_ambient": [],
+    "misc": []
+  },
+  "spawn_costs": {},
+  "carvers": {
+    "air": [
+      "minecraft:cave",
+      "minecraft:cave_extra_underground"
+    ]
+  },
+  "features": [
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [
+      "minecraft:glow_lichen"
+    ],
+    [],
+    [
+      "biomesunseen:pearl_bed_flora_counted"
+    ],
+    [
+      "minecraft:freeze_top_layer"
+    ]
+  ]
+}

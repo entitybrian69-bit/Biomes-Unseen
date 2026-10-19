@@ -1,0 +1,21 @@
+{
+  "replace": false,
+  "values": [
+    "biomesunseen:aetherveil_reach",
+    "biomesunseen:aurora_steppe",
+    "biomesunseen:crystalline_tundra",
+    "biomesunseen:dreaming_atoll",
+    "biomesunseen:duskwood_hollow",
+    "biomesunseen:ghostlight_marsh",
+    "biomesunseen:glimmering_thicket",
+    "biomesunseen:hollowlight_basin",
+    "biomesunseen:lumenshade_glade",
+    "biomesunseen:luminescent_grove",
+    "biomesunseen:moonpetal_meadow",
+    "biomesunseen:petal_drift_flats",
+    "biomesunseen:silken_canopy",
+    "biomesunseen:starfall_glade",
+    "biomesunseen:veilwood",
+    "biomesunseen:whispering_mire"
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [
+    "biomesunseen:bleeding_spires",
+    "biomesunseen:fracture_plains",
+    "biomesunseen:static_wastes"
+  ]
+}

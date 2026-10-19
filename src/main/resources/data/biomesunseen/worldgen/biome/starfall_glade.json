@@ -1,0 +1,74 @@
+{
+  "temperature": 0.4,
+  "downfall": 0.5,
+  "has_precipitation": true,
+  "effects": {
+    "sky_color": 922672,
+    "fog_color": 3820170,
+    "water_color": 2767482,
+    "water_fog_color": 329011,
+    "grass_color_modifier": "none",
+    "foliage_color": 9484400,
+    "grass_color": 11587722,
+    "music": {
+      "sound": "biomesunseen:music.ethereal",
+      "min_delay": 12000,
+      "max_delay": 24000,
+      "replace_current_music": true
+    },
+    "particle": {
+      "options": {
+        "type": "biomesunseen:starfall_ember"
+      },
+      "probability": 0.0035
+    }
+  },
+  "spawners": {
+    "monster": [],
+    "creature": [],
+    "ambient": [
+      {
+        "type": "biomesunseen:glimmerwing",
+        "weight": 35,
+        "minCount": 2,
+        "maxCount": 5
+      }
+    ],
+    "axolotls": [],
+    "underground_water_creature": [],
+    "water_creature": [],
+    "water_ambient": [],
+    "misc": []
+  },
+  "spawn_costs": {},
+  "carvers": {
+    "air": [
+      "minecraft:cave",
+      "minecraft:cave_extra_underground"
+    ]
+  },
+  "features": [
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [
+      "biomesunseen:ore_starfall",
+      "biomesunseen:ore_lumenite",
+      "biomesunseen:ore_moonpetal"
+    ],
+    [
+      "minecraft:glow_lichen"
+    ],
+    [],
+    [
+      "biomesunseen:starfall_trees_counted",
+      "biomesunseen:starfall_flora_counted"
+    ],
+    [
+      "minecraft:freeze_top_layer"
+    ]
+  ]
+}

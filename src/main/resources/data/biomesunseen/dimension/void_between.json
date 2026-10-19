@@ -1,0 +1,252 @@
+{
+  "type": "biomesunseen:void_between",
+  "generator": {
+    "type": "minecraft:noise",
+    "settings": "biomesunseen:void_between",
+    "biome_source": {
+      "type": "minecraft:multi_noise",
+      "biomes": [
+        {
+          "biome": "biomesunseen:void_threshold",
+          "parameters": {
+            "temperature": 0.3,
+            "humidity": 0.3,
+            "continentalness": 0.3,
+            "erosion": 0.3,
+            "weirdness": 0.0,
+            "depth": 0.6,
+            "offset": 0.0
+          }
+        },
+        {
+          "biome": "biomesunseen:fracture_plains",
+          "parameters": {
+            "temperature": 0.25,
+            "humidity": 0.2,
+            "continentalness": 0.3,
+            "erosion": 0.3,
+            "weirdness": 0.15,
+            "depth": 0.5,
+            "offset": 0.0
+          }
+        },
+        {
+          "biome": "biomesunseen:static_wastes",
+          "parameters": {
+            "temperature": 0.35,
+            "humidity": 0.25,
+            "continentalness": 0.3,
+            "erosion": 0.3,
+            "weirdness": 0.2,
+            "depth": 0.55,
+            "offset": 0.0
+          }
+        },
+        {
+          "biome": "biomesunseen:glitch_garden",
+          "parameters": {
+            "temperature": 0.4,
+            "humidity": 0.6,
+            "continentalness": 0.3,
+            "erosion": 0.3,
+            "weirdness": -0.1,
+            "depth": 0.45,
+            "offset": 0.0
+          }
+        },
+        {
+          "biome": "biomesunseen:null_sea",
+          "parameters": {
+            "temperature": 0.3,
+            "humidity": 0.5,
+            "continentalness": 0.3,
+            "erosion": 0.3,
+            "weirdness": -0.2,
+            "depth": 1.0,
+            "offset": 0.0
+          }
+        },
+        {
+          "biome": "biomesunseen:unraveling_nexus",
+          "parameters": {
+            "temperature": 0.3,
+            "humidity": 0.3,
+            "continentalness": 0.3,
+            "erosion": 0.3,
+            "weirdness": 0.45,
+            "depth": 0.7,
+            "offset": 0.0
+          }
+        },
+        {
+          "biome": "biomesunseen:chrono_shelf",
+          "parameters": {
+            "temperature": 0.35,
+            "humidity": 0.35,
+            "continentalness": 0.3,
+            "erosion": 0.3,
+            "weirdness": 0.1,
+            "depth": 0.6,
+            "offset": 0.0
+          }
+        },
+        {
+          "biome": "biomesunseen:dusk_mirror",
+          "parameters": {
+            "temperature": 0.3,
+            "humidity": 0.45,
+            "continentalness": 0.3,
+            "erosion": 0.3,
+            "weirdness": -0.15,
+            "depth": 0.5,
+            "offset": 0.0
+          }
+        },
+        {
+          "biome": "biomesunseen:shardfall_expanse",
+          "parameters": {
+            "temperature": 0.25,
+            "humidity": 0.25,
+            "continentalness": 0.3,
+            "erosion": 0.3,
+            "weirdness": 0.3,
+            "depth": 0.65,
+            "offset": 0.0
+          }
+        },
+        {
+          "biome": "biomesunseen:paradox_hollow",
+          "parameters": {
+            "temperature": 0.3,
+            "humidity": 0.4,
+            "continentalness": 0.3,
+            "erosion": 0.3,
+            "weirdness": 0.05,
+            "depth": 0.55,
+            "offset": 0.0
+          }
+        },
+        {
+          "biome": "biomesunseen:bleeding_spires",
+          "parameters": {
+            "temperature": 0.4,
+            "humidity": 0.3,
+            "continentalness": 0.3,
+            "erosion": 0.3,
+            "weirdness": 0.35,
+            "depth": 0.75,
+            "offset": 0.0
+          }
+        },
+        {
+          "biome": "biomesunseen:wither_veil",
+          "parameters": {
+            "temperature": 0.3,
+            "humidity": 0.35,
+            "continentalness": 0.3,
+            "erosion": 0.3,
+            "weirdness": 0.1,
+            "depth": 0.5,
+            "offset": 0.0
+          }
+        },
+        {
+          "biome": "biomesunseen:recursive_fields",
+          "parameters": {
+            "temperature": 0.4,
+            "humidity": 0.5,
+            "continentalness": 0.3,
+            "erosion": 0.3,
+            "weirdness": 0.0,
+            "depth": 0.45,
+            "offset": 0.0
+          }
+        },
+        {
+          "biome": "biomesunseen:abyssal_shelf_void",
+          "parameters": {
+            "temperature": 0.3,
+            "humidity": 0.5,
+            "continentalness": 0.3,
+            "erosion": 0.3,
+            "weirdness": -0.25,
+            "depth": 1.1,
+            "offset": 0.0
+          }
+        },
+        {
+          "biome": "biomesunseen:memory_vault",
+          "parameters": {
+            "temperature": 0.35,
+            "humidity": 0.4,
+            "continentalness": 0.3,
+            "erosion": 0.3,
+            "weirdness": 0.2,
+            "depth": 0.6,
+            "offset": 0.0
+          }
+        },
+        {
+          "biome": "biomesunseen:chromatic_reef",
+          "parameters": {
+            "temperature": 0.45,
+            "humidity": 0.7,
+            "continentalness": 0.3,
+            "erosion": 0.3,
+            "weirdness": -0.05,
+            "depth": 0.4,
+            "offset": 0.0
+          }
+        },
+        {
+          "biome": "biomesunseen:serpent_run",
+          "parameters": {
+            "temperature": 0.3,
+            "humidity": 0.3,
+            "continentalness": 0.3,
+            "erosion": 0.3,
+            "weirdness": 0.25,
+            "depth": 0.7,
+            "offset": 0.0
+          }
+        },
+        {
+          "biome": "biomesunseen:hollow_echo",
+          "parameters": {
+            "temperature": 0.35,
+            "humidity": 0.45,
+            "continentalness": 0.3,
+            "erosion": 0.3,
+            "weirdness": 0.0,
+            "depth": 0.5,
+            "offset": 0.0
+          }
+        },
+        {
+          "biome": "biomesunseen:terminal_glade",
+          "parameters": {
+            "temperature": 0.4,
+            "humidity": 0.6,
+            "continentalness": 0.3,
+            "erosion": 0.3,
+            "weirdness": -0.1,
+            "depth": 0.45,
+            "offset": 0.0
+          }
+        },
+        {
+          "biome": "biomesunseen:outer_margin",
+          "parameters": {
+            "temperature": 0.2,
+            "humidity": 0.2,
+            "continentalness": 0.3,
+            "erosion": 0.3,
+            "weirdness": 0.5,
+            "depth": 0.8,
+            "offset": 0.0
+          }
+        }
+      ]
+    }
+  }
+}

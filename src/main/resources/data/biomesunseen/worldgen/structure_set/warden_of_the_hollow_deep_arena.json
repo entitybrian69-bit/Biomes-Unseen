@@ -1,0 +1,15 @@
+{
+  "structures": [
+    {
+      "structure": "biomesunseen:warden_of_the_hollow_deep_arena",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "spacing": 44,
+    "separation": 22,
+    "salt": 8803,
+    "spread_type": "triangular"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "feature": "biomesunseen:memory_vault_flora",
+  "placement": [
+    {
+      "type": "minecraft:count",
+      "count": 3
+    },
+    {
+      "type": "minecraft:biome"
+    }
+  ]
+}
