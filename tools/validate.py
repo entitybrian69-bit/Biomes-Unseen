@@ -841,6 +841,59 @@ def check_structure_templates(report: Report) -> None:
     report.count("structure templates decoded", checked)
 
 
+
+def check_biome_placement(report: Report) -> None:
+    """
+    Every authored biome must be reachable by some biome source.
+
+    A biome can be fully authored -- climate, colours, surface rules, features,
+    spawns, structures, loot -- and still never appear in a world, because
+    placement is a separate question from definition. Dimension biomes are
+    placed by their dimension's multi_noise source, which this checks directly.
+
+    Overworld biomes are different: 1.20.1 samples a fixed climate parameter
+    list held in MultiNoiseBiomeSourceParameterList.Preset.OVERWORLD, and
+    nothing in a datapack can append to it. Splicing our points in requires
+    either a mixin on that preset or replacing vanilla's overworld parameter
+    list outright. That splice is NOT currently shipped, so the Overworld biomes
+    are registered and complete but do not yet generate -- reported here as a
+    counted gap rather than left silent, because a biome that never spawns is
+    invisible to every other check in this file.
+    """
+    placed = set()
+    dimension_dir = os.path.join(RES, "data", MODID, "dimension")
+    if os.path.isdir(dimension_dir):
+        for name in sorted(os.listdir(dimension_dir)):
+            doc = json.load(open(os.path.join(dimension_dir, name), "r",
+                                 encoding="utf-8"))
+            source = doc.get("generator", {}).get("biome_source", {})
+            for entry in source.get("biomes", []):
+                placed.add(entry.get("biome", "").split(":")[-1])
+
+    overworld = [b for b in B.ALL_BIOMES if b.dimension == "overworld"]
+    dimension = [b for b in B.ALL_BIOMES if b.dimension != "overworld"]
+
+    for spec in dimension:
+        if spec.id not in placed:
+            report.error("placement",
+                         f"dimension biome '{spec.id}' ({spec.dimension}) is placed by no biome source")
+        report.count("biomes placed by a dimension source", 1)
+
+    spliced = os.path.exists(os.path.join(
+        RES, "data", "minecraft", "worldgen",
+        "multi_noise_biome_source_parameter_list", "overworld.json"))
+    if spliced:
+        for spec in overworld:
+            report.count("overworld biomes spliced into the vanilla list", 1)
+    else:
+        report.note("placement",
+                    f"{len(overworld)} Overworld biomes are authored and registered but not "
+                    f"yet spliced into MultiNoiseBiomeSourceParameterList.Preset.OVERWORLD, "
+                    f"so they do not generate in the Overworld. Requires a mixin on that "
+                    f"preset or a datapack override of minecraft:overworld.")
+        report.count("overworld biomes awaiting parameter-list splice", len(overworld))
+
+
 def main() -> int:
     report = Report()
     print("Biomes Unseen validator")
@@ -862,6 +915,7 @@ def main() -> int:
     check_worldgen(report)
     check_geckolib(report)
     check_structure_templates(report)
+    check_biome_placement(report)
 
     return report.render()
 
