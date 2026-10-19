@@ -1092,6 +1092,17 @@ def emit_meta(w: Writer) -> None:
         }
     })
 
+    # Counts for the mod description, derived from the same tables everything
+    # else is built from. The description is the first thing a player reads in
+    # the mods menu, and the hand-typed numbers had already drifted: it claimed
+    # 34 jigsaw structures while 115 were being emitted.
+    n_biomes = len(BIOMES.ALL_BIOMES)
+    n_ores = len(ORES.ALL_ORES)
+    n_gear = len(GEAR.TOOL_SETS)
+    n_creatures = len(MOBS.ALL_MOBS)
+    n_bosses = len(BOSSES.ALL_BOSSES)
+    n_structures = len(STRUCTS.ALL_STRUCTURES)
+
     mods_toml = f'''modLoader = "javafml"
 loaderVersion = "[47,)"
 license = "All Rights Reserved"
@@ -1107,10 +1118,12 @@ logoFile = "logo.png"
 credits = "Built as a total-conversion worldgen expansion."
 authors = "Biomes Unseen Team"
 description = \'\'\'
-Biomes Unseen is a total-conversion exploration mod: 140 hand-authored biomes
-across five Overworld categories, three new dimensions, 44 ores with real uses,
-ten gear families with set bonuses, 80 creatures, 34 jigsaw structures and five
-multi-phase bosses.
+Biomes Unseen is a total-conversion exploration mod.
+
+{n_biomes} hand-authored biomes across five Overworld categories, three new
+dimensions, {n_ores} ores with real uses, {n_gear} gear families with set
+bonuses, {n_creatures} creatures, {n_structures} jigsaw structures and
+{n_bosses} multi-phase bosses.
 
 Every texture is hand-authored pixel art. Every creature is a fully articulated
 GeckoLib model. Every hostile has real targeting and melee AI.
