@@ -1050,9 +1050,20 @@ def check_model_and_tag_closure(report: Report) -> None:
             doc = json.load(open(os.path.join(states_dir, name), "r",
                                  encoding="utf-8"))
             applies = []
-            for value in doc.get("variants", {}).values():
+            variants = doc.get("variants", {})
+            multipart = doc.get("multipart", [])
+            # An empty blockstate resolves to no model at all, and the model
+            # loader reports "Exception loading blockstate variant" for it at
+            # resource load. All four fluids were emitted this way, on the
+            # mistaken assumption that vanilla does the same -- water.json
+            # declares its default variant like any other block.
+            if not variants and not multipart:
+                report.error("model",
+                             f"blockstate '{name[:-5]}' declares no variants and no "
+                             f"multipart, so it resolves to no model")
+            for value in variants.values():
                 applies += value if isinstance(value, list) else [value]
-            for part in doc.get("multipart", []):
+            for part in multipart:
                 apply = part.get("apply")
                 if isinstance(apply, list):
                     applies += apply

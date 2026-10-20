@@ -209,7 +209,13 @@ def block_model(block: str) -> Optional[dict]:
         }
 
     if kind == REG.BlockKind.FLUID:
-        return None
+        # A liquid block is drawn by the fluid renderer, not by a baked model, so
+        # it needs no cube geometry -- but it does need a model file, because the
+        # blockstate below points at one and the model loader logs an error for a
+        # reference that resolves to nothing. Vanilla's own water.json is exactly
+        # this: a textures map carrying only the particle sprite, which is what
+        # the block breaks into and what the fluid renderer falls back to.
+        return {"textures": {"particle": tex}}
 
     return {
         "parent": "minecraft:block/cube_all",
@@ -218,10 +224,16 @@ def block_model(block: str) -> Optional[dict]:
 
 
 def blockstate(block: str) -> dict:
-    """Blockstate JSON. Fluids carry an empty variant map, as vanilla does."""
+    """
+    Blockstate JSON.
+
+    Fluids use the same single-variant shape as every other block, pointing at
+    their particle-only model. An empty variant map is not what vanilla does --
+    water.json declares the default variant like anything else -- and emitting
+    one makes the model loader report "Exception loading blockstate variant:
+    'biomesunseen:<fluid>='" for every fluid at resource load.
+    """
     kind = R.block_kind(block)
-    if kind == REG.BlockKind.FLUID:
-        return {"variants": {}}
     if kind == REG.BlockKind.LOG:
         return {
             "variants": {
