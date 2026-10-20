@@ -328,11 +328,21 @@ def item_model(item: str) -> dict:
                 "textures": {"layer0": f"{MODID}:{folder}/{item}"},
             }
         if kind == REG.BlockKind.FLUID:
-            # Fluids are bucketed, not held; the bucket uses its own texture.
-            return {
-                "parent": "minecraft:item/generated",
-                "textures": {"layer0": f"minecraft:item/water_bucket"},
-            }
+            # Fluids deliberately have no item form: they are placed by worldgen
+            # and by the portal igniter, never held. registry.py keeps them out
+            # of block_items and BUItems.registerBlockItems skips them, so this
+            # branch is unreachable by construction.
+            #
+            # It used to fall back to vanilla's water_bucket sprite, which would
+            # have been a flat recolor standing in for authored art -- exactly
+            # what the art rules forbid. Fail loudly instead, so wiring a fluid
+            # into an item registry without authoring its texture cannot slip
+            # through as a placeholder.
+            raise AssertionError(
+                f"item model requested for fluid '{item}': fluids have no item "
+                f"form. If a fluid really needs one, author its own texture and "
+                f"register a bucket item rather than reusing a vanilla sprite."
+            )
         return {"parent": rid(f"block/{item}")}
 
     return {

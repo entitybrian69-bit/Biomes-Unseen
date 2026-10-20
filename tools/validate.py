@@ -1089,6 +1089,32 @@ def check_model_and_tag_closure(report: Report) -> None:
                     continue
                 path = os.path.join(dirpath, name)
                 doc = json.load(open(path, "r", encoding="utf-8"))
+
+                # Item art has to be ours. A model whose texture layer points
+                # into another namespace is a vanilla sprite standing in for art
+                # that was never authored -- the flat recolor the art rules
+                # forbid. It is invisible to every other check precisely because
+                # the reference resolves: the item renders, just as something we
+                # did not draw. The fluid item model did exactly this before it
+                # was removed, binding layer0 to minecraft:item/water_bucket.
+                #
+                # Only item models are held to this. Vanilla PARENTS are correct
+                # and expected (item/generated, item/handheld), and block models
+                # bind sprites through #texture placeholders rather than literal
+                # layers.
+                if (os.sep + "item" + os.sep) in (path + os.sep):
+                    for layer, ref in (doc.get("textures") or {}).items():
+                        if not isinstance(ref, str) or ref.startswith("#"):
+                            continue
+                        namespace = ref.partition(":")[0]
+                        if namespace and namespace != MODID:
+                            report.error(
+                                "model",
+                                f"{rel(path)} binds '{layer}' to foreign texture "
+                                f"'{ref}': item art must be authored, a vanilla "
+                                f"sprite is a flat-recolor placeholder")
+                        report.count("item texture layers", 1)
+
                 parent = doc.get("parent")
                 if not parent:
                     continue

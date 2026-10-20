@@ -58,7 +58,7 @@ class BlockKind:
     CUBE_ALL = "cube_all"          # one texture on all six faces
     GRASS = "grass"                # top + side + bottom(dirt)
     LOG = "log"                    # side + top, pillar rotation
-    FLUID = "fluid"                # no model; flowing block, bucket item
+    FLUID = "fluid"                # particle-only model, flowing block, no item form
     PORTAL = "portal"              # no collision, translucent, no item
     CROSS = "cross"                # plant: single cross texture, cutout
     LANTERN = "lantern"            # emissive cube, lit blockstate
