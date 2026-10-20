@@ -853,6 +853,141 @@ def check_geckolib(report: Report) -> None:
                          f"keyframes, so that part never moves")
 
 
+def check_geckolib_atlas_coverage(report: Report) -> None:
+    """
+    Every cube face of every rig must sample authored pixels of its own atlas.
+
+    A cube whose uv rect falls outside texture_width/texture_height samples
+    whatever the atlas happens to hold past its edge, and a cube whose rect lands
+    inside a region nobody drew renders as a hole in the model. Neither is a load
+    error, so both survive a green build and show up only as a creature with a
+    missing face.
+
+    This is the check that the boss extras needed: their animation channels had
+    always driven extra_1..extra_4 while the geos emitted two bones, so two of the
+    four authored atlas cells in the v48..63 band were never sampled by anything.
+    Emitting the missing bones activated art that was already drawn -- this
+    confirms that, per rig, and stops a future rig change from keyframing geometry
+    over a blank band.
+
+    Family rigs are shared by every mob in that family, so each is checked against
+    all of them: a UV region authored for one species and left blank for another
+    is exactly the per-species hole this is meant to catch.
+    """
+    if M is None or BS is None:
+        report.note("geckolib", "content tables unavailable; atlas coverage not checked")
+        return
+    try:
+        from png_codec import decode_png
+    except Exception as exc:  # noqa: BLE001
+        report.error("geckolib", f"png_codec unavailable: {exc}")
+        return
+
+    def uv_rects(geo_path: str):
+        """(texture_width, texture_height, [(bone, face, u, v, w, h), ...])."""
+        doc = json.load(open(geo_path, "r", encoding="utf-8"))
+        entry = (doc.get("minecraft:geometry") or [{}])[0]
+        desc = entry.get("description", {})
+        tw = desc.get("texture_width") or 64
+        th = desc.get("texture_height") or 64
+        rects = []
+        for b in entry.get("bones", []):
+            for cube in b.get("cubes", []) or []:
+                uv = cube.get("uv")
+                faces = uv.items() if isinstance(uv, dict) else []
+                for face, spec in faces:
+                    if not isinstance(spec, dict):
+                        continue
+                    origin = spec.get("uv") or []
+                    size = spec.get("uv_size") or []
+                    if len(origin) < 2 or len(size) < 2:
+                        continue
+                    rects.append((b.get("name"), face,
+                                  origin[0], origin[1], size[0], size[1]))
+        return tw, th, rects
+
+    def atlas_coverage(texture_path: str, rects):
+        """Report out-of-bounds and blank rects against one decoded atlas."""
+        try:
+            data = open(texture_path, "rb").read()
+        except OSError:
+            return None, None
+        w, h, px = decode_png(data)
+        oob = []
+        blank = []
+        seen = set()
+        for bone, face, u, v, uw, vh in rects:
+            key = (u, v, uw, vh)
+            if key in seen:
+                continue
+            seen.add(key)
+            if u < 0 or v < 0 or u + uw > w or v + vh > h:
+                oob.append((bone, face, u, v, uw, vh, w, h))
+                continue
+            opaque = 0
+            for dy in range(int(vh)):
+                row = px[int(v) + dy]
+                for dx in range(int(uw)):
+                    pixel = row[int(u) + dx]
+                    if (pixel[3] if len(pixel) == 4 else 255) > 8:
+                        opaque += 1
+            if opaque == 0:
+                blank.append((bone, face, u, v, uw, vh))
+        return oob, blank
+
+    # ---- boss rigs map 1:1 to their own atlas ----------------------------
+    for boss in BS.ALL_BOSSES:
+        geo = os.path.join(ASSETS, "geo", "entity", "boss", boss.id + ".geo.json")
+        tex = os.path.join(ASSETS, "textures", "entity", "boss", boss.id + ".png")
+        if not (os.path.exists(geo) and os.path.exists(tex)):
+            continue
+        tw, th, rects = uv_rects(geo)
+        report.count("geckolib atlas faces", len(rects))
+        oob, blank = atlas_coverage(tex, rects)
+        if oob is None:
+            report.error("geckolib", f"boss '{boss.id}' atlas is unreadable")
+            continue
+        for bone, face, u, v, uw, vh, w, h in oob:
+            report.error("geckolib",
+                         f"boss '{boss.id}' bone '{bone}' face '{face}' samples "
+                         f"u{u}..{u+uw-1} v{v}..{v+vh-1} outside its {w}x{h} atlas")
+        for bone, face, u, v, uw, vh in blank:
+            report.error("geckolib",
+                         f"boss '{boss.id}' bone '{bone}' face '{face}' samples "
+                         f"u{u} v{v} {uw}x{vh}, which is blank in its atlas")
+        report.count("geckolib boss atlas coverage", 1)
+
+    # ---- family rigs are shared, so check every mob that uses one ---------
+    by_family = {}
+    for mob in M.ALL_MOBS:
+        by_family.setdefault(mob.family, []).append(mob.id)
+    for family in sorted(by_family):
+        geo = os.path.join(ASSETS, "geo", "entity", family + ".geo.json")
+        if not os.path.exists(geo):
+            continue
+        tw, th, rects = uv_rects(geo)
+        report.count("geckolib atlas faces", len(rects))
+        for mob_id in sorted(by_family[family]):
+            tex = os.path.join(ASSETS, "textures", "entity", mob_id + ".png")
+            oob, blank = atlas_coverage(tex, rects)
+            if oob is None:
+                report.error("geckolib",
+                             f"mob '{mob_id}' has no readable atlas at "
+                             f"textures/entity/{mob_id}.png")
+                continue
+            for bone, face, u, v, uw, vh, w, h in oob:
+                report.error("geckolib",
+                             f"mob '{mob_id}' ({family}) bone '{bone}' face "
+                             f"'{face}' samples u{u}..{u+uw-1} v{v}..{v+vh-1} "
+                             f"outside its {w}x{h} atlas")
+            for bone, face, u, v, uw, vh in blank:
+                report.error("geckolib",
+                             f"mob '{mob_id}' ({family}) bone '{bone}' face "
+                             f"'{face}' samples u{u} v{v} {uw}x{vh}, which is "
+                             f"blank in its atlas")
+            report.count("geckolib mob atlas coverage", 1)
+
+
 # Must match BUEntities.BOSS_ANIMATIONS: the clips every boss rig is required to
 # define regardless of what its phases name.
 BUEntities_BOSS_ANIMATIONS = {
@@ -1744,6 +1879,7 @@ def main() -> int:
     check_translations(report)
     check_model_and_tag_closure(report)
     check_blockstate_property_coverage(report)
+    check_geckolib_atlas_coverage(report)
 
     return report.render()
 

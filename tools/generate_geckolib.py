@@ -434,13 +434,44 @@ def boss_limb_uv(base: int) -> dict:
     }
 
 
-def boss_extra_uv(base: int) -> dict:
+def boss_extra_height(boss_id: str, index: int) -> int:
+    """
+    How many rows of the extras band a cell actually has art in.
+
+    Read from the authored pixel matrices rather than assumed to fill the band.
+    Every extras glyph is authored inside a 16-row cell but only occupies its top
+    rows -- 8 to 16 depending on the boss and the part -- with the remainder left
+    as transparent padding. Deriving this the same way tail_is_real does keeps the
+    UV and the art from drifting apart.
+    """
+    try:
+        from pixelart import boss_maps as BM
+        cells = BM.BOSSES[boss_id]["extras"]
+        rows = list(cells[index])
+        authored = [r for r in rows if set(r) != {"."}]
+        if authored:
+            return max(1, min(16, len(authored)))
+    except Exception:  # noqa: BLE001
+        pass
+    # Fall back to the full band only if the art cannot be introspected, which
+    # keeps a rig generating rather than dropping the part entirely.
+    return 16
+
+
+def boss_extra_uv(base: int, height: int) -> dict:
     """
     Extra cell at v48..63, used for wings, spires, shards and canopy.
 
     Modelled as a thin 16x16 panel: the two broad faces take the full authored
     region and the narrow edges take a single column, so a wing reads as a flat
     membrane rather than a block.
+
+    The bottom edge samples the cell's last authored row rather than the band's
+    last row. These glyphs are 8 to 16 rows of art inside a 16-row cell, so v63
+    is transparent padding for four of the five bosses -- sampling it gave every
+    extras panel a see-through underside, eighteen blank faces across the five
+    rigs. The last authored row is the glyph's own bottom outline, which is what
+    a panel's underside should show.
     """
     return {
         "south": face(base, 48, 16, 16),
@@ -448,7 +479,7 @@ def boss_extra_uv(base: int) -> dict:
         "west": face(base, 48, 1, 16),
         "east": face(base + 15, 48, 1, 16),
         "up": face(base, 48, 16, 1),
-        "down": face(base, 63, 16, 1),
+        "down": face(base, 48 + height - 1, 16, 1),
     }
 
 
@@ -492,12 +523,13 @@ def boss_rig(boss) -> list:
     extra_count = len(BOSS_EXTRA_CELLS)
     for index in range(extra_count):
         cell = BOSS_EXTRA_CELLS[index]
+        height = boss_extra_height(boss.id, index)
         side = -1 if index % 2 == 0 else 1
         bones.append(bone(
             f"extra_{index + 1}", "body",
             [side * 8, 22 + (index // 2) * 4, 0],
             [cube([side * 8, 14 + (index // 2) * 4, -8],
-                  [16, 16, 1], boss_extra_uv(cell))],
+                  [16, 16, 1], boss_extra_uv(cell, height))],
             rotation=[0, 0, side * 15]))
     return bones
 
