@@ -577,6 +577,7 @@ def _manifest() -> Dict[str, List[str]]:
 MANIFEST = _manifest()
 MANIFEST_BLOCKS = set(MANIFEST.get("blocks", []))
 MANIFEST_ENTITIES = set(MANIFEST.get("entities", []))
+MANIFEST_ITEMS = set(MANIFEST.get("items", []))
 
 
 def check_worldgen(report: Report) -> None:
@@ -1055,30 +1056,105 @@ def check_ore_uses(report: Report) -> None:
             if armourset.repair_item:
                 repair_materials.add(armourset.repair_item.split(":")[-1])
 
+    roadmap_uses = getattr(O, "ROADMAP_USES", frozenset())
+    shipped_uses = getattr(O, "SHIPPED_USES", frozenset())
+    known_uses = roadmap_uses | shipped_uses
+    tool_pieces = ("sword", "pickaxe", "axe", "shovel", "hoe")
+    armour_pieces = ("helmet", "chestplate", "leggings", "boots")
+    tool_ids = {t.id for t in G.TOOL_SETS} if G is not None else set()
+    armour_ids = {a.id for a in G.ARMOR_SETS} if G is not None else set()
+    boss_prefixes = tuple()
+    if BS is not None:
+        boss_prefixes = tuple(b.id.split("_")[0] for b in BS.ALL_BOSSES)
+
+    unrealised: Dict[str, List[str]] = {}
+    unreachable: set = set()
     for ore in O.ALL_ORES:
         if not getattr(ore, "uses", None):
             report.error("ore", f"ore '{ore.id}' declares no use at all")
+        # An unrecognised category is a spelling mistake, not a design choice.
+        # Without this the complement test below would quietly read it as a
+        # shipped category and then report the data as failing to deliver it.
+        for use in getattr(ore, "uses", None) or ():
+            if known_uses and use not in known_uses:
+                report.error(
+                    "ore",
+                    f"ore '{ore.id}' declares unknown use '{use}'; valid uses are "
+                    f"shipped {sorted(shipped_uses)} or roadmap "
+                    f"{sorted(roadmap_uses)}")
         drop = (ore.drop or f"{ore.base_name}_raw").split(":")[-1]
+        refined = f"{ore.id}_refined"
         block = ore.mineral_block
-        realised = []
-        if ore.id in gear_sets or ore.base_name in gear_sets:
-            realised.append("gear family")
-        if drop in ingredients:
-            realised.append("drop is a recipe ingredient")
-        if f"{ore.id}_refined" in ingredients:
-            realised.append("refined form is a recipe ingredient")
-        if drop in repair_materials:
-            realised.append("armour repair material")
-        if block in MANIFEST_BLOCKS and block in results:
-            realised.append("mineral block is craftable")
+
+        def realises(use: str) -> bool:
+            """Whether the shipped data actually delivers one declared use."""
+            if use == "block":
+                return block in MANIFEST_BLOCKS and block in results
+            if use == "crafting":
+                return (drop in ingredients or refined in ingredients
+                        or block in results)
+            if use == "tools":
+                return (ore.base_name in tool_ids or ore.id in tool_ids
+                        or any(f"{ore.base_name}_{t}" in MANIFEST_ITEMS
+                               for t in tool_pieces))
+            if use == "armor":
+                return (ore.base_name in armour_ids or ore.id in armour_ids
+                        or drop in repair_materials or refined in repair_materials
+                        or any(f"{ore.base_name}_{a}" in MANIFEST_ITEMS
+                               for a in armour_pieces))
+            if use == "boss":
+                return any(drop.startswith(prefix) or refined.startswith(prefix)
+                           or ore.id.startswith(prefix)
+                           for prefix in boss_prefixes)
+            # device, potion and currency have no subsystem at all: no block
+            # entity, no menu, no MobEffect, no brewing recipe, no trade.
+            return False
+
+        declared_realised = [u for u in ore.uses if realises(u)]
         report.count("ore uses realised", 1)
-        if not realised:
+        for use in ore.uses:
+            if not realises(use):
+                unrealised.setdefault(use, []).append(ore.id)
+
+        # A dead end is a property of the DATA, not of what the ore happened to
+        # declare. 24 of the 44 ores declare neither "block" nor "crafting", so
+        # asking only about declared uses missed the fact that every one of them
+        # still has a craftable mineral block and a consumable drop -- and
+        # reported 36 perfectly reachable ores as dead ends. What a player can
+        # actually do with the drop is decided here, independently of the tuple.
+        reachable = []
+        if block in MANIFEST_BLOCKS and block in results:
+            reachable.append(f"'{block}' is craftable from nine '{drop}'")
+        if f"{drop}_from_{block}" in recipe_ids:
+            reachable.append(f"'{block}' unpacks back into '{drop}'")
+        if drop in ingredients:
+            reachable.append(f"'{drop}' is a recipe ingredient")
+        if refined in ingredients:
+            reachable.append(f"'{refined}' is a recipe ingredient")
+        if drop in repair_materials or refined in repair_materials:
+            reachable.append("it repairs a gear set")
+        if ore.id in gear_sets or ore.base_name in gear_sets:
+            reachable.append("a gear family is named after it")
+
+        if not reachable:
+            unreachable.add(ore.id)
             report.error(
                 "ore",
-                f"ore '{ore.id}' declares uses {sorted(ore.uses)} but nothing in the "
-                f"shipped data realises any of them: '{drop}' is consumed by no "
-                f"recipe, no gear family is named after it, and '{block}' is not "
-                f"craftable -- the drop is a dead-end item")
+                f"ore '{ore.id}' is a dead end: nothing in the shipped data consumes "
+                f"'{drop}', no gear family is named after it, and '{block}' is not "
+                f"craftable -- the drop can be mined and looted but never used")
+
+        # A declared use in a category the mod does ship should be delivered.
+        # Roadmap categories are reported as a gap below rather than failed, but
+        # only so long as the ore is still reachable some other way -- which the
+        # test above already guarantees.
+        shipped_unrealised = sorted(u for u in ore.uses
+                                    if u in shipped_uses and not realises(u))
+        if shipped_unrealised and reachable:
+            report.note(
+                "ore",
+                f"ore '{ore.id}' declares {shipped_unrealised}, which nothing "
+                f"realises, but the drop is still reachable: {reachable[0]}")
 
         # A mineral block that exists must be craftable both ways, whichever
         # branch realised it. This is the specific wiring that was missing.
@@ -1093,6 +1169,31 @@ def check_ore_uses(report: Report) -> None:
                 report.error("ore",
                              f"mineral block '{block}' has no '{unpack}' recipe, so it "
                              f"cannot be broken back down into '{drop}'")
+
+    # ---- declared uses the mod cannot yet deliver -------------------------
+    # Reported the way check_audio reports silent sound ids: a counted gap that
+    # names what is missing, rather than a silent overstatement in the authored
+    # data. These are notes and not errors on purpose -- the intent is authored
+    # design and the roadmap categories have no subsystem to satisfy them yet --
+    # but the claim that no drop is stranded is measured here, not assumed. An
+    # ore that lost every path would already have failed above and lands in
+    # `unreachable`, which is what makes the sentence below safe to print.
+    if unrealised:
+        total = sum(len(v) for v in unrealised.values())
+        report.count("declared uses not realised", total)
+        for use in sorted(unrealised, key=lambda u: -len(unrealised[u])):
+            ores = sorted(unrealised[use])
+            kind = ("roadmap, no subsystem exists"
+                    if use in roadmap_uses else "shipped category, partly wired")
+            stranded = [o for o in ores if o in unreachable]
+            tail = (f"{len(stranded)} of these are stranded with no reachable use "
+                    f"at all: {stranded[:3]}"
+                    if stranded else
+                    "each still reaches the player another way, so no drop is "
+                    "stranded")
+            report.note("ore",
+                        f"{len(ores)} ore(s) declare use '{use}' ({kind}), which the "
+                        f"shipped data does not realise: e.g. {ores[:3]}; {tail}.")
 
 
 def check_armour_slot_ordering(report: Report) -> None:

@@ -17,7 +17,13 @@ from typing import Dict, List, Optional, Tuple
 # Vein compositions available in pixelart.base_maps.ORE_MAPS
 VEIN_FORMS = ("cluster_large", "spire", "speckle", "vein", "nodule", "banded", "dendrite", "shard")
 
-# What an ore can be spent on. Consumed by codegen_java.py / generate_data.py.
+# What an ore can be spent on.
+#
+# This is authored design intent, and nothing in the pipeline consumes it: no
+# generator and no Java class reads OreSpec.uses, so a declaration here does not
+# by itself make anything true in game. validate.py's check_ore_uses holds the
+# field honest instead, by testing whether each declared use is realised in the
+# shipped data and reporting the gap where it is not.
 USE_TOOLS = "tools"
 USE_ARMOR = "armor"
 USE_DEVICE = "device"
@@ -26,6 +32,30 @@ USE_BLOCK = "block"
 USE_CURRENCY = "currency"
 USE_CRAFTING = "crafting"
 USE_BOSS = "boss"
+
+# Uses with no subsystem behind them at all. A `device` ore would need a block
+# entity and a menu; a `potion` ore needs MobEffects and brewing recipes; a
+# `currency` ore needs trades. None of the three exists, so every ore declaring
+# one is promising content the mod cannot deliver. These are roadmap rather than
+# shipped, and check_ore_uses reports them as a known gap the way check_audio
+# reports the silent sound ids -- not silently, and not as a build failure, since
+# adding the subsystems is new scope rather than a defect in what is here.
+ROADMAP_USES = frozenset({USE_DEVICE, USE_POTION, USE_CURRENCY})
+
+# Uses the mod ships a subsystem for, so a declaration here is a promise the
+# data is expected to keep:
+#   block     the ore's compact-storage block, craftable from nine of its drop
+#   crafting  the drop or its refined form appearing as a recipe ingredient
+#   tools     a tool set named after the ore
+#   armor     an armour set named after it, or repairing with its drop
+#   boss      a boss arena or boss gear that consumes it
+# Not every ore realises every one of these -- ten armour sets and ten tool sets
+# cannot cover forty-four ores -- so check_ore_uses reports the shortfalls per
+# category rather than requiring all five. What it does require is that the
+# categories themselves are spelled correctly: ROADMAP_USES and SHIPPED_USES must
+# together account for every declared use, so a typo such as "devic" is an error
+# instead of being silently read as a shipped category the data then fails.
+SHIPPED_USES = frozenset({USE_BLOCK, USE_CRAFTING, USE_TOOLS, USE_ARMOR, USE_BOSS})
 
 
 @dataclass(frozen=True)
