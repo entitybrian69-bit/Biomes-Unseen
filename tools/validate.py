@@ -979,6 +979,105 @@ def check_pixelart_glyph_geometry(report: Report) -> None:
                     f"{sorted(widths)}, expected every row exactly {want_width} wide")
 
 
+def check_armour_slot_ordering(report: Report) -> None:
+    """
+    Armour defence values must reach the game in the slot they were authored for.
+
+    ArmorMaterial.getDefenseForType indexes a plain int[] by ArmorItem.Type
+    ordinal, and that enum runs BOOTS, LEGGINGS, CHESTPLATE, HELMET -- pinned by
+    vanilla's own diamond material, whose defence array {3, 6, 8, 3} read by
+    ordinal gives boots 3, leggings 6, chestplate 8, helmet 3, and by the
+    durability base {13, 15, 16, 11} that every 1.20.1 armour material uses.
+
+    Nothing enforces the order: an int[] carries no slot names, so a reversed one
+    compiles, registers, and equips -- it just puts the chestplate's defence on
+    the leggings. The values here were correct all along, but by accident: the
+    generator read the boots-first authored tuple as helmet-first and
+    getDefenseForType then read the helmet-first array boots-first, so the two
+    reversals cancelled. Editing either side on its own would have silently
+    swapped chestplate onto leggings across all ten sets, and four comments in the
+    chain disagreed about which order was in use.
+
+    The chain is now reversal-free end to end, and this holds it that way:
+    ArmorSetSpec.protection (authored boots-first) -> the emitted GEAR_ARMOUR row
+    -> the int[] BUItems builds -> the value each slot receives in game.
+    """
+    if G is None:
+        report.error("gear", f"content tables unavailable: {CONTENT_IMPORT_ERROR}")
+        return
+
+    ordinal = ("boots", "leggings", "chestplate", "helmet")
+    java = os.path.join(JAVA, "com", "biomesunseen", "init", "BUContent.java")
+    if not os.path.isfile(java):
+        report.error("gear", "BUContent.java is missing; armour ordering not checked")
+        return
+    text = open(java, "r", encoding="utf-8").read()
+
+    # Row shape: { setId, durabilityMultiplier, boots, leggings, chestplate,
+    #              helmet, toughness, knockbackResistance, repairItem, setBonus }
+    emitted = {}
+    row_re = re.compile(
+        r'\{\s*"([a-z_]+)"\s*,\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)\s*,'
+        r'\s*(\d+)\s*,\s*(\d+)\s*,')
+    for match in row_re.finditer(text):
+        emitted[match.group(1)] = tuple(int(match.group(i)) for i in range(3, 7))
+
+    if not emitted:
+        report.error("gear",
+                     "no GEAR_ARMOUR rows parsed; the row shape may have changed and "
+                     "this check would otherwise pass vacuously")
+        return
+
+    # BUItems must build the int[] in ordinal order from row[2..5]. A swap there
+    # is the other half of the same failure, so the construction site is checked
+    # too rather than assumed.
+    items_java = os.path.join(JAVA, "com", "biomesunseen", "init", "BUItems.java")
+    if os.path.isfile(items_java):
+        body = open(items_java, "r", encoding="utf-8").read()
+        construction = re.search(
+            r'int\[\]\s+protection\s*=\s*\{([^}]*)\}', body)
+        if construction is None:
+            report.error("gear",
+                         "BUItems no longer builds an int[] protection array; update "
+                         "this check to follow it")
+        else:
+            order = [name.strip() for name in construction.group(1).split(",")]
+            if order != list(ordinal):
+                report.error("gear",
+                             f"BUItems builds protection as {{{construction.group(1)}}} "
+                             f"but ArmorItem.Type ordinal order is {list(ordinal)}, so "
+                             f"defence lands on the wrong slots")
+
+    for spec in G.ARMOR_SETS:
+        protection = spec.protection
+        if isinstance(protection, dict):
+            authored = tuple(protection[slot] for slot in ordinal)
+        else:
+            authored = tuple(protection)
+        if len(authored) != 4:
+            report.error("gear",
+                         f"armour set '{spec.id}' has {len(authored)} defence values, "
+                         f"expected four")
+            continue
+        row = emitted.get(spec.id)
+        if row is None:
+            report.error("gear",
+                         f"armour set '{spec.id}' has no GEAR_ARMOUR row")
+            continue
+        report.count("armour set slot orderings", 1)
+        # The emitted row is consumed positionally as ordinal order, so what each
+        # slot receives in game is simply the row read in that order.
+        in_game = dict(zip(ordinal, row))
+        intended = dict(zip(ordinal, authored))
+        for slot in ordinal:
+            if in_game[slot] != intended[slot]:
+                report.error("gear",
+                             f"armour set '{spec.id}' gives {slot} defence "
+                             f"{in_game[slot]} in game but {intended[slot]} was "
+                             f"authored -- the slot ordering is reversed somewhere "
+                             f"in the chain")
+
+
 def check_particles(report: Report) -> None:
     """
     Every particle type must have a descriptor, and every descriptor a sprite.
@@ -2137,6 +2236,7 @@ def main() -> int:
     check_translations(report)
     check_model_and_tag_closure(report)
     check_blockstate_property_coverage(report)
+    check_armour_slot_ordering(report)
     check_particles(report)
     check_pixelart_glyph_geometry(report)
     check_geckolib_atlas_coverage(report)

@@ -290,19 +290,30 @@ def gear_section() -> str:
     out.append("")
 
     out.append("    /**")
-    out.append("     * Armour sets as {setId, durabilityMultiplier, helmet, chestplate,")
-    out.append("     * leggings, boots, toughness, knockbackResistance, repairItem, setBonus}.")
+    out.append("     * Armour sets as {setId, durabilityMultiplier, boots, leggings,")
+    out.append("     * chestplate, helmet, toughness, knockbackResistance, repairItem,")
+    out.append("     * setBonus}.")
+    out.append("     *")
+    out.append("     * The four defence values are emitted in ArmorItem.Type ordinal order")
+    out.append("     * (BOOTS, LEGGINGS, CHESTPLATE, HELMET), which is the order")
+    out.append("     * BUArmorMaterial.getDefenseForType indexes them by. That matches")
+    out.append("     * ArmorSetSpec.protection, authored boots-first, so the row is a direct")
+    out.append("     * copy of the tuple with no reordering anywhere in the chain.")
     out.append("     */")
     out.append("    public static final Object[][] GEAR_ARMOUR = {")
     for aset in GEAR.ARMOR_SETS:
         prot = aset.protection
         repair = aset.repair_item.split(":")[-1] if aset.repair_item else ""
+        # Authored boots-first, emitted boots-first. A dict is accepted for the
+        # same four named slots so a future spec can spell them explicitly.
+        if isinstance(prot, dict):
+            ordered = [prot["boots"], prot["leggings"], prot["chestplate"], prot["helmet"]]
+        else:
+            ordered = list(prot)
+        assert len(ordered) == 4, f"{aset.id}: protection must have four slots"
         out.append(
             f"            {{ {q(aset.id)}, {int(aset.durability_multiplier)}, "
-            f"{int(prot['helmet'] if isinstance(prot, dict) else prot[0])}, "
-            f"{int(prot['chestplate'] if isinstance(prot, dict) else prot[1])}, "
-            f"{int(prot['leggings'] if isinstance(prot, dict) else prot[2])}, "
-            f"{int(prot['boots'] if isinstance(prot, dict) else prot[3])}, "
+            f"{int(ordered[0])}, {int(ordered[1])}, {int(ordered[2])}, {int(ordered[3])}, "
             f"{float(aset.toughness)}f, {float(aset.knockback_resistance)}f, "
             f"{q(repair)}, {q(aset.set_bonus)} }},"
         )

@@ -87,15 +87,18 @@ public final class BUItems {
         for (Object[] row : BUContent.GEAR_ARMOUR) {
             String setId = (String) row[0];
             int durabilityMultiplier = (Integer) row[1];
-            // ArmorItem.Type is ordered HELMET, CHESTPLATE, LEGGINGS, BOOTS, and
-            // the generated table stores the pieces in that same order, so the
-            // array can be used as-is. Reordering it would silently swap the
-            // helmet's defence onto the boots.
-            int helmet = (Integer) row[2];
-            int chestplate = (Integer) row[3];
-            int leggings = (Integer) row[4];
-            int boots = (Integer) row[5];
-            int[] protection = {helmet, chestplate, leggings, boots};
+            // ArmorItem.Type is ordered BOOTS, LEGGINGS, CHESTPLATE, HELMET --
+            // pinned by vanilla's own diamond material, whose defence array
+            // {3, 6, 8, 3} yields boots 3, leggings 6, chestplate 8, helmet 3
+            // when read by ordinal, and by the durability base {13, 15, 16, 11}
+            // every 1.20.1 armour material uses. The generated table is emitted
+            // in that same ordinal order, so the array is used exactly as
+            // authored with nothing reordered on either side.
+            int boots = (Integer) row[2];
+            int leggings = (Integer) row[3];
+            int chestplate = (Integer) row[4];
+            int helmet = (Integer) row[5];
+            int[] protection = {boots, leggings, chestplate, helmet};
             float toughness = (Float) row[6];
             float knockback = (Float) row[7];
             String repair = (String) row[8];

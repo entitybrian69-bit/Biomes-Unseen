@@ -383,8 +383,15 @@ public final class BUContent {
     };
 
     /**
-     * Armour sets as {setId, durabilityMultiplier, helmet, chestplate,
-     * leggings, boots, toughness, knockbackResistance, repairItem, setBonus}.
+     * Armour sets as {setId, durabilityMultiplier, boots, leggings,
+     * chestplate, helmet, toughness, knockbackResistance, repairItem,
+     * setBonus}.
+     *
+     * The four defence values are emitted in ArmorItem.Type ordinal order
+     * (BOOTS, LEGGINGS, CHESTPLATE, HELMET), which is the order
+     * BUArmorMaterial.getDefenseForType indexes them by. That matches
+     * ArmorSetSpec.protection, authored boots-first, so the row is a direct
+     * copy of the tuple with no reordering anywhere in the chain.
      */
     public static final Object[][] GEAR_ARMOUR = {
             { "lumenshade", 42, 3, 6, 8, 3, 2.0f, 0.0f, "lumenshade_ingot", "lumenshade_glow" },
