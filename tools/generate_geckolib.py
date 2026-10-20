@@ -167,6 +167,26 @@ def limb_uv(base: int) -> dict:
     }
 
 
+# The tail band, matching TAIL_U / TAIL_V in creature_maps. Four 3-column faces
+# side by side and 12 rows tall, which is exactly the 3x12x3 box the tail bone
+# declares -- so no face is stretched. The caps have no authored art of their own
+# and reuse the top of the right face, which is standard for a box end that is
+# pressed against the body and effectively never seen.
+TAIL_U = 0
+TAIL_V = 34
+
+
+def tail_uv() -> dict:
+    return {
+        "west": face(TAIL_U + 0, TAIL_V, 3, 12),
+        "south": face(TAIL_U + 3, TAIL_V, 3, 12),
+        "east": face(TAIL_U + 6, TAIL_V, 3, 12),
+        "north": face(TAIL_U + 9, TAIL_V, 3, 12),
+        "up": face(TAIL_U + 0, TAIL_V, 3, 3),
+        "down": face(TAIL_U + 3, TAIL_V, 3, 3),
+    }
+
+
 LIMB_CELLS = {"front_left": 0, "front_right": 16, "back_left": 32, "back_right": 48}
 
 
@@ -301,6 +321,60 @@ def rig_fungal() -> list:
         bone("leg_back_right", "body", [5, 2, 2],
              [cube([3, -6, 0], [4, 10, 4], limb_uv(LIMB_CELLS["back_right"]))]),
     ]
+
+
+# Tail bone per family: (pivot, cube origin, rotation), or None for a family
+# whose tail is vestigial. Biped's authored tail region is outline-only -- every
+# glyph is 'O' -- so it gets no bone; a box of pure outline would read as a
+# floating wireframe behind the creature rather than as a tail.
+#
+# This is derived from the authored atlas rather than hardcoded per family, so a
+# future family whose tail is real gets one automatically.
+FAMILY_TAILS = {
+    "quadruped": ([0, 12, 4], [-1.5, 0, 4], [-20, 0, 0]),
+    "avian": ([0, 8, 4], [-1.5, 2, 4], [60, 0, 0]),
+    "serpent": ([0, 6, 24], [-1.5, 1, 24], [-10, 0, 0]),
+    "arthropod": ([0, 7, 4], [-1.5, 0, 4], [-25, 0, 0]),
+    "fungal": ([0, 8, 4], [-1.5, 0, 4], [-12, 0, 0]),
+    "biped": None,
+}
+
+
+def tail_is_real(family: str) -> bool:
+    """
+    Whether a family's authored tail carries anything but outline.
+
+    Read from the pixel matrices themselves rather than from a hand-kept list, so
+    the rigs and the art cannot drift: if a family's tail is later given real
+    shading it starts rendering, and if one is stripped back to outline it stops.
+    """
+    spec = FAMILY_TAILS.get(family)
+    if spec is None:
+        return False
+    try:
+        from pixelart import creature_maps as CM
+        regions = CM.FAMILIES[family]
+        glyphs = set()
+        for key in ("tail_r", "tail_f", "tail_l", "tail_b"):
+            for row in regions.get(key) or []:
+                glyphs.update(row)
+        # '.' is transparent and 'O' is the 1px outline every region carries;
+        # anything else means the tail was actually shaded.
+        return bool(glyphs - {".", "O"})
+    except Exception:  # noqa: BLE001
+        # If the art cannot be introspected, trust the authored placement table
+        # rather than silently dropping every tail in the mod.
+        return True
+
+
+def with_tail(family: str, bones: list) -> list:
+    """Append the tail bone to a rig when that family has a real one."""
+    if not tail_is_real(family):
+        return bones
+    pivot, origin, rotation = FAMILY_TAILS[family]
+    return bones + [bone("tail", "body", pivot,
+                         [cube(origin, [3, 12, 3], tail_uv())],
+                         rotation=rotation)]
 
 
 FAMILY_RIGS = {
@@ -460,6 +534,10 @@ def creature_animations(family: str) -> dict:
         swing[limb] = {"rotation": keyframes(
             (0.0, (sign, 0, 0)), (0.4, (-sign, 0, 0)), (0.8, (sign, 0, 0)))}
 
+    # Only families that actually have a tail bone get a tail track; keyframing a
+    # bone the rig does not define makes GeckoLib warn at load.
+    tails = ["tail"] if tail_is_real(family) else []
+
     idle_bones = {
         "body": {"position": keyframes(
             (0.0, (0, 0, 0)), (1.0, (0, 0.4, 0)), (2.0, (0, 0, 0)))},
@@ -469,6 +547,9 @@ def creature_animations(family: str) -> dict:
     for limb in wings:
         idle_bones[limb] = {"rotation": keyframes(
             (0.0, (0, 0, 18)), (0.35, (0, 0, -22)), (0.7, (0, 0, 18)))}
+    for tail in tails:
+        idle_bones[tail] = {"rotation": keyframes(
+            (0.0, (0, -4, 0)), (1.5, (0, 5, 0)), (3.0, (0, -4, 0)))}
 
     walk_bones = dict(idle_bones)
     walk_bones.update(swing)
@@ -477,6 +558,11 @@ def creature_animations(family: str) -> dict:
     for limb in wings:
         walk_bones[limb] = {"rotation": keyframes(
             (0.0, (0, 0, 30)), (0.2, (0, 0, -35)), (0.4, (0, 0, 30)))}
+    for tail in tails:
+        # The tail counter-swings against the stride, which is what sells the walk
+        # as weight-bearing rather than a sliding model.
+        walk_bones[tail] = {"rotation": keyframes(
+            (0.0, (0, 12, 0)), (0.4, (0, -12, 0)), (0.8, (0, 12, 0)))}
 
     attack_target = arms[0] if arms else ("head" if family == "serpent" else limbs[0])
     attack_bones = {
@@ -501,6 +587,8 @@ def creature_animations(family: str) -> dict:
     }
     for limb in limbs:
         death_bones[limb] = {"rotation": keyframes((0.0, (0, 0, 0)), (0.6, (25, 0, 0)))}
+    for tail in tails:
+        death_bones[tail] = {"rotation": keyframes((0.0, (0, 0, 0)), (0.9, (35, 0, 0)))}
 
     return {
         "animation.idle": clip(3.0, True, idle_bones),
@@ -679,7 +767,8 @@ def main() -> None:
     for family in families:
         builder, bw, bh, by = FAMILY_RIGS[family]
         write(f"geo/entity/{family}.geo.json",
-              geometry(f"geometry.{MODID}.{family}", 64, 32, builder(), bw, bh, by))
+              geometry(f"geometry.{MODID}.{family}", 64, 64,
+                       with_tail(family, builder()), bw, bh, by))
         write(f"animations/entity/{family}.animation.json",
               {"format_version": ANIM_VERSION,
                "animations": creature_animations(family)})

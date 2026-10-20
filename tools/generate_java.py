@@ -54,7 +54,10 @@ FLUID_BLOCKS: Tuple[str, ...] = ("hollow_water", "lumen_water", "void_fluid",
 # family atlas layout; every boss uses its own 64x64 atlas. These must match
 # tools/pixelart/creature_maps.py and boss_maps.py exactly or the UVs skew.
 MOB_TEX_W = 64
-MOB_TEX_H = 32
+# 64 rather than 32: the atlas grew a band so the tail has room of its own. At 32
+# rows every band was spoken for and the tail was composed over the front-right
+# and back-left limb cells, corrupting two legs to gain one tail.
+MOB_TEX_H = 64
 BOSS_TEX_W = 64
 BOSS_TEX_H = 64
 

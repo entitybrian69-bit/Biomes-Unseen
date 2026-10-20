@@ -415,7 +415,7 @@ public final class BUContent {
                     3.0f, 0.0f, 24.0f,
                     0.0f, 0.5f,
                     false, false, "translucent",
-                    0.25f, 64, 32,
+                    0.25f, 64, 64,
                     new String[] {
                     "float", "fly_random", "tempt", "look_at_player", "follow_flock_leader"
         },
@@ -434,7 +434,7 @@ public final class BUContent {
                     3.0f, 0.0f, 24.0f,
                     0.0f, 0.7f,
                     false, false, "cutout",
-                    0.3f, 64, 32,
+                    0.3f, 64, 64,
                     new String[] {
                     "float", "panic", "breed", "tempt", "follow_parent", "herd_follow_leader", "eat_block",
                     "look_at_player", "random_look_around", "water_avoiding_random_stroll"
@@ -454,7 +454,7 @@ public final class BUContent {
                     3.0f, 0.0f, 24.0f,
                     0.0f, 0.9f,
                     false, false, "cutout",
-                    0.4f, 64, 32,
+                    0.4f, 64, 64,
                     new String[] {
                     "float", "panic", "breed", "tempt", "follow_parent", "herd_follow_leader", "eat_block",
                     "look_at_player", "random_look_around", "water_avoiding_random_stroll"
@@ -474,7 +474,7 @@ public final class BUContent {
                     5.0f, 0.0f, 24.0f,
                     2.0f, 1.0f,
                     false, false, "cutout",
-                    0.4f, 64, 32,
+                    0.4f, 64, 64,
                     new String[] {
                     "float", "ambush_lie_in_wait", "melee_attack", "hurt_by_target",
                     "nearest_attackable_target_player", "look_at_player", "water_avoiding_random_stroll"
@@ -494,7 +494,7 @@ public final class BUContent {
                     3.0f, 0.0f, 24.0f,
                     0.0f, 0.75f,
                     false, false, "cutout",
-                    0.4f, 64, 32,
+                    0.4f, 64, 64,
                     new String[] {
                     "float", "seek_shelter_from_sun", "seek_bioluminescence", "panic", "tempt", "look_at_player",
                     "water_avoiding_random_stroll"
@@ -514,7 +514,7 @@ public final class BUContent {
                     3.0f, 0.0f, 24.0f,
                     0.0f, 0.55f,
                     true, false, "translucent",
-                    0.2f, 64, 32,
+                    0.2f, 64, 64,
                     new String[] {
                     "float", "fly_random", "seek_bioluminescence", "look_at_player"
         },
@@ -533,7 +533,7 @@ public final class BUContent {
                     4.0f, 0.0f, 24.0f,
                     3.0f, 1.0f,
                     false, true, "cutout",
-                    0.4f, 64, 32,
+                    0.4f, 64, 64,
                     new String[] {
                     "float", "melee_attack", "hurt_by_target", "nearest_attackable_target_player", "look_at_player",
                     "random_look_around", "water_avoiding_random_stroll"
@@ -553,7 +553,7 @@ public final class BUContent {
                     3.0f, 0.0f, 24.0f,
                     0.0f, 1.25f,
                     false, false, "cutout",
-                    0.4f, 64, 32,
+                    0.4f, 64, 64,
                     new String[] {
                     "float", "panic", "breed", "tempt", "follow_parent", "herd_follow_leader", "eat_block",
                     "look_at_player", "random_look_around", "water_avoiding_random_stroll"
@@ -573,7 +573,7 @@ public final class BUContent {
                     3.0f, 0.0f, 24.0f,
                     0.0f, 0.5f,
                     false, false, "cutout",
-                    0.4f, 64, 32,
+                    0.4f, 64, 64,
                     new String[] {
                     "float", "trade_with_player", "look_at_trading_player", "panic", "tempt", "open_door",
                     "look_at_player", "water_avoiding_random_stroll"
@@ -593,7 +593,7 @@ public final class BUContent {
                     3.5f, 0.0f, 24.0f,
                     0.0f, 1.0f,
                     false, false, "cutout",
-                    0.4f, 64, 32,
+                    0.4f, 64, 64,
                     new String[] {
                     "float", "ranged_attack", "melee_attack", "hurt_by_target", "nearest_attackable_target_player",
                     "look_at_player", "water_avoiding_random_stroll"
@@ -613,7 +613,7 @@ public final class BUContent {
                     3.0f, 0.0f, 24.0f,
                     0.0f, 0.8f,
                     false, false, "cutout",
-                    0.4f, 64, 32,
+                    0.4f, 64, 64,
                     new String[] {
                     "float", "panic", "breed", "tempt", "follow_parent", "herd_follow_leader", "eat_block",
                     "look_at_player", "random_look_around", "water_avoiding_random_stroll"
@@ -633,7 +633,7 @@ public final class BUContent {
                     4.0f, 0.0f, 24.0f,
                     0.0f, 1.0f,
                     false, false, "cutout",
-                    0.4f, 64, 32,
+                    0.4f, 64, 64,
                     new String[] {
                     "float", "melee_attack", "hurt_by_target", "nearest_attackable_target_player", "look_at_player",
                     "random_look_around", "water_avoiding_random_stroll"
@@ -653,7 +653,7 @@ public final class BUContent {
                     3.0f, 0.0f, 24.0f,
                     4.0f, 1.4f,
                     false, false, "cutout",
-                    0.4f, 64, 32,
+                    0.4f, 64, 64,
                     new String[] {
                     "float", "panic", "breed", "tempt", "follow_parent", "herd_follow_leader", "eat_block",
                     "look_at_player", "random_look_around", "water_avoiding_random_stroll"
@@ -673,7 +673,7 @@ public final class BUContent {
                     5.0f, 0.0f, 24.0f,
                     5.0f, 1.0f,
                     false, false, "cutout",
-                    0.4f, 64, 32,
+                    0.4f, 64, 64,
                     new String[] {
                     "float", "melee_attack", "hurt_by_target", "nearest_attackable_target_player", "look_at_player",
                     "random_look_around", "water_avoiding_random_stroll"
@@ -693,7 +693,7 @@ public final class BUContent {
                     5.5f, 0.0f, 24.0f,
                     0.0f, 1.0f,
                     true, false, "translucent",
-                    0.4f, 64, 32,
+                    0.4f, 64, 64,
                     new String[] {
                     "float", "melee_attack", "hurt_by_target", "nearest_attackable_target_player", "look_at_player",
                     "random_look_around", "water_avoiding_random_stroll"
@@ -713,7 +713,7 @@ public final class BUContent {
                     6.0f, 0.0f, 24.0f,
                     0.0f, 1.0f,
                     false, false, "cutout",
-                    0.4f, 64, 32,
+                    0.4f, 64, 64,
                     new String[] {
                     "float", "melee_attack", "hurt_by_target", "nearest_attackable_target_player",
                     "pack_call_for_help", "avoid_creeper", "look_at_player", "water_avoiding_random_stroll"
@@ -733,7 +733,7 @@ public final class BUContent {
                     7.0f, 0.0f, 24.0f,
                     6.0f, 1.3f,
                     false, false, "cutout",
-                    0.4f, 64, 32,
+                    0.4f, 64, 64,
                     new String[] {
                     "float", "melee_attack", "hurt_by_target", "nearest_attackable_target_player", "look_at_player",
                     "random_look_around", "water_avoiding_random_stroll"
@@ -753,7 +753,7 @@ public final class BUContent {
                     3.0f, 0.0f, 24.0f,
                     0.0f, 0.95f,
                     false, false, "cutout",
-                    0.4f, 64, 32,
+                    0.4f, 64, 64,
                     new String[] {
                     "float", "trade_with_player", "look_at_trading_player", "panic", "tempt", "open_door",
                     "look_at_player", "water_avoiding_random_stroll"
@@ -773,7 +773,7 @@ public final class BUContent {
                     8.0f, 0.0f, 24.0f,
                     8.0f, 1.5f,
                     false, false, "cutout",
-                    0.4f, 64, 32,
+                    0.4f, 64, 64,
                     new String[] {
                     "float", "melee_attack", "hurt_by_target", "nearest_attackable_target_player", "look_at_player",
                     "random_look_around", "water_avoiding_random_stroll"
@@ -793,7 +793,7 @@ public final class BUContent {
                     9.0f, 0.0f, 24.0f,
                     10.0f, 1.6f,
                     true, false, "cutout",
-                    0.4f, 64, 32,
+                    0.4f, 64, 64,
                     new String[] {
                     "float", "melee_attack", "hurt_by_target", "nearest_attackable_target_player", "look_at_player",
                     "random_look_around", "water_avoiding_random_stroll"
@@ -813,7 +813,7 @@ public final class BUContent {
                     4.0f, 0.0f, 24.0f,
                     0.0f, 0.7f,
                     true, false, "translucent",
-                    0.4f, 64, 32,
+                    0.4f, 64, 64,
                     new String[] {
                     "float", "melee_attack", "hurt_by_target", "nearest_attackable_target_player", "look_at_player",
                     "random_look_around", "water_avoiding_random_stroll"
@@ -833,7 +833,7 @@ public final class BUContent {
                     7.0f, 0.0f, 24.0f,
                     6.0f, 1.2f,
                     true, false, "cutout",
-                    0.4f, 64, 32,
+                    0.4f, 64, 64,
                     new String[] {
                     "float", "ambush_lie_in_wait", "melee_attack", "hurt_by_target",
                     "nearest_attackable_target_player", "look_at_player", "water_avoiding_random_stroll"
@@ -853,7 +853,7 @@ public final class BUContent {
                     5.5f, 0.0f, 24.0f,
                     0.0f, 1.0f,
                     false, false, "cutout",
-                    0.4f, 64, 32,
+                    0.4f, 64, 64,
                     new String[] {
                     "float", "ambush_lie_in_wait", "melee_attack", "hurt_by_target",
                     "nearest_attackable_target_player", "look_at_player", "water_avoiding_random_stroll"
@@ -873,7 +873,7 @@ public final class BUContent {
                     4.5f, 0.0f, 24.0f,
                     0.0f, 0.9f,
                     false, false, "cutout",
-                    0.4f, 64, 32,
+                    0.4f, 64, 64,
                     new String[] {
                     "fly_random", "swoop_attack", "melee_attack", "hurt_by_target", "nearest_attackable_target_player",
                     "land_on_ground", "look_at_player", "follow_flock_leader"
@@ -893,7 +893,7 @@ public final class BUContent {
                     6.0f, 0.0f, 24.0f,
                     0.0f, 1.0f,
                     false, false, "cutout",
-                    0.4f, 64, 32,
+                    0.4f, 64, 64,
                     new String[] {
                     "float", "melee_attack", "hurt_by_target", "nearest_attackable_target_player",
                     "pack_call_for_help", "avoid_creeper", "look_at_player", "water_avoiding_random_stroll"
@@ -913,7 +913,7 @@ public final class BUContent {
                     5.5f, 0.0f, 24.0f,
                     2.0f, 1.0f,
                     false, false, "cutout",
-                    0.4f, 64, 32,
+                    0.4f, 64, 64,
                     new String[] {
                     "float", "ambush_lie_in_wait", "melee_attack", "hurt_by_target",
                     "nearest_attackable_target_player", "look_at_player", "water_avoiding_random_stroll"
@@ -933,7 +933,7 @@ public final class BUContent {
                     3.0f, 0.0f, 24.0f,
                     0.0f, 0.9f,
                     false, true, "cutout",
-                    0.4f, 64, 32,
+                    0.4f, 64, 64,
                     new String[] {
                     "swim_random", "follow_flock_leader", "tempt", "look_at_player"
         },
@@ -952,7 +952,7 @@ public final class BUContent {
                     4.0f, 0.0f, 24.0f,
                     8.0f, 0.85f,
                     false, true, "cutout",
-                    0.4f, 64, 32,
+                    0.4f, 64, 64,
                     new String[] {
                     "swim_random", "melee_attack", "hurt_by_target", "nearest_attackable_target_player",
                     "look_at_player"
@@ -972,7 +972,7 @@ public final class BUContent {
                     5.5f, 0.0f, 24.0f,
                     0.0f, 1.0f,
                     false, true, "cutout",
-                    0.4f, 64, 32,
+                    0.4f, 64, 64,
                     new String[] {
                     "swim_random", "swim_toward_player", "melee_attack", "hurt_by_target",
                     "nearest_attackable_target_player", "look_at_player", "follow_flock_leader"
@@ -992,7 +992,7 @@ public final class BUContent {
                     3.5f, 0.0f, 24.0f,
                     0.0f, 0.7f,
                     false, true, "cutout",
-                    0.4f, 64, 32,
+                    0.4f, 64, 64,
                     new String[] {
                     "swim_random", "swim_toward_player", "melee_attack", "hurt_by_target",
                     "nearest_attackable_target_player", "look_at_player", "follow_flock_leader"
@@ -1012,7 +1012,7 @@ public final class BUContent {
                     7.0f, 0.0f, 24.0f,
                     0.0f, 1.5f,
                     false, true, "cutout",
-                    0.4f, 64, 32,
+                    0.4f, 64, 64,
                     new String[] {
                     "swim_random", "swim_toward_player", "melee_attack", "hurt_by_target",
                     "nearest_attackable_target_player", "look_at_player", "follow_flock_leader"
@@ -1032,7 +1032,7 @@ public final class BUContent {
                     8.0f, 0.0f, 24.0f,
                     0.0f, 1.3f,
                     false, true, "cutout",
-                    0.4f, 64, 32,
+                    0.4f, 64, 64,
                     new String[] {
                     "swim_random", "swim_toward_player", "melee_attack", "hurt_by_target",
                     "nearest_attackable_target_player", "look_at_player", "follow_flock_leader"
@@ -1052,7 +1052,7 @@ public final class BUContent {
                     12.0f, 0.0f, 24.0f,
                     8.0f, 2.6f,
                     false, true, "cutout",
-                    0.4f, 64, 32,
+                    0.4f, 64, 64,
                     new String[] {
                     "swim_random", "swim_toward_player", "melee_attack", "hurt_by_target",
                     "nearest_attackable_target_player", "look_at_player", "follow_flock_leader"
@@ -1072,7 +1072,7 @@ public final class BUContent {
                     3.0f, 0.0f, 24.0f,
                     2.0f, 1.0f,
                     false, false, "cutout",
-                    0.4f, 64, 32,
+                    0.4f, 64, 64,
                     new String[] {
                     "float", "panic", "breed", "tempt", "follow_parent", "herd_follow_leader", "eat_block",
                     "look_at_player", "random_look_around", "water_avoiding_random_stroll"
@@ -1092,7 +1092,7 @@ public final class BUContent {
                     5.0f, 0.0f, 24.0f,
                     0.0f, 1.0f,
                     false, false, "cutout",
-                    0.4f, 64, 32,
+                    0.4f, 64, 64,
                     new String[] {
                     "fly_random", "swoop_attack", "melee_attack", "hurt_by_target", "nearest_attackable_target_player",
                     "land_on_ground", "look_at_player", "follow_flock_leader"
@@ -1112,7 +1112,7 @@ public final class BUContent {
                     3.0f, 0.0f, 24.0f,
                     0.0f, 1.2f,
                     false, false, "cutout",
-                    0.4f, 64, 32,
+                    0.4f, 64, 64,
                     new String[] {
                     "float", "panic", "sit_when_ordered", "follow_owner", "owner_hurt_by_target", "owner_hurt_target",
                     "breed", "tempt", "look_at_player", "water_avoiding_random_stroll"
@@ -1132,7 +1132,7 @@ public final class BUContent {
                     3.0f, 0.0f, 24.0f,
                     0.0f, 1.35f,
                     false, false, "cutout",
-                    0.4f, 64, 32,
+                    0.4f, 64, 64,
                     new String[] {
                     "float", "panic", "breed", "tempt", "follow_parent", "herd_follow_leader", "eat_block",
                     "look_at_player", "random_look_around", "water_avoiding_random_stroll"
@@ -1152,7 +1152,7 @@ public final class BUContent {
                     6.0f, 0.0f, 24.0f,
                     0.0f, 1.0f,
                     false, false, "cutout",
-                    0.4f, 64, 32,
+                    0.4f, 64, 64,
                     new String[] {
                     "float", "ambush_lie_in_wait", "melee_attack", "hurt_by_target",
                     "nearest_attackable_target_player", "look_at_player", "water_avoiding_random_stroll"
@@ -1172,7 +1172,7 @@ public final class BUContent {
                     6.5f, 0.0f, 24.0f,
                     0.0f, 0.9f,
                     false, false, "cutout",
-                    0.4f, 64, 32,
+                    0.4f, 64, 64,
                     new String[] {
                     "float", "ambush_lie_in_wait", "melee_attack", "hurt_by_target",
                     "nearest_attackable_target_player", "look_at_player", "water_avoiding_random_stroll"
@@ -1192,7 +1192,7 @@ public final class BUContent {
                     7.0f, 0.0f, 24.0f,
                     6.0f, 1.25f,
                     false, false, "cutout",
-                    0.4f, 64, 32,
+                    0.4f, 64, 64,
                     new String[] {
                     "float", "melee_attack", "hurt_by_target", "nearest_attackable_target_player", "look_at_player",
                     "random_look_around", "water_avoiding_random_stroll"
@@ -1212,7 +1212,7 @@ public final class BUContent {
                     6.0f, 0.0f, 24.0f,
                     3.0f, 1.0f,
                     false, false, "translucent",
-                    0.4f, 64, 32,
+                    0.4f, 64, 64,
                     new String[] {
                     "float", "melee_attack", "hurt_by_target", "nearest_attackable_target_player", "look_at_player",
                     "random_look_around", "water_avoiding_random_stroll"
@@ -1232,7 +1232,7 @@ public final class BUContent {
                     3.0f, 0.0f, 24.0f,
                     5.0f, 1.0f,
                     false, false, "cutout",
-                    0.4f, 64, 32,
+                    0.4f, 64, 64,
                     new String[] {
                     "float", "trade_with_player", "look_at_trading_player", "panic", "tempt", "open_door",
                     "look_at_player", "water_avoiding_random_stroll"
@@ -1252,7 +1252,7 @@ public final class BUContent {
                     5.0f, 0.0f, 24.0f,
                     4.0f, 1.0f,
                     false, false, "cutout",
-                    0.4f, 64, 32,
+                    0.4f, 64, 64,
                     new String[] {
                     "float", "ambush_lie_in_wait", "melee_attack", "hurt_by_target",
                     "nearest_attackable_target_player", "look_at_player", "water_avoiding_random_stroll"
@@ -1272,7 +1272,7 @@ public final class BUContent {
                     7.0f, 0.0f, 24.0f,
                     6.0f, 1.4f,
                     false, false, "cutout",
-                    0.4f, 64, 32,
+                    0.4f, 64, 64,
                     new String[] {
                     "float", "melee_attack", "hurt_by_target", "nearest_attackable_target_player", "look_at_player",
                     "water_avoiding_random_stroll"
@@ -1292,7 +1292,7 @@ public final class BUContent {
                     3.0f, 0.0f, 24.0f,
                     0.0f, 1.0f,
                     false, false, "cutout",
-                    0.4f, 64, 32,
+                    0.4f, 64, 64,
                     new String[] {
                     "float", "trade_with_player", "look_at_trading_player", "panic", "tempt", "open_door",
                     "look_at_player", "water_avoiding_random_stroll"
@@ -1312,7 +1312,7 @@ public final class BUContent {
                     3.0f, 0.0f, 24.0f,
                     3.0f, 1.25f,
                     false, false, "cutout",
-                    0.4f, 64, 32,
+                    0.4f, 64, 64,
                     new String[] {
                     "float", "panic", "breed", "tempt", "follow_parent", "herd_follow_leader", "eat_block",
                     "look_at_player", "random_look_around", "water_avoiding_random_stroll"
@@ -1332,7 +1332,7 @@ public final class BUContent {
                     3.0f, 0.0f, 24.0f,
                     0.0f, 0.5f,
                     false, false, "cutout",
-                    0.4f, 64, 32,
+                    0.4f, 64, 64,
                     new String[] {
                     "float", "fly_random", "tempt", "look_at_player", "follow_flock_leader"
         },
@@ -1351,7 +1351,7 @@ public final class BUContent {
                     6.5f, 0.0f, 24.0f,
                     5.0f, 1.0f,
                     false, false, "cutout",
-                    0.4f, 64, 32,
+                    0.4f, 64, 64,
                     new String[] {
                     "float", "melee_attack", "hurt_by_target", "nearest_attackable_target_player", "look_at_player",
                     "random_look_around", "water_avoiding_random_stroll"
@@ -1371,7 +1371,7 @@ public final class BUContent {
                     3.0f, 0.0f, 24.0f,
                     0.0f, 0.8f,
                     false, true, "translucent",
-                    0.4f, 64, 32,
+                    0.4f, 64, 64,
                     new String[] {
                     "swim_random", "follow_flock_leader", "look_at_player"
         },
@@ -1390,7 +1390,7 @@ public final class BUContent {
                     3.0f, 0.0f, 24.0f,
                     2.0f, 1.0f,
                     false, false, "cutout",
-                    0.4f, 64, 32,
+                    0.4f, 64, 64,
                     new String[] {
                     "float", "trade_with_player", "look_at_trading_player", "panic", "tempt", "open_door",
                     "look_at_player", "water_avoiding_random_stroll"
@@ -1410,7 +1410,7 @@ public final class BUContent {
                     3.0f, 0.0f, 24.0f,
                     0.0f, 0.6f,
                     false, false, "cutout",
-                    0.4f, 64, 32,
+                    0.4f, 64, 64,
                     new String[] {
                     "float", "panic", "tempt", "look_at_player", "water_avoiding_random_stroll"
         },
@@ -1429,7 +1429,7 @@ public final class BUContent {
                     7.0f, 0.0f, 24.0f,
                     3.0f, 1.0f,
                     false, false, "cutout",
-                    0.4f, 64, 32,
+                    0.4f, 64, 64,
                     new String[] {
                     "float", "ambush_lie_in_wait", "melee_attack", "hurt_by_target",
                     "nearest_attackable_target_player", "look_at_player", "water_avoiding_random_stroll"
@@ -1449,7 +1449,7 @@ public final class BUContent {
                     3.0f, 0.0f, 24.0f,
                     0.0f, 0.8f,
                     false, false, "cutout",
-                    0.4f, 64, 32,
+                    0.4f, 64, 64,
                     new String[] {
                     "float", "seek_shelter_from_sun", "seek_bioluminescence", "panic", "tempt", "look_at_player",
                     "water_avoiding_random_stroll"
@@ -1469,7 +1469,7 @@ public final class BUContent {
                     9.0f, 0.0f, 24.0f,
                     4.0f, 1.7f,
                     false, false, "cutout",
-                    0.4f, 64, 32,
+                    0.4f, 64, 64,
                     new String[] {
                     "float", "melee_attack", "hurt_by_target", "nearest_attackable_target_player", "look_at_player",
                     "random_look_around", "water_avoiding_random_stroll"
@@ -1489,7 +1489,7 @@ public final class BUContent {
                     10.0f, 0.0f, 24.0f,
                     8.0f, 2.0f,
                     true, false, "cutout",
-                    0.4f, 64, 32,
+                    0.4f, 64, 64,
                     new String[] {
                     "float", "melee_attack", "hurt_by_target", "nearest_attackable_target_player", "look_at_player",
                     "random_look_around", "water_avoiding_random_stroll"
@@ -1509,7 +1509,7 @@ public final class BUContent {
                     8.0f, 0.0f, 24.0f,
                     7.0f, 1.2f,
                     false, false, "cutout",
-                    0.4f, 64, 32,
+                    0.4f, 64, 64,
                     new String[] {
                     "float", "melee_attack", "hurt_by_target", "nearest_attackable_target_player", "look_at_player",
                     "random_look_around", "water_avoiding_random_stroll"
@@ -1529,7 +1529,7 @@ public final class BUContent {
                     6.0f, 0.0f, 24.0f,
                     2.0f, 1.0f,
                     false, true, "cutout",
-                    0.4f, 64, 32,
+                    0.4f, 64, 64,
                     new String[] {
                     "swim_random", "swim_toward_player", "melee_attack", "hurt_by_target",
                     "nearest_attackable_target_player", "look_at_player", "follow_flock_leader"
@@ -1549,7 +1549,7 @@ public final class BUContent {
                     3.0f, 0.0f, 24.0f,
                     0.0f, 0.65f,
                     false, false, "cutout",
-                    0.4f, 64, 32,
+                    0.4f, 64, 64,
                     new String[] {
                     "float", "melee_attack", "hurt_by_target", "nearest_attackable_target_player",
                     "pack_call_for_help", "avoid_creeper", "look_at_player", "water_avoiding_random_stroll"
@@ -1569,7 +1569,7 @@ public final class BUContent {
                     3.5f, 0.0f, 24.0f,
                     0.0f, 0.6f,
                     false, false, "translucent",
-                    0.4f, 64, 32,
+                    0.4f, 64, 64,
                     new String[] {
                     "fly_random", "swoop_attack", "melee_attack", "hurt_by_target", "nearest_attackable_target_player",
                     "land_on_ground", "look_at_player", "follow_flock_leader"
@@ -1589,7 +1589,7 @@ public final class BUContent {
                     8.5f, 0.0f, 24.0f,
                     9.0f, 1.3f,
                     false, false, "cutout",
-                    0.4f, 64, 32,
+                    0.4f, 64, 64,
                     new String[] {
                     "float", "melee_attack", "hurt_by_target", "nearest_attackable_target_player", "look_at_player",
                     "random_look_around", "water_avoiding_random_stroll"
@@ -1609,7 +1609,7 @@ public final class BUContent {
                     3.0f, 0.0f, 24.0f,
                     0.0f, 0.85f,
                     false, false, "translucent",
-                    0.4f, 64, 32,
+                    0.4f, 64, 64,
                     new String[] {
                     "float", "fly_random", "tempt", "look_at_player", "follow_flock_leader"
         },
@@ -1628,7 +1628,7 @@ public final class BUContent {
                     3.0f, 0.0f, 24.0f,
                     0.0f, 0.9f,
                     false, false, "translucent",
-                    0.4f, 64, 32,
+                    0.4f, 64, 64,
                     new String[] {
                     "swim_random", "follow_flock_leader", "tempt", "look_at_player"
         },
@@ -1647,7 +1647,7 @@ public final class BUContent {
                     9.0f, 0.0f, 24.0f,
                     10.0f, 1.45f,
                     false, false, "cutout",
-                    0.4f, 64, 32,
+                    0.4f, 64, 64,
                     new String[] {
                     "float", "melee_attack", "hurt_by_target", "nearest_attackable_target_player", "look_at_player",
                     "random_look_around", "water_avoiding_random_stroll"
@@ -1667,7 +1667,7 @@ public final class BUContent {
                     8.0f, 0.0f, 24.0f,
                     8.0f, 1.3f,
                     false, false, "cutout",
-                    0.4f, 64, 32,
+                    0.4f, 64, 64,
                     new String[] {
                     "float", "melee_attack", "hurt_by_target", "nearest_attackable_target_player", "look_at_player",
                     "random_look_around", "water_avoiding_random_stroll"
@@ -1687,7 +1687,7 @@ public final class BUContent {
                     7.5f, 0.0f, 24.0f,
                     6.0f, 1.15f,
                     true, false, "cutout",
-                    0.4f, 64, 32,
+                    0.4f, 64, 64,
                     new String[] {
                     "float", "ranged_attack", "melee_attack", "hurt_by_target", "nearest_attackable_target_player",
                     "look_at_player", "water_avoiding_random_stroll"
@@ -1707,7 +1707,7 @@ public final class BUContent {
                     5.0f, 0.0f, 24.0f,
                     0.0f, 0.65f,
                     true, false, "translucent",
-                    0.4f, 64, 32,
+                    0.4f, 64, 64,
                     new String[] {
                     "float", "fly_random", "ranged_attack", "melee_attack", "hurt_by_target",
                     "nearest_attackable_target_player"
@@ -1727,7 +1727,7 @@ public final class BUContent {
                     3.0f, 0.0f, 24.0f,
                     0.0f, 1.0f,
                     false, false, "cutout",
-                    0.4f, 64, 32,
+                    0.4f, 64, 64,
                     new String[] {
                     "float", "trade_with_player", "look_at_trading_player", "panic", "tempt", "open_door",
                     "look_at_player", "water_avoiding_random_stroll"
@@ -1747,7 +1747,7 @@ public final class BUContent {
                     3.0f, 0.0f, 24.0f,
                     0.0f, 1.0f,
                     false, false, "cutout",
-                    0.4f, 64, 32,
+                    0.4f, 64, 64,
                     new String[] {
                     "float", "trade_with_player", "look_at_trading_player", "panic", "tempt", "open_door",
                     "look_at_player", "water_avoiding_random_stroll"
@@ -1767,7 +1767,7 @@ public final class BUContent {
                     3.0f, 0.0f, 24.0f,
                     0.0f, 0.7f,
                     false, false, "translucent",
-                    0.4f, 64, 32,
+                    0.4f, 64, 64,
                     new String[] {
                     "float", "fly_random", "look_at_player", "follow_flock_leader"
         },
@@ -1786,7 +1786,7 @@ public final class BUContent {
                     3.0f, 0.0f, 24.0f,
                     0.0f, 1.0f,
                     false, false, "cutout",
-                    0.4f, 64, 32,
+                    0.4f, 64, 64,
                     new String[] {
                     "float", "trade_with_player", "look_at_trading_player", "panic", "tempt", "open_door",
                     "look_at_player", "water_avoiding_random_stroll"
@@ -1806,7 +1806,7 @@ public final class BUContent {
                     7.0f, 0.0f, 24.0f,
                     3.0f, 1.0f,
                     false, false, "translucent",
-                    0.4f, 64, 32,
+                    0.4f, 64, 64,
                     new String[] {
                     "float", "melee_attack", "hurt_by_target", "nearest_attackable_target_player", "look_at_player",
                     "random_look_around", "water_avoiding_random_stroll"
@@ -1826,7 +1826,7 @@ public final class BUContent {
                     8.0f, 0.0f, 24.0f,
                     4.0f, 1.0f,
                     false, false, "cutout",
-                    0.4f, 64, 32,
+                    0.4f, 64, 64,
                     new String[] {
                     "float", "melee_attack", "hurt_by_target", "nearest_attackable_target_player",
                     "pack_call_for_help", "avoid_creeper", "look_at_player", "water_avoiding_random_stroll"
@@ -1846,7 +1846,7 @@ public final class BUContent {
                     7.5f, 0.0f, 24.0f,
                     2.0f, 1.0f,
                     true, false, "translucent",
-                    0.4f, 64, 32,
+                    0.4f, 64, 64,
                     new String[] {
                     "float", "ranged_attack", "melee_attack", "hurt_by_target", "nearest_attackable_target_player",
                     "look_at_player", "water_avoiding_random_stroll"
@@ -1866,7 +1866,7 @@ public final class BUContent {
                     8.0f, 0.0f, 24.0f,
                     3.0f, 1.25f,
                     false, false, "cutout",
-                    0.4f, 64, 32,
+                    0.4f, 64, 64,
                     new String[] {
                     "float", "melee_attack", "hurt_by_target", "nearest_attackable_target_player", "look_at_player",
                     "random_look_around", "water_avoiding_random_stroll"
@@ -1886,7 +1886,7 @@ public final class BUContent {
                     7.0f, 0.0f, 24.0f,
                     0.0f, 1.1f,
                     false, true, "cutout",
-                    0.4f, 64, 32,
+                    0.4f, 64, 64,
                     new String[] {
                     "swim_random", "swim_toward_player", "melee_attack", "hurt_by_target",
                     "nearest_attackable_target_player", "look_at_player", "follow_flock_leader"
@@ -1906,7 +1906,7 @@ public final class BUContent {
                     9.5f, 0.0f, 24.0f,
                     8.0f, 1.4f,
                     true, false, "cutout",
-                    0.4f, 64, 32,
+                    0.4f, 64, 64,
                     new String[] {
                     "float", "melee_attack", "hurt_by_target", "nearest_attackable_target_player", "look_at_player",
                     "random_look_around", "water_avoiding_random_stroll"
@@ -1926,7 +1926,7 @@ public final class BUContent {
                     4.0f, 0.0f, 24.0f,
                     0.0f, 0.6f,
                     false, false, "cutout",
-                    0.4f, 64, 32,
+                    0.4f, 64, 64,
                     new String[] {
                     "float", "melee_attack", "hurt_by_target", "nearest_attackable_target_player",
                     "pack_call_for_help", "avoid_creeper", "look_at_player", "water_avoiding_random_stroll"
@@ -1946,7 +1946,7 @@ public final class BUContent {
                     6.0f, 0.0f, 24.0f,
                     5.0f, 1.0f,
                     false, false, "cutout",
-                    0.4f, 64, 32,
+                    0.4f, 64, 64,
                     new String[] {
                     "float", "ambush_lie_in_wait", "melee_attack", "hurt_by_target",
                     "nearest_attackable_target_player", "look_at_player", "water_avoiding_random_stroll"
@@ -1966,7 +1966,7 @@ public final class BUContent {
                     7.5f, 0.0f, 24.0f,
                     3.0f, 1.0f,
                     false, false, "translucent",
-                    0.4f, 64, 32,
+                    0.4f, 64, 64,
                     new String[] {
                     "float", "melee_attack", "hurt_by_target", "nearest_attackable_target_player", "look_at_player",
                     "random_look_around", "water_avoiding_random_stroll"
@@ -1986,7 +1986,7 @@ public final class BUContent {
                     6.5f, 0.0f, 24.0f,
                     2.0f, 0.8f,
                     true, false, "translucent",
-                    0.4f, 64, 32,
+                    0.4f, 64, 64,
                     new String[] {
                     "float", "melee_attack", "hurt_by_target", "nearest_attackable_target_player",
                     "pack_call_for_help", "avoid_creeper", "look_at_player", "water_avoiding_random_stroll"
@@ -2278,91 +2278,91 @@ public final class BUContent {
 
     /** Entity id -> {textureWidth, textureHeight} in pixels. */
     public static final Object[][] ENTITY_TEXTURE_SIZE = {
-            { "abyssal_leviathan", 64, 32 },
-            { "amber_sentinel", 64, 32 },
-            { "astral_scribe", 64, 32 },
-            { "astral_scribe_aether", 64, 32 },
-            { "aurora_stag", 64, 32 },
-            { "blighthound", 64, 32 },
-            { "bogcrawler", 64, 32 },
-            { "canopy_glider", 64, 32 },
-            { "canyon_skulk", 64, 32 },
-            { "chrono_warden", 64, 32 },
-            { "cloudfin", 64, 32 },
-            { "coralback_crab", 64, 32 },
-            { "crown_sentinel", 64, 32 },
-            { "duskstalker", 64, 32 },
-            { "echo_bat", 64, 32 },
-            { "emberling", 64, 32 },
-            { "fossil_wraith", 64, 32 },
-            { "fracture_hound", 64, 32 },
-            { "frostling", 64, 32 },
-            { "frozen_mariner", 64, 32 },
-            { "fungal_titan", 64, 32 },
-            { "gale_harrier", 64, 32 },
-            { "garden_aberration", 64, 32 },
-            { "glacier_ox", 64, 32 },
-            { "glimmerwing", 64, 32 },
-            { "gloomstalker", 64, 32 },
-            { "glowcap_grub", 64, 32 },
-            { "grove_warden", 64, 32 },
+            { "abyssal_leviathan", 64, 64 },
+            { "amber_sentinel", 64, 64 },
+            { "astral_scribe", 64, 64 },
+            { "astral_scribe_aether", 64, 64 },
+            { "aurora_stag", 64, 64 },
+            { "blighthound", 64, 64 },
+            { "bogcrawler", 64, 64 },
+            { "canopy_glider", 64, 64 },
+            { "canyon_skulk", 64, 64 },
+            { "chrono_warden", 64, 64 },
+            { "cloudfin", 64, 64 },
+            { "coralback_crab", 64, 64 },
+            { "crown_sentinel", 64, 64 },
+            { "duskstalker", 64, 64 },
+            { "echo_bat", 64, 64 },
+            { "emberling", 64, 64 },
+            { "fossil_wraith", 64, 64 },
+            { "fracture_hound", 64, 64 },
+            { "frostling", 64, 64 },
+            { "frozen_mariner", 64, 64 },
+            { "fungal_titan", 64, 64 },
+            { "gale_harrier", 64, 64 },
+            { "garden_aberration", 64, 64 },
+            { "glacier_ox", 64, 64 },
+            { "glimmerwing", 64, 64 },
+            { "gloomstalker", 64, 64 },
+            { "glowcap_grub", 64, 64 },
+            { "grove_warden", 64, 64 },
             { "heart_of_the_forest", 64, 64 },
-            { "highland_goat", 64, 32 },
-            { "hollow_drowned", 64, 32 },
-            { "hollow_scout", 64, 32 },
-            { "kelp_serpent", 64, 32 },
-            { "lanternkeeper", 64, 32 },
-            { "luminous_jelly", 64, 32 },
-            { "magma_lurker", 64, 32 },
-            { "marrow_hound", 64, 32 },
-            { "meadow_skipper", 64, 32 },
-            { "mire_wisp", 64, 32 },
-            { "mirror_walk", 64, 32 },
-            { "moor_sentinel", 64, 32 },
-            { "mossback_hare", 64, 32 },
-            { "mycelial_horror", 64, 32 },
-            { "null_swimmer", 64, 32 },
-            { "orchard_tender", 64, 32 },
-            { "orchid_mantis", 64, 32 },
-            { "petaldancer", 64, 32 },
-            { "primal_cat", 64, 32 },
-            { "quarry_construct", 64, 32 },
-            { "reefglider", 64, 32 },
-            { "rime_stag", 64, 32 },
-            { "river_lamprey", 64, 32 },
-            { "roadwarden", 64, 32 },
-            { "rootburrower", 64, 32 },
-            { "rotstalker", 64, 32 },
-            { "rune_construct", 64, 32 },
-            { "savanna_strider", 64, 32 },
-            { "shardling", 64, 32 },
-            { "shorelurker", 64, 32 },
-            { "silkweaver", 64, 32 },
-            { "sky_citizen", 64, 32 },
-            { "slag_golem", 64, 32 },
-            { "spire_climber", 64, 32 },
-            { "sporeling", 64, 32 },
-            { "sporeling_deep", 64, 32 },
-            { "static_wraith", 64, 32 },
-            { "steppe_rider", 64, 32 },
-            { "stonehide_boar", 64, 32 },
-            { "stormcell_wisp", 64, 32 },
-            { "sunscorch_vulture", 64, 32 },
-            { "temple_guardian", 64, 32 },
+            { "highland_goat", 64, 64 },
+            { "hollow_drowned", 64, 64 },
+            { "hollow_scout", 64, 64 },
+            { "kelp_serpent", 64, 64 },
+            { "lanternkeeper", 64, 64 },
+            { "luminous_jelly", 64, 64 },
+            { "magma_lurker", 64, 64 },
+            { "marrow_hound", 64, 64 },
+            { "meadow_skipper", 64, 64 },
+            { "mire_wisp", 64, 64 },
+            { "mirror_walk", 64, 64 },
+            { "moor_sentinel", 64, 64 },
+            { "mossback_hare", 64, 64 },
+            { "mycelial_horror", 64, 64 },
+            { "null_swimmer", 64, 64 },
+            { "orchard_tender", 64, 64 },
+            { "orchid_mantis", 64, 64 },
+            { "petaldancer", 64, 64 },
+            { "primal_cat", 64, 64 },
+            { "quarry_construct", 64, 64 },
+            { "reefglider", 64, 64 },
+            { "rime_stag", 64, 64 },
+            { "river_lamprey", 64, 64 },
+            { "roadwarden", 64, 64 },
+            { "rootburrower", 64, 64 },
+            { "rotstalker", 64, 64 },
+            { "rune_construct", 64, 64 },
+            { "savanna_strider", 64, 64 },
+            { "shardling", 64, 64 },
+            { "shorelurker", 64, 64 },
+            { "silkweaver", 64, 64 },
+            { "sky_citizen", 64, 64 },
+            { "slag_golem", 64, 64 },
+            { "spire_climber", 64, 64 },
+            { "sporeling", 64, 64 },
+            { "sporeling_deep", 64, 64 },
+            { "static_wraith", 64, 64 },
+            { "steppe_rider", 64, 64 },
+            { "stonehide_boar", 64, 64 },
+            { "stormcell_wisp", 64, 64 },
+            { "sunscorch_vulture", 64, 64 },
+            { "temple_guardian", 64, 64 },
             { "the_skyward_crown", 64, 64 },
             { "the_unraveling", 64, 64 },
-            { "thicket_sprite", 64, 32 },
-            { "trench_angler", 64, 32 },
-            { "unraveling_shard", 64, 32 },
-            { "unraveling_shard_aether", 64, 32 },
-            { "vault_keeper", 64, 32 },
-            { "veilmourner", 64, 32 },
-            { "veilwing", 64, 32 },
-            { "void_scout", 64, 32 },
+            { "thicket_sprite", 64, 64 },
+            { "trench_angler", 64, 64 },
+            { "unraveling_shard", 64, 64 },
+            { "unraveling_shard_aether", 64, 64 },
+            { "vault_keeper", 64, 64 },
+            { "veilmourner", 64, 64 },
+            { "veilwing", 64, 64 },
+            { "void_scout", 64, 64 },
             { "void_serpent", 64, 64 },
-            { "warden_acolyte", 64, 32 },
+            { "warden_acolyte", 64, 64 },
             { "warden_of_the_hollow_deep", 64, 64 },
-            { "warren_skitter", 64, 32 },
+            { "warren_skitter", 64, 64 },
     };
 
     // ------------------------------------------------------------------

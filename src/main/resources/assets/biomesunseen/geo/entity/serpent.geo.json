@@ -5,7 +5,7 @@
       "description": {
         "identifier": "geometry.biomesunseen.serpent",
         "texture_width": 64,
-        "texture_height": 32,
+        "texture_height": 64,
         "visible_bounds_width": 4.0,
         "visible_bounds_height": 1.5,
         "visible_bounds_offset": [
@@ -528,6 +528,96 @@
                   "uv_size": [
                     4,
                     4
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "tail",
+          "parent": "body",
+          "pivot": [
+            0,
+            6,
+            24
+          ],
+          "rotation": [
+            -10,
+            0,
+            0
+          ],
+          "cubes": [
+            {
+              "origin": [
+                -1.5,
+                1,
+                24
+              ],
+              "size": [
+                3,
+                12,
+                3
+              ],
+              "uv": {
+                "west": {
+                  "uv": [
+                    0,
+                    34
+                  ],
+                  "uv_size": [
+                    3,
+                    12
+                  ]
+                },
+                "south": {
+                  "uv": [
+                    3,
+                    34
+                  ],
+                  "uv_size": [
+                    3,
+                    12
+                  ]
+                },
+                "east": {
+                  "uv": [
+                    6,
+                    34
+                  ],
+                  "uv_size": [
+                    3,
+                    12
+                  ]
+                },
+                "north": {
+                  "uv": [
+                    9,
+                    34
+                  ],
+                  "uv_size": [
+                    3,
+                    12
+                  ]
+                },
+                "up": {
+                  "uv": [
+                    0,
+                    34
+                  ],
+                  "uv_size": [
+                    3,
+                    3
+                  ]
+                },
+                "down": {
+                  "uv": [
+                    3,
+                    34
+                  ],
+                  "uv_size": [
+                    3,
+                    3
                   ]
                 }
               }

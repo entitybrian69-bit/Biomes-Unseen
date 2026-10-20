@@ -1,5 +1,5 @@
 """
-pixelart/creature_maps.py -- Hand-authored 64x32 GeckoLib UV atlases.
+pixelart/creature_maps.py -- Hand-authored 64x64 GeckoLib UV atlases.
 
 Every mob in Biomes Unseen uses a real GeckoLib `.geo.json` (Golden Rule #2:
 no CubeListBuilder, no ModelPart). This file is the matching artwork: an
@@ -31,8 +31,10 @@ no cell ever straddles two body parts:
         per limb: u+0..3 right, u+4..7 front, u+8..11 left, u+12..15 back
         v16..25 the 10px leg, v26..29 occluded root / unused
 
-    TAIL (3w x 12h x 3d), geo uv(24,14)
-        u24..26 v14..25 right | u27..29 front | u30..32 left | u33..35 back
+    TAIL (3w x 12h x 3d), composed at u0..11 / v34..45 in its own band
+        u0..2  right (-x) | u3..5 front (+z) | u6..8 left (+x) | u9..11 back (-z)
+        The atlas is 64 rows tall so this band is free: at 32 rows the tail had
+        to overwrite the front-right and back-left limb cells.
 
 Rows are composed from named region segments (constants of an exact width)
 concatenated left to right. The composition order is asserted at import time
@@ -57,7 +59,16 @@ from __future__ import annotations
 from typing import Dict, List
 
 ATLAS_W = 64
-ATLAS_H = 32
+# 64 rows rather than 32. At 32 the atlas was fully subscribed -- head and torso
+# occupied v0..15, the four limb cells v16..25 and their occlusion roots v26..29,
+# leaving only two spare rows -- so the tail had nowhere to live and was patched
+# over the front-right and back-left limb cells at u24..35, corrupting two legs
+# to gain one tail. The extra band v32..63 is tail space and nothing else.
+ATLAS_H = 64
+
+# Where the tail is composed: four 3-column faces side by side, 12 rows tall.
+TAIL_U = 0
+TAIL_V = 34
 
 
 def _seg(text: str, width: int, label: str) -> str:
@@ -141,13 +152,15 @@ def _atlas(
             + _seg(limb_br[10 + i], LEG, f"{name}.limb_br_root[{i}]")
         )
 
-    # ---- v30..v31 : unused (kept transparent so mipmapping never bleeds)
-    rows.append("." * ATLAS_W)
-    rows.append("." * ATLAS_W)
+    # ---- v30..v63 : tail band, then unused (kept transparent so mipmapping
+    #                 never bleeds into the rows above)
+    while len(rows) < ATLAS_H:
+        rows.append("." * ATLAS_W)
 
-    # Patch the tail into u24..u35 / v14..v25, which currently holds limb-free
-    # gutter and torso/tail space. Authored tail glyphs overwrite cell-exactly.
-    tail_cols = list(range(24, 36))
+    # Compose the tail into its own band. Each of the four faces is authored 3
+    # columns by 12 rows, laid side by side with no gutter, which matches the
+    # geometry the tail bone declares -- so no face is stretched and no other
+    # body part's artwork is overwritten.
     tail_blocks = (tail_r, tail_f, tail_l, tail_b)
     out = [list(r) for r in rows]
     for v in range(12):
@@ -156,8 +169,8 @@ def _atlas(
                 glyph = block[v][c]
                 if glyph == ".":
                     continue
-                col = 24 + bi * 3 + c
-                out[14 + v][col] = glyph
+                col = TAIL_U + bi * 3 + c
+                out[TAIL_V + v][col] = glyph
     final = ["".join(r) for r in out]
 
     for i, r in enumerate(final):
