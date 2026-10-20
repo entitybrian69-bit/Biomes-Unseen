@@ -73,8 +73,13 @@ public final class BUOverworldSurfaceRules {
                             // A few blocks beneath, the filler takes over, so
                             // digging into a hillside shows the authored subsurface
                             // rather than vanilla dirt under an exotic crust.
-                            SurfaceRules.ifTrue(
-                                    SurfaceRules.stoneDepthCheck(0, true, 0),
+                            //
+                            // UNDER_FLOOR rather than stoneDepthCheck: in 1.20.1
+                            // stoneDepthCheck takes a CaveSurface argument, and
+                            // these two constants are exactly the floor /
+                            // sub-floor pair vanilla's own Overworld rules are
+                            // built from, so there is no signature to get wrong.
+                            SurfaceRules.ifTrue(SurfaceRules.UNDER_FLOOR,
                                     SurfaceRules.state(filler.defaultBlockState())))));
         }
 
