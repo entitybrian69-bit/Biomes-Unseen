@@ -853,6 +853,74 @@ def check_geckolib(report: Report) -> None:
                          f"keyframes, so that part never moves")
 
 
+def check_pixelart_glyph_geometry(report: Report) -> None:
+    """
+    Every authored glyph map must match the band geometry that consumes it.
+
+    boss_maps builds the 64x64 atlas out of six bands: _band8 composes the four
+    8-row bands (body, body2, head, crown) and _band4 the two 16-row bands
+    (limbs, extras), each from four regions that must be exactly 16 columns wide.
+
+    Two helpers hide any deviation from that contract. _band4 and _band8 index
+    range(16) and range(8), so surplus rows in a glyph are silently dropped
+    rather than raising. _repair_row then ljusts any short row with transparent
+    padding to reach the cell width. Together they let a mis-shaped glyph render
+    as corrupted pixels with a green build and no warning: four glyphs were in
+    that state, and three of them were visibly broken in game.
+
+      _SC_HEAD_F  9 rows for an 8-row band, one row split into a lone "O", so the
+                  crown's jaw rendered as a single outline pixel on a blank row
+                  and its bottom outline was displaced out of the band entirely
+      _WD_HEAD_F  jaw row 15 wide, leaving a transparent gap in the warden's jaw
+      _UN_EXTRA_3 18 rows and ragged, two rows reduced to a lone "O"
+      _WD_EXTRA_2 17 rows for a 16-row band
+
+    Checking the authored maps directly, rather than the composed atlas, catches
+    the defect where it is introduced and reports which glyph is wrong.
+    """
+    try:
+        from pixelart import boss_maps as BM
+    except Exception as exc:  # noqa: BLE001
+        report.error("pixelart", f"boss_maps unavailable: {exc}")
+        return
+
+    band_rows = {"body": 8, "body2": 8, "head": 8, "crown": 8,
+                 "limbs": 16, "extras": 16}
+    regions = getattr(BM, "BOSSES", None) or {}
+    if not regions:
+        report.note("pixelart", "boss_maps.BOSSES is empty; glyph geometry not checked")
+        return
+
+    for boss_id in sorted(regions):
+        table = regions[boss_id]
+        for band, expected in band_rows.items():
+            cells = table.get(band)
+            if cells is None:
+                report.error("pixelart",
+                             f"boss '{boss_id}' atlas is missing its '{band}' band")
+                continue
+            if len(cells) != 4:
+                report.error("pixelart",
+                             f"boss '{boss_id}' band '{band}' has {len(cells)} regions, "
+                             f"expected 4")
+                continue
+            report.count("pixelart glyph maps", 1)
+            for index, glyph in enumerate(cells):
+                rows = list(glyph)
+                if len(rows) != expected:
+                    report.error(
+                        "pixelart",
+                        f"boss '{boss_id}' {band}[{index}] is {len(rows)} rows but its "
+                        f"band is {expected}; surplus rows are dropped silently and "
+                        f"missing rows pad out as transparent")
+                widths = {len(r) for r in rows}
+                if widths != {16}:
+                    report.error(
+                        "pixelart",
+                        f"boss '{boss_id}' {band}[{index}] has rows of width "
+                        f"{sorted(widths)}, expected every row exactly 16 wide")
+
+
 def check_geckolib_atlas_coverage(report: Report) -> None:
     """
     Every cube face of every rig must sample authored pixels of its own atlas.
@@ -1879,6 +1947,7 @@ def main() -> int:
     check_translations(report)
     check_model_and_tag_closure(report)
     check_blockstate_property_coverage(report)
+    check_pixelart_glyph_geometry(report)
     check_geckolib_atlas_coverage(report)
 
     return report.render()
