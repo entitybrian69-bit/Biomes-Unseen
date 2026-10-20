@@ -1455,6 +1455,31 @@ def check_registration_uniqueness(report: Report) -> None:
                      f"'{overlap}' is registered as both a creature and a boss")
     report.count("entity registrations unique", len(entities))
 
+    # ---- every registered entity is covered by exactly one table ----------
+    # BUEntities.registerAttributes and BiomesUnseenClient.registerRenderers
+    # both iterate BUContent.MOBS and BUContent.BOSSES and nothing else, so a
+    # registered entity missing from both tables has no attribute supplier and
+    # no renderer. The attribute half throws the moment the entity spawns
+    # ("Entity has no attributes"), which compiles cleanly and survives every
+    # other check here; the renderer half just makes the mob invisible.
+    covered = set(entities)
+    if MANIFEST_ENTITIES:
+        unattributed = sorted(MANIFEST_ENTITIES - covered)
+        if unattributed:
+            report.error(
+                "registry",
+                f"{len(unattributed)} registered entity/entities appear in neither "
+                f"BUContent.MOBS nor BUContent.BOSSES, so they get no attribute "
+                f"supplier and no renderer: {unattributed[:6]}")
+        phantom = sorted(covered - MANIFEST_ENTITIES)
+        if phantom:
+            report.error(
+                "registry",
+                f"{len(phantom)} MobData/BossData row(s) name an entity that is not "
+                f"registered: {phantom[:6]}")
+        report.count("entity attribute/renderer coverage",
+                     len(MANIFEST_ENTITIES & covered))
+
 
 def check_audio(report: Report) -> None:
     """
