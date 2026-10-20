@@ -1295,6 +1295,133 @@ def check_armour_slot_ordering(report: Report) -> None:
                              f"in the chain")
 
 
+def check_fluid_render_layers(report: Report) -> None:
+    """
+    Every registered fluid must be given a chunk render layer during client load.
+
+    Forge resolves a liquid's layer through ItemBlockRenderTypes
+    .getRenderLayer(FluidState), which reads FLUID_RENDER_TYPES -- a map seeded
+    only from vanilla's TYPE_BY_FLUID, that is water and lava, and built with
+    defaultReturnValue(RenderType.solid()). A modded fluid that is never
+    registered therefore renders in the solid layer, where there is no blending,
+    so it reads as an opaque painted cube instead of a liquid.
+
+    Fluids are not reached by the model-level "render_type" field that the block
+    models use for cutout flora and translucent portals. That field feeds
+    BLOCK_RENDER_TYPES, and a liquid's block model is particle-only -- the volume
+    is drawn by the fluid renderer, which asks for the fluid's layer, not the
+    block's. Verified against Forge's 1.20.1 patch of ItemBlockRenderTypes: the
+    three setRenderLayer(Block, ...) overloads are deprecated in favour of the
+    model JSON, while setRenderLayer(Fluid, RenderType) is not deprecated at all,
+    precisely because fluids have no model-based path.
+
+    Two properties make this fail loudly rather than silently:
+
+      the call must be inside an FMLClientSetupEvent handler, because Forge's
+        checkClientLoading() asserts ClientModLoader.isLoading() and throws
+        IllegalStateException otherwise -- so calling it from a constructor or a
+        common-setup event is a crash at startup, not a no-op
+      the handler must be on the mod bus and client-only, and it must iterate the
+        registry rather than name ids, because a handler on the wrong bus never
+        fires and a hardcoded list silently omits the next fluid authored
+
+    Both source and flowing fluid are covered by construction: BUBlocks registers
+    "<id>" and "<id>_flowing" for every id in BUContent.BLOCKS_FLUID, and the
+    client iterates that same DeferredRegister.
+    """
+    client_java = os.path.join(JAVA, "com", "biomesunseen", "client",
+                               "BiomesUnseenClient.java")
+    blocks_java = os.path.join(JAVA, "com", "biomesunseen", "init", "BUBlocks.java")
+    content_java = os.path.join(JAVA, "com", "biomesunseen", "init", "BUContent.java")
+    for path in (client_java, blocks_java, content_java):
+        if not os.path.isfile(path):
+            report.error("fluid",
+                         f"{os.path.basename(path)} is missing; fluid render layers "
+                         f"not checked")
+            return
+
+    # ---- how many fluids should exist ------------------------------------
+    content_text = open(content_java, "r", encoding="utf-8").read()
+    table = re.search(r"BLOCKS_FLUID\s*=\s*\{(.*?)\}", content_text, re.S)
+    if not table:
+        report.error("fluid",
+                     "no BLOCKS_FLUID table parsed out of BUContent.java; the shape "
+                     "may have changed and this check would pass vacuously")
+        return
+    fluid_blocks = re.findall(r'"([a-z0-9_]+)"', table.group(1))
+    if not fluid_blocks:
+        report.error("fluid", "BLOCKS_FLUID parsed as empty; nothing to check")
+        return
+    report.count("fluid blocks", len(fluid_blocks))
+    report.count("registered fluids", len(fluid_blocks) * 2)
+
+    # ---- both halves of every set are registered -------------------------
+    blocks_text = open(blocks_java, "r", encoding="utf-8").read()
+    if not re.search(r"for \(String id : BUContent\.BLOCKS_FLUID\)", blocks_text):
+        report.error("fluid",
+                     "BUBlocks no longer iterates BUContent.BLOCKS_FLUID, so the "
+                     "fluid set may not cover every authored liquid")
+    if 'FLUIDS.register(id + "_flowing"' not in blocks_text:
+        report.error("fluid",
+                     "BUBlocks registers no flowing fluid; a spreading liquid would "
+                     "have no Flowing state and so no render layer to look up")
+
+    # ---- the client gives them a layer, at the right time ----------------
+    client_text = open(client_java, "r", encoding="utf-8").read()
+    subscriber = re.search(
+        r"@Mod\.EventBusSubscriber\(([^)]*)\)\s*(?:public\s+)?(?:final\s+)?class\s+"
+        r"BiomesUnseenClient", client_text, re.S)
+    if not subscriber:
+        report.error("fluid",
+                     "BiomesUnseenClient carries no @Mod.EventBusSubscriber annotation "
+                     "on its class declaration, so its FMLClientSetupEvent handler "
+                     "would never be subscribed and every fluid would stay opaque")
+    else:
+        args = subscriber.group(1)
+        if "Dist.CLIENT" not in args:
+            report.error("fluid",
+                         "BiomesUnseenClient is not restricted to Dist.CLIENT, so a "
+                         "dedicated server would load @OnlyIn(CLIENT) renderer classes")
+        if "Bus.MOD" not in args:
+            report.error("fluid",
+                         "BiomesUnseenClient is not on Bus.MOD; FMLClientSetupEvent is "
+                         "a mod-bus event and would never reach this handler")
+        report.count("client bus wiring", 1)
+
+    call_sites = [m.start() for m in re.finditer(r"setRenderLayer\s*\(", client_text)]
+    if not call_sites:
+        report.error("fluid",
+                     "BiomesUnseenClient never calls ItemBlockRenderTypes.setRenderLayer, "
+                     f"so all {len(fluid_blocks) * 2} registered fluids fall through to "
+                     "FLUID_RENDER_TYPES' default of RenderType.solid() and render opaque")
+    for pos in call_sites:
+        enclosing = re.findall(r"public static void (\w+)\(([^)]*)\)", client_text[:pos])
+        if not enclosing:
+            report.error("fluid",
+                         "a setRenderLayer call has no enclosing public static handler; "
+                         "it may be in a static initialiser, which throws at startup")
+            continue
+        name, params = enclosing[-1]
+        report.count("fluid render layer call sites", 1)
+        if "FMLClientSetupEvent" not in params:
+            report.error(
+                "fluid",
+                f"setRenderLayer is called from {name}({params.strip()}); Forge's "
+                f"checkClientLoading() asserts ClientModLoader.isLoading(), so it must "
+                f"run from an FMLClientSetupEvent handler or it throws "
+                f"IllegalStateException during startup")
+
+    if "BUBlocks.FLUIDS.getEntries()" not in client_text:
+        report.error("fluid",
+                     "the render layer registration does not iterate "
+                     "BUBlocks.FLUIDS.getEntries(), so it names fluids explicitly and a "
+                     "liquid authored later would be silently left opaque")
+    if "RenderType.translucent()" not in client_text:
+        report.error("fluid",
+                     "no RenderType.translucent() in BiomesUnseenClient; translucent is "
+                     "the layer vanilla water uses and the only one that blends")
+
+
 def check_particles(report: Report) -> None:
     """
     Every particle type must have a descriptor, and every descriptor a sprite.
@@ -2456,6 +2583,7 @@ def main() -> int:
     check_ore_uses(report)
     check_armour_slot_ordering(report)
     check_particles(report)
+    check_fluid_render_layers(report)
     check_pixelart_glyph_geometry(report)
     check_geckolib_atlas_coverage(report)
 

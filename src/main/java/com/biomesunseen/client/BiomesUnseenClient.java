@@ -4,9 +4,12 @@ import com.biomesunseen.BiomesUnseen;
 import com.biomesunseen.client.particle.BUAmbientParticle;
 import com.biomesunseen.client.render.BUBossRenderer;
 import com.biomesunseen.client.render.BUCreatureRenderer;
+import com.biomesunseen.init.BUBlocks;
 import com.biomesunseen.init.BUContent;
 import com.biomesunseen.init.BUEntities;
 import com.biomesunseen.init.BUParticles;
+import net.minecraft.client.renderer.ItemBlockRenderTypes;
+import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.core.particles.ParticleType;
 import net.minecraft.core.particles.SimpleParticleType;
@@ -16,7 +19,9 @@ import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.client.event.RegisterParticleProvidersEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.registries.RegistryObject;
+import net.minecraft.world.level.material.Fluid;
 
 /**
  * Client-side registration.
@@ -97,6 +102,45 @@ public final class BiomesUnseenClient {
             }
         }
         BiomesUnseen.LOGGER.info("Biomes Unseen: bound {} ambient particle providers", bound);
+    }
+
+    /**
+     * Give every liquid a translucent chunk render layer.
+     *
+     * Forge resolves a fluid's layer through {@code ItemBlockRenderTypes
+     * #getRenderLayer(FluidState)}, which looks the state's fluid up in a map
+     * seeded only with vanilla's water and lava and otherwise defaults to
+     * {@code RenderType#solid()}. Fluids are not reached by the model-level
+     * {@code render_type} field that our block models use for cutout flora and
+     * translucent portals -- that path feeds the block's layer, while a liquid's
+     * block model is particle-only and the fluid renderer draws the volume.
+     * Without this call all four liquids mesh into the solid layer, where there
+     * is no blending, so hollow_water and the rest would read as painted glass
+     * cubes rather than liquid.
+     *
+     * Both the source and the flowing fluid of every set are registered, because
+     * the lookup keys on the state's own fluid type and a spreading liquid is a
+     * {@code Flowing} state rather than a {@code Source} one. Iterating the
+     * registry rather than naming four ids is what keeps a fifth liquid authored
+     * in {@code BUContent.BLOCKS_FLUID} from being silently left opaque.
+     *
+     * {@code setRenderLayer} asserts {@code ClientModLoader.isLoading()} and
+     * throws otherwise, so this must run from {@code FMLClientSetupEvent} -- not
+     * from a constructor, a static initialiser, or a common-setup event.
+     */
+    @SubscribeEvent
+    public static void registerFluidLayers(FMLClientSetupEvent event) {
+        int bound = 0;
+        for (RegistryObject<Fluid> holder : BUBlocks.FLUIDS.getEntries()) {
+            Fluid fluid = holder.get();
+            if (fluid == null) {
+                BiomesUnseen.LOGGER.error("Fluid {} resolved to null", holder.getId());
+                continue;
+            }
+            ItemBlockRenderTypes.setRenderLayer(fluid, RenderType.translucent());
+            bound++;
+        }
+        BiomesUnseen.LOGGER.info("Biomes Unseen: gave {} fluids a translucent render layer", bound);
     }
 
     /**

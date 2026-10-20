@@ -301,9 +301,13 @@ Learned the hard way, in roughly the order they cost the most time.
 
 **Java / Forge 1.20.1**
 
-- `ArmorMaterial` is indexed by `ArmorItem.Type` (helmet, chestplate, leggings,
-  boots), **not** by `EquipmentSlot`. Reordering the defence array silently swaps
-  a helmet's defence onto the boots.
+- `ArmorMaterial` is indexed by `ArmorItem.Type`, **not** by `EquipmentSlot`, and
+  that enum runs **BOOTS, LEGGINGS, CHESTPLATE, HELMET** — helmet last. Pinned by
+  vanilla's own diamond material, whose defence array `{3, 6, 8, 3}` read by
+  ordinal gives boots 3, leggings 6, chestplate 8, helmet 3, and whose durability
+  base `{13, 15, 16, 11}` agrees. Reordering the defence array silently swaps a
+  helmet's defence onto the boots, and it compiles and equips without complaint.
+  `check_armour_slot_ordering` holds the whole chain to it.
 - `Tier.getIncorrectBlocksForDrops()` and `BlockTags.INCORRECT_FOR_*_TOOL` are
   1.20.5+. In 1.20.1 harvestability is `Tier.getLevel()` plus the
   `needs_*_tool` block tags.
@@ -323,6 +327,31 @@ Learned the hard way, in roughly the order they cost the most time.
   generic flora so 27 species need not each claim a vanilla effect.
 - Do not override `IClientFluidTypeExtensions.getFogColor`; its signature is
   version-fragile and it pulls client classes into a common-path class.
+- **Fluids need their render layer registered explicitly.** Forge's
+  `ItemBlockRenderTypes.getRenderLayer(FluidState)` reads `FLUID_RENDER_TYPES`, a
+  map seeded only from vanilla's water and lava and built with
+  `defaultReturnValue(RenderType.solid())`. A modded liquid that is never
+  registered renders in the solid layer, where nothing blends. The model-level
+  `"render_type"` field does **not** help: that feeds `BLOCK_RENDER_TYPES`, and a
+  liquid's block model is particle-only while the fluid renderer draws the volume.
+  `setRenderLayer(Fluid, RenderType)` is the way, and note that the three
+  `setRenderLayer(Block, ...)` overloads are deprecated in favour of the model
+  JSON while the `Fluid` one is not deprecated at all — fluids have no
+  model-based path. It asserts `ClientModLoader.isLoading()` and **throws**
+  otherwise, so it belongs in an `FMLClientSetupEvent` handler. Register both the
+  source and the flowing fluid: the lookup keys on the state's own fluid type.
+- **`TextureStitchEvent.Pre` does not exist in 1.20.1.** It is commented out of
+  Forge's source with the note "Use atlas info JSON files instead", so
+  `event.addSprite(...)` will not compile. It is also unnecessary for anything
+  under `textures/block/`: vanilla's `atlases/blocks.json` carries
+  `{"type": "minecraft:directory", "prefix": "block/", "source": "block"}`, and a
+  directory source enumerates every namespace in the pack. That is why the four
+  `*_flow.png` sprites are stitched and resolve at render time even though no
+  model, blockstate or Java class references them — `BUFluidType` returns their
+  ids directly to the fluid renderer. Textures outside a covered folder, or in
+  another atlas, still need an `atlases/*.json` of their own.
+  (`*_flow.png` here are static 16×16, not animated sheets, so they need no
+  `.mcmeta`; vanilla's `water_flow` is 32 frames and animates via its sidecar.)
 - A bare array initialiser (`{"a","b"}`) is illegal as a method argument. It must
   be `new String[] {"a","b"}`.
 

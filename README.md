@@ -211,6 +211,9 @@ non-zero on any error and currently checks:
 - **particles**: every registered particle type has a sprite descriptor and a
   texture, and every biome that names one names a registered type — a
   `registerSpriteSet` call with no `particles/<id>.json` is a load-time error
+- **fluid render layers**: every registered liquid is given a translucent layer
+  from an `FMLClientSetupEvent` handler on the mod bus, since Forge defaults an
+  unregistered fluid to `RenderType.solid()` and it then renders opaque
 - **GeckoLib rigs**: every bone an animation channel names exists in the geo, and
   every bone in the geo is animated, so nothing renders frozen or waves a limb
   that is not there
