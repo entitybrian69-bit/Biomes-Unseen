@@ -439,7 +439,7 @@ def biome_section() -> str:
     out.append("    /**")
     out.append("     * Multi-noise parameters for SEEDED_OVERWORLD_BIOMES as")
     out.append("     * {biomeId, temperature, humidity, continentalness, erosion,")
-    out.append("     * depth, weirdness, offset}.")
+    out.append("     * depth, weirdness, offset, weight}.")
     out.append("     */")
     out.append("    public static final Object[][] SEEDED_OVERWORLD_PARAMETERS = {")
     for bid in seeded:
@@ -448,7 +448,7 @@ def biome_section() -> str:
         out.append(
             f"            {{ {q(bid)}, {float(b.temperature)}f, {float(b.humidity)}f, "
             f"{float(b.continentalness)}f, {float(b.erosion)}f, {float(b.depth)}f, "
-            f"{float(b.weirdness)}f, {float(b.offset)}f }},"
+            f"{float(b.weirdness)}f, {float(b.offset)}f, {int(b.weight)} }},"
         )
     out.append("    };")
     out.append("")

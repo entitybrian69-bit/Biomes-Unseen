@@ -2,6 +2,7 @@
   "temperature": 1.25,
   "downfall": 0.35,
   "has_precipitation": true,
+  "creature_spawn_probability": 0.1,
   "effects": {
     "sky_color": 10133592,
     "fog_color": 13158520,

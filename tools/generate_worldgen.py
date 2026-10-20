@@ -415,6 +415,12 @@ def emit_biome(spec, ore_features: dict) -> None:
         "temperature": spec.temperature,
         "downfall": spec.humidity,
         "has_precipitation": spec.has_precipitation,
+        # Authored per biome and flattened to the biome's top level by the flat
+        # biome codec, alongside spawners and spawn_costs. It currently happens
+        # to equal the codec default everywhere, but emitting it makes the
+        # authored value authoritative rather than relying on that coincidence --
+        # otherwise changing one biome's probability would silently do nothing.
+        "creature_spawn_probability": spec.creature_spawn_probability,
         "effects": effects_for(spec),
         "spawners": spawners_for(spec),
         "spawn_costs": {},

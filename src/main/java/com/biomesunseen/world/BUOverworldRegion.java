@@ -52,7 +52,7 @@ public class BUOverworldRegion extends Region {
     public static final int WEIGHT = 4;
 
     /**
-     * Half-width of each authored climate coordinate.
+     * Half-width of each authored climate coordinate at a weight of 100.
      *
      * An exact value would confine a biome to a single hyperplane of noise space,
      * which appears as one thin stripe across the world rather than a place.
@@ -60,7 +60,18 @@ public class BUOverworldRegion extends Region {
      * keeping it inside the climate its author intended, and the bands are narrow
      * enough that neighbouring biomes stay distinct instead of smearing together.
      */
-    private static final float SPREAD = 0.075F;
+    private static final float BASE_SPREAD = 0.075F;
+
+    /**
+     * How far a biome's authored weight may widen or narrow its band.
+     *
+     * Weight is authored per biome across 60..130 and is the only lever on how
+     * common a biome is: in a multi-noise source a biome's frequency is the
+     * volume of climate space its parameter point occupies, so scaling the band
+     * by weight is what makes a rare biome rare. Capping the scale keeps the
+     * heaviest biome from smearing across its neighbours' climate.
+     */
+    private static final float WEIGHT_SCALE = 0.35F;
 
     public BUOverworldRegion() {
         super(new ResourceLocation(BiomesUnseen.MODID, "overworld"),
@@ -110,9 +121,9 @@ public class BUOverworldRegion extends Region {
      * Build the parameter point for one authored biome row.
      *
      * The row is {id, temperature, humidity, continentalness, erosion, depth,
-     * weirdness, offset}. TerraBlender's builder takes the cartesian product of
-     * the values supplied per axis, so passing exactly one band per axis yields
-     * exactly one point.
+     * weirdness, offset, weight}. TerraBlender's builder takes the cartesian
+     * product of the values supplied per axis, so passing exactly one band per
+     * axis yields exactly one point.
      */
     private static List<Climate.ParameterPoint> parameterPoints(Object[] row) {
         float temperature = (Float) row[1];
@@ -123,15 +134,29 @@ public class BUOverworldRegion extends Region {
         float weirdness = (Float) row[6];
         float offset = (Float) row[7];
 
+        int weight = row.length > 8 ? (Integer) row[8] : 100;
+        float spread = spreadFor(weight);
+
         return new ParameterUtils.ParameterPointListBuilder()
-                .temperature(band(temperature))
-                .humidity(band(humidity))
-                .continentalness(band(continentalness))
-                .erosion(band(erosion))
-                .depth(band(depth))
-                .weirdness(band(weirdness))
+                .temperature(band(temperature, spread))
+                .humidity(band(humidity, spread))
+                .continentalness(band(continentalness, spread))
+                .erosion(band(erosion, spread))
+                .depth(band(depth, spread))
+                .weirdness(band(weirdness, spread))
                 .offset(offset)
                 .build();
+    }
+
+    /**
+     * The band half-width for one biome's authored weight.
+     *
+     * Weight 100 gets the base spread; the authored 60..130 range maps to roughly
+     * 0.86x..1.11x of it, so a common biome occupies noticeably more climate
+     * space than a rare one without either dominating or vanishing.
+     */
+    private static float spreadFor(int weight) {
+        return BASE_SPREAD * (1.0F + WEIGHT_SCALE * (weight - 100) / 100.0F);
     }
 
     /**
@@ -141,9 +166,9 @@ public class BUOverworldRegion extends Region {
      * otherwise produce a band reaching outside [-1, 1], which the multi-noise
      * sampler never visits and which would quietly shrink the biome.
      */
-    private static Climate.Parameter band(float value) {
-        float low = Math.max(-1.0F, value - SPREAD);
-        float high = Math.min(1.0F, value + SPREAD);
+    private static Climate.Parameter band(float value, float spread) {
+        float low = Math.max(-1.0F, value - spread);
+        float high = Math.min(1.0F, value + spread);
         return Climate.Parameter.span(low, high);
     }
 }

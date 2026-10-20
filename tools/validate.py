@@ -1325,6 +1325,20 @@ def check_biome_placement(report: Report) -> None:
                          f"so it would grow the vanilla grass crust")
         report.count("overworld biomes bound to the TerraBlender region", 1)
 
+    # Column count of the parameter table. BUOverworldRegion reads the authored
+    # weight from column 8 behind a `row.length > 8` guard, so a generator that
+    # stopped emitting it would not fail -- the fallback would treat every biome
+    # as weight 100 and the authored frequency spread would silently collapse.
+    if os.path.isfile(content):
+        body = _bu_table(text, "SEEDED_OVERWORLD_PARAMETERS") or ""
+        rows = re.findall(r"\{([^{}]*)\}", body)
+        widths = {len([c for c in row.split(",") if c.strip()]) for row in rows}
+        if widths and widths != {9}:
+            report.error("placement",
+                         f"SEEDED_OVERWORLD_PARAMETERS rows have column counts "
+                         f"{sorted(widths)}, expected 9 (weight drives biome frequency)")
+        report.count("overworld parameter row columns", len(widths))
+
 
 def _table_ids(text: str, table: str) -> set:
     """The leading string id of every row in a generated Object[][] table."""
