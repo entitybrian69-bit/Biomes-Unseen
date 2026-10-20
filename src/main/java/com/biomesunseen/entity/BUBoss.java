@@ -71,13 +71,18 @@ public class BUBoss extends Monster implements GeoAnimatable {
 
     public BUBoss(EntityType<? extends BUBoss> type, Level level) {
         super(type, level);
-        this.boss = BUEntities.bossFor(type);
+        // bossOrDefault rather than bossFor: every line below dereferences the
+        // result, and the phase list in particular must be non-empty or the first
+        // aiStep would index past its end.
+        this.boss = BUEntities.bossOrDefault(type);
         this.species = BUEntities.mobDataFor(this.boss);
         this.bossBar = new ServerBossEvent(
                 this.getDisplayName(),
                 barColor(this.boss.bossBarColor),
                 barOverlay(this.boss.bossBarOverlay));
-        this.phase = this.boss.phases[0];
+        this.phase = this.boss.phases.length > 0
+                ? this.boss.phases[0]
+                : BUEntities.fallbackPhase();
         this.setPersistenceRequired();
         this.xpReward = 500;
         // Bosses must not despawn mid-fight when the player breaks line of sight.

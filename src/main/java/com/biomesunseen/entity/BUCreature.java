@@ -61,7 +61,9 @@ public class BUCreature extends PathfinderMob implements GeoAnimatable {
 
     public BUCreature(EntityType<? extends BUCreature> type, Level level) {
         super(type, level);
-        this.species = BUEntities.speciesFor(type);
+        // speciesOrDefault rather than speciesFor: the next line dereferences it,
+        // and a miss would be an untraceable NPE during world load.
+        this.species = BUEntities.speciesOrDefault(type);
         this.xpReward = species.experience;
         // Hostile species must persist through despawn checks the same way
         // vanilla monsters do, so a player cannot simply out-wait an ambush.

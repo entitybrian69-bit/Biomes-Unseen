@@ -1,5 +1,6 @@
 package com.biomesunseen.init;
 
+import com.biomesunseen.BiomesUnseen;
 import com.biomesunseen.entity.BUBoss;
 import com.biomesunseen.entity.BUCreature;
 import com.biomesunseen.entity.BossData;
@@ -112,6 +113,9 @@ public final class BUEntities {
      * from the boss's own numbers when there is no match.
      */
     public static MobData mobDataFor(BossData boss) {
+        if (boss == null) {
+            return fallbackSpecies("unknown_boss");
+        }
         for (MobData candidate : BUContent.MOBS) {
             if (candidate.id.equals(boss.id)) {
                 return candidate;
@@ -140,6 +144,96 @@ public final class BUEntities {
             "animation.phase.1", "animation.phase.2", "animation.phase.3",
             "animation.phase.4",
     };
+
+    /**
+     * The species data for an EntityType, never null.
+     *
+     * The entity constructors read this immediately -- a creature sets its
+     * experience reward from it before anything else runs -- so a miss here is an
+     * NullPointerException during world load with no indication which species
+     * caused it. Falling back to a synthesised row turns that into a logged error
+     * and a mob that still spawns, which is survivable in a way a crashed world is
+     * not.
+     */
+    public static MobData speciesOrDefault(EntityType<?> type) {
+        MobData data = SPECIES.get(type);
+        if (data != null) {
+            return data;
+        }
+        String id = registryPath(type);
+        data = MOB_BY_ID.get(id);
+        if (data != null) {
+            return data;
+        }
+        BiomesUnseen.LOGGER.error(
+                "No species data for entity type {}; using a placeholder. The entity will "
+                        + "spawn but its authored stats, AI and animation set are missing.", id);
+        return fallbackSpecies(id);
+    }
+
+    /**
+     * The boss definition for an EntityType, never null.
+     *
+     * Same reasoning as {@link #speciesOrDefault}: the boss constructor reads the
+     * phase list and the boss-bar styling from this before it can do anything
+     * else, and a phase machine with no phases would throw on the first tick.
+     */
+    public static BossData bossOrDefault(EntityType<?> type) {
+        BossData data = BOSSES.get(type);
+        if (data != null) {
+            return data;
+        }
+        String id = registryPath(type);
+        data = BOSS_BY_ID.get(id);
+        if (data != null) {
+            return data;
+        }
+        BiomesUnseen.LOGGER.error(
+                "No boss data for entity type {}; using a single-phase placeholder.", id);
+        return new BossData(id, id, "overworld", "", "purple", "progress",
+                2.0F, BOSS_TEX_SIZE, BOSS_TEX_SIZE, "", "entities/" + id, "",
+                new BossData.PhaseData[]{fallbackPhase()});
+    }
+
+    /** Boss atlas edge length; every boss atlas is authored square at this size. */
+    private static final int BOSS_TEX_SIZE = 64;
+
+    /** The registry path of an EntityType, or a placeholder if it is unregistered. */
+    private static String registryPath(EntityType<?> type) {
+        ResourceLocation key = ForgeRegistries.ENTITY_TYPES.getKey(type);
+        return key == null ? "unknown" : key.getPath();
+    }
+
+    /**
+     * A neutral species row.
+     *
+     * Deliberately passive and slow: a placeholder that cannot fight back is
+     * safer than one that inherits combat goals it has no animation for.
+     */
+    private static MobData fallbackSpecies(String id) {
+        return new MobData(id, "quadruped", "overworld", false,
+                10.0F, 0.25F, 0.0F, 0.0F, 16.0F, 0.0F, 1.0F,
+                false, false, "cutout", 0.5F, MOB_TEX_SIZE, MOB_TEX_SIZE,
+                new String[]{"float", "water_avoiding_random_stroll",
+                        "look_at_player", "random_look_around"},
+                new String[0],
+                "creature", 1, 1, 1, 0, FALLBACK_ANIMATIONS);
+    }
+
+    /** Creature atlas edge lengths, matching the authored 64x64 family atlases. */
+    private static final int MOB_TEX_SIZE = 64;
+
+    /** The clips every family rig defines, so a placeholder still animates. */
+    private static final String[] FALLBACK_ANIMATIONS = {
+            "animation.idle", "animation.walk", "animation.attack",
+            "animation.hurt", "animation.death",
+    };
+
+    /** A single phase that never triggers a transition. */
+    public static BossData.PhaseData fallbackPhase() {
+        return new BossData.PhaseData(1, "default", 0.0F, "animation.spawn",
+                new String[0], new String[0], false, 0);
+    }
 
     /** Maps the authored spawn-category string onto the vanilla enum. */
     private static MobCategory categoryFor(String spawnCategory) {

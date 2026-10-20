@@ -54,14 +54,31 @@ public final class BUSounds {
         return id;
     }
 
-    /** The registered event for an authored id, or null if it does not exist. */
+    /**
+     * The registered event for an authored id, or null if it does not exist.
+     *
+     * Accepts either the bare id the content tables use ("music.ethereal") or a
+     * fully qualified one ("biomesunseen:music.ethereal"). Both forms occur: the
+     * biome JSONs and BossData carry qualified ids, while the registry keys are
+     * bare. Normalising here is what stops a lookup silently missing -- a
+     * qualified id passed to a bare-keyed map returns null rather than throwing,
+     * so boss music would simply never play and nothing would report it.
+     */
     public static SoundEvent get(String id) {
-        RegistryObject<SoundEvent> holder = BY_ID.get(id);
+        if (id == null) {
+            return null;
+        }
+        String bare = id.indexOf(':') >= 0 ? id.substring(id.indexOf(':') + 1) : id;
+        RegistryObject<SoundEvent> holder = BY_ID.get(bare);
         return holder == null ? null : holder.get();
     }
 
     public static boolean contains(String id) {
-        return BY_ID.containsKey(id);
+        if (id == null) {
+            return false;
+        }
+        String bare = id.indexOf(':') >= 0 ? id.substring(id.indexOf(':') + 1) : id;
+        return BY_ID.containsKey(bare);
     }
 
     public static java.util.Collection<RegistryObject<SoundEvent>> all() {
