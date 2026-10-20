@@ -414,25 +414,33 @@ def check_registry_closure(parsed: Dict[str, object], report: Report) -> None:
                 report.error("closure",
                              f"spawn egg '{item}' has no entity '{mob}'")
 
-    # Structures referencing unknown biomes or template pools.
+    # Structures referencing unknown biomes, template pools or biome tags.
     #
-    # A structure JSON names both: its biome list, and its start_pool, which is a
-    # nested resource path ("structures/grove_shrine") rather than a registry id.
-    # Judging a pool path against the biome list reports every structure as
-    # broken, so pool paths are resolved against the files on disk instead.
+    # A structure JSON names three kinds of thing, and only the first is a
+    # registry id: its biome selection (usually a tag reference,
+    # "#biomesunseen:has_structure/grove_shrine"), and its start_pool
+    # ("structures/grove_shrine"). Both of the latter are nested resource paths,
+    # so judging them against the biome list reports every structure as broken.
+    # They are resolved against the files on disk instead, by trying each valid
+    # location a path of that shape could occupy.
     if biome_ids:
+        nested_roots = (
+            os.path.join("worldgen", "template_pool"),
+            os.path.join("tags", "worldgen", "biome"),
+        )
         for ref in sorted(collect_namespaced_strings(parsed, "worldgen/structure")):
             if ref in biome_ids or ref in structure_ids:
                 continue
             if "/" in ref:
                 # ref is already namespace-stripped by collect_namespaced_strings,
-                # so it is the pool path itself.
-                pool = os.path.join(RES, "data", MODID, "worldgen",
-                                    "template_pool", ref + ".json")
-                if os.path.exists(pool):
+                # so it is the resource path itself.
+                if any(os.path.exists(os.path.join(RES, "data", MODID, root,
+                                                   ref + ".json"))
+                       for root in nested_roots):
                     continue
             report.error("closure",
-                         f"structure references unknown biome or template pool '{ref}'")
+                         f"structure references unknown biome, template pool or "
+                         f"biome tag '{ref}'")
 
 
 def ids_from_disk_assets(folder: str) -> Set[str]:
@@ -666,7 +674,47 @@ def check_worldgen(report: Report) -> None:
         if not has_data(pool_ns, "worldgen/template_pool", pool):
             report.error("worldgen",
                          f"structure '{spec.id}' references missing template pool '{spec.start_jigsaw_pool}'")
-        report.count("worldgen structures", 1)
+
+        # Codec shape. Both of these were wrong for all 115 structures at once,
+        # and both are invisible to every other check: the JSON parses, the ids
+        # resolve, and the build passes, because the 1.20.1 structure codec only
+        # complains when the game reads the datapack at world load.
+        struct_path = data_file(MODID, "worldgen/structure", spec.id + ".json")
+        if os.path.exists(struct_path):
+            doc = json.load(open(struct_path, "r", encoding="utf-8"))
+
+            # `biomes` is mandatory. Without it the structure is rejected by the
+            # codec, and even if it loaded it would have nowhere to generate.
+            biomes_ref = doc.get("biomes")
+            if not biomes_ref:
+                report.error("worldgen",
+                             f"structure '{spec.id}' has no 'biomes' field, so the "
+                             f"1.20.1 codec rejects it")
+            elif str(biomes_ref).startswith("#"):
+                tag_ns, _, tag_path = str(biomes_ref)[1:].partition(":")
+                tag_file = os.path.join(data, tag_ns, "tags", "worldgen", "biome",
+                                        tag_path + ".json")
+                if not os.path.exists(tag_file):
+                    report.error("worldgen",
+                                 f"structure '{spec.id}' selects biomes via "
+                                 f"'{biomes_ref}', which does not exist")
+                else:
+                    tag_doc = json.load(open(tag_file, "r", encoding="utf-8"))
+                    if not tag_doc.get("values"):
+                        report.error("worldgen",
+                                     f"structure '{spec.id}' selects biomes via "
+                                     f"'{biomes_ref}', which is empty")
+                    report.count("structure biome tags resolved", 1)
+
+            # `start_height` is a HeightProvider object, never a bare int. The
+            # content tables author an integer for every structure, so emitting it
+            # raw produced "start_height": 64 and the codec rejected the file.
+            height = doc.get("start_height")
+            if not isinstance(height, dict):
+                report.error("worldgen",
+                             f"structure '{spec.id}' has start_height={height!r}; "
+                             f"1.20.1 requires a height provider object")
+            report.count("worldgen structures", 1)
 
     # ---- template pools must point at a real structure template -----------
     pool_dir = data_file(MODID, "worldgen/template_pool")

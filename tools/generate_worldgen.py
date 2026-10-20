@@ -743,9 +743,23 @@ def emit_structures() -> None:
             }],
         })
 
-        height = spec.start_height or {"absolute": 0}
+        # start_height is a HeightProvider object, never a bare int. The content
+        # tables author an integer for every one of the 115 structures, and
+        # emitting it raw produced "start_height": 64 -- which the 1.20.1 codec
+        # rejects, so the structure silently failed to load.
+        raw_height = spec.start_height
+        if isinstance(raw_height, dict):
+            height = raw_height
+        else:
+            height = {"absolute": int(raw_height or 0)}
+
         structure = {
             "type": "minecraft:jigsaw",
+            # Mandatory: a structure with no biome selection is rejected by the
+            # codec, and even if it loaded it would have nowhere to generate. The
+            # per-structure tags emitted below were being written and referenced
+            # by nothing -- this is the field that consumes them.
+            "biomes": f"#{MODID}:has_structure/{spec.id}",
             "step": spec.step,
             "spawn_overrides": {},
             "terrain_adaptation": spec.terrain_adaptation,

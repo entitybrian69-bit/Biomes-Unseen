@@ -1,11 +1,14 @@
 {
   "type": "minecraft:jigsaw",
+  "biomes": "#biomesunseen:has_structure/echo_chasm_span",
   "step": "underground_structures",
   "spawn_overrides": {},
   "terrain_adaptation": "encasing",
   "start_pool": "biomesunseen:structures/echo_chasm_span",
   "size": 4,
-  "start_height": -40,
+  "start_height": {
+    "absolute": -40
+  },
   "project_start_to_heightmap": "OCEAN_FLOOR_WG",
   "max_distance_from_center": 80,
   "use_expansion_hash": true,
