@@ -80,7 +80,6 @@ VALID_TEXTURE_SIZES: Dict[str, Set[Tuple[int, int]]] = {
     "textures/entity/boss": {(64, 64)},
     "textures/particle": {(16, 16), (8, 8)},
     "textures/gui": {(16, 16), (256, 256), (182, 16)},
-    "textures/gui/boss_bar": {(16, 4), (16, 2)},
 }
 
 
@@ -173,8 +172,8 @@ def check_png(report: Report) -> None:
             report.error("png", f"{r} has non-positive dimensions {w}x{h}")
             continue
         # Locate the asset-kind folder to pick the allowed size set. The most
-        # specific (longest) folder key must win, otherwise textures/gui swallows
-        # textures/gui/boss_bar and its stricter 16x4 expectation.
+        # specific (longest) folder key must win, so a nested kind such as
+        # textures/entity/boss is not swallowed by its parent textures/entity.
         inner = f"/{r.split('assets/biomesunseen/', 1)[-1]}"
         kind = None
         for key in sorted(VALID_TEXTURE_SIZES, key=len, reverse=True):
