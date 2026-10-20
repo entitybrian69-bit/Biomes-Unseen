@@ -253,9 +253,13 @@ A gap that is invisible will stay open. Three are currently tracked:
 - **Overworld biome placement** — checked by `check_biome_placement`. Every
   Overworld biome must appear in the TerraBlender region's parameter table and in
   the surface-material table. Currently satisfied for all 80.
-- **Audio** — checked by `check_audio`. 29 sound ids are authored with no `.ogg`,
-  so music and ambience are silent. Reported as a counted note, and the rule
-  enforced is that *nothing may reference audio that does not exist*.
+- **Audio** — checked by `check_audio` and `check_audio_files`. All 29 ids now
+  have Ogg Vorbis files, but they are silent one-second placeholders, so the
+  wiring is live and nothing is audible. Two rules are enforced: *nothing may
+  reference audio that does not exist*, and *every file that exists must be a
+  usable Vorbis stream* — the second is structural, because a renamed MP3, a Git
+  LFS pointer or a truncated download passes an existence check and then fails in
+  game. See [docs/AUDIO.md](AUDIO.md) for the replacement checklist.
 - **Ore uses** — checked by `check_ore_uses`. `OreSpec.uses` is authored design
   intent and nothing in the pipeline consumes it, so the check tests what the
   shipped data actually delivers. See [Adding an ore](#adding-an-ore). Two

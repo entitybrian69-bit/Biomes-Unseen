@@ -2700,7 +2700,15 @@ public final class BUContent {
 
 
     /** Subset of SOUNDS that ship real audio; playback is gated on this. */
-    public static final String[] SOUNDS_WITH_AUDIO = {};
+    public static final String[] SOUNDS_WITH_AUDIO = {
+            "ambient.ash_wind", "ambient.blight", "ambient.deep_water", "ambient.drip", "ambient.ember",
+            "ambient.hymn", "ambient.rapids", "ambient.static", "ambient.storm", "ambient.stream",
+            "ambient.surf", "ambient.tremor", "ambient.underwater", "ambient.whisper", "ambient.wind_high",
+            "ambient.wind_low", "music.aetherfall", "music.ancient", "music.aquatic",
+            "music.boss.heart_of_the_forest", "music.boss.the_skyward_crown", "music.boss.the_unraveling",
+            "music.boss.void_serpent", "music.boss.warden_of_the_hollow_deep", "music.ethereal", "music.harsh",
+            "music.hollow_deep", "music.vibrant", "music.void_between"
+        };
 
 
     /** Ambient biome particle types. */

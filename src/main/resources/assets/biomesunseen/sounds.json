@@ -1,0 +1,292 @@
+{
+  "ambient.ash_wind": {
+    "category": "ambient",
+    "sounds": [
+      {
+        "name": "biomesunseen:ambient/ash_wind",
+        "stream": false,
+        "volume": 1.0
+      }
+    ]
+  },
+  "ambient.blight": {
+    "category": "ambient",
+    "sounds": [
+      {
+        "name": "biomesunseen:ambient/blight",
+        "stream": false,
+        "volume": 1.0
+      }
+    ]
+  },
+  "ambient.deep_water": {
+    "category": "ambient",
+    "sounds": [
+      {
+        "name": "biomesunseen:ambient/deep_water",
+        "stream": false,
+        "volume": 1.0
+      }
+    ]
+  },
+  "ambient.drip": {
+    "category": "ambient",
+    "sounds": [
+      {
+        "name": "biomesunseen:ambient/drip",
+        "stream": false,
+        "volume": 1.0
+      }
+    ]
+  },
+  "ambient.ember": {
+    "category": "ambient",
+    "sounds": [
+      {
+        "name": "biomesunseen:ambient/ember",
+        "stream": false,
+        "volume": 1.0
+      }
+    ]
+  },
+  "ambient.hymn": {
+    "category": "ambient",
+    "sounds": [
+      {
+        "name": "biomesunseen:ambient/hymn",
+        "stream": false,
+        "volume": 1.0
+      }
+    ]
+  },
+  "ambient.rapids": {
+    "category": "ambient",
+    "sounds": [
+      {
+        "name": "biomesunseen:ambient/rapids",
+        "stream": false,
+        "volume": 1.0
+      }
+    ]
+  },
+  "ambient.static": {
+    "category": "ambient",
+    "sounds": [
+      {
+        "name": "biomesunseen:ambient/static",
+        "stream": false,
+        "volume": 1.0
+      }
+    ]
+  },
+  "ambient.storm": {
+    "category": "ambient",
+    "sounds": [
+      {
+        "name": "biomesunseen:ambient/storm",
+        "stream": false,
+        "volume": 1.0
+      }
+    ]
+  },
+  "ambient.stream": {
+    "category": "ambient",
+    "sounds": [
+      {
+        "name": "biomesunseen:ambient/stream",
+        "stream": false,
+        "volume": 1.0
+      }
+    ]
+  },
+  "ambient.surf": {
+    "category": "ambient",
+    "sounds": [
+      {
+        "name": "biomesunseen:ambient/surf",
+        "stream": false,
+        "volume": 1.0
+      }
+    ]
+  },
+  "ambient.tremor": {
+    "category": "ambient",
+    "sounds": [
+      {
+        "name": "biomesunseen:ambient/tremor",
+        "stream": false,
+        "volume": 1.0
+      }
+    ]
+  },
+  "ambient.underwater": {
+    "category": "ambient",
+    "sounds": [
+      {
+        "name": "biomesunseen:ambient/underwater",
+        "stream": false,
+        "volume": 1.0
+      }
+    ]
+  },
+  "ambient.whisper": {
+    "category": "ambient",
+    "sounds": [
+      {
+        "name": "biomesunseen:ambient/whisper",
+        "stream": false,
+        "volume": 1.0
+      }
+    ]
+  },
+  "ambient.wind_high": {
+    "category": "ambient",
+    "sounds": [
+      {
+        "name": "biomesunseen:ambient/wind_high",
+        "stream": false,
+        "volume": 1.0
+      }
+    ]
+  },
+  "ambient.wind_low": {
+    "category": "ambient",
+    "sounds": [
+      {
+        "name": "biomesunseen:ambient/wind_low",
+        "stream": false,
+        "volume": 1.0
+      }
+    ]
+  },
+  "music.aetherfall": {
+    "category": "music",
+    "sounds": [
+      {
+        "name": "biomesunseen:music/aetherfall",
+        "stream": true,
+        "volume": 1.0
+      }
+    ]
+  },
+  "music.ancient": {
+    "category": "music",
+    "sounds": [
+      {
+        "name": "biomesunseen:music/ancient",
+        "stream": true,
+        "volume": 1.0
+      }
+    ]
+  },
+  "music.aquatic": {
+    "category": "music",
+    "sounds": [
+      {
+        "name": "biomesunseen:music/aquatic",
+        "stream": true,
+        "volume": 1.0
+      }
+    ]
+  },
+  "music.boss.heart_of_the_forest": {
+    "category": "music",
+    "sounds": [
+      {
+        "name": "biomesunseen:music/boss/heart_of_the_forest",
+        "stream": true,
+        "volume": 1.0
+      }
+    ]
+  },
+  "music.boss.the_skyward_crown": {
+    "category": "music",
+    "sounds": [
+      {
+        "name": "biomesunseen:music/boss/the_skyward_crown",
+        "stream": true,
+        "volume": 1.0
+      }
+    ]
+  },
+  "music.boss.the_unraveling": {
+    "category": "music",
+    "sounds": [
+      {
+        "name": "biomesunseen:music/boss/the_unraveling",
+        "stream": true,
+        "volume": 1.0
+      }
+    ]
+  },
+  "music.boss.void_serpent": {
+    "category": "music",
+    "sounds": [
+      {
+        "name": "biomesunseen:music/boss/void_serpent",
+        "stream": true,
+        "volume": 1.0
+      }
+    ]
+  },
+  "music.boss.warden_of_the_hollow_deep": {
+    "category": "music",
+    "sounds": [
+      {
+        "name": "biomesunseen:music/boss/warden_of_the_hollow_deep",
+        "stream": true,
+        "volume": 1.0
+      }
+    ]
+  },
+  "music.ethereal": {
+    "category": "music",
+    "sounds": [
+      {
+        "name": "biomesunseen:music/ethereal",
+        "stream": true,
+        "volume": 1.0
+      }
+    ]
+  },
+  "music.harsh": {
+    "category": "music",
+    "sounds": [
+      {
+        "name": "biomesunseen:music/harsh",
+        "stream": true,
+        "volume": 1.0
+      }
+    ]
+  },
+  "music.hollow_deep": {
+    "category": "music",
+    "sounds": [
+      {
+        "name": "biomesunseen:music/hollow_deep",
+        "stream": true,
+        "volume": 1.0
+      }
+    ]
+  },
+  "music.vibrant": {
+    "category": "music",
+    "sounds": [
+      {
+        "name": "biomesunseen:music/vibrant",
+        "stream": true,
+        "volume": 1.0
+      }
+    ]
+  },
+  "music.void_between": {
+    "category": "music",
+    "sounds": [
+      {
+        "name": "biomesunseen:music/void_between",
+        "stream": true,
+        "volume": 1.0
+      }
+    ]
+  }
+}

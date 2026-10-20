@@ -26,7 +26,8 @@ a placeholder that compiles and then does nothing.
 | Gear families | **10** | 5 tools + 4 armour pieces + bow/shield, with set bonuses |
 | Blocks | **264** | 64 ores, 44 mineral blocks, 27 flora, 13 grass, 8 logs, 4 fluids, 3 portals |
 | Items | **285** | Plus a BlockItem for each of the 257 solid blocks |
-| Textures | **684 PNG** | Hand-authored glyph matrices, never procedurally drawn |
+| Textures | **679 PNG** | Hand-authored glyph matrices, never procedurally drawn |
+| Audio | **29 OGG** | Valid Ogg Vorbis, currently silent placeholders — see [docs/AUDIO.md](docs/AUDIO.md) |
 | GeckoLib rigs | **22** | 6 family + 5 boss geo/animation pairs |
 | Structure templates | **115 NBT** | 46,573 blocks, 227 loot-bearing chests |
 
@@ -97,7 +98,7 @@ tools/nbt_codec.py      dependency-free NBT writer/reader for structure template
         │  generators, run in this order
         ▼
 tools/registry.py             derives the block/item/entity id sets, writes the manifest
-tools/generate_textures.py    684 PNG
+tools/generate_textures.py    679 PNG
 tools/generate_resources.py   blockstates, models, loot, recipes, tags, lang, mods.toml
 tools/generate_worldgen.py    biomes, features, dimensions, structures, biome tags
 tools/generate_structures.py  115 NBT templates (reads the pools worldgen emitted)
@@ -106,6 +107,9 @@ tools/generate_java.py        init/BUContent.java — the table Java loops over
 
         ▼
 tools/validate.py             offline closure checks over everything above
+
+  off-chain, run once:
+tools/gen_audio.py            29 silent Ogg Vorbis placeholders (needs libsndfile)
 ```
 
 To regenerate everything:
@@ -131,7 +135,7 @@ checks the union of everything.
 Rather than thousands of `RegistryObject` fields, the mod registers content in
 loops keyed by `Map<String, RegistryObject<...>>`.
 
-That is why there are only **28 Java classes for 140 biomes and 85 creatures**:
+That is why there are only **30 Java classes for 140 biomes and 85 creatures**:
 
 - `BUCreature` backs all 80 species. Each is its own `EntityType` — own id, own
   spawn egg, own attributes, own loot table — but they share one class and are
@@ -207,7 +211,10 @@ non-zero on any error and currently checks:
 - **structure templates decode**: all 115 NBT files parse, carry DataVersion
   3465, keep every block inside their declared size, and name only registered
   blocks
-- audio: nothing references a sound that has no `.ogg`
+- audio: nothing references a sound that has no `.ogg`, `sounds.json` is closed in
+  both directions, and every shipped `.ogg` is parsed as a real Ogg Vorbis stream
+  — a renamed MP3, a Git LFS pointer or a partial download all exist at the right
+  path and all fail in game rather than in the build
 - **particles**: every registered particle type has a sprite descriptor and a
   texture, and every biome that names one names a registered type — a
   `registerSpriteSet` call with no `particles/<id>.json` is a load-time error
@@ -242,17 +249,24 @@ repeat. See [docs/CONTRIBUTING.md](docs/CONTRIBUTING.md) for the full list.
 Recorded rather than hidden, because each is checked by the validator and
 reported on every run.
 
-**No audio ships.** 29 sound ids are authored and registered — eight biome music
-tracks, sixteen ambience tracks and the five boss themes — but there are no
-`.ogg` files, so biome music, ambience and boss themes are all silent. Composing
-and encoding 29 tracks is outside what this pipeline can do.
+**No real recordings ship.** 29 sound ids are authored and registered — eight
+biome music tracks, sixteen ambience tracks and the five boss themes — and all 29
+now have valid Ogg Vorbis files at their paths, but those files are **silent
+one-second placeholders** minted by `tools/gen_audio.py`. The audio path is
+therefore live and exercised rather than gated off: `sounds.json` declares all 29,
+all 140 biomes reference their music, 68 reference ambience, and boss themes start
+on sighting. Nothing is audible, and nothing errors.
 
-The integration is complete and gated on the audio existing, so adding it is a
-data change with no code edit: drop a track at
-`assets/biomesunseen/sounds/music/ethereal.ogg`, re-run the generators, and its
-`sounds.json` entry is written, every biome that authored it switches on, and it
-is added to the generated table that gates boss playback. Until then nothing
-references the missing audio, so there is no log spam.
+Composing and encoding 29 tracks is outside what this pipeline can do, so this is
+recorded rather than hidden, and the validator reports the placeholder count on
+every run.
+
+**[docs/AUDIO.md](docs/AUDIO.md) is the replacement checklist**: every id, its
+exact path, the biomes or boss it serves, the format requirements, and the
+intended track. Replacing one is a data change with no code edit — drop a real
+`.ogg` over the placeholder, re-run the generators, and commit. The gating is
+derived from which files exist, so `BUSounds.hasAudio()`, `SOUNDS_WITH_AUDIO`,
+`sounds.json` and every biome that authored the track all follow automatically.
 
 **Three ore uses have no subsystem.** `OreSpec.uses` records what an ore is meant
 to be spent on, but nothing in the pipeline consumes the field, so it is checked
@@ -285,7 +299,8 @@ src/main/java/com/biomesunseen/
   client/                    GeckoLib models and renderers
   world/                     TerraBlender region and surface rules
 src/main/resources/
-  assets/biomesunseen/       textures, models, blockstates, geo, animations, lang
+  assets/biomesunseen/       textures, models, blockstates, geo, animations, lang,
+                             sounds, particles
   data/biomesunseen/         worldgen, loot tables, recipes, tags, structures
   data/minecraft/tags/       vanilla worldgen biome tags
 tools/                       generators, codecs, content tables, validator

@@ -562,6 +562,17 @@ except Exception as _exc:  # noqa: BLE001
     B = O = M = BS = G = S = None
     CONTENT_IMPORT_ERROR = str(_exc)
 
+# gen_audio owns the Ogg Vorbis page parser and the sound-id derivation, so this
+# imports cleanly with nothing but the standard library -- no encoder is needed to
+# verify a file, only to mint one. Sharing it is what stops the generator and the
+# validator from disagreeing about what counts as a usable stream.
+try:
+    import gen_audio as GA                 # noqa: E402
+    AUDIO_IMPORT_ERROR: Optional[str] = None
+except Exception as _exc:  # noqa: BLE001
+    GA = None
+    AUDIO_IMPORT_ERROR = str(_exc)
+
 
 def _manifest() -> Dict[str, List[str]]:
     """The generated registry manifest, or an empty mapping if absent."""
@@ -2366,6 +2377,88 @@ def check_registration_uniqueness(report: Report) -> None:
                      len(MANIFEST_ENTITIES & covered))
 
 
+def check_audio_files(report: Report) -> None:
+    """
+    Every shipped .ogg must be a usable Ogg Vorbis stream, not merely a file.
+
+    Existence is the check that made the audio path safe to switch on, and it is
+    not enough on its own. Minecraft 1.20.1 decodes through a Vorbis decoder
+    reading an Ogg container, so a file that merely sits at the right path can
+    still be unusable: an MP3 renamed to .ogg, a Git LFS pointer committed instead
+    of the track it stands for, or a partial download all pass an existence test
+    and then fail at load or at playback, in the second case with no message until
+    a player walks into the biome that starts the track.
+
+    So each file is parsed here -- capture pattern, page chain, the three Vorbis
+    header packets including the setup packet that carries the codebooks, the
+    identification header's fields and framing bit, and a final granule position
+    that implies real samples. Structural only: nothing here can listen, which is
+    what docs/AUDIO.md and the note below are for.
+
+    The declaration is also closed in both directions. An .ogg that sounds.json
+    does not declare can never be started, and a declaration that no biome or boss
+    authors can never be reached -- neither is visible in game, and both would
+    otherwise look like working audio.
+    """
+    if GA is None:
+        report.error("audio",
+                     f"gen_audio is unavailable, so the .ogg files were not verified: "
+                     f"{AUDIO_IMPORT_ERROR}")
+        return
+
+    ids = GA.sound_ids()
+    if not ids:
+        report.error("audio",
+                     "no sound ids resolved from the content tables; the audio file "
+                     "check would otherwise pass vacuously")
+        return
+
+    sounds_json = os.path.join(ASSETS, "sounds.json")
+    declared: Set[str] = set()
+    if os.path.isfile(sounds_json):
+        try:
+            declared = set(json.load(open(sounds_json, "r", encoding="utf-8")).keys())
+        except Exception as exc:  # noqa: BLE001
+            report.error("audio", f"sounds.json does not parse: {exc}")
+
+    placeholders = 0
+    for sound_id in ids:
+        path = GA.ogg_path(sound_id)
+        relative = os.path.relpath(path, ROOT)
+        ok, problems, info = GA.verify_ogg_vorbis(path)
+        report.count("audio files verified", 1)
+        if not ok:
+            report.error("audio",
+                         f"{relative} is not a usable Ogg Vorbis stream: "
+                         f"{'; '.join(problems)}")
+            continue
+        if info.get("duration") == GA.DURATION_SECONDS:
+            placeholders += 1
+        if sound_id not in declared:
+            report.error("audio",
+                         f"sound '{sound_id}' has audio at {relative} but sounds.json "
+                         f"does not declare it, so nothing can ever start it")
+
+    for orphan in sorted(declared - set(ids)):
+        report.error("audio",
+                     f"sounds.json declares '{orphan}', which no biome or boss "
+                     f"authors, so nothing can ever reach it")
+    report.count("sounds.json declarations closed", len(declared))
+
+    if placeholders == len(ids) and placeholders:
+        report.note("audio",
+                    f"all {placeholders} shipped tracks are the {GA.DURATION_SECONDS}s "
+                    f"silent placeholders minted by tools/gen_audio.py, so the audio "
+                    f"path is wired and exercised but nothing is audible yet. "
+                    f"docs/AUDIO.md lists each id, its path, what it serves and the "
+                    f"intended track; replacing a file and re-running the generators "
+                    f"is the whole change.")
+    elif placeholders:
+        report.note("audio",
+                    f"{placeholders} of {len(ids)} shipped tracks are still the silent "
+                    f"placeholder; see docs/AUDIO.md")
+
+
 def check_audio(report: Report) -> None:
     """
     Every sound id either ships audio or is referenced by nothing.
@@ -2378,10 +2471,14 @@ def check_audio(report: Report) -> None:
 
     The generators enforce that by emitting music and ambience only for sounds
     with a real .ogg, and this checks the result: no biome JSON may name a sound
-    that has no audio, and sounds.json may only declare files that exist. The
-    remaining gap -- authored tracks with no audio yet -- is reported as a count
+    that has no audio, and sounds.json may only declare files that exist. Any
+    remaining gap -- an authored track with no file yet -- is reported as a count
     so it is visible rather than silent, since it is a content hole and not a
-    defect.
+    defect. All 29 ids now have files, so this branch is currently empty and the
+    live gap is that the files are silent placeholders; check_audio_files counts
+    those and docs/AUDIO.md is the replacement checklist. What this function
+    guards is the invariant that made shipping placeholders safe in the first
+    place: nothing may ever reference audio that is not there.
     """
     assets = os.path.join(RES, "assets", MODID)
     authored = set()
@@ -2582,6 +2679,7 @@ def main() -> int:
     check_blockstate_property_coverage(report)
     check_ore_uses(report)
     check_armour_slot_ordering(report)
+    check_audio_files(report)
     check_particles(report)
     check_fluid_render_layers(report)
     check_pixelart_glyph_geometry(report)

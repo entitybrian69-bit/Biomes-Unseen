@@ -11,6 +11,12 @@
     "grass_color_modifier": "none",
     "foliage_color": 8044634,
     "grass_color": 10147962,
+    "music": {
+      "sound": "biomesunseen:music.ethereal",
+      "min_delay": 12000,
+      "max_delay": 24000,
+      "replace_current_music": true
+    },
     "particle": {
       "options": {
         "type": "biomesunseen:lumen_mote"
