@@ -764,6 +764,33 @@ def themed_chest(path: str, dimension: str) -> dict:
     }
 
 
+def emit_particles(w: Writer) -> None:
+    """
+    Particle descriptors, one per registered ambient particle type.
+
+    BUParticles registers each type as a SimpleParticleType and
+    BiomesUnseenClient binds it through Forge's registerSpriteSet, which is the
+    json-based entry point: Forge raises a missing-texture-list error at load if
+    no descriptor exists under assets/<modid>/particles/ for a type registered
+    that way. The descriptor is also the only thing that connects a type to its
+    hand-authored sprite, so without it the eleven textures under
+    textures/particle are loaded by nothing.
+
+    The shape is the vanilla one: a textures list of namespace-relative ids that
+    resolve against textures/particle/. A single entry means the sprite does not
+    animate, which is right for a mote -- its motion comes from the particle's
+    own drift rather than from a flipbook.
+    """
+    ids = sorted({b.particle for b in BIOMES.ALL_BIOMES if b.particle})
+    for reference in ids:
+        namespace, _, path = reference.partition(":")
+        if namespace != MODID:
+            # A biome naming a vanilla particle needs no descriptor of ours, and
+            # writing one into another namespace's folder would be wrong.
+            continue
+        w.json(bpath("particles", f"{path}.json"), {"textures": [reference]})
+
+
 def emit_referenced_chests(w: Writer) -> None:
     """
     Emit a real file for every nested loot path the structure table references.
@@ -1276,6 +1303,7 @@ def emit_all(w: Writer) -> None:
     for struct in STRUCTS.ALL_STRUCTURES:
         w.json(dpath("loot_tables", "chests", f"{struct.id}.json"), chest_loot(struct))
 
+    emit_particles(w)
     emit_referenced_chests(w)
     emit_recipes(w)
     emit_tags(w)

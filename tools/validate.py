@@ -240,6 +240,14 @@ def collect_texture_refs(parsed: Dict[str, object]) -> List[Tuple[str, str]]:
             "back", "side", "top", "bottom", "cross", "overlay", "texture_id"}
     out: List[Tuple[str, str]] = []
 
+    # Particle descriptors are skipped. Their "textures" list holds sprite names
+    # relative to textures/particle/, not full texture paths, so "lumen_mote"
+    # there means textures/particle/lumen_mote.png -- whereas the same string in
+    # a model would mean textures/lumen_mote.png. Feeding them through the generic
+    # resolution below reports eleven textures as missing when all eleven are on
+    # disk. check_particles validates them against the right directory instead.
+    skip = "/particles/"
+
     def rec(node: object, where: str, parent_key: Optional[str]) -> None:
         if isinstance(node, dict):
             for k, v in node.items():
@@ -254,6 +262,8 @@ def collect_texture_refs(parsed: Dict[str, object]) -> List[Tuple[str, str]]:
                 out.append((where, node))
 
     for where, obj in parsed.items():
+        if skip in where.replace(os.sep, "/"):
+            continue
         rec(obj, where, None)
     return out
 
@@ -968,6 +978,91 @@ def check_pixelart_glyph_geometry(report: Report) -> None:
                     "pixelart",
                     f"family '{family}' region '{region}' has rows of width "
                     f"{sorted(widths)}, expected every row exactly {want_width} wide")
+
+
+def check_particles(report: Report) -> None:
+    """
+    Every particle type must have a descriptor, and every descriptor a sprite.
+
+    Three separate things have to agree for an ambient particle to appear, and a
+    break in any one of them fails silently at build time:
+
+      the type      BUParticles registers it from BUContent.PARTICLES
+      the provider  BiomesUnseenClient binds it through registerSpriteSet
+      the json      assets/<modid>/particles/<id>.json lists its sprites
+
+    registerSpriteSet is Forge's json-based entry point, so a type registered
+    that way with no descriptor raises a missing-texture-list error at load, and
+    a descriptor naming a texture that does not exist renders an empty quad.
+    Neither stops the build. Without a provider at all the type simply cannot be
+    instantiated, which is the state all eleven were in: registered, named by 63
+    biomes, with no provider and no descriptor, so every hand-authored sprite
+    under textures/particle was loaded by nothing and the client would have
+    logged a failure per spawn attempt for as long as a player stood in any of
+    those biomes.
+
+    This checks the json side and its sprites. The provider side is covered by
+    requiring that every type named by a biome resolves, since BiomesUnseenClient
+    iterates the same registry that BUParticles fills.
+    """
+    particle_dir = os.path.join(ASSETS, "particles")
+    descriptors = {}
+    if os.path.isdir(particle_dir):
+        for name in sorted(os.listdir(particle_dir)):
+            if name.endswith(".json"):
+                descriptors[name[:-5]] = os.path.join(particle_dir, name)
+
+    # The manifest does not carry particles, so the registered set is derived
+    # from the biome table -- which is where BUContent.PARTICLES itself comes
+    # from, generate_java.py building it out of BiomeSpec.particle. Deriving it
+    # the same way means this cannot disagree with what Java registers.
+    registered = set()
+    if B is not None:
+        for biome in B.ALL_BIOMES:
+            ref = getattr(biome, "particle", None)
+            if ref:
+                registered.add(ref.split(":")[-1])
+    if not registered:
+        report.note("particle",
+                    "content tables unavailable; particle descriptors not checked")
+        return
+
+    for particle_id in sorted(registered):
+        path = descriptors.get(particle_id)
+        if path is None:
+            report.error("particle",
+                         f"particle '{particle_id}' is registered but has no "
+                         f"descriptor at assets/{MODID}/particles/{particle_id}.json, "
+                         f"so registerSpriteSet raises a missing-texture-list error")
+            continue
+        report.count("particle descriptors", 1)
+        doc = json.load(open(path, "r", encoding="utf-8"))
+        textures = doc.get("textures")
+        if not isinstance(textures, list) or not textures:
+            report.error("particle",
+                         f"descriptor for '{particle_id}' has no textures list")
+            continue
+        for ref in textures:
+            if not isinstance(ref, str):
+                report.error("particle",
+                             f"descriptor for '{particle_id}' has a non-string texture")
+                continue
+            namespace, _, sprite = ref.partition(":")
+            namespace = namespace or MODID
+            if namespace != MODID:
+                continue  # a borrowed vanilla sprite is legitimate
+            sprite_path = os.path.join(ASSETS, "textures", "particle", sprite + ".png")
+            if not os.path.exists(sprite_path):
+                report.error("particle",
+                             f"descriptor for '{particle_id}' names sprite '{ref}' "
+                             f"but textures/particle/{sprite}.png does not exist")
+            report.count("particle sprite refs", 1)
+
+    # A descriptor with no type behind it is dead art that ships in the jar.
+    for particle_id in sorted(set(descriptors) - registered):
+        report.error("particle",
+                     f"descriptor '{particle_id}.json' exists but no registered "
+                     f"particle type or biome uses it")
 
 
 def check_geckolib_atlas_coverage(report: Report) -> None:
@@ -1996,6 +2091,7 @@ def main() -> int:
     check_translations(report)
     check_model_and_tag_closure(report)
     check_blockstate_property_coverage(report)
+    check_particles(report)
     check_pixelart_glyph_geometry(report)
     check_geckolib_atlas_coverage(report)
 

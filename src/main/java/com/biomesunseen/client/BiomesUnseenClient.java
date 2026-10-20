@@ -1,16 +1,22 @@
 package com.biomesunseen.client;
 
 import com.biomesunseen.BiomesUnseen;
+import com.biomesunseen.client.particle.BUAmbientParticle;
 import com.biomesunseen.client.render.BUBossRenderer;
 import com.biomesunseen.client.render.BUCreatureRenderer;
 import com.biomesunseen.init.BUContent;
 import com.biomesunseen.init.BUEntities;
+import com.biomesunseen.init.BUParticles;
 import net.minecraft.client.renderer.entity.EntityRenderers;
+import net.minecraft.core.particles.ParticleType;
+import net.minecraft.core.particles.SimpleParticleType;
 import net.minecraft.world.entity.EntityType;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.EntityRenderersEvent;
+import net.minecraftforge.client.event.RegisterParticleProvidersEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.registries.RegistryObject;
 
 /**
  * Client-side registration.
@@ -61,6 +67,59 @@ public final class BiomesUnseenClient {
         }
         BiomesUnseen.LOGGER.info("Biomes Unseen: bound renderers for {} creatures and {} bosses",
                 creatures, bosses);
+    }
+
+    /**
+     * Bind a provider to every registered particle type.
+     *
+     * A {@link ParticleType} that is registered but has no provider cannot be
+     * instantiated on the client: {@code ParticleEngine} finds no factory and the
+     * particle simply does not appear, with a warning logged per spawn attempt.
+     * Because 63 biomes name one of these in their effects block, that would
+     * repeat continuously for as long as a player stood in any of them, and every
+     * hand-authored sprite under {@code textures/particle} would stay unloaded.
+     *
+     * Driven by the registry rather than written out per type, so a particle
+     * authored in {@code BUContent.PARTICLES} is bound on the next codegen run and
+     * cannot be silently forgotten.
+     */
+    @SubscribeEvent
+    public static void registerParticles(RegisterParticleProvidersEvent event) {
+        int bound = 0;
+        for (RegistryObject<ParticleType<?>> holder : BUParticles.all()) {
+            ParticleType<?> type = holder.get();
+            if (type == null) {
+                BiomesUnseen.LOGGER.error("Particle type {} resolved to null", holder.getId());
+                continue;
+            }
+            if (registerAmbient(event, holder.getId().getPath(), type)) {
+                bound++;
+            }
+        }
+        BiomesUnseen.LOGGER.info("Biomes Unseen: bound {} ambient particle providers", bound);
+    }
+
+    /**
+     * Bind one type to {@link BUAmbientParticle}.
+     *
+     * {@code registerSpriteSet} is generic over {@code T extends ParticleOptions}
+     * while the registry hands back {@code ParticleType<?>}, so the cast is
+     * confined here and guarded by an instanceof rather than scattered through the
+     * loop. Every type registered by {@link BUParticles} is a
+     * {@link SimpleParticleType} by construction; the check exists so a future
+     * type carrying extra data fails loudly here instead of being skipped.
+     */
+    @SuppressWarnings("unchecked")
+    private static boolean registerAmbient(RegisterParticleProvidersEvent event,
+                                           String id, ParticleType<?> type) {
+        if (!(type instanceof SimpleParticleType)) {
+            BiomesUnseen.LOGGER.error(
+                    "Particle {} is not a SimpleParticleType, so it has no ambient provider", id);
+            return false;
+        }
+        event.registerSpriteSet((ParticleType<SimpleParticleType>) type,
+                                BUAmbientParticle.Provider::new);
+        return true;
     }
 
     /**
