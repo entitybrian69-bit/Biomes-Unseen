@@ -1149,6 +1149,13 @@ GeckoLib model. Every hostile has real targeting and melee AI.
     versionRange = "[4.4.7,)"
     ordering = "AFTER"
     side = "BOTH"
+
+[[dependencies.{MODID}]]
+    modId = "terrablender"
+    mandatory = true
+    versionRange = "[3.0.0,)"
+    ordering = "AFTER"
+    side = "BOTH"
 '''
     w.text(os.path.join(RES, "META-INF", "mods.toml"), mods_toml)
 

@@ -13,13 +13,16 @@ import com.biomesunseen.init.BUParticles;
 import com.biomesunseen.init.BUSounds;
 import com.mojang.logging.LogUtils;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.event.server.ServerAboutToStartEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.slf4j.Logger;
 import software.bernie.geckolib.GeckoLib;
+import terrablender.api.Regions;
+import terrablender.api.SurfaceRuleManager;
+import com.biomesunseen.world.BUOverworldRegion;
+import com.biomesunseen.world.BUOverworldSurfaceRules;
 
 /**
  * Biomes Unseen -- entry point.
@@ -62,7 +65,6 @@ public class BiomesUnseen {
 
         modBus.addListener(this::commonSetup);
         modBus.addListener(BUEntities::registerAttributes);
-        MinecraftForge.EVENT_BUS.addListener(this::serverAboutToStart);
         MinecraftForge.EVENT_BUS.register(this);
 
         LOGGER.info("Biomes Unseen loaded: {} blocks, {} items, {} creatures, {} bosses, {} biomes",
@@ -70,15 +72,22 @@ public class BiomesUnseen {
                 BUContent.BOSSES.length, BUBiomes.all().size());
     }
 
-    private void commonSetup(final FMLCommonSetupEvent event) {
-        event.enqueueWork(() -> LOGGER.info("Biomes Unseen common setup complete"));
-    }
-
     /**
-     * The Overworld biome source has to be swapped once the server exists, since
-     * the level stems are built during server construction.
+     * Register the Overworld region and its surface rules with TerraBlender.
+     *
+     * Both have to happen in common setup and on the mod thread: TerraBlender
+     * assembles the Overworld's blended parameter list once the biome registry is
+     * populated, and the surface rules resolve their blocks from that same
+     * frozen registry. Doing either earlier would register a region whose biome
+     * keys cannot yet be confirmed to exist.
      */
-    private void serverAboutToStart(final ServerAboutToStartEvent event) {
-        com.biomesunseen.world.OverworldBiomeInjector.inject(event.getServer());
+    private void commonSetup(final FMLCommonSetupEvent event) {
+        event.enqueueWork(() -> {
+            Regions.register(new BUOverworldRegion());
+            SurfaceRuleManager.addSurfaceRules(
+                    SurfaceRuleManager.RuleCategory.OVERWORLD, MODID,
+                    BUOverworldSurfaceRules.makeRules());
+            LOGGER.info("Biomes Unseen common setup complete");
+        });
     }
 }

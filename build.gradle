@@ -89,6 +89,18 @@ dependencies {
 
     // GeckoLib 4.4.7 is the 1.20.1 stable line.
     implementation fg.deobf("software.bernie.geckolib:geckolib-forge-1.20.1:${geckolib_version}")
+
+    // TerraBlender blends our Overworld biomes into vanilla's multi-noise
+    // parameter list. Without it the 80 Overworld biomes are registered and
+    // fully authored but never placed, because nothing in a datapack can append
+    // to MultiNoiseBiomeSourceParameterList.Preset.OVERWORLD. This is the same
+    // hook Biomes O' Plenty and Oh The Biomes You've Gone use, so adding biomes
+    // here stays compatible with every other biome mod in a pack instead of
+    // fighting them for the same climate space.
+    //
+    // Published to maven.minecraftforge.net, which ForgeGradle already adds and
+    // which the repositories block below declares explicitly.
+    implementation fg.deobf("com.github.glitchfiend:TerraBlender-forge:${minecraft_version}-${terrablender_version}")
 }
 
 // ---------------------------------------------------------------------------

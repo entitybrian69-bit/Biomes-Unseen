@@ -414,22 +414,25 @@ def biome_section() -> str:
     out.append("    };")
     out.append("")
 
-    # The 12 seeded Overworld biomes driven by the custom MultiNoise source.
-    seeded = [b.id for b in BIOMES.ALL_BIOMES
-              if b.dimension == "overworld" and b.weight >= 120]
-    seeded = sorted(seeded)[:12]
+    # Every Overworld biome, with the climate parameters TerraBlender needs to
+    # place it. This used to be the 12 highest-weight biomes, on the assumption
+    # that only a hand-picked slice could be spliced into the vanilla preset.
+    # TerraBlender's region API blends a whole region against vanilla, so all 80
+    # are now emitted and all 80 generate.
+    seeded = sorted(b.id for b in BIOMES.ALL_BIOMES if b.dimension == "overworld")
     out.append("    /**")
-    out.append("     * The 12 Overworld biomes injected by BUOverworldBiomeSource.")
+    out.append("     * Every Overworld biome the mod adds.")
     out.append("     *")
-    out.append("     * These are the highest-weight Overworld biomes; the custom")
-    out.append("     * MultiNoiseBiomeSource subclass adds their noise parameters to")
-    out.append("     * the vanilla preset so they generate in normal Overworld play.")
+    out.append("     * Bound to the TerraBlender Overworld region by BUOverworldRegion,")
+    out.append("     * which blends their authored climate parameters against vanilla so")
+    out.append("     * they generate in normal Overworld play without replacing any")
+    out.append("     * vanilla biome.")
     out.append("     */")
     out.append(string_array_decl("SEEDED_OVERWORLD_BIOMES", seeded,
-                                 "Injected into the vanilla Overworld multi-noise parameters."))
+                                 "Placed by the TerraBlender Overworld region."))
     out.append("")
 
-    # Noise parameters for those 12, straight from the authored table.
+    # Noise parameters for all of them, straight from the authored table.
     out.append("    /**")
     out.append("     * Multi-noise parameters for SEEDED_OVERWORLD_BIOMES as")
     out.append("     * {biomeId, temperature, humidity, continentalness, erosion,")
@@ -443,6 +446,30 @@ def biome_section() -> str:
             f"            {{ {q(bid)}, {float(b.temperature)}f, {float(b.humidity)}f, "
             f"{float(b.continentalness)}f, {float(b.erosion)}f, {float(b.depth)}f, "
             f"{float(b.weirdness)}f, {float(b.offset)}f }},"
+        )
+    out.append("    };")
+    out.append("")
+
+    # Surface materials for the Overworld biomes, as {biomeId, top, filler}.
+    #
+    # Our own dimensions carry surface rules in their noise_settings JSON, but
+    # the Overworld's rules come from vanilla's noise settings, which a datapack
+    # cannot extend per biome. TerraBlender's SurfaceRuleManager is the supported
+    # hook, and it is Java-side, so the materials have to be available here.
+    out.append("    /**")
+    out.append("     * Surface materials for SEEDED_OVERWORLD_BIOMES as")
+    out.append("     * {biomeId, surfaceTop, surfaceFiller}.")
+    out.append("     *")
+    out.append("     * Consumed by BUOverworldSurfaceRules, which registers biome-gated")
+    out.append("     * surface rules through TerraBlender so each biome gets its authored")
+    out.append("     * crust without those materials bleeding into vanilla biomes.")
+    out.append("     */")
+    out.append("    public static final Object[][] OVERWORLD_SURFACES = {")
+    for bid in seeded:
+        b = BIOMES.BY_ID[bid] if hasattr(BIOMES, "BY_ID") else next(
+            x for x in BIOMES.ALL_BIOMES if x.id == bid)
+        out.append(
+            f"            {{ {q(bid)}, {q(b.surface_top)}, {q(b.surface_filler)} }},"
         )
     out.append("    };")
     out.append("")

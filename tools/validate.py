@@ -847,18 +847,22 @@ def check_biome_placement(report: Report) -> None:
     Every authored biome must be reachable by some biome source.
 
     A biome can be fully authored -- climate, colours, surface rules, features,
-    spawns, structures, loot -- and still never appear in a world, because
-    placement is a separate question from definition. Dimension biomes are
-    placed by their dimension's multi_noise source, which this checks directly.
+    spawns, structures, loot -- and still never appear in a world, because being
+    defined is not the same as being placed. Nothing else in this validator can
+    see that distinction, so it is checked here.
 
-    Overworld biomes are different: 1.20.1 samples a fixed climate parameter
-    list held in MultiNoiseBiomeSourceParameterList.Preset.OVERWORLD, and
-    nothing in a datapack can append to it. Splicing our points in requires
-    either a mixin on that preset or replacing vanilla's overworld parameter
-    list outright. That splice is NOT currently shipped, so the Overworld biomes
-    are registered and complete but do not yet generate -- reported here as a
-    counted gap rather than left silent, because a biome that never spawns is
-    invisible to every other check in this file.
+    Dimension biomes are placed by their own dimension's multi_noise source,
+    which is pure data and is verified directly against the emitted JSON.
+
+    Overworld biomes cannot be placed by data alone: 1.20.1 samples a fixed
+    climate parameter list built inside
+    MultiNoiseBiomeSourceParameterList.Preset.OVERWORLD, and no datapack can
+    append to it. They are placed through TerraBlender instead, which is the same
+    hook Biomes O' Plenty and Oh The Biomes You've Gone use, so our biomes blend
+    with other biome mods rather than competing with them. That makes the binding
+    a three-part contract, and all three parts are checked: the dependency must
+    be declared, the region must exist, and every Overworld biome must appear in
+    both generated tables the region and the surface rules read.
     """
     placed = set()
     dimension_dir = os.path.join(RES, "data", MODID, "dimension")
@@ -879,19 +883,54 @@ def check_biome_placement(report: Report) -> None:
                          f"dimension biome '{spec.id}' ({spec.dimension}) is placed by no biome source")
         report.count("biomes placed by a dimension source", 1)
 
-    spliced = os.path.exists(os.path.join(
-        RES, "data", "minecraft", "worldgen",
-        "multi_noise_biome_source_parameter_list", "overworld.json"))
-    if spliced:
-        for spec in overworld:
-            report.count("overworld biomes spliced into the vanilla list", 1)
+    # ---- the TerraBlender contract ---------------------------------------
+    mods_toml = os.path.join(RES, "META-INF", "mods.toml")
+    declared = False
+    if os.path.isfile(mods_toml):
+        declared = 'modId = "terrablender"' in open(mods_toml, encoding="utf-8").read()
+    if not declared:
+        report.error("placement",
+                     "mods.toml does not declare a terrablender dependency, so the "
+                     "Overworld region cannot load")
+
+    region = os.path.join(JAVA, "com", "biomesunseen", "world", "BUOverworldRegion.java")
+    if not os.path.isfile(region):
+        report.error("placement", "BUOverworldRegion.java is missing")
+
+    # Both generated tables are consumed by Java, so verify the ids rather than
+    # trusting the generator: a biome absent from either is registered but never
+    # placed, or placed but wearing the vanilla grass crust.
+    content = os.path.join(JAVA, "com", "biomesunseen", "init", "BUContent.java")
+    parameters = set()
+    surfaces = set()
+    if os.path.isfile(content):
+        text = open(content, encoding="utf-8").read()
+        parameters = _table_ids(text, "SEEDED_OVERWORLD_PARAMETERS")
+        surfaces = _table_ids(text, "OVERWORLD_SURFACES")
     else:
-        report.note("placement",
-                    f"{len(overworld)} Overworld biomes are authored and registered but not "
-                    f"yet spliced into MultiNoiseBiomeSourceParameterList.Preset.OVERWORLD, "
-                    f"so they do not generate in the Overworld. Requires a mixin on that "
-                    f"preset or a datapack override of minecraft:overworld.")
-        report.count("overworld biomes awaiting parameter-list splice", len(overworld))
+        report.error("placement", "BUContent.java is missing")
+
+    for spec in overworld:
+        if spec.id not in parameters:
+            report.error("placement",
+                         f"Overworld biome '{spec.id}' has no climate parameter row, "
+                         f"so the TerraBlender region cannot place it")
+        if spec.id not in surfaces:
+            report.error("placement",
+                         f"Overworld biome '{spec.id}' has no surface material row, "
+                         f"so it would grow the vanilla grass crust")
+        report.count("overworld biomes bound to the TerraBlender region", 1)
+
+
+def _table_ids(text: str, table: str) -> set:
+    """The leading string id of every row in a generated Object[][] table."""
+    marker = f"{table} = {{"
+    start = text.find(marker)
+    if start < 0:
+        return set()
+    end = text.find("\n    };", start)
+    body = text[start:end if end > 0 else len(text)]
+    return set(re.findall(r'\{\s*"([a-z0-9_]+)"', body))
 
 
 def main() -> int:
