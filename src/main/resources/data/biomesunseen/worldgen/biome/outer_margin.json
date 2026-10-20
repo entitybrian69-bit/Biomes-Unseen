@@ -17,6 +17,18 @@
         "weight": 35,
         "minCount": 1,
         "maxCount": 3
+      },
+      {
+        "type": "biomesunseen:gloomstalker",
+        "weight": 28,
+        "minCount": 1,
+        "maxCount": 2
+      },
+      {
+        "type": "biomesunseen:spire_climber",
+        "weight": 26,
+        "minCount": 1,
+        "maxCount": 3
       }
     ],
     "creature": [],

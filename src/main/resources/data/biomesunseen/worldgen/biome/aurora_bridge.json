@@ -25,11 +25,24 @@
         "weight": 28,
         "minCount": 2,
         "maxCount": 4
+      },
+      {
+        "type": "biomesunseen:unraveling_shard_aether",
+        "weight": 20,
+        "minCount": 2,
+        "maxCount": 4
       }
     ],
     "axolotls": [],
     "underground_water_creature": [],
-    "water_creature": [],
+    "water_creature": [
+      {
+        "type": "biomesunseen:cloudfin",
+        "weight": 35,
+        "minCount": 3,
+        "maxCount": 6
+      }
+    ],
     "water_ambient": [],
     "misc": []
   },

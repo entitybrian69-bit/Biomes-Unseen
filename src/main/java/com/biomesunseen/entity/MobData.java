@@ -40,6 +40,15 @@ public final class MobData {
     public final int experience;
     /** Animation ids the species' .animation.json must define. */
     public final String[] animations;
+    /**
+     * The unscaled collision box, in blocks.
+     *
+     * Kept separate from {@code scale} on purpose: the EntityType is sized with
+     * these, and getDimensions applies the scale once on top. Folding scale into
+     * both compounds it -- a species authored at 2.6 would come out 6.76x.
+     */
+    public final float modelWidth;
+    public final float modelHeight;
 
     public MobData(String id, String family, String dimension, boolean hostile,
                    float maxHealth, float movementSpeed, float attackDamage,
@@ -50,7 +59,7 @@ public final class MobData {
                    String[] goals, String[] targetClasses,
                    String spawnCategory, int spawnWeight,
                    int spawnGroupMin, int spawnGroupMax, int experience,
-                   String[] animations) {
+                   String[] animations, float modelWidth, float modelHeight) {
         this.id = id;
         this.family = family;
         this.dimension = dimension;
@@ -76,5 +85,7 @@ public final class MobData {
         this.spawnGroupMax = spawnGroupMax;
         this.experience = experience;
         this.animations = animations;
+        this.modelWidth = modelWidth;
+        this.modelHeight = modelHeight;
     }
 }

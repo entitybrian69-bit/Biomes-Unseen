@@ -31,6 +31,12 @@
         "weight": 25,
         "minCount": 1,
         "maxCount": 3
+      },
+      {
+        "type": "biomesunseen:slag_golem",
+        "weight": 15,
+        "minCount": 1,
+        "maxCount": 1
       }
     ],
     "creature": [],

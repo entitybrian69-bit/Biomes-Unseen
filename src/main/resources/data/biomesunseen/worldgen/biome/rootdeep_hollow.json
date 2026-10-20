@@ -27,6 +27,12 @@
         "weight": 15,
         "minCount": 1,
         "maxCount": 1
+      },
+      {
+        "type": "biomesunseen:sporeling",
+        "weight": 35,
+        "minCount": 3,
+        "maxCount": 6
       }
     ],
     "ambient": [],

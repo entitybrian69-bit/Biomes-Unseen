@@ -17,7 +17,14 @@
     }
   },
   "spawners": {
-    "monster": [],
+    "monster": [
+      {
+        "type": "biomesunseen:warren_skitter",
+        "weight": 40,
+        "minCount": 4,
+        "maxCount": 8
+      }
+    ],
     "creature": [
       {
         "type": "biomesunseen:sporeling",
@@ -30,6 +37,12 @@
         "weight": 25,
         "minCount": 2,
         "maxCount": 4
+      },
+      {
+        "type": "biomesunseen:sporeling_deep",
+        "weight": 38,
+        "minCount": 3,
+        "maxCount": 6
       }
     ],
     "ambient": [],

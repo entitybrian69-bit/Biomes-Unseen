@@ -17,6 +17,12 @@
         "weight": 15,
         "minCount": 1,
         "maxCount": 1
+      },
+      {
+        "type": "biomesunseen:rune_construct",
+        "weight": 18,
+        "minCount": 1,
+        "maxCount": 2
       }
     ],
     "creature": [
@@ -25,6 +31,12 @@
         "weight": 25,
         "minCount": 1,
         "maxCount": 2
+      },
+      {
+        "type": "biomesunseen:astral_scribe_aether",
+        "weight": 16,
+        "minCount": 1,
+        "maxCount": 1
       }
     ],
     "ambient": [],

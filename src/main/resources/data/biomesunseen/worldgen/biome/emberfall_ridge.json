@@ -33,7 +33,14 @@
         "maxCount": 2
       }
     ],
-    "creature": [],
+    "creature": [
+      {
+        "type": "biomesunseen:highland_goat",
+        "weight": 22,
+        "minCount": 2,
+        "maxCount": 5
+      }
+    ],
     "ambient": [],
     "axolotls": [],
     "underground_water_creature": [],

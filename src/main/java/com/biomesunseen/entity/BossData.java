@@ -54,11 +54,18 @@ public final class BossData {
     public final String lootTable;
     public final String arenaStructure;
     public final PhaseData[] phases;
+    /**
+     * The unscaled collision box, in blocks. See MobData for why this is kept
+     * apart from {@code scale} rather than pre-multiplied into it.
+     */
+    public final float modelWidth;
+    public final float modelHeight;
 
     public BossData(String id, String name, String dimension, String music,
                     String bossBarColor, String bossBarOverlay, float scale,
                     int textureSize, int textureHeight, String spawnItem,
-                    String lootTable, String arenaStructure, PhaseData[] phases) {
+                    String lootTable, String arenaStructure, PhaseData[] phases,
+                    float modelWidth, float modelHeight) {
         this.id = id;
         this.name = name;
         this.dimension = dimension;
@@ -72,6 +79,8 @@ public final class BossData {
         this.lootTable = lootTable;
         this.arenaStructure = arenaStructure;
         this.phases = phases;
+        this.modelWidth = modelWidth;
+        this.modelHeight = modelHeight;
     }
 
     /** The phase that should be active at a given health fraction. */

@@ -315,17 +315,50 @@ SPAWN_CATEGORIES = ["monster", "creature", "ambient", "axolotls",
                     "underground_water_creature", "water_creature",
                     "water_ambient", "misc"]
 
+# MobSpec.spawn_biomes is the mob-side declaration of where a species lives, and
+# BiomeSpec.spawns is the biome-side declaration of what lives in it. Only the
+# latter was ever emitted, so 113 authored (mob, biome) relationships produced
+# nothing and four species -- sporeling_deep, astral_scribe_aether,
+# unraveling_shard_aether and sky_citizen -- appeared in no biome at all despite
+# carrying a real spawn weight, group size and list of homes. They were
+# obtainable from a spawn egg and nowhere in the world.
+#
+# Indexed once here: biome id -> the mobs that claim it, with each mob's own
+# weight and group size.
+MOBS_BY_BIOME: dict = {}
+for _mob in M.ALL_MOBS:
+    for _biome_id in _mob.spawn_biomes:
+        MOBS_BY_BIOME.setdefault(_biome_id.split(":")[-1], []).append(_mob)
+
 
 def spawners_for(spec) -> dict:
-    """The spawn list, grouped into the categories the game requires."""
+    """
+    The spawn list, grouped into the categories the game requires.
+
+    Merged from both authored directions. A biome's own `spawns` entries win
+    where they name a species, because they are the more specific statement --
+    they carry a weight chosen for that biome rather than the species' default.
+    Species that claim the biome from the mob side fill in around them, which is
+    what makes the two tables agree instead of one silently overriding the other.
+    """
     out = {c: [] for c in SPAWN_CATEGORIES}
-    for entity_id, weight, minimum, maximum in spec.spawns:
-        mob = bare(entity_id)
-        category = SPAWN_CATEGORY_BY_MOB.get(mob, "creature")
+    listed = set()
+
+    def add(mob_id: str, weight: int, minimum: int, maximum: int) -> None:
+        category = SPAWN_CATEGORY_BY_MOB.get(mob_id, "creature")
         if category not in out:
             category = "creature"
-        out[category].append({"type": rid(mob), "weight": weight,
+        out[category].append({"type": rid(mob_id), "weight": weight,
                               "minCount": minimum, "maxCount": maximum})
+        listed.add(mob_id)
+
+    for entity_id, weight, minimum, maximum in spec.spawns:
+        add(bare(entity_id), weight, minimum, maximum)
+
+    for mob in MOBS_BY_BIOME.get(spec.id, ()):
+        if mob.id in listed:
+            continue
+        add(mob.id, mob.spawn_weight, mob.spawn_group[0], mob.spawn_group[1])
     return out
 
 

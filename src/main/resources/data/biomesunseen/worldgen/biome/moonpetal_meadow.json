@@ -26,6 +26,12 @@
         "weight": 30,
         "minCount": 2,
         "maxCount": 4
+      },
+      {
+        "type": "biomesunseen:mossback_hare",
+        "weight": 25,
+        "minCount": 2,
+        "maxCount": 4
       }
     ],
     "ambient": [],

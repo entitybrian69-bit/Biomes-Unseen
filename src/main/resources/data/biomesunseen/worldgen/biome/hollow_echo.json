@@ -11,7 +11,14 @@
     "grass_color_modifier": "none"
   },
   "spawners": {
-    "monster": [],
+    "monster": [
+      {
+        "type": "biomesunseen:mirror_walk",
+        "weight": 20,
+        "minCount": 1,
+        "maxCount": 2
+      }
+    ],
     "creature": [],
     "ambient": [
       {

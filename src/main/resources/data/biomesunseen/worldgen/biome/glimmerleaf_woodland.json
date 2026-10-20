@@ -19,7 +19,14 @@
     }
   },
   "spawners": {
-    "monster": [],
+    "monster": [
+      {
+        "type": "biomesunseen:primal_cat",
+        "weight": 18,
+        "minCount": 1,
+        "maxCount": 2
+      }
+    ],
     "creature": [],
     "ambient": [
       {

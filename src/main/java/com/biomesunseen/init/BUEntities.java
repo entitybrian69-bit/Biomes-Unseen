@@ -71,7 +71,13 @@ public final class BUEntities {
             RegistryObject<EntityType<?>> holder = ENTITIES.register(data.id, () -> {
                 EntityType<BUCreature> type = EntityType.Builder
                         .<BUCreature>of(BUCreature::new, categoryFor(data.spawnCategory))
-                        .sized(0.9F * data.scale, 0.9F * data.scale)
+                        // The authored collision box, unscaled. getDimensions applies
+                        // species.scale once on top; folding scale in here too compounded
+                        // it, so the 50 species whose scale is not 1.0 were sized by scale
+                        // squared -- a 2.6 came out at 6.76x, a 0.5 at a quarter size. The
+                        // 0.9F was also a constant standing in for the per-species
+                        // model_width / model_height the content tables author.
+                        .sized(data.modelWidth, data.modelHeight)
                         .clientTrackingRange(data.hostile ? 10 : 8)
                         .updateInterval(3)
                         .build(new ResourceLocation(BUContent.MODID, data.id).toString());
@@ -91,7 +97,11 @@ public final class BUEntities {
                 // far: they are the reason a player entered the arena.
                 EntityType<BUBoss> type = EntityType.Builder
                         .<BUBoss>of(BUBoss::new, MobCategory.MONSTER)
-                        .sized(2.4F * data.scale, 2.4F * data.scale)
+                        // As for creatures: the authored box, with scale applied once by
+                        // getDimensions. The five bosses author widths from 1.6 to 3.4,
+                        // which a shared 2.4F constant discarded entirely -- the Warden and
+                        // the Unraveling were the same size.
+                        .sized(data.modelWidth, data.modelHeight)
                         .fireImmune()
                         .clientTrackingRange(16)
                         .updateInterval(3)
@@ -128,7 +138,8 @@ public final class BUEntities {
                         "nearest_attackable_target_player", "float",
                         "look_at_player", "water_avoiding_random_stroll"},
                 new String[]{"minecraft:player"},
-                "monster", 1, 1, 1, 500, BOSS_ANIMATIONS);
+                "monster", 1, 1, 1, 500, BOSS_ANIMATIONS,
+                boss.modelWidth, boss.modelHeight);
     }
 
     /**
@@ -192,7 +203,8 @@ public final class BUEntities {
                 "No boss data for entity type {}; using a single-phase placeholder.", id);
         return new BossData(id, id, "overworld", "", "purple", "progress",
                 2.0F, BOSS_TEX_SIZE, BOSS_TEX_SIZE, "", "entities/" + id, "",
-                new BossData.PhaseData[]{fallbackPhase()});
+                new BossData.PhaseData[]{fallbackPhase()},
+                FALLBACK_BOSS_WIDTH, FALLBACK_BOSS_HEIGHT);
     }
 
     /** Boss atlas edge length; every boss atlas is authored square at this size. */
@@ -217,11 +229,25 @@ public final class BUEntities {
                 new String[]{"float", "water_avoiding_random_stroll",
                         "look_at_player", "random_look_around"},
                 new String[0],
-                "creature", 1, 1, 1, 0, FALLBACK_ANIMATIONS);
+                "creature", 1, 1, 1, 0, FALLBACK_ANIMATIONS,
+                FALLBACK_MODEL_WIDTH, FALLBACK_MODEL_HEIGHT);
     }
 
     /** Creature atlas edge lengths, matching the authored 64x64 family atlases. */
     private static final int MOB_TEX_SIZE = 64;
+
+    /**
+     * Collision box for a placeholder species.
+     *
+     * Roughly a block wide and tall, which is what 78 of the 80 authored species
+     * use, so a fallback is not conspicuously wrong in world.
+     */
+    private static final float FALLBACK_MODEL_WIDTH = 0.9F;
+    private static final float FALLBACK_MODEL_HEIGHT = 0.9F;
+
+    /** Collision box for a placeholder boss: mid-range of the authored 1.6..3.4. */
+    private static final float FALLBACK_BOSS_WIDTH = 2.4F;
+    private static final float FALLBACK_BOSS_HEIGHT = 2.4F;
 
     /** The clips every family rig defines, so a placeholder still animates. */
     private static final String[] FALLBACK_ANIMATIONS = {

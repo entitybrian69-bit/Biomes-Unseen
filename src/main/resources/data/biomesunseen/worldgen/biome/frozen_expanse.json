@@ -27,6 +27,12 @@
         "weight": 18,
         "minCount": 2,
         "maxCount": 5
+      },
+      {
+        "type": "biomesunseen:rime_stag",
+        "weight": 15,
+        "minCount": 1,
+        "maxCount": 3
       }
     ],
     "ambient": [],

@@ -20,7 +20,14 @@
       }
     ],
     "creature": [],
-    "ambient": [],
+    "ambient": [
+      {
+        "type": "biomesunseen:echo_bat",
+        "weight": 32,
+        "minCount": 3,
+        "maxCount": 6
+      }
+    ],
     "axolotls": [],
     "underground_water_creature": [],
     "water_creature": [],

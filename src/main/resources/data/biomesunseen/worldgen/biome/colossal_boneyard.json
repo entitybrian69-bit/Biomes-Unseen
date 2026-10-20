@@ -25,6 +25,12 @@
         "weight": 20,
         "minCount": 2,
         "maxCount": 3
+      },
+      {
+        "type": "biomesunseen:sunscorch_vulture",
+        "weight": 22,
+        "minCount": 1,
+        "maxCount": 3
       }
     ],
     "creature": [],

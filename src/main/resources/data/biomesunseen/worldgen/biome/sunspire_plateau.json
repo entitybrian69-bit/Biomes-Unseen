@@ -32,6 +32,12 @@
         "weight": 28,
         "minCount": 2,
         "maxCount": 5
+      },
+      {
+        "type": "biomesunseen:unraveling_shard_aether",
+        "weight": 20,
+        "minCount": 2,
+        "maxCount": 4
       }
     ],
     "axolotls": [],

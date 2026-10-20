@@ -23,6 +23,12 @@
         "weight": 8,
         "minCount": 1,
         "maxCount": 1
+      },
+      {
+        "type": "biomesunseen:mycelial_horror",
+        "weight": 10,
+        "minCount": 1,
+        "maxCount": 1
       }
     ],
     "creature": [
@@ -31,6 +37,12 @@
         "weight": 35,
         "minCount": 3,
         "maxCount": 6
+      },
+      {
+        "type": "biomesunseen:glowcap_grub",
+        "weight": 28,
+        "minCount": 2,
+        "maxCount": 4
       }
     ],
     "ambient": [],

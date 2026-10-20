@@ -426,7 +426,8 @@ public final class BUContent {
                     2,
                     new String[] {
                     "animation.idle", "animation.walk", "animation.attack", "animation.hurt", "animation.death"
-        }
+        },
+                    0.5f, 0.5f
             ),
             new MobData(
                     "mossback_hare", "quadruped", "overworld",
@@ -446,7 +447,8 @@ public final class BUContent {
                     2,
                     new String[] {
                     "animation.idle", "animation.walk", "animation.attack", "animation.hurt", "animation.death"
-        }
+        },
+                    0.6f, 0.6f
             ),
             new MobData(
                     "petaldancer", "biped", "overworld",
@@ -466,7 +468,8 @@ public final class BUContent {
                     3,
                     new String[] {
                     "animation.idle", "animation.walk", "animation.attack", "animation.hurt", "animation.death"
-        }
+        },
+                    1.0f, 1.0f
             ),
             new MobData(
                     "duskstalker", "quadruped", "overworld",
@@ -486,7 +489,8 @@ public final class BUContent {
                     8,
                     new String[] {
                     "animation.idle", "animation.walk", "animation.attack", "animation.hurt", "animation.death"
-        }
+        },
+                    1.0f, 1.0f
             ),
             new MobData(
                     "sporeling", "fungal", "overworld",
@@ -506,7 +510,8 @@ public final class BUContent {
                     3,
                     new String[] {
                     "animation.idle", "animation.walk", "animation.attack", "animation.hurt", "animation.death"
-        }
+        },
+                    1.0f, 1.0f
             ),
             new MobData(
                     "mire_wisp", "fungal", "overworld",
@@ -525,7 +530,8 @@ public final class BUContent {
                     2,
                     new String[] {
                     "animation.idle", "animation.walk", "animation.attack", "animation.hurt", "animation.death"
-        }
+        },
+                    1.0f, 1.0f
             ),
             new MobData(
                     "bogcrawler", "arthropod", "overworld",
@@ -545,7 +551,8 @@ public final class BUContent {
                     6,
                     new String[] {
                     "animation.idle", "animation.walk", "animation.attack", "animation.hurt", "animation.death"
-        }
+        },
+                    1.0f, 1.0f
             ),
             new MobData(
                     "aurora_stag", "quadruped", "overworld",
@@ -565,7 +572,8 @@ public final class BUContent {
                     6,
                     new String[] {
                     "animation.idle", "animation.walk", "animation.attack", "animation.hurt", "animation.death"
-        }
+        },
+                    1.0f, 1.0f
             ),
             new MobData(
                     "thicket_sprite", "biped", "overworld",
@@ -585,7 +593,8 @@ public final class BUContent {
                     4,
                     new String[] {
                     "animation.idle", "animation.walk", "animation.attack", "animation.hurt", "animation.death"
-        }
+        },
+                    1.0f, 1.0f
             ),
             new MobData(
                     "silkweaver", "arthropod", "overworld",
@@ -605,7 +614,8 @@ public final class BUContent {
                     5,
                     new String[] {
                     "animation.idle", "animation.walk", "animation.attack", "animation.hurt", "animation.death"
-        }
+        },
+                    1.0f, 1.0f
             ),
             new MobData(
                     "canopy_glider", "quadruped", "overworld",
@@ -625,7 +635,8 @@ public final class BUContent {
                     4,
                     new String[] {
                     "animation.idle", "animation.walk", "animation.attack", "animation.hurt", "animation.death"
-        }
+        },
+                    1.0f, 1.0f
             ),
             new MobData(
                     "frostling", "biped", "overworld",
@@ -645,7 +656,8 @@ public final class BUContent {
                     5,
                     new String[] {
                     "animation.idle", "animation.walk", "animation.attack", "animation.hurt", "animation.death"
-        }
+        },
+                    1.0f, 1.0f
             ),
             new MobData(
                     "glacier_ox", "quadruped", "overworld",
@@ -665,7 +677,8 @@ public final class BUContent {
                     8,
                     new String[] {
                     "animation.idle", "animation.walk", "animation.attack", "animation.hurt", "animation.death"
-        }
+        },
+                    1.0f, 1.0f
             ),
             new MobData(
                     "stonehide_boar", "quadruped", "overworld",
@@ -685,7 +698,8 @@ public final class BUContent {
                     7,
                     new String[] {
                     "animation.idle", "animation.walk", "animation.attack", "animation.hurt", "animation.death"
-        }
+        },
+                    1.0f, 1.0f
             ),
             new MobData(
                     "fossil_wraith", "biped", "overworld",
@@ -705,7 +719,8 @@ public final class BUContent {
                     8,
                     new String[] {
                     "animation.idle", "animation.walk", "animation.attack", "animation.hurt", "animation.death"
-        }
+        },
+                    1.0f, 1.0f
             ),
             new MobData(
                     "marrow_hound", "quadruped", "overworld",
@@ -725,7 +740,8 @@ public final class BUContent {
                     7,
                     new String[] {
                     "animation.idle", "animation.walk", "animation.attack", "animation.hurt", "animation.death"
-        }
+        },
+                    1.0f, 1.0f
             ),
             new MobData(
                     "temple_guardian", "biped", "overworld",
@@ -745,7 +761,8 @@ public final class BUContent {
                     12,
                     new String[] {
                     "animation.idle", "animation.walk", "animation.attack", "animation.hurt", "animation.death"
-        }
+        },
+                    1.0f, 1.0f
             ),
             new MobData(
                     "astral_scribe", "biped", "overworld",
@@ -765,7 +782,8 @@ public final class BUContent {
                     6,
                     new String[] {
                     "animation.idle", "animation.walk", "animation.attack", "animation.hurt", "animation.death"
-        }
+        },
+                    1.0f, 1.0f
             ),
             new MobData(
                     "moor_sentinel", "biped", "overworld",
@@ -785,7 +803,8 @@ public final class BUContent {
                     14,
                     new String[] {
                     "animation.idle", "animation.walk", "animation.attack", "animation.hurt", "animation.death"
-        }
+        },
+                    1.0f, 1.0f
             ),
             new MobData(
                     "slag_golem", "biped", "overworld",
@@ -805,7 +824,8 @@ public final class BUContent {
                     16,
                     new String[] {
                     "animation.idle", "animation.walk", "animation.attack", "animation.hurt", "animation.death"
-        }
+        },
+                    1.0f, 1.0f
             ),
             new MobData(
                     "emberling", "fungal", "overworld",
@@ -825,7 +845,8 @@ public final class BUContent {
                     5,
                     new String[] {
                     "animation.idle", "animation.walk", "animation.attack", "animation.hurt", "animation.death"
-        }
+        },
+                    1.0f, 1.0f
             ),
             new MobData(
                     "magma_lurker", "arthropod", "overworld",
@@ -845,7 +866,8 @@ public final class BUContent {
                     10,
                     new String[] {
                     "animation.idle", "animation.walk", "animation.attack", "animation.hurt", "animation.death"
-        }
+        },
+                    1.0f, 1.0f
             ),
             new MobData(
                     "canyon_skulk", "quadruped", "overworld",
@@ -865,7 +887,8 @@ public final class BUContent {
                     7,
                     new String[] {
                     "animation.idle", "animation.walk", "animation.attack", "animation.hurt", "animation.death"
-        }
+        },
+                    1.0f, 1.0f
             ),
             new MobData(
                     "sunscorch_vulture", "avian", "overworld",
@@ -885,7 +908,8 @@ public final class BUContent {
                     5,
                     new String[] {
                     "animation.idle", "animation.walk", "animation.attack", "animation.hurt", "animation.death"
-        }
+        },
+                    1.0f, 1.0f
             ),
             new MobData(
                     "blighthound", "quadruped", "overworld",
@@ -905,7 +929,8 @@ public final class BUContent {
                     8,
                     new String[] {
                     "animation.idle", "animation.walk", "animation.attack", "animation.hurt", "animation.death"
-        }
+        },
+                    1.0f, 1.0f
             ),
             new MobData(
                     "rotstalker", "biped", "overworld",
@@ -925,7 +950,8 @@ public final class BUContent {
                     7,
                     new String[] {
                     "animation.idle", "animation.walk", "animation.attack", "animation.hurt", "animation.death"
-        }
+        },
+                    1.0f, 1.0f
             ),
             new MobData(
                     "reefglider", "serpent", "overworld",
@@ -944,7 +970,8 @@ public final class BUContent {
                     3,
                     new String[] {
                     "animation.idle", "animation.walk", "animation.attack", "animation.hurt", "animation.death"
-        }
+        },
+                    1.0f, 1.0f
             ),
             new MobData(
                     "coralback_crab", "arthropod", "overworld",
@@ -964,7 +991,8 @@ public final class BUContent {
                     5,
                     new String[] {
                     "animation.idle", "animation.walk", "animation.attack", "animation.hurt", "animation.death"
-        }
+        },
+                    1.0f, 1.0f
             ),
             new MobData(
                     "shorelurker", "serpent", "overworld",
@@ -984,7 +1012,8 @@ public final class BUContent {
                     7,
                     new String[] {
                     "animation.idle", "animation.walk", "animation.attack", "animation.hurt", "animation.death"
-        }
+        },
+                    1.0f, 1.0f
             ),
             new MobData(
                     "river_lamprey", "serpent", "overworld",
@@ -1004,7 +1033,8 @@ public final class BUContent {
                     4,
                     new String[] {
                     "animation.idle", "animation.walk", "animation.attack", "animation.hurt", "animation.death"
-        }
+        },
+                    1.0f, 1.0f
             ),
             new MobData(
                     "kelp_serpent", "serpent", "overworld",
@@ -1024,7 +1054,8 @@ public final class BUContent {
                     12,
                     new String[] {
                     "animation.idle", "animation.walk", "animation.attack", "animation.hurt", "animation.death"
-        }
+        },
+                    1.0f, 1.0f
             ),
             new MobData(
                     "trench_angler", "serpent", "overworld",
@@ -1044,7 +1075,8 @@ public final class BUContent {
                     10,
                     new String[] {
                     "animation.idle", "animation.walk", "animation.attack", "animation.hurt", "animation.death"
-        }
+        },
+                    1.0f, 1.0f
             ),
             new MobData(
                     "abyssal_leviathan", "serpent", "overworld",
@@ -1064,7 +1096,8 @@ public final class BUContent {
                     60,
                     new String[] {
                     "animation.idle", "animation.walk", "animation.attack", "animation.hurt", "animation.death"
-        }
+        },
+                    1.0f, 1.0f
             ),
             new MobData(
                     "highland_goat", "quadruped", "overworld",
@@ -1084,7 +1117,8 @@ public final class BUContent {
                     4,
                     new String[] {
                     "animation.idle", "animation.walk", "animation.attack", "animation.hurt", "animation.death"
-        }
+        },
+                    1.0f, 1.0f
             ),
             new MobData(
                     "gale_harrier", "avian", "overworld",
@@ -1104,7 +1138,8 @@ public final class BUContent {
                     6,
                     new String[] {
                     "animation.idle", "animation.walk", "animation.attack", "animation.hurt", "animation.death"
-        }
+        },
+                    1.0f, 1.0f
             ),
             new MobData(
                     "steppe_rider", "quadruped", "overworld",
@@ -1124,7 +1159,8 @@ public final class BUContent {
                     6,
                     new String[] {
                     "animation.idle", "animation.walk", "animation.attack", "animation.hurt", "animation.death"
-        }
+        },
+                    1.0f, 1.0f
             ),
             new MobData(
                     "savanna_strider", "biped", "overworld",
@@ -1144,7 +1180,8 @@ public final class BUContent {
                     5,
                     new String[] {
                     "animation.idle", "animation.walk", "animation.attack", "animation.hurt", "animation.death"
-        }
+        },
+                    1.0f, 1.0f
             ),
             new MobData(
                     "primal_cat", "quadruped", "overworld",
@@ -1164,7 +1201,8 @@ public final class BUContent {
                     8,
                     new String[] {
                     "animation.idle", "animation.walk", "animation.attack", "animation.hurt", "animation.death"
-        }
+        },
+                    1.0f, 1.0f
             ),
             new MobData(
                     "orchid_mantis", "arthropod", "overworld",
@@ -1184,7 +1222,8 @@ public final class BUContent {
                     6,
                     new String[] {
                     "animation.idle", "animation.walk", "animation.attack", "animation.hurt", "animation.death"
-        }
+        },
+                    1.0f, 1.0f
             ),
             new MobData(
                     "amber_sentinel", "biped", "overworld",
@@ -1204,7 +1243,8 @@ public final class BUContent {
                     11,
                     new String[] {
                     "animation.idle", "animation.walk", "animation.attack", "animation.hurt", "animation.death"
-        }
+        },
+                    1.0f, 1.0f
             ),
             new MobData(
                     "veilmourner", "biped", "overworld",
@@ -1224,7 +1264,8 @@ public final class BUContent {
                     10,
                     new String[] {
                     "animation.idle", "animation.walk", "animation.attack", "animation.hurt", "animation.death"
-        }
+        },
+                    1.0f, 1.0f
             ),
             new MobData(
                     "roadwarden", "biped", "overworld",
@@ -1244,7 +1285,8 @@ public final class BUContent {
                     8,
                     new String[] {
                     "animation.idle", "animation.walk", "animation.attack", "animation.hurt", "animation.death"
-        }
+        },
+                    1.0f, 1.0f
             ),
             new MobData(
                     "rootburrower", "arthropod", "overworld",
@@ -1264,7 +1306,8 @@ public final class BUContent {
                     7,
                     new String[] {
                     "animation.idle", "animation.walk", "animation.attack", "animation.hurt", "animation.death"
-        }
+        },
+                    1.0f, 1.0f
             ),
             new MobData(
                     "grove_warden", "biped", "overworld",
@@ -1284,7 +1327,8 @@ public final class BUContent {
                     14,
                     new String[] {
                     "animation.idle", "animation.walk", "animation.attack", "animation.hurt", "animation.death"
-        }
+        },
+                    1.0f, 1.0f
             ),
             new MobData(
                     "lanternkeeper", "biped", "overworld",
@@ -1304,7 +1348,8 @@ public final class BUContent {
                     8,
                     new String[] {
                     "animation.idle", "animation.walk", "animation.attack", "animation.hurt", "animation.death"
-        }
+        },
+                    1.0f, 1.0f
             ),
             new MobData(
                     "rime_stag", "quadruped", "overworld",
@@ -1324,7 +1369,8 @@ public final class BUContent {
                     7,
                     new String[] {
                     "animation.idle", "animation.walk", "animation.attack", "animation.hurt", "animation.death"
-        }
+        },
+                    1.0f, 1.0f
             ),
             new MobData(
                     "meadow_skipper", "arthropod", "overworld",
@@ -1343,7 +1389,8 @@ public final class BUContent {
                     1,
                     new String[] {
                     "animation.idle", "animation.walk", "animation.attack", "animation.hurt", "animation.death"
-        }
+        },
+                    1.0f, 1.0f
             ),
             new MobData(
                     "frozen_mariner", "biped", "overworld",
@@ -1363,7 +1410,8 @@ public final class BUContent {
                     10,
                     new String[] {
                     "animation.idle", "animation.walk", "animation.attack", "animation.hurt", "animation.death"
-        }
+        },
+                    1.0f, 1.0f
             ),
             new MobData(
                     "luminous_jelly", "fungal", "overworld",
@@ -1382,7 +1430,8 @@ public final class BUContent {
                     3,
                     new String[] {
                     "animation.idle", "animation.walk", "animation.attack", "animation.hurt", "animation.death"
-        }
+        },
+                    1.0f, 1.0f
             ),
             new MobData(
                     "hollow_scout", "biped", "hollow_deep",
@@ -1402,7 +1451,8 @@ public final class BUContent {
                     8,
                     new String[] {
                     "animation.idle", "animation.walk", "animation.attack", "animation.hurt", "animation.death"
-        }
+        },
+                    1.0f, 1.0f
             ),
             new MobData(
                     "glowcap_grub", "arthropod", "hollow_deep",
@@ -1421,7 +1471,8 @@ public final class BUContent {
                     2,
                     new String[] {
                     "animation.idle", "animation.walk", "animation.attack", "animation.hurt", "animation.death"
-        }
+        },
+                    1.0f, 1.0f
             ),
             new MobData(
                     "gloomstalker", "quadruped", "hollow_deep",
@@ -1441,7 +1492,8 @@ public final class BUContent {
                     9,
                     new String[] {
                     "animation.idle", "animation.walk", "animation.attack", "animation.hurt", "animation.death"
-        }
+        },
+                    1.0f, 1.0f
             ),
             new MobData(
                     "sporeling_deep", "fungal", "hollow_deep",
@@ -1461,7 +1513,8 @@ public final class BUContent {
                     3,
                     new String[] {
                     "animation.idle", "animation.walk", "animation.attack", "animation.hurt", "animation.death"
-        }
+        },
+                    1.0f, 1.0f
             ),
             new MobData(
                     "mycelial_horror", "fungal", "hollow_deep",
@@ -1481,7 +1534,8 @@ public final class BUContent {
                     18,
                     new String[] {
                     "animation.idle", "animation.walk", "animation.attack", "animation.hurt", "animation.death"
-        }
+        },
+                    1.0f, 1.0f
             ),
             new MobData(
                     "fungal_titan", "biped", "hollow_deep",
@@ -1501,7 +1555,8 @@ public final class BUContent {
                     22,
                     new String[] {
                     "animation.idle", "animation.walk", "animation.attack", "animation.hurt", "animation.death"
-        }
+        },
+                    1.0f, 1.0f
             ),
             new MobData(
                     "vault_keeper", "biped", "hollow_deep",
@@ -1521,7 +1576,8 @@ public final class BUContent {
                     14,
                     new String[] {
                     "animation.idle", "animation.walk", "animation.attack", "animation.hurt", "animation.death"
-        }
+        },
+                    1.0f, 1.0f
             ),
             new MobData(
                     "hollow_drowned", "biped", "hollow_deep",
@@ -1541,7 +1597,8 @@ public final class BUContent {
                     8,
                     new String[] {
                     "animation.idle", "animation.walk", "animation.attack", "animation.hurt", "animation.death"
-        }
+        },
+                    1.0f, 1.0f
             ),
             new MobData(
                     "warren_skitter", "arthropod", "hollow_deep",
@@ -1561,7 +1618,8 @@ public final class BUContent {
                     3,
                     new String[] {
                     "animation.idle", "animation.walk", "animation.attack", "animation.hurt", "animation.death"
-        }
+        },
+                    1.0f, 1.0f
             ),
             new MobData(
                     "echo_bat", "avian", "hollow_deep",
@@ -1581,7 +1639,8 @@ public final class BUContent {
                     3,
                     new String[] {
                     "animation.idle", "animation.walk", "animation.attack", "animation.hurt", "animation.death"
-        }
+        },
+                    1.0f, 1.0f
             ),
             new MobData(
                     "warden_acolyte", "biped", "hollow_deep",
@@ -1601,7 +1660,8 @@ public final class BUContent {
                     15,
                     new String[] {
                     "animation.idle", "animation.walk", "animation.attack", "animation.hurt", "animation.death"
-        }
+        },
+                    1.0f, 1.0f
             ),
             new MobData(
                     "veilwing", "avian", "aetherfall",
@@ -1620,7 +1680,8 @@ public final class BUContent {
                     4,
                     new String[] {
                     "animation.idle", "animation.walk", "animation.attack", "animation.hurt", "animation.death"
-        }
+        },
+                    1.0f, 1.0f
             ),
             new MobData(
                     "cloudfin", "serpent", "aetherfall",
@@ -1639,7 +1700,8 @@ public final class BUContent {
                     3,
                     new String[] {
                     "animation.idle", "animation.walk", "animation.attack", "animation.hurt", "animation.death"
-        }
+        },
+                    1.0f, 1.0f
             ),
             new MobData(
                     "crown_sentinel", "biped", "aetherfall",
@@ -1659,7 +1721,8 @@ public final class BUContent {
                     18,
                     new String[] {
                     "animation.idle", "animation.walk", "animation.attack", "animation.hurt", "animation.death"
-        }
+        },
+                    1.0f, 1.0f
             ),
             new MobData(
                     "quarry_construct", "biped", "aetherfall",
@@ -1679,7 +1742,8 @@ public final class BUContent {
                     13,
                     new String[] {
                     "animation.idle", "animation.walk", "animation.attack", "animation.hurt", "animation.death"
-        }
+        },
+                    1.0f, 1.0f
             ),
             new MobData(
                     "rune_construct", "biped", "aetherfall",
@@ -1699,7 +1763,8 @@ public final class BUContent {
                     12,
                     new String[] {
                     "animation.idle", "animation.walk", "animation.attack", "animation.hurt", "animation.death"
-        }
+        },
+                    1.0f, 1.0f
             ),
             new MobData(
                     "stormcell_wisp", "fungal", "aetherfall",
@@ -1719,7 +1784,8 @@ public final class BUContent {
                     6,
                     new String[] {
                     "animation.idle", "animation.walk", "animation.attack", "animation.hurt", "animation.death"
-        }
+        },
+                    1.0f, 1.0f
             ),
             new MobData(
                     "orchard_tender", "biped", "aetherfall",
@@ -1739,7 +1805,8 @@ public final class BUContent {
                     9,
                     new String[] {
                     "animation.idle", "animation.walk", "animation.attack", "animation.hurt", "animation.death"
-        }
+        },
+                    1.0f, 1.0f
             ),
             new MobData(
                     "astral_scribe_aether", "biped", "aetherfall",
@@ -1759,7 +1826,8 @@ public final class BUContent {
                     7,
                     new String[] {
                     "animation.idle", "animation.walk", "animation.attack", "animation.hurt", "animation.death"
-        }
+        },
+                    1.0f, 1.0f
             ),
             new MobData(
                     "unraveling_shard_aether", "arthropod", "aetherfall",
@@ -1778,7 +1846,8 @@ public final class BUContent {
                     5,
                     new String[] {
                     "animation.idle", "animation.walk", "animation.attack", "animation.hurt", "animation.death"
-        }
+        },
+                    1.0f, 1.0f
             ),
             new MobData(
                     "sky_citizen", "biped", "aetherfall",
@@ -1798,7 +1867,8 @@ public final class BUContent {
                     6,
                     new String[] {
                     "animation.idle", "animation.walk", "animation.attack", "animation.hurt", "animation.death"
-        }
+        },
+                    1.0f, 1.0f
             ),
             new MobData(
                     "void_scout", "biped", "void_between",
@@ -1818,7 +1888,8 @@ public final class BUContent {
                     10,
                     new String[] {
                     "animation.idle", "animation.walk", "animation.attack", "animation.hurt", "animation.death"
-        }
+        },
+                    1.0f, 1.0f
             ),
             new MobData(
                     "fracture_hound", "quadruped", "void_between",
@@ -1838,7 +1909,8 @@ public final class BUContent {
                     11,
                     new String[] {
                     "animation.idle", "animation.walk", "animation.attack", "animation.hurt", "animation.death"
-        }
+        },
+                    1.0f, 1.0f
             ),
             new MobData(
                     "static_wraith", "biped", "void_between",
@@ -1858,7 +1930,8 @@ public final class BUContent {
                     10,
                     new String[] {
                     "animation.idle", "animation.walk", "animation.attack", "animation.hurt", "animation.death"
-        }
+        },
+                    1.0f, 1.0f
             ),
             new MobData(
                     "garden_aberration", "fungal", "void_between",
@@ -1878,7 +1951,8 @@ public final class BUContent {
                     13,
                     new String[] {
                     "animation.idle", "animation.walk", "animation.attack", "animation.hurt", "animation.death"
-        }
+        },
+                    1.0f, 1.0f
             ),
             new MobData(
                     "null_swimmer", "serpent", "void_between",
@@ -1898,7 +1972,8 @@ public final class BUContent {
                     9,
                     new String[] {
                     "animation.idle", "animation.walk", "animation.attack", "animation.hurt", "animation.death"
-        }
+        },
+                    1.0f, 1.0f
             ),
             new MobData(
                     "chrono_warden", "biped", "void_between",
@@ -1918,7 +1993,8 @@ public final class BUContent {
                     20,
                     new String[] {
                     "animation.idle", "animation.walk", "animation.attack", "animation.hurt", "animation.death"
-        }
+        },
+                    1.0f, 1.0f
             ),
             new MobData(
                     "shardling", "arthropod", "void_between",
@@ -1938,7 +2014,8 @@ public final class BUContent {
                     4,
                     new String[] {
                     "animation.idle", "animation.walk", "animation.attack", "animation.hurt", "animation.death"
-        }
+        },
+                    1.0f, 1.0f
             ),
             new MobData(
                     "spire_climber", "arthropod", "void_between",
@@ -1958,7 +2035,8 @@ public final class BUContent {
                     8,
                     new String[] {
                     "animation.idle", "animation.walk", "animation.attack", "animation.hurt", "animation.death"
-        }
+        },
+                    1.0f, 1.0f
             ),
             new MobData(
                     "mirror_walk", "biped", "void_between",
@@ -1978,7 +2056,8 @@ public final class BUContent {
                     11,
                     new String[] {
                     "animation.idle", "animation.walk", "animation.attack", "animation.hurt", "animation.death"
-        }
+        },
+                    1.0f, 1.0f
             ),
             new MobData(
                     "unraveling_shard", "arthropod", "void_between",
@@ -1998,7 +2077,8 @@ public final class BUContent {
                     9,
                     new String[] {
                     "animation.idle", "animation.walk", "animation.attack", "animation.hurt", "animation.death"
-        }
+        },
+                    1.0f, 1.0f
             ),
     };
 
@@ -2056,7 +2136,8 @@ public final class BUContent {
         },
                                 true, 40
                         ),
-                    }
+                    },
+                    3.0f, 3.4f
             ),
             new BossData(
                     "void_serpent", "The Void Serpent", "void_between",
@@ -2110,7 +2191,8 @@ public final class BUContent {
         },
                                 true, 40
                         ),
-                    }
+                    },
+                    2.4f, 1.6f
             ),
             new BossData(
                     "warden_of_the_hollow_deep", "Warden of the Hollow Deep", "hollow_deep",
@@ -2164,7 +2246,8 @@ public final class BUContent {
         },
                                 true, 40
                         ),
-                    }
+                    },
+                    3.4f, 2.4f
             ),
             new BossData(
                     "the_skyward_crown", "The Skyward Crown", "aetherfall",
@@ -2218,7 +2301,8 @@ public final class BUContent {
         },
                                 true, 40
                         ),
-                    }
+                    },
+                    2.8f, 2.6f
             ),
             new BossData(
                     "the_unraveling", "The Unraveling", "void_between",
@@ -2272,7 +2356,8 @@ public final class BUContent {
         },
                                 true, 40
                         ),
-                    }
+                    },
+                    1.6f, 2.6f
             ),
     };
 

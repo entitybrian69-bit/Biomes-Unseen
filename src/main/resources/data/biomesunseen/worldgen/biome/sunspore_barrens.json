@@ -25,12 +25,24 @@
         "weight": 18,
         "minCount": 1,
         "maxCount": 3
+      },
+      {
+        "type": "biomesunseen:amber_sentinel",
+        "weight": 14,
+        "minCount": 1,
+        "maxCount": 1
       }
     ],
     "creature": [
       {
         "type": "biomesunseen:sporeling",
         "weight": 35,
+        "minCount": 3,
+        "maxCount": 6
+      },
+      {
+        "type": "biomesunseen:savanna_strider",
+        "weight": 22,
         "minCount": 3,
         "maxCount": 6
       }

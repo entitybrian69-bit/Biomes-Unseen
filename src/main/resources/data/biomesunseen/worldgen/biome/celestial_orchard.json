@@ -24,6 +24,12 @@
         "weight": 12,
         "minCount": 1,
         "maxCount": 1
+      },
+      {
+        "type": "biomesunseen:sky_citizen",
+        "weight": 18,
+        "minCount": 2,
+        "maxCount": 3
       }
     ],
     "ambient": [

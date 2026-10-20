@@ -27,11 +27,25 @@
         "maxCount": 1
       }
     ],
-    "creature": [],
+    "creature": [
+      {
+        "type": "biomesunseen:canopy_glider",
+        "weight": 20,
+        "minCount": 1,
+        "maxCount": 3
+      }
+    ],
     "ambient": [],
     "axolotls": [],
     "underground_water_creature": [],
-    "water_creature": [],
+    "water_creature": [
+      {
+        "type": "biomesunseen:kelp_serpent",
+        "weight": 12,
+        "minCount": 1,
+        "maxCount": 1
+      }
+    ],
     "water_ambient": [],
     "misc": []
   },

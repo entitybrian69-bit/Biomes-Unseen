@@ -23,6 +23,12 @@
         "weight": 20,
         "minCount": 1,
         "maxCount": 2
+      },
+      {
+        "type": "biomesunseen:quarry_construct",
+        "weight": 18,
+        "minCount": 1,
+        "maxCount": 2
       }
     ],
     "creature": [],

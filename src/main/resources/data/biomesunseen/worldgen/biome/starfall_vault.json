@@ -23,6 +23,12 @@
         "weight": 20,
         "minCount": 1,
         "maxCount": 2
+      },
+      {
+        "type": "biomesunseen:rune_construct",
+        "weight": 18,
+        "minCount": 1,
+        "maxCount": 2
       }
     ],
     "creature": [
@@ -31,9 +37,22 @@
         "weight": 18,
         "minCount": 1,
         "maxCount": 1
+      },
+      {
+        "type": "biomesunseen:astral_scribe_aether",
+        "weight": 16,
+        "minCount": 1,
+        "maxCount": 1
       }
     ],
-    "ambient": [],
+    "ambient": [
+      {
+        "type": "biomesunseen:unraveling_shard_aether",
+        "weight": 20,
+        "minCount": 2,
+        "maxCount": 4
+      }
+    ],
     "axolotls": [],
     "underground_water_creature": [],
     "water_creature": [],

@@ -28,6 +28,12 @@
         "weight": 25,
         "minCount": 1,
         "maxCount": 2
+      },
+      {
+        "type": "biomesunseen:hollow_drowned",
+        "weight": 26,
+        "minCount": 2,
+        "maxCount": 4
       }
     ],
     "water_ambient": [],

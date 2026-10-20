@@ -11,7 +11,14 @@
     "grass_color_modifier": "none"
   },
   "spawners": {
-    "monster": [],
+    "monster": [
+      {
+        "type": "biomesunseen:static_wraith",
+        "weight": 28,
+        "minCount": 1,
+        "maxCount": 3
+      }
+    ],
     "creature": [],
     "ambient": [],
     "axolotls": [],

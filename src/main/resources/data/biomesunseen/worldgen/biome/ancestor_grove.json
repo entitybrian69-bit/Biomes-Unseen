@@ -19,6 +19,12 @@
         "weight": 25,
         "minCount": 2,
         "maxCount": 4
+      },
+      {
+        "type": "biomesunseen:rootburrower",
+        "weight": 22,
+        "minCount": 1,
+        "maxCount": 3
       }
     ],
     "creature": [

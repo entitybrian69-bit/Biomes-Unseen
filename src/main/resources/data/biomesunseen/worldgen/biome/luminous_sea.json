@@ -11,7 +11,14 @@
     "grass_color_modifier": "none"
   },
   "spawners": {
-    "monster": [],
+    "monster": [
+      {
+        "type": "biomesunseen:vault_keeper",
+        "weight": 15,
+        "minCount": 1,
+        "maxCount": 1
+      }
+    ],
     "creature": [],
     "ambient": [],
     "axolotls": [],
@@ -28,6 +35,12 @@
         "weight": 35,
         "minCount": 3,
         "maxCount": 6
+      },
+      {
+        "type": "biomesunseen:hollow_drowned",
+        "weight": 26,
+        "minCount": 2,
+        "maxCount": 4
       }
     ],
     "water_ambient": [],

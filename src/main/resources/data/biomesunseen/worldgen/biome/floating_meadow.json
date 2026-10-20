@@ -24,6 +24,18 @@
         "weight": 35,
         "minCount": 3,
         "maxCount": 6
+      },
+      {
+        "type": "biomesunseen:orchard_tender",
+        "weight": 14,
+        "minCount": 1,
+        "maxCount": 1
+      },
+      {
+        "type": "biomesunseen:sky_citizen",
+        "weight": 18,
+        "minCount": 2,
+        "maxCount": 3
       }
     ],
     "ambient": [

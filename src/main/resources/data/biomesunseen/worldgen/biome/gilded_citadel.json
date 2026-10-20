@@ -25,6 +25,12 @@
         "weight": 15,
         "minCount": 1,
         "maxCount": 1
+      },
+      {
+        "type": "biomesunseen:astral_scribe_aether",
+        "weight": 16,
+        "minCount": 1,
+        "maxCount": 1
       }
     ],
     "ambient": [],

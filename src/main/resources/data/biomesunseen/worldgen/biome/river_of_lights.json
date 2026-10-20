@@ -20,7 +20,14 @@
   },
   "spawners": {
     "monster": [],
-    "creature": [],
+    "creature": [
+      {
+        "type": "biomesunseen:lanternkeeper",
+        "weight": 12,
+        "minCount": 1,
+        "maxCount": 1
+      }
+    ],
     "ambient": [],
     "axolotls": [],
     "underground_water_creature": [],
@@ -36,6 +43,12 @@
         "weight": 20,
         "minCount": 2,
         "maxCount": 4
+      },
+      {
+        "type": "biomesunseen:luminous_jelly",
+        "weight": 35,
+        "minCount": 3,
+        "maxCount": 6
       }
     ],
     "water_ambient": [],

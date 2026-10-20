@@ -19,7 +19,14 @@
     }
   },
   "spawners": {
-    "monster": [],
+    "monster": [
+      {
+        "type": "biomesunseen:silkweaver",
+        "weight": 22,
+        "minCount": 2,
+        "maxCount": 3
+      }
+    ],
     "creature": [],
     "ambient": [
       {

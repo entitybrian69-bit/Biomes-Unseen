@@ -13,7 +13,14 @@
     "grass_color": 8034944
   },
   "spawners": {
-    "monster": [],
+    "monster": [
+      {
+        "type": "biomesunseen:temple_guardian",
+        "weight": 20,
+        "minCount": 1,
+        "maxCount": 2
+      }
+    ],
     "creature": [],
     "ambient": [],
     "axolotls": [],

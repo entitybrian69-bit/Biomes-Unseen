@@ -17,6 +17,12 @@
         "weight": 32,
         "minCount": 1,
         "maxCount": 3
+      },
+      {
+        "type": "biomesunseen:stormcell_wisp",
+        "weight": 26,
+        "minCount": 2,
+        "maxCount": 4
       }
     ],
     "creature": [],

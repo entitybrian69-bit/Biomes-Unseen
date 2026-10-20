@@ -24,9 +24,22 @@
         "weight": 38,
         "minCount": 3,
         "maxCount": 6
+      },
+      {
+        "type": "biomesunseen:sky_citizen",
+        "weight": 18,
+        "minCount": 2,
+        "maxCount": 3
       }
     ],
-    "ambient": [],
+    "ambient": [
+      {
+        "type": "biomesunseen:veilwing",
+        "weight": 32,
+        "minCount": 2,
+        "maxCount": 5
+      }
+    ],
     "axolotls": [],
     "underground_water_creature": [],
     "water_creature": [],

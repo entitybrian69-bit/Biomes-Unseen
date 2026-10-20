@@ -32,9 +32,22 @@
         "weight": 12,
         "minCount": 1,
         "maxCount": 1
+      },
+      {
+        "type": "biomesunseen:savanna_strider",
+        "weight": 22,
+        "minCount": 3,
+        "maxCount": 6
       }
     ],
-    "ambient": [],
+    "ambient": [
+      {
+        "type": "biomesunseen:meadow_skipper",
+        "weight": 32,
+        "minCount": 3,
+        "maxCount": 6
+      }
+    ],
     "axolotls": [],
     "underground_water_creature": [],
     "water_creature": [],

@@ -23,6 +23,18 @@
         "weight": 25,
         "minCount": 2,
         "maxCount": 3
+      },
+      {
+        "type": "biomesunseen:static_wraith",
+        "weight": 28,
+        "minCount": 1,
+        "maxCount": 3
+      },
+      {
+        "type": "biomesunseen:unraveling_shard",
+        "weight": 25,
+        "minCount": 2,
+        "maxCount": 4
       }
     ],
     "creature": [],

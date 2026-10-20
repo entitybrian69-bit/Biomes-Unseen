@@ -30,6 +30,12 @@
         "weight": 24,
         "minCount": 2,
         "maxCount": 4
+      },
+      {
+        "type": "biomesunseen:kelp_serpent",
+        "weight": 12,
+        "minCount": 1,
+        "maxCount": 1
       }
     ],
     "water_ambient": [],

@@ -19,6 +19,12 @@
         "weight": 25,
         "minCount": 2,
         "maxCount": 4
+      },
+      {
+        "type": "biomesunseen:frozen_mariner",
+        "weight": 12,
+        "minCount": 1,
+        "maxCount": 1
       }
     ],
     "creature": [],

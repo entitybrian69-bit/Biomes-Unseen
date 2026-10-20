@@ -19,6 +19,12 @@
         "weight": 20,
         "minCount": 2,
         "maxCount": 4
+      },
+      {
+        "type": "biomesunseen:moor_sentinel",
+        "weight": 12,
+        "minCount": 1,
+        "maxCount": 1
       }
     ],
     "creature": [
@@ -27,6 +33,12 @@
         "weight": 15,
         "minCount": 1,
         "maxCount": 1
+      },
+      {
+        "type": "biomesunseen:steppe_rider",
+        "weight": 20,
+        "minCount": 2,
+        "maxCount": 4
       }
     ],
     "ambient": [],

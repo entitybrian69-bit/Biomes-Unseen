@@ -26,7 +26,14 @@
       }
     ],
     "creature": [],
-    "ambient": [],
+    "ambient": [
+      {
+        "type": "biomesunseen:unraveling_shard_aether",
+        "weight": 20,
+        "minCount": 2,
+        "maxCount": 4
+      }
+    ],
     "axolotls": [],
     "underground_water_creature": [],
     "water_creature": [],

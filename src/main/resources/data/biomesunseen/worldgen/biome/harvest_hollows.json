@@ -19,6 +19,12 @@
         "weight": 20,
         "minCount": 2,
         "maxCount": 4
+      },
+      {
+        "type": "biomesunseen:amber_sentinel",
+        "weight": 14,
+        "minCount": 1,
+        "maxCount": 1
       }
     ],
     "creature": [
@@ -27,6 +33,18 @@
         "weight": 25,
         "minCount": 2,
         "maxCount": 5
+      },
+      {
+        "type": "biomesunseen:mossback_hare",
+        "weight": 25,
+        "minCount": 2,
+        "maxCount": 4
+      },
+      {
+        "type": "biomesunseen:roadwarden",
+        "weight": 12,
+        "minCount": 1,
+        "maxCount": 1
       }
     ],
     "ambient": [],

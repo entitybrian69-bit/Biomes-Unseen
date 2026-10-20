@@ -19,7 +19,14 @@
     }
   },
   "spawners": {
-    "monster": [],
+    "monster": [
+      {
+        "type": "biomesunseen:orchid_mantis",
+        "weight": 20,
+        "minCount": 1,
+        "maxCount": 1
+      }
+    ],
     "creature": [
       {
         "type": "biomesunseen:petaldancer",
@@ -34,7 +41,14 @@
         "maxCount": 4
       }
     ],
-    "ambient": [],
+    "ambient": [
+      {
+        "type": "biomesunseen:meadow_skipper",
+        "weight": 32,
+        "minCount": 3,
+        "maxCount": 6
+      }
+    ],
     "axolotls": [],
     "underground_water_creature": [],
     "water_creature": [],

@@ -37,6 +37,18 @@
         "weight": 30,
         "minCount": 2,
         "maxCount": 5
+      },
+      {
+        "type": "biomesunseen:river_lamprey",
+        "weight": 25,
+        "minCount": 2,
+        "maxCount": 4
+      },
+      {
+        "type": "biomesunseen:luminous_jelly",
+        "weight": 35,
+        "minCount": 3,
+        "maxCount": 6
       }
     ],
     "water_ambient": [],

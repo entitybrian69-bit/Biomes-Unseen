@@ -346,7 +346,12 @@ def entity_section() -> str:
         out.append(f"                    {q(mob.spawn_category)}, {int(mob.spawn_weight)}, "
                    f"{int(mob.spawn_group[0])}, {int(mob.spawn_group[1])},")
         out.append(f"                    {int(mob.experience)},")
-        out.append(f"                    {jarray(list(mob.animations), ' ' * 20, as_arg=True)}")
+        out.append(f"                    {jarray(list(mob.animations), ' ' * 20, as_arg=True)},")
+        # The unscaled collision box. Kept separate from scale so the EntityType
+        # can be sized with it and getDimensions can apply scale exactly once --
+        # folding scale into both compounded it for the 50 species whose scale is
+        # not 1.0.
+        out.append(f"                    {float(mob.model_width)}f, {float(mob.model_height)}f")
         out.append("            ),")
     out.append("    };")
     out.append("")
@@ -373,7 +378,10 @@ def entity_section() -> str:
             out.append(f"                                {str(bool(ph.invulnerable_on_entry)).lower()}, "
                        f"{int(ph.invulnerable_ticks)}")
             out.append("                        ),")
-        out.append("                    }")
+        out.append("                    },")
+        # The unscaled collision box, exactly as for mobs: sized() takes these and
+        # getDimensions applies scale once, so the two never compound.
+        out.append(f"                    {float(boss.model_width)}f, {float(boss.model_height)}f")
         out.append("            ),")
     out.append("    };")
     out.append("")
