@@ -25,8 +25,8 @@ This script turns the authored content tables into the 1.20.1 worldgen datapack:
     data/minecraft/tags/worldgen/biome/
         The vanilla category tags each biome belongs to, so vanilla systems
         (spawn rules, structure placement, mod compat) recognise them.
-    forge/biome_modifier/
-        Spawn placement, so mobs actually appear in their authored biomes.
+    Spawn placement needs no Forge biome modifier: each biome's own JSON carries
+    its spawners, and a modifier is for editing biomes that are not ours.
 
 Everything is derived from the content tables and the registry manifest, never
 hand-listed: a biome, ore or structure added to tools/content/ appears in the
@@ -800,30 +800,6 @@ def emit_structure_biome_tags() -> None:
 #  Spawn placement
 # --------------------------------------------------------------------------- #
 
-def emit_biome_modifiers() -> None:
-    """
-    Forge biome modifiers that place each mob in its authored biomes.
-
-    The biome JSON carries the spawner list, but Forge also needs a modifier for
-    mobs that appear across many biomes so spawn caps and categories stay
-    consistent. One modifier per dimension keeps this readable.
-    """
-    by_dimension: dict[str, set] = {}
-    for spec in B.ALL_BIOMES:
-        for entity_id, _w, _mn, _mx in spec.spawns:
-            by_dimension.setdefault(spec.dimension, set()).add(rid(bare(entity_id)))
-    for dimension, entities in by_dimension.items():
-        write(f"{MODID}/forge/biome_modifier/spawns_{dimension}.json", {
-            "type": "forge:none",
-            "comment": ("Spawn lists live in each biome JSON; this modifier is a "
-                        "no-op placeholder that documents which entities are "
-                        "authored for this dimension."),
-            "biomes": f"#{MODID}:dimension_{dimension}" if dimension != "overworld"
-                      else f"#{MODID}:category_ethereal",
-            "entities": sorted(entities),
-        })
-
-
 def main() -> None:
     print("[worldgen] emitting datapack")
 
@@ -854,7 +830,6 @@ def main() -> None:
     emit_structure_biome_tags()
     print(f"[worldgen] structures: {len(S.ALL_STRUCTURES)}")
 
-    emit_biome_modifiers()
     print(f"[worldgen] wrote {WRITTEN} files")
 
 

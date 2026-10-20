@@ -875,6 +875,161 @@ ITEM_TABLES = ("ITEMS_MATERIALS", "ITEMS_TOOLS", "ITEMS_ARTEFACTS",
                "ITEMS_LORE_BOOKS")
 
 
+# Registry `type` vocabularies, verified against the vanilla and Forge 1.20.1
+# codecs. Each entry lists every `type` value that may appear anywhere inside that
+# category of file -- including nested config objects, since a configured_feature
+# carries types for its feature, its foliage placer, its state providers and its
+# block predicates all in one document.
+#
+# This exists because a generated biome modifier declared "forge:none", which is
+# not a registered Forge biome modifier type at all (the real ones are
+# add_features, remove_features, add_spawns and remove_spawns). All four files
+# failed to deserialize at world load. Nothing else caught it: the JSON parsed,
+# every id resolved, and the build was green, because a datapack codec error is
+# only reported by the game at runtime.
+VALID_TYPES = {
+    "configured_feature": {
+        "minecraft:tree", "minecraft:ore", "minecraft:random_patch",
+        "minecraft:simple_block",
+        "minecraft:straight_trunk_placer", "minecraft:blob_foliage_placer",
+        "minecraft:two_layers_feature_size",
+        "minecraft:simple_state_provider", "minecraft:weighted_state_provider",
+        "minecraft:block_predicate_filter", "minecraft:would_survive",
+        "minecraft:matching_blocks",
+    },
+    "placed_feature": {
+        "minecraft:count", "minecraft:count_on_every_surface",
+        "minecraft:in_square", "minecraft:heightmap", "minecraft:height_range",
+        "minecraft:surface_water_depth_filter", "minecraft:biome",
+        "minecraft:block_predicate_filter", "minecraft:would_survive",
+        "minecraft:matching_blocks", "minecraft:trapezoid", "minecraft:uniform",
+        "minecraft:constant",
+    },
+    "structure": {"minecraft:jigsaw"},
+    "template_pool": {
+        "minecraft:single_pool_element", "minecraft:list_pool_element",
+        "minecraft:feature_pool_element", "minecraft:empty_pool_element",
+        "minecraft:legacy_single_pool_element",
+        # Processor references appear in the same documents.
+        "minecraft:empty", "minecraft:protected_blocks",
+        "minecraft:block_ignore", "minecraft:block_rot", "minecraft:gravity",
+        "minecraft:jigsaw_replacement", "minecraft:lava_submerged_block",
+        "minecraft:nop", "minecraft:rule",
+    },
+    "noise_settings": {
+        "minecraft:constant", "minecraft:noise", "minecraft:shifted_noise",
+        "minecraft:add", "minecraft:mul", "minecraft:min", "minecraft:max",
+        "minecraft:abs", "minecraft:squeeze", "minecraft:interpolated",
+        "minecraft:blend_density", "minecraft:y_clamped_gradient",
+        "minecraft:cave_surface", "minecraft:sequence", "minecraft:condition",
+        "minecraft:biome", "minecraft:stone_depth", "minecraft:block",
+        "minecraft:not", "minecraft:hole", "minecraft:water",
+        "minecraft:above_preliminary_surface", "minecraft:vertical_gradient",
+        "minecraft:spline", "minecraft:range_choice", "minecraft:flat_cache",
+        "minecraft:cache_2d", "minecraft:cache_all_in_cell",
+        "minecraft:old_blended_noise", "minecraft:end_islands",
+        "minecraft:beard",
+    },
+    "biome_modifier": {
+        "forge:add_features", "forge:remove_features",
+        "forge:add_spawns", "forge:remove_spawns",
+    },
+    "loot_tables": {
+        "minecraft:block", "minecraft:chest", "minecraft:entity",
+        "minecraft:empty", "minecraft:gift", "minecraft:advancement",
+        "minecraft:barter", "minecraft:selector", "minecraft:fishing",
+        "minecraft:generic",
+        "minecraft:item", "minecraft:loot_table", "minecraft:alternatives",
+        "minecraft:group", "minecraft:sequence", "minecraft:dynamic",
+        "minecraft:tag", "minecraft:uniform", "minecraft:constant",
+        "minecraft:binomial", "minecraft:score",
+    },
+    "recipes": {"minecraft:crafting_shaped", "minecraft:crafting_shapeless",
+                "minecraft:smelting", "minecraft:blasting",
+                "minecraft:smoking", "minecraft:campfire_cooking",
+                "minecraft:stonecutting", "minecraft:smithing_transform",
+                "minecraft:smithing_trim"},
+}
+
+
+def check_datapack_types(report: Report) -> None:
+    """
+    Every registry `type` string must be one the game can actually deserialize.
+
+    A bad type is invisible to every other check here: the JSON parses, the ids
+    resolve, the build passes. It fails only when the game reads the datapack, at
+    world load, as a codec error naming the file. Checking the vocabulary offline
+    turns that into a build failure.
+    """
+    root = os.path.join(RES, "data")
+    if not os.path.isdir(root):
+        return
+
+    def category(relative: str) -> Optional[str]:
+        if "worldgen/configured_feature" in relative:
+            return "configured_feature"
+        if "worldgen/placed_feature" in relative:
+            return "placed_feature"
+        if "worldgen/structure/" in relative:
+            return "structure"
+        if "worldgen/template_pool" in relative:
+            return "template_pool"
+        if "worldgen/noise_settings" in relative:
+            return "noise_settings"
+        if "biome_modifier" in relative:
+            return "biome_modifier"
+        if "loot_tables" in relative:
+            return "loot_tables"
+        if "recipes" in relative:
+            return "recipes"
+        return None
+
+    # Keys that carry a registry type id. Template pool elements use
+    # "element_type" rather than "type", and structure/pool processors use
+    # "processor_type", so all three are collected -- looking only at "type"
+    # reported zero values for the whole template_pool category, which passed
+    # because nothing was examined.
+    type_keys = ("type", "element_type", "processor_type")
+
+    def collect_types(node, out: Set[str]) -> None:
+        if isinstance(node, dict):
+            for key in type_keys:
+                value = node.get(key)
+                if isinstance(value, str):
+                    out.add(value)
+            for child in node.values():
+                collect_types(child, out)
+        elif isinstance(node, list):
+            for child in node:
+                collect_types(child, out)
+
+    seen: Dict[str, Set[str]] = {}
+    for dirpath, _dirs, files in os.walk(root):
+        for name in sorted(files):
+            if not name.endswith(".json"):
+                continue
+            path = os.path.join(dirpath, name)
+            relative = os.path.relpath(path, RES)
+            kind = category(relative)
+            if kind is None:
+                continue
+            try:
+                doc = json.load(open(path, "r", encoding="utf-8"))
+            except Exception:  # noqa: BLE001
+                continue  # check_json already reported the parse failure
+            found: Set[str] = set()
+            collect_types(doc, found)
+            allowed = VALID_TYPES[kind]
+            for value in sorted(found - allowed):
+                report.error("datapack",
+                             f"{relative}: unknown '{kind}' type '{value}'")
+            seen.setdefault(kind, set()).update(found)
+            report.count(f"datapack {kind} files", 1)
+
+    for kind, values in sorted(seen.items()):
+        report.count(f"datapack {kind} types", len(values))
+
+
 def check_registration_uniqueness(report: Report) -> None:
     """
     No id may be registered twice in the same registry.
@@ -1158,6 +1313,7 @@ def main() -> int:
     check_biome_placement(report)
     check_audio(report)
     check_registration_uniqueness(report)
+    check_datapack_types(report)
 
     return report.render()
 
