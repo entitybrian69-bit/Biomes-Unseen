@@ -73,6 +73,31 @@ public final class BUSounds {
         return holder == null ? null : holder.get();
     }
 
+    /**
+     * Whether a sound id ships real audio.
+     *
+     * Registering a SoundEvent whose id has no sounds.json definition is
+     * harmless, but starting it makes the client log "Unable to play unknown
+     * soundEvent" -- for boss music that is once per sighting, and for biome
+     * music every 12-24 seconds per player. Playback is therefore gated on this
+     * rather than on registration.
+     *
+     * The list is generated from which .ogg files actually exist, so dropping a
+     * track in and re-running the generators switches it on with no Java edit.
+     */
+    public static boolean hasAudio(String id) {
+        if (id == null) {
+            return false;
+        }
+        String bare = id.indexOf(':') >= 0 ? id.substring(id.indexOf(':') + 1) : id;
+        for (String shipped : BUContent.SOUNDS_WITH_AUDIO) {
+            if (shipped.equals(bare)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     public static boolean contains(String id) {
         if (id == null) {
             return false;

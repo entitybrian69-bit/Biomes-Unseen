@@ -8,12 +8,6 @@
     "water_color": 4159204,
     "water_fog_color": 329011,
     "grass_color_modifier": "none",
-    "music": {
-      "sound": "biomesunseen:music.void_between",
-      "min_delay": 12000,
-      "max_delay": 24000,
-      "replace_current_music": true
-    },
     "particle": {
       "options": {
         "type": "biomesunseen:lumen_mote"

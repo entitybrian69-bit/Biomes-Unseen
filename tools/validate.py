@@ -842,6 +842,87 @@ def check_structure_templates(report: Report) -> None:
 
 
 
+def check_audio(report: Report) -> None:
+    """
+    Every sound id either ships audio or is referenced by nothing.
+
+    A SoundEvent with no sounds.json definition is harmless while it stays
+    unplayed, but the moment a biome or a boss starts it the client logs "Unable
+    to play unknown soundEvent" -- and biome music retries every 12-24 seconds
+    per player, in every biome that authored a track. So the rule is not "all
+    audio must exist", it is "nothing may reference audio that does not".
+
+    The generators enforce that by emitting music and ambience only for sounds
+    with a real .ogg, and this checks the result: no biome JSON may name a sound
+    that has no audio, and sounds.json may only declare files that exist. The
+    remaining gap -- authored tracks with no audio yet -- is reported as a count
+    so it is visible rather than silent, since it is a content hole and not a
+    defect.
+    """
+    assets = os.path.join(RES, "assets", MODID)
+    authored = set()
+    for spec in B.ALL_BIOMES:
+        for field in ("music", "ambient_sound"):
+            value = getattr(spec, field, None)
+            if value:
+                authored.add(value.split(":")[-1])
+    for spec in BS.ALL_BOSSES:
+        if spec.music:
+            authored.add(spec.music.split(":")[-1])
+
+    shipped = set()
+    for sound_id in sorted(authored):
+        if os.path.exists(os.path.join(assets, "sounds",
+                                       sound_id.replace(".", os.sep) + ".ogg")):
+            shipped.add(sound_id)
+
+    missing = authored - shipped
+    report.count("authored sound ids", len(authored))
+    report.count("sound ids with audio", len(shipped))
+    if missing:
+        report.note("audio",
+                    f"{len(missing)} authored sound(s) have no .ogg and are therefore "
+                    f"referenced by nothing: e.g. {sorted(missing)[:3]}. Biome music, "
+                    f"ambience and boss themes stay silent until the tracks are added; "
+                    f"re-running the generators switches them on with no code change.")
+
+    # Nothing may reference audio that does not exist.
+    biome_dir = os.path.join(RES, "data", MODID, "worldgen", "biome")
+    if os.path.isdir(biome_dir):
+        for name in sorted(os.listdir(biome_dir)):
+            doc = json.load(open(os.path.join(biome_dir, name), "r",
+                                 encoding="utf-8"))
+            effects = doc.get("effects", {})
+            refs = []
+            if effects.get("ambient_sound"):
+                refs.append(effects["ambient_sound"])
+            music = effects.get("music")
+            if isinstance(music, dict) and music.get("sound"):
+                refs.append(music["sound"])
+            for ref in refs:
+                bare = ref.split(":")[-1]
+                if bare not in shipped:
+                    report.error("audio",
+                                 f"biome '{name[:-5]}' references sound '{ref}' which has no audio")
+                report.count("biome audio refs", 1)
+
+    # sounds.json, if present, must only declare files that exist.
+    sounds_json = os.path.join(assets, "sounds.json")
+    if os.path.isfile(sounds_json):
+        doc = json.load(open(sounds_json, "r", encoding="utf-8"))
+        for sound_id, definition in doc.items():
+            for entry in definition.get("sounds", []):
+                path = entry.get("name") if isinstance(entry, dict) else entry
+                if not path:
+                    continue
+                relative = str(path).split(":")[-1]
+                if not os.path.exists(os.path.join(assets, "sounds",
+                                                   relative + ".ogg")):
+                    report.error("audio",
+                                 f"sounds.json declares '{sound_id}' -> '{path}' but no .ogg exists")
+                report.count("sounds.json definitions", 1)
+
+
 def check_biome_placement(report: Report) -> None:
     """
     Every authored biome must be reachable by some biome source.
@@ -955,6 +1036,7 @@ def main() -> int:
     check_geckolib(report)
     check_structure_templates(report)
     check_biome_placement(report)
+    check_audio(report)
 
     return report.render()
 

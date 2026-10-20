@@ -10,13 +10,6 @@
     "grass_color_modifier": "none",
     "foliage_color": 6338680,
     "grass_color": 8442008,
-    "ambient_sound": "biomesunseen:ambient.surf",
-    "music": {
-      "sound": "biomesunseen:music.vibrant",
-      "min_delay": 12000,
-      "max_delay": 24000,
-      "replace_current_music": true
-    },
     "particle": {
       "options": {
         "type": "biomesunseen:pollen_drift"

@@ -311,6 +311,12 @@ public final class BUEntities {
      */
     public static void playBossMusic(BUBoss boss, ServerPlayer player) {
         BossData data = boss.boss();
+        // Checked before the SoundEvent lookup: an id can be registered and still
+        // have no audio behind it, and starting one logs a client-side warning on
+        // every boss sighting.
+        if (!BUSounds.hasAudio(data.music)) {
+            return;
+        }
         net.minecraft.sounds.SoundEvent sound = BUSounds.get(data.music);
         if (sound == null) {
             return;

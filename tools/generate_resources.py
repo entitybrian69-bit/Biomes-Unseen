@@ -58,6 +58,15 @@ PACK_FORMAT = 15          # Minecraft 1.20.1
 FORGE_VERSION = "47.2.20"
 MC_VERSION = "1.20.1"
 
+# Every sound id the mod registers, derived from the content tables exactly as
+# tools/generate_java.py derives BUContent.SOUNDS. Kept in step by construction
+# rather than by hand: biome music, biome ambience and the five boss themes.
+SOUND_IDS = sorted(
+    {b.music.split(":")[-1] for b in BIOMES.ALL_BIOMES if b.music}
+    | {b.ambient_sound.split(":")[-1] for b in BIOMES.ALL_BIOMES if b.ambient_sound}
+    | {b.music.split(":")[-1] for b in BOSSES.ALL_BOSSES if b.music}
+)
+
 TOOL_SET_BY_ID: Dict[str, object] = {t.id: t for t in GEAR.TOOL_SETS}
 ARMOR_SET_BY_ID: Dict[str, object] = {a.id: a for a in GEAR.ARMOR_SETS}
 ORE_BY_BLOCK: Dict[str, object] = {}
@@ -1084,6 +1093,45 @@ def _item_name(item: str) -> str:
 #  pack.mcmeta + mods.toml
 # --------------------------------------------------------------------------- #
 
+def emit_sounds(w: Writer) -> None:
+    """
+    Declare the audio behind each registered SoundEvent.
+
+    Only sounds that actually have an .ogg on disk are emitted. Declaring an
+    entry for audio that does not exist is worse than declaring nothing at all:
+    it turns a silent SoundEvent into a resource-load error naming a missing
+    file, for every player, on every load.
+
+    The registry keeps registering all of them regardless, so the ids are stable
+    and adding a track later needs no Java change -- drop the .ogg in, re-run the
+    generators, and the declaration and every biome that authored it appear.
+    """
+    definitions = {}
+    for sound_id in sorted(SOUND_IDS):
+        bare = sound_id.split(":")[-1]
+        relative = bare.replace(".", "/")
+        if not os.path.exists(os.path.join(
+                ASSETS, "sounds", relative + ".ogg")):
+            continue
+        # Music and ambience stream rather than loading whole: these are long
+        # tracks, and loading them into memory up front would stall world join.
+        streaming = bare.startswith("music.")
+        category = "music" if streaming else (
+            "ambient" if bare.startswith("ambient.") else "master")
+        definitions[bare] = {
+            "category": category,
+            "sounds": [{
+                "name": f"{MODID}:{relative}",
+                "stream": streaming,
+                "volume": 1.0,
+            }],
+        }
+    if not definitions:
+        return
+    w.json(os.path.join(ASSETS, "sounds.json"), definitions)
+    print(f"[resources] sounds.json: {len(definitions)} definition(s)")
+
+
 def emit_meta(w: Writer) -> None:
     w.json(os.path.join(RES, "pack.mcmeta"), {
         "pack": {
@@ -1200,6 +1248,7 @@ def emit_all(w: Writer) -> None:
     emit_recipes(w)
     emit_tags(w)
     emit_lang(w)
+    emit_sounds(w)
     emit_meta(w)
 
 

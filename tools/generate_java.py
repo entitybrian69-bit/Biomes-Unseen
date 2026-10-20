@@ -487,6 +487,22 @@ def biome_section() -> str:
                                  "Every SoundEvent the mod registers (music, ambience, boss themes)."))
     out.append("")
 
+    # Which of those actually have audio behind them. A SoundEvent with no
+    # sounds.json definition logs "Unable to play unknown soundEvent" when
+    # started, so playback is gated on this list rather than on registration:
+    # registering an id is harmless, playing an undefined one is not. Adding a
+    # track is a data change -- drop the .ogg in and re-run the generators -- and
+    # every caller switches on with no Java edit.
+    with_audio = sorted(
+        sid for sid in sounds
+        if os.path.exists(os.path.join(
+            ROOT, "src", "main", "resources", "assets", MODID,
+            "sounds", sid.replace(".", os.sep) + ".ogg"))
+    )
+    out.append(string_array_decl("SOUNDS_WITH_AUDIO", with_audio,
+                                 "Subset of SOUNDS that ship real audio; playback is gated on this."))
+    out.append("")
+
     particles = sorted({b.particle.split(":")[-1] for b in BIOMES.ALL_BIOMES if b.particle})
     out.append(string_array_decl("PARTICLES", particles,
                                  "Ambient biome particle types."))

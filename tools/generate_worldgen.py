@@ -71,6 +71,25 @@ SLOT_TOP_LAYER_MODIFICATION = 10
 WRITTEN = 0
 
 
+ASSETS_ROOT = os.path.join(ROOT, "src", "main", "resources", "assets", MODID)
+
+
+def audio_path(sound_id: str) -> str:
+    """
+    The .ogg a sound id would resolve to, by convention.
+
+    "music.ethereal" -> assets/biomesunseen/sounds/music/ethereal.ogg, which is
+    the path sounds.json would name for it.
+    """
+    bare = sound_id.split(":")[-1]
+    return os.path.join(ASSETS_ROOT, "sounds", bare.replace(".", os.sep) + ".ogg")
+
+
+def has_audio(sound_id: str) -> bool:
+    """Whether a sound id has real audio behind it."""
+    return bool(sound_id) and os.path.exists(audio_path(sound_id))
+
+
 def rid(path: str) -> str:
     """Namespace a registry path, passing foreign namespaces through."""
     return path if ":" in path else f"{MODID}:{path}"
@@ -323,9 +342,18 @@ def effects_for(spec) -> dict:
         effects["foliage_color"] = spec.foliage_color
     if spec.grass_color is not None:
         effects["grass_color"] = spec.grass_color
-    if spec.ambient_sound:
+    # Music and ambience are emitted only when the audio actually exists.
+    #
+    # A biome that names a SoundEvent with no sounds.json definition makes the
+    # client log "Unable to play unknown soundEvent" every time it tries to start
+    # the track -- which for biome music is every 12-24 seconds per player, in
+    # all 140 biomes, forever. Referencing only audio that ships keeps the log
+    # clean, and because the ids stay in the content tables the moment a track is
+    # added and the generator re-run, every biome that authored it switches on
+    # with no further edit.
+    if spec.ambient_sound and has_audio(spec.ambient_sound):
         effects["ambient_sound"] = spec.ambient_sound
-    if spec.music:
+    if spec.music and has_audio(spec.music):
         effects["music"] = {
             "sound": spec.music,
             "min_delay": 12000,

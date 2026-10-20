@@ -9,13 +9,7 @@
     "water_fog_color": 663600,
     "grass_color_modifier": "none",
     "foliage_color": 11046976,
-    "grass_color": 13152352,
-    "music": {
-      "sound": "biomesunseen:music.vibrant",
-      "min_delay": 12000,
-      "max_delay": 24000,
-      "replace_current_music": true
-    }
+    "grass_color": 13152352
   },
   "spawners": {
     "monster": [

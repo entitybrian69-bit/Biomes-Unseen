@@ -2607,6 +2607,10 @@ public final class BUContent {
         };
 
 
+    /** Subset of SOUNDS that ship real audio; playback is gated on this. */
+    public static final String[] SOUNDS_WITH_AUDIO = {};
+
+
     /** Ambient biome particle types. */
     public static final String[] PARTICLES = {
             "aetherveil_mote", "aurora_ribbon", "ember_drift", "heat_shimmer", "lumen_mote", "moonpetal_drift",

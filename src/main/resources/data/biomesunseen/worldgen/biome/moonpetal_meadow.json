@@ -10,12 +10,6 @@
     "grass_color_modifier": "none",
     "foliage_color": 7651466,
     "grass_color": 10477736,
-    "music": {
-      "sound": "biomesunseen:music.ethereal",
-      "min_delay": 12000,
-      "max_delay": 24000,
-      "replace_current_music": true
-    },
     "particle": {
       "options": {
         "type": "biomesunseen:moonpetal_drift"
