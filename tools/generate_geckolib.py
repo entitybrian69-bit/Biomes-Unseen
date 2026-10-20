@@ -310,7 +310,12 @@ def rig_fungal() -> list:
         bone("root", None, [0, 0, 0], []),
         bone("body", "root", [0, 6, 0],
              [cube([-8, 2, -4], [16, 8, 8], torso_uv())]),
-        bone("cap", "body", [0, 10, 0],
+        # Named "head", not "cap": creature_animations drives a head track for
+        # every family, and a rig whose head bone carries any other name leaves
+        # those channels driving nothing -- the cap sat perfectly still through
+        # idle, walk, hurt and attack while the animation thought it was moving
+        # it. The cap IS this rig's head (it uses head_uv), so the name follows.
+        bone("head", "body", [0, 10, 0],
              [cube([-4, 10, -4], [8, 8, 8], head_uv())]),
         bone("leg_front_left", "body", [-5, 2, -2],
              [cube([-7, -6, -4], [4, 10, 4], limb_uv(LIMB_CELLS["front_left"]))]),
@@ -478,8 +483,13 @@ def boss_rig(boss) -> list:
     # Extras are the silhouette-defining parts: wings for the crown and the
     # unraveling, spires for the warden, shards for the serpent, canopy for the
     # heart. They hang off the body so phase animations can flare them.
-    extra_count = len(boss.extras) if hasattr(boss, "extras") else 2
-    extra_count = max(1, min(4, extra_count))
+    # Driven by the atlas, not by an attribute that does not exist. BossSpec has
+    # no `extras` field, so the hasattr() fallback silently clamped every boss to
+    # two bones while boss_animations keyframes extra_1..extra_4 -- ten orphaned
+    # channels across the five bosses, each a part that flared in the animation
+    # and never moved on screen. BOSS_EXTRA_CELLS is four authored cells wide, so
+    # all four get real geometry.
+    extra_count = len(BOSS_EXTRA_CELLS)
     for index in range(extra_count):
         cell = BOSS_EXTRA_CELLS[index]
         side = -1 if index % 2 == 0 else 1
@@ -538,6 +548,11 @@ def creature_animations(family: str) -> dict:
     # bone the rig does not define makes GeckoLib warn at load.
     tails = ["tail"] if tail_is_real(family) else []
 
+    # The avian and quadruped rigs both build a neck that the head hangs off.
+    # Nothing keyframed it, so the neck stayed rigid while the head it parents
+    # bobbed -- a visible seam at the base of the skull on 40 of the 80 mobs.
+    necks = ["neck"] if family in ("avian", "quadruped") else []
+
     idle_bones = {
         "body": {"position": keyframes(
             (0.0, (0, 0, 0)), (1.0, (0, 0.4, 0)), (2.0, (0, 0, 0)))},
@@ -550,6 +565,15 @@ def creature_animations(family: str) -> dict:
     for tail in tails:
         idle_bones[tail] = {"rotation": keyframes(
             (0.0, (0, -4, 0)), (1.5, (0, 5, 0)), (3.0, (0, -4, 0)))}
+    for index, arm in enumerate(arms):
+        # Opposite signs so a standing biped settles its weight instead of
+        # holding both arms at the same angle.
+        sign = 3.0 if index % 2 == 0 else -3.0
+        idle_bones[arm] = {"rotation": keyframes(
+            (0.0, (sign, 0, 0)), (1.5, (-sign, 0, 0)), (3.0, (sign, 0, 0)))}
+    for neck in necks:
+        idle_bones[neck] = {"rotation": keyframes(
+            (0.0, (0, 0, 0)), (1.5, (-3, 0, 0)), (3.0, (0, 0, 0)))}
 
     walk_bones = dict(idle_bones)
     walk_bones.update(swing)
@@ -563,6 +587,16 @@ def creature_animations(family: str) -> dict:
         # as weight-bearing rather than a sliding model.
         walk_bones[tail] = {"rotation": keyframes(
             (0.0, (0, 12, 0)), (0.4, (0, -12, 0)), (0.8, (0, 12, 0)))}
+    for index, arm in enumerate(arms):
+        # Arms counter-swing against the legs on the same side: the left arm
+        # leads when the left leg trails. Without this a biped marched with both
+        # arms pinned to its sides while its legs walked.
+        sign = -28.0 if index % 2 == 0 else 28.0
+        walk_bones[arm] = {"rotation": keyframes(
+            (0.0, (sign, 0, 0)), (0.4, (-sign, 0, 0)), (0.8, (sign, 0, 0)))}
+    for neck in necks:
+        walk_bones[neck] = {"rotation": keyframes(
+            (0.0, (2, 0, 0)), (0.4, (-3, 0, 0)), (0.8, (2, 0, 0)))}
 
     attack_target = arms[0] if arms else ("head" if family == "serpent" else limbs[0])
     attack_bones = {
@@ -571,6 +605,12 @@ def creature_animations(family: str) -> dict:
         "body": {"rotation": keyframes(
             (0.0, (0, 0, 0)), (0.12, (8, 0, 0)), (0.45, (0, 0, 0)))},
     }
+    for arm in arms:
+        if arm != attack_target:
+            # The off-arm pulls back as the striking arm comes through, which is
+            # what makes the punch read as a whole-body motion.
+            attack_bones[arm] = {"rotation": keyframes(
+                (0.0, (0, 0, 0)), (0.12, (22, 0, 0)), (0.45, (0, 0, 0)))}
 
     hurt_bones = {
         "body": {"rotation": keyframes(

@@ -803,6 +803,55 @@ def check_geckolib(report: Report) -> None:
                 report.error("geckolib",
                              f"boss '{boss.id}' needs clip '{animation}' which {boss.id}.animation.json does not define")
 
+    # ---- bones and animation channels must pair up -----------------------
+    # GeckoLib ignores an animation channel naming a bone the geo does not
+    # define, so the failure is silent in both directions:
+    #
+    #   an orphan channel drives nothing -- the part was keyframed and stays
+    #   perfectly still, which reads as a broken rig rather than a missing one
+    #   a geo bone no clip touches is frozen in every animation, including idle
+    #
+    # Neither is a load error, and both survived a green build: all five bosses
+    # keyframed extra_3 and extra_4 while their rigs emitted only extra_1 and
+    # extra_2, the fungal rig called its head bone "cap" while every creature
+    # clip drove "head", and the biped's right arm was never keyframed at all.
+    def bone_names(geo_path: str) -> set:
+        doc = json.load(open(geo_path, "r", encoding="utf-8"))
+        entry = doc.get("minecraft:geometry") or [{}]
+        return {b.get("name") for b in entry[0].get("bones", [])}
+
+    def animated_bones(anim_path: str) -> set:
+        doc = json.load(open(anim_path, "r", encoding="utf-8"))
+        used = set()
+        for body in (doc.get("animations") or {}).values():
+            used |= set((body.get("bones") or {}).keys())
+        return used
+
+    pairs = []
+    for family in sorted(families):
+        pairs.append((family,
+                      os.path.join(ASSETS, "geo", "entity", family + ".geo.json"),
+                      os.path.join(ASSETS, "animations", "entity", family + ".animation.json")))
+    for boss in BS.ALL_BOSSES:
+        pairs.append((boss.id,
+                      os.path.join(ASSETS, "geo", "entity", "boss", boss.id + ".geo.json"),
+                      os.path.join(ASSETS, "animations", "entity", "boss", boss.id + ".animation.json")))
+
+    for name, geo_path, anim_path in pairs:
+        if not (os.path.exists(geo_path) and os.path.exists(anim_path)):
+            continue  # already reported above
+        built = bone_names(geo_path)
+        used = animated_bones(anim_path)
+        report.count("geckolib rig bone pairings", 1)
+        for orphan in sorted(used - built):
+            report.error("geckolib",
+                         f"rig '{name}' keyframes bone '{orphan}' that its geo does "
+                         f"not define, so that track drives nothing")
+        for frozen in sorted(built - used):
+            report.error("geckolib",
+                         f"rig '{name}' defines bone '{frozen}' that no clip "
+                         f"keyframes, so that part never moves")
+
 
 # Must match BUEntities.BOSS_ANIMATIONS: the clips every boss rig is required to
 # define regardless of what its phases name.
