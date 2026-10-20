@@ -169,6 +169,40 @@ in. Boss arenas bypass this and use `tools/boss_arenas.py`.
 
 ---
 
+## Adding an ore
+
+Add the `OreSpec` to `tools/content/ores.py`. The vein glyph must exist in
+`pixelart.base_maps.ORE_MAPS`, or the texture pass has nothing to draw.
+
+`uses` is the field that misleads people. It reads like a promise the pipeline
+keeps — declare `USE_TOOLS` and a sword appears — but **nothing consumes it**: no
+generator and no Java class reads `OreSpec.uses`. It records intent, and
+`check_ore_uses` is what holds it honest by testing the shipped data instead.
+
+A use counts as realised only when the data delivers it:
+
+| use | what realises it |
+| --- | --- |
+| `block` | the mineral block is craftable from nine of the drop |
+| `crafting` | the drop or its refined form is a recipe ingredient |
+| `tools` | a tool set is named after the ore |
+| `armor` | an armour set is named after it, or repairs with its drop |
+| `boss` | a boss consumes it |
+| `device`, `potion`, `currency` | nothing yet — no subsystem exists |
+
+Those last three are `ROADMAP_USES`. Declaring one is fine and is reported as a
+counted gap, but it is not a reason to skip the wiring that does exist: **every
+ore must still reach the player somehow**, and in practice that is its mineral
+block, which `generate_resources.py` crafts in both directions from the ore's own
+drop. The reachability test looks at the data rather than the declaration for
+exactly that reason — twenty-four of the forty-four ores declare neither `block`
+nor `crafting`, so a test driven by the declaration would miss the craftable
+block sitting behind them.
+
+Ten tool sets and ten armour sets cannot cover forty-four ores, so `tools` and
+`armor` are realised for some ores and not others. That is expected and reported
+per category; it is not a failure.
+
 ## Atlas layout
 
 Creature atlases are 64×64 and are composed region-by-region in
@@ -214,7 +248,7 @@ triaging, get the real total rather than eyeballing the truncated list.
 
 ### Known gaps and how they are tracked
 
-A gap that is invisible will stay open. Two are currently tracked:
+A gap that is invisible will stay open. Three are currently tracked:
 
 - **Overworld biome placement** — checked by `check_biome_placement`. Every
   Overworld biome must appear in the TerraBlender region's parameter table and in
@@ -222,6 +256,12 @@ A gap that is invisible will stay open. Two are currently tracked:
 - **Audio** — checked by `check_audio`. 29 sound ids are authored with no `.ogg`,
   so music and ambience are silent. Reported as a counted note, and the rule
   enforced is that *nothing may reference audio that does not exist*.
+- **Ore uses** — checked by `check_ore_uses`. `OreSpec.uses` is authored design
+  intent and nothing in the pipeline consumes it, so the check tests what the
+  shipped data actually delivers. See [Adding an ore](#adding-an-ore). Two
+  different rules come out of it: an error if a use is declared with a spelling
+  that is not a real category, or if an ore is left with no reachable use at all;
+  a counted note for the categories the mod has no subsystem for yet.
 
 If you leave something unfinished, add a check that reports it. That is what
 turned both of the above from silent holes into tracked ones.

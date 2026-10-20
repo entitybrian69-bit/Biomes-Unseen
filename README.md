@@ -208,6 +208,26 @@ non-zero on any error and currently checks:
   3465, keep every block inside their declared size, and name only registered
   blocks
 - audio: nothing references a sound that has no `.ogg`
+- **particles**: every registered particle type has a sprite descriptor and a
+  texture, and every biome that names one names a registered type — a
+  `registerSpriteSet` call with no `particles/<id>.json` is a load-time error
+- **GeckoLib rigs**: every bone an animation channel names exists in the geo, and
+  every bone in the geo is animated, so nothing renders frozen or waves a limb
+  that is not there
+- **atlas coverage**: every cube face of every rig lands inside its texture and
+  samples at least one opaque pixel — 546 faces across 85 atlases
+- **pixel-art glyph geometry**: every authored glyph is the rectangle the atlas
+  layout says it is, which is what stops a ragged row from being silently padded
+  into a blank band
+- **entity coverage**: every registered entity has attributes and a renderer
+- **armour slot ordering**: defence values reach the slot they were authored for,
+  which depends on `ArmorItem.Type` running BOOTS, LEGGINGS, CHESTPLATE, HELMET
+- **blockstate properties**: every property a block declares is enumerated in its
+  blockstate, and nothing enumerates a property the block does not have
+- **ore uses**: every ore reaches the player through the shipped data, and every
+  use it declares is either realised or reported as a known gap
+- translations: every registry entry has a name key and every name key has an
+  entry, in both directions
 
 Several of these exist because a real bug was found and then made impossible to
 repeat. See [docs/CONTRIBUTING.md](docs/CONTRIBUTING.md) for the full list.
@@ -230,6 +250,23 @@ data change with no code edit: drop a track at
 `sounds.json` entry is written, every biome that authored it switches on, and it
 is added to the generated table that gates boss playback. Until then nothing
 references the missing audio, so there is no log spam.
+
+**Three ore uses have no subsystem.** `OreSpec.uses` records what an ore is meant
+to be spent on, but nothing in the pipeline consumes the field, so it is checked
+against the shipped data instead. Twenty ores declare `device`, eighteen `potion`
+and four `currency`; none of the three can be delivered, because there are no
+block entities or menus for a device, no `MobEffect` or brewing recipe for a
+potion, and no villager trade for a currency. Reported as counted notes on every
+run, in the same shape as the audio gap.
+
+`tools`, `armor` and `boss` are shipped categories but only partly wired: ten
+tool sets and ten armour sets cannot cover forty-four ores, so thirteen ores
+declare `tools` and six declare `boss` without a set behind them.
+
+What is enforced is narrower and absolute: **no ore may be a dead end**. All
+forty-four reach the player through their mineral block, craftable from and back
+into nine of their drop — wiring that was missing for thirty-nine of them until it
+was found and fixed.
 
 ---
 
