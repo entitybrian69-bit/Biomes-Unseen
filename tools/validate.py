@@ -842,6 +842,126 @@ def check_structure_templates(report: Report) -> None:
 
 
 
+def _bu_table(text: str, name: str) -> Optional[str]:
+    """
+    The body of a generated BUContent table, however it is indented.
+
+    Written as a scanner rather than a single regex: these tables are emitted in
+    two shapes (String[] on one line-wrapped block, String[][] and Object[][] as
+    one row per line) and a pattern tuned for one silently matches nothing for
+    the other, which reads as "no duplicates found" when nothing was checked.
+    """
+    marker = f"{name} = {{"
+    start = text.find(marker)
+    if start < 0:
+        return None
+    body_start = start + len(marker)
+    depth = 1
+    index = body_start
+    while index < len(text) and depth:
+        char = text[index]
+        if char == "{":
+            depth += 1
+        elif char == "}":
+            depth -= 1
+        index += 1
+    return text[body_start:index - 1]
+
+
+BLOCK_TABLES = ("BLOCKS_CUBE", "BLOCKS_GRASS", "BLOCKS_LOG", "BLOCKS_ORE",
+                "BLOCKS_MINERAL", "BLOCKS_FLORA", "BLOCKS_PORTAL",
+                "BLOCKS_LANTERN", "BLOCKS_ALTAR", "BLOCKS_FLUID")
+ITEM_TABLES = ("ITEMS_MATERIALS", "ITEMS_TOOLS", "ITEMS_ARTEFACTS",
+               "ITEMS_LORE_BOOKS")
+
+
+def check_registration_uniqueness(report: Report) -> None:
+    """
+    No id may be registered twice in the same registry.
+
+    Forge throws RegistryException on a duplicate registration, and it throws at
+    mod construction -- before any world exists -- so the failure is a crash on
+    launch that compiles perfectly cleanly. Nothing else in this validator can
+    see it, because each registration site is individually valid; only the union
+    of all of them is wrong.
+
+    BUItems registers four disjoint-looking sets into the one item registry: a
+    BlockItem per solid block, then the materials, tools, artefacts, lore books,
+    armour pieces and spawn eggs from the content tables. Those are authored in
+    different places, so an id landing in two of them is easy to do and
+    impossible to spot by reading either.
+
+    Blocks and items may legitimately share a path -- a BlockItem is registered
+    under its block's own id, in a different registry -- so only collisions
+    inside one registry are errors.
+    """
+    path = os.path.join(JAVA, "com", "biomesunseen", "init", "BUContent.java")
+    if not os.path.isfile(path):
+        report.error("registry", "BUContent.java is missing")
+        return
+    text = open(path, encoding="utf-8").read()
+
+    def ids(table: str) -> List[str]:
+        body = _bu_table(text, table)
+        if body is None:
+            report.error("registry", f"BUContent.{table} not found")
+            return []
+        return re.findall(r'"([a-z0-9_/.-]+)"', body)
+
+    # ---- blocks ----------------------------------------------------------
+    blocks: List[str] = []
+    for table in BLOCK_TABLES:
+        blocks += ids(table)
+    for duplicate in sorted({b for b in blocks if blocks.count(b) > 1}):
+        report.error("registry", f"block '{duplicate}' is registered twice")
+    report.count("block registrations unique", len(blocks))
+
+    # ---- items -----------------------------------------------------------
+    fluids = set(ids("BLOCKS_FLUID"))
+    portals = {b for b in blocks if b.endswith("_portal")}
+    # Mirrors BUItems.registerBlockItems: fluids and portals have no item form.
+    block_items = [b for b in blocks if b not in fluids and b not in portals]
+
+    items: List[str] = []
+    sources: Dict[str, List[str]] = {"block_item": block_items}
+    for table in ITEM_TABLES:
+        sources[table] = ids(table)
+
+    armour_body = _bu_table(text, "ARMOUR_ITEMS")
+    sources["ARMOUR_ITEMS"] = re.findall(
+        r'\{\s*"([a-z0-9_]+)"\s*,', armour_body) if armour_body else []
+
+    egg_body = _bu_table(text, "SPAWN_EGGS")
+    sources["SPAWN_EGGS"] = re.findall(
+        r'\{\s*"([a-z0-9_]+_spawn_egg)"\s*,', egg_body) if egg_body else []
+
+    for name, values in sources.items():
+        if not values and name != "block_item":
+            report.error("registry", f"no item ids parsed from {name}")
+        items += values
+
+    seen: Dict[str, List[str]] = {}
+    for name, values in sources.items():
+        for value in values:
+            seen.setdefault(value, []).append(name)
+    for item_id, origin in sorted(seen.items()):
+        if len(origin) > 1:
+            report.error("registry",
+                         f"item '{item_id}' is registered by {sorted(set(origin))}")
+    report.count("item registrations unique", len(items))
+
+    # ---- entities --------------------------------------------------------
+    mobs = re.findall(r'new MobData\(\s*"([a-z0-9_]+)"', text)
+    bosses = re.findall(r'new BossData\(\s*"([a-z0-9_]+)"', text)
+    entities = mobs + bosses
+    for duplicate in sorted({e for e in entities if entities.count(e) > 1}):
+        report.error("registry", f"entity '{duplicate}' is registered twice")
+    for overlap in sorted(set(mobs) & set(bosses)):
+        report.error("registry",
+                     f"'{overlap}' is registered as both a creature and a boss")
+    report.count("entity registrations unique", len(entities))
+
+
 def check_audio(report: Report) -> None:
     """
     Every sound id either ships audio or is referenced by nothing.
@@ -1037,6 +1157,7 @@ def main() -> int:
     check_structure_templates(report)
     check_biome_placement(report)
     check_audio(report)
+    check_registration_uniqueness(report)
 
     return report.render()
 
