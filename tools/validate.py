@@ -1006,6 +1006,137 @@ TRANSlatable_DYN = re.compile(
     r'Component\.translatable\(\s*"[a-z0-9_.]*"\s*\+')
 
 
+def check_model_and_tag_closure(report: Report) -> None:
+    """
+    Model parents, blockstate variants, tag members and recipe ids must resolve.
+
+    These are the last references in the mod that nothing else checks. Each is a
+    runtime-only failure with a green build:
+
+      - a blockstate variant naming a model that does not exist renders the block
+        as a missing-model cube, in world and in every inventory
+      - a model whose `parent` does not resolve loses every texture and transform
+        it inherits, and renders as a bare untextured box
+      - a block or item tag naming an unregistered id makes Forge log an error on
+        every load and silently drops the whole tag entry
+      - a recipe naming an unregistered ingredient or result fails to load, so the
+        crafting grid shows nothing and the ore's authored use disappears
+
+    The existing registry closure check confirms a block HAS a blockstate and an
+    item HAS a model. This confirms the contents of those files point at things
+    that exist, which is the other half of the same question.
+    """
+    manifest = MANIFEST
+    block_ids = set(manifest.get("blocks", []))
+    item_ids = set(manifest.get("items", []))
+    block_item_ids = set(manifest.get("block_items", []))
+    known_items = item_ids | block_item_ids
+
+    def model_exists(ref: str) -> bool:
+        """Whether a model reference resolves to a file, or is vanilla's."""
+        namespace, _, path = ref.partition(":")
+        namespace = namespace or MODID
+        if namespace == "minecraft":
+            return True
+        return os.path.exists(os.path.join(RES, "assets", namespace, "models",
+                                          path + ".json"))
+
+    # ---- blockstate variants -> models ------------------------------------
+    states_dir = os.path.join(ASSETS, "blockstates")
+    if os.path.isdir(states_dir):
+        for name in sorted(os.listdir(states_dir)):
+            if not name.endswith(".json"):
+                continue
+            doc = json.load(open(os.path.join(states_dir, name), "r",
+                                 encoding="utf-8"))
+            applies = []
+            for value in doc.get("variants", {}).values():
+                applies += value if isinstance(value, list) else [value]
+            for part in doc.get("multipart", []):
+                apply = part.get("apply")
+                if isinstance(apply, list):
+                    applies += apply
+                elif isinstance(apply, dict):
+                    applies.append(apply)
+            for entry in applies:
+                if not isinstance(entry, dict):
+                    continue
+                model = entry.get("model")
+                if not model:
+                    continue
+                if not model_exists(model):
+                    report.error("model",
+                                 f"blockstate '{name[:-5]}' references missing model '{model}'")
+                report.count("blockstate model refs", 1)
+
+    # ---- model parent chain ------------------------------------------------
+    models_dir = os.path.join(ASSETS, "models")
+    if os.path.isdir(models_dir):
+        for dirpath, _dirs, files in os.walk(models_dir):
+            for name in sorted(files):
+                if not name.endswith(".json"):
+                    continue
+                path = os.path.join(dirpath, name)
+                doc = json.load(open(path, "r", encoding="utf-8"))
+                parent = doc.get("parent")
+                if not parent:
+                    continue
+                if not model_exists(parent):
+                    report.error("model",
+                                 f"{rel(path)} has unresolvable parent '{parent}'")
+                report.count("model parents", 1)
+
+    # ---- tag membership ----------------------------------------------------
+    for dirpath, _dirs, files in os.walk(os.path.join(RES, "data")):
+        if os.sep + "tags" + os.sep not in dirpath + os.sep:
+            continue
+        normalised = dirpath.replace(os.sep, "/")
+        if "/tags/blocks" in normalised:
+            known, label = block_ids, "block"
+        elif "/tags/items" in normalised:
+            known, label = known_items, "item"
+        else:
+            # Biome, entity-type and function tags resolve against worldgen and
+            # registry files rather than the block/item manifests, and are covered
+            # by the worldgen and registry checks.
+            continue
+        if not known:
+            continue
+        for name in sorted(files):
+            if not name.endswith(".json"):
+                continue
+            path = os.path.join(dirpath, name)
+            doc = json.load(open(path, "r", encoding="utf-8"))
+            for value in doc.get("values", []):
+                # Nested tag references and optional entries are not id lookups.
+                if isinstance(value, dict) or str(value).startswith("#"):
+                    continue
+                namespace, _, tag_path = str(value).partition(":")
+                if namespace != MODID:
+                    continue
+                if tag_path not in known:
+                    report.error("tags",
+                                 f"{rel(path)} names unregistered {label} '{value}'")
+                report.count("tag value refs", 1)
+
+    # ---- recipes -----------------------------------------------------------
+    recipes_dir = os.path.join(RES, "data", MODID, "recipes")
+    if os.path.isdir(recipes_dir):
+        pattern = re.compile(r'"' + MODID + r':([a-z0-9_/-]+)"')
+        for dirpath, _dirs, files in os.walk(recipes_dir):
+            for name in sorted(files):
+                if not name.endswith(".json"):
+                    continue
+                path = os.path.join(dirpath, name)
+                text = open(path, "r", encoding="utf-8").read()
+                for reference in set(pattern.findall(text)):
+                    if reference not in known_items:
+                        report.error("recipes",
+                                     f"{rel(path)} references unregistered item "
+                                     f"'{MODID}:{reference}'")
+                    report.count("recipe id refs", 1)
+
+
 def check_translations(report: Report) -> None:
     """
     Every translation key the Java asks for must exist in the lang file.
@@ -1428,6 +1559,7 @@ def main() -> int:
     check_registration_uniqueness(report)
     check_datapack_types(report)
     check_translations(report)
+    check_model_and_tag_closure(report)
 
     return report.render()
 
