@@ -36,6 +36,7 @@ from content import structures as S      # noqa: E402
 from nbt_codec import (                  # noqa: E402
     block_state, chest_nbt, structure_template, write_gzip,
 )
+from boss_arenas import arena_for        # noqa: E402
 from registry import REGISTRY as R       # noqa: E402
 
 MODID = "biomesunseen"
@@ -406,6 +407,20 @@ ARCHETYPES = [
 def layout_for(spec):
     """Pick the authored archetype that fits this structure's id."""
     haystack = spec.id.lower()
+
+    # A boss arena gets its own hand-authored layout, keyed to that boss's phase
+    # machine rather than to a generic circle-and-pillars template. All five were
+    # previously built by the same layout_arena, which produced five arenas of
+    # identical geometry -- 21x10x21, 923 blocks each -- differing only in which
+    # blocks dressed them. The arena is half the encounter, so it is authored per
+    # boss: the Skyward Crown's has no walls because aerial_dive is only a threat
+    # if falling off is possible, and the Warden's is fully enclosed because
+    # tremor_slam needs somewhere for the shock to be felt.
+    boss_id = getattr(spec, "boss", None)
+    if boss_id:
+        bespoke = arena_for(boss_id)
+        if bespoke is not None:
+            return lambda _spec: bespoke(_spec)
     if spec.is_boss_arena:
         return layout_arena
     for tokens, builder in ARCHETYPES:
@@ -448,20 +463,46 @@ def chests_for(spec, occupied) -> list:
     tables = list(spec.loot_tables or [])
     if not tables:
         return placements
-    size_x = max(k[0] for k in occupied) + 1
-    size_z = max(k[2] for k in occupied) + 1
+
+    # Candidate spots are any free cell sitting directly on top of solid
+    # masonry, at whatever height that happens to be. Scanning the built
+    # structure rather than assuming a floor at y=0 is what lets the floating
+    # arenas host chests at all: the Void Serpent's platforms are at y=2..6 with
+    # nothing beneath them, so a y=0 probe found one spot and quietly dropped the
+    # lore chest -- which is the chest the Golden Rules require every structure
+    # to guarantee.
+    candidates = []
+    for (x, y, z), role in occupied.items():
+        if role in ("air", "chest"):
+            continue
+        above = (x, y + 1, z)
+        if above in occupied:
+            continue
+        candidates.append(above)
+    if not candidates:
+        raise SystemExit(
+            f"structure '{spec.id}' has no free cell above masonry for a chest")
+    candidates.sort()
+
     cursor = spec.salt
     for index, table in enumerate(tables):
-        for attempt in range(64):
+        # Walk the candidate list deterministically from the structure's own salt
+        # so a regenerated template is byte-identical and chests do not drift
+        # between runs, and so two chests never land on the same cell.
+        for _attempt in range(len(candidates)):
             cursor = (cursor * 1103515245 + 12345) & 0x7FFFFFFF
-            x = cursor % size_x
-            z = (cursor // size_x) % size_z
-            if (x, 1, z) in occupied and occupied[(x, 1, z)] == "air":
+            spot = candidates[cursor % len(candidates)]
+            if spot in occupied:
                 continue
-            if (x, 0, z) in occupied:
-                placements.append((x, 1, z, table, index))
-                occupied[(x, 1, z)] = "chest"
-                break
+            placements.append((spot[0], spot[1], spot[2], table, index))
+            occupied[spot] = "chest"
+            break
+        else:
+            # A dropped loot table is invisible in game -- the structure simply
+            # generates without its reward -- so it fails the build instead.
+            raise SystemExit(
+                f"structure '{spec.id}' could not place loot table '{table}': "
+                f"no free cell remained")
     return placements
 
 
@@ -492,10 +533,6 @@ def build(spec, location: str) -> None:
     palette, index = materials.palette()
     cells = normalise(layout_for(spec)(spec))
 
-    size_x = max(k[0] for k in cells) + 1
-    size_y = max(k[1] for k in cells) + 1
-    size_z = max(k[2] for k in cells) + 1
-
     role_to_block = {
         "floor": materials.floor, "wall": materials.wall,
         "pillar": materials.pillar, "cap": materials.cap,
@@ -517,6 +554,13 @@ def build(spec, location: str) -> None:
         blocks.append(((x, y, z), index["minecraft:chest"],
                        chest_nbt(table if ":" in table else f"{MODID}:{table}",
                                  seed)))
+
+    # Measured after the chests: a chest placed on top of the highest cell would
+    # otherwise fall outside the template's declared size, and a block outside
+    # its own template is dropped when the structure places.
+    size_x = max(b[0][0] for b in blocks) + 1
+    size_y = max(b[0][1] for b in blocks) + 1
+    size_z = max(b[0][2] for b in blocks) + 1
 
     write_gzip(dest, "", structure_template((size_x, size_y, size_z),
                                             palette, blocks))
