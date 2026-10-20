@@ -920,6 +920,55 @@ def check_pixelart_glyph_geometry(report: Report) -> None:
                         f"boss '{boss_id}' {band}[{index}] has rows of width "
                         f"{sorted(widths)}, expected every row exactly 16 wide")
 
+    # ---- creature regions --------------------------------------------------
+    # creature_maps guards WIDTH loudly -- its _seg raises rather than padding,
+    # unlike boss_maps._repair_row -- but row counts are still indexed silently:
+    # the composer reads range(8) for the head and torso faces, range(6) then
+    # [6+i] for the crown rows, range(10) then [10+i] for the limbs, and
+    # range(12) for the tail. A region with surplus rows therefore drops them
+    # without complaint, and the atlas renders short. These six families drive
+    # all 80 mobs, five times the surface the boss bands cover.
+    try:
+        from pixelart import creature_maps as CM
+    except Exception as exc:  # noqa: BLE001
+        report.error("pixelart", f"creature_maps unavailable: {exc}")
+        return
+
+    creature_contract = {
+        "head_side_r": (8, 8), "head_side_f": (8, 8),
+        "head_side_l": (8, 8), "head_side_b": (8, 8),
+        "head_top": (8, 16), "head_bottom": (8, 16),
+        "torso_r": (8, 16), "torso_f": (8, 16),
+        "torso_b": (8, 16), "torso_t": (8, 16),
+        "limb_fl": (14, 16), "limb_fr": (14, 16),
+        "limb_bl": (14, 16), "limb_br": (14, 16),
+        "tail_r": (12, 3), "tail_f": (12, 3),
+        "tail_l": (12, 3), "tail_b": (12, 3),
+    }
+    families = getattr(CM, "FAMILIES", None) or {}
+    for family in sorted(families):
+        regions = families[family]
+        for region, (want_rows, want_width) in creature_contract.items():
+            glyph = regions.get(region)
+            if glyph is None:
+                report.error("pixelart",
+                             f"family '{family}' atlas is missing region '{region}'")
+                continue
+            rows = list(glyph)
+            report.count("pixelart creature regions", 1)
+            if len(rows) != want_rows:
+                report.error(
+                    "pixelart",
+                    f"family '{family}' region '{region}' is {len(rows)} rows but the "
+                    f"atlas composer indexes {want_rows}; surplus rows are dropped "
+                    f"silently")
+            widths = {len(r) for r in rows}
+            if widths != {want_width}:
+                report.error(
+                    "pixelart",
+                    f"family '{family}' region '{region}' has rows of width "
+                    f"{sorted(widths)}, expected every row exactly {want_width} wide")
+
 
 def check_geckolib_atlas_coverage(report: Report) -> None:
     """
