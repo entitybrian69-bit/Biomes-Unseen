@@ -1685,6 +1685,53 @@ def check_translations(report: Report) -> None:
                     f"{dynamic} translation key(s) are built by concatenation and "
                     f"cannot be resolved statically")
 
+    # ---- registry name keys ------------------------------------------------
+    # The scan above only sees keys written as literals in Java. Item and block
+    # NAMES are never written down anywhere: the game derives them from the
+    # registry id, so a missing one shows up only in game as the raw key where a
+    # name belongs -- an item reading "item.biomesunseen.lumenite_shard" in its
+    # tooltip and on its creative-tab hover text.
+    #
+    # The rule is asymmetric and easy to get backwards. A BlockItem resolves its
+    # name through the BLOCK's key, so a block-item needs block.<id> and must not
+    # also carry item.<id>; a standalone item needs item.<id>. All 264 blocks here
+    # follow that, with no block carrying both.
+    #
+    # The reverse direction matters too: a name key for an id nothing registers is
+    # dead text that ships in the jar and misleads the next person reading it.
+    block_item_ids = set(MANIFEST.get("block_items", []))
+    item_ids = set(MANIFEST.get("items", []))
+    block_ids = set(MANIFEST.get("blocks", []))
+    if item_ids or block_ids:
+        for item_id in sorted(item_ids):
+            if item_id in block_item_ids:
+                key = f"block.{MODID}.{item_id}"
+            else:
+                key = f"item.{MODID}.{item_id}"
+            if key not in lang:
+                report.error("lang",
+                             f"item '{item_id}' has no name key '{key}', so it renders "
+                             f"as the raw key in tooltips and the creative tab")
+            report.count("registry name keys", 1)
+        for block_id in sorted(block_ids):
+            key = f"block.{MODID}.{block_id}"
+            if key not in lang:
+                report.error("lang",
+                             f"block '{block_id}' has no name key '{key}'")
+            report.count("registry name keys", 1)
+
+        for key in sorted(lang):
+            if key.startswith(f"item.{MODID}."):
+                path = key.split(".", 2)[2]
+                if path not in item_ids and path not in block_item_ids:
+                    report.error("lang",
+                                 f"name key '{key}' belongs to no registered item")
+            elif key.startswith(f"block.{MODID}."):
+                path = key.split(".", 2)[2]
+                if path not in block_ids:
+                    report.error("lang",
+                                 f"name key '{key}' belongs to no registered block")
+
 
 def check_datapack_types(report: Report) -> None:
     """
