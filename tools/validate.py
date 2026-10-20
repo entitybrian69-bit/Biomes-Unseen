@@ -1174,6 +1174,78 @@ def check_model_and_tag_closure(report: Report) -> None:
                     report.count("recipe id refs", 1)
 
 
+def check_blockstate_property_coverage(report: Report) -> None:
+    """
+    Every blockstate must cover exactly the property space its block declares.
+
+    A blockstate that omits a state the block can take makes the model loader
+    report "Exception loading blockstate variant" for each missing combination,
+    and that block then renders as a missing-model cube in world. A blockstate
+    that invents variants for properties the block does not have is the mirror
+    image: the extra keys are silently ignored, so a log that looks rotatable in
+    JSON actually is not, and the discrepancy survives every other check.
+
+    The property space is fixed by which class BUBlocks instantiates:
+
+      RotatedPillarBlock  logs and the altar, AXIS in {x, y, z}
+      LiquidBlock         fluids, LEVEL 0..15 matched by the single empty key
+      plain Block,
+      BUFloraBlock,
+      BUPortalBlock       everything else; these declare no properties, so the
+                          only valid blockstate is the single empty variant
+
+    This is derived from the manifest's block_kinds map rather than hand-listed,
+    so a new log or a new plain block is covered the moment it is authored.
+    """
+    # block_kinds is written into the manifest by registry.py, which keeps this
+    # derived from the same classification the generators use instead of
+    # re-listing kinds here.
+    kinds = MANIFEST.get("block_kinds") or {}
+    blocks = MANIFEST.get("blocks") or []
+    if not blocks or not kinds:
+        report.note("blockstate",
+                    "registry manifest carries no block kinds; property coverage "
+                    "not checked")
+        return
+
+    states_dir = os.path.join(ASSETS, "blockstates")
+    axis_keys = {"axis=x", "axis=y", "axis=z"}
+    for block in sorted(blocks):
+        path = os.path.join(states_dir, block + ".json")
+        if not os.path.exists(path):
+            report.error("blockstate",
+                         f"block '{block}' has no blockstate file")
+            continue
+        try:
+            doc = json.load(open(path, "r", encoding="utf-8"))
+        except Exception:
+            continue  # check_json already reported the parse failure
+        keys = set(doc.get("variants", {}))
+        multipart = doc.get("multipart")
+        kind = kinds.get(block)
+        report.count("blockstate property coverage", 1)
+
+        if kind in ("log", "altar"):
+            if keys != axis_keys:
+                report.error(
+                    "blockstate",
+                    f"block '{block}' is a RotatedPillarBlock but its blockstate "
+                    f"covers {sorted(keys) or 'nothing'} instead of axis=x/y/z")
+        elif multipart:
+            continue  # multipart describes its own state predicates
+        elif keys == {""}:
+            continue  # correct for every kind that declares no properties
+        elif not keys:
+            report.error("blockstate",
+                         f"block '{block}' declares no variants, so every state of "
+                         f"it fails to load a model")
+        else:
+            report.error(
+                "blockstate",
+                f"block '{block}' is a {kind} block with no blockstate properties "
+                f"but its blockstate enumerates {sorted(keys)[:4]}")
+
+
 def check_translations(report: Report) -> None:
     """
     Every translation key the Java asks for must exist in the lang file.
@@ -1597,6 +1669,7 @@ def main() -> int:
     check_datapack_types(report)
     check_translations(report)
     check_model_and_tag_closure(report)
+    check_blockstate_property_coverage(report)
 
     return report.render()
 
