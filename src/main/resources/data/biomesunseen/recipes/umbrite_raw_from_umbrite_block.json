@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "biomesunseen:umbrite_block"
+    }
+  ],
+  "result": {
+    "item": "biomesunseen:umbrite_raw",
+    "count": 9
+  }
+}

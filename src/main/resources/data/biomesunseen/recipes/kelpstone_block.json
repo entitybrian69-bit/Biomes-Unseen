@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    "MMM",
+    "MMM",
+    "MMM"
+  ],
+  "key": {
+    "M": {
+      "item": "biomesunseen:kelpstone_raw"
+    }
+  },
+  "result": {
+    "item": "biomesunseen:kelpstone_block",
+    "count": 1
+  }
+}

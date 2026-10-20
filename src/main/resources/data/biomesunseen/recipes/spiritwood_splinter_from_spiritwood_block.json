@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "biomesunseen:spiritwood_block"
+    }
+  ],
+  "result": {
+    "item": "biomesunseen:spiritwood_splinter",
+    "count": 9
+  }
+}

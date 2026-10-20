@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "biomesunseen:petrichorite_block"
+    }
+  ],
+  "result": {
+    "item": "biomesunseen:petrichorite_crystal",
+    "count": 9
+  }
+}

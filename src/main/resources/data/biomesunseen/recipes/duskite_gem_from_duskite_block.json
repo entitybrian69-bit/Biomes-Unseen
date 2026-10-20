@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "biomesunseen:duskite_block"
+    }
+  ],
+  "result": {
+    "item": "biomesunseen:duskite_gem",
+    "count": 9
+  }
+}

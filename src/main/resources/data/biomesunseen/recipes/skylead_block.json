@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    "MMM",
+    "MMM",
+    "MMM"
+  ],
+  "key": {
+    "M": {
+      "item": "biomesunseen:skylead_ingot"
+    }
+  },
+  "result": {
+    "item": "biomesunseen:skylead_block",
+    "count": 1
+  }
+}

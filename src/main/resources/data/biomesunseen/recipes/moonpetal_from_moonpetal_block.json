@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "biomesunseen:moonpetal_block"
+    }
+  ],
+  "result": {
+    "item": "biomesunseen:moonpetal",
+    "count": 9
+  }
+}

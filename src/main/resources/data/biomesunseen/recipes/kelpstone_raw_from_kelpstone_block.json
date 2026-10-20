@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "biomesunseen:kelpstone_block"
+    }
+  ],
+  "result": {
+    "item": "biomesunseen:kelpstone_raw",
+    "count": 9
+  }
+}

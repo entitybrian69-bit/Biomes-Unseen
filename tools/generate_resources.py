@@ -850,17 +850,36 @@ def emit_recipes(w: Writer) -> None:
                     smelting(target, blk, xp, 200))
 
     # --- mineral block <-> 9 material -----------------------------------
+    # Every ore's compact-storage block compresses from and unpacks into nine of
+    # that ore's own drop. That is the whole point of a mineral block, and it is
+    # what realises the `block` and `crafting` uses 34 of the 44 ores declare.
+    #
+    # The material used to come only from a gear set's repair_item, so a block
+    # was craftable just when its ore happened to share a name with a tool set --
+    # five of forty-four. The other thirty-nine were fully registered blocks with
+    # a texture, a model, a blockstate and a loot table, and no recipe in either
+    # direction: nine shards could not be compressed, and the block could not be
+    # broken back down. A gear set's repair material still wins where one exists,
+    # because that is the item the tools and armour actually consume.
     for ore in ORES.ALL_ORES:
-        ts = TOOL_SET_BY_ID.get(ore.base_name)
         material = None
+        ts = TOOL_SET_BY_ID.get(ore.base_name)
         if ts and ts.repair_item.startswith(f"{MODID}:"):
             cand = ts.repair_item.split(":")[-1]
+            if cand in R.item_set:
+                material = cand
+        if material is None:
+            # Fall back to what the ore actually drops.
+            cand = (ore.drop or f"{ore.base_name}_raw").split(":")[-1]
             if cand in R.item_set:
                 material = cand
         if material is None:
             continue
         blk = ore.mineral_block
         if blk not in R.block_set:
+            continue
+        if material == blk:
+            # A block that is its own material would craft into itself.
             continue
         put(f"{material}_from_{blk}", shapeless(material, 9, [blk]))
         put(blk, shaped(blk, 1, ["MMM", "MMM", "MMM"], {"M": material}))

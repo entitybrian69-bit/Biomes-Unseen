@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "biomesunseen:fracture_shale_block"
+    }
+  ],
+  "result": {
+    "item": "biomesunseen:fracture_shale_shard",
+    "count": 9
+  }
+}

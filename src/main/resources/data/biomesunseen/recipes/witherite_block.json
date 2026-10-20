@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    "MMM",
+    "MMM",
+    "MMM"
+  ],
+  "key": {
+    "M": {
+      "item": "biomesunseen:witherite_dust"
+    }
+  },
+  "result": {
+    "item": "biomesunseen:witherite_block",
+    "count": 1
+  }
+}

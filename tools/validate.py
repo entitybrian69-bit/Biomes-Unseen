@@ -979,6 +979,122 @@ def check_pixelart_glyph_geometry(report: Report) -> None:
                     f"{sorted(widths)}, expected every row exactly {want_width} wide")
 
 
+def check_ore_uses(report: Report) -> None:
+    """
+    Every ore must have a use the player can actually reach in game.
+
+    OreSpec.uses declares an intent -- tools, armor, device, potion, block,
+    crafting, currency, boss -- but nothing consumes that field: no generator and
+    no Java class reads it, so a declaration on its own guarantees nothing. All 44
+    ores declare at least one use, and that looked like the requirement being met
+    until the realised wiring was checked instead of the authored intent.
+
+    What a use is actually realised by, in shipped data:
+
+      a gear family named after the ore, so it becomes tools and armour
+      its drop or refined form appearing as a recipe ingredient
+      an armour set that repairs with it
+      its mineral block being craftable, which is the `block` and `crafting` use
+
+    The mineral block is the one that was missing. Every ore has a registered
+    compact-storage block with a texture, a model, a blockstate and a loot table,
+    but the 9-to-1 and 1-to-9 recipe pair was derived only from a gear set's
+    repair material, so it existed for the five ores whose base_name happens to
+    match a tool set. The other thirty-nine blocks could not be crafted in either
+    direction -- nine shards would not compress, and the block would not break
+    back down -- which left mycelium_culture and fracture_shale_shard obtainable
+    from sixteen and thirty-three loot tables respectively and consumed by
+    nothing at all.
+
+    Checking the realised wiring rather than the declared intent is what makes
+    this hold: a new ore with no gear family still has to ship a craftable block.
+    """
+    if O is None:
+        report.error("ore", f"content tables unavailable: {CONTENT_IMPORT_ERROR}")
+        return
+
+    recipes_dir = os.path.join(RES, "data", MODID, "recipes")
+    recipe_ids = set()
+    ingredients = set()
+    results = set()
+    if os.path.isdir(recipes_dir):
+        for name in sorted(os.listdir(recipes_dir)):
+            if not name.endswith(".json"):
+                continue
+            try:
+                doc = json.load(open(os.path.join(recipes_dir, name), "r",
+                                     encoding="utf-8"))
+            except Exception:
+                continue
+            recipe_ids.add(name[:-5])
+
+            def walk(node, into):
+                if isinstance(node, dict):
+                    for key, value in node.items():
+                        if key in ("item", "id") and isinstance(value, str):
+                            into.add(value.split(":")[-1])
+                        else:
+                            walk(value, into)
+                elif isinstance(node, list):
+                    for value in node:
+                        walk(value, into)
+
+            walk(doc.get("key"), ingredients)
+            walk(doc.get("ingredients"), ingredients)
+            walk(doc.get("result"), results)
+
+    gear_sets = set()
+    repair_materials = set()
+    if G is not None:
+        for toolset in G.TOOL_SETS:
+            gear_sets.add(toolset.id)
+            if toolset.repair_item:
+                repair_materials.add(toolset.repair_item.split(":")[-1])
+        for armourset in G.ARMOR_SETS:
+            gear_sets.add(armourset.id)
+            if armourset.repair_item:
+                repair_materials.add(armourset.repair_item.split(":")[-1])
+
+    for ore in O.ALL_ORES:
+        if not getattr(ore, "uses", None):
+            report.error("ore", f"ore '{ore.id}' declares no use at all")
+        drop = (ore.drop or f"{ore.base_name}_raw").split(":")[-1]
+        block = ore.mineral_block
+        realised = []
+        if ore.id in gear_sets or ore.base_name in gear_sets:
+            realised.append("gear family")
+        if drop in ingredients:
+            realised.append("drop is a recipe ingredient")
+        if f"{ore.id}_refined" in ingredients:
+            realised.append("refined form is a recipe ingredient")
+        if drop in repair_materials:
+            realised.append("armour repair material")
+        if block in MANIFEST_BLOCKS and block in results:
+            realised.append("mineral block is craftable")
+        report.count("ore uses realised", 1)
+        if not realised:
+            report.error(
+                "ore",
+                f"ore '{ore.id}' declares uses {sorted(ore.uses)} but nothing in the "
+                f"shipped data realises any of them: '{drop}' is consumed by no "
+                f"recipe, no gear family is named after it, and '{block}' is not "
+                f"craftable -- the drop is a dead-end item")
+
+        # A mineral block that exists must be craftable both ways, whichever
+        # branch realised it. This is the specific wiring that was missing.
+        if block in MANIFEST_BLOCKS:
+            report.count("mineral blocks", 1)
+            if block not in results:
+                report.error("ore",
+                             f"mineral block '{block}' is registered but no recipe "
+                             f"crafts it, so nine of '{drop}' cannot be compressed")
+            unpack = f"{drop}_from_{block}"
+            if unpack not in recipe_ids:
+                report.error("ore",
+                             f"mineral block '{block}' has no '{unpack}' recipe, so it "
+                             f"cannot be broken back down into '{drop}'")
+
+
 def check_armour_slot_ordering(report: Report) -> None:
     """
     Armour defence values must reach the game in the slot they were authored for.
@@ -2236,6 +2352,7 @@ def main() -> int:
     check_translations(report)
     check_model_and_tag_closure(report)
     check_blockstate_property_coverage(report)
+    check_ore_uses(report)
     check_armour_slot_ordering(report)
     check_particles(report)
     check_pixelart_glyph_geometry(report)

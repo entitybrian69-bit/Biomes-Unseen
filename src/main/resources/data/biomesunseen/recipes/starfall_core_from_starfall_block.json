@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "biomesunseen:starfall_block"
+    }
+  ],
+  "result": {
+    "item": "biomesunseen:starfall_core",
+    "count": 9
+  }
+}

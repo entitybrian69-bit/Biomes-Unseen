@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    "MMM",
+    "MMM",
+    "MMM"
+  ],
+  "key": {
+    "M": {
+      "item": "biomesunseen:stormcell_core"
+    }
+  },
+  "result": {
+    "item": "biomesunseen:stormcell_block",
+    "count": 1
+  }
+}

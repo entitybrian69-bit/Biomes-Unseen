@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "biomesunseen:stormcell_aether_block"
+    }
+  ],
+  "result": {
+    "item": "biomesunseen:stormcell_core",
+    "count": 9
+  }
+}

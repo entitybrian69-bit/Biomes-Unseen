@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "biomesunseen:glacierite_block"
+    }
+  ],
+  "result": {
+    "item": "biomesunseen:glacierite_shard",
+    "count": 9
+  }
+}

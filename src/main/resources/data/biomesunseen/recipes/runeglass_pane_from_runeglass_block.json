@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "biomesunseen:runeglass_block"
+    }
+  ],
+  "result": {
+    "item": "biomesunseen:runeglass_pane",
+    "count": 9
+  }
+}

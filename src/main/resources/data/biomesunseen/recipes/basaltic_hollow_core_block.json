@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    "MMM",
+    "MMM",
+    "MMM"
+  ],
+  "key": {
+    "M": {
+      "item": "biomesunseen:basaltic_core"
+    }
+  },
+  "result": {
+    "item": "biomesunseen:basaltic_hollow_core_block",
+    "count": 1
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    "MMM",
+    "MMM",
+    "MMM"
+  ],
+  "key": {
+    "M": {
+      "item": "biomesunseen:root_heart_fragment"
+    }
+  },
+  "result": {
+    "item": "biomesunseen:root_heart_block",
+    "count": 1
+  }
+}

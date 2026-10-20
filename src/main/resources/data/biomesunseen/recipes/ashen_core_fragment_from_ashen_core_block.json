@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "biomesunseen:ashen_core_block"
+    }
+  ],
+  "result": {
+    "item": "biomesunseen:ashen_core_fragment",
+    "count": 9
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "biomesunseen:titanite_block"
+    }
+  ],
+  "result": {
+    "item": "biomesunseen:titanite_plate",
+    "count": 9
+  }
+}

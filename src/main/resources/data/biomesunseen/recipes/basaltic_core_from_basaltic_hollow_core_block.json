@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "biomesunseen:basaltic_hollow_core_block"
+    }
+  ],
+  "result": {
+    "item": "biomesunseen:basaltic_core",
+    "count": 9
+  }
+}

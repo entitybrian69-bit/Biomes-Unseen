@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    "MMM",
+    "MMM",
+    "MMM"
+  ],
+  "key": {
+    "M": {
+      "item": "biomesunseen:fracture_shale_shard"
+    }
+  },
+  "result": {
+    "item": "biomesunseen:fracture_shale_block",
+    "count": 1
+  }
+}

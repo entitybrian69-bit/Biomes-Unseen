@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "biomesunseen:sunspore_block"
+    }
+  ],
+  "result": {
+    "item": "biomesunseen:sunspore_pod",
+    "count": 9
+  }
+}

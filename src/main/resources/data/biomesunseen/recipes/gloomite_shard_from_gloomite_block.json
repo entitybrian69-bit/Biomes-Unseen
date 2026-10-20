@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "biomesunseen:gloomite_block"
+    }
+  ],
+  "result": {
+    "item": "biomesunseen:gloomite_shard",
+    "count": 9
+  }
+}

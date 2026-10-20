@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "biomesunseen:mycelium_block"
+    }
+  ],
+  "result": {
+    "item": "biomesunseen:mycelium_culture",
+    "count": 9
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "biomesunseen:sporeamber_block"
+    }
+  ],
+  "result": {
+    "item": "biomesunseen:sporeamber_chunk",
+    "count": 9
+  }
+}

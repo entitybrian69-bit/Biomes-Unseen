@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "biomesunseen:coralite_block"
+    }
+  ],
+  "result": {
+    "item": "biomesunseen:coralite_polish",
+    "count": 9
+  }
+}
