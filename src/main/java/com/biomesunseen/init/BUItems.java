@@ -365,7 +365,13 @@ public final class BUItems {
         return stacks;
     }
 
-    private static String setIdOf(Item item) {
+    /**
+     * The gear family an armour item belongs to, or null if it is not ours.
+     *
+     * Public because the set-bonus handler and the tooltip both need to map a
+     * worn item back to its family.
+     */
+    public static String setIdOf(Item item) {
         for (String setId : ARMOUR.keySet()) {
             String path = ForgeRegistries.ITEMS.getKey(item) == null ? ""
                     : ForgeRegistries.ITEMS.getKey(item).getPath();

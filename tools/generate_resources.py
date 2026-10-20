@@ -1050,6 +1050,16 @@ def emit_lang(w: Writer) -> None:
     for aset in GEAR.ARMOR_SETS:
         lang[f"{MODID}.armor.{aset.id}.bonus"] = titleize(aset.set_bonus)
         lang[f"{MODID}.armor.{aset.id}.lore"] = aset.lore
+    # The tooltip BUArmorSetEffects adds under every set bonus. Emitted once
+    # rather than per family because the requirement is the same for all ten:
+    # a bonus needs the whole set, and saying so on one piece is what turns a
+    # hidden interaction into a reason to go looking for the other three.
+    lang[f"{MODID}.armor.set_requirement"] = "Full set of four pieces required."
+
+    # Tooltip on every lore book. BULoreBookItem resolves this key directly, and
+    # an absent translation renders as the raw key on screen -- which no build
+    # step catches, so tools/validate.py asserts every key the Java asks for.
+    lang[f"{MODID}.tooltip.lore_book"] = "Right-click to read."
 
     # Biome and structure lore, surfaced through the lore books.
     for biome in BIOMES.ALL_BIOMES:

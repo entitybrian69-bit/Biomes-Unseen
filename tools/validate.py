@@ -1000,6 +1000,57 @@ VALID_TYPES = {
 }
 
 
+TRANSlatable_RE = re.compile(
+    r'Component\.translatable\(\s*"([a-z0-9_.]+)"')
+TRANSlatable_DYN = re.compile(
+    r'Component\.translatable\(\s*"[a-z0-9_.]*"\s*\+')
+
+
+def check_translations(report: Report) -> None:
+    """
+    Every translation key the Java asks for must exist in the lang file.
+
+    A missing key does not fail anything: the client renders the raw key in place
+    of the string, so a tooltip reads "biomesunseen.armor.set_requirement" to the
+    player. The build is green, the JSON parses, and the only symptom is text on
+    screen that no test would ever assert on.
+
+    Only complete string literals are resolved. A key built by concatenation
+    cannot be known statically, so those are counted and noted instead -- the
+    caller is responsible for composing a key that exists.
+    """
+    lang_path = os.path.join(ASSETS, "lang", "en_us.json")
+    if not os.path.isfile(lang_path):
+        report.error("lang", "en_us.json is missing")
+        return
+    try:
+        lang = json.load(open(lang_path, encoding="utf-8"))
+    except Exception as exc:  # noqa: BLE001
+        report.error("lang", f"en_us.json unreadable: {exc}")
+        return
+    report.count("lang keys", len(lang))
+
+    dynamic = 0
+    for path in walk(JAVA, ".java"):
+        text = open(path, "r", encoding="utf-8").read()
+        for match in TRANSlatable_DYN.finditer(text):
+            dynamic += 1
+        dynamic_spans = [m.span() for m in TRANSlatable_DYN.finditer(text)]
+        for match in TRANSlatable_RE.finditer(text):
+            if any(start <= match.start() < end for start, end in dynamic_spans):
+                continue
+            key = match.group(1)
+            if key not in lang:
+                report.error("lang",
+                             f"{rel(path)}: Component.translatable(\"{key}\") has no "
+                             f"translation in en_us.json")
+            report.count("java translation refs", 1)
+    if dynamic:
+        report.note("lang",
+                    f"{dynamic} translation key(s) are built by concatenation and "
+                    f"cannot be resolved statically")
+
+
 def check_datapack_types(report: Report) -> None:
     """
     Every registry `type` string must be one the game can actually deserialize.
@@ -1376,6 +1427,7 @@ def main() -> int:
     check_audio(report)
     check_registration_uniqueness(report)
     check_datapack_types(report)
+    check_translations(report)
 
     return report.render()
 

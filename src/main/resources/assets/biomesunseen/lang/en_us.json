@@ -966,6 +966,8 @@
   "biomesunseen.armor.nullite.lore": "Best armour in the mod. It is also slowly deleting the wearer. Trade-off.",
   "biomesunseen.armor.starforged.bonus": "Starforged Luck",
   "biomesunseen.armor.starforged.lore": "Still warm. Still falling, in a sense nobody has managed to define.",
+  "biomesunseen.armor.set_requirement": "Full set of four pieces required.",
+  "biomesunseen.tooltip.lore_book": "Right-click to read.",
   "biomesunseen.lore.biome.luminescent_grove": "A grove that never learned the difference between dusk and dawn.",
   "biomesunseen.lore.biome.moonpetal_meadow": "The petals only open when nothing is watching them.",
   "biomesunseen.lore.biome.duskwood_hollow": "Every tree here grew around something it refused to let go of.",
