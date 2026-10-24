@@ -1,0 +1,10 @@
+{
+  "category": "misc",
+  "cookingtime": 100,
+  "experience": 0.7,
+  "ingredient": {
+    "item": "biomesunseen:rustite_ore"
+  },
+  "result": "biomesunseen:rustite_ingot",
+  "type": "minecraft:blasting"
+}

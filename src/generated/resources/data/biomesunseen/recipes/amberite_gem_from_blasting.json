@@ -1,0 +1,10 @@
+{
+  "category": "misc",
+  "cookingtime": 100,
+  "experience": 0.7,
+  "ingredient": {
+    "item": "biomesunseen:amberite_ore"
+  },
+  "result": "biomesunseen:amberite_gem",
+  "type": "minecraft:blasting"
+}

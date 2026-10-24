@@ -1,0 +1,10 @@
+{
+  "category": "misc",
+  "cookingtime": 200,
+  "experience": 0.7,
+  "ingredient": {
+    "item": "biomesunseen:selenite_ore"
+  },
+  "result": "biomesunseen:selenite_shard",
+  "type": "minecraft:smelting"
+}

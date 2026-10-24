@@ -1,0 +1,10 @@
+{
+  "category": "misc",
+  "cookingtime": 100,
+  "experience": 0.7,
+  "ingredient": {
+    "item": "biomesunseen:mireglass_ore"
+  },
+  "result": "biomesunseen:mireglass_shard",
+  "type": "minecraft:blasting"
+}

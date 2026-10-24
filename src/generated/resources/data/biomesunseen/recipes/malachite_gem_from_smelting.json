@@ -1,0 +1,10 @@
+{
+  "category": "misc",
+  "cookingtime": 200,
+  "experience": 0.7,
+  "ingredient": {
+    "item": "biomesunseen:malachite_ore"
+  },
+  "result": "biomesunseen:malachite_gem",
+  "type": "minecraft:smelting"
+}

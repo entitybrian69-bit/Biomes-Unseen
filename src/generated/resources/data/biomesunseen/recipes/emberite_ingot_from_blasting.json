@@ -1,0 +1,10 @@
+{
+  "category": "misc",
+  "cookingtime": 100,
+  "experience": 0.7,
+  "ingredient": {
+    "item": "biomesunseen:emberite_ore"
+  },
+  "result": "biomesunseen:emberite_ingot",
+  "type": "minecraft:blasting"
+}

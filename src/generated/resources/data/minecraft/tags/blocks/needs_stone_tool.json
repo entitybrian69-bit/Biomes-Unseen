@@ -1,0 +1,13 @@
+{
+  "replace": false,
+  "values": [
+    "biomesunseen:tinite_ore",
+    "biomesunseen:rosequartz_ore",
+    "biomesunseen:opaline_ore",
+    "biomesunseen:selenite_ore",
+    "biomesunseen:sporestone_ore",
+    "biomesunseen:marrowite_ore",
+    "biomesunseen:scrapite_ore",
+    "biomesunseen:mireglass_ore"
+  ]
+}

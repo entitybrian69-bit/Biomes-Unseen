@@ -1,0 +1,10 @@
+{
+  "category": "misc",
+  "cookingtime": 200,
+  "experience": 0.7,
+  "ingredient": {
+    "item": "biomesunseen:citrine_ore"
+  },
+  "result": "biomesunseen:citrine_gem",
+  "type": "minecraft:smelting"
+}

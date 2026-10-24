@@ -1,0 +1,10 @@
+{
+  "category": "misc",
+  "cookingtime": 100,
+  "experience": 0.7,
+  "ingredient": {
+    "item": "biomesunseen:lumenite_ore"
+  },
+  "result": "biomesunseen:lumenite_crystal",
+  "type": "minecraft:blasting"
+}

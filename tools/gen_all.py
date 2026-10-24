@@ -10,7 +10,8 @@ import sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 STEPS = ["gen_biomes.py", "gen_models.py", "gen_ores.py", "gen_structure_set.py",
-         "gen_structures.py", "gen_textures.py", "gen_audio.py", "validate.py"]
+         "gen_structures.py", "gen_textures.py", "gen_audio.py",
+         "gen_datagen_assets.py", "validate.py"]
 
 
 def main():

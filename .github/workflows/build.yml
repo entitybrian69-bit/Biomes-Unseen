@@ -1,12 +1,21 @@
 # Build Biomes Unseen (Minecraft 1.20.1 / Forge 47.x)
 #
-# Compiles the mod with ForgeGradle, runs data generation, and produces the
-# reobfuscated jar. The jar and a diagnostics report are committed back into
-# the repo (as dist/ and ci-diagnostics.md) so they can be retrieved from
-# environments that cannot reach Actions log/artifact blob storage.
+# Compiles the mod with ForgeGradle and uploads the resulting reobfuscated jar.
 #
-# Those two paths are in paths-ignore and the publish commit is tagged
-# [skip ci], so publishing never re-triggers this workflow.
+# The data-generator JSON (blockstates, models, lang, recipes, loot, tags) is
+# produced deterministically by `tools/gen_all.py` -> gen_datagen_assets.py into
+# src/generated/resources (a registered resource source dir, and the same path
+# `runData` would target). We intentionally do NOT run `gradle runData` here:
+# TerraBlender's MixinBuiltInRegistries targets an SRG method name that does not
+# exist in the mapped dev/datagen runtime, so runData crashes during Bootstrap
+# before any provider executes. Pre-generating the identical assets avoids that
+# crash and makes the jar complete and the build reproducible.
+#
+# The jar and a short diagnostics file are committed back into the repo (dist/
+# and ci-diagnostics.md) so they can be retrieved from environments that cannot
+# reach Actions log/artifact blob storage. Those paths are in paths-ignore and
+# the publish commit is tagged [skip ci], so publishing never re-triggers this
+# workflow.
 
 name: Build Biomes Unseen
 
@@ -45,18 +54,13 @@ jobs:
         with:
           python-version: '3.11'
 
-      - name: Run generators
+      - name: Generate content and data-generator assets
         run: python tools/gen_all.py
 
       - name: Set up Gradle
         uses: gradle/actions/setup-gradle@v3
         with:
           gradle-version: 8.1.1
-
-      - name: Run data generation
-        id: datagen
-        continue-on-error: true
-        run: gradle runData --no-daemon 2>&1 | tee datagen.log
 
       - name: Build jar
         id: build
@@ -79,25 +83,13 @@ jobs:
           {
             echo "# CI build results"
             echo
-            echo "- datagen outcome: ${{ steps.datagen.outcome }}"
             echo "- build outcome: ${{ steps.build.outcome }}"
-            echo
-            echo "## data generation log (tail)"
-            echo '```'
-            tail -n 160 datagen.log 2>/dev/null
-            echo '```'
             echo
             echo "## build log (errors + tail)"
             echo '```'
-            grep -n -A4 -E "error:|FAILURE:|What went wrong|Execution failed|Exception|Caused by" build.log 2>/dev/null | head -220
-            echo '----- build log tail -----'
-            tail -n 45 build.log 2>/dev/null
-            echo '```'
-            echo
-            echo "## generated resources"
-            echo '```'
-            find src/generated -type f 2>/dev/null | head -40
-            echo "count: $(find src/generated -type f 2>/dev/null | wc -l)"
+            grep -n -A4 -E "error:|FAILURE:|What went wrong|Execution failed|Exception|Caused by" build.log 2>/dev/null | head -160
+            echo '----- tail -----'
+            tail -n 35 build.log 2>/dev/null
             echo '```'
             echo
             echo "## built jars"

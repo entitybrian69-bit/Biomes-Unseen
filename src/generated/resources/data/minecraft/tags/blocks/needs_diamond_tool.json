@@ -1,0 +1,19 @@
+{
+  "replace": false,
+  "values": [
+    "biomesunseen:cobaltite_ore",
+    "biomesunseen:platinite_ore",
+    "biomesunseen:onyxite_ore",
+    "biomesunseen:spinel_ore",
+    "biomesunseen:aetherite_ore",
+    "biomesunseen:runestone_ore",
+    "biomesunseen:voidite_ore",
+    "biomesunseen:prismite_ore",
+    "biomesunseen:umbrite_ore",
+    "biomesunseen:solarite_ore",
+    "biomesunseen:lunarite_ore",
+    "biomesunseen:wyrmite_ore",
+    "biomesunseen:stormite_ore",
+    "biomesunseen:echoite_ore"
+  ]
+}

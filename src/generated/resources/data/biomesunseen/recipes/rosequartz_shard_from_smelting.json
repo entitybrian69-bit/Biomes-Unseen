@@ -1,0 +1,10 @@
+{
+  "category": "misc",
+  "cookingtime": 200,
+  "experience": 0.7,
+  "ingredient": {
+    "item": "biomesunseen:rosequartz_ore"
+  },
+  "result": "biomesunseen:rosequartz_shard",
+  "type": "minecraft:smelting"
+}

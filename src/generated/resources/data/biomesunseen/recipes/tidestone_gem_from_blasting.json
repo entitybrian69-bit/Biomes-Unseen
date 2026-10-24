@@ -1,0 +1,10 @@
+{
+  "category": "misc",
+  "cookingtime": 100,
+  "experience": 0.7,
+  "ingredient": {
+    "item": "biomesunseen:tidestone_ore"
+  },
+  "result": "biomesunseen:tidestone_gem",
+  "type": "minecraft:blasting"
+}

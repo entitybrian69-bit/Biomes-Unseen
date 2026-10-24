@@ -1,0 +1,10 @@
+{
+  "category": "misc",
+  "cookingtime": 200,
+  "experience": 0.7,
+  "ingredient": {
+    "item": "biomesunseen:cobaltite_ore"
+  },
+  "result": "biomesunseen:cobaltite_ingot",
+  "type": "minecraft:smelting"
+}

@@ -1,0 +1,10 @@
+{
+  "category": "misc",
+  "cookingtime": 200,
+  "experience": 0.7,
+  "ingredient": {
+    "item": "biomesunseen:sunstone_ore"
+  },
+  "result": "biomesunseen:sunstone_gem",
+  "type": "minecraft:smelting"
+}

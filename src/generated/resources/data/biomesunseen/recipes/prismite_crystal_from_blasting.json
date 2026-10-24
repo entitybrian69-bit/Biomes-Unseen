@@ -1,0 +1,10 @@
+{
+  "category": "misc",
+  "cookingtime": 100,
+  "experience": 0.7,
+  "ingredient": {
+    "item": "biomesunseen:prismite_ore"
+  },
+  "result": "biomesunseen:prismite_crystal",
+  "type": "minecraft:blasting"
+}

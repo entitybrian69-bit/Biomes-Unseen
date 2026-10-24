@@ -1,0 +1,10 @@
+{
+  "category": "misc",
+  "cookingtime": 100,
+  "experience": 0.7,
+  "ingredient": {
+    "item": "biomesunseen:jadeite_ore"
+  },
+  "result": "biomesunseen:jadeite_gem",
+  "type": "minecraft:blasting"
+}

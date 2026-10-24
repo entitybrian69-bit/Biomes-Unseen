@@ -1,0 +1,10 @@
+{
+  "category": "misc",
+  "cookingtime": 200,
+  "experience": 0.7,
+  "ingredient": {
+    "item": "biomesunseen:opaline_ore"
+  },
+  "result": "biomesunseen:opaline_shard",
+  "type": "minecraft:smelting"
+}

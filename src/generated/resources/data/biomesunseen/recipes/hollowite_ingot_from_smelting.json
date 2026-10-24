@@ -1,0 +1,10 @@
+{
+  "category": "misc",
+  "cookingtime": 200,
+  "experience": 0.9,
+  "ingredient": {
+    "item": "biomesunseen:hollowite_ore"
+  },
+  "result": "biomesunseen:hollowite_ingot",
+  "type": "minecraft:smelting"
+}

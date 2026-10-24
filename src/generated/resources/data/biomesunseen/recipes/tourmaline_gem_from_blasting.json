@@ -1,0 +1,10 @@
+{
+  "category": "misc",
+  "cookingtime": 100,
+  "experience": 0.7,
+  "ingredient": {
+    "item": "biomesunseen:tourmaline_ore"
+  },
+  "result": "biomesunseen:tourmaline_gem",
+  "type": "minecraft:blasting"
+}

@@ -1,0 +1,10 @@
+{
+  "category": "misc",
+  "cookingtime": 100,
+  "experience": 0.7,
+  "ingredient": {
+    "item": "biomesunseen:tinite_ore"
+  },
+  "result": "biomesunseen:tinite_ingot",
+  "type": "minecraft:blasting"
+}

@@ -1,0 +1,53 @@
+{
+  "pools": [
+    {
+      "bonus_rolls": 0,
+      "entries": [
+        {
+          "functions": [
+            {
+              "count": {
+                "max": 2,
+                "min": 0,
+                "type": "minecraft:uniform"
+              },
+              "function": "minecraft:set_count"
+            },
+            {
+              "count": {
+                "max": 1,
+                "min": 0,
+                "type": "minecraft:uniform"
+              },
+              "function": "minecraft:looting_enchant"
+            }
+          ],
+          "name": "minecraft:slime_ball",
+          "type": "minecraft:item"
+        }
+      ],
+      "rolls": 1
+    },
+    {
+      "bonus_rolls": 0,
+      "entries": [
+        {
+          "functions": [
+            {
+              "count": {
+                "max": 1,
+                "min": 0,
+                "type": "minecraft:uniform"
+              },
+              "function": "minecraft:set_count"
+            }
+          ],
+          "name": "biomesunseen:hollowite_ingot",
+          "type": "minecraft:item"
+        }
+      ],
+      "rolls": 1
+    }
+  ],
+  "type": "minecraft:entity"
+}

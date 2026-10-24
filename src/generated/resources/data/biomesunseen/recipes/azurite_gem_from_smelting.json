@@ -1,0 +1,10 @@
+{
+  "category": "misc",
+  "cookingtime": 200,
+  "experience": 0.7,
+  "ingredient": {
+    "item": "biomesunseen:azurite_ore"
+  },
+  "result": "biomesunseen:azurite_gem",
+  "type": "minecraft:smelting"
+}

@@ -1,0 +1,10 @@
+{
+  "category": "misc",
+  "cookingtime": 200,
+  "experience": 0.7,
+  "ingredient": {
+    "item": "biomesunseen:ashenite_ore"
+  },
+  "result": "biomesunseen:ashenite_ingot",
+  "type": "minecraft:smelting"
+}

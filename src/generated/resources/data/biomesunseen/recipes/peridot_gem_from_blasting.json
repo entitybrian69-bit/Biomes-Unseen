@@ -1,0 +1,10 @@
+{
+  "category": "misc",
+  "cookingtime": 100,
+  "experience": 0.7,
+  "ingredient": {
+    "item": "biomesunseen:peridot_ore"
+  },
+  "result": "biomesunseen:peridot_gem",
+  "type": "minecraft:blasting"
+}

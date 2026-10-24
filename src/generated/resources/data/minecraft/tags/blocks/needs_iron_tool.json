@@ -1,0 +1,27 @@
+{
+  "replace": false,
+  "values": [
+    "biomesunseen:hollowite_ore",
+    "biomesunseen:azurite_ore",
+    "biomesunseen:malachite_ore",
+    "biomesunseen:peridot_ore",
+    "biomesunseen:sunstone_ore",
+    "biomesunseen:moonstone_ore",
+    "biomesunseen:nickelite_ore",
+    "biomesunseen:silverite_ore",
+    "biomesunseen:citrine_ore",
+    "biomesunseen:jadeite_ore",
+    "biomesunseen:tourmaline_ore",
+    "biomesunseen:dawnstone_ore",
+    "biomesunseen:emberite_ore",
+    "biomesunseen:frostite_ore",
+    "biomesunseen:amberite_ore",
+    "biomesunseen:tidestone_ore",
+    "biomesunseen:rustite_ore",
+    "biomesunseen:coralite_ore",
+    "biomesunseen:ashenite_ore",
+    "biomesunseen:gloomstone_ore",
+    "biomesunseen:thornite_ore",
+    "biomesunseen:lumenite_ore"
+  ]
+}

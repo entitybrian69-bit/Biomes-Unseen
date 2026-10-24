@@ -1,0 +1,10 @@
+{
+  "category": "misc",
+  "cookingtime": 100,
+  "experience": 0.7,
+  "ingredient": {
+    "item": "biomesunseen:moonstone_ore"
+  },
+  "result": "biomesunseen:moonstone_gem",
+  "type": "minecraft:blasting"
+}
