@@ -54,6 +54,9 @@ jobs:
         with:
           python-version: '3.11'
 
+      - name: Install pinned audio-generation dependencies
+        run: python -m pip install -r tools/requirements-audio.txt
+
       - name: Generate content and data-generator assets
         run: python tools/gen_all.py
 
@@ -109,6 +112,7 @@ jobs:
           grep -F 'Biomes Unseen worldgen ready' ../../server-smoke.log
           RCON_PORT=25575 RCON_PASSWORD=arena-smoke python ../../tools/server_smoke.py 2>&1 | tee -a ../../server-smoke.log
           wait "$server_pid"
+          python ../../tools/verify_worldgen.py 2>&1 | tee -a ../../server-smoke.log
           trap - EXIT
 
       - name: Upload built jar (artifact)

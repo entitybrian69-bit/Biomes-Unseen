@@ -1,6 +1,9 @@
 package com.biomesunseen.event;
 
 import com.biomesunseen.BiomesUnseen;
+import com.biomesunseen.registry.ModBlocks;
+import com.biomesunseen.registry.ModItems;
+import com.biomesunseen.registry.ModSounds;
 import com.biomesunseen.spec.Specs;
 import com.biomesunseen.worldgen.ModDimensions;
 import net.minecraft.core.Registry;
@@ -33,15 +36,35 @@ public final class WorldgenAudit {
         long structureSetCount = countModEntries(structureSets);
         int expectedBiomes = Specs.overworld().size() + Specs.dimensionBiomes().size();
         boolean dimensionLoaded = event.getServer().getLevel(ModDimensions.HOLLOW_DEEP_LEVEL) != null;
+        boolean portalRegistered = ModBlocks.HOLLOW_PORTAL.isPresent()
+                && ModItems.HOLLOW_PORTAL.isPresent() && ModSounds.HOLLOW_GATE_TRAVEL.isPresent();
+        boolean weaponsRegistered = ModItems.HOLLOWITE_SWORD.isPresent()
+                && ModItems.HOLLOWITE_BATTLEAXE.isPresent()
+                && ModItems.ORE_SWORDS.size() == Specs.ores().size()
+                && ModItems.ORE_SWORDS.values().stream().allMatch(item -> item.isPresent());
+        boolean guideAndSigilRegistered = ModItems.FIELD_GUIDE.isPresent() && ModItems.HOLLOW_SIGIL.isPresent();
+        boolean recipesLoaded = hasRecipe(event, "hollow_portal") && hasRecipe(event, "hollow_sigil")
+                && hasRecipe(event, "field_guide") && hasRecipe(event, "hollowite_sword")
+                && hasRecipe(event, "hollowite_battleaxe")
+                && hasRecipe(event, Specs.ores().get(0).id() + "_sword");
         if (biomeCount < expectedBiomes || structureCount < EXPECTED_STRUCTURES
-                || structureSetCount < EXPECTED_STRUCTURE_SETS || !dimensionLoaded) {
-            BiomesUnseen.LOGGER.error("Worldgen check FAILED: loaded {}/{} biomes, {}/{} structures, "
-                            + "{}/{} structure sets; Hollow Deep dimension loaded={}", biomeCount, expectedBiomes,
-                    structureCount, EXPECTED_STRUCTURES, structureSetCount, EXPECTED_STRUCTURE_SETS, dimensionLoaded);
+                || structureSetCount < EXPECTED_STRUCTURE_SETS || !dimensionLoaded
+                || !portalRegistered || !weaponsRegistered || !guideAndSigilRegistered || !recipesLoaded) {
+            BiomesUnseen.LOGGER.error("Worldgen/gameplay check FAILED: loaded {}/{} biomes, {}/{} structures, "
+                            + "{}/{} structure sets; Hollow Deep loaded={}, portal registered={}, weapons registered={}, "
+                            + "guide/sigil registered={}, core recipes loaded={}", biomeCount, expectedBiomes,
+                    structureCount, EXPECTED_STRUCTURES, structureSetCount, EXPECTED_STRUCTURE_SETS,
+                    dimensionLoaded, portalRegistered, weaponsRegistered, guideAndSigilRegistered, recipesLoaded);
             return;
         }
         BiomesUnseen.LOGGER.info("Biomes Unseen worldgen ready: {} biomes, {} structures, {} structure sets; "
-                        + "Hollow Deep dimension loaded", biomeCount, structureCount, structureSetCount);
+                        + "Hollow Deep, portal, guide, sigil, weapon items and core recipes loaded",
+                biomeCount, structureCount, structureSetCount);
+    }
+
+    private static boolean hasRecipe(ServerStartedEvent event, String path) {
+        return event.getServer().getRecipeManager()
+                .byKey(new ResourceLocation(BiomesUnseen.MOD_ID, path)).isPresent();
     }
 
     private static long countModEntries(Registry<?> registry) {

@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
-"""Biomes Unseen repo validator (pure standard library).
+"""Biomes Unseen repo validator (standard library plus optional soundfile decoding).
 
 Checks:
   1. texdata matrices are well formed (via gen_textures.validate)
   2. every texture a model/geo/datagen provider references has a texdata entry
   3. every .png has the PNG magic bytes; every geo model's texture size matches its sprite
-  4. every .ogg has OggS + vorbis headers; every sounds.json entry has a file
+  4. every .ogg has OggS + Vorbis headers; when soundfile is installed, every clip is decoded and checked for non-silent mono output
   5. AI-goal grep: every entity class (own source or superclass) has FloatGoal,
      MeleeAttackGoal, HurtByTargetGoal, NearestAttackableTargetGoal; bosses also RangedAttackGoal
   6. every entity registered in ModEntities has geo + animation + texture entry
@@ -23,6 +23,8 @@ import sys
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.join(ROOT, "tools"))
 import gen_textures  # noqa: E402
+from audio_check import check_audio_files  # noqa: E402
+from gameplay_check import check_gameplay_assets  # noqa: E402
 from spec.feature_order import FEATURE_ORDER  # noqa: E402
 
 MOD = "biomesunseen"
@@ -118,22 +120,9 @@ def check_png(sprites):
 
 
 def check_ogg():
-    sounds_path = os.path.join(ASSETS[0], "sounds.json")
-    for path in glob.glob(os.path.join(ASSETS[0], "sounds", "**", "*.ogg"), recursive=True):
-        with open(path, "rb") as fh:
-            head = fh.read(64)
-        if head[:4] != b"OggS" or b"\x01vorbis" not in head:
-            errors.append("%s: missing OggS/vorbis header" % rel(path))
-    if not os.path.exists(sounds_path):
-        errors.append("sounds.json missing")
-        return
-    for event, entry in json.loads(read(sounds_path)).items():
-        for sound in entry["sounds"]:
-            name = sound["name"] if isinstance(sound, dict) else sound
-            namespace, _, path = name.partition(":")
-            target = os.path.join(ASSETS[0], "sounds", *path.split("/")) + ".ogg"
-            if namespace == MOD and not os.path.exists(target):
-                warnings.append("sound '%s' has no file yet (run tools/gen_audio.py)" % event)
+    found_errors, found_warnings = check_audio_files(ASSETS[0], MOD, rel)
+    errors.extend(found_errors)
+    warnings.extend(found_warnings)
 
 
 def java_sources():
@@ -329,6 +318,7 @@ def main():
     check_registered_entities(sprites)
     spec_mobs = check_generated(sprites)
     check_worldgen(spec_mobs)
+    errors.extend(check_gameplay_assets(ROOT))
     check_json_and_source()
     for w in warnings:
         print("WARN  " + w)

@@ -1,1 +1,20 @@
-{}
+{
+  "block.biomesunseen.hollow_portal": "Portal del Hollow Deep",
+  "guide.biomesunseen.biomes": "Encuentra un bioma: /locate biome biomesunseen:amber_meadow",
+  "guide.biomesunseen.dimension": "Usa un Sello para ir y volver de Hollow Deep; te devuelve al punto de aparición del Mundo superior. Respaldo: /execute in biomesunseen:hollow_deep run tp @s 0 100 0",
+  "guide.biomesunseen.portal": "Fabrica un Portal del Hollow Deep con 4 obsidianas, 4 fragmentos de amatista y 1 ojo de ender; entra en él. Si el portal original sigue intacto, la salida te deja junto a él.",
+  "guide.biomesunseen.structures": "Encuentra una estructura: /locate structure biomesunseen:windmill_ruin",
+  "guide.biomesunseen.title": "BIOMES UNSEEN — GUÍA DE CAMPO",
+  "guide.biomesunseen.weapons": "Fabrica espadas con su mineral y combina Hollowite con palos para crear un hacha de batalla.",
+  "guide.biomesunseen.world": "Crea un mundo NUEVO para generar los biomas y estructuras. Los chunks antiguos no se regeneran.",
+  "item.biomesunseen.field_guide": "Guía de campo de Biomes Unseen",
+  "item.biomesunseen.hollow_sigil": "Sello del Hollow Deep",
+  "item.biomesunseen.hollow_sigil.dimension_missing": "Hollow Deep no está cargado. Crea un mundo nuevo con Biomes Unseen instalado.",
+  "item.biomesunseen.hollow_sigil.wrong_dimension": "El sello solo funciona en el Mundo superior y Hollow Deep.",
+  "item.biomesunseen.hollowite_battleaxe": "Hacha de batalla de Hollowite",
+  "item.biomesunseen.hollowite_ingot": "Lingote de Hollowite",
+  "item.biomesunseen.hollowite_sword": "Espada de Hollowite",
+  "itemGroup.biomesunseen.main": "Biomes Unseen",
+  "message.biomesunseen.hollow_travel.cooldown": "El viaje se está recargando. Espera un momento antes de intentarlo de nuevo.",
+  "message.biomesunseen.hollow_travel.wrong_dimension": "El viaje solo conecta el Mundo superior y Hollow Deep."
+}

@@ -59,6 +59,11 @@ public class ModRecipeProvider extends RecipeProvider {
                 .define('H', ModItems.HOLLOWITE_INGOT.get()).define('S', Items.STICK)
                 .unlockedBy("has_hollowite", has(ModItems.HOLLOWITE_INGOT.get()))
                 .save(writer, new ResourceLocation(BiomesUnseen.MOD_ID, "hollowite_battleaxe"));
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.HOLLOW_PORTAL.get())
+                .pattern("OAO").pattern("AEA").pattern("OAO")
+                .define('O', Items.OBSIDIAN).define('A', Items.AMETHYST_SHARD).define('E', Items.ENDER_EYE)
+                .unlockedBy("has_ender_eye", has(Items.ENDER_EYE))
+                .save(writer, new ResourceLocation(BiomesUnseen.MOD_ID, "hollow_portal"));
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.HOLLOW_SIGIL.get())
                 .pattern("OEO").pattern("GPG").pattern("OEO")
                 .define('O', Items.OBSIDIAN).define('E', Items.ENDER_PEARL)

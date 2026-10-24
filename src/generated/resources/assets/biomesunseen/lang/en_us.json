@@ -151,6 +151,7 @@
   "block.biomesunseen.emberite_ore": "Emberite Ore",
   "block.biomesunseen.frostite_ore": "Frostite Ore",
   "block.biomesunseen.gloomstone_ore": "Gloomstone Ore",
+  "block.biomesunseen.hollow_portal": "Hollow Portal",
   "block.biomesunseen.hollowite_ore": "Hollowite Ore",
   "block.biomesunseen.jadeite_ore": "Jadeite Ore",
   "block.biomesunseen.lumenite_ore": "Lumenite Ore",
@@ -270,7 +271,8 @@
   "entity.biomesunseen.vertebrae_serpent": "Vertebrae Serpent",
   "entity.biomesunseen.voidling": "Voidling",
   "guide.biomesunseen.biomes": "Find a biome: /locate biome biomesunseen:amber_meadow",
-  "guide.biomesunseen.dimension": "Use a Hollow Sigil to travel both ways. Backup command: /execute in biomesunseen:hollow_deep run tp @s 0 100 0",
+  "guide.biomesunseen.dimension": "Use a Hollow Sigil to travel to or from the Hollow Deep. The sigil returns you to Overworld spawn. Backup command: /execute in biomesunseen:hollow_deep run tp @s 0 100 0",
+  "guide.biomesunseen.portal": "Craft a Hollow Portal with 4 obsidian, 4 amethyst shards, and 1 ender eye; walk into it to travel. Its return gate brings you beside that portal if it remains intact.",
   "guide.biomesunseen.structures": "Find a structure: /locate structure biomesunseen:windmill_ruin",
   "guide.biomesunseen.title": "BIOMES UNSEEN — FIELD GUIDE",
   "guide.biomesunseen.weapons": "Craft ore swords from their matching materials; combine Hollowite and sticks for a battleaxe.",
@@ -454,5 +456,7 @@
   "item.biomesunseen.voidling_spawn_egg": "Voidling Spawn Egg",
   "item.biomesunseen.wyrmite_ingot": "Wyrmite Ingot",
   "item.biomesunseen.wyrmite_sword": "Wyrmite Sword",
-  "itemGroup.biomesunseen.main": "Biomes Unseen"
+  "itemGroup.biomesunseen.main": "Biomes Unseen",
+  "message.biomesunseen.hollow_travel.cooldown": "Hollow travel is recharging. Wait a moment before trying again.",
+  "message.biomesunseen.hollow_travel.wrong_dimension": "Hollow travel only connects the Overworld and Hollow Deep."
 }

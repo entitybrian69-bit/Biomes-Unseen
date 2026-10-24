@@ -1,0 +1,3 @@
+# Reproducible local synthesis of the repository's original Ogg/Vorbis effects.
+numpy==2.4.6
+soundfile==0.13.1

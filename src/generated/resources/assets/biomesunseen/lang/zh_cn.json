@@ -1,1 +1,20 @@
-{}
+{
+  "block.biomesunseen.hollow_portal": "Hollow Deep传送门",
+  "guide.biomesunseen.biomes": "定位生物群系：/locate biome biomesunseen:amber_meadow",
+  "guide.biomesunseen.dimension": "使用印记往返 Hollow Deep；印记会将你送回主世界出生点。备用命令：/execute in biomesunseen:hollow_deep run tp @s 0 100 0",
+  "guide.biomesunseen.portal": "用4块黑曜石、4个紫水晶碎片和1个末影之眼制作传送门并进入。原传送门仍存在时，返回门会将你送到它旁边。",
+  "guide.biomesunseen.structures": "定位结构：/locate structure biomesunseen:windmill_ruin",
+  "guide.biomesunseen.title": "BIOMES UNSEEN — 野外指南",
+  "guide.biomesunseen.weapons": "使用对应矿石制作剑；Hollowite和木棍可制作战斧。",
+  "guide.biomesunseen.world": "请创建一个新世界以生成新生物群系和结构。旧区块不会重新生成。",
+  "item.biomesunseen.field_guide": "Biomes Unseen野外指南",
+  "item.biomesunseen.hollow_sigil": "Hollow Deep印记",
+  "item.biomesunseen.hollow_sigil.dimension_missing": "Hollow Deep尚未加载。请创建一个安装了Biomes Unseen的新世界。",
+  "item.biomesunseen.hollow_sigil.wrong_dimension": "印记只能在主世界和 Hollow Deep 使用。",
+  "item.biomesunseen.hollowite_battleaxe": "Hollowite战斧",
+  "item.biomesunseen.hollowite_ingot": "Hollowite锭",
+  "item.biomesunseen.hollowite_sword": "Hollowite剑",
+  "itemGroup.biomesunseen.main": "Biomes Unseen",
+  "message.biomesunseen.hollow_travel.cooldown": "传送门仍在冷却，请稍等片刻再旅行。",
+  "message.biomesunseen.hollow_travel.wrong_dimension": "该旅行路线仅连接主世界和 Hollow Deep。"
+}

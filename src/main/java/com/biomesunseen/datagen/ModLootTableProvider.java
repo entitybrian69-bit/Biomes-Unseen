@@ -48,6 +48,7 @@ public final class ModLootTableProvider {
 
         @Override
         protected void generate() {
+            dropSelf(ModBlocks.HOLLOW_PORTAL.get());
             add(ModBlocks.HOLLOWITE_ORE.get(),
                     block -> createOreDrop(block, ModItems.HOLLOWITE_INGOT.get()));
             for (OreSpec spec : Specs.ores()) {

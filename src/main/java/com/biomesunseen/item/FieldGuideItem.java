@@ -25,6 +25,7 @@ public class FieldGuideItem extends Item {
             player.displayClientMessage(Component.translatable("guide.biomesunseen.biomes"), false);
             player.displayClientMessage(Component.translatable("guide.biomesunseen.structures"), false);
             player.displayClientMessage(Component.translatable("guide.biomesunseen.dimension"), false);
+            player.displayClientMessage(Component.translatable("guide.biomesunseen.portal"), false);
             player.displayClientMessage(Component.translatable("guide.biomesunseen.weapons"), false);
         }
         return InteractionResultHolder.sidedSuccess(stack, level.isClientSide);

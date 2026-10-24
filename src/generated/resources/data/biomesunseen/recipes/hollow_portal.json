@@ -1,0 +1,23 @@
+{
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "minecraft:amethyst_shard"
+    },
+    "E": {
+      "item": "minecraft:ender_eye"
+    },
+    "O": {
+      "item": "minecraft:obsidian"
+    }
+  },
+  "pattern": [
+    "OAO",
+    "AEA",
+    "OAO"
+  ],
+  "result": {
+    "item": "biomesunseen:hollow_portal"
+  },
+  "type": "minecraft:crafting_shaped"
+}

@@ -1,1 +1,20 @@
-{}
+{
+  "block.biomesunseen.hollow_portal": "Portal do Hollow Deep",
+  "guide.biomesunseen.biomes": "Encontre um bioma: /locate biome biomesunseen:amber_meadow",
+  "guide.biomesunseen.dimension": "Use o Selo para ir e voltar do Hollow Deep; ele retorna você ao ponto de surgimento do Mundo Superior. Alternativa: /execute in biomesunseen:hollow_deep run tp @s 0 100 0",
+  "guide.biomesunseen.portal": "Fabrique um Portal com 4 obsidianas, 4 fragmentos de ametista e 1 olho do End; entre nele. A volta leva você ao portal original se ele ainda existir.",
+  "guide.biomesunseen.structures": "Encontre uma estrutura: /locate structure biomesunseen:windmill_ruin",
+  "guide.biomesunseen.title": "BIOMES UNSEEN — GUIA DE CAMPO",
+  "guide.biomesunseen.weapons": "Fabrique espadas com seus minérios; combine Hollowite e gravetos para fazer um machado de batalha.",
+  "guide.biomesunseen.world": "Crie um mundo NOVO para gerar os biomas e estruturas. Chunks antigos não são regenerados.",
+  "item.biomesunseen.field_guide": "Guia de campo do Biomes Unseen",
+  "item.biomesunseen.hollow_sigil": "Selo do Hollow Deep",
+  "item.biomesunseen.hollow_sigil.dimension_missing": "Hollow Deep não está carregado. Crie um mundo com Biomes Unseen instalado.",
+  "item.biomesunseen.hollow_sigil.wrong_dimension": "O selo funciona apenas no Mundo Superior e no Hollow Deep.",
+  "item.biomesunseen.hollowite_battleaxe": "Machado de batalha de Hollowite",
+  "item.biomesunseen.hollowite_ingot": "Barra de Hollowite",
+  "item.biomesunseen.hollowite_sword": "Espada de Hollowite",
+  "itemGroup.biomesunseen.main": "Biomes Unseen",
+  "message.biomesunseen.hollow_travel.cooldown": "O portal ainda está recarregando. Aguarde um pouco antes de viajar novamente.",
+  "message.biomesunseen.hollow_travel.wrong_dimension": "Essa viagem conecta apenas o Mundo Superior e o Hollow Deep."
+}

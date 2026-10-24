@@ -14,6 +14,8 @@ Standard library only. Run via tools/gen_all.py.
 import json
 import os
 
+from langdata import CORE_TRANSLATIONS
+
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 RES = os.path.join(ROOT, "src", "main", "resources")
 GEN = os.path.join(ROOT, "src", "generated", "resources")
@@ -39,7 +41,7 @@ NAMED_LOOT = {
     "crystal_golem": ("amethyst_shard", 1, 4),
     "mire_wraith": ("slime_ball", 0, 2),
 }
-STUB_LOCALES = ["es_es", "fr_fr", "de_de", "pt_br", "ru_ru", "zh_cn", "ja_jp"]
+LOCALES = ["es_es", "fr_fr", "de_de", "pt_br", "ru_ru", "zh_cn", "ja_jp"]
 TIER_TAG = {0: "needs_stone_tool", 1: "needs_iron_tool"}
 
 
@@ -74,6 +76,13 @@ def gen_blockstates_and_models(ores):
         # Inventory model for the block item mirrors the block model.
         dump(os.path.join(A, "models", "item", block + ".json"),
              {"parent": loc("block/" + block)})
+    dump(os.path.join(A, "blockstates", "hollow_portal.json"),
+         {"variants": {"": {"model": loc("block/hollow_portal")}}})
+    dump(os.path.join(A, "models", "block", "hollow_portal.json"),
+         {"parent": "minecraft:block/cross", "render_type": "minecraft:cutout",
+          "textures": {"cross": loc("block/hollow_portal")}})
+    dump(os.path.join(A, "models", "item", "hollow_portal.json"),
+         {"parent": loc("block/hollow_portal")})
 
 
 def gen_item_models(ores, mobs):
@@ -101,6 +110,7 @@ def gen_lang(ores, mobs, overworld, dimension):
     lang = {
         "itemGroup.%s.main" % MOD: "Biomes Unseen",
         "block.%s.hollowite_ore" % MOD: "Hollowite Ore",
+        "block.%s.hollow_portal" % MOD: "Hollow Portal",
         "item.%s.hollowite_ingot" % MOD: "Hollowite Ingot",
         "item.%s.hollowite_sword" % MOD: "Hollowite Sword",
         "item.%s.hollowite_battleaxe" % MOD: "Hollowite Battleaxe",
@@ -110,8 +120,11 @@ def gen_lang(ores, mobs, overworld, dimension):
         "guide.%s.world" % MOD: "Start a NEW world for all new biomes and structures. Old chunks never regenerate.",
         "guide.%s.biomes" % MOD: "Find a biome: /locate biome biomesunseen:amber_meadow",
         "guide.%s.structures" % MOD: "Find a structure: /locate structure biomesunseen:windmill_ruin",
-        "guide.%s.dimension" % MOD: "Use a Hollow Sigil to travel both ways. Backup command: /execute in biomesunseen:hollow_deep run tp @s 0 100 0",
+        "guide.%s.dimension" % MOD: "Use a Hollow Sigil to travel to or from the Hollow Deep. The sigil returns you to Overworld spawn. Backup command: /execute in biomesunseen:hollow_deep run tp @s 0 100 0",
+        "guide.%s.portal" % MOD: "Craft a Hollow Portal with 4 obsidian, 4 amethyst shards, and 1 ender eye; walk into it to travel. Its return gate brings you beside that portal if it remains intact.",
         "guide.%s.weapons" % MOD: "Craft ore swords from their matching materials; combine Hollowite and sticks for a battleaxe.",
+        "message.%s.hollow_travel.wrong_dimension" % MOD: "Hollow travel only connects the Overworld and Hollow Deep.",
+        "message.%s.hollow_travel.cooldown" % MOD: "Hollow travel is recharging. Wait a moment before trying again.",
         "item.%s.hollow_sigil.wrong_dimension" % MOD: "The sigil only works in the Overworld and Hollow Deep.",
         "item.%s.hollow_sigil.dimension_missing" % MOD: "Hollow Deep is not loaded. Create a new world with Biomes Unseen installed.",
     }
@@ -128,8 +141,8 @@ def gen_lang(ores, mobs, overworld, dimension):
     for b in overworld + dimension:
         lang["biome.%s.%s" % (MOD, b["id"])] = b["name"]
     dump(os.path.join(A, "lang", "en_us.json"), lang)
-    for locale in STUB_LOCALES:
-        dump(os.path.join(A, "lang", locale + ".json"), {})
+    for locale in LOCALES:
+        dump(os.path.join(A, "lang", locale + ".json"), CORE_TRANSLATIONS[locale])
 
 
 def cooking(kind, recipe_id, ingredient, result, xp, time):
@@ -161,6 +174,9 @@ def gen_recipes(ores):
     shaped_recipe("hollowite_battleaxe", ["HHH", "HSH", " S "],
                   {"H": {"item": loc("hollowite_ingot")}, "S": {"item": "minecraft:stick"}},
                   "hollowite_battleaxe")
+    shaped_recipe("hollow_portal", ["OAO", "AEA", "OAO"], {
+        "O": {"item": "minecraft:obsidian"}, "A": {"item": "minecraft:amethyst_shard"},
+        "E": {"item": "minecraft:ender_eye"}}, "hollow_portal", "misc")
     shaped_recipe("hollow_sigil", ["OEO", "GPG", "OEO"], {
         "O": {"item": "minecraft:obsidian"}, "E": {"item": "minecraft:ender_pearl"},
         "G": {"item": "minecraft:glowstone_dust"}, "P": {"item": "minecraft:paper"}}, "hollow_sigil", "misc")
@@ -208,6 +224,10 @@ def ore_loot(block, drop, lo, hi):
 
 
 def gen_block_loot(ores):
+    dump(os.path.join(DM, "loot_tables", "blocks", "hollow_portal.json"), {
+        "type": "minecraft:block",
+        "pools": [{"rolls": 1, "entries": [{"type": "minecraft:item", "name": loc("hollow_portal")}]}],
+    })
     dump(os.path.join(DM, "loot_tables", "blocks", "hollowite_ore.json"),
          ore_loot("hollowite_ore", "hollowite_ingot", 1, 1))
     for o in ores:

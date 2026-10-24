@@ -1,1 +1,20 @@
-{}
+{
+  "block.biomesunseen.hollow_portal": "ホロウディープのポータル",
+  "guide.biomesunseen.biomes": "バイオームを探す: /locate biome biomesunseen:amber_meadow",
+  "guide.biomesunseen.dimension": "印章でHollow Deepへ往復できます。印章を使うとオーバーワールドのスポーン地点に戻ります。予備コマンド: /execute in biomesunseen:hollow_deep run tp @s 0 100 0",
+  "guide.biomesunseen.portal": "黒曜石4個、アメジストの欠片4個、エンダーアイ1個でポータルを作り、中へ入ります。元のポータルが残っていれば、戻り口はその隣へ送ります。",
+  "guide.biomesunseen.structures": "構造物を探す: /locate structure biomesunseen:windmill_ruin",
+  "guide.biomesunseen.title": "BIOMES UNSEEN — フィールドガイド",
+  "guide.biomesunseen.weapons": "対応する鉱石から剣を作成できます。Hollowiteと棒でバトルアックスを作れます。",
+  "guide.biomesunseen.world": "新しいバイオームと構造物には新規ワールドを作成してください。既存チャンクは再生成されません。",
+  "item.biomesunseen.field_guide": "Biomes Unseenフィールドガイド",
+  "item.biomesunseen.hollow_sigil": "ホロウディープの印章",
+  "item.biomesunseen.hollow_sigil.dimension_missing": "Hollow Deepが読み込まれていません。Biomes Unseenを導入して新しいワールドを作成してください。",
+  "item.biomesunseen.hollow_sigil.wrong_dimension": "印章はオーバーワールドとHollow Deepでのみ使えます。",
+  "item.biomesunseen.hollowite_battleaxe": "ホロウアイトのバトルアックス",
+  "item.biomesunseen.hollowite_ingot": "ホロウアイトインゴット",
+  "item.biomesunseen.hollowite_sword": "ホロウアイトの剣",
+  "itemGroup.biomesunseen.main": "Biomes Unseen",
+  "message.biomesunseen.hollow_travel.cooldown": "ポータルはまだ再使用できません。少し待ってからもう一度移動してください。",
+  "message.biomesunseen.hollow_travel.wrong_dimension": "この移動手段はオーバーワールドとHollow Deepのみを接続します。"
+}

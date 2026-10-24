@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
-"""Runs every generator in dependency order, then the validator (standard library only).
+"""Runs every content generator in dependency order, then validates the resources.
 
-Order matters: biomes (tags) -> mobs -> ores -> structures -> arena -> textures -> audio -> validate.
+Install the pinned audio dependencies first: python -m pip install -r tools/requirements-audio.txt
+Order: biomes -> models -> ores -> structures -> textures -> synthesized audio -> data assets -> validate.
 Usage: python tools/gen_all.py
 """
 import os

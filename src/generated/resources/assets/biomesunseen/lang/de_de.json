@@ -1,1 +1,20 @@
-{}
+{
+  "block.biomesunseen.hollow_portal": "Hollow-Deep-Portal",
+  "guide.biomesunseen.biomes": "Biom finden: /locate biome biomesunseen:amber_meadow",
+  "guide.biomesunseen.dimension": "Nutze das Siegel für Reisen nach Hollow Deep und zurück; es bringt dich zum Oberwelt-Spawn. Notfallbefehl: /execute in biomesunseen:hollow_deep run tp @s 0 100 0",
+  "guide.biomesunseen.portal": "Stelle ein Portal aus 4 Obsidian, 4 Amethystscherben und 1 Enderauge her und betrete es. Der Rückweg führt zum ursprünglichen Portal, falls es noch steht.",
+  "guide.biomesunseen.structures": "Struktur finden: /locate structure biomesunseen:windmill_ruin",
+  "guide.biomesunseen.title": "BIOMES UNSEEN — FELDFÜHRER",
+  "guide.biomesunseen.weapons": "Schwerter aus dem passenden Erz herstellen; Hollowite und Stöcke ergeben eine Kampfaxt.",
+  "guide.biomesunseen.world": "Erstelle eine NEUE Welt für die neuen Biome und Strukturen. Alte Chunks werden nicht neu generiert.",
+  "item.biomesunseen.field_guide": "Biomes-Unseen-Feldführer",
+  "item.biomesunseen.hollow_sigil": "Hollow-Deep-Siegel",
+  "item.biomesunseen.hollow_sigil.dimension_missing": "Hollow Deep ist nicht geladen. Erstelle eine neue Welt mit Biomes Unseen.",
+  "item.biomesunseen.hollow_sigil.wrong_dimension": "Das Siegel funktioniert nur in der Oberwelt und Hollow Deep.",
+  "item.biomesunseen.hollowite_battleaxe": "Hollowite-Kampfaxt",
+  "item.biomesunseen.hollowite_ingot": "Hollowitebarren",
+  "item.biomesunseen.hollowite_sword": "Hollowiteschwert",
+  "itemGroup.biomesunseen.main": "Biomes Unseen",
+  "message.biomesunseen.hollow_travel.cooldown": "Das Portal lädt noch auf. Warte kurz, bevor du erneut reist.",
+  "message.biomesunseen.hollow_travel.wrong_dimension": "Diese Reiseverbindung führt nur zwischen Oberwelt und Hollow Deep."
+}

@@ -28,6 +28,7 @@ public final class ModSounds {
     public static final MobSet HEART = mob("heart_of_the_forest");
     public static final RegistryObject<SoundEvent> HEART_SHOOT = reg("heart_of_the_forest.shoot");
     public static final RegistryObject<SoundEvent> HEART_PHASE = reg("heart_of_the_forest.phase_shift");
+    public static final RegistryObject<SoundEvent> HOLLOW_GATE_TRAVEL = reg("hollow_gate.travel");
 
     /** Shared sound sets for the generated spec mobs, keyed by archetype. */
     public static final Map<String, MobSet> GENERIC = new LinkedHashMap<>();

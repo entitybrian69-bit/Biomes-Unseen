@@ -1,6 +1,7 @@
 package com.biomesunseen.registry;
 
 import com.biomesunseen.BiomesUnseen;
+import com.biomesunseen.block.HollowPortalBlock;
 import com.biomesunseen.spec.OreSpec;
 import com.biomesunseen.spec.Specs;
 import net.minecraft.util.valueproviders.UniformInt;
@@ -28,6 +29,13 @@ public final class ModBlocks {
                             .strength(4.0F, 6.0F)
                             .requiresCorrectToolForDrops(),
                     UniformInt.of(2, 5)));
+    public static final RegistryObject<Block> HOLLOW_PORTAL = BLOCKS.register("hollow_portal",
+            () -> new HollowPortalBlock(BlockBehaviour.Properties.of()
+                    .mapColor(MapColor.COLOR_PURPLE)
+                    .noCollission()
+                    .noOcclusion()
+                    .lightLevel(state -> 12)
+                    .strength(1.0F)));
 
     /** Generated ore blocks from specs/ores.json, keyed by ore id. */
     public static final Map<String, RegistryObject<Block>> ORES = new LinkedHashMap<>();

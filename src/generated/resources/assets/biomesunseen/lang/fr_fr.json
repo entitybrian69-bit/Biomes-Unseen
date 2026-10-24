@@ -1,1 +1,20 @@
-{}
+{
+  "block.biomesunseen.hollow_portal": "Portail du Hollow Deep",
+  "guide.biomesunseen.biomes": "Trouver un biome : /locate biome biomesunseen:amber_meadow",
+  "guide.biomesunseen.dimension": "Utilisez le Sceau pour voyager depuis Hollow Deep ; il vous ramène au point d’apparition de la Surface. Secours : /execute in biomesunseen:hollow_deep run tp @s 0 100 0",
+  "guide.biomesunseen.portal": "Fabriquez un Portail avec 4 obsidiennes, 4 éclats d’améthyste et 1 œil de l’End ; entrez dedans. Le retour vous dépose près du portail d’origine s’il existe encore.",
+  "guide.biomesunseen.structures": "Trouver une structure : /locate structure biomesunseen:windmill_ruin",
+  "guide.biomesunseen.title": "BIOMES UNSEEN — GUIDE DE TERRAIN",
+  "guide.biomesunseen.weapons": "Fabriquez les épées avec leur minerai ; combinez Hollowite et bâtons pour créer une hache de guerre.",
+  "guide.biomesunseen.world": "Créez un NOUVEAU monde pour générer les biomes et structures. Les anciens chunks ne sont pas régénérés.",
+  "item.biomesunseen.field_guide": "Guide de terrain Biomes Unseen",
+  "item.biomesunseen.hollow_sigil": "Sceau du Hollow Deep",
+  "item.biomesunseen.hollow_sigil.dimension_missing": "Hollow Deep n'est pas chargé. Créez un monde avec Biomes Unseen installé.",
+  "item.biomesunseen.hollow_sigil.wrong_dimension": "Le sceau ne fonctionne que dans la Surface et Hollow Deep.",
+  "item.biomesunseen.hollowite_battleaxe": "Hache de guerre en Hollowite",
+  "item.biomesunseen.hollowite_ingot": "Lingot de Hollowite",
+  "item.biomesunseen.hollowite_sword": "Épée en Hollowite",
+  "itemGroup.biomesunseen.main": "Biomes Unseen",
+  "message.biomesunseen.hollow_travel.cooldown": "Le portail se recharge. Attendez un instant avant de repartir.",
+  "message.biomesunseen.hollow_travel.wrong_dimension": "Le trajet ne relie que la Surface et Hollow Deep."
+}

@@ -7,6 +7,7 @@ build/
 run/
 run-data/
 runs/
+smoke/
 
 # IDEs
 .idea/

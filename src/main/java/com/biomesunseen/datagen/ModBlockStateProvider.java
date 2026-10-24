@@ -15,6 +15,9 @@ public class ModBlockStateProvider extends BlockStateProvider {
 
     @Override
     protected void registerStatesAndModels() {
+        // The portal is a non-colliding cross model, rendered with cutout transparency in ClientEvents.
+        simpleBlockWithItem(ModBlocks.HOLLOW_PORTAL.get(),
+                models().cross("hollow_portal", modLoc("block/hollow_portal")));
         // Requires textures/block/hollowite_ore.png (tools/gen_textures.py) to exist.
         simpleBlockWithItem(ModBlocks.HOLLOWITE_ORE.get(),
                 models().cubeAll("hollowite_ore", modLoc("block/hollowite_ore")));

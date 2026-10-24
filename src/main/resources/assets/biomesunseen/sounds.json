@@ -39,5 +39,6 @@
   "generic_blob.death": {"sounds": ["biomesunseen:mob/generic/blob/death"]},
   "generic_serpent.ambient": {"sounds": ["biomesunseen:mob/generic/serpent/ambient"]},
   "generic_serpent.hurt": {"sounds": ["biomesunseen:mob/generic/serpent/hurt"]},
-  "generic_serpent.death": {"sounds": ["biomesunseen:mob/generic/serpent/death"]}
+  "generic_serpent.death": {"sounds": ["biomesunseen:mob/generic/serpent/death"]},
+  "hollow_gate.travel": {"sounds": ["biomesunseen:hollow_gate/travel"]}
 }

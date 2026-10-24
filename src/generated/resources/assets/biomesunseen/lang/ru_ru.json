@@ -1,1 +1,20 @@
-{}
+{
+  "block.biomesunseen.hollow_portal": "Портал в Hollow Deep",
+  "guide.biomesunseen.biomes": "Найти биом: /locate biome biomesunseen:amber_meadow",
+  "guide.biomesunseen.dimension": "Используйте Печать для путешествий в Hollow Deep и обратно; она возвращает к точке возрождения Верхнего мира. Запасная команда: /execute in biomesunseen:hollow_deep run tp @s 0 100 0",
+  "guide.biomesunseen.portal": "Создайте портал из 4 обсидианов, 4 осколков аметиста и 1 ока Края и войдите в него. Обратный портал вернёт вас к исходному, если он цел.",
+  "guide.biomesunseen.structures": "Найти структуру: /locate structure biomesunseen:windmill_ruin",
+  "guide.biomesunseen.title": "BIOMES UNSEEN — ПОЛЕВОЙ СПРАВОЧНИК",
+  "guide.biomesunseen.weapons": "Создавайте мечи из соответствующих руд; холлоуит и палки нужны для боевого топора.",
+  "guide.biomesunseen.world": "Создайте НОВЫЙ мир, чтобы появились биомы и структуры. Старые чанки не обновляются.",
+  "item.biomesunseen.field_guide": "Полевой справочник Biomes Unseen",
+  "item.biomesunseen.hollow_sigil": "Печать Hollow Deep",
+  "item.biomesunseen.hollow_sigil.dimension_missing": "Hollow Deep не загружен. Создайте новый мир с Biomes Unseen.",
+  "item.biomesunseen.hollow_sigil.wrong_dimension": "Печать работает только в Верхнем мире и Hollow Deep.",
+  "item.biomesunseen.hollowite_battleaxe": "Боевой топор из холлоуита",
+  "item.biomesunseen.hollowite_ingot": "Слиток холлоуита",
+  "item.biomesunseen.hollowite_sword": "Меч из холлоуита",
+  "itemGroup.biomesunseen.main": "Biomes Unseen",
+  "message.biomesunseen.hollow_travel.cooldown": "Портал перезаряжается. Подождите немного перед новым путешествием.",
+  "message.biomesunseen.hollow_travel.wrong_dimension": "Путешествие возможно только между Верхним миром и Hollow Deep."
+}

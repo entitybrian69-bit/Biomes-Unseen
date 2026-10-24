@@ -29,6 +29,8 @@ public final class ModItems {
 
     public static final RegistryObject<Item> HOLLOWITE_ORE = ITEMS.register("hollowite_ore",
             () -> new BlockItem(ModBlocks.HOLLOWITE_ORE.get(), new Item.Properties()));
+    public static final RegistryObject<Item> HOLLOW_PORTAL = ITEMS.register("hollow_portal",
+            () -> new BlockItem(ModBlocks.HOLLOW_PORTAL.get(), new Item.Properties()));
     public static final RegistryObject<Item> HOLLOWITE_INGOT = ITEMS.register("hollowite_ingot",
             () -> new Item(new Item.Properties()));
     public static final RegistryObject<Item> HOLLOWITE_SWORD = ITEMS.register("hollowite_sword",
