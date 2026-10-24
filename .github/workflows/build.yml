@@ -78,12 +78,12 @@ jobs:
             echo
             echo "## data generation (tail)"
             echo '```'
-            tail -n 80 datagen.log 2>/dev/null
+            tail -n 200 datagen.log 2>/dev/null
             echo '```'
             echo
-            echo "## build errors"
+            echo "## build errors (with context)"
             echo '```'
-            grep -n -iE "error:|cannot find symbol|FAILURE:|What went wrong|Could not (find|resolve)|Execution failed" build.log 2>/dev/null | head -120
+            grep -n -A4 -E "error:|FAILURE:|What went wrong|Execution failed" build.log 2>/dev/null | head -260
             echo '```'
             echo
             echo "## build log (tail)"
