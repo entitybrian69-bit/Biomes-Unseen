@@ -1,12 +1,12 @@
 # Build Biomes Unseen (Minecraft 1.20.1 / Forge 47.x)
 #
-# Compiles the mod with ForgeGradle and uploads the resulting reobfuscated
-# jar as the "biomesunseen-jar" artifact. Data generation is run first but is
-# non-fatal: if a datagen provider misbehaves we still want the compiled jar.
+# Compiles the mod with ForgeGradle, runs data generation, and produces the
+# reobfuscated jar. The jar and a diagnostics report are committed back into
+# the repo (as dist/ and ci-diagnostics.md) so they can be retrieved from
+# environments that cannot reach Actions log/artifact blob storage.
 #
-# When the build fails, the tail of the Gradle output is committed back as
-# ci-diagnostics.md so the errors can be read from environments that cannot
-# reach the Actions log blob storage.
+# Those two paths are in paths-ignore and the publish commit is tagged
+# [skip ci], so publishing never re-triggers this workflow.
 
 name: Build Biomes Unseen
 
@@ -15,6 +15,7 @@ on:
     branches: [ '**' ]
     paths-ignore:
       - 'ci-diagnostics.md'
+      - 'dist/**'
   pull_request:
     branches: [ main ]
   workflow_dispatch:
@@ -53,6 +54,7 @@ jobs:
           gradle-version: 8.1.1
 
       - name: Run data generation
+        id: datagen
         continue-on-error: true
         run: gradle runData --no-daemon 2>&1 | tee datagen.log
 
@@ -60,9 +62,9 @@ jobs:
         id: build
         run: |
           set -o pipefail
-          gradle build --no-daemon --stacktrace 2>&1 | tee build.log
+          gradle build --no-daemon 2>&1 | tee build.log
 
-      - name: Upload built jar
+      - name: Upload built jar (artifact)
         if: always()
         uses: actions/upload-artifact@v4
         with:
@@ -70,30 +72,50 @@ jobs:
           path: build/libs/*.jar
           if-no-files-found: warn
 
-      - name: Publish diagnostics on failure
-        if: failure()
+      - name: Publish results to repo
+        if: always()
         run: |
+          set +e
           {
-            echo "# CI build diagnostics"
+            echo "# CI build results"
             echo
-            echo "## data generation (tail)"
-            echo '```'
-            tail -n 200 datagen.log 2>/dev/null
-            echo '```'
+            echo "- datagen outcome: ${{ steps.datagen.outcome }}"
+            echo "- build outcome: ${{ steps.build.outcome }}"
             echo
-            echo "## build errors (with context)"
+            echo "## data generation log (tail)"
             echo '```'
-            grep -n -A4 -E "error:|FAILURE:|What went wrong|Execution failed" build.log 2>/dev/null | head -260
+            tail -n 160 datagen.log 2>/dev/null
             echo '```'
             echo
-            echo "## build log (tail)"
+            echo "## build log (errors + tail)"
             echo '```'
-            tail -n 220 build.log 2>/dev/null
+            grep -n -A4 -E "error:|FAILURE:|What went wrong|Execution failed|Exception|Caused by" build.log 2>/dev/null | head -220
+            echo '----- build log tail -----'
+            tail -n 45 build.log 2>/dev/null
+            echo '```'
+            echo
+            echo "## generated resources"
+            echo '```'
+            find src/generated -type f 2>/dev/null | head -40
+            echo "count: $(find src/generated -type f 2>/dev/null | wc -l)"
+            echo '```'
+            echo
+            echo "## built jars"
+            echo '```'
+            ls -la build/libs 2>/dev/null
             echo '```'
           } > ci-diagnostics.md
-          cat ci-diagnostics.md >> "$GITHUB_STEP_SUMMARY"
+
+          mkdir -p dist
+          rm -f dist/*.jar
+          for j in build/libs/*.jar; do
+            if [ -f "$j" ]; then cp "$j" dist/; fi
+          done
+          ls -la dist 2>/dev/null
+
           git config user.name "ci-bot"
           git config user.email "ci-bot@users.noreply.github.com"
           git add -f ci-diagnostics.md
-          git commit -m "Publish CI build diagnostics [skip ci]" || true
+          git add -f dist 2>/dev/null
+          git commit -m "Publish CI results and jar [skip ci]" || echo "nothing to commit"
           git push || true
