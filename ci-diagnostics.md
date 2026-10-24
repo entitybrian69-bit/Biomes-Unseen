@@ -1,7 +1,7 @@
 # CI build results
 
 - build outcome: success
-- dedicated-server smoke outcome: failure
+- production-server smoke outcome: failure
 
 ## build log (errors + tail)
 ```
@@ -12,14 +12,14 @@
  > Running 'listLibraries'
  > Running 'rename'
 Stopping at requested step: /home/runner/.gradle/caches/forge_gradle/mcp_repo/de/oceanlabs/mcp/mcp_config/1.20.1-20230612.114412/joined/rename/output.jar
-[07:17:49] [main/INFO]: Writing debug log file accesstransform.log
-[07:17:49] [main/INFO]: Access Transformer processor running version 8.2.14
-[07:17:49] [main/INFO]: Command line arguments [--inJar, /home/runner/.gradle/caches/forge_gradle/minecraft_user_repo/net/minecraftforge/forge/1.20.1-47.3.0/forge-1.20.1-47.3.0-injected.jar, --outJar, /home/runner/.gradle/caches/forge_gradle/minecraft_user_repo/net/minecraftforge/forge/1.20.1-47.3.0_mapped_official_1.20.1/forge-1.20.1-47.3.0_mapped_official_1.20.1.jar, --logFile, accesstransform.log, --atFile, /home/runner/work/Biomes-Unseen/Biomes-Unseen/build/_atJar_4/parent_at.cfg]
-[07:17:49] [main/INFO]: Reading from /home/runner/.gradle/caches/forge_gradle/minecraft_user_repo/net/minecraftforge/forge/1.20.1-47.3.0/forge-1.20.1-47.3.0-injected.jar
-[07:17:49] [main/INFO]: Writing to /home/runner/.gradle/caches/forge_gradle/minecraft_user_repo/net/minecraftforge/forge/1.20.1-47.3.0_mapped_official_1.20.1/forge-1.20.1-47.3.0_mapped_official_1.20.1.jar
-[07:17:49] [main/INFO]: Transformer file /home/runner/work/Biomes-Unseen/Biomes-Unseen/build/_atJar_4/parent_at.cfg
-[07:17:49] [main/WARN]: Found existing output jar /home/runner/.gradle/caches/forge_gradle/minecraft_user_repo/net/minecraftforge/forge/1.20.1-47.3.0_mapped_official_1.20.1/forge-1.20.1-47.3.0_mapped_official_1.20.1.jar, overwriting
-[07:17:52] [main/INFO]: JAR transformation complete /home/runner/.gradle/caches/forge_gradle/minecraft_user_repo/net/minecraftforge/forge/1.20.1-47.3.0_mapped_official_1.20.1/forge-1.20.1-47.3.0_mapped_official_1.20.1.jar
+[07:23:06] [main/INFO]: Writing debug log file accesstransform.log
+[07:23:06] [main/INFO]: Access Transformer processor running version 8.2.14
+[07:23:06] [main/INFO]: Command line arguments [--inJar, /home/runner/.gradle/caches/forge_gradle/minecraft_user_repo/net/minecraftforge/forge/1.20.1-47.3.0/forge-1.20.1-47.3.0-injected.jar, --outJar, /home/runner/.gradle/caches/forge_gradle/minecraft_user_repo/net/minecraftforge/forge/1.20.1-47.3.0_mapped_official_1.20.1/forge-1.20.1-47.3.0_mapped_official_1.20.1.jar, --logFile, accesstransform.log, --atFile, /home/runner/work/Biomes-Unseen/Biomes-Unseen/build/_atJar_4/parent_at.cfg]
+[07:23:06] [main/INFO]: Reading from /home/runner/.gradle/caches/forge_gradle/minecraft_user_repo/net/minecraftforge/forge/1.20.1-47.3.0/forge-1.20.1-47.3.0-injected.jar
+[07:23:06] [main/INFO]: Writing to /home/runner/.gradle/caches/forge_gradle/minecraft_user_repo/net/minecraftforge/forge/1.20.1-47.3.0_mapped_official_1.20.1/forge-1.20.1-47.3.0_mapped_official_1.20.1.jar
+[07:23:06] [main/INFO]: Transformer file /home/runner/work/Biomes-Unseen/Biomes-Unseen/build/_atJar_4/parent_at.cfg
+[07:23:06] [main/WARN]: Found existing output jar /home/runner/.gradle/caches/forge_gradle/minecraft_user_repo/net/minecraftforge/forge/1.20.1-47.3.0_mapped_official_1.20.1/forge-1.20.1-47.3.0_mapped_official_1.20.1.jar, overwriting
+[07:23:09] [main/INFO]: JAR transformation complete /home/runner/.gradle/caches/forge_gradle/minecraft_user_repo/net/minecraftforge/forge/1.20.1-47.3.0_mapped_official_1.20.1/forge-1.20.1-47.3.0_mapped_official_1.20.1.jar
 Creating SRG -> MCP TSRG
 
 > Task :processResources
@@ -39,74 +39,154 @@ Creating SRG -> MCP TSRG
 > Task :check UP-TO-DATE
 > Task :build
 
-BUILD SUCCESSFUL in 1m 51s
+BUILD SUCCESSFUL in 1m 38s
 7 actionable tasks: 7 executed
 ```
 
 ## dedicated-server smoke log
 ```
-3892:[07:18:40] [main/FATAL] [mixin/]: Mixin apply failed terrablender.mixins.json:MixinBuiltInRegistries -> net.minecraft.core.registries.BuiltInRegistries: org.spongepowered.asm.mixin.injection.throwables.InvalidInjectionException Critical injection failure: @Inject annotation on registerSimple could not find any targets matching 'Lnet/minecraft/core/registries/BuiltInRegistries;m_258002_(Lnet/minecraft/resources/ResourceKey;Lnet/minecraft/core/registries/BuiltInRegistries$RegistryBootstrap;)Lnet/minecraft/core/Registry;' in net.minecraft.core.registries.BuiltInRegistries. Using refmap terrablender.refmap.json [PREINJECT Applicator Phase -> terrablender.mixins.json:MixinBuiltInRegistries -> Prepare Injections ->  -> handler$zza000$registerSimple(Lnet/minecraft/resources/ResourceKey;Lnet/minecraft/core/registries/BuiltInRegistries$RegistryBootstrap;Lorg/spongepowered/asm/mixin/injection/callback/CallbackInfoReturnable;)V -> Parse]
-3893:org.spongepowered.asm.mixin.injection.throwables.InvalidInjectionException: Critical injection failure: @Inject annotation on registerSimple could not find any targets matching 'Lnet/minecraft/core/registries/BuiltInRegistries;m_258002_(Lnet/minecraft/resources/ResourceKey;Lnet/minecraft/core/registries/BuiltInRegistries$RegistryBootstrap;)Lnet/minecraft/core/Registry;' in net.minecraft.core.registries.BuiltInRegistries. Using refmap terrablender.refmap.json [PREINJECT Applicator Phase -> terrablender.mixins.json:MixinBuiltInRegistries -> Prepare Injections ->  -> handler$zza000$registerSimple(Lnet/minecraft/resources/ResourceKey;Lnet/minecraft/core/registries/BuiltInRegistries$RegistryBootstrap;Lorg/spongepowered/asm/mixin/injection/callback/CallbackInfoReturnable;)V -> Parse]
-3894-	at org.spongepowered.asm.mixin.injection.struct.InjectionInfo.validateTargets(InjectionInfo.java:656) ~[mixin-0.8.5.jar:0.8.5+Jenkins-b310.git-155314e6e91465dad727e621a569906a410cd6f4] {}
-3895-	at org.spongepowered.asm.mixin.injection.struct.InjectionInfo.findTargets(InjectionInfo.java:587) ~[mixin-0.8.5.jar:0.8.5+Jenkins-b310.git-155314e6e91465dad727e621a569906a410cd6f4] {}
-3896-	at org.spongepowered.asm.mixin.injection.struct.InjectionInfo.readAnnotation(InjectionInfo.java:330) ~[mixin-0.8.5.jar:0.8.5+Jenkins-b310.git-155314e6e91465dad727e621a569906a410cd6f4] {}
+159-	at net.minecraft.world.level.biome.FeatureSorter.m_220603_(FeatureSorter.java:100) ~[server-1.20.1-20230612.114412-srg.jar%23107!/:?] {re:classloading}
+160-	at net.minecraft.world.level.chunk.ChunkGenerator.m_223094_(ChunkGenerator.java:102) ~[server-1.20.1-20230612.114412-srg.jar%23107!/:?] {re:classloading}
+161-	at com.google.common.base.Suppliers$NonSerializableMemoizingSupplier.get(Suppliers.java:183) ~[guava-31.1-jre.jar%2374!/:?] {}
 --
-3945:Exception in thread "main" java.lang.RuntimeException: java.lang.reflect.InvocationTargetException
-3946-	at MC-BOOTSTRAP/cpw.mods.modlauncher@10.0.9/cpw.mods.modlauncher.LaunchServiceHandlerDecorator.launch(LaunchServiceHandlerDecorator.java:32)
-3947-	at MC-BOOTSTRAP/cpw.mods.modlauncher@10.0.9/cpw.mods.modlauncher.LaunchServiceHandler.launch(LaunchServiceHandler.java:53)
-3948-	at MC-BOOTSTRAP/cpw.mods.modlauncher@10.0.9/cpw.mods.modlauncher.LaunchServiceHandler.launch(LaunchServiceHandler.java:71)
+181:[07:24:21] [Server thread/ERROR] [minecraft/BlockableEventLoop]: Error executing task on Chunk source main thread executor for minecraft:overworld
+182:net.minecraft.ReportedException: Exception generating new chunk
+183-	at net.minecraft.server.level.ChunkMap.m_214912_(ChunkMap.java:658) ~[server-1.20.1-20230612.114412-srg.jar%23107!/:?] {re:classloading}
+184-	at net.minecraft.util.thread.BlockableEventLoop.m_6367_(BlockableEventLoop.java:156) ~[server-1.20.1-20230612.114412-srg.jar%23107!/:?] {re:classloading,pl:accesstransformer:B}
+185-	at net.minecraft.server.level.ServerChunkCache$MainThreadExecutor.m_6367_(ServerChunkCache.java:541) ~[server-1.20.1-20230612.114412-srg.jar%23107!/:?] {re:classloading}
 --
-3954:Caused by: java.lang.reflect.InvocationTargetException
-3955-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-3956-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
-3957-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+202:Caused by: java.lang.IllegalStateException: Feature order cycle found, involved sources: [Reference{ResourceKey[minecraft:worldgen/biome / biomesunseen:starfall_glade]=net.minecraft.world.level.biome.Biome@5e021d04}, Reference{ResourceKey[minecraft:worldgen/biome / biomesunseen:dreamwisp_dell]=net.minecraft.world.level.biome.Biome@7c3a4496}]
+203-	at net.minecraft.world.level.biome.FeatureSorter.m_220603_(FeatureSorter.java:100) ~[server-1.20.1-20230612.114412-srg.jar%23107!/:?] {re:classloading}
+204-	at net.minecraft.world.level.chunk.ChunkGenerator.m_223094_(ChunkGenerator.java:102) ~[server-1.20.1-20230612.114412-srg.jar%23107!/:?] {re:classloading}
+205-	at com.google.common.base.Suppliers$NonSerializableMemoizingSupplier.get(Suppliers.java:183) ~[guava-31.1-jre.jar%2374!/:?] {}
 --
-3988:Caused by: org.spongepowered.asm.mixin.injection.throwables.InvalidInjectionException: Critical injection failure: @Inject annotation on registerSimple could not find any targets matching 'Lnet/minecraft/core/registries/BuiltInRegistries;m_258002_(Lnet/minecraft/resources/ResourceKey;Lnet/minecraft/core/registries/BuiltInRegistries$RegistryBootstrap;)Lnet/minecraft/core/Registry;' in net.minecraft.core.registries.BuiltInRegistries. Using refmap terrablender.refmap.json [PREINJECT Applicator Phase -> terrablender.mixins.json:MixinBuiltInRegistries -> Prepare Injections ->  -> handler$zza000$registerSimple(Lnet/minecraft/resources/ResourceKey;Lnet/minecraft/core/registries/BuiltInRegistries$RegistryBootstrap;Lorg/spongepowered/asm/mixin/injection/callback/CallbackInfoReturnable;)V -> Parse]
-3989-	at MC-BOOTSTRAP/org.spongepowered.mixin/org.spongepowered.asm.mixin.injection.struct.InjectionInfo.validateTargets(InjectionInfo.java:656)
-3990-	at MC-BOOTSTRAP/org.spongepowered.mixin/org.spongepowered.asm.mixin.injection.struct.InjectionInfo.findTargets(InjectionInfo.java:587)
-3991-	at MC-BOOTSTRAP/org.spongepowered.mixin/org.spongepowered.asm.mixin.injection.struct.InjectionInfo.readAnnotation(InjectionInfo.java:330)
+225:[07:24:22] [Server thread/ERROR] [minecraft/BlockableEventLoop]: Error executing task on Chunk source main thread executor for minecraft:overworld
+226:net.minecraft.ReportedException: Exception generating new chunk
+227-	at net.minecraft.server.level.ChunkMap.m_214912_(ChunkMap.java:658) ~[server-1.20.1-20230612.114412-srg.jar%23107!/:?] {re:classloading}
+228-	at net.minecraft.util.thread.BlockableEventLoop.m_6367_(BlockableEventLoop.java:156) ~[server-1.20.1-20230612.114412-srg.jar%23107!/:?] {re:classloading,pl:accesstransformer:B}
+229-	at net.minecraft.server.level.ServerChunkCache$MainThreadExecutor.m_6367_(ServerChunkCache.java:541) ~[server-1.20.1-20230612.114412-srg.jar%23107!/:?] {re:classloading}
+--
+246:Caused by: java.lang.IllegalStateException: Feature order cycle found, involved sources: [Reference{ResourceKey[minecraft:worldgen/biome / biomesunseen:starfall_glade]=net.minecraft.world.level.biome.Biome@5e021d04}, Reference{ResourceKey[minecraft:worldgen/biome / biomesunseen:dreamwisp_dell]=net.minecraft.world.level.biome.Biome@7c3a4496}]
+247-	at net.minecraft.world.level.biome.FeatureSorter.m_220603_(FeatureSorter.java:100) ~[server-1.20.1-20230612.114412-srg.jar%23107!/:?] {re:classloading}
+248-	at net.minecraft.world.level.chunk.ChunkGenerator.m_223094_(ChunkGenerator.java:102) ~[server-1.20.1-20230612.114412-srg.jar%23107!/:?] {re:classloading}
+249-	at com.google.common.base.Suppliers$NonSerializableMemoizingSupplier.get(Suppliers.java:183) ~[guava-31.1-jre.jar%2374!/:?] {}
+--
+269:[07:24:22] [Server thread/ERROR] [minecraft/BlockableEventLoop]: Error executing task on Chunk source main thread executor for minecraft:overworld
+270:net.minecraft.ReportedException: Exception generating new chunk
+271-	at net.minecraft.server.level.ChunkMap.m_214912_(ChunkMap.java:658) ~[server-1.20.1-20230612.114412-srg.jar%23107!/:?] {re:classloading}
+272-	at net.minecraft.util.thread.BlockableEventLoop.m_6367_(BlockableEventLoop.java:156) ~[server-1.20.1-20230612.114412-srg.jar%23107!/:?] {re:classloading,pl:accesstransformer:B}
+273-	at net.minecraft.server.level.ServerChunkCache$MainThreadExecutor.m_6367_(ServerChunkCache.java:541) ~[server-1.20.1-20230612.114412-srg.jar%23107!/:?] {re:classloading}
+--
+290:Caused by: java.lang.IllegalStateException: Feature order cycle found, involved sources: [Reference{ResourceKey[minecraft:worldgen/biome / biomesunseen:starfall_glade]=net.minecraft.world.level.biome.Biome@5e021d04}, Reference{ResourceKey[minecraft:worldgen/biome / biomesunseen:dreamwisp_dell]=net.minecraft.world.level.biome.Biome@7c3a4496}]
+291-	at net.minecraft.world.level.biome.FeatureSorter.m_220603_(FeatureSorter.java:100) ~[server-1.20.1-20230612.114412-srg.jar%23107!/:?] {re:classloading}
+292-	at net.minecraft.world.level.chunk.ChunkGenerator.m_223094_(ChunkGenerator.java:102) ~[server-1.20.1-20230612.114412-srg.jar%23107!/:?] {re:classloading}
+293-	at com.google.common.base.Suppliers$NonSerializableMemoizingSupplier.get(Suppliers.java:183) ~[guava-31.1-jre.jar%2374!/:?] {}
+--
+313:[07:24:23] [Server thread/ERROR] [minecraft/BlockableEventLoop]: Error executing task on Chunk source main thread executor for minecraft:overworld
+314:net.minecraft.ReportedException: Exception generating new chunk
+315-	at net.minecraft.server.level.ChunkMap.m_214912_(ChunkMap.java:658) ~[server-1.20.1-20230612.114412-srg.jar%23107!/:?] {re:classloading}
+316-	at net.minecraft.util.thread.BlockableEventLoop.m_6367_(BlockableEventLoop.java:156) ~[server-1.20.1-20230612.114412-srg.jar%23107!/:?] {re:classloading,pl:accesstransformer:B}
+317-	at net.minecraft.server.level.ServerChunkCache$MainThreadExecutor.m_6367_(ServerChunkCache.java:541) ~[server-1.20.1-20230612.114412-srg.jar%23107!/:?] {re:classloading}
+--
+334:Caused by: java.lang.IllegalStateException: Feature order cycle found, involved sources: [Reference{ResourceKey[minecraft:worldgen/biome / biomesunseen:starfall_glade]=net.minecraft.world.level.biome.Biome@5e021d04}, Reference{ResourceKey[minecraft:worldgen/biome / biomesunseen:dreamwisp_dell]=net.minecraft.world.level.biome.Biome@7c3a4496}]
+335-	at net.minecraft.world.level.biome.FeatureSorter.m_220603_(FeatureSorter.java:100) ~[server-1.20.1-20230612.114412-srg.jar%23107!/:?] {re:classloading}
+336-	at net.minecraft.world.level.chunk.ChunkGenerator.m_223094_(ChunkGenerator.java:102) ~[server-1.20.1-20230612.114412-srg.jar%23107!/:?] {re:classloading}
+337-	at com.google.common.base.Suppliers$NonSerializableMemoizingSupplier.get(Suppliers.java:183) ~[guava-31.1-jre.jar%2374!/:?] {}
+--
+357:[07:24:24] [Server thread/ERROR] [minecraft/BlockableEventLoop]: Error executing task on Chunk source main thread executor for minecraft:overworld
+358:net.minecraft.ReportedException: Exception generating new chunk
+359-	at net.minecraft.server.level.ChunkMap.m_214912_(ChunkMap.java:658) ~[server-1.20.1-20230612.114412-srg.jar%23107!/:?] {re:classloading}
+360-	at net.minecraft.util.thread.BlockableEventLoop.m_6367_(BlockableEventLoop.java:156) ~[server-1.20.1-20230612.114412-srg.jar%23107!/:?] {re:classloading,pl:accesstransformer:B}
+361-	at net.minecraft.server.level.ServerChunkCache$MainThreadExecutor.m_6367_(ServerChunkCache.java:541) ~[server-1.20.1-20230612.114412-srg.jar%23107!/:?] {re:classloading}
+--
+378:Caused by: java.lang.IllegalStateException: Feature order cycle found, involved sources: [Reference{ResourceKey[minecraft:worldgen/biome / biomesunseen:starfall_glade]=net.minecraft.world.level.biome.Biome@5e021d04}, Reference{ResourceKey[minecraft:worldgen/biome / biomesunseen:dreamwisp_dell]=net.minecraft.world.level.biome.Biome@7c3a4496}]
+379-	at net.minecraft.world.level.biome.FeatureSorter.m_220603_(FeatureSorter.java:100) ~[server-1.20.1-20230612.114412-srg.jar%23107!/:?] {re:classloading}
+380-	at net.minecraft.world.level.chunk.ChunkGenerator.m_223094_(ChunkGenerator.java:102) ~[server-1.20.1-20230612.114412-srg.jar%23107!/:?] {re:classloading}
+381-	at com.google.common.base.Suppliers$NonSerializableMemoizingSupplier.get(Suppliers.java:183) ~[guava-31.1-jre.jar%2374!/:?] {}
+--
+401:[07:24:24] [Server thread/ERROR] [minecraft/BlockableEventLoop]: Error executing task on Chunk source main thread executor for minecraft:overworld
+402:net.minecraft.ReportedException: Exception generating new chunk
+403-	at net.minecraft.server.level.ChunkMap.m_214912_(ChunkMap.java:658) ~[server-1.20.1-20230612.114412-srg.jar%23107!/:?] {re:classloading}
+404-	at net.minecraft.util.thread.BlockableEventLoop.m_6367_(BlockableEventLoop.java:156) ~[server-1.20.1-20230612.114412-srg.jar%23107!/:?] {re:classloading,pl:accesstransformer:B}
+405-	at net.minecraft.server.level.ServerChunkCache$MainThreadExecutor.m_6367_(ServerChunkCache.java:541) ~[server-1.20.1-20230612.114412-srg.jar%23107!/:?] {re:classloading}
+--
+422:Caused by: java.lang.IllegalStateException: Feature order cycle found, involved sources: [Reference{ResourceKey[minecraft:worldgen/biome / biomesunseen:starfall_glade]=net.minecraft.world.level.biome.Biome@5e021d04}, Reference{ResourceKey[minecraft:worldgen/biome / biomesunseen:dreamwisp_dell]=net.minecraft.world.level.biome.Biome@7c3a4496}]
+423-	at net.minecraft.world.level.biome.FeatureSorter.m_220603_(FeatureSorter.java:100) ~[server-1.20.1-20230612.114412-srg.jar%23107!/:?] {re:classloading}
+424-	at net.minecraft.world.level.chunk.ChunkGenerator.m_223094_(ChunkGenerator.java:102) ~[server-1.20.1-20230612.114412-srg.jar%23107!/:?] {re:classloading}
+425-	at com.google.common.base.Suppliers$NonSerializableMemoizingSupplier.get(Suppliers.java:183) ~[guava-31.1-jre.jar%2374!/:?] {}
+--
+445:[07:24:24] [Server thread/ERROR] [minecraft/MinecraftServer]: Encountered an unexpected exception
+446:net.minecraft.ReportedException: Exception generating new chunk
+447-	at net.minecraft.server.MinecraftServer.m_129815_(MinecraftServer.java:359) ~[server-1.20.1-20230612.114412-srg.jar%23107!/:?] {re:classloading,pl:accesstransformer:B}
+448-	at net.minecraft.server.MinecraftServer.m_130006_(MinecraftServer.java:308) ~[server-1.20.1-20230612.114412-srg.jar%23107!/:?] {re:classloading,pl:accesstransformer:B}
+449-	at net.minecraft.server.dedicated.DedicatedServer.m_7038_(DedicatedServer.java:164) ~[server-1.20.1-20230612.114412-srg.jar%23107!/:?] {re:classloading,pl:accesstransformer:B}
+--
+453:Caused by: java.lang.IllegalStateException: Feature order cycle found, involved sources: [Reference{ResourceKey[minecraft:worldgen/biome / biomesunseen:starfall_glade]=net.minecraft.world.level.biome.Biome@5e021d04}, Reference{ResourceKey[minecraft:worldgen/biome / biomesunseen:dreamwisp_dell]=net.minecraft.world.level.biome.Biome@7c3a4496}]
+454-	at net.minecraft.world.level.biome.FeatureSorter.m_220603_(FeatureSorter.java:100) ~[server-1.20.1-20230612.114412-srg.jar%23107!/:?] {re:classloading}
+455-	at net.minecraft.world.level.chunk.ChunkGenerator.m_223094_(ChunkGenerator.java:102) ~[server-1.20.1-20230612.114412-srg.jar%23107!/:?] {re:classloading}
+456-	at com.google.common.base.Suppliers$NonSerializableMemoizingSupplier.get(Suppliers.java:183) ~[guava-31.1-jre.jar%2374!/:?] {}
+--
+477:[07:24:24] [Server thread/ERROR] [minecraft/MinecraftServer]: This crash report has been saved to: /home/runner/work/Biomes-Unseen/Biomes-Unseen/smoke/server/./crash-reports/crash-2026-10-24_07.24.24-server.txt
+478-[07:24:24] [Server thread/INFO] [minecraft/MinecraftServer]: Stopping server
+479-[07:24:24] [Server thread/INFO] [minecraft/MinecraftServer]: Saving players
+480-[07:24:24] [Server thread/INFO] [minecraft/MinecraftServer]: Saving worlds
+481:[07:24:24] [Server thread/ERROR] [minecraft/MinecraftServer]: Exception stopping the server
+482:java.util.concurrent.CompletionException: net.minecraft.ReportedException: Exception generating new chunk
+483-	at java.util.concurrent.CompletableFuture.encodeThrowable(CompletableFuture.java:315) ~[?:?] {}
+484-	at java.util.concurrent.CompletableFuture.completeThrowable(CompletableFuture.java:320) ~[?:?] {}
+485-	at java.util.concurrent.CompletableFuture$UniCompose.tryFire(CompletableFuture.java:1159) ~[?:?] {}
+--
+497:Caused by: net.minecraft.ReportedException: Exception generating new chunk
+498-	at net.minecraft.server.level.ChunkMap.lambda$scheduleChunkGeneration$27(ChunkMap.java:660) ~[server-1.20.1-20230612.114412-srg.jar%23107!/:?] {re:classloading}
+499-	at com.mojang.datafixers.util.Either$Left.map(Either.java:38) ~[datafixerupper-6.0.8.jar%2377!/:?] {}
+500-	at net.minecraft.server.level.ChunkMap.lambda$scheduleChunkGeneration$29(ChunkMap.java:634) ~[server-1.20.1-20230612.114412-srg.jar%23107!/:?] {re:classloading}
+--
+503:Caused by: java.lang.IllegalStateException: Feature order cycle found, involved sources: [Reference{ResourceKey[minecraft:worldgen/biome / biomesunseen:starfall_glade]=net.minecraft.world.level.biome.Biome@5e021d04}, Reference{ResourceKey[minecraft:worldgen/biome / biomesunseen:dreamwisp_dell]=net.minecraft.world.level.biome.Biome@7c3a4496}]
+504-	at net.minecraft.world.level.biome.FeatureSorter.m_220603_(FeatureSorter.java:100) ~[server-1.20.1-20230612.114412-srg.jar%23107!/:?] {re:classloading}
+505-	at net.minecraft.world.level.chunk.ChunkGenerator.m_223094_(ChunkGenerator.java:102) ~[server-1.20.1-20230612.114412-srg.jar%23107!/:?] {re:classloading}
+506-	at com.google.common.base.Suppliers$NonSerializableMemoizingSupplier.get(Suppliers.java:183) ~[guava-31.1-jre.jar%2374!/:?] {}
 ----- tail -----
-	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
-	at MC-BOOTSTRAP/org.spongepowered.mixin/org.spongepowered.asm.mixin.injection.struct.InjectionInfo$InjectorEntry.create(InjectionInfo.java:149)
-	at MC-BOOTSTRAP/org.spongepowered.mixin/org.spongepowered.asm.mixin.injection.struct.InjectionInfo.parse(InjectionInfo.java:708)
-	at MC-BOOTSTRAP/org.spongepowered.mixin/org.spongepowered.asm.mixin.transformer.MixinTargetContext.prepareInjections(MixinTargetContext.java:1311)
-	at MC-BOOTSTRAP/org.spongepowered.mixin/org.spongepowered.asm.mixin.transformer.MixinApplicatorStandard.prepareInjections(MixinApplicatorStandard.java:1042)
-	at MC-BOOTSTRAP/org.spongepowered.mixin/org.spongepowered.asm.mixin.transformer.MixinApplicatorStandard.applyMixin(MixinApplicatorStandard.java:393)
-	at MC-BOOTSTRAP/org.spongepowered.mixin/org.spongepowered.asm.mixin.transformer.MixinApplicatorStandard.apply(MixinApplicatorStandard.java:325)
-	at MC-BOOTSTRAP/org.spongepowered.mixin/org.spongepowered.asm.mixin.transformer.TargetClassContext.apply(TargetClassContext.java:383)
-	at MC-BOOTSTRAP/org.spongepowered.mixin/org.spongepowered.asm.mixin.transformer.TargetClassContext.applyMixins(TargetClassContext.java:365)
-	at MC-BOOTSTRAP/org.spongepowered.mixin/org.spongepowered.asm.mixin.transformer.MixinProcessor.applyMixins(MixinProcessor.java:363)
-	... 31 more
-
-> Task :runServer FAILED
-
-FAILURE: Build failed with an exception.
-
-* What went wrong:
-Execution failed for task ':runServer'.
-> Process 'command '/usr/lib/jvm/temurin-17-jdk-amd64/bin/java'' finished with non-zero exit value 1
-
-* Try:
-> Run with --stacktrace option to get the stack trace.
-> Run with --info or --debug option to get more log output.
-> Run with --scan to get full insights.
-
-* Get more help at https://help.gradle.org
-
-Deprecated Gradle features were used in this build, making it incompatible with Gradle 9.0.
-
-You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
-
-See https://docs.gradle.org/8.1.1/userguide/command_line_interface.html#sec:command_line_warnings
-
-BUILD FAILED in 21s
-10 actionable tasks: 7 executed, 3 up-to-date
+[07:24:24] [Server thread/ERROR] [minecraft/MinecraftServer]: Exception stopping the server
+java.util.concurrent.CompletionException: net.minecraft.ReportedException: Exception generating new chunk
+	at java.util.concurrent.CompletableFuture.encodeThrowable(CompletableFuture.java:315) ~[?:?] {}
+	at java.util.concurrent.CompletableFuture.completeThrowable(CompletableFuture.java:320) ~[?:?] {}
+	at java.util.concurrent.CompletableFuture$UniCompose.tryFire(CompletableFuture.java:1159) ~[?:?] {}
+	at java.util.concurrent.CompletableFuture$Completion.run(CompletableFuture.java:482) ~[?:?] {}
+	at net.minecraft.server.level.ChunkTaskPriorityQueueSorter.m_143188_(ChunkTaskPriorityQueueSorter.java:62) ~[server-1.20.1-20230612.114412-srg.jar%23107!/:?] {re:classloading}
+	at net.minecraft.util.thread.ProcessorMailbox.m_18759_(ProcessorMailbox.java:91) ~[server-1.20.1-20230612.114412-srg.jar%23107!/:?] {re:classloading}
+	at net.minecraft.util.thread.ProcessorMailbox.m_18747_(ProcessorMailbox.java:146) ~[server-1.20.1-20230612.114412-srg.jar%23107!/:?] {re:classloading}
+	at net.minecraft.util.thread.ProcessorMailbox.run(ProcessorMailbox.java:102) ~[server-1.20.1-20230612.114412-srg.jar%23107!/:?] {re:classloading}
+	at java.util.concurrent.ForkJoinTask$RunnableExecuteAction.exec(ForkJoinTask.java:1395) ~[?:?] {}
+	at java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:373) ~[?:?] {}
+	at java.util.concurrent.ForkJoinPool$WorkQueue.topLevelExec(ForkJoinPool.java:1182) ~[?:?] {}
+	at java.util.concurrent.ForkJoinPool.scan(ForkJoinPool.java:1655) ~[?:?] {}
+	at java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1622) ~[?:?] {}
+	at java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:165) ~[?:?] {}
+Caused by: net.minecraft.ReportedException: Exception generating new chunk
+	at net.minecraft.server.level.ChunkMap.lambda$scheduleChunkGeneration$27(ChunkMap.java:660) ~[server-1.20.1-20230612.114412-srg.jar%23107!/:?] {re:classloading}
+	at com.mojang.datafixers.util.Either$Left.map(Either.java:38) ~[datafixerupper-6.0.8.jar%2377!/:?] {}
+	at net.minecraft.server.level.ChunkMap.lambda$scheduleChunkGeneration$29(ChunkMap.java:634) ~[server-1.20.1-20230612.114412-srg.jar%23107!/:?] {re:classloading}
+	at java.util.concurrent.CompletableFuture$UniCompose.tryFire(CompletableFuture.java:1150) ~[?:?] {}
+	... 11 more
+Caused by: java.lang.IllegalStateException: Feature order cycle found, involved sources: [Reference{ResourceKey[minecraft:worldgen/biome / biomesunseen:starfall_glade]=net.minecraft.world.level.biome.Biome@5e021d04}, Reference{ResourceKey[minecraft:worldgen/biome / biomesunseen:dreamwisp_dell]=net.minecraft.world.level.biome.Biome@7c3a4496}]
+	at net.minecraft.world.level.biome.FeatureSorter.m_220603_(FeatureSorter.java:100) ~[server-1.20.1-20230612.114412-srg.jar%23107!/:?] {re:classloading}
+	at net.minecraft.world.level.chunk.ChunkGenerator.m_223094_(ChunkGenerator.java:102) ~[server-1.20.1-20230612.114412-srg.jar%23107!/:?] {re:classloading}
+	at com.google.common.base.Suppliers$NonSerializableMemoizingSupplier.get(Suppliers.java:183) ~[guava-31.1-jre.jar%2374!/:?] {}
+	at net.minecraft.world.level.chunk.ChunkGenerator.m_213609_(ChunkGenerator.java:288) ~[server-1.20.1-20230612.114412-srg.jar%23107!/:?] {re:classloading}
+	at net.minecraft.world.level.chunk.ChunkStatus.m_279978_(ChunkStatus.java:108) ~[server-1.20.1-20230612.114412-srg.jar%23107!/:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.world.level.chunk.ChunkStatus$SimpleGenerationTask.m_214024_(ChunkStatus.java:309) ~[server-1.20.1-20230612.114412-srg.jar%23107!/:?] {re:classloading}
+	at net.minecraft.world.level.chunk.ChunkStatus.m_280308_(ChunkStatus.java:252) ~[server-1.20.1-20230612.114412-srg.jar%23107!/:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.server.level.ChunkMap.lambda$scheduleChunkGeneration$27(ChunkMap.java:643) ~[server-1.20.1-20230612.114412-srg.jar%23107!/:?] {re:classloading}
+	at com.mojang.datafixers.util.Either$Left.map(Either.java:38) ~[datafixerupper-6.0.8.jar%2377!/:?] {}
+	at net.minecraft.server.level.ChunkMap.lambda$scheduleChunkGeneration$29(ChunkMap.java:634) ~[server-1.20.1-20230612.114412-srg.jar%23107!/:?] {re:classloading}
+	at java.util.concurrent.CompletableFuture$UniCompose.tryFire(CompletableFuture.java:1150) ~[?:?] {}
+	... 11 more
 ```
 
 ## built jars
 ```
 total 1156
-drwxr-xr-x  2 runner runner    4096 Oct 24 07:18 .
-drwxr-xr-x 21 runner runner    4096 Oct 24 07:18 ..
--rw-r--r--  1 runner runner 1171947 Oct 24 07:18 biomesunseen-1.1.0.jar
+drwxr-xr-x  2 runner runner    4096 Oct 24 07:23 .
+drwxr-xr-x 19 runner runner    4096 Oct 24 07:23 ..
+-rw-r--r--  1 runner runner 1171931 Oct 24 07:23 biomesunseen-1.1.0.jar
 ```
