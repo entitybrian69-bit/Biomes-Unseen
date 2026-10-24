@@ -46,7 +46,7 @@
     ],
     [],
     ["minecraft:spring_water", "minecraft:spring_lava"],
-    ["minecraft:trees_snowy", "minecraft:patch_grass_plain"],
+    ["minecraft:patch_grass_plain", "minecraft:trees_snowy"],
     ["minecraft:freeze_top_layer"]
   ],
   "spawners": {

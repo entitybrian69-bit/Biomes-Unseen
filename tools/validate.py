@@ -23,6 +23,7 @@ import sys
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.join(ROOT, "tools"))
 import gen_textures  # noqa: E402
+from spec.feature_order import FEATURE_ORDER  # noqa: E402
 
 MOD = "biomesunseen"
 RES = os.path.join(ROOT, "src", "main", "resources")
@@ -227,12 +228,23 @@ def biome_ids():
 
 
 def check_feature_order():
-    """Minecraft requires a consistent placed-feature order within each step across biomes."""
+    """Check cross-biome order and compatibility with shared vanilla features."""
     constraints = {}
+    order_ranks = {step: {fid: index for index, fid in enumerate(order)}
+                   for step, order in FEATURE_ORDER.items()}
     paths = glob.glob(os.path.join(DATA, "worldgen", "biome", "*.json"))
     for path in paths:
         data = json.loads(read(path))
         for step, features in enumerate(data.get("features", [])):
+            rank = order_ranks.get(step)
+            if rank:
+                unknown = [fid for fid in features if fid not in rank]
+                if unknown:
+                    errors.append("%s: features need canonical order at step %d: %s" %
+                                  (rel(path), step, ", ".join(unknown)))
+                elif features != sorted(features, key=rank.__getitem__):
+                    errors.append("%s: feature order conflicts with vanilla at step %d" %
+                                  (rel(path), step))
             edges, indegree = constraints.setdefault(step, ({}, {}))
             for fid in features:
                 edges.setdefault(fid, set())

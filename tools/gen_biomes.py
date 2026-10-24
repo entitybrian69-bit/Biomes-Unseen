@@ -16,6 +16,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
 from jsonfmt import write  # noqa: E402
 from spec.biomes import DIM_BIOMES, OW_BIOMES, OW_GROUPS, THEMES, VARIANTS, VEG  # noqa: E402
+from spec.feature_order import FEATURE_ORDER  # noqa: E402
 from spec.mobs import MOBS  # noqa: E402
 
 ROOT = os.path.dirname(HERE)
@@ -35,13 +36,6 @@ ORES_STEP = ["minecraft:ore_dirt", "minecraft:ore_gravel", "minecraft:ore_granit
              "minecraft:ore_gold_lower", "minecraft:ore_redstone", "minecraft:ore_redstone_lower", "minecraft:ore_diamond",
              "minecraft:ore_diamond_large", "minecraft:ore_diamond_buried", "minecraft:ore_lapis",
              "minecraft:ore_lapis_buried", "minecraft:ore_copper"]
-FEATURE_ORDER = {
-    # Biomes share a decoration-stage order. Keep these globally consistent even
-    # when a theme's base and variant contribute features in opposite orders.
-    7: ["minecraft:glow_lichen", "minecraft:large_dripstone", "minecraft:pointed_dripstone"],
-}
-
-
 def shade(color, k):
     r, g, b = (min(255, int(((color >> s) & 255) * k)) for s in (16, 8, 0))
     return (r << 16) | (g << 8) | b

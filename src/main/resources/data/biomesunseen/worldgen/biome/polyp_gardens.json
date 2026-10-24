@@ -23,7 +23,7 @@
     [],
     ["minecraft:glow_lichen"],
     [],
-    ["minecraft:spore_blossom", "minecraft:cave_vines"],
+    ["minecraft:cave_vines", "minecraft:spore_blossom"],
     []
   ],
   "spawners": {
