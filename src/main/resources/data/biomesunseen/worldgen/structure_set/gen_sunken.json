@@ -1,0 +1,12 @@
+{
+  "structures": [
+    {"structure": "biomesunseen:drowned_tower", "weight": 1},
+    {"structure": "biomesunseen:brine_ruins", "weight": 1},
+    {"structure": "biomesunseen:tidal_shrine", "weight": 1},
+    {"structure": "biomesunseen:pearl_well", "weight": 1},
+    {"structure": "biomesunseen:kelp_camp", "weight": 1},
+    {"structure": "biomesunseen:sunken_crypt", "weight": 1},
+    {"structure": "biomesunseen:abyss_bridge", "weight": 1}
+  ],
+  "placement": {"type": "minecraft:random_spread", "spacing": 12, "separation": 5, "salt": 549307967}
+}

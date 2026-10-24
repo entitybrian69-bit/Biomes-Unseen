@@ -1,0 +1,28 @@
+{
+  "has_precipitation": false,
+  "temperature": 0.96,
+  "downfall": 0.0,
+  "effects": {
+    "sky_color": 262665,
+    "fog_color": 1510955,
+    "water_color": 4334972,
+    "water_fog_color": 1050910,
+    "grass_color": 5321866,
+    "foliage_color": 4334972,
+    "particle": {"options": {"type": "minecraft:reverse_portal"}, "probability": 0.004},
+    "mood_sound": {"sound": "minecraft:ambient.cave", "tick_delay": 6000, "block_search_extent": 8, "offset": 2.0}
+  },
+  "carvers": {},
+  "features": [[], [], [], ["minecraft:amethyst_geode"], [], [], [], ["minecraft:glow_lichen"], [], [], []],
+  "spawners": {
+    "monster": [],
+    "creature": [],
+    "ambient": [],
+    "axolotls": [],
+    "underground_water_creature": [],
+    "water_creature": [],
+    "water_ambient": [],
+    "misc": []
+  },
+  "spawn_costs": {}
+}

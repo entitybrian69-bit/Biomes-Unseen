@@ -1,0 +1,40 @@
+{
+  "has_precipitation": false,
+  "temperature": 1.88,
+  "downfall": 0.0,
+  "effects": {
+    "sky_color": 2033924,
+    "fog_color": 5775116,
+    "water_color": 12605471,
+    "water_fog_color": 4528137,
+    "grass_color": 12610610,
+    "foliage_color": 11294751,
+    "particle": {"options": {"type": "minecraft:small_flame"}, "probability": 0.004},
+    "mood_sound": {"sound": "minecraft:ambient.cave", "tick_delay": 6000, "block_search_extent": 8, "offset": 2.0}
+  },
+  "carvers": {},
+  "features": [
+    [],
+    [],
+    [],
+    ["minecraft:amethyst_geode"],
+    [],
+    [],
+    [],
+    ["minecraft:pointed_dripstone", "minecraft:large_dripstone"],
+    [],
+    [],
+    []
+  ],
+  "spawners": {
+    "monster": [],
+    "creature": [],
+    "ambient": [],
+    "axolotls": [],
+    "underground_water_creature": [],
+    "water_creature": [],
+    "water_ambient": [],
+    "misc": []
+  },
+  "spawn_costs": {}
+}

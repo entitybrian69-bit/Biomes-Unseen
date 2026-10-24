@@ -1,0 +1,13 @@
+{
+  "replace": false,
+  "values": [
+    "biomesunseen:glimmerwood",
+    "biomesunseen:starfall_glade",
+    "biomesunseen:cloudcap_hills",
+    "biomesunseen:crystalbloom_steppe",
+    "biomesunseen:moonpetal_forest",
+    "biomesunseen:fairyring_meadow",
+    "biomesunseen:aurora_wilds",
+    "biomesunseen:dreamwisp_dell"
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "biomesunseen:magma_halls",
+    "biomesunseen:emberfall_caverns",
+    "biomesunseen:cinder_forge",
+    "biomesunseen:molten_depths",
+    "biomesunseen:scorch_gallery"
+  ]
+}

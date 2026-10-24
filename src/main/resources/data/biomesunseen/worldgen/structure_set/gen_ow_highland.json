@@ -1,0 +1,8 @@
+{
+  "structures": [
+    {"structure": "biomesunseen:cairn_tower", "weight": 1},
+    {"structure": "biomesunseen:highland_ruins", "weight": 1},
+    {"structure": "biomesunseen:standing_stones", "weight": 1}
+  ],
+  "placement": {"type": "minecraft:random_spread", "spacing": 22, "separation": 9, "salt": 804699181}
+}

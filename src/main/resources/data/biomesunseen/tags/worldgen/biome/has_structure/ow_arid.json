@@ -1,0 +1,13 @@
+{
+  "replace": false,
+  "values": [
+    "biomesunseen:sunscorch_dunes",
+    "biomesunseen:saltpan_barrens",
+    "biomesunseen:redrock_mesa",
+    "biomesunseen:cactus_wastes",
+    "biomesunseen:bonewind_desert",
+    "biomesunseen:glasswind_flats",
+    "biomesunseen:sandstone_canyons",
+    "biomesunseen:dustdevil_plains"
+  ]
+}

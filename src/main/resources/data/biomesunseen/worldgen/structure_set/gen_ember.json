@@ -1,0 +1,12 @@
+{
+  "structures": [
+    {"structure": "biomesunseen:magma_tower", "weight": 1},
+    {"structure": "biomesunseen:ember_ruins", "weight": 1},
+    {"structure": "biomesunseen:flame_shrine", "weight": 1},
+    {"structure": "biomesunseen:forge_hut", "weight": 1},
+    {"structure": "biomesunseen:molten_bridge", "weight": 1},
+    {"structure": "biomesunseen:scorch_obelisk", "weight": 1},
+    {"structure": "biomesunseen:cinder_camp", "weight": 1}
+  ],
+  "placement": {"type": "minecraft:random_spread", "spacing": 12, "separation": 5, "salt": 862892098}
+}

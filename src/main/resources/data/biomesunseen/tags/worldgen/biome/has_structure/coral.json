@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "biomesunseen:coralline_cavern",
+    "biomesunseen:reef_hollow",
+    "biomesunseen:polyp_gardens",
+    "biomesunseen:bloomtide_grotto",
+    "biomesunseen:anemone_vault"
+  ]
+}

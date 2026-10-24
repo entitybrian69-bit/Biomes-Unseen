@@ -1,0 +1,12 @@
+{
+  "structures": [
+    {"structure": "biomesunseen:root_watchtower", "weight": 1},
+    {"structure": "biomesunseen:elder_ruins", "weight": 1},
+    {"structure": "biomesunseen:heartwood_shrine", "weight": 1},
+    {"structure": "biomesunseen:woodcutter_hut", "weight": 1},
+    {"structure": "biomesunseen:thorn_circle", "weight": 1},
+    {"structure": "biomesunseen:ranger_camp", "weight": 1},
+    {"structure": "biomesunseen:elder_obelisk", "weight": 1}
+  ],
+  "placement": {"type": "minecraft:random_spread", "spacing": 12, "separation": 5, "salt": 1662644808}
+}

@@ -1,0 +1,19 @@
+{
+  "type": "forge:add_spawns",
+  "biomes": [
+    "biomesunseen:ossuary_halls",
+    "biomesunseen:grave_hollow",
+    "biomesunseen:marrow_pits",
+    "biomesunseen:dustbone_reach",
+    "biomesunseen:catacomb_deeps"
+  ],
+  "spawners": [
+    {"type": "biomesunseen:ossuary_guard", "weight": 30, "minCount": 1, "maxCount": 2},
+    {"type": "biomesunseen:rib_crawler", "weight": 35, "minCount": 1, "maxCount": 3},
+    {"type": "biomesunseen:marrow_hound", "weight": 30, "minCount": 1, "maxCount": 3},
+    {"type": "biomesunseen:skull_wraith", "weight": 20, "minCount": 1, "maxCount": 2},
+    {"type": "biomesunseen:grave_brute", "weight": 8, "minCount": 1, "maxCount": 1},
+    {"type": "biomesunseen:vertebrae_serpent", "weight": 25, "minCount": 1, "maxCount": 2},
+    {"type": "biomesunseen:dust_imp", "weight": 40, "minCount": 2, "maxCount": 4}
+  ]
+}

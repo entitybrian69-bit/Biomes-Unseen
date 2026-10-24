@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "biomesunseen:rustworks",
+    "biomesunseen:scrapyard_deep",
+    "biomesunseen:clockwork_hollow",
+    "biomesunseen:boltforge_caverns",
+    "biomesunseen:ironbound_depths"
+  ]
+}

@@ -1,0 +1,4 @@
+{
+  "structures": [{"structure": "biomesunseen:heart_arena", "weight": 1}],
+  "placement": {"type": "minecraft:random_spread", "spacing": 14, "separation": 6, "salt": 1693821}
+}

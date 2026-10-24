@@ -1,0 +1,19 @@
+{
+  "type": "forge:add_spawns",
+  "biomes": [
+    "biomesunseen:crystal_hollows",
+    "biomesunseen:geode_cathedral",
+    "biomesunseen:prism_vault",
+    "biomesunseen:quartz_spires",
+    "biomesunseen:amethyst_deeps"
+  ],
+  "spawners": [
+    {"type": "biomesunseen:shardling", "weight": 40, "minCount": 2, "maxCount": 4},
+    {"type": "biomesunseen:prism_crawler", "weight": 35, "minCount": 1, "maxCount": 3},
+    {"type": "biomesunseen:geode_brute", "weight": 8, "minCount": 1, "maxCount": 1},
+    {"type": "biomesunseen:refraction_wraith", "weight": 20, "minCount": 1, "maxCount": 2},
+    {"type": "biomesunseen:quartz_stalker", "weight": 30, "minCount": 1, "maxCount": 2},
+    {"type": "biomesunseen:crystalback_basilisk", "weight": 30, "minCount": 1, "maxCount": 3},
+    {"type": "biomesunseen:facet_serpent", "weight": 25, "minCount": 1, "maxCount": 2}
+  ]
+}

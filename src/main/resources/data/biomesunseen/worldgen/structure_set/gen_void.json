@@ -1,0 +1,12 @@
+{
+  "structures": [
+    {"structure": "biomesunseen:umbral_tower", "weight": 1},
+    {"structure": "biomesunseen:rift_ruins", "weight": 1},
+    {"structure": "biomesunseen:eclipse_shrine", "weight": 1},
+    {"structure": "biomesunseen:null_obelisk", "weight": 1},
+    {"structure": "biomesunseen:starless_circle", "weight": 1},
+    {"structure": "biomesunseen:void_bridge", "weight": 1},
+    {"structure": "biomesunseen:shadow_crypt", "weight": 1}
+  ],
+  "placement": {"type": "minecraft:random_spread", "spacing": 12, "separation": 5, "salt": 1383848430}
+}

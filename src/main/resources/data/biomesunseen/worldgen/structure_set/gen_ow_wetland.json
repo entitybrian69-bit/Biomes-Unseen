@@ -1,0 +1,8 @@
+{
+  "structures": [
+    {"structure": "biomesunseen:stilt_hut", "weight": 1},
+    {"structure": "biomesunseen:fen_well", "weight": 1},
+    {"structure": "biomesunseen:marsh_shrine", "weight": 1}
+  ],
+  "placement": {"type": "minecraft:random_spread", "spacing": 22, "separation": 9, "salt": 927591077}
+}

@@ -1,0 +1,13 @@
+{
+  "replace": false,
+  "values": [
+    "biomesunseen:driftwood_shore",
+    "biomesunseen:pearlstrand",
+    "biomesunseen:cliffhaven",
+    "biomesunseen:kelpbreak_coast",
+    "biomesunseen:shellback_beach",
+    "biomesunseen:stormcoast",
+    "biomesunseen:lagoon_shallows",
+    "biomesunseen:saltmist_bay"
+  ]
+}

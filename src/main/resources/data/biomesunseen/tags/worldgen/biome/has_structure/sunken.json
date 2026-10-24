@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "biomesunseen:drowned_vault",
+    "biomesunseen:brinelight_cavern",
+    "biomesunseen:kelpwood_depths",
+    "biomesunseen:abyssal_shelf",
+    "biomesunseen:pearl_grotto"
+  ]
+}

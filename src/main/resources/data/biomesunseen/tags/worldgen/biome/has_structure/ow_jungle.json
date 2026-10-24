@@ -1,0 +1,13 @@
+{
+  "replace": false,
+  "values": [
+    "biomesunseen:emerald_canopy",
+    "biomesunseen:vinetangle_jungle",
+    "biomesunseen:bamboo_hollow",
+    "biomesunseen:orchid_rainforest",
+    "biomesunseen:fernbreak_jungle",
+    "biomesunseen:sunfall_jungle",
+    "biomesunseen:monsoon_forest",
+    "biomesunseen:parrot_ridge"
+  ]
+}

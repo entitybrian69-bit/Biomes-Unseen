@@ -1,0 +1,19 @@
+{
+  "type": "forge:add_spawns",
+  "biomes": [
+    "biomesunseen:rime_cavern",
+    "biomesunseen:glacial_vault",
+    "biomesunseen:hoarfrost_warren",
+    "biomesunseen:frozen_deeps",
+    "biomesunseen:icicle_gallery"
+  ],
+  "spawners": [
+    {"type": "biomesunseen:rime_stalker", "weight": 30, "minCount": 1, "maxCount": 2},
+    {"type": "biomesunseen:hoarfang_wolf", "weight": 30, "minCount": 1, "maxCount": 3},
+    {"type": "biomesunseen:glacier_brute", "weight": 8, "minCount": 1, "maxCount": 1},
+    {"type": "biomesunseen:snowshroud_wraith", "weight": 20, "minCount": 1, "maxCount": 2},
+    {"type": "biomesunseen:icicle_crawler", "weight": 35, "minCount": 1, "maxCount": 3},
+    {"type": "biomesunseen:frostbite_serpent", "weight": 25, "minCount": 1, "maxCount": 2},
+    {"type": "biomesunseen:chill_sprite", "weight": 40, "minCount": 2, "maxCount": 4}
+  ]
+}

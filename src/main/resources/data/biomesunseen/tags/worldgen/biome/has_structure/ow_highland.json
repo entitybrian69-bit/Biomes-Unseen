@@ -1,0 +1,13 @@
+{
+  "replace": false,
+  "values": [
+    "biomesunseen:granite_tors",
+    "biomesunseen:stormcrag_heights",
+    "biomesunseen:windscar_moor",
+    "biomesunseen:heatherland",
+    "biomesunseen:cairn_uplands",
+    "biomesunseen:slate_ridge",
+    "biomesunseen:eagle_scarp",
+    "biomesunseen:thistle_fells"
+  ]
+}

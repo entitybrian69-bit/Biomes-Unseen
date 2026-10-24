@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "biomesunseen:ossuary_halls",
+    "biomesunseen:grave_hollow",
+    "biomesunseen:marrow_pits",
+    "biomesunseen:dustbone_reach",
+    "biomesunseen:catacomb_deeps"
+  ]
+}

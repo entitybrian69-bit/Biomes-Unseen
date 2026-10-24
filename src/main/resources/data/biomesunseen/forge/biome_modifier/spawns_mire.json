@@ -1,0 +1,19 @@
+{
+  "type": "forge:add_spawns",
+  "biomes": [
+    "biomesunseen:mire_of_whispers",
+    "biomesunseen:sunless_marsh",
+    "biomesunseen:reedmurk",
+    "biomesunseen:tarpit_hollow",
+    "biomesunseen:bogwater_reach"
+  ],
+  "spawners": [
+    {"type": "biomesunseen:bog_lurker", "weight": 40, "minCount": 2, "maxCount": 4},
+    {"type": "biomesunseen:mire_hag", "weight": 30, "minCount": 1, "maxCount": 2},
+    {"type": "biomesunseen:leech_serpent", "weight": 25, "minCount": 1, "maxCount": 2},
+    {"type": "biomesunseen:gloomtoad", "weight": 30, "minCount": 1, "maxCount": 3},
+    {"type": "biomesunseen:sludge_brute", "weight": 8, "minCount": 1, "maxCount": 1},
+    {"type": "biomesunseen:marsh_wisp", "weight": 20, "minCount": 1, "maxCount": 2},
+    {"type": "biomesunseen:reed_crawler", "weight": 35, "minCount": 1, "maxCount": 3}
+  ]
+}

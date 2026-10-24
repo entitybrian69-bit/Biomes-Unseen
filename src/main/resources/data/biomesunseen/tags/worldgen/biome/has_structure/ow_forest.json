@@ -1,0 +1,13 @@
+{
+  "replace": false,
+  "values": [
+    "biomesunseen:silverleaf_forest",
+    "biomesunseen:ashen_birchwood",
+    "biomesunseen:mossbark_forest",
+    "biomesunseen:redwood_deep",
+    "biomesunseen:twilight_grove",
+    "biomesunseen:fernshade_woods",
+    "biomesunseen:hollowoak_forest",
+    "biomesunseen:amberleaf_wood"
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "type": "forge:add_spawns",
+  "biomes": [
+    "biomesunseen:coralline_cavern",
+    "biomesunseen:reef_hollow",
+    "biomesunseen:polyp_gardens",
+    "biomesunseen:bloomtide_grotto",
+    "biomesunseen:anemone_vault"
+  ],
+  "spawners": [
+    {"type": "biomesunseen:coralback_beast", "weight": 30, "minCount": 1, "maxCount": 3},
+    {"type": "biomesunseen:polyp_crawler", "weight": 35, "minCount": 1, "maxCount": 3},
+    {"type": "biomesunseen:anemone_lurker", "weight": 40, "minCount": 2, "maxCount": 4},
+    {"type": "biomesunseen:reefstalker", "weight": 30, "minCount": 1, "maxCount": 2},
+    {"type": "biomesunseen:pearlhide_brute", "weight": 8, "minCount": 1, "maxCount": 1},
+    {"type": "biomesunseen:bloomwraith", "weight": 20, "minCount": 1, "maxCount": 2}
+  ]
+}

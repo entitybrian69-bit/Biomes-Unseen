@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "biomesunseen:crystal_hollows",
+    "biomesunseen:geode_cathedral",
+    "biomesunseen:prism_vault",
+    "biomesunseen:quartz_spires",
+    "biomesunseen:amethyst_deeps"
+  ]
+}

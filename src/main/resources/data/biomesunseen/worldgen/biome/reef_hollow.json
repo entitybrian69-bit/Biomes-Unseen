@@ -1,0 +1,28 @@
+{
+  "has_precipitation": false,
+  "temperature": 0.66,
+  "downfall": 0.8,
+  "effects": {
+    "sky_color": 1050382,
+    "fog_color": 3413803,
+    "water_color": 11289215,
+    "water_fog_color": 3412779,
+    "grass_color": 12279696,
+    "foliage_color": 11293057,
+    "particle": {"options": {"type": "minecraft:falling_spore_blossom"}, "probability": 0.004},
+    "mood_sound": {"sound": "minecraft:ambient.cave", "tick_delay": 6000, "block_search_extent": 8, "offset": 2.0}
+  },
+  "carvers": {},
+  "features": [[], [], [], [], [], [], [], ["minecraft:glow_lichen"], [], ["minecraft:spore_blossom"], []],
+  "spawners": {
+    "monster": [],
+    "creature": [],
+    "ambient": [],
+    "axolotls": [],
+    "underground_water_creature": [],
+    "water_creature": [],
+    "water_ambient": [],
+    "misc": []
+  },
+  "spawn_costs": {}
+}

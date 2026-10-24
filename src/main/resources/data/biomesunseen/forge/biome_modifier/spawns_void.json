@@ -1,0 +1,18 @@
+{
+  "type": "forge:add_spawns",
+  "biomes": [
+    "biomesunseen:umbral_expanse",
+    "biomesunseen:starless_hollow",
+    "biomesunseen:rift_gallery",
+    "biomesunseen:eclipse_vault",
+    "biomesunseen:null_cavern"
+  ],
+  "spawners": [
+    {"type": "biomesunseen:voidling", "weight": 40, "minCount": 2, "maxCount": 4},
+    {"type": "biomesunseen:null_stalker", "weight": 30, "minCount": 1, "maxCount": 2},
+    {"type": "biomesunseen:riftcrawler", "weight": 35, "minCount": 1, "maxCount": 3},
+    {"type": "biomesunseen:eclipse_wraith", "weight": 20, "minCount": 1, "maxCount": 2},
+    {"type": "biomesunseen:umbral_brute", "weight": 8, "minCount": 1, "maxCount": 1},
+    {"type": "biomesunseen:starless_serpent", "weight": 25, "minCount": 1, "maxCount": 2}
+  ]
+}

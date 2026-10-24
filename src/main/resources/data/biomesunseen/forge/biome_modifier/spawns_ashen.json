@@ -1,0 +1,19 @@
+{
+  "type": "forge:add_spawns",
+  "biomes": [
+    "biomesunseen:ashen_depths",
+    "biomesunseen:cinderfall_basin",
+    "biomesunseen:slag_flats",
+    "biomesunseen:soot_canyon",
+    "biomesunseen:obsidian_shelf"
+  ],
+  "spawners": [
+    {"type": "biomesunseen:cinder_wretch", "weight": 30, "minCount": 1, "maxCount": 2},
+    {"type": "biomesunseen:ashen_hound", "weight": 30, "minCount": 1, "maxCount": 3},
+    {"type": "biomesunseen:slagback_brute", "weight": 8, "minCount": 1, "maxCount": 1},
+    {"type": "biomesunseen:soot_wraith", "weight": 20, "minCount": 1, "maxCount": 2},
+    {"type": "biomesunseen:char_crawler", "weight": 35, "minCount": 1, "maxCount": 3},
+    {"type": "biomesunseen:ember_serpent", "weight": 25, "minCount": 1, "maxCount": 2},
+    {"type": "biomesunseen:pyre_stalker", "weight": 30, "minCount": 1, "maxCount": 2}
+  ]
+}

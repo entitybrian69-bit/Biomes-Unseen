@@ -1,0 +1,12 @@
+{
+  "structures": [
+    {"structure": "biomesunseen:sporecap_hut", "weight": 1},
+    {"structure": "biomesunseen:lantern_watch", "weight": 1},
+    {"structure": "biomesunseen:mycelium_shrine", "weight": 1},
+    {"structure": "biomesunseen:glow_well", "weight": 1},
+    {"structure": "biomesunseen:fungal_circle", "weight": 1},
+    {"structure": "biomesunseen:lumen_camp", "weight": 1},
+    {"structure": "biomesunseen:spore_ruins", "weight": 1}
+  ],
+  "placement": {"type": "minecraft:random_spread", "spacing": 12, "separation": 5, "salt": 666059822}
+}

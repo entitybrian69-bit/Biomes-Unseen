@@ -1,0 +1,12 @@
+{
+  "structures": [
+    {"structure": "biomesunseen:cinder_tower", "weight": 1},
+    {"structure": "biomesunseen:soot_ruins", "weight": 1},
+    {"structure": "biomesunseen:ash_shrine", "weight": 1},
+    {"structure": "biomesunseen:slag_hut", "weight": 1},
+    {"structure": "biomesunseen:obsidian_circle", "weight": 1},
+    {"structure": "biomesunseen:ashen_crypt", "weight": 1},
+    {"structure": "biomesunseen:char_camp", "weight": 1}
+  ],
+  "placement": {"type": "minecraft:random_spread", "spacing": 12, "separation": 5, "salt": 1874784183}
+}

@@ -1,0 +1,6 @@
+{
+  "type": "forge:add_features",
+  "biomes": "#biomesunseen:hollow_deep",
+  "features": "biomesunseen:ore_coralite",
+  "step": "underground_ores"
+}

@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "biomesunseen:rime_cavern",
+    "biomesunseen:glacial_vault",
+    "biomesunseen:hoarfrost_warren",
+    "biomesunseen:frozen_deeps",
+    "biomesunseen:icicle_gallery"
+  ]
+}

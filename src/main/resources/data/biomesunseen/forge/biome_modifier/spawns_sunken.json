@@ -1,0 +1,18 @@
+{
+  "type": "forge:add_spawns",
+  "biomes": [
+    "biomesunseen:drowned_vault",
+    "biomesunseen:brinelight_cavern",
+    "biomesunseen:kelpwood_depths",
+    "biomesunseen:abyssal_shelf",
+    "biomesunseen:pearl_grotto"
+  ],
+  "spawners": [
+    {"type": "biomesunseen:drowned_stalker", "weight": 30, "minCount": 1, "maxCount": 2},
+    {"type": "biomesunseen:brine_crawler", "weight": 35, "minCount": 1, "maxCount": 3},
+    {"type": "biomesunseen:tidebound_brute", "weight": 8, "minCount": 1, "maxCount": 1},
+    {"type": "biomesunseen:kelp_serpent", "weight": 25, "minCount": 1, "maxCount": 2},
+    {"type": "biomesunseen:abyss_eel", "weight": 25, "minCount": 1, "maxCount": 2},
+    {"type": "biomesunseen:pearl_sprite", "weight": 40, "minCount": 2, "maxCount": 4}
+  ]
+}

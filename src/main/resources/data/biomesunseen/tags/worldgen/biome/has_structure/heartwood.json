@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "biomesunseen:heartwood_hollow",
+    "biomesunseen:elderroot_vault",
+    "biomesunseen:mossbound_glade",
+    "biomesunseen:thornwood_deep",
+    "biomesunseen:canopy_cavern"
+  ]
+}

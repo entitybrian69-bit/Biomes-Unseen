@@ -1,0 +1,19 @@
+{
+  "type": "forge:add_spawns",
+  "biomes": [
+    "biomesunseen:rustworks",
+    "biomesunseen:scrapyard_deep",
+    "biomesunseen:clockwork_hollow",
+    "biomesunseen:boltforge_caverns",
+    "biomesunseen:ironbound_depths"
+  ],
+  "spawners": [
+    {"type": "biomesunseen:scrap_stalker", "weight": 30, "minCount": 1, "maxCount": 2},
+    {"type": "biomesunseen:gear_crawler", "weight": 35, "minCount": 1, "maxCount": 3},
+    {"type": "biomesunseen:ironbound_brute", "weight": 8, "minCount": 1, "maxCount": 1},
+    {"type": "biomesunseen:rust_hound", "weight": 30, "minCount": 1, "maxCount": 3},
+    {"type": "biomesunseen:clockwork_wraith", "weight": 20, "minCount": 1, "maxCount": 2},
+    {"type": "biomesunseen:bolt_serpent", "weight": 25, "minCount": 1, "maxCount": 2},
+    {"type": "biomesunseen:rivet_imp", "weight": 40, "minCount": 2, "maxCount": 4}
+  ]
+}

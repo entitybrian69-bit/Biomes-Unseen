@@ -1,0 +1,13 @@
+{
+  "replace": false,
+  "values": [
+    "biomesunseen:cinderfall_waste",
+    "biomesunseen:basalt_rise",
+    "biomesunseen:sulfur_flats",
+    "biomesunseen:obsidian_fields",
+    "biomesunseen:ashwood_forest",
+    "biomesunseen:lavaflow_scar",
+    "biomesunseen:smolder_steppe",
+    "biomesunseen:geyser_basin"
+  ]
+}

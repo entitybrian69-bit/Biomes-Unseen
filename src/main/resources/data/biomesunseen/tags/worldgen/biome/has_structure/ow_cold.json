@@ -1,0 +1,13 @@
+{
+  "replace": false,
+  "values": [
+    "biomesunseen:rimepine_taiga",
+    "biomesunseen:frostmarch",
+    "biomesunseen:whitebirch_tundra",
+    "biomesunseen:glacier_steppe",
+    "biomesunseen:snowdrift_wood",
+    "biomesunseen:auroral_plains",
+    "biomesunseen:icebloom_valley",
+    "biomesunseen:hoarfrost_heath"
+  ]
+}

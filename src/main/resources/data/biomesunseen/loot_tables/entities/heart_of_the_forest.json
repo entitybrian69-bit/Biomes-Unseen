@@ -1,0 +1,57 @@
+{
+  "type": "minecraft:entity",
+  "pools": [
+    {
+      "rolls": 1,
+      "bonus_rolls": 0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:written_book",
+          "functions": [
+            {
+              "function": "minecraft:set_nbt",
+              "tag": "{title:\"The Heartwood Codex\",author:\"A Fallen Warden\",pages:['{\"text\": \"The Heartwood Codex\\\\n\\\\nBefore the Hollow Deep was sealed, a grove was planted around a single living heart. It was meant to keep the dark in check.\"}','{\"text\": \"The grove grew faithful, then hungry. Its roots learned to walk and its branches learned to reach.\"}','{\"text\": \"Those who cut the heart free found it still beating. They left it to guard the ore that glows with its own pulse.\"}','{\"text\": \"If you read this, the Heart is silent. Take the hollowite. Do not wake what sleeps beneath the roots.\"}']}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "bonus_rolls": 0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "biomesunseen:hollowite_ingot",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {"type": "minecraft:uniform", "min": 6, "max": 10}
+            },
+            {
+              "function": "minecraft:looting_enchant",
+              "count": {"type": "minecraft:uniform", "min": 0, "max": 2}
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "bonus_rolls": 0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:experience_bottle",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {"type": "minecraft:uniform", "min": 8, "max": 16}
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "structures": [
+    {"structure": "biomesunseen:rime_watchtower", "weight": 1},
+    {"structure": "biomesunseen:glacier_ruins", "weight": 1},
+    {"structure": "biomesunseen:frostbound_shrine", "weight": 1},
+    {"structure": "biomesunseen:hoarfrost_hut", "weight": 1},
+    {"structure": "biomesunseen:icicle_obelisk", "weight": 1},
+    {"structure": "biomesunseen:frozen_circle", "weight": 1},
+    {"structure": "biomesunseen:winter_camp", "weight": 1}
+  ],
+  "placement": {"type": "minecraft:random_spread", "spacing": 12, "separation": 5, "salt": 26676970}
+}

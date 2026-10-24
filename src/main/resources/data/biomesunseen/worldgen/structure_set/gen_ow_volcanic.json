@@ -1,0 +1,8 @@
+{
+  "structures": [
+    {"structure": "biomesunseen:lava_watch", "weight": 1},
+    {"structure": "biomesunseen:caldera_ruins", "weight": 1},
+    {"structure": "biomesunseen:obsidian_spire", "weight": 1}
+  ],
+  "placement": {"type": "minecraft:random_spread", "spacing": 22, "separation": 9, "salt": 269743960}
+}

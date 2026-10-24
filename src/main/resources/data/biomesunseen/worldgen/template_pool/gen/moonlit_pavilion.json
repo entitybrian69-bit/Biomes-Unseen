@@ -1,0 +1,15 @@
+{
+  "name": "biomesunseen:gen/moonlit_pavilion",
+  "fallback": "minecraft:empty",
+  "elements": [
+    {
+      "weight": 1,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "biomesunseen:gen/moonlit_pavilion",
+        "processors": "minecraft:empty",
+        "projection": "rigid"
+      }
+    }
+  ]
+}

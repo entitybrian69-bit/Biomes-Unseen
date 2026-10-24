@@ -1,0 +1,19 @@
+{
+  "type": "forge:add_spawns",
+  "biomes": [
+    "biomesunseen:glowcap_grotto",
+    "biomesunseen:sporefall_hollow",
+    "biomesunseen:lumen_cap_forest",
+    "biomesunseen:dusklight_warren",
+    "biomesunseen:myceliant_depths"
+  ],
+  "spawners": [
+    {"type": "biomesunseen:sporecap_lurker", "weight": 40, "minCount": 2, "maxCount": 4},
+    {"type": "biomesunseen:dusk_moth", "weight": 20, "minCount": 1, "maxCount": 2},
+    {"type": "biomesunseen:mycelid_crawler", "weight": 35, "minCount": 1, "maxCount": 3},
+    {"type": "biomesunseen:puffcap_brute", "weight": 8, "minCount": 1, "maxCount": 1},
+    {"type": "biomesunseen:lantern_stalker", "weight": 30, "minCount": 1, "maxCount": 2},
+    {"type": "biomesunseen:sporewhisper", "weight": 20, "minCount": 1, "maxCount": 2},
+    {"type": "biomesunseen:fungal_hound", "weight": 30, "minCount": 1, "maxCount": 3}
+  ]
+}

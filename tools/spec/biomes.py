@@ -1,0 +1,207 @@
+"""Biome data: 12 Hollow Deep themes (60 biomes) and 10 Overworld groups (80 biomes).
+
+Dimension biomes are listed cold -> hot; their multi-noise cells (temperature, humidity, erosion,
+weirdness bands 0..2) are assigned in list order by tools/gen_biomes.py.
+Vanilla feature ids used here are listed in tools/validate.py (KNOWN_FEATURES).
+"""
+
+# ---------------------------------------------------------------- Hollow Deep
+# theme: fog, sky, water, water_fog, grass, foliage, particle, top block, under block, temperature, downfall, features
+THEMES = {
+    "frost": (0x1E3550, 0x0A121C, 0x6AB0E0, 0x153048, 0x8AB8C8, 0x7AA8B8, "minecraft:snowflake",
+              "minecraft:snow_block", "minecraft:packed_ice", 0.0, 0.5, {7: ["minecraft:pointed_dripstone"]}),
+    "crystal": (0x3A2A5A, 0x120C20, 0x8E6BD8, 0x2A1A4A, 0x7A6AC8, 0x6A5AB8, "minecraft:end_rod",
+                "minecraft:calcite", "minecraft:tuff", 0.1, 0.2,
+                {3: ["minecraft:amethyst_geode"], 7: ["minecraft:large_dripstone", "minecraft:pointed_dripstone"]}),
+    "glowcap": (0x1A2F4A, 0x0A1220, 0x3FA6D8, 0x0E2A44, 0x3FBF9F, 0x2FAF8F, "minecraft:glow",
+                "minecraft:mycelium", "minecraft:dirt", 0.3, 0.9, {7: ["minecraft:glow_lichen"], 9: ["minecraft:cave_vines"]}),
+    "sunken": (0x0F3A5A, 0x050E1A, 0x1E7FB0, 0x0A2A44, 0x2FA08A, 0x258A74, "minecraft:underwater",
+               "minecraft:clay", "minecraft:gravel", 0.5, 1.0, {7: ["minecraft:glow_lichen"], 9: ["minecraft:cave_vines"]}),
+    "coral": (0x3A1A30, 0x120810, 0xC04A8E, 0x3A1630, 0xD06AA0, 0xC05A90, "minecraft:falling_spore_blossom",
+              "minecraft:brain_coral_block", "minecraft:dead_brain_coral_block", 0.7, 0.8,
+              {7: ["minecraft:glow_lichen"], 9: ["minecraft:spore_blossom"]}),
+    "heartwood": (0x1F3B2A, 0x0B1A12, 0x2E7D5B, 0x123524, 0x4F9A52, 0x3F8F4A, "minecraft:spore_blossom_air",
+                  "minecraft:moss_block", "minecraft:dirt", 0.6, 0.7, {7: ["minecraft:glow_lichen"], 9: ["minecraft:spore_blossom"]}),
+    "mire": (0x2A3A2A, 0x0C140C, 0x4A6A3A, 0x1E2E1A, 0x5A7A3A, 0x4A6A2A, "minecraft:warped_spore",
+             "minecraft:mud", "minecraft:packed_mud", 0.8, 1.0, {7: ["minecraft:glow_lichen"]}),
+    "bone": (0x3A352A, 0x14110C, 0x6A6252, 0x2A261C, 0x8A8068, 0x7A7058, "minecraft:white_ash",
+             "minecraft:bone_block", "minecraft:coarse_dirt", 0.9, 0.1, {7: ["minecraft:pointed_dripstone"]}),
+    "void": (0x1A1030, 0x05030A, 0x4A2A8A, 0x120A22, 0x5A3A9A, 0x4A2A8A, "minecraft:reverse_portal",
+             "minecraft:obsidian", "minecraft:deepslate", 1.0, 0.0, {3: ["minecraft:amethyst_geode"]}),
+    "rust": (0x3A2A1E, 0x120C08, 0x7A5A3A, 0x2A1E14, 0x8A6A3A, 0x7A5A2A, "minecraft:smoke",
+             "minecraft:terracotta", "minecraft:brown_terracotta", 1.2, 0.0, {7: ["minecraft:pointed_dripstone"]}),
+    "ashen": (0x2B2522, 0x0E0C0B, 0x5A5048, 0x1E1A18, 0x6A6258, 0x5A5248, "minecraft:ash",
+              "minecraft:blackstone", "minecraft:basalt", 1.4, 0.0, {7: ["minecraft:pointed_dripstone"]}),
+    "ember": (0x4A1A0A, 0x1A0804, 0xA04A1A, 0x3A1408, 0xA05A2A, 0x904A1A, "minecraft:small_flame",
+              "minecraft:netherrack", "minecraft:magma_block", 1.8, 0.0, {7: ["minecraft:pointed_dripstone"]}),
+}
+
+# Five biomes per theme, in order. The first biome of crystal/glowcap/heartwood/mire/ashen already exists.
+DIM_BIOMES = {
+    "frost": ["rime_cavern", "glacial_vault", "hoarfrost_warren", "frozen_deeps", "icicle_gallery"],
+    "crystal": ["crystal_hollows", "geode_cathedral", "prism_vault", "quartz_spires", "amethyst_deeps"],
+    "glowcap": ["glowcap_grotto", "sporefall_hollow", "lumen_cap_forest", "dusklight_warren", "myceliant_depths"],
+    "sunken": ["drowned_vault", "brinelight_cavern", "kelpwood_depths", "abyssal_shelf", "pearl_grotto"],
+    "coral": ["coralline_cavern", "reef_hollow", "polyp_gardens", "bloomtide_grotto", "anemone_vault"],
+    "heartwood": ["heartwood_hollow", "elderroot_vault", "mossbound_glade", "thornwood_deep", "canopy_cavern"],
+    "mire": ["mire_of_whispers", "sunless_marsh", "reedmurk", "tarpit_hollow", "bogwater_reach"],
+    "bone": ["ossuary_halls", "grave_hollow", "marrow_pits", "dustbone_reach", "catacomb_deeps"],
+    "void": ["umbral_expanse", "starless_hollow", "rift_gallery", "eclipse_vault", "null_cavern"],
+    "rust": ["rustworks", "scrapyard_deep", "clockwork_hollow", "boltforge_caverns", "ironbound_depths"],
+    "ashen": ["ashen_depths", "cinderfall_basin", "slag_flats", "soot_canyon", "obsidian_shelf"],
+    "ember": ["magma_halls", "emberfall_caverns", "cinder_forge", "molten_depths", "scorch_gallery"],
+}
+
+# per-position variation inside a theme: (colour shade, extra features {step: [ids]})
+VARIANTS = [
+    (1.00, {}),
+    (0.90, {7: ["minecraft:glow_lichen"]}),
+    (1.10, {9: ["minecraft:cave_vines"]}),
+    (0.80, {7: ["minecraft:pointed_dripstone"]}),
+    (1.20, {3: ["minecraft:amethyst_geode"], 7: ["minecraft:large_dripstone"]}),
+]
+
+# ---------------------------------------------------------------- Overworld
+# group: temperature, downfall, sky, fog, water, water_fog, grass, foliage, (t,h) climate pairs, creatures
+OW_GROUPS = {
+    "meadow": (0.7, 0.5, 0x78A7FF, 0xC0D8FF, 0x3F76E4, 0x050533, 0x9ECB5A, 0x7DB448, ((2, 1), (2, 2)),
+               [("sheep", 12, 2, 4), ("pig", 10, 2, 3), ("chicken", 10, 2, 4), ("cow", 8, 2, 4), ("horse", 5, 2, 6)]),
+    "forest": (0.6, 0.7, 0x7BA4FF, 0xC0D8FF, 0x3F76E4, 0x050533, 0x6FA848, 0x4C8A3A, ((2, 3), (1, 3)),
+               [("wolf", 8, 4, 4), ("pig", 10, 2, 3), ("sheep", 12, 2, 4), ("fox", 8, 2, 4)]),
+    "highland": (0.3, 0.4, 0x7AA0F0, 0xBCD2F0, 0x3F76E4, 0x050533, 0x8DB360, 0x6A9A4A, ((1, 0), (1, 1)),
+                 [("goat", 5, 1, 3), ("sheep", 12, 2, 4), ("rabbit", 4, 2, 3)]),
+    "wetland": (0.8, 0.9, 0x78A7FF, 0xC0D8FF, 0x617B64, 0x232317, 0x6A7039, 0x6A7039, ((2, 4), (3, 4)),
+                [("frog", 10, 2, 5), ("cow", 8, 2, 4), ("rabbit", 4, 2, 3)]),
+    "arid": (2.0, 0.0, 0x6EB1FF, 0xC0D8FF, 0x32A598, 0x041F33, 0xBFB755, 0xAEA42A, ((4, 0), (3, 0)),
+             [("rabbit", 4, 2, 3)]),
+    "cold": (-0.3, 0.4, 0x7FA1FF, 0xC0D8FF, 0x3D57D6, 0x050533, 0x80B497, 0x60A17B, ((0, 1), (0, 3)),
+             [("polar_bear", 1, 1, 2), ("fox", 8, 2, 4), ("rabbit", 10, 2, 3), ("wolf", 8, 4, 4)]),
+    "jungle": (0.95, 0.9, 0x6EB1FF, 0xC0D8FF, 0x14A2C5, 0x0B3A4A, 0x59C93C, 0x30BB0B, ((4, 4), (4, 3)),
+               [("parrot", 40, 1, 2), ("ocelot", 2, 1, 3), ("panda", 1, 1, 2), ("chicken", 10, 2, 4)]),
+    "coast": (0.6, 0.6, 0x78A7FF, 0xC0D8FF, 0x1787D4, 0x050533, 0x91BD59, 0x77AB2F, ((1, 2), (3, 2)),
+              [("sheep", 12, 2, 4), ("pig", 10, 2, 3)]),
+    "fantasy": (0.7, 0.6, 0x9A8CFF, 0xE6D2FF, 0x6A8CFF, 0x2A2A6A, 0x6FE0A0, 0xB07AE0, ((0, 4), (1, 4)),
+                [("horse", 5, 2, 6), ("rabbit", 4, 2, 3), ("fox", 8, 2, 4), ("bee", 10, 2, 3)]),
+    "volcanic": (1.2, 0.0, 0x8A5A4A, 0xB0705A, 0x8A4A2A, 0x3A1A0A, 0x6A5A3A, 0x5A4A2A, ((4, 1), (4, 2)),
+                 [("goat", 5, 1, 3)]),
+}
+
+VEG = {
+    "open": ["minecraft:flower_plains", "minecraft:patch_grass_plain"],
+    "plains": ["minecraft:trees_plains", "minecraft:flower_plains", "minecraft:patch_grass_plain"],
+    "birch": ["minecraft:trees_birch", "minecraft:flower_default", "minecraft:patch_grass_forest"],
+    "forest": ["minecraft:trees_birch_and_oak", "minecraft:flower_default", "minecraft:patch_grass_forest"],
+    "flower": ["minecraft:trees_flower_forest", "minecraft:flower_forest_flowers", "minecraft:patch_grass_forest"],
+    "dark": ["minecraft:dark_forest_vegetation", "minecraft:brown_mushroom_normal", "minecraft:red_mushroom_normal"],
+    "taiga": ["minecraft:trees_taiga", "minecraft:patch_grass_taiga", "minecraft:patch_berry_common"],
+    "snowy": ["minecraft:trees_snowy", "minecraft:patch_grass_plain"],
+    "swamp": ["minecraft:trees_swamp", "minecraft:flower_swamp", "minecraft:patch_waterlily",
+              "minecraft:brown_mushroom_swamp", "minecraft:red_mushroom_swamp"],
+    "savanna": ["minecraft:trees_savanna", "minecraft:patch_tall_grass"],
+    "desert": ["minecraft:patch_dead_bush", "minecraft:patch_cactus_desert"],
+    "dry": ["minecraft:patch_dead_bush"],
+    "jungle": ["minecraft:trees_jungle", "minecraft:patch_grass_jungle", "minecraft:bamboo_light"],
+    "bamboo": ["minecraft:bamboo_light", "minecraft:patch_grass_jungle"],
+    "mushroom": ["minecraft:brown_mushroom_normal", "minecraft:red_mushroom_normal", "minecraft:trees_plains"],
+    "rocky": ["minecraft:forest_rock", "minecraft:patch_grass_plain"],
+    "berry": ["minecraft:patch_berry_common", "minecraft:patch_grass_plain", "minecraft:trees_plains"],
+    "pumpkin": ["minecraft:patch_pumpkin", "minecraft:patch_grass_plain", "minecraft:flower_plains"],
+    "melon": ["minecraft:patch_melon", "minecraft:patch_grass_jungle", "minecraft:trees_jungle"],
+    "sugar": ["minecraft:patch_sugar_cane", "minecraft:patch_grass_plain"],
+    "sunflower": ["minecraft:patch_sunflower", "minecraft:patch_grass_plain"],
+    "bare": [],
+}
+
+# (id, name, group, top block, under block, vegetation preset, shade)
+OW_BIOMES = [
+    # meadow
+    ("amber_meadow", "Amber Meadow", "meadow", "minecraft:grass_block", "minecraft:dirt", "open", 1.00),
+    ("bluebell_dale", "Bluebell Dale", "meadow", "minecraft:grass_block", "minecraft:dirt", "flower", 0.95),
+    ("clover_steppe", "Clover Steppe", "meadow", "minecraft:grass_block", "minecraft:coarse_dirt", "open", 1.05),
+    ("daisy_commons", "Daisy Commons", "meadow", "minecraft:grass_block", "minecraft:dirt", "plains", 1.10),
+    ("honeygrass_plain", "Honeygrass Plain", "meadow", "minecraft:grass_block", "minecraft:dirt", "sunflower", 1.15),
+    ("lark_prairie", "Lark Prairie", "meadow", "minecraft:grass_block", "minecraft:dirt", "open", 0.90),
+    ("windwhisper_fields", "Windwhisper Fields", "meadow", "minecraft:grass_block", "minecraft:dirt", "pumpkin", 1.00),
+    ("sunpetal_downs", "Sunpetal Downs", "meadow", "minecraft:grass_block", "minecraft:dirt", "berry", 1.08),
+    # forest
+    ("silverleaf_forest", "Silverleaf Forest", "forest", "minecraft:grass_block", "minecraft:dirt", "birch", 1.05),
+    ("ashen_birchwood", "Ashen Birchwood", "forest", "minecraft:grass_block", "minecraft:dirt", "birch", 0.85),
+    ("mossbark_forest", "Mossbark Forest", "forest", "minecraft:grass_block", "minecraft:dirt", "forest", 0.95),
+    ("redwood_deep", "Redwood Deep", "forest", "minecraft:podzol", "minecraft:dirt", "taiga", 0.90),
+    ("twilight_grove", "Twilight Grove", "forest", "minecraft:grass_block", "minecraft:dirt", "dark", 0.80),
+    ("fernshade_woods", "Fernshade Woods", "forest", "minecraft:grass_block", "minecraft:dirt", "forest", 1.00),
+    ("hollowoak_forest", "Hollowoak Forest", "forest", "minecraft:grass_block", "minecraft:dirt", "flower", 1.10),
+    ("amberleaf_wood", "Amberleaf Wood", "forest", "minecraft:grass_block", "minecraft:dirt", "mushroom", 1.15),
+    # highland
+    ("granite_tors", "Granite Tors", "highland", "minecraft:stone", "minecraft:stone", "rocky", 0.90),
+    ("stormcrag_heights", "Stormcrag Heights", "highland", "minecraft:stone", "minecraft:gravel", "bare", 0.80),
+    ("windscar_moor", "Windscar Moor", "highland", "minecraft:grass_block", "minecraft:coarse_dirt", "rocky", 1.00),
+    ("heatherland", "Heatherland", "highland", "minecraft:grass_block", "minecraft:dirt", "berry", 1.05),
+    ("cairn_uplands", "Cairn Uplands", "highland", "minecraft:grass_block", "minecraft:dirt", "open", 0.95),
+    ("slate_ridge", "Slate Ridge", "highland", "minecraft:deepslate", "minecraft:cobbled_deepslate", "bare", 0.85),
+    ("eagle_scarp", "Eagle Scarp", "highland", "minecraft:stone", "minecraft:stone", "rocky", 1.10),
+    ("thistle_fells", "Thistle Fells", "highland", "minecraft:grass_block", "minecraft:dirt", "taiga", 1.00),
+    # wetland
+    ("mirrormere", "Mirrormere", "wetland", "minecraft:mud", "minecraft:clay", "swamp", 1.00),
+    ("sallow_fen", "Sallow Fen", "wetland", "minecraft:grass_block", "minecraft:mud", "swamp", 0.90),
+    ("lilypad_lowlands", "Lilypad Lowlands", "wetland", "minecraft:grass_block", "minecraft:clay", "swamp", 1.10),
+    ("cattail_marsh", "Cattail Marsh", "wetland", "minecraft:grass_block", "minecraft:dirt", "sugar", 1.00),
+    ("blackwater_swamp", "Blackwater Swamp", "wetland", "minecraft:mud", "minecraft:mud", "swamp", 0.75),
+    ("mistfen", "Mistfen", "wetland", "minecraft:grass_block", "minecraft:mud", "mushroom", 0.85),
+    ("reedhaven", "Reedhaven", "wetland", "minecraft:grass_block", "minecraft:clay", "sugar", 1.05),
+    ("tidewater_flats", "Tidewater Flats", "wetland", "minecraft:mud", "minecraft:sand", "open", 0.95),
+    # arid
+    ("sunscorch_dunes", "Sunscorch Dunes", "arid", "minecraft:sand", "minecraft:sandstone", "desert", 1.00),
+    ("saltpan_barrens", "Saltpan Barrens", "arid", "minecraft:white_terracotta", "minecraft:terracotta", "dry", 1.10),
+    ("redrock_mesa", "Redrock Mesa", "arid", "minecraft:red_sand", "minecraft:red_sandstone", "dry", 1.00),
+    ("cactus_wastes", "Cactus Wastes", "arid", "minecraft:sand", "minecraft:sandstone", "desert", 0.95),
+    ("bonewind_desert", "Bonewind Desert", "arid", "minecraft:sand", "minecraft:smooth_sandstone", "dry", 1.15),
+    ("glasswind_flats", "Glasswind Flats", "arid", "minecraft:sand", "minecraft:sand", "bare", 1.20),
+    ("sandstone_canyons", "Sandstone Canyons", "arid", "minecraft:red_sandstone", "minecraft:red_sandstone", "dry", 0.90),
+    ("dustdevil_plains", "Dustdevil Plains", "arid", "minecraft:coarse_dirt", "minecraft:dirt", "savanna", 1.00),
+    # cold
+    ("rimepine_taiga", "Rimepine Taiga", "cold", "minecraft:snow_block", "minecraft:dirt", "taiga", 1.00),
+    ("frostmarch", "Frostmarch", "cold", "minecraft:snow_block", "minecraft:dirt", "snowy", 0.95),
+    ("whitebirch_tundra", "Whitebirch Tundra", "cold", "minecraft:snow_block", "minecraft:dirt", "snowy", 1.05),
+    ("glacier_steppe", "Glacier Steppe", "cold", "minecraft:packed_ice", "minecraft:ice", "bare", 1.10),
+    ("snowdrift_wood", "Snowdrift Wood", "cold", "minecraft:snow_block", "minecraft:dirt", "taiga", 0.90),
+    ("auroral_plains", "Auroral Plains", "cold", "minecraft:snow_block", "minecraft:dirt", "open", 1.15),
+    ("icebloom_valley", "Icebloom Valley", "cold", "minecraft:snow_block", "minecraft:gravel", "snowy", 1.00),
+    ("hoarfrost_heath", "Hoarfrost Heath", "cold", "minecraft:snow_block", "minecraft:coarse_dirt", "berry", 0.85),
+    # jungle
+    ("emerald_canopy", "Emerald Canopy", "jungle", "minecraft:grass_block", "minecraft:dirt", "jungle", 1.00),
+    ("vinetangle_jungle", "Vinetangle Jungle", "jungle", "minecraft:grass_block", "minecraft:dirt", "jungle", 0.90),
+    ("bamboo_hollow", "Bamboo Hollow", "jungle", "minecraft:grass_block", "minecraft:dirt", "bamboo", 1.05),
+    ("orchid_rainforest", "Orchid Rainforest", "jungle", "minecraft:grass_block", "minecraft:dirt", "flower", 1.10),
+    ("fernbreak_jungle", "Fernbreak Jungle", "jungle", "minecraft:podzol", "minecraft:dirt", "jungle", 0.95),
+    ("sunfall_jungle", "Sunfall Jungle", "jungle", "minecraft:grass_block", "minecraft:dirt", "melon", 1.15),
+    ("monsoon_forest", "Monsoon Forest", "jungle", "minecraft:grass_block", "minecraft:mud", "jungle", 0.85),
+    ("parrot_ridge", "Parrot Ridge", "jungle", "minecraft:grass_block", "minecraft:dirt", "bamboo", 1.00),
+    # coast
+    ("driftwood_shore", "Driftwood Shore", "coast", "minecraft:sand", "minecraft:sand", "bare", 1.00),
+    ("pearlstrand", "Pearlstrand", "coast", "minecraft:sand", "minecraft:sandstone", "sugar", 1.10),
+    ("cliffhaven", "Cliffhaven", "coast", "minecraft:grass_block", "minecraft:stone", "rocky", 0.95),
+    ("kelpbreak_coast", "Kelpbreak Coast", "coast", "minecraft:gravel", "minecraft:gravel", "bare", 0.90),
+    ("shellback_beach", "Shellback Beach", "coast", "minecraft:sand", "minecraft:sand", "sugar", 1.05),
+    ("stormcoast", "Stormcoast", "coast", "minecraft:grass_block", "minecraft:dirt", "taiga", 0.85),
+    ("lagoon_shallows", "Lagoon Shallows", "coast", "minecraft:sand", "minecraft:clay", "open", 1.15),
+    ("saltmist_bay", "Saltmist Bay", "coast", "minecraft:coarse_dirt", "minecraft:sand", "plains", 1.00),
+    # fantasy
+    ("glimmerwood", "Glimmerwood", "fantasy", "minecraft:grass_block", "minecraft:dirt", "flower", 1.00),
+    ("starfall_glade", "Starfall Glade", "fantasy", "minecraft:moss_block", "minecraft:dirt", "open", 1.10),
+    ("cloudcap_hills", "Cloudcap Hills", "fantasy", "minecraft:grass_block", "minecraft:dirt", "mushroom", 1.05),
+    ("crystalbloom_steppe", "Crystalbloom Steppe", "fantasy", "minecraft:calcite", "minecraft:tuff", "sunflower", 1.15),
+    ("moonpetal_forest", "Moonpetal Forest", "fantasy", "minecraft:grass_block", "minecraft:dirt", "birch", 0.90),
+    ("fairyring_meadow", "Fairyring Meadow", "fantasy", "minecraft:grass_block", "minecraft:dirt", "mushroom", 1.00),
+    ("aurora_wilds", "Aurora Wilds", "fantasy", "minecraft:moss_block", "minecraft:stone", "berry", 0.95),
+    ("dreamwisp_dell", "Dreamwisp Dell", "fantasy", "minecraft:grass_block", "minecraft:dirt", "pumpkin", 1.20),
+    # volcanic
+    ("cinderfall_waste", "Cinderfall Waste", "volcanic", "minecraft:coarse_dirt", "minecraft:gravel", "dry", 1.00),
+    ("basalt_rise", "Basalt Rise", "volcanic", "minecraft:basalt", "minecraft:blackstone", "bare", 0.85),
+    ("sulfur_flats", "Sulfur Flats", "volcanic", "minecraft:sand", "minecraft:sandstone", "dry", 1.15),
+    ("obsidian_fields", "Obsidian Fields", "volcanic", "minecraft:obsidian", "minecraft:blackstone", "bare", 0.75),
+    ("ashwood_forest", "Ashwood Forest", "volcanic", "minecraft:grass_block", "minecraft:coarse_dirt", "dark", 0.90),
+    ("lavaflow_scar", "Lavaflow Scar", "volcanic", "minecraft:magma_block", "minecraft:netherrack", "bare", 1.20),
+    ("smolder_steppe", "Smolder Steppe", "volcanic", "minecraft:grass_block", "minecraft:coarse_dirt", "savanna", 1.00),
+    ("geyser_basin", "Geyser Basin", "volcanic", "minecraft:terracotta", "minecraft:stone", "dry", 1.05),
+]

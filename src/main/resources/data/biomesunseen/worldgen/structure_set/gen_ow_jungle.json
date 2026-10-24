@@ -1,0 +1,8 @@
+{
+  "structures": [
+    {"structure": "biomesunseen:jungle_ziggurat", "weight": 1},
+    {"structure": "biomesunseen:vine_ruins", "weight": 1},
+    {"structure": "biomesunseen:canopy_camp", "weight": 1}
+  ],
+  "placement": {"type": "minecraft:random_spread", "spacing": 22, "separation": 9, "salt": 905549604}
+}

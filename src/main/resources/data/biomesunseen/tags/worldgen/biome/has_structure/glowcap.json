@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "biomesunseen:glowcap_grotto",
+    "biomesunseen:sporefall_hollow",
+    "biomesunseen:lumen_cap_forest",
+    "biomesunseen:dusklight_warren",
+    "biomesunseen:myceliant_depths"
+  ]
+}

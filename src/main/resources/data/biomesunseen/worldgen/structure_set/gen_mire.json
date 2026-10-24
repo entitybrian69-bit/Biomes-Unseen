@@ -1,0 +1,12 @@
+{
+  "structures": [
+    {"structure": "biomesunseen:bog_hut", "weight": 1},
+    {"structure": "biomesunseen:hag_tower", "weight": 1},
+    {"structure": "biomesunseen:mire_shrine", "weight": 1},
+    {"structure": "biomesunseen:tar_well", "weight": 1},
+    {"structure": "biomesunseen:reed_camp", "weight": 1},
+    {"structure": "biomesunseen:sunken_ruins", "weight": 1},
+    {"structure": "biomesunseen:whisper_circle", "weight": 1}
+  ],
+  "placement": {"type": "minecraft:random_spread", "spacing": 12, "separation": 5, "salt": 266309326}
+}

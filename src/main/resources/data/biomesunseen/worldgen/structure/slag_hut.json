@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:jigsaw",
+  "biomes": "#biomesunseen:has_structure/ashen",
+  "spawn_overrides": {},
+  "size": 1,
+  "max_distance_from_center": 80,
+  "use_expansion_hack": false,
+  "step": "underground_structures",
+  "terrain_adaptation": "none",
+  "start_height": {"absolute": 20},
+  "start_pool": "biomesunseen:gen/slag_hut"
+}

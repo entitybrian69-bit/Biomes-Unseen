@@ -1,0 +1,12 @@
+{
+  "structures": [
+    {"structure": "biomesunseen:reef_tower", "weight": 1},
+    {"structure": "biomesunseen:coral_ruins", "weight": 1},
+    {"structure": "biomesunseen:polyp_shrine", "weight": 1},
+    {"structure": "biomesunseen:bloom_well", "weight": 1},
+    {"structure": "biomesunseen:anemone_circle", "weight": 1},
+    {"structure": "biomesunseen:tide_hut", "weight": 1},
+    {"structure": "biomesunseen:pearl_obelisk", "weight": 1}
+  ],
+  "placement": {"type": "minecraft:random_spread", "spacing": 12, "separation": 5, "salt": 342021758}
+}

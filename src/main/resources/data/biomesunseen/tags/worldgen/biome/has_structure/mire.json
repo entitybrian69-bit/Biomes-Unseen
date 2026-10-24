@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "biomesunseen:mire_of_whispers",
+    "biomesunseen:sunless_marsh",
+    "biomesunseen:reedmurk",
+    "biomesunseen:tarpit_hollow",
+    "biomesunseen:bogwater_reach"
+  ]
+}

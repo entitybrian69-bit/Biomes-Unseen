@@ -1,0 +1,12 @@
+{
+  "structures": [
+    {"structure": "biomesunseen:crystal_spire", "weight": 1},
+    {"structure": "biomesunseen:geode_ruins", "weight": 1},
+    {"structure": "biomesunseen:amethyst_shrine", "weight": 1},
+    {"structure": "biomesunseen:prism_pillar", "weight": 1},
+    {"structure": "biomesunseen:quartz_circle", "weight": 1},
+    {"structure": "biomesunseen:shard_bridge", "weight": 1},
+    {"structure": "biomesunseen:refraction_vault", "weight": 1}
+  ],
+  "placement": {"type": "minecraft:random_spread", "spacing": 12, "separation": 5, "salt": 126492441}
+}

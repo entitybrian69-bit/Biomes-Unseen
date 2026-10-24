@@ -1,0 +1,13 @@
+{
+  "replace": false,
+  "values": [
+    "biomesunseen:amber_meadow",
+    "biomesunseen:bluebell_dale",
+    "biomesunseen:clover_steppe",
+    "biomesunseen:daisy_commons",
+    "biomesunseen:honeygrass_plain",
+    "biomesunseen:lark_prairie",
+    "biomesunseen:windwhisper_fields",
+    "biomesunseen:sunpetal_downs"
+  ]
+}

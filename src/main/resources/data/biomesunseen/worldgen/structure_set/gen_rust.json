@@ -1,0 +1,12 @@
+{
+  "structures": [
+    {"structure": "biomesunseen:scrap_tower", "weight": 1},
+    {"structure": "biomesunseen:gear_ruins", "weight": 1},
+    {"structure": "biomesunseen:forge_shrine", "weight": 1},
+    {"structure": "biomesunseen:mechanic_hut", "weight": 1},
+    {"structure": "biomesunseen:boltworks_bridge", "weight": 1},
+    {"structure": "biomesunseen:rusted_well", "weight": 1},
+    {"structure": "biomesunseen:clockwork_obelisk", "weight": 1}
+  ],
+  "placement": {"type": "minecraft:random_spread", "spacing": 12, "separation": 5, "salt": 1630700192}
+}

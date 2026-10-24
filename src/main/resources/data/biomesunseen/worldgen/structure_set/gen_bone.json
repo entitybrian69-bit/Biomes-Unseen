@@ -1,0 +1,12 @@
+{
+  "structures": [
+    {"structure": "biomesunseen:ossuary_tower", "weight": 1},
+    {"structure": "biomesunseen:grave_ruins", "weight": 1},
+    {"structure": "biomesunseen:bone_shrine", "weight": 1},
+    {"structure": "biomesunseen:marrow_crypt", "weight": 1},
+    {"structure": "biomesunseen:dust_camp", "weight": 1},
+    {"structure": "biomesunseen:skull_obelisk", "weight": 1},
+    {"structure": "biomesunseen:boneyard_circle", "weight": 1}
+  ],
+  "placement": {"type": "minecraft:random_spread", "spacing": 12, "separation": 5, "salt": 893828983}
+}

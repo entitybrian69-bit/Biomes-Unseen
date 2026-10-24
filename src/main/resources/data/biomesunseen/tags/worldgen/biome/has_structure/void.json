@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "biomesunseen:umbral_expanse",
+    "biomesunseen:starless_hollow",
+    "biomesunseen:rift_gallery",
+    "biomesunseen:eclipse_vault",
+    "biomesunseen:null_cavern"
+  ]
+}

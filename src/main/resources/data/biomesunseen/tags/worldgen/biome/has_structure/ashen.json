@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "biomesunseen:ashen_depths",
+    "biomesunseen:cinderfall_basin",
+    "biomesunseen:slag_flats",
+    "biomesunseen:soot_canyon",
+    "biomesunseen:obsidian_shelf"
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "has_precipitation": false,
+  "temperature": 0.46,
+  "downfall": 1.0,
+  "effects": {
+    "sky_color": 265239,
+    "fog_color": 865361,
+    "water_color": 1798814,
+    "water_fog_color": 599357,
+    "grass_color": 2789500,
+    "foliage_color": 2194536,
+    "particle": {"options": {"type": "minecraft:underwater"}, "probability": 0.004},
+    "mood_sound": {"sound": "minecraft:ambient.cave", "tick_delay": 6000, "block_search_extent": 8, "offset": 2.0}
+  },
+  "carvers": {},
+  "features": [[], [], [], [], [], [], [], ["minecraft:glow_lichen"], [], ["minecraft:cave_vines"], []],
+  "spawners": {
+    "monster": [],
+    "creature": [],
+    "ambient": [],
+    "axolotls": [],
+    "underground_water_creature": [],
+    "water_creature": [],
+    "water_ambient": [],
+    "misc": []
+  },
+  "spawn_costs": {}
+}
