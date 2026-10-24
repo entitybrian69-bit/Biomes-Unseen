@@ -13,7 +13,7 @@
     "mood_sound": {"sound": "minecraft:ambient.cave", "tick_delay": 6000, "block_search_extent": 8, "offset": 2.0}
   },
   "carvers": {},
-  "features": [[], [], [], [], [], [], [], ["minecraft:pointed_dripstone", "minecraft:glow_lichen"], [], [], []],
+  "features": [[], [], [], [], [], [], [], ["minecraft:glow_lichen", "minecraft:pointed_dripstone"], [], [], []],
   "spawners": {
     "monster": [],
     "creature": [],

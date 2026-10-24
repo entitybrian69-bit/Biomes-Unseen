@@ -21,7 +21,7 @@
     [],
     [],
     [],
-    ["minecraft:large_dripstone", "minecraft:pointed_dripstone", "minecraft:glow_lichen"],
+    ["minecraft:glow_lichen", "minecraft:large_dripstone", "minecraft:pointed_dripstone"],
     [],
     [],
     []

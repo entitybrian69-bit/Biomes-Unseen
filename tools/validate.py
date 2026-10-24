@@ -226,6 +226,36 @@ def biome_ids():
     return {os.path.basename(p)[:-5] for p in glob.glob(os.path.join(DATA, "worldgen", "biome", "*.json"))}
 
 
+def check_feature_order():
+    """Minecraft requires a consistent placed-feature order within each step across biomes."""
+    constraints = {}
+    paths = glob.glob(os.path.join(DATA, "worldgen", "biome", "*.json"))
+    for path in paths:
+        data = json.loads(read(path))
+        for step, features in enumerate(data.get("features", [])):
+            edges, indegree = constraints.setdefault(step, ({}, {}))
+            for fid in features:
+                edges.setdefault(fid, set())
+                indegree.setdefault(fid, 0)
+            for before, after in zip(features, features[1:]):
+                if after not in edges[before]:
+                    edges[before].add(after)
+                    indegree[after] += 1
+    for step, (edges, indegree) in constraints.items():
+        ready = [fid for fid, count in indegree.items() if count == 0]
+        ordered = 0
+        while ready:
+            current = ready.pop()
+            ordered += 1
+            for after in edges[current]:
+                indegree[after] -= 1
+                if indegree[after] == 0:
+                    ready.append(after)
+        if ordered != len(edges):
+            cycle = sorted(fid for fid, count in indegree.items() if count > 0)
+            errors.append("worldgen feature-order cycle at step %d: %s" % (step, ", ".join(cycle)))
+
+
 def check_worldgen(spec_mobs):
     biomes = biome_ids()
     for name in sorted(biomes):
@@ -237,6 +267,7 @@ def check_worldgen(spec_mobs):
         for carver in data["carvers"].get("air", []):
             if carver not in KNOWN_CARVERS:
                 errors.append("biome %s uses unknown carver %s" % (name, carver))
+    check_feature_order()
     dim = os.path.join(DATA, "dimension", "hollow_deep.json")
     if os.path.exists(dim):
         for entry in json.loads(read(dim))["generator"]["biome_source"]["biomes"]:

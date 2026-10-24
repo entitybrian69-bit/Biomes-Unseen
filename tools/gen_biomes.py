@@ -35,6 +35,11 @@ ORES_STEP = ["minecraft:ore_dirt", "minecraft:ore_gravel", "minecraft:ore_granit
              "minecraft:ore_gold_lower", "minecraft:ore_redstone", "minecraft:ore_redstone_lower", "minecraft:ore_diamond",
              "minecraft:ore_diamond_large", "minecraft:ore_diamond_buried", "minecraft:ore_lapis",
              "minecraft:ore_lapis_buried", "minecraft:ore_copper"]
+FEATURE_ORDER = {
+    # Biomes share a decoration-stage order. Keep these globally consistent even
+    # when a theme's base and variant contribute features in opposite orders.
+    7: ["minecraft:glow_lichen", "minecraft:large_dripstone", "minecraft:pointed_dripstone"],
+}
 
 
 def shade(color, k):
@@ -54,6 +59,9 @@ def features(base, extra):
             for fid in ids:
                 if fid not in steps[step]:
                     steps[step].append(fid)
+    for step, order in FEATURE_ORDER.items():
+        rank = {fid: index for index, fid in enumerate(order)}
+        steps[step].sort(key=lambda fid: (rank.get(fid, len(rank)), fid))
     return steps
 
 
