@@ -3,24 +3,28 @@
 # Compiles the mod with ForgeGradle and uploads the resulting reobfuscated
 # jar as the "biomesunseen-jar" artifact. Data generation is run first but is
 # non-fatal: if a datagen provider misbehaves we still want the compiled jar.
+#
+# When the build fails, the tail of the Gradle output is committed back as
+# ci-diagnostics.md so the errors can be read from environments that cannot
+# reach the Actions log blob storage.
 
 name: Build Biomes Unseen
 
 on:
   push:
     branches: [ '**' ]
+    paths-ignore:
+      - 'ci-diagnostics.md'
   pull_request:
     branches: [ main ]
   workflow_dispatch:
 
-# A new push supersedes an in-flight build for the same branch. Iteration here
-# is a fix-compile-push loop, so finishing an outdated run has no value.
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   build:
@@ -50,10 +54,13 @@ jobs:
 
       - name: Run data generation
         continue-on-error: true
-        run: gradle runData --no-daemon
+        run: gradle runData --no-daemon 2>&1 | tee datagen.log
 
       - name: Build jar
-        run: gradle build --no-daemon
+        id: build
+        run: |
+          set -o pipefail
+          gradle build --no-daemon --stacktrace 2>&1 | tee build.log
 
       - name: Upload built jar
         if: always()
@@ -62,3 +69,31 @@ jobs:
           name: biomesunseen-jar
           path: build/libs/*.jar
           if-no-files-found: warn
+
+      - name: Publish diagnostics on failure
+        if: failure()
+        run: |
+          {
+            echo "# CI build diagnostics"
+            echo
+            echo "## data generation (tail)"
+            echo '```'
+            tail -n 80 datagen.log 2>/dev/null
+            echo '```'
+            echo
+            echo "## build errors"
+            echo '```'
+            grep -n -iE "error:|cannot find symbol|FAILURE:|What went wrong|Could not (find|resolve)|Execution failed" build.log 2>/dev/null | head -120
+            echo '```'
+            echo
+            echo "## build log (tail)"
+            echo '```'
+            tail -n 220 build.log 2>/dev/null
+            echo '```'
+          } > ci-diagnostics.md
+          cat ci-diagnostics.md >> "$GITHUB_STEP_SUMMARY"
+          git config user.name "ci-bot"
+          git config user.email "ci-bot@users.noreply.github.com"
+          git add -f ci-diagnostics.md
+          git commit -m "Publish CI build diagnostics [skip ci]" || true
+          git push || true
