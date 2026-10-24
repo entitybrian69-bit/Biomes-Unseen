@@ -86,7 +86,7 @@ def main():
             raise RuntimeError("Hollow Portal block could not be placed")
         verify_portal = command(sock, 6,
                                 "execute if block 128 120 128 biomesunseen:hollow_portal run setblock 129 120 128 biomesunseen:hollow_portal")
-        if "Changed block at" not in verify_portal:
+        if "Changed the block at" not in verify_portal and "Changed block at" not in verify_portal:
             raise RuntimeError("Hollow Portal block did not remain in the world after placement")
         command(sock, 7, "setblock 128 120 128 air")
         command(sock, 8, "setblock 129 120 128 air")
