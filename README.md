@@ -52,7 +52,7 @@ The first two commands search for natural world-generation targets; they do not 
 3. Run `python tools/gen_all.py` to generate biomes, mobs, ores, structures, textures, audio, recipes/models/tags, and validate the resource tree.
 4. Run `gradle build --no-daemon`.
 
-There is no Gradle wrapper in this project. CI builds the reobfuscated jar and runs a dedicated server. It force-loads located chunks and inspects saved Anvil data for an actual custom biome palette and structure start, and checks the Hollow Deep, portal registration/recipe, portal block placement, guide, sigil, and weapon recipes. It does not launch a graphical client or simulate a player walking through the portal or fighting mobs, so rendering and end-to-end client gameplay still need in-game testing.
+There is no Gradle wrapper in this project. CI builds the reobfuscated jar and runs a dedicated server. It force-loads located chunks and inspects saved Anvil data for an actual custom biome palette and structure start. A CI-only server-side player smoke test exercises both directions of the portal and sigil travel, including the return gate beside the source portal; the smoke also checks portal registration/recipe, guide, and weapon recipes. It does not launch a graphical client or simulate combat, so rendering, real-client input, and fighting mobs still need in-game testing.
 
 ## Known limitations
 

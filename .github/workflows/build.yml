@@ -99,7 +99,8 @@ jobs:
           EOF
           cd smoke/server
           chmod +x run.sh
-          timeout --signal=TERM --kill-after=20s 300s ./run.sh nogui > ../../server-smoke.log 2>&1 &
+          JAVA_TOOL_OPTIONS="${JAVA_TOOL_OPTIONS:+$JAVA_TOOL_OPTIONS }-Dbiomesunseen.smokeTravel=true" \
+            timeout --signal=TERM --kill-after=20s 300s ./run.sh nogui > ../../server-smoke.log 2>&1 &
           server_pid=$!
           trap 'kill "$server_pid" 2>/dev/null || true' EXIT
           ready=0
@@ -109,6 +110,12 @@ jobs:
             sleep 1
           done
           if [ "$ready" -ne 1 ]; then cat ../../server-smoke.log; exit 1; fi
+          for _ in $(seq 1 30); do
+            if grep -Fq 'Hollow travel smoke passed' ../../server-smoke.log; then break; fi
+            if ! kill -0 "$server_pid" 2>/dev/null; then break; fi
+            sleep 1
+          done
+          grep -F 'Hollow travel smoke passed' ../../server-smoke.log
           grep -F 'Biomes Unseen worldgen ready' ../../server-smoke.log
           RCON_PORT=25575 RCON_PASSWORD=arena-smoke python ../../tools/server_smoke.py 2>&1 | tee -a ../../server-smoke.log
           wait "$server_pid"
@@ -142,7 +149,7 @@ jobs:
             echo
             echo "## dedicated-server smoke log"
             echo '```'
-            grep -n -A3 -E "worldgen ready|worldgen check FAILED|RCON|ERROR|Exception|Could not find|Unknown" server-smoke.log 2>/dev/null | tail -n 100
+            grep -n -A3 -E "worldgen ready|worldgen check FAILED|Hollow travel smoke|RCON|ERROR|Exception|Could not find|Unknown" server-smoke.log 2>/dev/null | tail -n 100
             echo '----- tail -----'
             tail -n 35 server-smoke.log 2>/dev/null
             echo '```'

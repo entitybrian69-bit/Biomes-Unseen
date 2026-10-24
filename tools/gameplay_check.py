@@ -76,7 +76,8 @@ def check_gameplay_assets(root):
             (os.path.join(java, "block", "HollowPortalBlock.java"), "portal collision travel handler", "HollowTravel.travel(player, pos)"),
             (os.path.join(java, "worldgen", "HollowTravel.java"), "two-way dimension transfer", "player.teleportTo(destination"),
             (os.path.join(java, "item", "HollowSigilItem.java"), "sigil travel integration", "HollowTravel.travel(serverPlayer)"),
-            (os.path.join(java, "event", "WorldgenAudit.java"), "portal recipe startup audit", 'hasRecipe(event, "hollow_portal")')):
+            (os.path.join(java, "event", "WorldgenAudit.java"), "portal recipe startup audit", 'hasRecipe(event, "hollow_portal")'),
+            (os.path.join(java, "event", "HollowTravelSmokeTest.java"), "server-side player travel smoke test", "portal.entityInside(")):
         path = require(path, label)
         if path:
             with open(path, encoding="utf-8") as stream:
