@@ -1,71 +1,50 @@
 # Biomes Unseen
 
-A Minecraft 1.20.1 Forge mod (Forge 47.x, Java 17) built on GeckoLib 4 and TerraBlender.
+A Minecraft 1.20.1 Forge mod with new Overworld biomes, a separately explorable dimension, hostile creatures, ores, weapons, and structures.
 
-| Content | Count | Where it comes from |
-|---|---|---|
-| Overworld biomes | 80 | `tools/spec/biomes.py` (10 groups x 8), injected through TerraBlender |
-| Hollow Deep biomes | 60 | `tools/spec/biomes.py` (12 themes x 5), multi-noise dimension |
-| Mobs | 85 | 5 hand-written Java mobs + 80 from `tools/spec/mobs.py` (plus the boss) |
-| Structures | 115 | the boss arena + 114 from `tools/spec/structures.py` |
-| Ores | 44 | hollowite + 43 from `tools/spec/ores.py` |
+## Content
 
-> Status: source written, **not compiled or run in game**. `tools/validate.py` checks that the
-> generated files are consistent with each other; it cannot check that Minecraft accepts them.
-> Lines marked `// VERIFY:` use the safest documented form of an API that could not be confirmed.
+| Content | Count | Details |
+|---|---:|---|
+| Overworld biomes | 80 | Ten families; blended into new Overworld terrain by TerraBlender |
+| Hollow Deep biomes | 60 | Twelve themes in the Hollow Deep dimension |
+| Mobs | 86 | 80 generated creatures, five hand-written mobs, and the Heart of the Forest boss |
+| Ores | 44 | Ore blocks/materials with worldgen, drops, and smelting/blasting recipes |
+| Structures | 115 | 114 biome-specific structures plus the boss arena |
+| Weapons | 45 | 44 material swords plus the Hollowite Battleaxe |
+| Guide/travel items | 2 | Field Guide and reusable Hollow Sigil |
 
-## How it fits together
+## Install and start
 
-Hand-written Java: registries, `BaseHollowMob`, five mobs, the boss (`HeartOfTheForestEntity`), DataGen,
-TerraBlender region and surface rules. The scale-out content is **data-driven**. The generators write
-spec JSON into `src/main/resources/data/biomesunseen/specs/`, and the Java registries read it at startup
-(`com.biomesunseen.spec.Specs`). If a spec file is missing the mod still loads, with only the hand-written content.
+1. Use **Minecraft 1.20.1** with **Forge 47.x**, **GeckoLib 4**, and **TerraBlender for 1.20.1** installed on both client and server.
+2. Install the Biomes Unseen jar in `mods/` and restart Minecraft.
+3. **Create a new world** for the complete world-generation setup. Already-generated chunks are never reshaped by adding a mod later.
+4. In Survival, craft the **Biomes Unseen Field Guide** from a book, paper, and compass. Right-click it for in-game help. Craft a **Hollow Sigil** from vanilla materials to travel to and from the Hollow Deep.
 
-| Generator | Writes |
-|---|---|
-| `gen_biomes.py` | 140 biome JSON files, dimension + noise settings, biome tags, per-theme spawn modifiers, `overworld.json` |
-| `gen_models.py` | geo + animation JSON, loot tables, texture sheets and `mobs.json` for 80 mobs |
-| `gen_ores.py` | ore block + item sprites, `ores.json`, configured/placed features and biome modifiers for 44 ores |
-| `gen_structure_set.py` | 114 structure templates (`.nbt`), template pools, structures, structure sets, biome tags |
-| `gen_structures.py` | the Heart of the Forest boss arena template |
-| `gen_textures.py` | every PNG, from the literal hex matrices in `tools/texdata/*.py` |
-| `gen_audio.py` | silent placeholder OGGs for every entry in `sounds.json` |
-| `validate.py` | cross-checks everything above |
+The guide is also available in the **Biomes Unseen** creative tab. The sigil only works in the Overworld and Hollow Deep.
 
-## Build order
+## Finding content
 
-1. `python tools/gen_all.py` — runs every generator in dependency order, then the validator.
-2. `gradlew runData` — block states, models, loot, recipes, tags and lang into `src/generated/resources`. Needs the textures from step 1.
-3. `gradlew build` — produces the jar. No Gradle wrapper is included; use Gradle 8.1.1 or newer, or add a wrapper.
+Use commands (with cheats enabled) to verify or locate content in a newly created world:
 
-The generators use only the Python standard library and run on Termux or Pydroid.
-Run `gen_biomes.py` before `gen_ores.py`: Hollow Deep ores target the `hollow_deep` biome tag that `gen_biomes.py` writes.
-`gen_biomes.py` regenerates the dimension, noise settings and the original five biome files.
+```text
+/locate biome biomesunseen:amber_meadow
+/locate structure biomesunseen:windmill_ruin
+/execute in biomesunseen:hollow_deep run tp @s 0 100 0
+```
 
-## Changing content
+The first two commands search for natural world-generation targets; they do not force a new feature into already-generated chunks. The Hollow Sigil is the intended two-way dimension travel item; the command is a backup/debug route.
 
-Every entry is one row in a spec table. Edit the row, re-run `python tools/gen_all.py`, re-run `runData`.
-Mob rows pick an archetype (biped, brute, crawler, quad, floater, blob, serpent), palette, glow colour, tile
-templates, stats, on-hit effect and drop. Ore rows pick a host stone, vein layout, item style, tier and spawn range.
+## Build
 
-## Trying it
+1. `python tools/gen_all.py` — generates biomes, mobs, ores, structures, textures, recipes/models/tags, and validates the resource tree.
+2. `gradle build --no-daemon` with JDK 17 and Gradle 8.1.1 or newer.
 
-- Overworld: the 80 biomes blend in through TerraBlender (region weight 3, `ModTerraBlender.REGION_WEIGHT`).
-- Hollow Deep has no portal. In a creative world with cheats: `/execute in biomesunseen:hollow_deep run tp @s 0 100 0`.
-- Every mob has a spawn egg in the **Biomes Unseen** creative tab.
+There is no Gradle wrapper in this project. The CI workflow builds the reobfuscated jar and performs a dedicated-server startup/worldgen-registry smoke test. It does not launch a graphical client, so rendering and extended gameplay still need in-game testing.
 
-## Boss: The Heart of the Forest
+## Known limitations
 
-| Phase | Health | Behaviour |
-|---|---|---|
-| 1 | above 66% | Melee inside 7 blocks, poison thorn arrows beyond 5 |
-| 2 | 33-66% | Shockwave on entry, +15% speed, +25% damage, 3-arrow volleys |
-| 3 | below 33% | Shockwave, +35% speed, +60% damage, 5-arrow volleys, summons Sporelings, red bar with screen darkening |
-
-## Known limits
-
-- Overworld surface rules are one top and one under block per biome; Hollow Deep surfaces are per theme.
-- Structures are single-piece jigsaw templates with no jigsaw blocks. Structures in the Hollow Deep sit on a
-  fixed floor height (y 26), so they may sink into or hover over uneven ground.
-- Biome feature ids are vanilla 1.20.1 ids from a whitelist in `tools/validate.py`. A wrong id would stop a world from loading.
-- All sounds are silent placeholders. There is no Hollow Deep portal.
+- The Hollow Deep portal block is not implemented; the reusable Hollow Sigil is the travel mechanism.
+- Sounds are silent placeholders.
+- Structures are compact single-piece jigsaw templates; some can intersect uneven terrain.
+- A newly generated world is required for a reliable worldgen test. Use `/locate` commands before assuming features are missing.

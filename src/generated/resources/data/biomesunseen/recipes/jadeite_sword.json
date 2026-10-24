@@ -1,0 +1,20 @@
+{
+  "category": "combat",
+  "key": {
+    "M": {
+      "item": "biomesunseen:jadeite_gem"
+    },
+    "S": {
+      "item": "minecraft:stick"
+    }
+  },
+  "pattern": [
+    "M",
+    "M",
+    "S"
+  ],
+  "result": {
+    "item": "biomesunseen:jadeite_sword"
+  },
+  "type": "minecraft:crafting_shaped"
+}

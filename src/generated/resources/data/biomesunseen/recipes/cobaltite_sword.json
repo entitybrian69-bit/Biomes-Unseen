@@ -1,0 +1,20 @@
+{
+  "category": "combat",
+  "key": {
+    "M": {
+      "item": "biomesunseen:cobaltite_ingot"
+    },
+    "S": {
+      "item": "minecraft:stick"
+    }
+  },
+  "pattern": [
+    "M",
+    "M",
+    "S"
+  ],
+  "result": {
+    "item": "biomesunseen:cobaltite_sword"
+  },
+  "type": "minecraft:crafting_shaped"
+}

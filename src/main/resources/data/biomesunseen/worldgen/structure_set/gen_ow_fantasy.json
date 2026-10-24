@@ -4,5 +4,5 @@
     {"structure": "biomesunseen:wisp_circle", "weight": 1},
     {"structure": "biomesunseen:dream_tower", "weight": 1}
   ],
-  "placement": {"type": "minecraft:random_spread", "spacing": 22, "separation": 9, "salt": 1323749215}
+  "placement": {"type": "minecraft:random_spread", "spacing": 16, "separation": 6, "salt": 1323749215}
 }

@@ -1,0 +1,20 @@
+{
+  "category": "combat",
+  "key": {
+    "M": {
+      "item": "biomesunseen:gloomstone_orb"
+    },
+    "S": {
+      "item": "minecraft:stick"
+    }
+  },
+  "pattern": [
+    "M",
+    "M",
+    "S"
+  ],
+  "result": {
+    "item": "biomesunseen:gloomstone_sword"
+  },
+  "type": "minecraft:crafting_shaped"
+}

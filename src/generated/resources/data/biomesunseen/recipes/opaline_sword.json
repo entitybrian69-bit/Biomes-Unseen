@@ -1,0 +1,20 @@
+{
+  "category": "combat",
+  "key": {
+    "M": {
+      "item": "biomesunseen:opaline_shard"
+    },
+    "S": {
+      "item": "minecraft:stick"
+    }
+  },
+  "pattern": [
+    "M",
+    "M",
+    "S"
+  ],
+  "result": {
+    "item": "biomesunseen:opaline_sword"
+  },
+  "type": "minecraft:crafting_shaped"
+}

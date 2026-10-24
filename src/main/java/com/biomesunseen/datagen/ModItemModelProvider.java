@@ -19,9 +19,13 @@ public class ModItemModelProvider extends ItemModelProvider {
 
     @Override
     protected void registerModels() {
-        // Requires textures/item/hollowite_ingot.png (tools/gen_textures.py) to exist.
-        withExistingParent("hollowite_ingot", mcLoc("item/generated"))
-                .texture("layer0", modLoc("item/hollowite_ingot"));
+        // Requires the generated icon sheets from tools/gen_textures.py.
+        for (String item : List.of("hollowite_ingot", "field_guide", "hollow_sigil")) {
+            withExistingParent(item, mcLoc("item/generated")).texture("layer0", modLoc("item/" + item));
+        }
+        for (String item : List.of("hollowite_sword", "hollowite_battleaxe")) {
+            withExistingParent(item, mcLoc("item/handheld")).texture("layer0", modLoc("item/" + item));
+        }
 
         List<RegistryObject<Item>> eggs = List.of(
                 ModItems.HOLLOW_STALKER_SPAWN_EGG, ModItems.SPORELING_SPAWN_EGG,
@@ -36,6 +40,8 @@ public class ModItemModelProvider extends ItemModelProvider {
         for (OreSpec spec : Specs.ores()) {
             withExistingParent(spec.item(), mcLoc("item/generated"))
                     .texture("layer0", modLoc("item/" + spec.item()));
+            withExistingParent(spec.id() + "_sword", mcLoc("item/handheld"))
+                    .texture("layer0", modLoc("item/" + spec.id() + "_sword"));
         }
     }
 }

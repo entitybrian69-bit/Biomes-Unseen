@@ -1,0 +1,20 @@
+{
+  "category": "combat",
+  "key": {
+    "M": {
+      "item": "biomesunseen:runestone_orb"
+    },
+    "S": {
+      "item": "minecraft:stick"
+    }
+  },
+  "pattern": [
+    "M",
+    "M",
+    "S"
+  ],
+  "result": {
+    "item": "biomesunseen:runestone_sword"
+  },
+  "type": "minecraft:crafting_shaped"
+}

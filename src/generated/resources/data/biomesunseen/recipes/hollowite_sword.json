@@ -1,0 +1,20 @@
+{
+  "category": "combat",
+  "key": {
+    "H": {
+      "item": "biomesunseen:hollowite_ingot"
+    },
+    "S": {
+      "item": "minecraft:stick"
+    }
+  },
+  "pattern": [
+    "H",
+    "H",
+    "S"
+  ],
+  "result": {
+    "item": "biomesunseen:hollowite_sword"
+  },
+  "type": "minecraft:crafting_shaped"
+}

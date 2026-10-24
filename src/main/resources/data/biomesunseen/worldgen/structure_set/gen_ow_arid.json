@@ -4,5 +4,5 @@
     {"structure": "biomesunseen:oasis_well", "weight": 1},
     {"structure": "biomesunseen:desert_ruins", "weight": 1}
   ],
-  "placement": {"type": "minecraft:random_spread", "spacing": 22, "separation": 9, "salt": 925575131}
+  "placement": {"type": "minecraft:random_spread", "spacing": 16, "separation": 6, "salt": 925575131}
 }

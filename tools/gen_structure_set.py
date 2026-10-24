@@ -65,7 +65,7 @@ def main():
         tag = scope.replace(":", "_")
         if scope.startswith("ow:"):
             biomes = [NS + b[0] for b in OW_BIOMES if b[2] == scope[3:]]
-            spacing, separation = 22, 9
+            spacing, separation = 16, 6
         else:
             biomes = [NS + b for b in DIM_BIOMES[scope]]
             spacing, separation = 12, 5

@@ -77,9 +77,14 @@ def gen_blockstates_and_models(ores):
 
 
 def gen_item_models(ores, mobs):
-    dump(os.path.join(A, "models", "item", "hollowite_ingot.json"),
-         {"parent": "minecraft:item/generated",
-          "textures": {"layer0": loc("item/hollowite_ingot")}})
+    simple_items = ["hollowite_ingot", "field_guide", "hollow_sigil"]
+    for name in simple_items:
+        dump(os.path.join(A, "models", "item", name + ".json"),
+             {"parent": "minecraft:item/generated", "textures": {"layer0": loc("item/" + name)}})
+    handheld = ["hollowite_sword", "hollowite_battleaxe"] + [o["id"] + "_sword" for o in ores]
+    for name in handheld:
+        dump(os.path.join(A, "models", "item", name + ".json"),
+             {"parent": "minecraft:item/handheld", "textures": {"layer0": loc("item/" + name)}})
     for o in ores:
         dump(os.path.join(A, "models", "item", o["item"] + ".json"),
              {"parent": "minecraft:item/generated",
@@ -97,6 +102,18 @@ def gen_lang(ores, mobs, overworld, dimension):
         "itemGroup.%s.main" % MOD: "Biomes Unseen",
         "block.%s.hollowite_ore" % MOD: "Hollowite Ore",
         "item.%s.hollowite_ingot" % MOD: "Hollowite Ingot",
+        "item.%s.hollowite_sword" % MOD: "Hollowite Sword",
+        "item.%s.hollowite_battleaxe" % MOD: "Hollowite Battleaxe",
+        "item.%s.field_guide" % MOD: "Biomes Unseen Field Guide",
+        "item.%s.hollow_sigil" % MOD: "Hollow Sigil",
+        "guide.%s.title" % MOD: "BIOMES UNSEEN — FIELD GUIDE",
+        "guide.%s.world" % MOD: "Start a NEW world for all new biomes and structures. Old chunks never regenerate.",
+        "guide.%s.biomes" % MOD: "Find a biome: /locate biome biomesunseen:amber_meadow",
+        "guide.%s.structures" % MOD: "Find a structure: /locate structure biomesunseen:windmill_ruin",
+        "guide.%s.dimension" % MOD: "Use a Hollow Sigil to travel both ways. Backup command: /execute in biomesunseen:hollow_deep run tp @s 0 100 0",
+        "guide.%s.weapons" % MOD: "Craft ore swords from their matching materials; combine Hollowite and sticks for a battleaxe.",
+        "item.%s.hollow_sigil.wrong_dimension" % MOD: "The sigil only works in the Overworld and Hollow Deep.",
+        "item.%s.hollow_sigil.dimension_missing" % MOD: "Hollow Deep is not loaded. Create a new world with Biomes Unseen installed.",
     }
     for name, pretty in NAMED_EGGS:
         lang["entity.%s.%s" % (MOD, name)] = pretty
@@ -107,6 +124,7 @@ def gen_lang(ores, mobs, overworld, dimension):
     for o in ores:
         lang["block.%s.%s_ore" % (MOD, o["id"])] = o["name"] + " Ore"
         lang["item.%s.%s" % (MOD, o["item"])] = o["itemName"]
+        lang["item.%s.%s_sword" % (MOD, o["id"])] = o["name"] + " Sword"
     for b in overworld + dimension:
         lang["biome.%s.%s" % (MOD, b["id"])] = b["name"]
     dump(os.path.join(A, "lang", "en_us.json"), lang)
@@ -125,16 +143,41 @@ def cooking(kind, recipe_id, ingredient, result, xp, time):
     })
 
 
+def shaped_recipe(recipe_id, pattern, key, result, category="combat"):
+    dump(os.path.join(DM, "recipes", recipe_id + ".json"), {
+        "type": "minecraft:crafting_shaped", "category": category,
+        "pattern": pattern, "key": key, "result": {"item": loc(result)},
+    })
+
+
 def gen_recipes(ores):
     cooking("smelting", "hollowite_ingot_from_smelting",
             "hollowite_ore", "hollowite_ingot", 0.9, 200)
     cooking("blasting", "hollowite_ingot_from_blasting",
             "hollowite_ore", "hollowite_ingot", 0.9, 100)
+    shaped_recipe("hollowite_sword", ["H", "H", "S"],
+                  {"H": {"item": loc("hollowite_ingot")}, "S": {"item": "minecraft:stick"}},
+                  "hollowite_sword")
+    shaped_recipe("hollowite_battleaxe", ["HHH", "HSH", " S "],
+                  {"H": {"item": loc("hollowite_ingot")}, "S": {"item": "minecraft:stick"}},
+                  "hollowite_battleaxe")
+    shaped_recipe("hollow_sigil", ["OEO", "GPG", "OEO"], {
+        "O": {"item": "minecraft:obsidian"}, "E": {"item": "minecraft:ender_pearl"},
+        "G": {"item": "minecraft:glowstone_dust"}, "P": {"item": "minecraft:paper"}}, "hollow_sigil", "misc")
+    dump(os.path.join(DM, "recipes", "field_guide.json"), {
+        "type": "minecraft:crafting_shapeless", "category": "misc",
+        "ingredients": [{"item": "minecraft:book"}, {"item": "minecraft:paper"},
+                        {"item": "minecraft:compass"}],
+        "result": {"item": loc("field_guide")},
+    })
     for o in ores:
         cooking("smelting", o["item"] + "_from_smelting",
                 o["id"] + "_ore", o["item"], 0.7, 200)
         cooking("blasting", o["item"] + "_from_blasting",
                 o["id"] + "_ore", o["item"], 0.7, 100)
+        shaped_recipe(o["id"] + "_sword", ["M", "M", "S"], {
+            "M": {"item": loc(o["item"])}, "S": {"item": "minecraft:stick"}},
+            o["id"] + "_sword")
 
 
 def ore_loot(block, drop, lo, hi):

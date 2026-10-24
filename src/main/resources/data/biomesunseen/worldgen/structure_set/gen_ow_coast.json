@@ -4,5 +4,5 @@
     {"structure": "biomesunseen:driftwood_camp", "weight": 1},
     {"structure": "biomesunseen:shell_shrine", "weight": 1}
   ],
-  "placement": {"type": "minecraft:random_spread", "spacing": 22, "separation": 9, "salt": 1199535071}
+  "placement": {"type": "minecraft:random_spread", "spacing": 16, "separation": 6, "salt": 1199535071}
 }

@@ -4,5 +4,5 @@
     {"structure": "biomesunseen:mossy_circle", "weight": 1},
     {"structure": "biomesunseen:hunter_camp", "weight": 1}
   ],
-  "placement": {"type": "minecraft:random_spread", "spacing": 22, "separation": 9, "salt": 1456130649}
+  "placement": {"type": "minecraft:random_spread", "spacing": 16, "separation": 6, "salt": 1456130649}
 }

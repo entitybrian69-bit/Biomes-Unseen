@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/handheld",
+  "textures": {
+    "layer0": "biomesunseen:item/selenite_sword"
+  }
+}
