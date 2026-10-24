@@ -1,26 +1,26 @@
 # CI build results
 
 - build outcome: success
-- production-server smoke outcome: success
+- production-server smoke outcome: failure
 
 ## build log (errors + tail)
 ```
 ----- tail -----
- > Running 'stripClient'
- > Running 'stripServer'
  > Running 'merge'
  > Running 'listLibraries'
  > Running 'rename'
 Stopping at requested step: /home/runner/.gradle/caches/forge_gradle/mcp_repo/de/oceanlabs/mcp/mcp_config/1.20.1-20230612.114412/joined/rename/output.jar
-[07:38:14] [main/INFO]: Writing debug log file accesstransform.log
-[07:38:14] [main/INFO]: Access Transformer processor running version 8.2.14
-[07:38:14] [main/INFO]: Command line arguments [--inJar, /home/runner/.gradle/caches/forge_gradle/minecraft_user_repo/net/minecraftforge/forge/1.20.1-47.3.0/forge-1.20.1-47.3.0-injected.jar, --outJar, /home/runner/.gradle/caches/forge_gradle/minecraft_user_repo/net/minecraftforge/forge/1.20.1-47.3.0_mapped_official_1.20.1/forge-1.20.1-47.3.0_mapped_official_1.20.1.jar, --logFile, accesstransform.log, --atFile, /home/runner/work/Biomes-Unseen/Biomes-Unseen/build/_atJar_4/parent_at.cfg]
-[07:38:14] [main/INFO]: Reading from /home/runner/.gradle/caches/forge_gradle/minecraft_user_repo/net/minecraftforge/forge/1.20.1-47.3.0/forge-1.20.1-47.3.0-injected.jar
-[07:38:14] [main/INFO]: Writing to /home/runner/.gradle/caches/forge_gradle/minecraft_user_repo/net/minecraftforge/forge/1.20.1-47.3.0_mapped_official_1.20.1/forge-1.20.1-47.3.0_mapped_official_1.20.1.jar
-[07:38:14] [main/INFO]: Transformer file /home/runner/work/Biomes-Unseen/Biomes-Unseen/build/_atJar_4/parent_at.cfg
-[07:38:14] [main/WARN]: Found existing output jar /home/runner/.gradle/caches/forge_gradle/minecraft_user_repo/net/minecraftforge/forge/1.20.1-47.3.0_mapped_official_1.20.1/forge-1.20.1-47.3.0_mapped_official_1.20.1.jar, overwriting
-[07:38:17] [main/INFO]: JAR transformation complete /home/runner/.gradle/caches/forge_gradle/minecraft_user_repo/net/minecraftforge/forge/1.20.1-47.3.0_mapped_official_1.20.1/forge-1.20.1-47.3.0_mapped_official_1.20.1.jar
+[10:33:16] [main/INFO]: Writing debug log file accesstransform.log
+[10:33:16] [main/INFO]: Access Transformer processor running version 8.2.14
+[10:33:16] [main/INFO]: Command line arguments [--inJar, /home/runner/.gradle/caches/forge_gradle/minecraft_user_repo/net/minecraftforge/forge/1.20.1-47.3.0/forge-1.20.1-47.3.0-injected.jar, --outJar, /home/runner/.gradle/caches/forge_gradle/minecraft_user_repo/net/minecraftforge/forge/1.20.1-47.3.0_mapped_official_1.20.1/forge-1.20.1-47.3.0_mapped_official_1.20.1.jar, --logFile, accesstransform.log, --atFile, /home/runner/work/Biomes-Unseen/Biomes-Unseen/build/_atJar_4/parent_at.cfg]
+[10:33:16] [main/INFO]: Reading from /home/runner/.gradle/caches/forge_gradle/minecraft_user_repo/net/minecraftforge/forge/1.20.1-47.3.0/forge-1.20.1-47.3.0-injected.jar
+[10:33:16] [main/INFO]: Writing to /home/runner/.gradle/caches/forge_gradle/minecraft_user_repo/net/minecraftforge/forge/1.20.1-47.3.0_mapped_official_1.20.1/forge-1.20.1-47.3.0_mapped_official_1.20.1.jar
+[10:33:16] [main/INFO]: Transformer file /home/runner/work/Biomes-Unseen/Biomes-Unseen/build/_atJar_4/parent_at.cfg
+[10:33:16] [main/WARN]: Found existing output jar /home/runner/.gradle/caches/forge_gradle/minecraft_user_repo/net/minecraftforge/forge/1.20.1-47.3.0_mapped_official_1.20.1/forge-1.20.1-47.3.0_mapped_official_1.20.1.jar, overwriting
+[10:33:18] [main/INFO]: JAR transformation complete /home/runner/.gradle/caches/forge_gradle/minecraft_user_repo/net/minecraftforge/forge/1.20.1-47.3.0_mapped_official_1.20.1/forge-1.20.1-47.3.0_mapped_official_1.20.1.jar
 Creating SRG -> MCP TSRG
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
 
 > Task :processResources
 > Task :classes
@@ -39,69 +39,67 @@ Creating SRG -> MCP TSRG
 > Task :check UP-TO-DATE
 > Task :build
 
-BUILD SUCCESSFUL in 2m 8s
+BUILD SUCCESSFUL in 2m 34s
 7 actionable tasks: 7 executed
 ```
 
 ## dedicated-server smoke log
 ```
-173:[07:40:30] [Server thread/INFO] [minecraft/GenericThread]: Thread RCON Listener started
-174:[07:40:30] [Server thread/INFO] [minecraft/RconThread]: RCON running on 0.0.0.0:25575
-175-[07:40:30] [Server thread/INFO] [ne.mi.se.pe.PermissionAPI/]: Successfully initialized permission handler forge:default_handler
-176:[07:40:30] [Server thread/INFO] [co.bi.BiomesUnseen/]: Biomes Unseen worldgen ready: 140 biomes, 115 structures, 23 structure sets; Hollow Deep dimension loaded
-177:[07:40:30] [RCON Listener #1/INFO] [minecraft/GenericThread]: Thread RCON Client /127.0.0.1 started
-178-[07:40:30] [Server thread/INFO] [minecraft/LocateCommand]: Locating element biomesunseen:amber_meadow took 98 ms
-179-[07:40:30] [Server thread/INFO] [minecraft/LocateCommand]: Locating element biomesunseen:windmill_ruin took 1 ms
-180-[07:40:30] [Server thread/INFO] [minecraft/MinecraftServer]: [Rcon: Stopping the server]
+151:[10:35:08] [Server thread/INFO] [minecraft/GenericThread]: Thread RCON Listener started
+152:[10:35:08] [Server thread/INFO] [minecraft/RconThread]: RCON running on 0.0.0.0:25575
+153-[10:35:08] [Server thread/INFO] [ne.mi.se.pe.PermissionAPI/]: Successfully initialized permission handler forge:default_handler
+154:[10:35:08] [Server thread/INFO] [co.bi.BiomesUnseen/]: Biomes Unseen worldgen ready: 140 biomes, 115 structures, 23 structure sets; Hollow Deep, portal, guide, sigil, weapon items and core recipes loaded
+155:[10:35:09] [RCON Listener #1/INFO] [minecraft/GenericThread]: Thread RCON Client /127.0.0.1 started
+156-[10:35:09] [Server thread/INFO] [minecraft/LocateCommand]: Locating element biomesunseen:amber_meadow took 66 ms
+157-[10:35:09] [Server thread/INFO] [minecraft/LocateCommand]: Locating element biomesunseen:windmill_ruin took 0 ms
+158-[10:35:09] [Server thread/INFO] [minecraft/MinecraftServer]: [Rcon: Changed the block at 128, 120, 128]
 --
-182:[07:40:30] [RCON Client /127.0.0.1 #2/INFO] [minecraft/RconClient]: Thread RCON Client /127.0.0.1 shutting down
-183-[07:40:30] [Server thread/INFO] [minecraft/MinecraftServer]: Saving players
-184-[07:40:30] [Server thread/INFO] [minecraft/MinecraftServer]: Saving worlds
-185-[07:40:32] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[world]'/minecraft:overworld
---
-194:[07:40:33] [Server thread/INFO] [minecraft/GenericThread]: Thread RCON Listener stopped
+160:[10:35:09] [RCON Client /127.0.0.1 #2/INFO] [minecraft/RconClient]: Thread RCON Client /127.0.0.1 shutting down
+161-[10:35:09] [Server thread/INFO] [minecraft/MinecraftServer]: Stopping server
+162-[10:35:09] [Server thread/INFO] [minecraft/MinecraftServer]: Saving players
+163-[10:35:09] [Server thread/INFO] [minecraft/MinecraftServer]: Saving worlds
 ----- tail -----
-[07:40:25] [Worker-Main-2/INFO] [minecraft/LoggerChunkProgressListener]: Preparing spawn area: 89%
-[07:40:25] [Worker-Main-2/INFO] [minecraft/LoggerChunkProgressListener]: Preparing spawn area: 90%
-[07:40:26] [Worker-Main-2/INFO] [minecraft/LoggerChunkProgressListener]: Preparing spawn area: 91%
-[07:40:26] [Worker-Main-2/INFO] [minecraft/LoggerChunkProgressListener]: Preparing spawn area: 92%
-[07:40:27] [Worker-Main-3/INFO] [minecraft/LoggerChunkProgressListener]: Preparing spawn area: 93%
-[07:40:27] [Worker-Main-3/INFO] [minecraft/LoggerChunkProgressListener]: Preparing spawn area: 94%
-[07:40:28] [Worker-Main-1/INFO] [minecraft/LoggerChunkProgressListener]: Preparing spawn area: 95%
-[07:40:28] [Worker-Main-2/INFO] [minecraft/LoggerChunkProgressListener]: Preparing spawn area: 96%
-[07:40:29] [Worker-Main-2/INFO] [minecraft/LoggerChunkProgressListener]: Preparing spawn area: 98%
-[07:40:29] [Worker-Main-1/INFO] [minecraft/LoggerChunkProgressListener]: Preparing spawn area: 98%
-[07:40:30] [Server thread/INFO] [minecraft/LoggerChunkProgressListener]: Time elapsed: 59904 ms
-[07:40:30] [Server thread/INFO] [minecraft/DedicatedServer]: Done (67.780s)! For help, type "help"
-[07:40:30] [Server thread/INFO] [minecraft/DedicatedServer]: Starting remote control listener
-[07:40:30] [Server thread/INFO] [minecraft/GenericThread]: Thread RCON Listener started
-[07:40:30] [Server thread/INFO] [minecraft/RconThread]: RCON running on 0.0.0.0:25575
-[07:40:30] [Server thread/INFO] [ne.mi.se.pe.PermissionAPI/]: Successfully initialized permission handler forge:default_handler
-[07:40:30] [Server thread/INFO] [co.bi.BiomesUnseen/]: Biomes Unseen worldgen ready: 140 biomes, 115 structures, 23 structure sets; Hollow Deep dimension loaded
-[07:40:30] [RCON Listener #1/INFO] [minecraft/GenericThread]: Thread RCON Client /127.0.0.1 started
-[07:40:30] [Server thread/INFO] [minecraft/LocateCommand]: Locating element biomesunseen:amber_meadow took 98 ms
-[07:40:30] [Server thread/INFO] [minecraft/LocateCommand]: Locating element biomesunseen:windmill_ruin took 1 ms
-[07:40:30] [Server thread/INFO] [minecraft/MinecraftServer]: [Rcon: Stopping the server]
-[07:40:30] [Server thread/INFO] [minecraft/MinecraftServer]: Stopping server
-[07:40:30] [RCON Client /127.0.0.1 #2/INFO] [minecraft/RconClient]: Thread RCON Client /127.0.0.1 shutting down
-[07:40:30] [Server thread/INFO] [minecraft/MinecraftServer]: Saving players
-[07:40:30] [Server thread/INFO] [minecraft/MinecraftServer]: Saving worlds
-[07:40:32] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[world]'/minecraft:overworld
-[07:40:33] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[world]'/minecraft:the_end
-[07:40:33] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[world]'/biomesunseen:hollow_deep
-[07:40:33] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[world]'/minecraft:the_nether
-[07:40:33] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (world): All chunks are saved
-[07:40:33] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (DIM1): All chunks are saved
-[07:40:33] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (hollow_deep): All chunks are saved
-[07:40:33] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
-[07:40:33] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage: All dimensions are saved
-[07:40:33] [Server thread/INFO] [minecraft/GenericThread]: Thread RCON Listener stopped
+[10:34:59] [Worker-Main-3/INFO] [minecraft/LoggerChunkProgressListener]: Preparing spawn area: 77%
+[10:35:00] [Worker-Main-1/INFO] [minecraft/LoggerChunkProgressListener]: Preparing spawn area: 78%
+[10:35:00] [Worker-Main-2/INFO] [minecraft/LoggerChunkProgressListener]: Preparing spawn area: 79%
+[10:35:01] [Worker-Main-3/INFO] [minecraft/LoggerChunkProgressListener]: Preparing spawn area: 81%
+[10:35:01] [Worker-Main-3/INFO] [minecraft/LoggerChunkProgressListener]: Preparing spawn area: 82%
+[10:35:02] [Worker-Main-3/INFO] [minecraft/LoggerChunkProgressListener]: Preparing spawn area: 83%
+[10:35:02] [Worker-Main-3/INFO] [minecraft/LoggerChunkProgressListener]: Preparing spawn area: 84%
+[10:35:03] [Worker-Main-1/INFO] [minecraft/LoggerChunkProgressListener]: Preparing spawn area: 85%
+[10:35:03] [Worker-Main-2/INFO] [minecraft/LoggerChunkProgressListener]: Preparing spawn area: 86%
+[10:35:04] [Worker-Main-2/INFO] [minecraft/LoggerChunkProgressListener]: Preparing spawn area: 88%
+[10:35:04] [Worker-Main-3/INFO] [minecraft/LoggerChunkProgressListener]: Preparing spawn area: 89%
+[10:35:05] [Worker-Main-1/INFO] [minecraft/LoggerChunkProgressListener]: Preparing spawn area: 91%
+[10:35:05] [Worker-Main-3/INFO] [minecraft/LoggerChunkProgressListener]: Preparing spawn area: 91%
+[10:35:06] [Worker-Main-3/INFO] [minecraft/LoggerChunkProgressListener]: Preparing spawn area: 93%
+[10:35:06] [Worker-Main-2/INFO] [minecraft/LoggerChunkProgressListener]: Preparing spawn area: 94%
+[10:35:07] [Worker-Main-2/INFO] [minecraft/LoggerChunkProgressListener]: Preparing spawn area: 95%
+[10:35:07] [Worker-Main-3/INFO] [minecraft/LoggerChunkProgressListener]: Preparing spawn area: 96%
+[10:35:08] [Worker-Main-3/INFO] [minecraft/LoggerChunkProgressListener]: Preparing spawn area: 98%
+[10:35:08] [Server thread/INFO] [minecraft/LoggerChunkProgressListener]: Time elapsed: 48972 ms
+[10:35:08] [Server thread/INFO] [minecraft/DedicatedServer]: Done (55.129s)! For help, type "help"
+[10:35:08] [Server thread/INFO] [minecraft/DedicatedServer]: Starting remote control listener
+[10:35:08] [Server thread/INFO] [minecraft/GenericThread]: Thread RCON Listener started
+[10:35:08] [Server thread/INFO] [minecraft/RconThread]: RCON running on 0.0.0.0:25575
+[10:35:08] [Server thread/INFO] [ne.mi.se.pe.PermissionAPI/]: Successfully initialized permission handler forge:default_handler
+[10:35:08] [Server thread/INFO] [co.bi.BiomesUnseen/]: Biomes Unseen worldgen ready: 140 biomes, 115 structures, 23 structure sets; Hollow Deep, portal, guide, sigil, weapon items and core recipes loaded
+[10:35:09] [RCON Listener #1/INFO] [minecraft/GenericThread]: Thread RCON Client /127.0.0.1 started
+[10:35:09] [Server thread/INFO] [minecraft/LocateCommand]: Locating element biomesunseen:amber_meadow took 66 ms
+[10:35:09] [Server thread/INFO] [minecraft/LocateCommand]: Locating element biomesunseen:windmill_ruin took 0 ms
+[10:35:09] [Server thread/INFO] [minecraft/MinecraftServer]: [Rcon: Changed the block at 128, 120, 128]
+[10:35:09] [Server thread/INFO] [minecraft/MinecraftServer]: [Rcon: Changed the block at 129, 120, 128]
+[10:35:09] [RCON Client /127.0.0.1 #2/INFO] [minecraft/RconClient]: Thread RCON Client /127.0.0.1 shutting down
+[10:35:09] [Server thread/INFO] [minecraft/MinecraftServer]: Stopping server
+[10:35:09] [Server thread/INFO] [minecraft/MinecraftServer]: Saving players
+[10:35:09] [Server thread/INFO] [minecraft/MinecraftServer]: Saving worlds
+[10:35:10] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[world]'/minecraft:overworld
 ```
 
 ## built jars
 ```
-total 1156
-drwxr-xr-x  2 runner runner    4096 Oct 24 07:38 .
-drwxr-xr-x 19 runner runner    4096 Oct 24 07:38 ..
--rw-r--r--  1 runner runner 1171924 Oct 24 07:38 biomesunseen-1.1.0.jar
+total 1344
+drwxr-xr-x  2 runner runner    4096 Oct 24 10:33 .
+drwxr-xr-x 19 runner runner    4096 Oct 24 10:33 ..
+-rw-r--r--  1 runner runner 1366815 Oct 24 10:33 biomesunseen-1.1.0.jar
 ```
