@@ -7,9 +7,9 @@
 # src/generated/resources (a registered resource source dir, and the same path
 # `runData` would target). We intentionally do NOT run `gradle runData` here:
 # TerraBlender's MixinBuiltInRegistries targets an SRG method name that does not
-# exist in the mapped dev/datagen runtime, so runData crashes during Bootstrap
-# before any provider executes. Pre-generating the identical assets avoids that
-# crash and makes the jar complete and the build reproducible.
+# exist in the mapped dev runtime, so runData and the ForgeGradle runServer task
+# crash before useful checks. Pre-generating assets avoids runData; runtime smoke
+# tests use the reobfuscated jar in a production Forge server instead.
 #
 # The jar and a short diagnostics file are committed back into the repo (dist/
 # and ci-diagnostics.md) so they can be retrieved from environments that cannot
@@ -68,30 +68,46 @@ jobs:
           set -o pipefail
           gradle build --no-daemon 2>&1 | tee build.log
 
-      - name: Smoke-test a fresh dedicated server
-        id: server_smoke
+      - name: Smoke-test a production Forge server
+        id: production_smoke
         run: |
-          mkdir -p run
-          printf 'eula=true\n' > run/eula.txt
-          cat > run/server.properties <<'EOF'
+          set -euo pipefail
+          mc_version="$(sed -n 's/^minecraft_version=//p' gradle.properties)"
+          forge_version="$(sed -n 's/^forge_version=//p' gradle.properties)"
+          mod_version="$(sed -n 's/^mod_version=//p' gradle.properties)"
+          gradle copyProductionMods --no-daemon
+          mkdir -p smoke/server
+          curl --fail --silent --show-error --location --retry 3 "https://maven.minecraftforge.net/net/minecraftforge/forge/${mc_version}-${forge_version}/forge-${mc_version}-${forge_version}-installer.jar" -o smoke/forge-installer.jar
+          (cd smoke/server && java -jar ../forge-installer.jar --installServer)
+          mkdir -p smoke/server/mods
+          cp build/libs/biomesunseen-${mod_version}.jar smoke/server/mods/
+          cp build/production-mods/*.jar smoke/server/mods/
+          printf 'eula=true\n' > smoke/server/eula.txt
+          cat > smoke/server/server.properties <<'EOF'
           enable-rcon=true
           rcon.port=25575
           rcon.password=arena-smoke
           server-port=25566
           level-name=world
+          level-seed=20261024
+          view-distance=4
+          simulation-distance=4
+          spawn-protection=0
           EOF
-          timeout --signal=TERM --kill-after=20s 300s gradle runServer --no-daemon > server-smoke.log 2>&1 &
+          cd smoke/server
+          chmod +x run.sh
+          timeout --signal=TERM --kill-after=20s 300s ./run.sh nogui > ../../server-smoke.log 2>&1 &
           server_pid=$!
           trap 'kill "$server_pid" 2>/dev/null || true' EXIT
           ready=0
           for _ in $(seq 1 300); do
-            if grep -Fq 'Done (' server-smoke.log; then ready=1; break; fi
+            if grep -Fq 'Done (' ../../server-smoke.log; then ready=1; break; fi
             if ! kill -0 "$server_pid" 2>/dev/null; then break; fi
             sleep 1
           done
-          if [ "$ready" -ne 1 ]; then cat server-smoke.log; exit 1; fi
-          grep -F 'Biomes Unseen worldgen ready' server-smoke.log
-          RCON_PORT=25575 RCON_PASSWORD=arena-smoke python tools/server_smoke.py 2>&1 | tee -a server-smoke.log
+          if [ "$ready" -ne 1 ]; then cat ../../server-smoke.log; exit 1; fi
+          grep -F 'Biomes Unseen worldgen ready' ../../server-smoke.log
+          RCON_PORT=25575 RCON_PASSWORD=arena-smoke python ../../tools/server_smoke.py 2>&1 | tee -a ../../server-smoke.log
           wait "$server_pid"
           trap - EXIT
 
@@ -111,7 +127,7 @@ jobs:
             echo "# CI build results"
             echo
             echo "- build outcome: ${{ steps.build.outcome }}"
-            echo "- dedicated-server smoke outcome: ${{ steps.server_smoke.outcome }}"
+            echo "- production-server smoke outcome: ${{ steps.production_smoke.outcome }}"
             echo
             echo "## build log (errors + tail)"
             echo '```'
@@ -134,7 +150,7 @@ jobs:
           } > ci-diagnostics.md
 
           mkdir -p dist
-          if [ "${{ steps.build.outcome }}" = "success" ] && [ "${{ steps.server_smoke.outcome }}" = "success" ]; then
+          if [ "${{ steps.build.outcome }}" = "success" ] && [ "${{ steps.production_smoke.outcome }}" = "success" ]; then
             rm -f dist/*.jar
             for j in build/libs/*.jar; do
               if [ -f "$j" ]; then cp "$j" dist/; fi
